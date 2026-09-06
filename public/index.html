@@ -106,7 +106,7 @@ class MotionPhysics {
     const E = MotionPhysics.EPS, L = Math.PI*2*MotionPhysics.R;
     let remaining = h, didReturn = false;
     while (remaining > 1e-12) {
-      if (this.mode === 'linear' && Math.abs(this.q - this.dir*MotionPhysics.WALL) < E) this.dir *= -1;
+      if (this.mode === 'linear' && this.q*this.dir >= MotionPhysics.WALL) this.dir *= -1;
       const available = this.travelFor(remaining);
       if (available < 1e-14) {
         this.t += remaining;
@@ -119,14 +119,21 @@ class MotionPhysics {
         eventDistance = Math.max(0,(eventQ-this.q)*this.dir);
         event = 'wall';
         const homeDistance = (this.q0-this.q)*this.dir;
-        if (homeDistance > E && homeDistance < eventDistance) {
+        if (homeDistance > 0 && homeDistance < eventDistance) {
           eventDistance = homeDistance; event = 'return'; eventQ = this.q0;
         }
       } else {
         const phase = (this.q-this.q0)/L;
-        const lap = this.dir > 0 ? Math.floor(phase + E/L)+1 : Math.ceil(phase - E/L)-1;
+        let lap = this.dir > 0 ? Math.floor(phase)+1 : Math.ceil(phase)-1;
         eventQ = this.q0 + lap*L;
         eventDistance = (eventQ-this.q)*this.dir;
+        // At a snapped return, quotient rounding can select the same point.
+        // Advance that exact/non-forward candidate; keep arbitrarily close
+        // forward candidates so crossing detection has no dead zone.
+        if (eventDistance <= 0) {
+          lap += this.dir; eventQ = this.q0 + lap*L;
+          eventDistance = (eventQ-this.q)*this.dir;
+        }
         event = 'return';
       }
       // Roundoff at an exactly reachable event must not skip the next crossing.

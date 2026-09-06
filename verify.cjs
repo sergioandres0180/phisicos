@@ -60,6 +60,15 @@ test('accelerated return uses exact event time', () => {
   const e = new Engine({start:-6,speed:2,acceleration:1});e.advance(10,true);
   near(e.distance,32);near(e.t,-2+Math.sqrt(68));near(e.speed,Math.sqrt(68));near(e.q,-6);
 });
+test('near-start crossings have no floating-point dead zone', () => {
+  const line = new Engine({start:-6,speed:4});
+  line.advance(4);line.advance(3.99999999875);assert.equal(line.advance(.1,true),true);near(line.q,-6);near(line.t,8);
+  for(const direction of [-1,1]){
+    const circle = new Engine({mode:'circular',start:75,speed:4,direction});
+    circle.advance((12*Math.PI-5e-9)/4);assert.equal(circle.advance(.1,true),true);near(circle.t,3*Math.PI);near(circle.metrics().displacement,0);
+    assert.equal(circle.advance(.1,true),false);assert.equal(circle.returns,1);
+  }
+});
 test('partitioning time does not change the physical result', () => {
   for(const mode of ['linear','circular']){
     const options={mode,start:mode==='linear'?-6:45,speed:3,acceleration:.7};
