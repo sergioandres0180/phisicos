@@ -13,13 +13,17 @@
   @media(max-width:760px){.shell{padding:17px 12px}.topbar{margin-bottom:20px}.topic{font-size:12px}.masthead{margin-bottom:18px}.intro{font-size:14px}.layout{display:flex;flex-direction:column}.workspace{width:100%;order:0}.sidebar{width:100%;order:1;display:grid;grid-template-columns:1fr 1fr}.control-section{padding:17px}.control-section:nth-child(1){border-right:1px solid var(--line)}.control-section:last-child{grid-column:1/-1;display:flex;flex-wrap:wrap;column-gap:20px}.control-section:last-child .eyebrow{width:100%;margin-bottom:0}.control-section:last-child .hint{width:100%}canvas{height:335px}.scene-top{padding:14px 16px}.challenge{padding:16px}.challenge-body{flex-direction:column;gap:14px}.challenge button{width:100%}.explain-grid{grid-template-columns:1fr;gap:17px}.scene-subtitle{max-width:230px}.transport .reset{margin-left:0}.metric{padding:12px}.metric-value{font-size:19px}}
   @media(max-width:400px){.sidebar{display:block}.control-section:nth-child(1){border-right:0}.transport{gap:6px}.transport button{font-size:13px;padding:8px}.transport .primary{min-width:75px}.scene-title{font-size:14px}.scene-subtitle{font-size:12px;max-width:210px}.legend{gap:10px;padding-left:14px}.instant{left:14px}.canvas-caption{left:14px}.metric{padding:11px 8px}.metric-label{font-size:12px}}
   @media(prefers-reduced-motion:reduce){*{scroll-behavior:auto}}
+  .lab-tabs{display:flex;gap:5px;border-bottom:1px solid #cad7e1;margin:0 0 22px}.lab-tabs button{font-size:15px;font-weight:650;min-height:48px;padding:10px 20px;border:0;border-bottom:3px solid transparent;background:transparent;color:var(--muted)}.lab-tabs button[aria-selected=true]{color:var(--ink);border-bottom-color:var(--green)}.lab-tabs button#chase-tab[aria-selected=true]{border-bottom-color:#c99608}.tab-pac{color:#bb8700;font-size:17px;margin-right:7px}.mission-buttons{display:grid;gap:8px}.mission-buttons button{padding:12px;text-align:left;border:1px solid var(--line);border-radius:10px;background:white;color:var(--ink)}.mission-buttons button[aria-pressed=true]{background:#fff7d9;border-color:#d8b642}.mission-buttons b{display:block;font-size:14px}.mission-buttons span{display:block;font-size:12px;color:var(--muted);margin-top:4px}.chase-panel input[type=range],.chase-panel input[type=checkbox]{accent-color:#a87900}.arcade-scene{background:#0b1230;border-color:#27386a}.arcade-scene .scene-top{border-color:#27386a}.arcade-scene .scene-title{letter-spacing:.06em;font-size:14px}.arcade-scene .transport{background:#151e40}.arcade-scene .transport .primary{background:#ffe260;border-color:#ffe260;color:#3c310a}.arcade-score{display:grid;grid-template-columns:repeat(3,1fr);background:#101a3b;border-bottom:1px solid #27386a;padding:10px 20px;gap:15px}.arcade-score>div{display:flex;flex-direction:column;gap:1px}.arcade-score span{font-size:12px;color:#adbed9}.arcade-score strong{font:600 19px ui-monospace,SFMono-Regular,monospace;color:#ffe260}.arcade-score>div:last-child{text-align:right}.chase-live{position:absolute;top:14px;left:20px;right:20px;display:flex;flex-wrap:wrap;justify-content:space-between;gap:10px;pointer-events:none;font-size:12px}.chase-live span{display:flex;flex-direction:column;gap:3px}.chase-live output{color:#d7e6f5;font:12px ui-monospace,SFMono-Regular,monospace}.pac-color{color:#ffe260}.ghost-color{color:#ff9cb4}.line-key.yellow{background:#ffe260}.line-key.pink{background:#ff9cb4}#chase-canvas{height:365px}.chase-measure-label{font-size:12px;font-weight:750;letter-spacing:.055em;color:var(--ink);margin-top:16px;display:flex;flex-wrap:wrap;gap:10px;justify-content:space-between}.chase-measure-label span{font-weight:400;letter-spacing:0;color:var(--muted)}.chase-metrics{margin-top:8px}.chase-insight{background:#fff5d6;border-color:#ddc887}.chase-insight .insight-icon{color:#956d04}.chase-insight p{color:#625221}.chase-insight.return{background:#dbf7ec;border-color:#70cbae}.chase-insight.return p{color:#365a50}.chase-challenge>.challenge-copy{margin-top:8px;max-width:none}.chase-achievements{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:16px}.chase-achievements>span{font-size:18px;color:#647482;border:1px solid var(--line);border-radius:9px;padding:10px 12px}.chase-achievements b{font-size:13px;margin-left:3px}.chase-achievements small{display:block;font-size:12px;line-height:1.4;margin-top:4px}.chase-achievements>span.earned{background:#e4f3ed;border-color:#81bea8;color:#086950}.chase-panel .control-section:last-child .hint{margin-top:13px}
+  @media(max-width:1100px){.chase-live{gap:5px;left:14px;right:14px}.chase-live output{font-size:12px}.chase-achievements{grid-template-columns:1fr}.chase-achievements small{display:inline;margin-left:8px}}
+  @media(max-width:760px){.lab-tabs{margin-bottom:17px;gap:0}.lab-tabs button{padding:10px 12px;font-size:14px;flex:1}.arcade-score{padding:10px 14px;gap:8px}.arcade-score strong{font-size:17px}.arcade-score span{font-size:12px}#chase-canvas{height:375px}.chase-live{flex-direction:column;gap:6px}.chase-live span{flex-direction:row;flex-wrap:wrap;gap:7px}.arcade-scene .scene-title{font-size:12px;letter-spacing:.025em}.chase-measure-label span{display:none}.chase-achievements small{display:block;margin-left:0}.chase-panel .control-section:last-child{display:block}}
 </style>
 </head>
 <body>
 <div class="shell">
   <header class="topbar"><div class="brand"><span class="brand-symbol" aria-hidden="true">↗</span>MOTION LAB</div><span class="topic">01 / KINEMATICS</span></header>
   <div class="masthead"><div><h1>Speed &amp; velocity</h1><p class="intro">Same journey. Two different ways to measure it.</p></div><div class="concept-tags"><span class="tag speed"><b>Speed</b> · scalar</span><span class="tag velocity"><b>Velocity</b> · vector</span></div></div>
-  <main class="layout">
+  <div class="lab-tabs" role="tablist" aria-label="Choose an experience"><button id="lab-tab" role="tab" aria-selected="true" aria-controls="lab-panel" tabindex="0">01 · Physics lab</button><button id="chase-tab" role="tab" aria-selected="false" aria-controls="chase-panel" tabindex="-1"><span class="tab-pac" aria-hidden="true">●</span>02 · Pac-Man chase</button></div>
+  <main id="lab-panel" class="layout" role="tabpanel" aria-labelledby="lab-tab">
     <aside class="sidebar" aria-label="Experiment controls">
       <section class="control-section"><h2 class="eyebrow">01 / Set the path</h2>
         <div class="segmented" role="group" aria-label="Path shape"><button id="linear" aria-pressed="true">↔ Linear</button><button id="circular" aria-pressed="false">◯ Circular</button></div>
@@ -45,6 +49,34 @@
       <section class="challenge" aria-label="Mini challenge"><div class="challenge-top"><h2 class="challenge-title" id="challenge-title">The round-trip challenge</h2><span class="challenge-tag" id="challenge-badge">TRY IT</span></div><div class="challenge-body"><div><p class="challenge-copy" id="challenge-copy">Start at −6 m, visit the target at +8 m, then return to −6 m with zero average velocity. Can your average speed stay positive?</p><div class="challenge-steps"><span id="goal-one">Visit +8 m</span><span id="goal-two">Return to start</span><span id="goal-three">v̄ = 0, s̄ &gt; 0</span></div></div><button class="secondary" id="challenge-start">Start challenge ↗</button></div><p class="hint" id="challenge-feedback" role="status">Choose your speed and acceleration, then start the challenge.</p></section>
     </div>
   </main>
+  <section id="chase-panel" class="layout chase-panel" role="tabpanel" aria-labelledby="chase-tab" hidden>
+    <aside class="sidebar" aria-label="Chase controls">
+      <section class="control-section"><h2 class="eyebrow">01 / Choose a mission</h2>
+        <div class="mission-buttons" role="group" aria-label="Chase mission"><button id="chase-catch-mode" aria-pressed="true"><b>Catch the ghost</b><span>Close the gap. Collect the dots.</span></button><button id="chase-lap-mode" aria-pressed="false"><b>The zero-velocity lap</b><span>48 m of travel. Back where you began.</span></button></div>
+        <p class="hint">Choosing a mission starts a new run with preset speeds. Adjust them to experiment.</p>
+      </section>
+      <section class="control-section"><h2 class="eyebrow">02 / Set the chase</h2>
+        <div class="field"><div class="label-row"><label for="chase-speed">Pac-Man speed</label><output id="chase-speed-value" for="chase-speed">4.0 m/s</output></div><input id="chase-speed" type="range" min="0" max="8" step="0.5" value="4"><div class="range-ends"><span>0 m/s</span><span>8 m/s</span></div></div>
+        <div class="field"><div class="label-row"><label for="ghost-speed">Ghost speed</label><output id="ghost-speed-value" for="ghost-speed">2.0 m/s</output></div><input id="ghost-speed" type="range" min="0" max="8" step="0.5" value="2"><div class="range-ends"><span>0 m/s</span><span>8 m/s</span></div></div>
+        <button class="secondary direction-button" id="chase-reverse"><span>Reverse Pac-Man</span><span aria-hidden="true">⇄</span></button><p class="hint" id="chase-direction">Pac-Man follows the ghost counterclockwise. The ghost starts 12 m ahead.</p>
+      </section>
+      <section class="control-section"><h2 class="eyebrow">03 / Reveal the physics</h2><label class="check"><input type="checkbox" id="chase-vectors" checked>Show velocity &amp; displacement</label><label class="check"><input type="checkbox" id="chase-trail" checked>Show Pac-Man’s traveled path</label><label class="check"><input type="checkbox" id="chase-return" checked>Pause on return to start</label><p class="hint">The speeds stay constant through corners. Arrows show the direction just after each ideal turn.</p></section>
+    </aside>
+    <div class="workspace">
+      <section class="scene arcade-scene" aria-label="Pac-Man chase simulation">
+        <div class="scene-top"><div><h2 class="scene-title">PAC-MAN / THE PHYSICS CHASE</h2><p class="scene-subtitle">16 × 8 m loop · follow, turn, measure</p></div><span class="status" id="chase-status"><i class="status-dot" aria-hidden="true"></i><span id="chase-status-text">Ready</span></span></div>
+        <div class="arcade-score"><div><span>Score</span><strong id="chase-score">0000</strong></div><div><span>Dots · 10 pts each</span><strong id="chase-pellets">0 / 23</strong></div><div><span>Gap along track (+q)</span><strong id="chase-gap">12.00 m</strong></div></div>
+        <div class="canvas-wrap"><canvas id="chase-canvas" role="img" aria-label="Animated Pac-Man pursues a ghost around a rectangular track. Yellow marks distance traveled, blue connects Pac-Man’s start to current position, and white and pink arrows show current velocities. Numerical measurements are below.">HTML5 Canvas is required for the chase. Numerical readings appear below.</canvas><div class="chase-live"><span><b class="pac-color">PAC-MAN</b><output id="chase-instant">u = 4.00 m/s · v = (+4.00, 0.00)</output></span><span><b class="ghost-color">GHOST</b><output id="ghost-instant">u = 2.00 m/s · v = (+2.00, 0.00)</output></span></div><div class="canvas-caption">+x → · +y ↑ · velocity vectors in m/s</div></div>
+        <div class="legend"><span><i class="line-key yellow"></i>Pac-Man’s distance</span><span><i class="line-key blue"></i>Displacement Δr</span><span><i class="line-key white"></i>Pac-Man v</span><span><i class="line-key pink"></i>Ghost v</span></div>
+        <div class="transport"><button class="primary" id="chase-play">▶ Chase</button><button id="chase-pause" disabled>Ⅱ Pause</button><button id="chase-step">Step +0.10 s</button><button class="reset" id="chase-reset">↺ Restart</button></div>
+      </section>
+      <p class="chase-measure-label">PAC-MAN’S MEASUREMENTS <span>Speed has magnitude. Velocity also has direction.</span></p>
+      <section class="metrics chase-metrics" aria-label="Pac-Man live measurements"><div class="metric"><h3 class="metric-label">Elapsed time</h3><p class="metric-value"><span id="chase-time">0.00</span> <small>s</small></p><p class="metric-equation">t</p></div><div class="metric scalar"><h3 class="metric-label">Total distance</h3><p class="metric-value"><span id="chase-distance">0.00</span> <small>m</small></p><p class="metric-equation">d · all meters traveled</p></div><div class="metric vector"><h3 class="metric-label">Displacement |Δr|</h3><p class="metric-value"><span id="chase-displacement">0.00</span> <small>m</small></p><p class="metric-equation">Δr = r − r₀</p><p class="metric-components" id="chase-displacement-xy">(0.00, 0.00) m</p></div><div class="metric scalar"><h3 class="metric-label">Average speed</h3><p class="metric-value"><span id="chase-average-speed">—</span> <small>m/s</small></p><p class="metric-equation">s̄ = d / t</p></div><div class="metric vector"><h3 class="metric-label">Avg. velocity |v̄|</h3><p class="metric-value"><span id="chase-average-velocity">—</span> <small>m/s</small></p><p class="metric-equation">v̄ = Δr / t</p><p class="metric-components" id="chase-average-xy">(v̄ₓ, v̄ᵧ)</p></div></section>
+      <div class="insight chase-insight" id="chase-insight"><span class="insight-icon" aria-hidden="true">✦</span><div><strong id="chase-lesson-title">Can you catch a moving target?</strong><p id="chase-lesson">Pac-Man starts 12 m behind. At 4 m/s versus 2 m/s, predict how long the chase will take. Then press Chase.</p></div></div>
+      <section class="challenge chase-challenge" aria-label="Chase achievements"><div class="challenge-top"><h2 class="challenge-title" id="chase-mission-title">Mission: catch the ghost</h2><span class="challenge-tag" id="chase-mission-status">READY</span></div><p class="challenge-copy" id="chase-mission-copy">Gain ground by moving faster in the ghost’s direction. Catch it for 200 points.</p><div class="chase-achievements"><span id="chase-badge-turn">↱ <b>Take a turn</b><small>Same speed, new velocity</small></span><span id="chase-badge-catch">✦ <b>Catch the ghost</b><small>+200 points</small></span><span id="chase-badge-lap">↻ <b>Complete a lap</b><small>Zero average velocity · +100</small></span></div></section>
+      <p id="chase-announcement" class="sr-only" role="status" aria-live="polite"></p>
+    </div>
+  </section>
   <details class="explain"><summary>Why speed and velocity tell different stories</summary><div class="explain-grid"><div><h3>Distance remembers the whole journey.</h3><p>Distance adds every meter traveled. Displacement connects the starting point to the current point, with a direction.</p><p class="equation">s̄ = d/t &nbsp; · &nbsp; v̄ = (r − r₀)/t</p><p>In 2D, Δr = (Δx, Δy). The vector's magnitude is |Δr| = √(Δx² + Δy²). Always d ≥ |Δr|, so s̄ ≥ |v̄|.</p></div><div><h3>Turning changes velocity, even at constant speed.</h3><p>The white arrow is the instantaneous velocity, tangent to the path. Its magnitude equals the current speed. On a circle, velocity changes direction continuously.</p><p class="equation">v = u T̂ &nbsp; · &nbsp; aₙ = u²/R</p><p>The slider controls tangential acceleration, which changes speed. The circular track also supplies centripetal acceleration. At t = 0, averages are undefined; a pause adds no time.</p></div></div></details>
   <footer class="footer"><span>Explore → predict → measure → explain</span><span>Self-contained HTML5 Canvas · SI units · <a href="./BLUEPRINT.md">Design &amp; equations</a></span></footer>
   <p id="announcement" class="sr-only" role="status" aria-live="polite"></p>
@@ -167,6 +199,119 @@ class MotionPhysics {
 }
 globalThis.MotionPhysics = MotionPhysics;
 </script>
+<script id="chase-physics">
+/* Rectangular route: (−8,−4) → (8,−4) → (8,4) → (−8,4).
+   q is unwrapped signed progress. Distance accumulates absolute travel.
+   Constant-speed intervals end exactly at corners, meetings, and returns. */
+class ChasePhysics {
+  static LENGTH = 48;
+  static CORNERS = [0,16,24,40];
+  static mod(q) { return ((q % 48) + 48) % 48; }
+  constructor(options = {}) { this.reset(options); }
+  reset({speed = 4, ghostSpeed = 2} = {}) {
+    this.q = 0; this.ghostQ = 12; this.speed = speed; this.ghostSpeed = ghostSpeed;
+    this.dir = 1; this.t = 0; this.distance = 0; this.ghostDistance = 0;
+    this.turns = 0; this.laps = 0; this.lastHome = 0; this.lastEvent = null;
+    this.finished = false; this.caught = false; this.pellets = new Set();
+    this.trail = [this.position()]; this.trailClock = 0;
+  }
+  position(q = this.q) {
+    const s = ChasePhysics.mod(q);
+    if (s < 16) return {x:-8+s,y:-4};
+    if (s < 24) return {x:8,y:-4+s-16};
+    if (s < 40) return {x:8-(s-24),y:4};
+    return {x:-8,y:4-(s-40)};
+  }
+  tangent(q = this.q, direction = this.dir) {
+    const s = ChasePhysics.mod(q);
+    let i = s < 16 ? 0 : s < 24 ? 1 : s < 40 ? 2 : 3;
+    // At an ideal corner, show the outgoing direction, including reversal.
+    if (direction < 0 && s === ChasePhysics.CORNERS[i]) i = (i+3)%4;
+    const tangents = [{x:1,y:0},{x:0,y:1},{x:-1,y:0},{x:0,y:-1}];
+    return {x:direction*tangents[i].x,y:direction*tangents[i].y};
+  }
+  metrics() {
+    const p = this.position(), ghost = this.position(this.ghostQ);
+    const tangent = this.tangent(), gt = this.tangent(this.ghostQ,1);
+    const dx = p.x+8, dy = p.y+4;
+    return {p,ghost,dx,dy,displacement:Math.hypot(dx,dy),
+      vx:this.speed*tangent.x,vy:this.speed*tangent.y,
+      ghostVx:this.ghostSpeed*gt.x,ghostVy:this.ghostSpeed*gt.y,
+      avgSpeed:this.t ? this.distance/this.t : null,
+      avgVx:this.t ? dx/this.t : null,avgVy:this.t ? dy/this.t : null,
+      gap:ChasePhysics.mod(this.ghostQ-this.q),
+      score:this.pellets.size*10+(this.caught?200:0)+(this.laps?100:0)};
+  }
+  nextCorner() {
+    let best = {distance:Infinity,q:0,home:false};
+    const cycle = Math.floor(this.q/48);
+    for (let k=cycle-1;k<=cycle+1;k++) {
+      for (const c of ChasePhysics.CORNERS) {
+        const q = k*48+c, distance = (q-this.q)*this.dir;
+        if (distance > 0 && distance < best.distance) best = {distance,q,home:c===0};
+      }
+    }
+    return best;
+  }
+  meetingTime() {
+    const relativeSpeed = this.dir*this.speed-this.ghostSpeed;
+    if (Math.abs(relativeSpeed) < 1e-12) return {time:Infinity,relative:0};
+    const r = this.q-this.ghostQ;
+    let k = relativeSpeed > 0 ? Math.floor(r/48)+1 : Math.ceil(r/48)-1;
+    let time = (k*48-r)/relativeSpeed;
+    if (time < 0) {k += Math.sign(relativeSpeed);time = (k*48-r)/relativeSpeed;}
+    return {time,relative:k*48};
+  }
+  collect(before, after) {
+    const low = Math.min(before,after), high = Math.max(before,after);
+    for (let pellet=2;pellet<48;pellet+=2) {
+      if (this.pellets.has(pellet)) continue;
+      const occurrence = pellet+48*Math.ceil((low-pellet)/48);
+      if (occurrence <= high+1e-9) this.pellets.add(pellet);
+    }
+  }
+  advance(h, pauseAtReturn = true) {
+    if (!Number.isFinite(h) || h < 0) throw new Error('Timestep must be finite and nonnegative');
+    if (this.finished) return null;
+    let remaining = h, result = null;
+    while (remaining > 1e-12) {
+      const corner = this.nextCorner(), meeting = this.meetingTime();
+      const cornerTime = this.speed > 0 ? corner.distance/this.speed : Infinity;
+      const dt = Math.min(remaining,cornerTime,meeting.time);
+      const atCorner = Number.isFinite(cornerTime) && cornerTime <= dt+1e-10;
+      const contact = Number.isFinite(meeting.time) && meeting.time <= dt+1e-10;
+      const before = this.q;
+      this.q = atCorner ? corner.q : this.q+this.dir*this.speed*dt;
+      this.distance += atCorner ? corner.distance : this.speed*dt;
+      this.ghostQ += this.ghostSpeed*dt;this.ghostDistance += this.ghostSpeed*dt;
+      this.t += dt;this.trailClock += dt;remaining = Math.max(0,remaining-dt);
+      this.collect(before,this.q);
+      if (this.trailClock >= .025 || atCorner || contact) {
+        this.trail.push(this.position());this.trailClock = 0;
+        if (this.trail.length > 1600) this.trail.shift();
+      }
+      if (atCorner) {
+        this.turns++;
+        if (corner.home) {
+          if (Math.abs(this.q-this.lastHome) >= 48-1e-8) this.laps++;
+          this.lastHome = this.q;
+          result = {kind:'return',t:this.t,distance:this.distance,laps:this.laps};
+        }
+      }
+      if (contact) {
+        this.ghostQ = this.q-meeting.relative;
+        this.caught = this.dir === 1 && this.speed > this.ghostSpeed;
+        this.finished = true;
+        result = {kind:this.caught?'caught':'contact',t:this.t,distance:this.distance,laps:this.laps};
+      }
+      if (result) this.lastEvent = result;
+      if (this.finished || (atCorner && corner.home && pauseAtReturn)) break;
+    }
+    return result;
+  }
+}
+globalThis.ChasePhysics = ChasePhysics;
+</script>
 <script id="interface">
 (() => {
   'use strict';
@@ -174,7 +319,7 @@ globalThis.MotionPhysics = MotionPhysics;
   const config = {mode:'linear',start:-6,speed:4,acceleration:0,direction:1};
   const engine = new MotionPhysics(config);
   const canvas = $('canvas'), ctx = canvas.getContext('2d');
-  let running = false, accumulator = 0, previousTime = null, challenge = false, won = false, autoPaused = false;
+  let running = false, accumulator = 0, previousTime = null, challenge = false, won = false, autoPaused = false, active = true;
   let width = 800, height = 367, lastMetricsUpdate = 0;
   const H = 1/120, E = 1e-7;
   const fmt = (n, digits = 2) => n === null ? '—' : (Math.abs(n) < .5 * 10**-digits ? 0 : n).toFixed(digits);
@@ -283,7 +428,7 @@ globalThis.MotionPhysics = MotionPhysics;
     config.start=config.mode==='linear'?-6:0;config.direction=1;challenge=true;resetRun(true);startMotion();say('Challenge started.');
   });
   function resize() {
-    const rect=canvas.getBoundingClientRect();width=rect.width;height=rect.height;
+    const rect=canvas.getBoundingClientRect();if(rect.width<=0)return;width=rect.width;height=rect.height;
     const ratio=Math.min(window.devicePixelRatio||1,3);
     canvas.width=Math.round(width*ratio);canvas.height=Math.round(height*ratio);ctx.setTransform(ratio,0,0,ratio,0,0);draw();
   }
@@ -361,13 +506,210 @@ globalThis.MotionPhysics = MotionPhysics;
       while(accumulator>=H&&running){accumulator-=H;simulate(H);}
       draw();
     }
-    if(now-lastMetricsUpdate>=80){updateMetrics();lastMetricsUpdate=now;}
+    if(active && now-lastMetricsUpdate>=80){updateMetrics();lastMetricsUpdate=now;}
     requestAnimationFrame(frame);
   }
   document.addEventListener('visibilitychange',()=>{if(document.hidden&&running){setRunning(false);say('Paused because the tab is hidden.');updateMetrics();}});
   window.addEventListener('resize',resize);
   if(typeof ResizeObserver!=='undefined')new ResizeObserver(resize).observe(canvas);
+  window.MotionLabUI = {activate(value){active=value;if(!value)setRunning(false);else{resize();updateMetrics();}}};
   refreshControls();updateMetrics();resize();requestAnimationFrame(frame);
+})();
+</script>
+<script id="chase-interface">
+(() => {
+  'use strict';
+  const $ = id => document.getElementById(id);
+  const game = new ChasePhysics();
+  const canvas = $('chase-canvas'), ctx = canvas.getContext('2d');
+  let active = false, running = false, mission = 'catch', returned = false;
+  let previous = null, accumulator = 0, lastUpdate = 0, width = 800, height = 365;
+  const H = 1/120;
+  const fmt = (n,d=2) => n === null ? '—' : (Math.abs(n)<.5*10**-d?0:n).toFixed(d);
+  const sign = n => (n>.005?'+':'')+fmt(n);
+  const pair = (x,y) => '('+sign(x)+', '+sign(y)+')';
+  const say = text => { $('chase-announcement').textContent = text; };
+  function setRunning(value) {
+    running = value && !game.finished;previous = null;accumulator = 0;
+    $('chase-play').disabled = running || game.finished;
+    $('chase-pause').disabled = !running;$('chase-step').disabled = running || game.finished;
+    $('chase-status').classList.toggle('running',running);
+    $('chase-status-text').textContent = game.finished ? game.caught?'Caught!':'Contact' : running?'Chasing':game.t?'Paused':'Ready';
+  }
+  function reset() {
+    game.reset({speed:Number($('chase-speed').value),ghostSpeed:Number($('ghost-speed').value)});
+    returned = false;setRunning(false);update();draw();
+  }
+  function chooseMission(value) {
+    mission = value;
+    $('chase-speed').value = 4;$('ghost-speed').value = value==='catch'?2:4;
+    $('chase-return').checked = true;
+    $('chase-catch-mode').setAttribute('aria-pressed',String(value==='catch'));
+    $('chase-lap-mode').setAttribute('aria-pressed',String(value==='lap'));
+    reset();say(value==='catch'?'Catch the ghost mission ready.':'Zero-velocity lap mission ready.');
+  }
+  function update() {
+    const m = game.metrics();
+    $('chase-speed-value').textContent = fmt(game.speed,1)+' m/s';
+    $('ghost-speed-value').textContent = fmt(game.ghostSpeed,1)+' m/s';
+    $('chase-instant').textContent = 'u = '+fmt(game.speed)+' m/s · v = '+pair(m.vx,m.vy);
+    $('ghost-instant').textContent = 'u = '+fmt(game.ghostSpeed)+' m/s · v = '+pair(m.ghostVx,m.ghostVy);
+    $('chase-score').textContent = String(m.score).padStart(4,'0');
+    $('chase-pellets').textContent = game.pellets.size+' / 23';
+    $('chase-gap').textContent = fmt(m.gap)+' m';
+    $('chase-time').textContent = fmt(game.t);$('chase-distance').textContent = fmt(game.distance);
+    $('chase-displacement').textContent = fmt(m.displacement);$('chase-displacement-xy').textContent = pair(m.dx,m.dy)+' m';
+    $('chase-average-speed').textContent = fmt(m.avgSpeed);
+    $('chase-average-velocity').textContent = game.t?fmt(Math.hypot(m.avgVx,m.avgVy)):'—';
+    $('chase-average-xy').textContent = game.t?pair(m.avgVx,m.avgVy)+' m/s':'(v̄ₓ, v̄ᵧ)';
+    $('chase-direction').textContent = game.dir>0 ? 'Pac-Man follows the ghost counterclockwise. The ghost starts 12 m ahead.' : 'Pac-Man moves clockwise; the ghost moves counterclockwise. A meeting from this direction is contact, not a pursuit catch.';
+    let title, copy;
+    const atHome = game.t>0 && m.displacement<1e-7;
+    if (atHome && (returned || game.finished)) {
+      title = game.caught ? 'A catch and a lap. Zero average velocity!' : 'A whole journey. Zero net change in position.';
+      copy = fmt(game.distance)+' m traveled in '+fmt(game.t)+' s. Average speed = '+fmt(m.avgSpeed)+' m/s, but average velocity = (0, 0) m/s. Pac-Man’s instantaneous speed is still '+fmt(game.speed)+' m/s.';
+    } else if (game.finished) {
+      title = game.caught ? (game.distance-m.displacement<1e-7?'Ghost caught! Distance = |displacement|.':'Ghost caught! The route was longer than the shortcut.') : 'The ghost reached you. Try a faster pursuit.';
+      copy = (game.caught?'You caught the ghost in '+fmt(game.t)+' s. ':'This meeting was not Pac-Man overtaking the ghost. ')+ 'Distance = '+fmt(game.distance)+' m; displacement magnitude = '+fmt(m.displacement)+' m. Compare average speed '+fmt(m.avgSpeed)+' with |average velocity| '+fmt(Math.hypot(m.avgVx,m.avgVy))+' m/s.';
+    } else if (game.t===0) {
+      title = mission==='catch'?'Can you catch a moving target?':'Will a complete lap give zero average velocity?';
+      const settings = 'Pac-Man: '+fmt(game.speed,1)+' m/s. Ghost: '+fmt(game.ghostSpeed,1)+' m/s. ';
+      copy = settings+(mission==='catch'?'The ghost starts 12 m ahead along the track. With these speeds and directions, predict when they will meet. Then press Chase.':'Predict which becomes zero after a lap: instantaneous speed, average speed, or average velocity.');
+    } else if (game.speed===0) {
+      title = 'Pac-Man is at rest. The clock can still run.';
+      copy = 'Current speed and velocity are zero. Average speed uses the entire journey, including waiting. Increase Pac-Man’s speed to continue the chase.';
+    } else if (game.turns) {
+      title = 'A corner changes velocity, even at the same speed.';
+      copy = 'Pac-Man’s current speed is '+fmt(game.speed)+' m/s; current velocity is '+pair(m.vx,m.vy)+' m/s. The yellow route counts every meter; the blue vector connects only the start and current position.';
+    } else {
+      title = 'Same straight segment: speed is the magnitude of velocity.';
+      const heading = m.vx>0?'right (+x)':m.vx<0?'left (−x)':m.vy>0?'up (+y)':'down (−y)';
+      copy = 'The white velocity arrow points '+heading+'. Watch it rotate at the next corner. Ghost speed helps determine when the chase ends, not Pac-Man’s displacement.';
+    }
+    $('chase-lesson-title').textContent = title;$('chase-lesson').textContent = copy;
+    $('chase-insight').classList.toggle('return',atHome && (returned || game.finished));
+    const completed = mission==='catch'?game.caught:game.laps>0;
+    $('chase-mission-title').textContent = mission==='catch'?'Mission: catch the ghost':'Mission: the zero-velocity lap';
+    $('chase-mission-status').textContent = completed?'COMPLETE':game.finished?'TRY AGAIN':game.t?'IN PROGRESS':'READY';
+    $('chase-mission-copy').textContent = mission==='catch'?'Gain ground by moving faster in the ghost’s direction. Catch it for 200 points.':'Keep the same speed as the ghost, complete the 48 m loop, and explain why average velocity is zero. The first full lap earns 100 points.';
+    $('chase-badge-turn').classList.toggle('earned',game.turns>0);
+    $('chase-badge-catch').classList.toggle('earned',game.caught);
+    $('chase-badge-lap').classList.toggle('earned',game.laps>0);
+  }
+  function simulate(dt) {
+    const event = game.advance(dt,$('chase-return').checked);
+    if (event && (game.finished || $('chase-return').checked)) {
+      returned = event.kind==='return';setRunning(false);update();
+      say(event.kind==='caught'?'Ghost caught. Review your distance and velocity.':event.kind==='contact'?'The ghost reached you. Restart to try again.':'Returned to start. Average velocity is zero; the chase is paused.');
+      return true;
+    }
+    return false;
+  }
+  $('chase-play').addEventListener('click',()=>{returned=false;setRunning(true);update();say('Chase running.');});
+  $('chase-pause').addEventListener('click',()=>{setRunning(false);update();say('Chase paused.');});
+  $('chase-step').addEventListener('click',()=>{returned=false;for(let i=0;i<12;i++){if(simulate(H))break;}setRunning(false);update();draw();});
+  $('chase-reset').addEventListener('click',()=>{reset();say('Chase restarted. Ready.');});
+  $('chase-catch-mode').addEventListener('click',()=>chooseMission('catch'));
+  $('chase-lap-mode').addEventListener('click',()=>chooseMission('lap'));
+  $('chase-speed').addEventListener('input',event=>{game.speed=Number(event.target.value);update();draw();});
+  $('ghost-speed').addEventListener('input',event=>{game.ghostSpeed=Number(event.target.value);update();draw();});
+  $('chase-reverse').addEventListener('click',()=>{game.dir*=-1;update();draw();say('Pac-Man reversed direction.');});
+  $('chase-vectors').addEventListener('change',draw);$('chase-trail').addEventListener('change',draw);
+  function resize() {
+    if(!active)return;const rect=canvas.getBoundingClientRect();if(rect.width<=0)return;
+    width=rect.width;height=rect.height;const ratio=Math.min(window.devicePixelRatio||1,3);
+    canvas.width=Math.round(width*ratio);canvas.height=Math.round(height*ratio);ctx.setTransform(ratio,0,0,ratio,0,0);draw();
+  }
+  function draw() {
+    if(!active || !ctx)return;
+    const m=game.metrics(), scale=Math.min((width-64)/22,(height-128)/13);
+    const origin={x:width/2,y:height/2+26};
+    const screen=p=>({x:origin.x+p.x*scale,y:origin.y-p.y*scale});
+    const text=(str,x,y,color='#aec0de',align='center',size=12)=>{ctx.font=size+'px -apple-system, BlinkMacSystemFont, sans-serif';ctx.fillStyle=color;ctx.textAlign=align;ctx.fillText(str,x,y);};
+    const path=(points,color,w=1,dash=[])=>{ctx.beginPath();ctx.setLineDash(dash);ctx.lineWidth=w;ctx.strokeStyle=color;points.forEach((p,i)=>i?ctx.lineTo(p.x,p.y):ctx.moveTo(p.x,p.y));ctx.stroke();ctx.setLineDash([]);};
+    const arrow=(from,to,color,w=2,dashed=false)=>{
+      const dx=to.x-from.x,dy=to.y-from.y,len=Math.hypot(dx,dy);if(len<2)return;
+      path([from,to],color,w,dashed?[5,5]:[]);const a=Math.atan2(dy,dx),head=Math.min(8,len*.45);
+      ctx.fillStyle=color;ctx.beginPath();ctx.moveTo(to.x,to.y);ctx.lineTo(to.x-head*Math.cos(a-.45),to.y-head*Math.sin(a-.45));ctx.lineTo(to.x-head*Math.cos(a+.45),to.y-head*Math.sin(a+.45));ctx.closePath();ctx.fill();
+    };
+    ctx.clearRect(0,0,width,height);
+    for(let x=-10;x<=10;x+=2){const p=screen({x,y:0});path([{x:p.x,y:92},{x:p.x,y:height-32}],'#182445');}
+    for(let y=-6;y<=6;y+=2){const p=screen({x:0,y});if(p.y>92&&p.y<height-32)path([{x:15,y:p.y},{x:width-15,y:p.y}],'#182445');}
+    const corners=[0,16,24,40,48].map(q=>screen(game.position(q)));
+    ctx.lineJoin='round';path(corners,'#17244c',Math.max(17,1.4*scale));
+    // Inner and outer wall outlines define the playable corridor.
+    for(const delta of [-.78,.78]){
+      const p=screen({x:-8-delta,y:4+delta});ctx.strokeStyle=delta>0?'#4976ee':'#3457c7';ctx.lineWidth=2;
+      ctx.strokeRect(p.x,p.y,(16+2*delta)*scale,(8+2*delta)*scale);
+    }
+    if($('chase-trail').checked&&game.trail.length>1)path([...game.trail.map(screen),screen(m.p)],'#ffe260',3);
+    for(let q=2;q<48;q+=2){if(game.pellets.has(q))continue;const p=screen(game.position(q));ctx.beginPath();ctx.arc(p.x,p.y,Math.max(2,scale*.13),0,Math.PI*2);ctx.fillStyle='#f9e7b4';ctx.fill();}
+    const home=screen({x:-8,y:-4}), pac=screen(m.p), ghost=screen(m.ghost);
+    ctx.beginPath();ctx.arc(home.x,home.y,6,0,Math.PI*2);ctx.strokeStyle='#b9cbeb';ctx.lineWidth=1.5;ctx.stroke();
+    text('START',home.x,home.y+scale*.78+16,'#d0dff5','center',11);
+    const upper=screen({x:0,y:4});text('16 m',upper.x,upper.y-scale*.78-11);
+    const right=screen({x:8,y:0});text('8 m',Math.min(width-16,right.x+1.2*scale),right.y+4,'#aec0de','left');
+    if($('chase-vectors').checked){
+      arrow(home,pac,'#77b9ff',2,true);
+      if(m.displacement>1 && !game.finished){const midpoint={x:(home.x+pac.x)/2,y:(home.y+pac.y)/2};text('Δr',midpoint.x+8,midpoint.y-9,'#9acbff','left',14);}
+    }
+    const size=Math.max(9,Math.min(15,scale*.66));
+    // Ghost sprite: eyes track its route direction; the skirt ripples with time.
+    ctx.save();ctx.translate(ghost.x,ghost.y);ctx.globalAlpha=game.caught?.42:1;
+    const bob=Math.sin(game.t*8)*1.4;
+    ctx.beginPath();ctx.arc(0,bob,size,Math.PI,0);ctx.lineTo(size,size+bob);
+    for(let i=4;i>=0;i--){const x=-size+i*(2*size/4);ctx.lineTo(x,size+bob+(i%2===0?-3:1));}
+    ctx.closePath();ctx.fillStyle='#ff92b2';ctx.fill();
+    const gt=game.tangent(game.ghostQ,1);
+    for(const eye of [-.36,.36]){ctx.beginPath();ctx.ellipse(eye*size,-.1*size+bob,.25*size,.34*size,0,0,Math.PI*2);ctx.fillStyle='#fff';ctx.fill();ctx.beginPath();ctx.arc(eye*size+gt.x*size*.1,-.1*size+bob-gt.y*size*.1,size*.12,0,Math.PI*2);ctx.fillStyle='#223864';ctx.fill();}
+    ctx.restore();
+    // Pac-Man sprite: an animated mouth faces the instantaneous direction.
+    const tangent=game.tangent();ctx.save();ctx.translate(pac.x,pac.y);ctx.rotate(Math.atan2(-tangent.y,tangent.x));
+    const mouth=.12+.25*(1+Math.sin(game.t*17))/2;
+    ctx.beginPath();ctx.moveTo(0,0);ctx.arc(0,0,size,mouth,2*Math.PI-mouth);ctx.closePath();ctx.fillStyle='#ffe260';ctx.fill();
+    ctx.beginPath();ctx.arc(size*.15,-size*.48,Math.max(1.5,size*.1),0,Math.PI*2);ctx.fillStyle='#3b310d';ctx.fill();ctx.restore();
+    if($('chase-vectors').checked){
+      arrow(pac,{x:pac.x+m.vx*7,y:pac.y-m.vy*7},'#f4f8ff',2.5);
+      if(!game.finished)arrow(ghost,{x:ghost.x+m.ghostVx*7,y:ghost.y-m.ghostVy*7},'#ffb6ca',2);
+    }
+    if(game.finished&&m.displacement>=1e-7){text(game.caught?'GHOST CAUGHT!':'GHOST CONTACT',origin.x,origin.y-7,game.caught?'#ffe260':'#ffb6ca','center',width<400?16:21);text('t = '+fmt(game.t)+' s',origin.x,origin.y+17,'#d8e5fb','center',13);}
+    if((returned||game.finished)&&m.displacement<1e-7){
+      text(game.caught?'CAUGHT AT HOME!':'BACK AT THE START',origin.x,origin.y-15,'#ffe260','center',width<400?14:19);
+      text('d = '+fmt(game.distance)+' m',origin.x,origin.y+8,'#ffe260','center',14);
+      text('Δr = 0  ·  v̄ = 0',origin.x,origin.y+31,'#9acbff','center',14);
+    }
+  }
+  function frame(now) {
+    if(previous===null)previous=now;const dt=Math.min(.1,(now-previous)/1000);previous=now;
+    if(active&&running){accumulator+=dt;while(accumulator>=H&&running){accumulator-=H;simulate(H);}draw();}
+    if(active&&now-lastUpdate>=80){update();lastUpdate=now;}
+    requestAnimationFrame(frame);
+  }
+  document.addEventListener('visibilitychange',()=>{if(document.hidden&&running){setRunning(false);update();say('Chase paused because the tab is hidden.');}});
+  window.addEventListener('resize',resize);
+  if(typeof ResizeObserver!=='undefined')new ResizeObserver(resize).observe(canvas);
+  window.ChaseUI={activate(value){active=value;if(!value)setRunning(false);else{resize();update();}}};
+  update();requestAnimationFrame(frame);
+})();
+</script>
+<script id="experience-tabs">
+(() => {
+  const tabs=[document.getElementById('lab-tab'),document.getElementById('chase-tab')];
+  const panels=[document.getElementById('lab-panel'),document.getElementById('chase-panel')];
+  function select(index,focus=false){
+    tabs.forEach((tab,i)=>{tab.setAttribute('aria-selected',String(i===index));tab.tabIndex=i===index?0:-1;panels[i].hidden=i!==index;});
+    window.MotionLabUI.activate(index===0);window.ChaseUI.activate(index===1);
+    if(focus)tabs[index].focus();
+  }
+  tabs.forEach((tab,i)=>{
+    tab.addEventListener('click',()=>select(i));
+    tab.addEventListener('keydown',event=>{
+      const key=event.key;let next;
+      if(key==='ArrowRight'||key==='ArrowLeft')next=1-i;
+      else if(key==='Home')next=0;else if(key==='End')next=1;else return;
+      event.preventDefault();select(next,true);
+    });
+  });
 })();
 </script>
 </body>

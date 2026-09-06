@@ -186,3 +186,61 @@ public/index.html
 Verification uses Node's built-in assertion and VM modules to execute the actual embedded scripts. It covers physics invariants and interaction wiring with an in-memory DOM/canvas stub. This is not a substitute for visual browser QA. Run `node verify.cjs` from the project directory. No packages are required.
 
 Deliberate scope: idealized track constraints, no friction, no collision deformation, no free-flight motion, no time history graph, and no persisted student data. These simplify the model while keeping distance, displacement, speed, and velocity mathematically consistent.
+
+## Second tab: Pac-Man chase
+
+The original **Physics lab** remains the default tab, with the same controls, linear/circular physics, and challenges. **Pac-Man chase** adds a separate animated learning game. Switching tabs pauses the run being left and preserves both simulations' positions, measurements, and settings. Accessible tabs support Left/Right, Home, and End. `lab-v1.html` is an unchanged standalone snapshot of the original version.
+
+### Game layout and missions
+
+The chase retains the lab's control-sidebar/canvas layout. A dark arcade track shows a yellow animated Pac-Man, an animated pink ghost, 23 collectible dots, velocity arrows for both characters, and Pac-Man's traveled trail and start-to-current displacement. All five measurement groups explicitly describe **Pac-Man**. The ghost's current speed and velocity are separately labeled above the canvas.
+
+Controls select a mission, set both instantaneous speed magnitudes from 0–8 m/s, reverse Pac-Man, show/hide vectors or the trail, and enable automatic pause on return. Play, Pause, Restart, and Step +0.10 s operate independently of the original lab. The ghost always follows the route's positive direction. Choosing a mission resets the game and loads its speeds; subsequent speed changes apply live.
+
+- **Catch the ghost:** Pac-Man starts at 4 m/s, the ghost at 2 m/s with a 12 m lead. Catch at exactly 6 s, after 24 m of Pac-Man travel. Displacement is (16, 8) m, with magnitude √320 ≈ 17.89 m. Average speed is 4 m/s; average velocity is (8/3, 4/3) m/s. A faster ghost reaching Pac-Man, or meeting after Pac-Man reverses, is labeled **contact**, without awarding a pursuit win.
+- **The zero-velocity lap:** Both speeds start at 4 m/s. Their gap along the track remains 12 m. Pac-Man completes 48 m in 12 s and pauses at his starting point. Average velocity is (0, 0) m/s, average speed remains 4 m/s, and instantaneous speed remains 4 m/s.
+- **Scoring and achievements:** Each distinct dot earns 10 points once per run, catching the ghost earns 200, and the first full lap earns 100. Achievements record a corner, a catch, and a full lap. An out-and-back trip along part of the track can have zero average velocity without earning the full-lap achievement.
+
+Animation uses simulation time: Pac-Man's mouth opens and closes facing the direction of travel, while the ghost's skirt moves and its pupils follow its heading. Pausing also freezes animation. These procedural Canvas sprites, the maze corridor, and all controls remain inside the same HTML file.
+
+### Chase model and equations
+
+`ChasePhysics` is independent of the original `MotionPhysics` class. The route's four corners are (−8, −4), (8, −4), (8, 4), and (−8, 4), for a 48 m perimeter. Signed, unwrapped progress q maps to route coordinate s = ((q % 48) + 48) % 48:
+
+```text
+0 ≤ s < 16:   r = (−8 + s, −4),       T = ( 1,  0)
+16 ≤ s < 24:  r = (8, −4 + s − 16),   T = ( 0,  1)
+24 ≤ s < 40:  r = (8 − (s − 24), 4),  T = (−1,  0)
+40 ≤ s < 48:  r = (−8, 4 − (s − 40)), T = ( 0, −1)
+
+q_P,new = q_P + σ u_P Δt
+q_G,new = q_G + u_G Δt
+d_P,new = d_P + u_P Δt
+v_P = σ u_P T
+v_G = u_G T_G
+```
+
+Speed is constant between user interventions. Corners are ideal instantaneous changes of direction. Velocity exactly at an ideal sharp turn is not mathematically differentiable; the displayed arrow uses the outgoing segment. For negative travel, the outgoing tangent uses the preceding positive-coordinate segment, with its sign reversed.
+
+The model splits timesteps at each Pac-Man corner, home crossing, or actor meeting. Corners are inserted into the visual trail, so the path does not cut diagonally across them. Meetings solve the relative-progress equation:
+
+```text
+r = q_P − q_G
+w = σ u_P − u_G
+r + w Δt = k · 48
+Δt_meeting = (k · 48 − r) / w
+```
+
+Choose the nearest strictly forward reachable integer multiple in the sign of w; when w = 0 and the actors start apart, no meeting occurs. The first meeting ends the run. Pac-Man earns a pursuit catch only if σ = +1 and u_P > u_G; other meetings are contact. Simultaneous catch/return events credit both a catch and a full lap, and display one combined result.
+
+Track gap is `(q_G − q_P) mod 48` in the positive route direction. It is explicitly labeled **gap along track (+q)**, not Euclidean separation or shortest separation. Displacement and all average quantities still use Cartesian positions, exactly as in the first lab.
+
+New code blocks in `index.html`:
+
+```text
+<script id="chase-physics">    route mapping, meetings, corners, dots, metrics
+<script id="chase-interface">  chase controls, sprites, scoring, explanations
+<script id="experience-tabs">  accessible tab switching and independent pauses
+```
+
+Run `node verify.cjs` for the original lab and `node verify-chase.cjs` for the game and integration. The chase checks include corner tangents, catch/contact timing, simultaneous events, zero average velocity, partial returns, distinct-dot scoring, direction-aware explanations, preserved tab state, keyboard tabs, and background pausing. `node build.cjs` copies the complete prototype, blueprint, and archived first version into the static output folder.
