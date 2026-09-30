@@ -1,7 +1,7 @@
 const fs = require('node:fs');
 const vm = require('node:vm');
 const assert = require('node:assert/strict');
-const html = fs.readFileSync(__dirname+'/public/index.html','utf8');
+const html = fs.readFileSync(__dirname+'/src/velocity.html','utf8');
 const original = fs.readFileSync(__dirname+'/public/lab-v1.html','utf8');
 const script = (source,id) => source.match(new RegExp('<script id="'+id+'">([\\s\\S]*?)<\\/script>'))[1];
 let checks = 0;

@@ -350,7 +350,7 @@ globalThis.ChasePhysics = ChasePhysics;
     $('scene-title').textContent = circle ? 'The circular track' : 'The straight track';
     $('scene-description').textContent = circle ? 'Radius 6 m · circumference '+fmt(2*Math.PI*6)+' m' : '20 m track · ideal reflections at both ends';
     $('canvas-caption').textContent = circle ? '+x →  ·  +y ↑  ·  velocity is tangent to the circle' : 'Coordinates in meters · +x points right';
-    $('canvas').setAttribute('aria-label','A particle on a '+(circle ? 'circular' : 'linear')+' track. Green marks traveled path; the blue displacement arrow connects start to current position; the white instantaneous velocity arrow points along the motion. Measurements follow below.');
+    $('canvas').setAttribute('aria-label',circle ? 'A particle on a circular track. Green shows the path, blue displacement, and white instantaneous velocity. Measurements below.' : 'A particle on a linear track. Green shows the path, blue displacement, and white instantaneous velocity. Measurements below.');
     $('displacement-label').textContent = circle ? 'Displacement |Δr|' : 'Displacement';
     $('displacement-equation').textContent = circle ? '|Δr| = √(Δx² + Δy²)' : 'Δx = x − x₀';
     $('velocity-label').textContent = circle ? 'Avg. velocity |v̄|' : 'Average velocity';

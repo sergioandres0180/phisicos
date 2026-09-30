@@ -1,0 +1,45 @@
+# Generated for __ORIGIN__. Install in this domain's document root.
+# Apache 2.4 / LiteSpeed with AllowOverride enabled. No PHP or database needed.
+Options -Indexes -MultiViews
+DirectoryIndex index.html
+DirectorySlash On
+AddDefaultCharset UTF-8
+ErrorDocument 404 /404.html
+
+RewriteEngine On
+# Leave certificate validation reachable before HTTPS is available.
+RewriteRule ^\.well-known/(acme-challenge|pki-validation)/ - [L]
+
+# Direct TLS hosting. For a TLS-terminating proxy, see UPLOAD_GUIDE.md.
+RewriteCond %{HTTPS} !=on [OR]
+RewriteCond %{HTTP_HOST} !^__HOST_REGEX__$ [NC]
+RewriteRule ^ __ORIGIN__%{REQUEST_URI} [R=301,L,NE]
+
+# Redirect explicitly requested index.html files, never internal DirectoryIndex requests.
+RewriteCond %{THE_REQUEST} \s/+[^?\s]*index\.html(?:[?\s]) [NC]
+RewriteRule ^(.*)index\.html$ __ORIGIN__/$1 [R=301,L,NE]
+
+# No catch-all rewrite: unknown routes must return a real HTTP 404.
+<IfModule mod_headers.c>
+ Header always set X-Content-Type-Options "nosniff"
+ Header always set Referrer-Policy "strict-origin-when-cross-origin"
+ <FilesMatch "\.(html|xml|txt)$">
+  Header set Cache-Control "public, max-age=0, must-revalidate"
+ </FilesMatch>
+ <FilesMatch "\.(css|js|png|svg|ico)$">
+  Header set Cache-Control "public, max-age=86400"
+ </FilesMatch>
+ <FilesMatch "^(404\.html|design-guidelines\.md)$">
+  Header always set X-Robots-Tag "noindex"
+ </FilesMatch>
+</IfModule>
+
+<IfModule mod_mime.c>
+ AddType image/svg+xml .svg
+ AddType text/plain .md
+</IfModule>
+<IfModule mod_deflate.c>
+ <IfModule mod_filter.c>
+  AddOutputFilterByType DEFLATE text/html text/css application/javascript text/javascript application/json application/xml text/xml text/plain image/svg+xml
+ </IfModule>
+</IfModule>

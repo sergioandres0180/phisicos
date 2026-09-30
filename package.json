@@ -1,0 +1,13 @@
+{
+  "name": "motion-lab-physics-games",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "build": "node build.cjs",
+    "build:preview": "node build.cjs --preview",
+    "package:hosting": "node package-hosting.cjs",
+    "dev": "node build.cjs --preview && node serve.cjs",
+    "preview": "node serve.cjs",
+    "test": "node verify.cjs && node verify-chase.cjs && node verify-site.cjs && node verify-lander.cjs && node verify-build.cjs"
+  }
+}

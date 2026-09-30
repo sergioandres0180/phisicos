@@ -1,0 +1,248 @@
+<!doctype html>
+<html lang="en">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Lunar Lander · Motion Lab</title>
+<style>
+.lander-page .masthead{margin-bottom:22px}.lander-page .layout{grid-template-columns:285px minmax(0,1fr)}.lander-page .field{margin-top:17px}.lander-page .label-row{font-size:14px}.lander-page .control-section{padding:18px 20px}.lander-page .control-section:last-child{display:block}.lander-page .eyebrow{margin-bottom:12px}.lander-page .planet-choice button[aria-pressed=true]{background:#e1f2eb;color:#08694f}.lander-page .burn-button{width:100%;border:1px solid #0a795e;background:#e4f3ed;color:#075e48;border-radius:10px;padding:12px 14px;margin-top:14px;min-height:48px;font-weight:700}.lander-page .burn-button[aria-pressed=true]{background:var(--mint);box-shadow:0 0 0 3px #75efc733}.lander-page .burn-button:disabled{opacity:.5}.lander-page .scene-top{padding:15px 20px}.lander-page .scene-title{letter-spacing:.08em;font-size:14px}.lander-stage{position:relative}.lander-stage canvas{height:410px}.lander-equation{border-top:1px solid #284354;background:#122c3e;padding:12px 18px;display:flex;justify-content:space-between;align-items:center;gap:9px;flex-wrap:wrap}.lander-equation>span{font-size:12px;letter-spacing:.065em;color:#afc4d2}.lander-equation output{font:600 17px ui-monospace,SFMono-Regular,monospace;color:var(--sky,#77b9ff)}.lander-page .metrics{grid-template-columns:.75fr 1fr 1.15fr 1.2fr 1fr}.lander-page .metric-value{font-size:19px}.lander-page .metric-components{white-space:normal;font-size:12px}.lander-page .fuel-readout{color:var(--green)}.lander-page .contact-note{font-size:14px;color:var(--muted);margin-top:10px;padding:10px 14px;border-left:3px solid var(--blue)}.lander-page .line-key.orange{background:var(--orange,#efb958)}.lander-page .line-key.mint{background:var(--mint)}.lander-page .braking-readout{margin-top:16px;border:1px solid var(--line);border-radius:9px;background:#f2f6f9;padding:12px}.lander-page .braking-readout strong{font:600 20px ui-monospace,SFMono-Regular,monospace;display:block;margin:5px 0;color:var(--blue)}.lander-page .braking-readout>span{font-size:14px;font-weight:600}.lander-page .fuel-warning{color:#87530b}.lander-page .mission-heading{display:flex;gap:18px;align-items:start;justify-content:space-between}.lander-page .score-card{min-width:85px;text-align:right}.lander-page .score-card span{display:block;font-size:12px;color:var(--muted)}.lander-page .score-card strong{font:600 28px ui-monospace,SFMono-Regular,monospace;color:var(--green)}.lander-page .mission-copy{font-size:14px;color:var(--muted);margin-top:8px}.lander-page .landing-badges{display:flex;flex-wrap:wrap;gap:8px;margin-top:15px}.lander-page .landing-badges span{border:1px solid var(--line);font-size:13px;padding:7px 10px;border-radius:7px;color:var(--muted)}.lander-page .landing-badges span.earned{background:#e4f3ed;border-color:#81bea8;color:#086950}.lander-page .insight.warning{background:#fff3d8;border-color:#e6c377}.lander-page .insight.warning p{color:#775622}.lander-page .guideline-link{display:inline-block;font-size:14px;margin-top:22px}.lander-page .legend{gap:13px}.lander-page .legend span{font-size:13px}.lander-page .range-ends{font-size:12px}.lander-page .canvas-caption{font-size:12px}.lander-page .transport button{min-height:44px}.lander-page .transport{gap:8px}.lander-page .insight{min-height:91px}.lander-page .hint{font-size:13px}.lander-page .scene-subtitle{font-size:13px}.lander-language-note{font-size:13px;color:var(--muted);margin-top:7px}.lander-page .no-js{margin-bottom:20px}
+@media(max-width:1100px){.lander-page .layout{grid-template-columns:255px minmax(0,1fr)}.lander-page .metrics{grid-template-columns:repeat(6,1fr)}.lander-page .metric{grid-column:span 2}.lander-page .metric:nth-child(4),.lander-page .metric:nth-child(5){grid-column:span 3}.lander-equation output{font-size:15px}.lander-page .control-section{padding:17px}.lander-stage canvas{height:410px}}
+@media(max-width:760px){.lander-page .layout{display:flex}.lander-page .sidebar{display:grid;grid-template-columns:1fr 1fr}.lander-page .control-section:first-child{grid-row:span 2}.lander-page .control-section:last-child{grid-column:2}.lander-stage canvas{height:370px}.lander-equation{padding:12px 14px}.lander-equation output{font-size:14px}.lander-page .scene-top{padding:14px}.lander-page .insight{min-height:0}.lander-page .metric-value{font-size:18px}.lander-page .transport .reset{margin-left:0}.lander-page .mission-heading{gap:12px}.lander-page .challenge-title{font-size:16px}}
+@media(max-width:440px){.lander-page .sidebar{display:block}.lander-page .control-section:first-child{border-right:0}.lander-page .concept-tags{display:none}.lander-page .metric-value{font-size:16px}.lander-page .metric{padding:12px 8px}.lander-page .score-card{min-width:60px}.lander-page .legend span{font-size:12px}}
+.lander-page .vector-cap-note{color:#b8ccdb;font-size:12px;margin:0;padding:0 18px 10px}
+</style>
+</head>
+<body>
+<div class="shell lander-page">
+__HEADER__
+<main id="main-content">
+__BREADCRUMBS__
+<div class="masthead"><div><h1>{{title}}</h1><p class="intro">{{subtitle}}</p></div><div class="concept-tags"><span class="tag speed">{{conceptGravity}} ↓</span><span class="tag velocity">{{conceptAcceleration}} ↑</span></div></div>
+<noscript><p class="no-js">{{noScript}}</p></noscript>
+<div class="layout">
+<aside class="sidebar" aria-label="{{setup}}">
+  <section class="control-section"><h2 class="eyebrow">{{setup}}</h2><div class="segmented planet-choice" role="group" aria-label="{{setup}}"><button id="moon" aria-pressed="true">◯ {{moon}}</button><button id="mars" aria-pressed="false">◉ {{mars}}</button></div>
+    <div class="field"><div class="label-row"><label for="gravity">{{gravity}}</label><output id="gravity-value" for="gravity">1.62 m/s²</output></div><input id="gravity" type="range" min="0.5" max="10" step="0.01" value="1.62"><div class="range-ends"><span>0.5 m/s²</span><span>10 m/s²</span></div></div>
+    <div class="field"><div class="label-row"><label for="height">{{height}}</label><output id="height-value" for="height">80 m</output></div><input id="height" type="range" min="20" max="200" step="5" value="80"></div>
+    <div class="field"><div class="label-row"><label for="initial-speed">{{initialVelocity}}</label><output id="initial-speed-value" for="initial-speed">4 m/s</output></div><input id="initial-speed" type="range" min="0" max="15" step="0.5" value="4"></div>
+    <div class="field"><div class="label-row"><label for="max-thrust">{{maxThrust}}</label><output id="max-thrust-value" for="max-thrust">6 m/s²</output></div><input id="max-thrust" type="range" min="1" max="15" step="0.1" value="6"></div>
+    <div class="field"><div class="label-row"><label for="fuel-budget">{{fuelBudget}}</label><output id="fuel-budget-value" for="fuel-budget">30 s</output></div><input id="fuel-budget" type="range" min="5" max="60" step="1" value="30"><p class="hint">{{fuelTime}}</p></div><p class="hint">{{setupNote}}</p>
+  </section>
+  <section class="control-section"><h2 class="eyebrow">{{pilot}}</h2><div class="label-row"><label for="throttle">{{throttle}}</label><output id="throttle-value" for="throttle">100%</output></div><input id="throttle" type="range" min="0" max="100" step="1" value="100"><button id="thruster" class="burn-button" aria-pressed="false">↑ {{engineOff}}</button><p class="hint">{{keyHelp}}</p></section>
+  <section class="control-section"><h2 class="eyebrow">{{observe}}</h2><label class="check"><input id="show-vectors" type="checkbox" checked>{{vectors}}</label><label class="check"><input id="show-guide" type="checkbox" checked>{{brakingGuide}}</label><div class="braking-readout"><span>{{brakingDistance}}</span><strong id="braking-distance">0.00 m</strong><p class="hint">{{brakingNote}}</p><p class="hint fuel-warning" id="fuel-warning" hidden>{{fuelWarning}}</p></div></section>
+</aside>
+<div class="workspace">
+  <section class="scene" aria-label="{{sceneTitle}}"><div class="scene-top"><div><h2 class="scene-title">{{sceneTitle}}</h2><p class="scene-subtitle" id="planet-label">{{moonScene}}</p></div><span class="status" id="flight-status"><i class="status-dot" aria-hidden="true"></i><span id="flight-status-text">{{ready}}</span></span></div>
+    <div class="lander-stage"><canvas id="lander-canvas" role="img" aria-label="{{canvasLabel}}">{{noScript}}</canvas><div class="canvas-caption">{{sceneNote}}</div></div>
+    <div class="legend"><span><i class="line-key orange"></i>{{gravityLegend}}</span><span><i class="line-key mint"></i>{{thrustLegend}}</span><span><i class="line-key blue"></i>{{netLegend}}</span><span><i class="line-key white"></i>{{velocityLegend}}</span></div>
+    <p class="vector-cap-note" id="velocity-cap-note" hidden>{{arrowScale}}</p>
+    <div class="lander-equation"><span>{{sumTitle}}</span><output id="acceleration-sum">a = 0 − 1.62 = −1.62 m/s²</output></div>
+    <div class="transport"><button id="play" class="primary">{{play}}</button><button id="pause" disabled>{{pause}}</button><button id="step">{{step}}</button><button id="reset" class="reset">{{reset}}</button></div>
+  </section>
+  <section class="metrics" aria-label="{{observe}}"><div class="metric"><h3 class="metric-label">{{time}}</h3><p class="metric-value"><span id="time-value">0.00</span> <small>s</small></p><p class="metric-equation">t</p></div><div class="metric"><h3 class="metric-label">{{altitude}}</h3><p class="metric-value"><span id="altitude-value">80.00</span> <small>m</small></p><p class="metric-equation">h</p></div><div class="metric vector"><h3 class="metric-label" id="velocity-label">{{velocity}}</h3><p class="metric-value"><span id="velocity-value">−4.00</span> <small>m/s</small></p><p class="metric-equation">vᵧ</p></div><div class="metric vector"><h3 class="metric-label">{{netAcceleration}}</h3><p class="metric-value"><span id="net-value">−1.62</span> <small>m/s²</small></p><p class="metric-equation">aᵧ = aₜ − g</p></div><div class="metric"><h3 class="metric-label">{{fuel}}</h3><p class="metric-value fuel-readout"><span id="fuel-value">100</span> <small>%</small></p><p class="metric-components" id="fuel-seconds">30.00 s</p></div></section>
+  <p class="contact-note" id="contact-note" hidden>{{contactNote}}</p>
+  <div class="insight" id="flight-insight"><span class="insight-icon" aria-hidden="true">↗</span><div><strong id="lesson-title">{{predictTitle}}</strong><p id="lesson-copy">{{predictCopy}}</p></div></div>
+  <section class="challenge"><div class="mission-heading"><h2 class="challenge-title">{{missionTitle}}</h2><div class="score-card"><span>{{score}}</span><strong id="mission-score">—</strong></div></div><p class="mission-copy">{{missionCopy}}</p><div class="landing-badges"><span id="safe-badge">✓ {{safeBadge}}</span><span id="precision-badge">◎ {{precisionBadge}}</span><span id="eco-badge">♧ {{ecoBadge}}</span></div></section>
+</div>
+</div>
+<article class="learning-content"><section><h2>{{guideTitle}}</h2><ol><li>{{instruction1}}</li><li>{{instruction2}}</li><li>{{instruction3}}</li><li>{{instruction4}}</li></ol></section><section><h2>{{conceptTitle}}</h2><p>{{conceptCopy}}</p><aside class="worked-example"><h3>{{equationsTitle}}</h3><p>{{equationsCopy}}</p></aside></section><section><h2>{{modelTitle}}</h2><p>{{modelCopy}}</p><p class="hint">{{sourceLabel}}: <a href="https://www1.grc.nasa.gov/beginners-guide-to-aeronautics/moon/">NASA · {{moon}}</a> · <a href="https://ssd.jpl.nasa.gov/planets/phys_par.html">NASA JPL · {{mars}}</a></p></section></article>
+<a class="guideline-link" href="/design-guidelines.md">{{guidelines}}</a><p class="lander-language-note" id="language-note">{{languageNote}}</p>
+</main>
+__FOOTER__
+<p class="sr-only" id="lander-announcement" role="status" aria-live="polite"></p>
+</div>
+<script id="lander-physics">
+class LanderPhysics {
+  static presets = {
+    moon:{planet:'moon',g:1.62,aMax:6,h0:80,v0:-4,fuel0:30,safeSpeed:1.5},
+    mars:{planet:'mars',g:3.71,aMax:9,h0:100,v0:-6,fuel0:35,safeSpeed:1.5}
+  };
+  constructor(config = LanderPhysics.presets.moon) { this.reset(config); }
+  reset(config = this.config) {
+    this.config = {...config};this.h=config.h0;this.v=config.v0;this.fuel=config.fuel0;
+    this.t=0;this.status='flight';this.impact=null;
+  }
+  acceleration(requested = 0) {
+    if(this.impact)return {...this.impact.acceleration};
+    const u=this.fuel>0?Math.max(0,Math.min(1,requested)):0;
+    return {u,gravity:-this.config.g,thrust:u*this.config.aMax,net:u*this.config.aMax-this.config.g};
+  }
+  static touchdownTime(h,v,a,limit) {
+    if(h<=0&&v<=0)return 0;
+    let roots=[];
+    if(Math.abs(a)<1e-12){if(v<0)roots=[-h/v];}
+    else {
+      const discriminant=v*v-2*a*h;
+      if(discriminant>=-1e-10){
+        const q=-.5*(v+(v>=0?1:-1)*Math.sqrt(Math.max(0,discriminant)));
+        if(q!==0)roots=[q/(.5*a),h/q];
+      }
+    }
+    return Math.min(Infinity,...roots.filter(t=>t>=-1e-10&&t<=limit+1e-10&&v+a*t<=1e-7).map(t=>Math.max(0,Math.min(limit,t))));
+  }
+  advance(dt,requested = 0) {
+    if(!Number.isFinite(dt)||dt<0||!Number.isFinite(requested))throw new Error('Invalid timestep or throttle');
+    if(this.status!=='flight')return null;
+    let remaining=dt;
+    while(remaining>1e-12){
+      const acceleration=this.acceleration(requested);
+      const segment=Math.min(remaining,acceleration.u>0?this.fuel/acceleration.u:Infinity);
+      const touchdown=LanderPhysics.touchdownTime(this.h,this.v,acceleration.net,segment);
+      const hit=Number.isFinite(touchdown),h=hit?touchdown:segment;
+      this.h=hit?0:this.h+this.v*h+.5*acceleration.net*h*h;
+      this.v+=acceleration.net*h;this.t+=h;this.fuel=Math.max(0,this.fuel-acceleration.u*h);
+      if(this.fuel<1e-10)this.fuel=0;
+      remaining=Math.max(0,remaining-h);
+      if(hit){
+        this.impact={velocity:this.v,acceleration,t:this.t,fuel:this.fuel};
+        this.status=Math.abs(this.v)<=this.config.safeSpeed+1e-8?'landed':'crashed';
+        return this.impact;
+      }
+    }
+    return null;
+  }
+  braking(power) {
+    const net=power*this.config.aMax-this.config.g;
+    if(this.v>=0)return {distance:0,seconds:0,enoughFuel:true};
+    if(net<=0||power<=0)return {distance:Infinity,seconds:Infinity,enoughFuel:false};
+    const seconds=-this.v/net;
+    return {distance:this.v*this.v/(2*net),seconds,enoughFuel:this.fuel>=power*seconds};
+  }
+  score() {
+    if(this.status!=='landed')return 0;
+    return Math.round(100+80*this.fuel/this.config.fuel0+20*Math.max(0,1-Math.abs(this.impact.velocity)/this.config.safeSpeed));
+  }
+  snapshot(){return {config:{...this.config},h:this.h,v:this.v,fuel:this.fuel,t:this.t,status:this.status,impact:this.impact?JSON.parse(JSON.stringify(this.impact)):null};}
+  restore(saved){
+    const c=saved?.config;
+    if(!c||!['moon','mars'].includes(c.planet)||!Object.entries({g:[.5,10],aMax:[1,15],h0:[20,200],v0:[-15,0],fuel0:[5,60],safeSpeed:[1.5,1.5]}).every(([key,[min,max]])=>Number.isFinite(c[key])&&c[key]>=min&&c[key]<=max))return false;
+    if(!['flight','landed','crashed'].includes(saved.status)||!['h','v','fuel','t'].every(k=>Number.isFinite(saved[k]))||saved.h<0||saved.h>1e8||saved.fuel<0||saved.fuel>c.fuel0||saved.t<0)return false;
+    if(saved.status!=='flight'&&(!saved.impact||!Number.isFinite(saved.impact.velocity)||!saved.impact.acceleration||!['u','gravity','thrust','net'].every(k=>Number.isFinite(saved.impact.acceleration[k]))))return false;
+    this.reset(c);for(const key of ['h','v','fuel','t','status'])this[key]=saved[key];
+    this.impact=saved.status==='flight'?null:JSON.parse(JSON.stringify(saved.impact));return true;
+  }
+}
+globalThis.LanderPhysics=LanderPhysics;
+</script>
+<script id="lander-locale" type="application/json">__LANDER_LOCALE__</script>
+<script id="lander-interface">
+(() => {
+  'use strict';
+  const $=id=>document.getElementById(id),locale=JSON.parse($('lander-locale').textContent);
+  const text=(key,values={})=>locale.strings[key].replace(/\{(\w+)\}/g,(_,name)=>values[name]??'{'+name+'}');
+  const number=(n,d=2)=>Math.abs(n)<.5*10**-d?(0).toLocaleString(locale.lang,{minimumFractionDigits:d,maximumFractionDigits:d}):n.toLocaleString(locale.lang,{minimumFractionDigits:d,maximumFractionDigits:d,useGrouping:false});
+  const signed=n=>(n>.005?'+':'')+number(n);
+  const model=new LanderPhysics();const canvas=$('lander-canvas'),ctx=canvas.getContext('2d');
+  let running=false,latched=false,holding=false,power=1,previous=null,accumulator=0,lastUpdate=0,width=800,height=410;
+  const H=1/120,transferKey='motion-lab-lander-language-transfer';
+  const say=message=>{$('lander-announcement').textContent=message;};
+  const requested=()=>latched||holding?power:0;
+  try {const data=JSON.parse(sessionStorage.getItem(transferKey)||'null');sessionStorage.removeItem(transferKey);if(data&&model.restore(data.flight)){power=Number.isFinite(data.power)?Math.max(0,Math.min(1,data.power)):1;latched=data.latched===true;}}catch{$('language-note').hidden=true;}
+  function setRunning(value){
+    running=value&&model.status==='flight';previous=null;accumulator=0;
+    $('play').disabled=running||model.status!=='flight';$('pause').disabled=!running;$('step').disabled=running||model.status!=='flight';
+    $('thruster').disabled=model.status!=='flight';$('throttle').disabled=model.status!=='flight';
+    $('flight-status').classList.toggle('running',running);
+    $('flight-status-text').textContent=text(model.status==='flight'?(running?'running':model.t?'paused':'ready'):model.status);
+  }
+  function reset(){holding=false;latched=false;model.reset();setRunning(false);syncControls();update();draw();say(text('resetAnnouncement'));}
+  function syncControls(){
+    const c=model.config;
+    for(const [id,value] of Object.entries({gravity:c.g,height:c.h0,'initial-speed':-c.v0,'max-thrust':c.aMax,'fuel-budget':c.fuel0,throttle:Math.round(power*100)}))$(id).value=value;
+    $('moon').setAttribute('aria-pressed',String(c.planet==='moon'));$('mars').setAttribute('aria-pressed',String(c.planet==='mars'));
+    $('planet-label').textContent=text(c.planet+'Scene');
+  }
+  function update(){
+    const c=model.config,a=model.acceleration(requested()),b=model.braking(power),done=model.status!=='flight';
+    for(const [id,value,unit,d] of [['gravity-value',c.g,'m/s²',2],['height-value',c.h0,'m',0],['initial-speed-value',-c.v0,'m/s',1],['max-thrust-value',c.aMax,'m/s²',1],['fuel-budget-value',c.fuel0,'s',0]])$(id).textContent=number(value,d)+' '+unit;
+    $('throttle-value').textContent=number(power*100,0)+'%';$('thruster').setAttribute('aria-pressed',String(latched||holding));$('thruster').textContent='↑ '+text(latched||holding?'engineOn':'engineOff');
+    $('time-value').textContent=number(model.t);$('altitude-value').textContent=number(model.h);$('velocity-value').textContent=signed(model.v);$('net-value').textContent=signed(a.net);
+    $('velocity-label').textContent=text(done?'contactLabel':'velocity');$('contact-note').hidden=!done;
+    $('velocity-cap-note').hidden=!$('show-vectors').checked||Math.abs(model.v)*3<=85;
+    $('fuel-value').textContent=number(model.fuel/c.fuel0*100,0);$('fuel-seconds').textContent=number(model.fuel)+' s';
+    $('acceleration-sum').textContent='a = '+number(a.thrust)+' − '+number(c.g)+' = '+signed(a.net)+' m/s²';
+    $('braking-distance').textContent=Number.isFinite(b.distance)?number(b.distance)+' m':text('notEnoughThrust');$('fuel-warning').hidden=b.enoughFuel||done;
+    $('mission-score').textContent=done?model.score():'—';
+    $('safe-badge').classList.toggle('earned',model.status==='landed');$('precision-badge').classList.toggle('earned',model.status==='landed'&&Math.abs(model.v)<=.5+1e-8);$('eco-badge').classList.toggle('earned',model.status==='landed'&&model.fuel/c.fuel0>=.3);
+    let key='predict',values={};
+    if(done){key=model.status==='landed'?'safe':'crash';values={v:signed(model.v),fuel:number(model.fuel/c.fuel0*100,0),score:model.score()};}
+    else if(model.fuel<=0)key='empty';
+    else if(model.t===0)key='predict';
+    else if(Math.abs(a.net)<1e-9)key='balanced';
+    else if(Math.abs(model.v)<1e-9)key='concept';
+    else if(model.v>0)key='rise';
+    else if(model.v<0&&a.net>0){key='brake';values={v:signed(model.v),a:number(a.net)};}
+    else if($('show-guide').checked&&model.v<-c.safeSpeed&&Number.isFinite(b.distance)&&b.distance>model.h){key='late';values={d:number(b.distance),h:number(model.h)};}
+    else if($('show-guide').checked&&model.v<-c.safeSpeed&&Number.isFinite(b.distance)&&model.h<=b.distance+Math.abs(model.v)*.5+2){key='window';values={d:number(b.distance)};}
+    else{key='fall';values={a:signed(a.net)};}
+    $('lesson-title').textContent=text(key+'Title');$('lesson-copy').textContent=text(key+'Copy',values);$('flight-insight').classList.toggle('warning',['late','crash','empty'].includes(key));
+  }
+  function simulate(dt){if(model.advance(dt,requested())){holding=false;setRunning(false);update();say(text(model.status==='landed'?'safeTitle':'crashTitle'));return true;}return false;}
+  $('play').addEventListener('click',()=>{setRunning(true);say(text('startedAnnouncement'));});
+  $('pause').addEventListener('click',()=>{holding=false;setRunning(false);update();say(text('pausedAnnouncement'));});
+  $('step').addEventListener('click',()=>{for(let i=0;i<12;i++)if(simulate(H))break;setRunning(false);update();draw();});
+  $('reset').addEventListener('click',reset);
+  $('thruster').addEventListener('click',()=>{latched=!latched;update();draw();});
+  $('throttle').addEventListener('input',event=>{power=Number(event.target.value)/100;update();draw();});
+  for(const [id,key,multiplier] of [['gravity','g',1],['height','h0',1],['initial-speed','v0',-1],['max-thrust','aMax',1],['fuel-budget','fuel0',1]])$(id).addEventListener('input',event=>{model.config[key]=Number(event.target.value)*multiplier;reset();});
+  for(const planet of ['moon','mars'])$(planet).addEventListener('click',()=>{model.config={...LanderPhysics.presets[planet]};reset();});
+  $('show-vectors').addEventListener('change',()=>{update();draw();});$('show-guide').addEventListener('change',()=>{update();draw();});
+  document.addEventListener('keydown',event=>{if(event.code!=='Space'||event.repeat||model.status!=='flight'||/^(INPUT|BUTTON|SELECT|TEXTAREA)$/.test(event.target?.tagName)||event.target?.isContentEditable)return;event.preventDefault();holding=true;update();draw();});
+  document.addEventListener('keyup',event=>{if(event.code==='Space'&&holding){holding=false;event.preventDefault();update();draw();}});
+  function suspend(){holding=false;if(running){setRunning(false);say(text('suspendedAnnouncement'));}update();draw();}
+  window.addEventListener('blur',suspend);document.addEventListener('visibilitychange',()=>{if(document.hidden)suspend();});
+  for(const link of document.querySelectorAll('.language-menu a'))link.addEventListener('click',()=>{
+    holding=false;setRunning(false);
+    try{sessionStorage.setItem(transferKey,JSON.stringify({flight:model.snapshot(),power,latched}));}catch{}
+  });
+  function resize(){const rect=canvas.getBoundingClientRect();if(rect.width<=0)return;width=rect.width;height=rect.height;const dpr=Math.min(window.devicePixelRatio||1,3);canvas.width=Math.round(width*dpr);canvas.height=Math.round(height*dpr);ctx.setTransform(dpr,0,0,dpr,0,0);draw();}
+  function draw(){
+    if(!ctx)return;const a=model.acceleration(requested()),b=model.braking(power),moon=model.config.planet==='moon';
+    const ground=height-58,ceiling=Math.max(model.config.h0*1.2,model.h*1.15,30),scale=(ground-70)/ceiling;
+    const x=width*.54,feet=ground-model.h*scale,y=feet-24,size=width<430?12:15;
+    ctx.clearRect(0,0,width,height);
+    const label=(s,x,y,color='#b8ccdb',align='left',font=12)=>{ctx.fillStyle=color;ctx.textAlign=align;ctx.font=font+'px -apple-system,BlinkMacSystemFont,sans-serif';ctx.fillText(s,x,y);};
+    const line=(points,color,w=1,dash=[])=>{ctx.beginPath();ctx.strokeStyle=color;ctx.lineWidth=w;ctx.setLineDash(dash);points.forEach((p,i)=>i?ctx.lineTo(p.x,p.y):ctx.moveTo(p.x,p.y));ctx.stroke();ctx.setLineDash([]);};
+    // Altitude grid expands with the flight; no invisible physical ceiling.
+    const interval=ceiling>500?Math.ceil(ceiling/500)*100:ceiling>150?50:20;
+    for(let h=0;h<=ceiling;h+=interval){const gy=ground-h*scale;if(gy<38)continue;line([{x:50,y:gy},{x:width-20,y:gy}],'#284052',1,[2,6]);label(number(h,0),42,gy+4,'#a5bfce','right');}
+    label(text('altitudeLabel'),18,23,'#bdd0dd','left',12);
+    // Sparse stars and terrain provide a readable flight environment.
+    for(let i=0;i<25;i++){const sx=60+((i*97+33)%Math.max(1,width-80)),sy=40+(i*43)%Math.max(1,ground-70);ctx.fillStyle=i%3?'#7396aa':'#d1e3ef';ctx.fillRect(sx,sy,i%3?1:2,1);}
+    ctx.fillStyle=moon?'#324752':'#644944';ctx.beginPath();ctx.moveTo(0,ground+8);
+    for(let i=0;i<=width;i+=35)ctx.lineTo(i,ground+8+Math.sin(i*.07)*5);ctx.lineTo(width,height);ctx.lineTo(0,height);ctx.closePath();ctx.fill();
+    ctx.fillStyle=moon?'#42565e':'#805951';for(let i=0;i<5;i++){ctx.beginPath();ctx.ellipse(width*(i+.4)/5,ground+30+(i%2)*8,18+i*3,4,0,0,Math.PI*2);ctx.fill();}
+    const padWidth=Math.min(126,width*.3);line([{x:x-padWidth/2,y:ground},{x:x+padWidth/2,y:ground}],model.status==='crashed'?'#efb958':'#75efc7',5);
+    label(text('platform'),x,ground+20,'#daf8ed','center',11);
+    if($('show-guide').checked&&Number.isFinite(b.distance)&&b.distance>0&&model.status==='flight'){
+      const gy=ground-b.distance*scale;if(gy>=42&&gy<ground){line([{x:58,y:gy},{x:width-18,y:gy}],'#77b9ff',1.5,[5,5]);label(text('guideLabel'),width-20,gy-7,'#9acbff','right',11);}
+    }
+    // The feet, rather than the center of the sprite, define h = 0.
+    ctx.save();ctx.translate(x,y);
+    if(a.thrust>0&&model.fuel>=0){const flame=10+a.u*18+Math.sin(model.t*43)*3;ctx.fillStyle='#75efc7';ctx.beginPath();ctx.moveTo(-5,14);ctx.lineTo(0,14+flame);ctx.lineTo(5,14);ctx.fill();ctx.fillStyle='#e8fff7';ctx.beginPath();ctx.moveTo(-3,14);ctx.lineTo(0,23);ctx.lineTo(3,14);ctx.fill();}
+    ctx.fillStyle=model.status==='crashed'?'#a78968':'#d1e3ed';ctx.strokeStyle='#87a9bf';ctx.lineWidth=2;ctx.beginPath();ctx.moveTo(-size,-10);ctx.lineTo(-size+5,-20);ctx.lineTo(size-5,-20);ctx.lineTo(size,-10);ctx.lineTo(size,11);ctx.lineTo(-size,11);ctx.closePath();ctx.fill();ctx.stroke();
+    ctx.fillStyle='#245fc5';ctx.fillRect(-size+6,-12,size*2-12,12);ctx.fillStyle='#a9d9ef';ctx.fillRect(-size+8,-10,4,7);
+    line([{x:-size+2,y:8},{x:-size-7,y:24},{x:-size-13,y:24}],'#d1e3ed',2.5);line([{x:size-2,y:8},{x:size+7,y:24},{x:size+13,y:24}],'#d1e3ed',2.5);
+    line([{x:0,y:-20},{x:0,y:-30},{x:5,y:-33}],'#b8d0df',1.5);ctx.restore();
+    if($('show-vectors').checked){
+      // A common 5 px/(m/s²) scale fits every allowed acceleration without capping.
+      const arrow=(dx,value,color,name,pixels=5)=>{const start={x:x+dx,y},length=Math.max(-85,Math.min(85,-value*pixels)),end={x:start.x,y:y+length};if(Math.abs(length)>1){line([start,end],color,2.5);const direction=Math.sign(length);line([{x:end.x-4,y:end.y-direction*7},end,{x:end.x+4,y:end.y-direction*7}],color,2);}label(name,start.x+(dx<0?-6:6),Math.max(44,Math.min(ground-4,end.y)),color,dx<0?'right':'left',12);};
+      arrow(-40,a.gravity,'#efb958','−g');arrow(36,a.thrust,'#75efc7','aₜ');arrow(68,a.net,'#77b9ff','a');arrow(-72,model.v,'#f2f8fc','v',3);
+    }
+    if(model.status!=='flight'){
+      const font=width<430?14:18,color=model.status==='landed'?'#75efc7':'#efb958';
+      ctx.font=font+'px -apple-system,BlinkMacSystemFont,sans-serif';
+      const lines=[];let row='';
+      for(const word of text(model.status==='landed'?'safeTitle':'crashTitle').split(' ')){
+        const next=row?row+' '+word:word;
+        if(row&&ctx.measureText(next).width>width-36){lines.push(row);row=word;}else row=next;
+      }
+      if(row)lines.push(row);
+      lines.forEach((s,i)=>label(s,width/2,48+i*(font+5),color,'center',font));
+      label(text('atContact')+' · v = '+signed(model.v)+' m/s',width/2,56+lines.length*(font+5),'#e1edf6','center',13);
+    }
+  }
+  function frame(now){if(previous===null)previous=now;const elapsed=Math.min(.1,(now-previous)/1000);previous=now;if(running){accumulator+=elapsed;while(accumulator>=H&&running){accumulator-=H;simulate(H);}draw();}if(now-lastUpdate>=80){update();lastUpdate=now;}requestAnimationFrame(frame);}
+  window.addEventListener('resize',resize);if(typeof ResizeObserver!=='undefined')new ResizeObserver(resize).observe(canvas);
+  syncControls();setRunning(false);update();resize();requestAnimationFrame(frame);
+})();
+</script>
+</body>
+</html>
