@@ -1,6 +1,6 @@
-# Motion Lab design guidelines
+# Phisicos design guidelines
 
-These guidelines extend **Speed & Velocity: a physics videogame** to a consistent family of multilingual HTML5 physics games. Lunar Lander: Eco-Mission is the second game. Preserve existing games and their physics when adding another.
+These guidelines extend **Speed & Velocity: an educational simulation game** to a consistent family of multilingual HTML5 educational simulation games. Lunar Lander: Eco-Mission, Unit Pipeline, the Powers-of-Ten Probe, River Crossing, Orienteering Walk, and Force Table follow it. Preserve existing games and their physics when adding another.
 
 ## 1. Experience and teaching
 
@@ -90,13 +90,33 @@ Safe landing is `|v_contact| ≤ 1.5 m/s`; precision is `≤ 0.5 m/s`. These are
 
 The optional braking guide uses `d_stop = v² / (2a_available)` for a descending module when selected propulsion exceeds gravity. It predicts stopping at zero velocity at the selected power, assumes sufficient fuel, and warns when that assumption fails. If propulsion does not exceed gravity, show that no finite braking distance is available. Expand the altitude view when the module rises instead of silently imposing a physical ceiling.
 
+## 6a. Unit Pipeline contract
+
+The tank is a rectangular box with vertical walls; the pump delivers a constant volumetric flow rate Q. Store V in m³ and Q in m³/s, derived from the given everyday values; the fill time is `t = V ÷ Q`, the level is `h = V_filled ÷ A`, and the surface rises at `v = Q ÷ A`. Solve the tank-full event exactly at `t = V ÷ Q`, then stop the pump (v = 0).
+
+Every conversion factor is an exact equality written as a fraction, so its value is 1. The learner's chain multiplies `V ÷ Q` by factors; a prediction is valid only when the units reduce to s. Never read a number with leftover units as a time: show the leftover units, and flag a factor that increases the total unit exponent. Chain edits and level changes reset elapsed time. Volumetric flow rate is a scalar, so it is labelled, not drawn as a vector; the white surface-velocity arrow states its per-level scale. Do not size the timeline from the true fill time before the tank is full.
+
+## 6b. Powers-of-Ten Probe contract
+
+Each trip is straight-line motion at constant speed from prefixed givens converted to SI (`t = d ÷ v`). Arrival is solved exactly at `t = d ÷ v`. Keep the SI values of d and v hidden until launch, because that conversion is the learner's task. Predictions are entered as `a × 10ⁿ s`; accept any positive a, but credit scientific notation only for `1 ≤ a < 10`. The right power of ten means `|log₁₀(prediction ÷ actual)| < 0.5`; accuracy means within 2%.
+
+Playback is scaled by a stated power of ten (`k` physical seconds per playback second), chosen so each trip lasts 3–15 s. For both measurement games, a Step advances 0.10 s of playback, which equals 0.10 s × the playback factor of simulated time; at ×1 this matches the family rule. The ruler uses one prefix per view, chosen from the view width; the velocity arrow shows the distance covered in 1 s of playback on the same ruler and is labelled when capped. Landmarks are drawn to scale only when they are between 4% and 95% of the view width.
+
+## 6c. Vector games contract
+
+**River Crossing.** x points downstream and y across the river; heading θ is measured from straight across, positive upstream, limited to ±75°. The ground velocity is `v = v_b + v_w` with `v_b = s(−sin θ, cos θ)` and `v_w = (u, 0)`. The landing is solved exactly at `t = W ÷ v_y`. Draw v_b and v_w tip to tail with their sum v, at a stated arrow scale. The least-drift mission uses `x_min = W·√(u² − s²) ÷ s` when the current is faster than the boat. Playback runs ×5.
+
+**Orienteering Walk.** Legs are (distance, bearing clockwise from north); components are (east, north). The hiker walks at a constant 1.5 m/s with every corner and the finish solved exactly from the path length. Always show the scalar distance walked next to the displacement vector. A zero displacement has no direction: never display a bearing for it. Reversing the leg order must not change the displacement; multiplying by −1 reverses every leg. Playback runs ×60.
+
+**Force Table.** Angles are counter-clockwise from 0°. Forces are constant during the short slide. The ring (0.2 kg) is held by static friction while `|ΣF| ≤ 0.05 N`; otherwise it accelerates along ΣF at `(|ΣF| − 0.04 N) ÷ m` until it reaches the stop pin 4 cm from the centre, solved exactly. A balanced ring must hold for 0.5 s. Keep the net force hidden until release, show Σ|F| as a contrasting scalar, and label any arrow exaggeration (ΣF is drawn ×3). Playback runs ×0.1 (slow motion).
+
 ## 7. Multilingual behavior
 
 Support the existing eight languages: English, Spanish, French, German, Dutch, Finnish, Norwegian Bokmål, and Danish. Translate visible UI, canvas labels, dynamic explanations, accessibility labels, errors, mission feedback, page titles, descriptions, and instructions. Keep physics identifiers and formulas independent of language.
 
 Use stable translation keys and named interpolation fields such as `{v}` and `{fuel}`. Build validation must reject missing translations or changed interpolation fields. Format numbers with the selected locale; keep numeric form values and internal physics state language-independent. Use semicolons for vector components in decimal-comma locales where needed.
 
-Language links go to the equivalent game, not the homepage. For Lunar Lander, a one-time session transfer pauses and restores the current flight on language navigation; it does not save a leaderboard or student record. If storage is unavailable, keep navigation functional without claiming state preservation.
+Language links go to the equivalent game, not the homepage. For every template-driven game, a one-time session transfer pauses and restores the current state (flight, tank and chain, or trip, prediction and zoom) on language navigation; it does not save a leaderboard or student record. If storage is unavailable, keep navigation functional without claiming state preservation.
 
 ## 8. Game catalog and delivery
 

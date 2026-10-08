@@ -1,0 +1,314 @@
+<!doctype html>
+<html lang="en">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Unit Pipeline · Phisicos</title>
+<style>
+.pipeline-page .palette{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:10px}.pipeline-page .tile-button{display:flex;align-items:center;justify-content:center;gap:8px;border:1px solid #9cc7b8;background:#f2faf7;color:var(--ink);border-radius:10px;padding:8px 6px;min-height:58px;font-weight:700}.pipeline-page .tile-button:hover:enabled{background:#e1f2eb}
+.frac{display:inline-grid;text-align:center;font:600 13px/1.3 ui-monospace,SFMono-Regular,monospace}.frac span:first-child{border-bottom:1.5px solid currentColor;padding:0 3px 1px}.frac span:last-child{padding-top:1px}
+.pipeline-page .chain{list-style:none;margin:14px 0 0;padding:0;display:grid;gap:6px}.pipeline-page .chain li{display:flex;align-items:center;gap:6px;border:1px solid var(--line);border-radius:9px;padding:5px 5px 5px 10px;background:#fff}.pipeline-page .chain li.wrong{border-color:#e6c377;background:#fff7e6}
+.chain-factor{flex:1;min-width:0;font:600 12px ui-monospace,SFMono-Regular,monospace;white-space:nowrap}.pipeline-page .mini{border:1px solid var(--line);background:#f4f7f9;border-radius:8px;min-height:44px;min-width:44px;padding:4px 8px;font-size:13px;font-weight:600;color:var(--ink)}.pipeline-page .clear-chain{width:100%;margin-top:10px}
+</style>
+</head>
+<body>
+<div class="shell module-page pipeline-page">
+__HEADER__
+<main id="main-content">
+__BREADCRUMBS__
+
+<div class="masthead"><div><h1>{{title}}</h1><p class="intro">{{subtitle}}</p></div><div class="concept-tags"><span class="tag speed">{{tag1}}</span><span class="tag velocity">{{tag2}}</span></div></div>
+<noscript><p class="no-js">{{noScript}}</p></noscript>
+<div class="layout">
+<aside class="sidebar" aria-label="{{setup}}">
+  <section class="control-section"><h2 class="eyebrow">{{setup}}</h2><div class="mission-list" role="group" aria-label="{{setup}}">
+    <button id="level-0" aria-pressed="true"><b>1 · {{level0}}</b><span id="given-0">V = 1.5 L · Q = 50 mL/s</span></button>
+    <button id="level-1" aria-pressed="false"><b>2 · {{level1}}</b><span id="given-1">V = 30000 cm³ · Q = 0.5 L/s</span></button>
+    <button id="level-2" aria-pressed="false"><b>3 · {{level2}}</b><span id="given-2">V = 0.036 m³ · Q = 24 L/min</span></button>
+    <button id="level-3" aria-pressed="false"><b>4 · {{level3}}</b><span id="given-3">V = 0.36 m³ · Q = 1.8 m³/h</span></button>
+    <button id="level-4" aria-pressed="false"><b>5 · {{level4}}</b><span id="given-4">V = 2400 cm³ · Q = 480 mL/min</span></button>
+  </div><p class="hint">{{setupNote}}</p></section>
+  <section class="control-section"><h2 class="eyebrow">{{build}}</h2><p class="hint">{{paletteHint}}</p>
+    <div class="palette" role="group" aria-label="{{paletteLabel}}">
+      <button id="tile-L-mL" class="tile-button" aria-label="{{addFactor}}: 1000 mL / 1 L">+ <span class="frac" aria-hidden="true"><span>1000 mL</span><span>1 L</span></span></button>
+      <button id="tile-m3-L" class="tile-button" aria-label="{{addFactor}}: 1000 L / 1 m³">+ <span class="frac" aria-hidden="true"><span>1000 L</span><span>1 m³</span></span></button>
+      <button id="tile-m-cm" class="tile-button" aria-label="{{addFactor}}: 100 cm / 1 m">+ <span class="frac" aria-hidden="true"><span>100 cm</span><span>1 m</span></span></button>
+      <button id="tile-L-cm3" class="tile-button" aria-label="{{addFactor}}: 1000 cm³ / 1 L">+ <span class="frac" aria-hidden="true"><span>1000 cm³</span><span>1 L</span></span></button>
+      <button id="tile-mL-cm3" class="tile-button" aria-label="{{addFactor}}: 1 cm³ / 1 mL">+ <span class="frac" aria-hidden="true"><span>1 cm³</span><span>1 mL</span></span></button>
+      <button id="tile-min-s" class="tile-button" aria-label="{{addFactor}}: 60 s / 1 min">+ <span class="frac" aria-hidden="true"><span>60 s</span><span>1 min</span></span></button>
+      <button id="tile-h-min" class="tile-button" aria-label="{{addFactor}}: 60 min / 1 h">+ <span class="frac" aria-hidden="true"><span>60 min</span><span>1 h</span></span></button>
+    </div>
+    <ol class="chain" id="chain-list" aria-label="{{chainLabel}}">
+      <li id="slot-0" hidden><span class="chain-factor" id="factor-0"></span><button id="flip-0" class="mini">⇅ {{flip}}</button><button id="remove-0" class="mini" aria-label="{{remove}}">✕</button></li>
+      <li id="slot-1" hidden><span class="chain-factor" id="factor-1"></span><button id="flip-1" class="mini">⇅ {{flip}}</button><button id="remove-1" class="mini" aria-label="{{remove}}">✕</button></li>
+      <li id="slot-2" hidden><span class="chain-factor" id="factor-2"></span><button id="flip-2" class="mini">⇅ {{flip}}</button><button id="remove-2" class="mini" aria-label="{{remove}}">✕</button></li>
+      <li id="slot-3" hidden><span class="chain-factor" id="factor-3"></span><button id="flip-3" class="mini">⇅ {{flip}}</button><button id="remove-3" class="mini" aria-label="{{remove}}">✕</button></li>
+      <li id="slot-4" hidden><span class="chain-factor" id="factor-4"></span><button id="flip-4" class="mini">⇅ {{flip}}</button><button id="remove-4" class="mini" aria-label="{{remove}}">✕</button></li>
+      <li id="slot-5" hidden><span class="chain-factor" id="factor-5"></span><button id="flip-5" class="mini">⇅ {{flip}}</button><button id="remove-5" class="mini" aria-label="{{remove}}">✕</button></li>
+    </ol>
+    <p class="hint" id="chain-empty">{{chainEmpty}}</p>
+    <button id="clear-chain" class="secondary clear-chain" disabled>{{clear}}</button>
+    <div class="readout" id="prediction-box"><span>{{prediction}}</span><strong id="prediction-value">—</strong><p class="hint" id="units-state">{{unitsGoal}}</p></div>
+  </section>
+  <section class="control-section"><h2 class="eyebrow">{{observe}}</h2><label class="check"><input id="show-vectors" type="checkbox" checked>{{vectors}}</label><label class="check"><input id="show-prediction" type="checkbox" checked>{{predictionMarker}}</label>
+    <p class="field-label" id="speed-label">{{playback}}</p><div class="segmented three" role="group" aria-labelledby="speed-label"><button id="speed-1" aria-pressed="true">×1</button><button id="speed-10" aria-pressed="false">×10</button><button id="speed-60" aria-pressed="false">×60</button></div><p class="hint">{{playbackNote}}</p></section>
+</aside>
+<div class="workspace">
+  <section class="scene" aria-label="{{sceneTitle}}"><div class="scene-top"><div><h2 class="scene-title">{{sceneTitle}}</h2><p class="scene-subtitle" id="level-label">{{level0}}</p></div><span class="status" id="fill-status"><i class="status-dot" aria-hidden="true"></i><span id="fill-status-text">{{ready}}</span></span></div>
+    <div class="module-stage"><canvas id="pipeline-canvas" role="img" aria-label="{{canvasLabel}}">{{noScript}}</canvas></div>
+    <div class="legend"><span><i class="line-key blue"></i>{{waterLegend}}</span><span><i class="line-key white"></i>{{velocityLegend}}</span><span><i class="line-key mint"></i>{{timeLegend}}</span><span><i class="line-key orange"></i>{{predictionLegend}}</span></div>
+    <div class="module-equation"><span>{{chainTitle}}</span><output id="chain-equation">1.5 L ÷ 50 mL/s</output></div>
+    <div class="transport"><button id="play" class="primary">{{play}}</button><button id="pause" disabled>{{pause}}</button><button id="step">{{step}}</button><button id="reset" class="reset">{{reset}}</button></div>
+  </section>
+  <section class="metrics" aria-label="{{observe}}">
+    <div class="metric scalar"><h3 class="metric-label">{{time}}</h3><p class="metric-value"><span id="time-value">0.00</span> <small>s</small></p><p class="metric-equation">t</p></div>
+    <div class="metric scalar"><h3 class="metric-label">{{volume}}</h3><p class="metric-value"><span id="volume-value">0.00</span> <small>m³</small></p><p class="metric-components" id="volume-litres">= 0.00 L</p><p class="metric-equation">V = Q · t</p></div>
+    <div class="metric scalar"><h3 class="metric-label">{{flow}}</h3><p class="metric-value"><span id="flow-value">5.00 × 10⁻⁵</span> <small>m³/s</small></p><p class="metric-components" id="flow-given">= 50 mL/s</p><p class="metric-equation">Q</p></div>
+    <div class="metric scalar"><h3 class="metric-label">{{level}}</h3><p class="metric-value"><span id="level-value">0.000</span> <small>m</small></p><p class="metric-equation">h = V / A</p></div>
+    <div class="metric vector"><h3 class="metric-label">{{surface}}</h3><p class="metric-value"><span id="surface-value">+5.00 × 10⁻³</span> <small>m/s</small></p><p class="metric-components">{{upward}}</p><p class="metric-equation">v = Q / A</p></div>
+  </section>
+  <div class="insight" id="insight"><span class="insight-icon" aria-hidden="true">↗</span><div><strong id="lesson-title">{{predictTitle}}</strong><p id="lesson-copy">{{predictCopy}}</p></div></div>
+  <section class="challenge"><div class="mission-heading"><h2 class="challenge-title">{{missionTitle}}</h2><div class="score-card"><span>{{score}}</span><strong id="mission-score">—</strong></div></div><p class="mission-copy">{{missionCopy}}</p><div class="badges"><span id="units-badge">✓ {{unitsBadge}}</span><span id="short-badge">◎ {{shortBadge}}</span><span id="confirm-badge">⏱ {{confirmBadge}}</span></div></section>
+</div>
+</div>
+<article class="learning-content"><section><h2>{{guideTitle}}</h2><ol><li>{{instruction1}}</li><li>{{instruction2}}</li><li>{{instruction3}}</li><li>{{instruction4}}</li></ol></section><section><h2>{{conceptTitle}}</h2><p>{{conceptCopy}}</p><aside class="worked-example"><h3>{{exampleTitle}}</h3><p>{{exampleCopy}}</p></aside></section><section><h2>{{modelTitle}}</h2><p>{{modelCopy}}</p><p class="hint">{{sourceLabel}}: <a href="https://www.bipm.org/en/publications/si-brochure">BIPM · SI Brochure</a></p></section></article>
+<p class="language-note" id="language-note">{{languageNote}}</p>
+</main>
+__FOOTER__
+<p class="sr-only" id="announcement" role="status" aria-live="polite"></p>
+</div>
+<script id="pipeline-model">
+class FillModel {
+  // Each tile is an exact equality written as top/bottom, so its value is 1.
+  static tiles = {
+    'L-mL':{top:[1000,{mL:1}],bottom:[1,{L:1}]},
+    'm3-L':{top:[1000,{L:1}],bottom:[1,{m:3}]},
+    'm-cm':{top:[100,{cm:1}],bottom:[1,{m:1}]},
+    'L-cm3':{top:[1000,{cm:3}],bottom:[1,{L:1}]},
+    'mL-cm3':{top:[1,{cm:3}],bottom:[1,{mL:1}]},
+    'min-s':{top:[60,{s:1}],bottom:[1,{min:1}]},
+    'h-min':{top:[60,{min:1}],bottom:[1,{h:1}]}
+  };
+  // Tank dimensions are SI metres (width, depth, height); given values keep the learner's units.
+  static levels = [
+    {id:'jug',dims:[.1,.1,.15],dimUnit:'cm',volume:[1.5,{L:1}],flow:[50,{mL:1,s:-1}],palette:['L-mL','m3-L','min-s'],optimal:1,speed:1},
+    {id:'aquarium',dims:[.4,.25,.3],dimUnit:'cm',volume:[30000,{cm:3}],flow:[.5,{L:1,s:-1}],palette:['m-cm','m3-L','min-s','h-min'],optimal:4,speed:1},
+    {id:'barrel',dims:[.3,.3,.4],dimUnit:'m',volume:[.036,{m:3}],flow:[24,{L:1,min:-1}],palette:['m3-L','L-mL','min-s','h-min'],optimal:2,speed:10},
+    {id:'pool',dims:[1.2,.5,.6],dimUnit:'m',volume:[.36,{m:3}],flow:[1.8,{m:3,h:-1}],palette:['m3-L','m-cm','min-s','h-min'],optimal:2,speed:60},
+    {id:'beaker',dims:[.2,.1,.12],dimUnit:'cm',volume:[2400,{cm:3}],flow:[480,{mL:1,min:-1}],palette:['L-mL','L-cm3','mL-cm3','min-s','h-min'],optimal:2,speed:10}
+  ];
+  static si = {m:1,cm:.01,L:1e-3,mL:1e-6,s:1,min:60,h:3600};
+  static order = ['m','cm','L','mL','s','min','h'];
+  static maxChain = 6;
+  static sup(n){return String(n).replace(/[-0-9]/g,c=>'⁻⁰¹²³⁴⁵⁶⁷⁸⁹'['-0123456789'.indexOf(c)]);}
+  static add(a,b,sign = 1){
+    const out={...a};
+    for(const [unit,exp] of Object.entries(b)){out[unit]=(out[unit]||0)+sign*exp;if(out[unit]===0)delete out[unit];}
+    return out;
+  }
+  static toSI([value,units]){return Object.entries(units).reduce((v,[unit,exp])=>v*FillModel.si[unit]**exp,value);}
+  static complexity(units){return Object.values(units).reduce((sum,exp)=>sum+Math.abs(exp),0);}
+  static isSeconds(units){const keys=Object.keys(units);return keys.length===1&&units.s===1;}
+  static formatUnits(units){
+    const part=([unit,exp])=>unit+(Math.abs(exp)===1?'':FillModel.sup(Math.abs(exp)));
+    const sorted=Object.entries(units).sort((a,b)=>FillModel.order.indexOf(a[0])-FillModel.order.indexOf(b[0]));
+    const top=sorted.filter(([,e])=>e>0).map(part),bottom=sorted.filter(([,e])=>e<0).map(part);
+    if(!top.length&&!bottom.length)return '';
+    // SI style: a denominator with several units is written in parentheses.
+    return (top.join('·')||'1')+(bottom.length?'/'+(bottom.length>1?'('+bottom.join('·')+')':bottom[0]):'');
+  }
+  constructor(level = 0){this.setLevel(level);}
+  setLevel(level){this.level=level;this.config=FillModel.levels[level];this.chain=[];this.reset();}
+  reset(){this.t=0;this.status='filling';}
+  volume(){return FillModel.toSI(this.config.volume);}
+  flow(){return FillModel.toSI(this.config.flow);}
+  area(){return this.config.dims[0]*this.config.dims[1];}
+  fillTime(){return this.volume()/this.flow();}
+  filled(){return this.status==='full'?this.volume():Math.min(this.volume(),this.flow()*this.t);}
+  surfaceSpeed(){return this.status==='full'?0:this.flow()/this.area();}
+  advance(dt){
+    if(!Number.isFinite(dt)||dt<0)throw new Error('Invalid timestep');
+    if(this.status==='full')return null;
+    // The tank-full event is solved exactly instead of detected after a step.
+    const T=this.fillTime();
+    if(this.t+dt>=T-1e-12){this.t=T;this.status='full';return {t:T};}
+    this.t+=dt;return null;
+  }
+  factor(item){
+    const tile=FillModel.tiles[item.id],[top,bottom]=item.flipped?[tile.bottom,tile.top]:[tile.top,tile.bottom];
+    return {value:top[0]/bottom[0],units:FillModel.add(top[1],bottom[1],-1),top,bottom};
+  }
+  start(){return {value:this.config.volume[0]/this.config.flow[0],units:FillModel.add(this.config.volume[1],this.config.flow[1],-1)};}
+  evaluate(){
+    let result=this.start();const steps=[];
+    for(const item of this.chain){
+      const f=this.factor(item),next={value:result.value*f.value,units:FillModel.add(result.units,f.units)};
+      steps.push({worse:FillModel.complexity(next.units)>FillModel.complexity(result.units)});result=next;
+    }
+    return {...result,steps};
+  }
+  addFactor(id){if(!this.config.palette.includes(id)||this.chain.length>=FillModel.maxChain)return false;this.chain.push({id,flipped:false});this.reset();return true;}
+  flip(i){if(!this.chain[i])return false;this.chain[i].flipped=!this.chain[i].flipped;this.reset();return true;}
+  remove(i){if(!this.chain[i])return false;this.chain.splice(i,1);this.reset();return true;}
+  clearChain(){this.chain=[];this.reset();}
+  prediction(){const e=this.evaluate();return {value:e.value,ok:FillModel.isSeconds(e.units)};}
+  score(){
+    const p=this.prediction();
+    if(this.status!=='full'||!p.ok||Math.abs(p.value-this.t)>.02*this.t)return 0;
+    return 100+Math.max(0,50-25*(this.chain.length-this.config.optimal));
+  }
+  snapshot(){return {level:this.level,chain:this.chain.map(c=>({...c})),t:this.t,status:this.status};}
+  restore(saved){
+    const level=FillModel.levels[saved?.level];
+    if(!Number.isInteger(saved?.level)||!level||!Array.isArray(saved.chain)||saved.chain.length>FillModel.maxChain)return false;
+    if(!saved.chain.every(c=>level.palette.includes(c?.id)&&typeof c.flipped==='boolean'))return false;
+    this.setLevel(saved.level);
+    if(!Number.isFinite(saved.t)||saved.t<0||saved.t>this.fillTime()+1e-9||!['filling','full'].includes(saved.status)){this.setLevel(0);return false;}
+    this.chain=saved.chain.map(c=>({id:c.id,flipped:c.flipped}));
+    this.t=saved.status==='full'?this.fillTime():saved.t;this.status=saved.status;return true;
+  }
+}
+globalThis.FillModel=FillModel;
+</script>
+<script id="pipeline-locale" type="application/json">__LOCALE__</script>
+<script id="pipeline-interface">
+(() => {
+  'use strict';
+  const $=id=>document.getElementById(id),locale=JSON.parse($('pipeline-locale').textContent);
+  const text=(key,values={})=>locale.strings[key].replace(/\{(\w+)\}/g,(_,name)=>values[name]??'{'+name+'}');
+  const number=(n,d=2)=>Math.abs(n)<.5*10**-d?(0).toLocaleString(locale.lang,{minimumFractionDigits:d,maximumFractionDigits:d}):n.toLocaleString(locale.lang,{minimumFractionDigits:d,maximumFractionDigits:d,useGrouping:false});
+  const plain=n=>n.toLocaleString(locale.lang,{maximumFractionDigits:6,useGrouping:false});
+  const sci=(n,d=2)=>{
+    if(!Number.isFinite(n)||n===0)return number(0,d);
+    let e=Math.floor(Math.log10(Math.abs(n))),m=n/10**e;
+    if(Math.abs(m)>=10-.5*10**-d){m/=10;e++;}
+    return number(m,d)+' × 10'+FillModel.sup(e);
+  };
+  // Small or huge chain results switch to scientific notation so they stay readable.
+  const amount=n=>{const a=Math.abs(n);return a!==0&&(a<.01||a>=1e6)?sci(n):number(n);};
+  const quantity=([value,units])=>plain(value)+' '+FillModel.formatUnits(units);
+  const model=new FillModel();
+  const canvas=$('pipeline-canvas'),ctx=canvas.getContext('2d');
+  const H=1/120,SPEEDS=[1,10,60],MAX=FillModel.maxChain,transferKey='phisicos-pipeline-language-transfer';
+  let running=false,speed=model.config.speed,previous=null,accumulator=0,lastUpdate=0,width=800,height=410;
+  const say=message=>{$('announcement').textContent=message;};
+  try{
+    const data=JSON.parse(sessionStorage.getItem(transferKey)||'null');sessionStorage.removeItem(transferKey);
+    if(data&&model.restore(data.state))speed=SPEEDS.includes(data.speed)?data.speed:model.config.speed;
+  }catch{$('language-note').hidden=true;}
+  const factorText=item=>{const f=model.factor(item);return plain(f.top[0])+' '+FillModel.formatUnits(f.top[1])+' / '+plain(f.bottom[0])+' '+FillModel.formatUnits(f.bottom[1]);};
+  function setRunning(value){
+    const done=model.status==='full';running=value&&!done;previous=null;accumulator=0;
+    $('play').disabled=running||done;$('pause').disabled=!running;$('step').disabled=running||done;
+    $('fill-status').classList.toggle('running',running);
+    $('fill-status-text').textContent=text(done?'full':running?'running':model.t?'paused':'ready');
+  }
+  function sync(){
+    FillModel.levels.forEach((level,i)=>{$('level-'+i).setAttribute('aria-pressed',String(i===model.level));$('given-'+i).textContent='V = '+quantity(level.volume)+' · Q = '+quantity(level.flow);});
+    for(const id of Object.keys(FillModel.tiles))$('tile-'+id).hidden=!model.config.palette.includes(id);
+    for(const s of SPEEDS)$('speed-'+s).setAttribute('aria-pressed',String(s===speed));
+    $('level-label').textContent=text('level'+model.level);
+  }
+  function update(){
+    const c=model.config,e=model.evaluate(),ok=FillModel.isSeconds(e.units),done=model.status==='full',n=model.chain.length;
+    const units=FillModel.formatUnits(e.units),filled=model.filled(),v=model.surfaceSpeed();
+    for(let i=0;i<MAX;i++){
+      const item=model.chain[i];$('slot-'+i).hidden=!item;
+      $('factor-'+i).textContent=item?factorText(item):'';$('slot-'+i).classList.toggle('wrong',Boolean(item&&e.steps[i].worse));
+    }
+    $('chain-empty').hidden=n>0;$('clear-chain').disabled=n===0;
+    for(const id of Object.keys(FillModel.tiles))$('tile-'+id).disabled=n>=MAX;
+    $('prediction-value').textContent=amount(e.value)+' '+units;$('prediction-box').classList.toggle('ok',ok);
+    $('units-state').textContent=text(ok?'unitsOk':'unitsLeft',{units});
+    $('chain-equation').textContent=[quantity(c.volume)+' ÷ '+quantity(c.flow),...model.chain.map(item=>'('+factorText(item)+')')].join(' × ')+' = '+amount(e.value)+' '+units;
+    $('time-value').textContent=number(model.t);
+    $('volume-value').textContent=sci(filled);$('volume-litres').textContent='= '+number(filled*1000)+' L';
+    $('flow-value').textContent=sci(model.flow());$('flow-given').textContent='= '+quantity(c.flow);
+    $('level-value').textContent=number(filled/model.area(),3);
+    $('surface-value').textContent=(v>0?'+':'')+sci(v);
+    let key,values={};
+    if(done){key=ok?'confirmed':'mismatch';values={t:number(model.t),p:amount(e.value),units,score:model.score()};}
+    else if(model.t>0){
+      if(!ok&&e.value<model.t){key='passed';values={p:amount(e.value),units};}
+      else{key='filling';values={pct:number(filled/model.volume()*100,0),t:number(model.t),v:sci(v)};}
+    }
+    else if(n===0){key='predict';values={start:amount(e.value)+' '+units};}
+    else if(e.steps[n-1].worse){key='flip';values={units};}
+    else if(ok){key='ready';values={p:amount(e.value)};}
+    else{key='leftover';values={units};}
+    $('lesson-title').textContent=text(key+'Title',values);$('lesson-copy').textContent=text(key+'Copy',values);
+    $('insight').classList.toggle('warning',['flip','passed','mismatch'].includes(key));
+    $('mission-score').textContent=done?String(model.score()):'—';
+    $('units-badge').classList.toggle('earned',ok);$('short-badge').classList.toggle('earned',ok&&n===c.optimal);$('confirm-badge').classList.toggle('earned',done&&ok);
+  }
+  function refresh(){setRunning(false);update();draw();}
+  function simulate(dt){if(model.advance(dt*speed)){setRunning(false);update();say(text(model.prediction().ok?'confirmedTitle':'mismatchTitle'));return true;}return false;}
+  $('play').addEventListener('click',()=>{setRunning(true);update();say(text('startedAnnouncement'));});
+  $('pause').addEventListener('click',()=>{setRunning(false);update();say(text('pausedAnnouncement'));});
+  // Step advances 0.10 s of playback, which is 0.10 s × playback speed of simulated time.
+  $('step').addEventListener('click',()=>{for(let i=0;i<12;i++)if(simulate(H))break;setRunning(false);update();draw();});
+  $('reset').addEventListener('click',()=>{model.reset();refresh();say(text('resetAnnouncement'));});
+  FillModel.levels.forEach((_,i)=>$('level-'+i).addEventListener('click',()=>{model.setLevel(i);speed=model.config.speed;sync();refresh();say(text('levelAnnouncement',{name:text('level'+i)}));}));
+  for(const id of Object.keys(FillModel.tiles))$('tile-'+id).addEventListener('click',()=>{if(model.addFactor(id))refresh();});
+  for(let i=0;i<MAX;i++){$('flip-'+i).addEventListener('click',()=>{if(model.flip(i))refresh();});$('remove-'+i).addEventListener('click',()=>{if(model.remove(i))refresh();});}
+  $('clear-chain').addEventListener('click',()=>{model.clearChain();refresh();});
+  for(const s of SPEEDS)$('speed-'+s).addEventListener('click',()=>{speed=s;sync();update();draw();});
+  for(const id of ['show-vectors','show-prediction'])$(id).addEventListener('change',()=>{update();draw();});
+  function suspend(){if(running){setRunning(false);say(text('suspendedAnnouncement'));}update();draw();}
+  window.addEventListener('blur',suspend);document.addEventListener('visibilitychange',()=>{if(document.hidden)suspend();});
+  for(const link of document.querySelectorAll('.language-menu a'))link.addEventListener('click',()=>{
+    setRunning(false);
+    try{sessionStorage.setItem(transferKey,JSON.stringify({state:model.snapshot(),speed}));}catch{}
+  });
+  function resize(){const rect=canvas.getBoundingClientRect();if(rect.width<=0)return;width=rect.width;height=rect.height;const dpr=Math.min(window.devicePixelRatio||1,3);canvas.width=Math.round(width*dpr);canvas.height=Math.round(height*dpr);ctx.setTransform(dpr,0,0,dpr,0,0);draw();}
+  const niceStep=raw=>{const p=10**Math.floor(Math.log10(raw)),m=raw/p;return (m<=1?1:m<=2?2:m<=5?5:10)*p;};
+  function draw(){
+    if(!ctx)return;
+    const c=model.config,e=model.evaluate(),ok=FillModel.isSeconds(e.units),done=model.status==='full',T=model.fillTime();
+    const V=model.volume(),fraction=model.filled()/V,units=FillModel.formatUnits(e.units),v=model.surfaceSpeed();
+    ctx.clearRect(0,0,width,height);
+    const label=(s,x,y,color='#b8ccdb',align='left',font=12)=>{ctx.fillStyle=color;ctx.textAlign=align;ctx.font=font+'px -apple-system,BlinkMacSystemFont,sans-serif';ctx.fillText(s,x,y);};
+    const line=(points,color,w=1,dash=[])=>{ctx.beginPath();ctx.strokeStyle=color;ctx.lineWidth=w;ctx.setLineDash(dash);points.forEach((p,i)=>i?ctx.lineTo(p.x,p.y):ctx.moveTo(p.x,p.y));ctx.stroke();ctx.setLineDash([]);};
+    const axisY=height-38,floor=axisY-58,top=78;
+    const [w,depth,h]=c.dims,scale=Math.min(Math.min(width*.4,330)/w,(floor-top)/h),tw=w*scale,th=h*scale;
+    const tx=Math.max(78,width*.33-tw/2),ty=floor-th,wy=floor-th*fraction;
+    const dim=m=>plain(Number((m/(c.dimUnit==='cm'?.01:1)).toPrecision(6)))+' '+c.dimUnit;
+    label(text('dimensions',{w:dim(w),d:dim(depth),h:dim(h)}),18,24,'#bdd0dd');
+    line([{x:18,y:floor},{x:width-18,y:floor}],'#284052',1);
+    // Water fills from the floor; its height follows V / A exactly.
+    ctx.fillStyle='#1d4f7a';ctx.fillRect(tx,wy,tw,floor-wy);
+    if(fraction>0)line([{x:tx,y:wy},{x:tx+tw,y:wy}],'#77b9ff',2.5);
+    line([{x:tx,y:ty-6},{x:tx,y:floor},{x:tx+tw,y:floor},{x:tx+tw,y:ty-6}],'#d1e3ed',2.5);
+    for(const q of [.25,.5,.75,1]){const gy=floor-th*q,litres=V*q*1000;line([{x:tx-8,y:gy},{x:tx,y:gy}],'#8fb0c4',1.5);label(number(litres,litres<10?2:1)+' L',tx-12,gy+4,'#a5bfce','right',11);}
+    // Pump, pipe, and stream. Volumetric flow rate is a scalar, so it is labelled rather than drawn as a vector.
+    const pumpX=Math.min(width-18-112,Math.max(tx+tw+24,width*.64)),pipeY=Math.max(58,ty-30),nozzle=tx+tw*.72;
+    ctx.fillStyle='#163043';ctx.strokeStyle='#416075';ctx.lineWidth=1;ctx.fillRect(pumpX,pipeY-24,112,48);ctx.strokeRect(pumpX,pipeY-24,112,48);
+    label(text('pumpLabel'),pumpX+8,pipeY-7,'#bdd0dd','left',11);label('Q = '+quantity(c.flow),pumpX+8,pipeY+11,'#e1edf6','left',12);
+    line([{x:pumpX,y:pipeY},{x:nozzle,y:pipeY},{x:nozzle,y:pipeY+10}],'#8fb0c4',5);
+    if(!done&&model.t>0){ctx.lineDashOffset=-model.t*40;line([{x:nozzle,y:pipeY+12},{x:nozzle,y:wy}],'#77b9ff',3,[7,5]);ctx.lineDashOffset=0;}
+    if($('show-vectors').checked&&!done){
+      // Fixed 40 px arrow per level; the stated scale keeps the magnitude honest.
+      const ax=tx+tw*.3,end=wy-40;line([{x:ax,y:wy},{x:ax,y:end}],'#f2f8fc',2.5);line([{x:ax-4,y:end+7},{x:ax,y:end},{x:ax+4,y:end+7}],'#f2f8fc',2);
+      label('v',ax+8,end+10,'#f2f8fc','left',13);label(text('arrowScale',{v:sci(v)}),width<560?18:width-18,width<560?42:24,'#9fb6c7',width<560?'left':'right',11);
+    }
+    // Timeline: its range never reveals the fill time before the tank is full.
+    const x0=46,x1=width-30;
+    let tMax=Math.max(10,model.t*1.25,done?T*1.15:0);
+    const showP=$('show-prediction').checked&&e.value>0&&Number.isFinite(e.value),inRange=showP&&e.value<=tMax*50;
+    if(inRange)tMax=Math.max(tMax,e.value*1.15);
+    const tx2=t=>x0+t/tMax*(x1-x0),step=niceStep(tMax/6);
+    line([{x:x0,y:axisY},{x:x1,y:axisY}],'#416075',2);
+    for(let t=0;t<=tMax+1e-9;t+=step){const sx=tx2(t);line([{x:sx,y:axisY-4},{x:sx,y:axisY+4}],'#8fb0c4',1);label(number(t,step<1?1:0),sx,axisY+18,'#a5bfce','center',11);}
+    label(text('timeAxis'),x1,axisY+32,'#bdd0dd','right',11);
+    line([{x:x0,y:axisY},{x:tx2(model.t),y:axisY}],'#75efc7',5);
+    if(showP){
+      const name=text('yourPrediction')+': '+amount(e.value)+' '+units;
+      if(inRange){const px=tx2(e.value);line([{x:px,y:axisY-22},{x:px,y:axisY+6}],'#efb958',2.5);label(name,Math.min(x1,Math.max(x0,px)),axisY-27,'#efb958',px>x1-120?'right':px<x0+120?'left':'center',11);}
+      else label(name+' → '+text('offScale'),x1,axisY-27,'#efb958','right',11);
+    }
+    if(done){line([{x:tx2(T),y:axisY-12},{x:tx2(T),y:axisY+6}],'#75efc7',2.5);label(text('fullBanner')+' · t = '+number(T)+' s',width/2,56,ok?'#75efc7':'#efb958','center',width<430?14:17);}
+  }
+  function frame(now){if(previous===null)previous=now;const elapsed=Math.min(.1,(now-previous)/1000);previous=now;if(running){accumulator+=elapsed;while(accumulator>=H&&running){accumulator-=H;simulate(H);}draw();}if(now-lastUpdate>=80){update();lastUpdate=now;}requestAnimationFrame(frame);}
+  window.addEventListener('resize',resize);if(typeof ResizeObserver!=='undefined')new ResizeObserver(resize).observe(canvas);
+  sync();setRunning(false);update();resize();requestAnimationFrame(frame);
+})();
+</script>
+</body>
+</html>

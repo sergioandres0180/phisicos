@@ -1,6 +1,7 @@
 // Validates generated HTML and executes each localized game without a browser.
 const fs=require('node:fs'),path=require('node:path'),vm=require('node:vm'),assert=require('node:assert/strict');
 const pages=require('./locales/pages.cjs');
+const kinds=['home','game',...require('./locales/games.cjs').map(g=>g.kind)],pageCount=Object.keys(pages).length*kinds.length;
 const root=path.resolve(__dirname,process.env.SITE_OUTPUT || 'dist');
 const source=fs.readFileSync(path.join(__dirname,'src/velocity.html'),'utf8');
 const strings=JSON.parse(fs.readFileSync(path.join(__dirname,'locales/strings.json'),'utf8'));
@@ -15,7 +16,7 @@ const test=(label,fn)=>{fn();checks++;console.log('PASS '+label);};
 const canonical=html=>html.match(/<link rel="canonical" href="([^"]+)"/)[1];
 const titles=new Set(), descriptions=new Set(), expectedURLs=[];
 for(const [lang,p] of Object.entries(pages)){
- for(const kind of ['home','game','lander']){
+ for(const kind of kinds){
   const html=read(p[kind]);expectedURLs.push(canonical(html));
   test(`${lang} ${kind}: language, content, metadata, headings, structured data and links`,()=>{
    assert.ok(html.startsWith(`<!doctype html><html lang="${lang}">`));
@@ -97,9 +98,9 @@ for(const [lang,p] of Object.entries(pages)){
   click('chase-play');doc.hidden=true;events.get('visibilitychange').forEach(f=>f());assert.equal(el('chase-status-text').textContent,translated('Paused',lang));
  });
 }
-test('sitemap contains exactly the 24 self-canonical URLs, and no archive or 404 pages',()=>{
+test(`sitemap contains exactly the ${pageCount} self-canonical URLs, and no archive or 404 pages`,()=>{
  const xml=fs.readFileSync(path.join(root,'sitemap.xml'),'utf8');
- const actual=[...xml.matchAll(/<loc>(.*?)<\/loc>/g)].map(m=>m[1]);assert.deepEqual(actual.sort(),expectedURLs.sort());assert.equal(new Set(actual).size,24);
+ const actual=[...xml.matchAll(/<loc>(.*?)<\/loc>/g)].map(m=>m[1]);assert.deepEqual(actual.sort(),expectedURLs.sort());assert.equal(new Set(actual).size,pageCount);
  const error=fs.readFileSync(path.join(root,'404.html'),'utf8');assert.ok(error.includes('content="noindex"'));
  assert.ok(!fs.existsSync(path.join(root,'lab-v1.html')));assert.ok(!fs.existsSync(path.join(root,'BLUEPRINT.md')));
 });

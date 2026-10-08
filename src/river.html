@@ -1,0 +1,223 @@
+<!doctype html>
+<html lang="en">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>River Crossing · Phisicos</title>
+<style>
+.river-page .field{margin-top:16px}.river-page .field:first-of-type{margin-top:0}.river-page .label-row output{white-space:normal;text-align:right}
+</style>
+</head>
+<body>
+<div class="shell module-page river-page">
+__HEADER__
+<main id="main-content">
+__BREADCRUMBS__
+
+<div class="masthead"><div><h1>{{title}}</h1><p class="intro">{{subtitle}}</p></div><div class="concept-tags"><span class="tag speed">{{tag1}}</span><span class="tag velocity">{{tag2}}</span></div></div>
+<noscript><p class="no-js">{{noScript}}</p></noscript>
+<div class="layout">
+<aside class="sidebar" aria-label="{{setup}}">
+  <section class="control-section"><h2 class="eyebrow">{{setup}}</h2><div class="mission-list" role="group" aria-label="{{setup}}">
+    <button id="mission-0" aria-pressed="true"><b>1 · {{mission0}}</b><span id="given-0">W = 60 m · u = 0.5 m/s · s = 2 m/s</span></button>
+    <button id="mission-1" aria-pressed="false"><b>2 · {{mission1}}</b><span id="given-1">W = 80 m · u = 1.5 m/s · s = 2.5 m/s</span></button>
+    <button id="mission-2" aria-pressed="false"><b>3 · {{mission2}}</b><span id="given-2">W = 100 m · u = 1.2 m/s · s = 2 m/s</span></button>
+    <button id="mission-3" aria-pressed="false"><b>4 · {{mission3}}</b><span id="given-3">W = 60 m · u = 2.5 m/s · s = 2 m/s</span></button>
+  </div><p class="hint">{{setupNote}}</p></section>
+  <section class="control-section"><h2 class="eyebrow">{{steer}}</h2>
+    <div class="field"><div class="label-row"><label for="heading">{{heading}}</label><output id="heading-value" for="heading">{{headingStraight}}</output></div><input id="heading" type="range" min="-75" max="75" step="0.5" value="0"><div class="range-ends"><span>{{downstreamEnd}}</span><span>{{upstreamEnd}}</span></div></div>
+    <div class="field"><div class="label-row"><label for="predict">{{predictLabel}}</label><output id="predict-value" for="predict">—</output></div><input id="predict" type="range" min="-120" max="150" step="1" value="0"><div class="range-ends"><span>−120 m</span><span>+150 m</span></div></div>
+    <p class="hint">{{restartHint}}</p>
+  </section>
+  <section class="control-section"><h2 class="eyebrow">{{observe}}</h2><label class="check"><input id="show-vectors" type="checkbox" checked>{{vectors}}</label><label class="check"><input id="show-components" type="checkbox" checked>{{components}}</label><label class="check"><input id="show-course" type="checkbox">{{course}}</label><p class="hint">{{courseHint}}</p></section>
+</aside>
+<div class="workspace">
+  <section class="scene" aria-label="{{sceneTitle}}"><div class="scene-top"><div><h2 class="scene-title">{{sceneTitle}}</h2><p class="scene-subtitle" id="mission-label">{{mission0}}</p></div><span class="status" id="river-status"><i class="status-dot" aria-hidden="true"></i><span id="river-status-text">{{ready}}</span></span></div>
+    <div class="module-stage"><canvas id="river-canvas" role="img" aria-label="{{canvasLabel}}">{{noScript}}</canvas></div>
+    <div class="legend"><span><i class="line-key mint"></i>{{boatLegend}}</span><span><i class="line-key blue"></i>{{waterLegend}}</span><span><i class="line-key white"></i>{{groundLegend}}</span><span><i class="line-key orange"></i>{{dockLegend}}</span><span><i class="line-key gray"></i>{{predictionLegend}}</span></div>
+    <div class="module-equation"><span>{{equationTitle}}</span><output id="velocity-equation">v = v_b + v_w</output></div>
+    <div class="transport"><button id="play" class="primary">{{play}}</button><button id="pause" disabled>{{pause}}</button><button id="step">{{step}}</button><button id="reset" class="reset">{{reset}}</button></div>
+  </section>
+  <section class="metrics" aria-label="{{observe}}">
+    <div class="metric scalar"><h3 class="metric-label">{{time}}</h3><p class="metric-value"><span id="time-value">0.00</span> <small>s</small></p><p class="metric-equation">t</p></div>
+    <div class="metric vector"><h3 class="metric-label">{{position}}</h3><p class="metric-value"><span id="position-value">(0.00, 0.00)</span> <small>m</small></p><p class="metric-equation">r = (x, y)</p></div>
+    <div class="metric vector"><h3 class="metric-label">{{velocity}}</h3><p class="metric-value"><span id="velocity-value">(0.00, 0.00)</span> <small>m/s</small></p><p class="metric-equation">v = (vₓ, v_y)</p></div>
+    <div class="metric scalar"><h3 class="metric-label">{{speed}}</h3><p class="metric-value"><span id="speed-value">0.00</span> <small>m/s</small></p><p class="metric-components" id="speed-direction"></p><p class="metric-equation">|v| = √(vₓ² + v_y²)</p></div>
+    <div class="metric scalar"><h3 class="metric-label">{{distance}}</h3><p class="metric-value"><span id="distance-value">0.00</span> <small>m</small></p><p class="metric-equation">s = |v| · t</p></div>
+  </section>
+  <div class="insight" id="insight"><span class="insight-icon" aria-hidden="true">↗</span><div><strong id="lesson-title">{{predictTitle}}</strong><p id="lesson-copy">{{predictCopy}}</p></div></div>
+  <section class="challenge"><div class="mission-heading"><h2 class="challenge-title">{{missionTitle}}</h2><div class="score-card"><span>{{score}}</span><strong id="mission-score">—</strong></div></div><p class="mission-copy" id="mission-copy">{{goalDock}}</p><div class="badges"><span id="goal-badge">✓ {{goalBadge}}</span><span id="predict-badge">◎ {{predictBadge}}</span></div></section>
+</div>
+</div>
+<article class="learning-content"><section><h2>{{guideTitle}}</h2><ol><li>{{instruction1}}</li><li>{{instruction2}}</li><li>{{instruction3}}</li><li>{{instruction4}}</li></ol></section><section><h2>{{conceptTitle}}</h2><p>{{conceptCopy}}</p><aside class="worked-example"><h3>{{exampleTitle}}</h3><p>{{exampleCopy}}</p></aside></section><section><h2>{{modelTitle}}</h2><p>{{modelCopy}}</p></section></article>
+<p class="language-note" id="language-note">{{languageNote}}</p>
+</main>
+__FOOTER__
+<p class="sr-only" id="announcement" role="status" aria-live="polite"></p>
+</div>
+<script id="river-model">
+class RiverModel {
+  // x points downstream along the river, y points across from the near bank (y = 0) to the far bank (y = W).
+  static missions = [
+    {id:'calm',width:60,current:.5,boat:2,dock:0,goal:'dock',tolerance:2},
+    {id:'strong',width:80,current:1.5,boat:2.5,dock:0,goal:'dock',tolerance:2},
+    {id:'fastest',width:100,current:1.2,boat:2,dock:0,goal:'fastest',tolerance:.001},
+    {id:'overpowered',width:60,current:2.5,boat:2,dock:0,goal:'least',tolerance:1}
+  ];
+  static maxHeading = 75;
+  static playback = 5; // physical seconds per second of playback
+  constructor(index = 0){this.setMission(index);}
+  setMission(index){this.index=index;this.config={...RiverModel.missions[index]};this.heading=0;this.prediction=null;this.reset();}
+  reset(){this.t=0;this.status='crossing';}
+  // Heading θ is measured from straight across; positive values aim upstream.
+  setHeading(degrees){if(!Number.isFinite(degrees)||Math.abs(degrees)>RiverModel.maxHeading)return false;this.heading=degrees;this.reset();return true;}
+  setPrediction(x){this.prediction=Number.isFinite(x)?x:null;this.reset();}
+  velocities(){
+    const angle=this.heading*Math.PI/180,{boat:s,current:u}=this.config;
+    const boat={x:-s*Math.sin(angle),y:s*Math.cos(angle)},water={x:u,y:0};
+    return {boat,water,ground:{x:boat.x+water.x,y:boat.y+water.y}};
+  }
+  crossingTime(){return this.config.width/this.velocities().ground.y;}
+  landingX(){return this.velocities().ground.x*this.crossingTime();}
+  position(){const g=this.velocities().ground,t=this.status==='landed'?this.crossingTime():this.t;return {x:g.x*t,y:g.y*t};}
+  advance(dt){
+    if(!Number.isFinite(dt)||dt<0)throw new Error('Invalid timestep');
+    if(this.status==='landed')return null;
+    // Reaching the far bank is solved exactly at t = W / v_y.
+    const T=this.crossingTime();
+    if(this.t+dt>=T*(1-1e-12)){this.t=T;this.status='landed';return {t:T,x:this.landingX()};}
+    this.t+=dt;return null;
+  }
+  bestTime(){return this.config.width/this.config.boat;}
+  leastDrift(){const {current:u,boat:s,width:W}=this.config;return u>s?W*Math.sqrt(u*u-s*s)/s:0;}
+  evaluate(){
+    const c=this.config,x=this.landingX();let goal;
+    if(c.goal==='dock')goal=Math.abs(x-c.dock)<=c.tolerance;
+    else if(c.goal==='fastest')goal=this.crossingTime()<=this.bestTime()*(1+c.tolerance);
+    else goal=Math.abs(x-this.leastDrift())<=c.tolerance;
+    return {x,goal,predicted:this.prediction!==null&&Math.abs(this.prediction-x)<=3};
+  }
+  score(){if(this.status!=='landed')return 0;const e=this.evaluate();return (e.goal?100:0)+(e.predicted?50:0);}
+  snapshot(){return {index:this.index,heading:this.heading,prediction:this.prediction,t:this.t,status:this.status};}
+  restore(saved){
+    if(!Number.isInteger(saved?.index)||!RiverModel.missions[saved.index])return false;
+    if(!Number.isFinite(saved.heading)||Math.abs(saved.heading)>RiverModel.maxHeading)return false;
+    if(saved.prediction!==null&&!Number.isFinite(saved.prediction))return false;
+    const probe=new RiverModel(saved.index);probe.heading=saved.heading;
+    if(!Number.isFinite(saved.t)||saved.t<0||saved.t>probe.crossingTime()*(1+1e-9)||!['crossing','landed'].includes(saved.status))return false;
+    this.setMission(saved.index);this.heading=saved.heading;this.prediction=saved.prediction;
+    this.status=saved.status;this.t=saved.status==='landed'?this.crossingTime():saved.t;return true;
+  }
+}
+globalThis.RiverModel=RiverModel;
+</script>
+<script id="river-locale" type="application/json">__LOCALE__</script>
+<script id="river-interface">
+(() => {
+  'use strict';
+  const $=id=>document.getElementById(id),locale=JSON.parse($('river-locale').textContent);
+  const text=(key,values={})=>locale.strings[key].replace(/\{(\w+)\}/g,(_,name)=>values[name]??'{'+name+'}');
+  const number=(n,d=2)=>Math.abs(n)<.5*10**-d?(0).toLocaleString(locale.lang,{minimumFractionDigits:d,maximumFractionDigits:d}):n.toLocaleString(locale.lang,{minimumFractionDigits:d,maximumFractionDigits:d,useGrouping:false});
+  const plain=n=>n.toLocaleString(locale.lang,{maximumFractionDigits:3,useGrouping:false});
+  const signed=(n,d=2)=>(n>.5*10**-d?'+':'')+number(n,d);
+  // Decimal-comma locales separate vector components with a semicolon.
+  const pair=(a,b,d=2)=>'('+signed(a,d)+(locale.lang==='en'?', ':'; ')+signed(b,d)+')';
+  const model=new RiverModel();
+  const canvas=$('river-canvas'),ctx=canvas.getContext('2d');
+  const H=1/120,transferKey='phisicos-river-language-transfer';
+  let running=false,previous=null,accumulator=0,lastUpdate=0,width=800,height=410;
+  const say=message=>{$('announcement').textContent=message;};
+  try{const data=JSON.parse(sessionStorage.getItem(transferKey)||'null');sessionStorage.removeItem(transferKey);if(data)model.restore(data.state);}catch{$('language-note').hidden=true;}
+  const goalKey=()=>({dock:'goalDock',fastest:'goalFastest',least:'goalLeast'})[model.config.goal];
+  const headingText=a=>Math.abs(a)<1e-9?text('headingStraight'):text(a>0?'headingUpstream':'headingDownstream',{a:number(Math.abs(a),1)});
+  function setRunning(value){
+    const done=model.status==='landed';running=value&&!done;previous=null;accumulator=0;
+    $('play').disabled=running||done;$('pause').disabled=!running;$('step').disabled=running||done;
+    $('river-status').classList.toggle('running',running);
+    $('river-status-text').textContent=text(done?'landed':running?'running':model.t?'paused':'ready');
+  }
+  function sync(){
+    RiverModel.missions.forEach((m,i)=>{$('mission-'+i).setAttribute('aria-pressed',String(i===model.index));// Non-breaking spaces keep each quantity together; lines may wrap only between quantities.
+    const q=(name,value,unit)=>name+'\u00a0=\u00a0'+plain(value)+'\u00a0'+unit;
+    $('given-'+i).textContent=[q('W',m.width,'m'),q('u',m.current,'m/s'),q('s',m.boat,'m/s')].join(' · ');});
+    $('heading').value=String(model.heading);$('predict').value=String(model.prediction??0);
+    $('mission-label').textContent=text('mission'+model.index);$('mission-copy').textContent=text(goalKey());
+  }
+  function update(){
+    const c=model.config,v=model.velocities(),g=v.ground,p=model.position(),T=model.crossingTime(),done=model.status==='landed',e=model.evaluate();
+    const t=done?T:model.t,speed=Math.hypot(g.x,g.y);
+    $('heading-value').textContent=headingText(model.heading);
+    $('predict-value').textContent=model.prediction===null?'—':'x = '+signed(model.prediction,0)+' m';
+    $('time-value').textContent=number(t);$('position-value').textContent=pair(p.x,p.y);$('velocity-value').textContent=pair(g.x,g.y);
+    $('speed-value').textContent=number(speed);$('speed-direction').textContent=text('speedDirection',{a:signed(Math.atan2(g.x,g.y)*180/Math.PI,1)});
+    $('distance-value').textContent=number(speed*t);
+    $('velocity-equation').textContent='v = '+pair(v.boat.x,v.boat.y)+' + '+pair(v.water.x,v.water.y)+' = '+pair(g.x,g.y)+' m/s';
+    let key,values={};
+    if(done){
+      const base={dock:e.goal?'dockGood':'dockMiss',fastest:e.goal?'fastGood':'fastSlow',least:e.goal?'leastGood':'leastMiss'}[c.goal];
+      key=base;values={x:signed(e.x,1),t:number(T),a:number(Math.abs(model.heading),1),u:number(c.current,1),miss:number(Math.abs(e.x-c.dock),1),vx:signed(g.x),best:c.goal==='fastest'?number(model.bestTime()):number(model.leastDrift(),1)};
+    }
+    else if(model.t>0){key='crossing';values={pct:number(p.y/c.width*100,0),vx:signed(g.x),vy:number(g.y)};}
+    else if(model.prediction===null)key='predict';
+    else{key='ready';values={vx:signed(g.x),vy:number(g.y)};}
+    $('lesson-title').textContent=text(key+'Title',values);$('lesson-copy').textContent=text(key+'Copy',values);
+    $('insight').classList.toggle('warning',['dockMiss','fastSlow','leastMiss'].includes(key));
+    $('mission-score').textContent=done?String(model.score()):'—';
+    $('goal-badge').classList.toggle('earned',done&&e.goal);$('predict-badge').classList.toggle('earned',done&&e.predicted);
+  }
+  function refresh(){setRunning(false);update();draw();}
+  function simulate(dt){if(model.advance(dt*RiverModel.playback)){setRunning(false);update();say(text('landedAnnouncement',{x:signed(model.landingX(),1)}));return true;}return false;}
+  $('play').addEventListener('click',()=>{setRunning(true);update();say(text('startedAnnouncement'));});
+  $('pause').addEventListener('click',()=>{setRunning(false);update();say(text('pausedAnnouncement'));});
+  $('step').addEventListener('click',()=>{for(let i=0;i<12;i++)if(simulate(H))break;setRunning(false);update();draw();});
+  $('reset').addEventListener('click',()=>{model.reset();refresh();say(text('resetAnnouncement'));});
+  RiverModel.missions.forEach((_,i)=>$('mission-'+i).addEventListener('click',()=>{model.setMission(i);sync();refresh();say(text('missionAnnouncement',{name:text('mission'+i)}));}));
+  $('heading').addEventListener('input',event=>{if(model.setHeading(Number(event.target.value)))refresh();});
+  $('predict').addEventListener('input',event=>{model.setPrediction(Number(event.target.value));refresh();});
+  for(const id of ['show-vectors','show-components','show-course'])$(id).addEventListener('change',()=>{update();draw();});
+  function suspend(){if(running){setRunning(false);say(text('suspendedAnnouncement'));}update();draw();}
+  window.addEventListener('blur',suspend);document.addEventListener('visibilitychange',()=>{if(document.hidden)suspend();});
+  for(const link of document.querySelectorAll('.language-menu a'))link.addEventListener('click',()=>{setRunning(false);try{sessionStorage.setItem(transferKey,JSON.stringify({state:model.snapshot()}));}catch{}});
+  function resize(){const rect=canvas.getBoundingClientRect();if(rect.width<=0)return;width=rect.width;height=rect.height;const dpr=Math.min(window.devicePixelRatio||1,3);canvas.width=Math.round(width*dpr);canvas.height=Math.round(height*dpr);ctx.setTransform(dpr,0,0,dpr,0,0);draw();}
+  const ARROW=24; // px per m/s, stated on the canvas.
+  function draw(){
+    if(!ctx)return;
+    const c=model.config,v=model.velocities(),p=model.position(),done=model.status==='landed',W=c.width;
+    ctx.clearRect(0,0,width,height);
+    const label=(s,x,y,color='#b8ccdb',align='left',font=12)=>{ctx.fillStyle=color;ctx.textAlign=align;ctx.font=font+'px -apple-system,BlinkMacSystemFont,sans-serif';ctx.fillText(s,x,y);};
+    const line=(points,color,w=1,dash=[])=>{ctx.beginPath();ctx.strokeStyle=color;ctx.lineWidth=w;ctx.setLineDash(dash);points.forEach((q,i)=>i?ctx.lineTo(q.x,q.y):ctx.moveTo(q.x,q.y));ctx.stroke();ctx.setLineDash([]);};
+    const arrow=(from,dx,dy,color,name,side=1)=>{const to={x:from.x+dx,y:from.y+dy},len=Math.hypot(dx,dy);if(len<2)return to;line([from,to],color,2.5);const ux=dx/len,uy=dy/len;line([{x:to.x-ux*8-uy*4,y:to.y-uy*8+ux*4},to,{x:to.x-ux*8+uy*4,y:to.y-uy*8-ux*4}],color,2);if(name)label(name,from.x+dx/2-uy*14*side,from.y+dy/2+ux*14*side+4,color,'center',12);return to;};
+    // World (m) to screen: x downstream to the right, y across upward.
+    const scale=Math.min((height-120)/W,(width-40)/(2.5*W)),riverH=W*scale,bottom=(height+riverH)/2+12,topY=bottom-riverH,originX=20+1.1*W*scale;
+    const sx=x=>originX+x*scale,sy=y=>bottom-y*scale,visible=x=>sx(x)>=4&&sx(x)<=width-4;
+    ctx.fillStyle='#2a4637';ctx.fillRect(0,0,width,topY);ctx.fillRect(0,bottom,width,height-bottom);
+    ctx.fillStyle='#153a55';ctx.fillRect(0,topY,width,riverH);
+    label(text('farBank'),14,topY-10,'#cfe3d6');label(text('nearBank'),14,bottom+20,'#cfe3d6');
+    label(text('arrowScale'),width-14,20,'#9fb6c7','right',11);label(text('playbackScale',{k:RiverModel.playback}),width-14,36,'#9fb6c7','right',11);
+    // Flow lines drift with the current so the water visibly moves at u.
+    const shift=(model.status==='landed'?model.crossingTime():model.t)*c.current*scale%60;
+    for(let row=1;row<5;row++){const y=topY+riverH*row/5;for(let x=-60+shift+(row%2)*30;x<width;x+=60)line([{x,y},{x:x+18,y}],'#2e6286',2);}
+    // Start pier and dock.
+    ctx.fillStyle='#8aa3b5';ctx.fillRect(sx(0)-8,bottom,16,10);label(text('start'),sx(0),bottom+34,'#d1e3ed','center',11);
+    if(c.goal!=='fastest'){ctx.fillStyle='#efb958';ctx.fillRect(sx(c.dock)-10,topY-10,20,10);label(text('dock'),sx(c.dock),topY-16,'#efb958','center',11);}
+    if(c.goal==='least'){const best=model.leastDrift();line([{x:sx(best),y:topY-4},{x:sx(best),y:topY+10}],'#efb958',2,[3,3]);}
+    if(model.prediction!==null&&visible(model.prediction)){const px=sx(model.prediction);ctx.beginPath();ctx.strokeStyle='#8aa3b5';ctx.lineWidth=2;ctx.setLineDash([3,3]);ctx.arc(px,topY,9,0,Math.PI*2);ctx.stroke();ctx.setLineDash([]);label(text('yourLanding'),px,topY+24,'#b8ccdb','center',11);}
+    if($('show-course').checked){const end=model.landingX();line([{x:sx(0),y:sy(0)},{x:sx(end),y:sy(W)}],'#8aa3b5',1.5,[6,6]);}
+    // Ground track so far.
+    line([{x:sx(0),y:sy(0)},{x:sx(p.x),y:sy(p.y)}],'#75efc7',2);
+    const bx=Math.max(8,Math.min(width-8,sx(p.x))),by=sy(p.y),heading=model.heading*Math.PI/180;
+    if(!visible(p.x))label(sx(p.x)>width?'→':'←',sx(p.x)>width?width-14:14,by-12,'#f2f8fc','center',16);
+    // The hull points along the boat's heading, not along its ground velocity.
+    ctx.save();ctx.translate(bx,by);ctx.rotate(-heading);ctx.fillStyle='#d1e3ed';ctx.beginPath();ctx.moveTo(0,-14);ctx.lineTo(7,8);ctx.lineTo(-7,8);ctx.closePath();ctx.fill();ctx.restore();
+    if($('show-vectors').checked&&!done){
+      const tip=arrow({x:bx,y:by},v.boat.x*ARROW,-v.boat.y*ARROW,'#75efc7','v_b',-1);
+      arrow(tip,v.water.x*ARROW,0,'#77b9ff','v_w',-1);
+      const g=arrow({x:bx,y:by},v.ground.x*ARROW,-v.ground.y*ARROW,'#f2f8fc','v');
+      if($('show-components').checked){line([{x:bx,y:by},{x:bx+v.ground.x*ARROW,y:by}],'#f2f8fc',1,[3,4]);line([{x:bx+v.ground.x*ARROW,y:by},g],'#f2f8fc',1,[3,4]);}
+    }
+    if(done)label(text('landingBanner',{x:signed(model.landingX(),1)}),width/2,topY+riverH/2,'#75efc7','center',width<430?14:17);
+  }
+  function frame(now){if(previous===null)previous=now;const elapsed=Math.min(.1,(now-previous)/1000);previous=now;if(running){accumulator+=elapsed;while(accumulator>=H&&running){accumulator-=H;simulate(H);}draw();}if(now-lastUpdate>=80){update();lastUpdate=now;}requestAnimationFrame(frame);}
+  window.addEventListener('resize',resize);if(typeof ResizeObserver!=='undefined')new ResizeObserver(resize).observe(canvas);
+  sync();setRunning(false);update();resize();requestAnimationFrame(frame);
+})();
+</script>
+</body>
+</html>

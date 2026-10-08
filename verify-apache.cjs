@@ -1,4 +1,5 @@
 // Optional real HTTP/TLS integration check. Requires Apache 2.4 and OpenSSL locally.
+const pages=require('./locales/pages.cjs'),kinds=['home','game',...require('./locales/games.cjs').map(g=>g.kind)],pageCount=Object.keys(pages).length*kinds.length;
 // Defaults to macOS Apache; override APACHE_BIN, APACHE_MODULE_DIR and APACHE_MIME_TYPES elsewhere.
 const fs=require('node:fs'),path=require('node:path'),os=require('node:os'),net=require('node:net');
 const http=require('node:http'),https=require('node:https'),zlib=require('node:zlib'),assert=require('node:assert/strict');
@@ -58,14 +59,14 @@ DocumentRoot "${root}"
   assert.equal(r.status,301);assert.equal(r.headers.location,'https://phisicos.com/games/lunar-lander/?mission=eco');
  }
  console.log('PASS Apache HTTP and www redirects preserve path and query');
- for(const p of Object.values(require('./locales/pages.cjs')))for(const route of [p.home,p.game,p.lander]){
+ for(const p of Object.values(pages))for(const route of kinds.map(kind=>p[kind])){
   const r=await request(route);assert.equal(r.status,200,route);assert.ok(r.body.includes(`href="https://phisicos.com${route}"`));
   const duplicate=await request(route+'index.html');assert.equal(duplicate.status,301);assert.equal(duplicate.headers.location,'https://phisicos.com'+route);
   if(route!=='/'){const slash=await request(route.slice(0,-1));assert.equal(slash.status,301);assert.equal(slash.headers.location,'https://phisicos.com'+route);}
  }
- console.log('PASS Apache serves all 24 canonical pages and redirects their duplicate URLs');
+ console.log(`PASS Apache serves all ${pageCount} canonical pages and redirects their duplicate URLs`);
  for(const route of ['/missing-page/','/es/juegos/no-existe/','/assets/no-such-file.css']){
-  const r=await request(route);assert.equal(r.status,404);assert.ok(r.body.includes('<title>404 | Motion Lab</title>'));assert.equal(r.headers['x-robots-tag'],'noindex');
+  const r=await request(route);assert.equal(r.status,404);assert.ok(r.body.includes('<title>404 | Phisicos</title>'));assert.equal(r.headers['x-robots-tag'],'noindex');
  }
  const listing=await request('/assets/');assert.equal(listing.status,403);
  const head=await request('/games/lunar-lander/',{method:'HEAD'});assert.equal(head.status,200);assert.equal(head.body.length,0);
@@ -75,7 +76,7 @@ DocumentRoot "${root}"
  const css=await request('/assets/site.css');assert.equal(css.status,200);assert.equal(css.headers['cache-control'],'public, max-age=86400');assert.match(css.headers['content-type'],/text\/css/);
  const guide=await request('/design-guidelines.md');assert.equal(guide.headers['x-robots-tag'],'noindex');
  const robots=await request('/robots.txt');assert.equal(robots.status,200);assert.ok(robots.body.includes('Allow: /'));
- const sitemap=await request('/sitemap.xml');assert.equal(sitemap.status,200);assert.equal((sitemap.body.toString().match(/<loc>/g)||[]).length,24);
+ const sitemap=await request('/sitemap.xml');assert.equal(sitemap.status,200);assert.equal((sitemap.body.toString().match(/<loc>/g)||[]).length,pageCount);
  console.log('PASS Apache real 404s, no directory listing, HEAD, gzip, caching, robots and sitemap');
 })().catch(e=>{
  console.error(e);if(fs.existsSync(temp+'/error.log'))console.error(fs.readFileSync(temp+'/error.log','utf8'));

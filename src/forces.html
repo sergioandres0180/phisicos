@@ -1,0 +1,225 @@
+<!doctype html>
+<html lang="en">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Force Table · Phisicos</title>
+<style>
+.forces-page .field{margin-top:16px}.forces-page .field:first-of-type{margin-top:0}
+</style>
+</head>
+<body>
+<div class="shell module-page forces-page">
+__HEADER__
+<main id="main-content">
+__BREADCRUMBS__
+
+<div class="masthead"><div><h1>{{title}}</h1><p class="intro">{{subtitle}}</p></div><div class="concept-tags"><span class="tag speed">{{tag1}}</span><span class="tag velocity">{{tag2}}</span></div></div>
+<noscript><p class="no-js">{{noScript}}</p></noscript>
+<div class="layout">
+<aside class="sidebar" aria-label="{{setup}}">
+  <section class="control-section"><h2 class="eyebrow">{{setup}}</h2><div class="mission-list" role="group" aria-label="{{setup}}">
+    <button id="level-0" aria-pressed="true"><b>1 · {{level0}}</b><span id="given-0">F₁ = 2 N @ 0°</span></button>
+    <button id="level-1" aria-pressed="false"><b>2 · {{level1}}</b><span id="given-1">F₁ = 3 N @ 0° · F₂ = 4 N @ 90°</span></button>
+    <button id="level-2" aria-pressed="false"><b>3 · {{level2}}</b><span id="given-2">F₁ = 2.5 N @ 30° · F₂ = 1.5 N @ 135°</span></button>
+    <button id="level-3" aria-pressed="false"><b>4 · {{level3}}</b><span id="given-3">F₁ = 1.2 N @ 0° · F₂ = 2 N @ 70° · F₃ = 1.5 N @ 160°</span></button>
+  </div><p class="hint">{{setupNote}}</p></section>
+  <section class="control-section"><h2 class="eyebrow">{{yourString}}</h2>
+    <div class="field"><div class="label-row"><label for="magnitude">{{magnitudeLabel}}</label><output id="magnitude-value" for="magnitude">1.00 N</output></div><input id="magnitude" type="range" min="0" max="6" step="0.01" value="1"><div class="range-ends"><span>0 N</span><span>6 N</span></div></div>
+    <div class="field"><div class="label-row"><label for="angle">{{angleLabel}}</label><output id="angle-value" for="angle">180.0°</output></div><input id="angle" type="range" min="0" max="359.5" step="0.5" value="180"><div class="range-ends"><span>0°</span><span>359.5°</span></div></div>
+    <p class="hint">{{angleHint}}</p>
+  </section>
+  <section class="control-section"><h2 class="eyebrow">{{observe}}</h2><label class="check"><input id="show-vectors" type="checkbox" checked>{{vectors}}</label><label class="check"><input id="show-helper" type="checkbox">{{helper}}</label><p class="hint">{{helperHint}}</p></section>
+</aside>
+<div class="workspace">
+  <section class="scene" aria-label="{{sceneTitle}}"><div class="scene-top"><div><h2 class="scene-title">{{sceneTitle}}</h2><p class="scene-subtitle" id="level-label">{{level0}}</p></div><span class="status" id="force-status"><i class="status-dot" aria-hidden="true"></i><span id="force-status-text">{{ready}}</span></span></div>
+    <div class="module-stage"><canvas id="forces-canvas" role="img" aria-label="{{canvasLabel}}">{{noScript}}</canvas></div>
+    <div class="legend"><span><i class="line-key blue"></i>{{givenLegend}}</span><span><i class="line-key mint"></i>{{yoursLegend}}</span><span><i class="line-key orange"></i>{{netLegend}}</span><span><i class="line-key gray"></i>{{helperLegend}}</span></div>
+    <div class="module-equation"><span>{{equationTitle}}</span><output id="force-equation">ΣF = ?</output></div>
+    <div class="transport"><button id="play" class="primary">{{play}}</button><button id="pause" disabled>{{pause}}</button><button id="step">{{step}}</button><button id="reset" class="reset">{{reset}}</button></div>
+  </section>
+  <section class="metrics" aria-label="{{observe}}">
+    <div class="metric scalar"><h3 class="metric-label">{{time}}</h3><p class="metric-value"><span id="time-value">0.000</span> <small>s</small></p><p class="metric-equation">t</p></div>
+    <div class="metric scalar"><h3 class="metric-label">{{sumMagnitudes}}</h3><p class="metric-value"><span id="sum-value">0.00</span> <small>N</small></p><p class="metric-components">{{scalarNote}}</p><p class="metric-equation">Σ|Fᵢ|</p></div>
+    <div class="metric vector"><h3 class="metric-label">{{netForce}}</h3><p class="metric-value"><span id="net-value">?</span> <small>N</small></p><p class="metric-components" id="net-note">{{hiddenUntilLaunch}}</p><p class="metric-equation">ΣF = (Fₓ, F_y)</p></div>
+    <div class="metric vector"><h3 class="metric-label">{{netMagnitude}}</h3><p class="metric-value"><span id="net-magnitude-value">?</span> <small>N</small></p><p class="metric-components" id="net-direction">{{hiddenUntilLaunch}}</p><p class="metric-equation">|ΣF|</p></div>
+    <div class="metric vector"><h3 class="metric-label">{{ringDisplacement}}</h3><p class="metric-value"><span id="ring-value">0.0</span> <small>mm</small></p><p class="metric-components" id="ring-speed"></p><p class="metric-equation">|Δr| = ½ a t²</p></div>
+  </section>
+  <div class="insight" id="insight"><span class="insight-icon" aria-hidden="true">↗</span><div><strong id="lesson-title">{{predictTitle}}</strong><p id="lesson-copy">{{predictCopy}}</p></div></div>
+  <section class="challenge"><div class="mission-heading"><h2 class="challenge-title">{{missionTitle}}</h2><div class="score-card"><span>{{score}}</span><strong id="mission-score">—</strong></div></div><p class="mission-copy">{{missionCopy}}</p><div class="badges"><span id="balanced-badge">✓ {{balancedBadge}}</span><span id="helper-badge">◎ {{helperBadge}}</span><span id="first-badge">★ {{firstBadge}}</span></div></section>
+</div>
+</div>
+<article class="learning-content"><section><h2>{{guideTitle}}</h2><ol><li>{{instruction1}}</li><li>{{instruction2}}</li><li>{{instruction3}}</li><li>{{instruction4}}</li></ol></section><section><h2>{{conceptTitle}}</h2><p>{{conceptCopy}}</p><aside class="worked-example"><h3>{{exampleTitle}}</h3><p>{{exampleCopy}}</p></aside></section><section><h2>{{modelTitle}}</h2><p>{{modelCopy}}</p></section></article>
+<p class="language-note" id="language-note">{{languageNote}}</p>
+</main>
+__FOOTER__
+<p class="sr-only" id="announcement" role="status" aria-live="polite"></p>
+</div>
+<script id="forces-model">
+class ForceModel {
+  // Angles are measured counter-clockwise from 0° (+x), as printed on a force table.
+  static levels = [
+    {id:'opposite',forces:[[2,0]]},
+    {id:'rightAngle',forces:[[3,0],[4,90]]},
+    {id:'oblique',forces:[[2.5,30],[1.5,135]]},
+    {id:'four',forces:[[1.2,0],[2,70],[1.5,160]]}
+  ];
+  static mass = .2;          // ring mass, kg
+  static staticLimit = .05;  // largest net force static friction can hold, N
+  static kinetic = .04;      // sliding friction, N
+  static stop = .04;         // radius of the stop pin circle, m
+  static hold = .5;          // a balanced ring must stay still this long, s
+  static playback = .1;      // physical seconds per second of playback (slow motion)
+  static maxMagnitude = 6;
+  static vec(m,a){const r=a*Math.PI/180;return {x:m*Math.cos(r),y:m*Math.sin(r)};}
+  static direction(x,y){return ((Math.atan2(y,x)*180/Math.PI)%360+360)%360;}
+  constructor(level = 0){this.setLevel(level);}
+  setLevel(level){this.level=level;this.yours={magnitude:1,angle:180};this.helperUsed=false;this.attempts=0;this.reset();}
+  reset(){this.t=0;this.status='active';}
+  setYours(magnitude,angle){
+    if(!Number.isFinite(magnitude)||!Number.isFinite(angle)||magnitude<0||magnitude>ForceModel.maxMagnitude||angle<0||angle>=360)return false;
+    this.yours={magnitude,angle};this.reset();return true;
+  }
+  forces(){return [...ForceModel.levels[this.level].forces.map(([m,a])=>({m,a,yours:false})),{m:this.yours.magnitude,a:this.yours.angle,yours:true}].map(f=>({...f,...ForceModel.vec(f.m,f.a)}));}
+  net(){return this.forces().reduce((s,f)=>({x:s.x+f.x,y:s.y+f.y}),{x:0,y:0});}
+  netMagnitude(){const n=this.net();return Math.hypot(n.x,n.y);}
+  sumMagnitudes(){return this.forces().reduce((s,f)=>s+f.m,0);}
+  // Static friction holds the ring when the net string force is small enough.
+  balanced(){return this.netMagnitude()<=ForceModel.staticLimit+1e-12;}
+  acceleration(){return this.balanced()?0:(this.netMagnitude()-ForceModel.kinetic)/ForceModel.mass;}
+  slideTime(){return Math.sqrt(2*ForceModel.stop/this.acceleration());}
+  displacement(){return .5*this.acceleration()*this.t*this.t;}
+  speed(){return this.acceleration()*this.t;}
+  advance(dt){
+    if(!Number.isFinite(dt)||dt<0)throw new Error('Invalid timestep');
+    if(this.status!=='active')return null;
+    // Both outcomes are exact events: the hold time, or contact with the stop pin.
+    const end=this.balanced()?ForceModel.hold:this.slideTime();
+    if(this.t+dt>=end*(1-1e-12)){this.t=end;this.status=this.balanced()?'held':'slipped';this.attempts++;return {t:end,status:this.status};}
+    this.t+=dt;return null;
+  }
+  score(){return this.status!=='held'?0:100+(this.helperUsed?0:30)+(this.attempts===1?20:0);}
+  snapshot(){return {level:this.level,yours:{...this.yours},helperUsed:this.helperUsed,attempts:this.attempts,t:this.t,status:this.status};}
+  restore(saved){
+    if(!Number.isInteger(saved?.level)||!ForceModel.levels[saved.level]||typeof saved.helperUsed!=='boolean'||!Number.isInteger(saved.attempts)||saved.attempts<0)return false;
+    const probe=new ForceModel(saved.level);
+    if(!probe.setYours(saved.yours?.magnitude,saved.yours?.angle)||!['active','held','slipped'].includes(saved.status))return false;
+    const end=probe.balanced()?ForceModel.hold:probe.slideTime();
+    if(!Number.isFinite(saved.t)||saved.t<0||saved.t>end*(1+1e-9)||(saved.status==='held')!==(saved.status!=='active'&&probe.balanced()))return false;
+    this.setLevel(saved.level);this.yours={...saved.yours};this.helperUsed=saved.helperUsed;this.attempts=saved.attempts;
+    this.status=saved.status;this.t=saved.status==='active'?saved.t:end;return true;
+  }
+}
+globalThis.ForceModel=ForceModel;
+</script>
+<script id="forces-locale" type="application/json">__LOCALE__</script>
+<script id="forces-interface">
+(() => {
+  'use strict';
+  const $=id=>document.getElementById(id),locale=JSON.parse($('forces-locale').textContent);
+  const text=(key,values={})=>locale.strings[key].replace(/\{(\w+)\}/g,(_,name)=>values[name]??'{'+name+'}');
+  const number=(n,d=2)=>Math.abs(n)<.5*10**-d?(0).toLocaleString(locale.lang,{minimumFractionDigits:d,maximumFractionDigits:d}):n.toLocaleString(locale.lang,{minimumFractionDigits:d,maximumFractionDigits:d,useGrouping:false});
+  const plain=n=>n.toLocaleString(locale.lang,{maximumFractionDigits:3,useGrouping:false});
+  const signed=(n,d=2)=>(n>.5*10**-d?'+':'')+number(n,d);
+  const pair=(a,b,d=2)=>'('+signed(a,d)+(locale.lang==='en'?', ':'; ')+signed(b,d)+')';
+  const degrees=a=>number(a,1)+'°';
+  const sub=i=>String.fromCharCode(8321+i);
+  const model=new ForceModel();
+  const canvas=$('forces-canvas'),ctx=canvas.getContext('2d');
+  const H=1/120,transferKey='phisicos-forces-language-transfer';
+  let running=false,previous=null,accumulator=0,lastUpdate=0,width=800,height=410;
+  const say=message=>{$('announcement').textContent=message;};
+  try{const data=JSON.parse(sessionStorage.getItem(transferKey)||'null');sessionStorage.removeItem(transferKey);if(data&&model.restore(data.state)&&data.helper===true)$('show-helper').checked=true;}catch{$('language-note').hidden=true;}
+  const launched=()=>model.t>0||model.status!=='active';
+  function setRunning(value){
+    const done=model.status!=='active';running=value&&!done;previous=null;accumulator=0;
+    $('play').disabled=running||done;$('pause').disabled=!running;$('step').disabled=running||done;
+    $('force-status').classList.toggle('running',running);
+    $('force-status-text').textContent=text(done?model.status:running?'running':model.t?'paused':'ready');
+  }
+  function sync(){
+    ForceModel.levels.forEach((level,i)=>{$('level-'+i).setAttribute('aria-pressed',String(i===model.level));$('given-'+i).textContent=level.forces.map(([m,a],k)=>'F'+sub(k)+' = '+plain(m)+' N @ '+plain(a)+'°').join(' · ');});
+    $('level-label').textContent=text('level'+model.level);$('magnitude').value=String(model.yours.magnitude);$('angle').value=String(model.yours.angle);
+  }
+  function update(){
+    const n=model.net(),N=Math.hypot(n.x,n.y),shown=launched(),done=model.status!=='active',count=model.forces().length;
+    $('magnitude-value').textContent=number(model.yours.magnitude)+' N';$('angle-value').textContent=degrees(model.yours.angle);
+    $('time-value').textContent=number(model.t,3);$('sum-value').textContent=number(model.sumMagnitudes());
+    // The net force is the learner's task, so it is revealed only once the ring is released.
+    $('net-value').textContent=shown?pair(n.x,n.y):'?';$('net-note').textContent=shown?text('netNote'):text('hiddenUntilLaunch');
+    $('net-magnitude-value').textContent=shown?number(N):'?';$('net-direction').textContent=shown?(N<.005?text('noDirection'):text('towards',{a:degrees(ForceModel.direction(n.x,n.y))})):text('hiddenUntilLaunch');
+    $('ring-value').textContent=number(model.displacement()*1000,1);$('ring-speed').textContent=text('ringSpeed',{v:number(model.speed(),3)});
+    const terms=model.forces().map((f,i)=>f.yours?'F_you':'F'+sub(i)).join(' + ');
+    $('force-equation').textContent='ΣF = '+terms+' = '+(shown?pair(n.x,n.y)+' N · |ΣF| = '+number(N)+' N':'?');
+    let key,values={net:number(N),angle:degrees(ForceModel.direction(n.x,n.y)),limit:number(ForceModel.staticLimit),score:model.score(),fx:signed(n.x),fy:signed(n.y)};
+    if(done)key=model.status==='held'?'held':'slipped';
+    else if(model.t>0)key=model.balanced()?'holding':'sliding';
+    else key=count>2?'predictMany':'predict';
+    $('lesson-title').textContent=text(key+'Title',values);$('lesson-copy').textContent=text(key+'Copy',values);
+    $('insight').classList.toggle('warning',['sliding','slipped'].includes(key));
+    $('mission-score').textContent=done?String(model.score()):'—';
+    const held=model.status==='held';
+    $('balanced-badge').classList.toggle('earned',held);$('helper-badge').classList.toggle('earned',held&&!model.helperUsed);$('first-badge').classList.toggle('earned',held&&model.attempts===1);
+  }
+  function refresh(){setRunning(false);update();draw();}
+  function simulate(dt){if(model.advance(dt*ForceModel.playback)){setRunning(false);update();say(text(model.status+'Title',{net:number(model.netMagnitude()),angle:degrees(ForceModel.direction(model.net().x,model.net().y))}));return true;}return false;}
+  $('play').addEventListener('click',()=>{setRunning(true);update();say(text('startedAnnouncement'));});
+  $('pause').addEventListener('click',()=>{setRunning(false);update();say(text('pausedAnnouncement'));});
+  // Step advances 0.10 s of playback, which is 0.010 s of physical time in slow motion.
+  $('step').addEventListener('click',()=>{for(let i=0;i<12;i++)if(simulate(H))break;setRunning(false);update();draw();});
+  $('reset').addEventListener('click',()=>{model.reset();refresh();say(text('resetAnnouncement'));});
+  ForceModel.levels.forEach((_,i)=>$('level-'+i).addEventListener('click',()=>{model.setLevel(i);if($('show-helper').checked)model.helperUsed=true;sync();refresh();say(text('levelAnnouncement',{name:text('level'+i)}));}));
+  const readYours=()=>{if(model.setYours(Number($('magnitude').value),Number($('angle').value)))refresh();};
+  $('magnitude').addEventListener('input',readYours);$('angle').addEventListener('input',readYours);
+  $('show-helper').addEventListener('change',()=>{if($('show-helper').checked)model.helperUsed=true;update();draw();});
+  $('show-vectors').addEventListener('change',()=>{update();draw();});
+  function suspend(){if(running){setRunning(false);say(text('suspendedAnnouncement'));}update();draw();}
+  window.addEventListener('blur',suspend);document.addEventListener('visibilitychange',()=>{if(document.hidden)suspend();});
+  for(const link of document.querySelectorAll('.language-menu a'))link.addEventListener('click',()=>{setRunning(false);try{sessionStorage.setItem(transferKey,JSON.stringify({state:model.snapshot(),helper:$('show-helper').checked}));}catch{}});
+  function resize(){const rect=canvas.getBoundingClientRect();if(rect.width<=0)return;width=rect.width;height=rect.height;const dpr=Math.min(window.devicePixelRatio||1,3);canvas.width=Math.round(width*dpr);canvas.height=Math.round(height*dpr);ctx.setTransform(dpr,0,0,dpr,0,0);draw();}
+  function draw(){
+    if(!ctx)return;
+    const forces=model.forces(),n=model.net(),N=Math.hypot(n.x,n.y),shown=launched(),helper=$('show-helper').checked;
+    ctx.clearRect(0,0,width,height);
+    const label=(s,x,y,color='#b8ccdb',align='left',font=12)=>{ctx.fillStyle=color;ctx.textAlign=align;ctx.font=font+'px -apple-system,BlinkMacSystemFont,sans-serif';ctx.fillText(s,x,y);};
+    const line=(points,color,w=1,dash=[])=>{ctx.beginPath();ctx.strokeStyle=color;ctx.lineWidth=w;ctx.setLineDash(dash);points.forEach((q,i)=>i?ctx.lineTo(q.x,q.y):ctx.moveTo(q.x,q.y));ctx.stroke();ctx.setLineDash([]);};
+    const arrow=(from,dx,dy,color,w=2.5,dash=[])=>{const to={x:from.x+dx,y:from.y+dy},len=Math.hypot(dx,dy);if(len<3)return to;line([from,to],color,w,dash);const ux=dx/len,uy=dy/len;line([{x:to.x-ux*9-uy*4.5,y:to.y-uy*9+ux*4.5},to,{x:to.x-ux*9+uy*4.5,y:to.y-uy*9-ux*4.5}],color,2);return to;};
+    // Wide: table left, helper right. Narrow: a smaller table with room for rim labels, helper and banner below.
+    const wide=width>=620,R=wide?Math.min(height/2-36,width*.3-40):Math.min(width/2-72,height/2-80),cx=wide?width*.34:width/2,cy=wide?height/2+8:62+R;
+    const perMetre=R/.3,perNewton=Math.min(26,(R-16)/ForceModel.maxMagnitude*1.6);
+    label(text('arrowScale',{px:number(perNewton,0)}),width-14,20,'#9fb6c7','right',11);label(text('slowMotion'),width-14,36,'#9fb6c7','right',11);
+    // Table with degree markings, counter-clockwise from 0° at the right.
+    ctx.fillStyle='#163043';ctx.beginPath();ctx.arc(cx,cy,R,0,Math.PI*2);ctx.fill();ctx.strokeStyle='#416075';ctx.lineWidth=2;ctx.stroke();
+    for(let a=0;a<360;a+=10){const r=a*Math.PI/180,inner=a%30===0?R-12:R-6;line([{x:cx+inner*Math.cos(r),y:cy-inner*Math.sin(r)},{x:cx+R*Math.cos(r),y:cy-R*Math.sin(r)}],'#8fb0c4',1);if(a%30===0)label(a+'°',cx+(R+16)*Math.cos(r),cy-(R+16)*Math.sin(r)+4,'#a5bfce','center',10);}
+    ctx.strokeStyle='#5d7d92';ctx.setLineDash([3,3]);ctx.beginPath();ctx.arc(cx,cy,ForceModel.stop*perMetre,0,Math.PI*2);ctx.stroke();ctx.setLineDash([]);
+    // Ring position: it slides along the net force once released.
+    const d=model.displacement(),dir=N>0?{x:n.x/N,y:n.y/N}:{x:0,y:0},ring={x:cx+dir.x*d*perMetre,y:cy-dir.y*d*perMetre};
+    forces.forEach((f,i)=>{
+      const r=f.a*Math.PI/180,rim={x:cx+R*Math.cos(r),y:cy-R*Math.sin(r)},color=f.yours?'#75efc7':'#77b9ff';
+      line([ring,rim],f.yours?'#b8f7e2':'#c5dcef',1.2);ctx.fillStyle=color;ctx.beginPath();ctx.arc(rim.x,rim.y,5,0,Math.PI*2);ctx.fill();
+      const name=(f.yours?'F_you':'F'+sub(i))+' = '+number(f.m)+' N';
+      label(name,rim.x+(Math.cos(r)>=0?10:-10),rim.y-(Math.sin(r)>=0?10:-16),color,Math.cos(r)>=0?'left':'right',11);
+      if($('show-vectors').checked)arrow(ring,f.x*perNewton,-f.y*perNewton,color,f.yours?3:2.5);
+    });
+    if(shown&&N>.005)arrow(ring,n.x*perNewton*3,-n.y*perNewton*3,'#efb958',2.5);
+    if(shown&&N>.005)label(text('netScale'),ring.x+n.x*perNewton*3+8,ring.y-n.y*perNewton*3-6,'#efb958','left',11);
+    ctx.strokeStyle='#f2f8fc';ctx.lineWidth=3;ctx.beginPath();ctx.arc(ring.x,ring.y,9,0,Math.PI*2);ctx.stroke();
+    if(helper){
+      // Tip-to-tail helper: chain every force; the polygon closes only when the vector sum is zero.
+      const hs=wide?perNewton:perNewton*.4,pts=[{x:0,y:0}];
+      for(const f of forces){const q=pts[pts.length-1];pts.push({x:q.x+f.x*hs,y:q.y-f.y*hs});}
+      const xs=pts.map(q=>q.x),ys=pts.map(q=>q.y),boxW=Math.max(...xs)-Math.min(...xs),boxH=Math.max(...ys)-Math.min(...ys);
+      const areaX=wide?cx+R+40:0,areaW=wide?width-areaX-20:width,centerX=areaX+areaW/2,centerY=wide?cy+10:(cy+R+44+height-26)/2;
+      const ox=centerX-(Math.min(...xs)+boxW/2),oy=centerY-(Math.min(...ys)+boxH/2),at=q=>({x:ox+q.x,y:oy+q.y});
+      label(text('helperTitle'),centerX,centerY-boxH/2-14,'#b8ccdb','center',11);
+      forces.forEach((f,i)=>arrow(at(pts[i]),f.x*hs,-f.y*hs,f.yours?'#75efc7':'#8aa3b5',2));
+      const end=at(pts[pts.length-1]),origin=at(pts[0]);
+      if(Math.hypot(end.x-origin.x,end.y-origin.y)>2)line([end,origin],'#efb958',1.5,[4,4]);
+      ctx.fillStyle='#d1e3ed';ctx.beginPath();ctx.arc(origin.x,origin.y,3,0,Math.PI*2);ctx.fill();
+    }
+    if(model.status!=='active')label(text(model.status==='held'?'heldBanner':'slippedBanner'),wide?cx:width/2,wide?24:height-10,model.status==='held'?'#75efc7':'#efb958','center',width<430?14:16);
+  }
+  function frame(now){if(previous===null)previous=now;const elapsed=Math.min(.1,(now-previous)/1000);previous=now;if(running){accumulator+=elapsed;while(accumulator>=H&&running){accumulator-=H;simulate(H);}draw();}if(now-lastUpdate>=80){update();lastUpdate=now;}requestAnimationFrame(frame);}
+  window.addEventListener('resize',resize);if(typeof ResizeObserver!=='undefined')new ResizeObserver(resize).observe(canvas);
+  sync();setRunning(false);update();resize();requestAnimationFrame(frame);
+})();
+</script>
+</body>
+</html>

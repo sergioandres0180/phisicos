@@ -74,7 +74,7 @@ test('small positive velocities and accelerations retain the correct teaching st
 });
 for(const lang of Object.keys(copy))test(`${lang}: soft touchdown earns precision and eco badges with localized contact feedback`,()=>{
  const m=make();m.h=.1;m.v=-.5;m.t=5;m.fuel=29;
- const storage=new Map([['motion-lab-lander-language-transfer',JSON.stringify({flight:m.snapshot(),power:.27,latched:true})]]),ui=mount(lang,storage);
+ const storage=new Map([['phisicos-lander-language-transfer',JSON.stringify({flight:m.snapshot(),power:.27,latched:true})]]),ui=mount(lang,storage);
  for(let i=0;i<4&&!ui.el('step').disabled;i++)ui.click('step');
  assert.equal(ui.el('flight-status-text').textContent,copy[lang].landed);assert.equal(ui.el('lesson-title').textContent,copy[lang].safeTitle);assert.ok(ui.el('precision-badge').classList.values.has('earned'));assert.ok(ui.el('eco-badge').classList.values.has('earned'));assert.ok(Number(ui.el('mission-score').textContent)>100);
 });
