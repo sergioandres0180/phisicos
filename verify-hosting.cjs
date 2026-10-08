@@ -1,7 +1,7 @@
 const fs=require('node:fs'),path=require('node:path'),assert=require('node:assert/strict');
 const root=path.join(__dirname,'release/public_html');
 const base=require('./deployment.json').siteUrl;
-const pages=require('./locales/pages.cjs'),kinds=['home','game',...require('./locales/games.cjs').map(g=>g.kind)],pageCount=Object.keys(pages).length*kinds.length;
+const pages=require('./locales/pages.cjs'),{kinds}=require('./locales/site.cjs'),legacy=require('./locales/legacy-routes.cjs'),pageCount=Object.keys(pages).length*kinds.length;
 const read=file=>fs.readFileSync(path.join(root,file),'utf8');
 const sitemap=read('sitemap.xml');
 assert.equal((sitemap.match(/<loc>/g)||[]).length,pageCount);
@@ -32,6 +32,8 @@ console.log(`PASS GTM-TZH7L6DT: one head loader and one body fallback on all ${p
 assert.ok(!config.includes('__'));
 assert.ok(config.includes(`RewriteRule ^ ${base}%{REQUEST_URI} [R=301,L,NE]`));
 assert.ok(config.includes('ErrorDocument 404 /404.html'));
+for(const [lang,map] of Object.entries(legacy))for(const [kind,from] of Object.entries(map))assert.ok(config.includes(`RewriteRule ^${from.slice(1)}?(?:index\\.html)?$ ${base}${pages[lang][kind]} [R=301,L,NE]`),'missing redirect for '+from);
+assert.ok(config.indexOf('[R=301,L,NE]\n\n# Redirect explicitly requested index.html')>config.indexOf(legacy.en.game),'legacy redirects must run before the index.html rule');
 assert.ok(config.includes('DirectoryIndex index.html'));
 for(const forbidden of ['src','locales','.git','.openai','node_modules','deployment.json','package.json','lab-v1.html'])assert.ok(!fs.existsSync(path.join(root,forbidden)));
 console.log(`PASS hosting artifact: ${pageCount} public canonical pages, social images, robots, sitemap, Apache configuration, no development files`);

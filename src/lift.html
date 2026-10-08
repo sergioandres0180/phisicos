@@ -1,0 +1,256 @@
+<!doctype html>
+<html lang="en">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Lift Trips · Phisicos</title>
+<style>
+.lift-page .answer-row .symbol{min-width:44px}
+</style>
+</head>
+<body>
+<div class="shell module-page lift-page">
+__HEADER__
+<main id="main-content">
+__BREADCRUMBS__
+
+<div class="masthead"><div><h1>{{title}}</h1><p class="intro">{{subtitle}}</p></div><div class="concept-tags"><span class="tag speed">{{tag1}}</span><span class="tag velocity">{{tag2}}</span></div></div>
+<noscript><p class="no-js">{{noScript}}</p></noscript>
+<div class="layout">
+<aside class="sidebar" aria-label="{{setup}}">
+  <section class="control-section"><h2 class="eyebrow">{{setup}}</h2><div class="mission-list" role="group" aria-label="{{setup}}">
+    <button id="mission-0" aria-pressed="true"><b>1 · {{mission0}}</b><span id="given-0">0 → 5</span></button>
+    <button id="mission-1" aria-pressed="false"><b>2 · {{mission1}}</b><span id="given-1">4 → −2</span></button>
+    <button id="mission-2" aria-pressed="false"><b>3 · {{mission2}}</b><span id="given-2">0 → 6 → 0</span></button>
+    <button id="mission-3" aria-pressed="false"><b>4 · {{mission3}}</b><span id="given-3">1 → 7 → −1 → 3</span></button>
+    <button id="mission-4" aria-pressed="false"><b>5 · {{mission4}}</b><span id="given-4">3 → 8 → −3</span></button>
+    <button id="mission-5" aria-pressed="false"><b>6 · {{mission5}}</b><span id="given-5">0 → 3 → 1 → 4 → 2</span></button>
+  </div><p class="hint">{{setupNote}}</p></section>
+  <section class="control-section"><h2 class="eyebrow">{{predictHeading}}</h2>
+    <p class="field-label"><label for="distance-answer">{{distanceLabel}}</label></p>
+    <div class="answer-row"><span class="symbol">s =</span><input id="distance-answer" type="number" inputmode="decimal" min="0" step="any" value=""><span class="unit">m</span></div>
+    <p class="field-label"><label for="disp-answer">{{dispLabel}}</label></p>
+    <div class="answer-row"><span class="symbol">Δy =</span><input id="disp-answer" type="number" inputmode="decimal" step="any" value=""><span class="unit">m</span></div>
+    <p class="hint">{{predictHint}}</p>
+  </section>
+  <section class="control-section"><h2 class="eyebrow">{{observe}}</h2><label class="check"><input id="show-vectors" type="checkbox" checked>{{vectors}}</label><label class="check"><input id="show-log" type="checkbox" checked>{{log}}</label><p class="hint">{{logHint}}</p></section>
+</aside>
+<div class="workspace">
+  <section class="scene" aria-label="{{sceneTitle}}"><div class="scene-top"><div><h2 class="scene-title">{{sceneTitle}}</h2><p class="scene-subtitle" id="mission-label">{{mission0}}</p></div><span class="status" id="lift-status"><i class="status-dot" aria-hidden="true"></i><span id="lift-status-text">{{ready}}</span></span></div>
+    <div class="module-stage"><canvas id="lift-canvas" role="img" aria-label="{{canvasLabel}}">{{noScript}}</canvas></div>
+    <div class="legend"><span><i class="line-key mint"></i>{{distanceLegend}}</span><span><i class="line-key blue"></i>{{dispLegend}}</span><span><i class="line-key white"></i>{{velocityLegend}}</span><span><i class="line-key orange"></i>{{stopLegend}}</span></div>
+    <div class="module-equation"><span>{{equationTitle}}</span><output id="lift-equation">s = 0 m · Δy = 0 m</output></div>
+    <div class="transport"><button id="play" class="primary" disabled>{{play}}</button><button id="pause" disabled>{{pause}}</button><button id="step" disabled>{{step}}</button><button id="reset" class="reset">{{reset}}</button></div>
+  </section>
+  <section class="metrics" aria-label="{{observe}}">
+    <div class="metric scalar"><h3 class="metric-label">{{time}}</h3><p class="metric-value"><span id="time-value">0.0</span> <small>s</small></p><p class="metric-equation">t</p></div>
+    <div class="metric vector"><h3 class="metric-label">{{position}}</h3><p class="metric-value"><span id="position-value">0.0</span> <small>m</small></p><p class="metric-components" id="floor-value"></p><p class="metric-equation">y</p></div>
+    <div class="metric vector"><h3 class="metric-label">{{velocity}}</h3><p class="metric-value"><span id="velocity-value">0.0</span> <small>m/s</small></p><p class="metric-equation">v_y</p></div>
+    <div class="metric scalar"><h3 class="metric-label">{{distance}}</h3><p class="metric-value"><span id="distance-value">0.0</span> <small>m</small></p><p class="metric-equation">s = Σ|Δyᵢ|</p></div>
+    <div class="metric vector"><h3 class="metric-label">{{displacement}}</h3><p class="metric-value"><span id="disp-value">0.0</span> <small>m</small></p><p class="metric-equation">Δy = y − yᵢ</p></div>
+  </section>
+  <div class="insight" id="insight"><span class="insight-icon" aria-hidden="true">↗</span><div><strong id="lesson-title">{{predictTitle}}</strong><p id="lesson-copy">{{predictCopy}}</p></div></div>
+  <section class="challenge"><div class="mission-heading"><h2 class="challenge-title">{{missionTitle}}</h2><div class="score-card"><span>{{score}}</span><strong id="mission-score">—</strong></div></div><p class="mission-copy">{{missionCopy}}</p><div class="badges"><span id="distance-badge">s {{distanceBadge}}</span><span id="disp-badge">Δy {{dispBadge}}</span></div></section>
+</div>
+</div>
+<article class="learning-content"><section><h2>{{guideTitle}}</h2><ol><li>{{instruction1}}</li><li>{{instruction2}}</li><li>{{instruction3}}</li><li>{{instruction4}}</li></ol></section><section><h2>{{conceptTitle}}</h2><p>{{conceptCopy}}</p><aside class="worked-example"><h3>{{exampleTitle}}</h3><p>{{exampleCopy}}</p></aside></section><section><h2>{{modelTitle}}</h2><p>{{modelCopy}}</p></section></article>
+<p class="language-note" id="language-note">{{languageNote}}</p>
+</main>
+__FOOTER__
+<p class="sr-only" id="announcement" role="status" aria-live="polite"></p>
+</div>
+<script id="lift-model">
+class LiftModel {
+  // y is the height of the lift floor above the ground floor (floor 0), up positive. Floor n is at y = 3n m.
+  static missions = [{stops:[0,5]},{stops:[4,-2]},{stops:[0,6,0]},{stops:[1,7,-1,3]},{stops:[3,8,-3]},{stops:[0,3,1,4,2]}];
+  static floorHeight = 3; // m
+  static floors = [-3,8]; // lowest and highest floor
+  static speed = 2; // m/s between floors
+  static dwell = 1; // s with the doors open at each intermediate stop
+  static playback = 3; // physical seconds per second of playback
+  static tolerance = .05; // m
+  constructor(index = 0){this.setMission(index);}
+  setMission(index){this.index=index;this.config=LiftModel.missions[index];this.distance=null;this.disp=null;this.plan=LiftModel.schedule(this.config.stops);this.reset();}
+  reset(){this.t=0;this.status='running';}
+  // The trip as consecutive phases: moving legs and stops with the doors open.
+  static schedule(stops){
+    const h=LiftModel.floorHeight,plan=[];let t=0;
+    stops.slice(1).forEach((floor,i)=>{
+      const from=stops[i]*h,to=floor*h,T=Math.abs(to-from)/LiftModel.speed;
+      plan.push({type:'move',from,to,t0:t,t1:t+T});t+=T;
+      if(i<stops.length-2){plan.push({type:'dwell',from:to,to,t0:t,t1:t+LiftModel.dwell});t+=LiftModel.dwell;}
+    });
+    return plan;
+  }
+  tripTime(){return this.plan[this.plan.length-1].t1;}
+  setPrediction(distance,disp){
+    if(distance!==null&&!(Number.isFinite(distance)&&distance>=0))return false;
+    if(disp!==null&&!Number.isFinite(disp))return false;
+    this.distance=distance;this.disp=disp;this.reset();return true;
+  }
+  ready(){return this.distance!==null&&this.disp!==null;}
+  // Position, velocity, and distance follow exactly from the schedule at any time.
+  state(t=this.status==='arrived'?this.tripTime():this.t){
+    let s=0;
+    for(const p of this.plan){
+      if(t<p.t1||p===this.plan[this.plan.length-1]){
+        const f=p.type==='move'&&p.t1>p.t0?Math.min(1,Math.max(0,(t-p.t0)/(p.t1-p.t0))):1,y=p.from+(p.to-p.from)*f;
+        const moving=p.type==='move'&&t<p.t1&&this.status!=='arrived';
+        return {y,v:moving?Math.sign(p.to-p.from)*LiftModel.speed:0,s:s+Math.abs(y-p.from),phase:p};
+      }
+      s+=Math.abs(p.to-p.from);
+    }
+  }
+  startY(){return this.config.stops[0]*LiftModel.floorHeight;}
+  advance(dt){
+    if(!Number.isFinite(dt)||dt<0)throw new Error('Invalid timestep');
+    if(this.status==='arrived'||!this.ready())return null;
+    // The last stop is reached exactly at the end of the schedule.
+    const T=this.tripTime();
+    if(this.t+dt>=T*(1-1e-12)){this.t=T;this.status='arrived';return {t:T};}
+    this.t+=dt;return null;
+  }
+  answers(){
+    const h=LiftModel.floorHeight,stops=this.config.stops,legs=stops.slice(1).map((f,i)=>Math.abs(f-stops[i])*h);
+    return {legs,s:legs.reduce((a,b)=>a+b,0),dy:(stops[stops.length-1]-stops[0])*h,yf:stops[stops.length-1]*h};
+  }
+  evaluate(){
+    const a=this.answers(),tol=LiftModel.tolerance,near=(p,q)=>p!==null&&Math.abs(p-q)<=tol,h=LiftModel.floorHeight;
+    const distanceOk=near(this.distance,a.s),dispOk=near(this.disp,a.dy);
+    let distanceSlip=null,dispSlip=null;
+    if(this.distance!==null&&!distanceOk){
+      if(near(this.distance,a.s/h))distanceSlip='floors';
+      else if(near(this.distance,Math.abs(a.dy)))distanceSlip='straight';
+    }
+    if(this.disp!==null&&!dispOk){
+      if(Math.abs(a.dy)>tol&&near(this.disp,-a.dy))dispSlip='sign';
+      else if(near(this.disp,a.dy/h))dispSlip='floors';
+      else if(near(this.disp,a.s))dispSlip='distance';
+      else if(this.startY()!==0&&near(this.disp,a.yf))dispSlip='final';
+    }
+    return {...a,distanceOk,dispOk,distanceSlip,dispSlip};
+  }
+  score(){if(this.status!=='arrived')return 0;const e=this.evaluate();return (e.distanceOk?50:0)+(e.dispOk?50:0);}
+  snapshot(){return {index:this.index,distance:this.distance,disp:this.disp,t:this.t,status:this.status};}
+  restore(saved){
+    if(!Number.isInteger(saved?.index)||!LiftModel.missions[saved.index])return false;
+    const probe=new LiftModel(saved.index);
+    if(!probe.setPrediction(saved.distance??null,saved.disp??null))return false;
+    if(!['running','arrived'].includes(saved.status)||!Number.isFinite(saved.t)||saved.t<0||saved.t>probe.tripTime()*(1+1e-9))return false;
+    if(!probe.ready()&&(saved.t>0||saved.status==='arrived'))return false;
+    this.setMission(saved.index);this.distance=probe.distance;this.disp=probe.disp;
+    this.status=saved.status;this.t=saved.status==='arrived'?this.tripTime():saved.t;return true;
+  }
+}
+globalThis.LiftModel=LiftModel;
+</script>
+<script id="lift-locale" type="application/json">__LOCALE__</script>
+<script id="lift-interface">
+(() => {
+  'use strict';
+  const $=id=>document.getElementById(id),locale=JSON.parse($('lift-locale').textContent);
+  const text=(key,values={})=>locale.strings[key].replace(/\{(\w+)\}/g,(_,name)=>values[name]??'{'+name+'}');
+  const number=(n,d=1)=>Math.abs(n)<.5*10**-d?(0).toLocaleString(locale.lang,{minimumFractionDigits:d,maximumFractionDigits:d}):n.toLocaleString(locale.lang,{minimumFractionDigits:d,maximumFractionDigits:d,useGrouping:false});
+  const plain=n=>n.toLocaleString(locale.lang,{maximumFractionDigits:2,useGrouping:false});
+  const signed=(n,d=1)=>(n>.5*10**-d?'+':'')+number(n,d);
+  const floorText=n=>String(n).replace('-','−');
+  const model=new LiftModel(),h=LiftModel.floorHeight;
+  const canvas=$('lift-canvas'),ctx=canvas.getContext('2d');
+  const H=1/120,transferKey='phisicos-lift-language-transfer';
+  let running=false,previous=null,accumulator=0,lastUpdate=0,width=800,height=410;
+  const say=message=>{$('announcement').textContent=message;};
+  try{const data=JSON.parse(sessionStorage.getItem(transferKey)||'null');sessionStorage.removeItem(transferKey);if(data)model.restore(data.state);}catch{$('language-note').hidden=true;}
+  function setRunning(value){
+    const done=model.status==='arrived',blocked=!model.ready();running=value&&!done&&!blocked;previous=null;accumulator=0;
+    $('play').disabled=running||done||blocked;$('pause').disabled=!running;$('step').disabled=running||done||blocked;
+    $('lift-status').classList.toggle('running',running);
+  }
+  function sync(){
+    LiftModel.missions.forEach((m,i)=>{$('mission-'+i).setAttribute('aria-pressed',String(i===model.index));$('given-'+i).textContent=text('floorsGiven',{list:m.stops.map(floorText).join(' → ')});});
+    $('distance-answer').value=model.distance===null?'':String(model.distance);$('disp-answer').value=model.disp===null?'':String(model.disp);
+    $('mission-label').textContent=text('mission'+model.index);
+  }
+  function update(){
+    const st=model.state(),done=model.status==='arrived',e=model.evaluate(),dy=st.y-model.startY();
+    $('lift-status-text').textContent=text(done?'arrived':running?(st.phase.type==='dwell'?'doors':'running'):model.t?'paused':'ready');
+    $('time-value').textContent=number(model.t);$('position-value').textContent=signed(st.y);$('floor-value').textContent=text('floorReadout',{n:plain(st.y/h).replace('-','−')});
+    $('velocity-value').textContent=signed(st.v);$('distance-value').textContent=number(st.s);$('disp-value').textContent=signed(dy);
+    // Distance adds the size of every stretch; displacement only compares the end with the start.
+    const parts=[];let left=st.s;for(const leg of e.legs){if(left<=1e-9)break;parts.push(Math.min(leg,left));left-=leg;}
+    $('lift-equation').textContent='s = '+(parts.length?parts.map(v=>plain(v)).join(' + '):'0')+' = '+plain(st.s)+' m · Δy = '+plain(st.y)+' − '+(model.startY()<0?'('+plain(model.startY())+')':plain(model.startY()))+' = '+plain(dy)+' m';
+    let key,copy,values={s:plain(e.s),dy:signed(e.dy,0),legs:e.legs.map(plain).join(' + '),floors:plain(e.s/h),pct:number(model.t/model.tripTime()*100,0),y:signed(st.y),d:signed(dy),run:plain(st.s)};
+    if(done){
+      if(e.distanceOk&&e.dispOk){key='good';copy=text('why'+model.index);}
+      else{key='check';const parts=[];
+        if(!e.distanceOk)parts.push(text({floors:'distanceFloors',straight:'distanceStraight'}[e.distanceSlip]||'distanceMiss',values));
+        if(!e.dispOk)parts.push(text({sign:'dispSign',floors:'dispFloors',distance:'dispDistance',final:'dispFinal'}[e.dispSlip]||'dispMiss',values));
+        copy=parts.join(' ');}
+    }
+    else if(!model.ready()){key='predict';copy=text('predictCopy');}
+    else if(model.t>0){key=st.phase.type==='dwell'?'doors':'running';copy=text(key+'Copy',values);}
+    else{key='ready';copy=text('readyCopy');}
+    $('lesson-title').textContent=text(key+'Title',{...values,ps:model.distance===null?'':plain(model.distance),pd:model.disp===null?'':signed(model.disp)});$('lesson-copy').textContent=copy;
+    $('insight').classList.toggle('warning',key==='check');
+    $('mission-score').textContent=done?String(model.score()):'—';
+    $('distance-badge').classList.toggle('earned',done&&e.distanceOk);$('disp-badge').classList.toggle('earned',done&&e.dispOk);
+  }
+  function refresh(){setRunning(false);update();draw();}
+  function simulate(dt){if(model.advance(dt*LiftModel.playback)){setRunning(false);update();say(text('arrivedAnnouncement',{n:floorText(model.config.stops[model.config.stops.length-1])})+' '+$('lesson-title').textContent);return true;}return false;}
+  const read=id=>{const raw=String($(id).value).trim();return raw===''?null:Number(raw);};
+  const readPrediction=()=>{if(!model.setPrediction(read('distance-answer'),read('disp-answer')))model.setPrediction(null,null);refresh();};
+  $('distance-answer').addEventListener('input',readPrediction);$('disp-answer').addEventListener('input',readPrediction);
+  $('play').addEventListener('click',()=>{setRunning(true);update();say(text('startedAnnouncement'));});
+  $('pause').addEventListener('click',()=>{setRunning(false);update();say(text('pausedAnnouncement'));});
+  $('step').addEventListener('click',()=>{for(let i=0;i<12;i++)if(simulate(H))break;setRunning(false);update();draw();});
+  $('reset').addEventListener('click',()=>{model.reset();refresh();say(text('resetAnnouncement'));});
+  LiftModel.missions.forEach((_,i)=>$('mission-'+i).addEventListener('click',()=>{model.setMission(i);sync();refresh();say(text('missionAnnouncement',{name:text('mission'+i)}));}));
+  for(const id of ['show-vectors','show-log'])$(id).addEventListener('change',()=>{update();draw();});
+  function suspend(){if(running){setRunning(false);say(text('suspendedAnnouncement'));}update();draw();}
+  window.addEventListener('blur',suspend);document.addEventListener('visibilitychange',()=>{if(document.hidden)suspend();});
+  for(const link of document.querySelectorAll('.language-menu a'))link.addEventListener('click',()=>{setRunning(false);try{sessionStorage.setItem(transferKey,JSON.stringify({state:model.snapshot()}));}catch{}});
+  function resize(){const rect=canvas.getBoundingClientRect();if(rect.width<=0)return;width=rect.width;height=rect.height;const dpr=Math.min(window.devicePixelRatio||1,3);canvas.width=Math.round(width*dpr);canvas.height=Math.round(height*dpr);ctx.setTransform(dpr,0,0,dpr,0,0);draw();}
+  const ARROW=18; // px per m/s, stated on the canvas.
+  function draw(){
+    if(!ctx)return;
+    const st=model.state(),done=model.status==='arrived',stops=model.config.stops,y0=model.startY();
+    ctx.clearRect(0,0,width,height);
+    const label=(s,x,y,color='#b8ccdb',align='left',font=12)=>{ctx.fillStyle=color;ctx.textAlign=align;ctx.font=font+'px -apple-system,BlinkMacSystemFont,sans-serif';ctx.fillText(s,x,y);};
+    const line=(points,color,w=1,dash=[])=>{ctx.beginPath();ctx.strokeStyle=color;ctx.lineWidth=w;ctx.setLineDash(dash);points.forEach((q,i)=>i?ctx.lineTo(q.x,q.y):ctx.moveTo(q.x,q.y));ctx.stroke();ctx.setLineDash([]);};
+    const arrow=(x,fromY,toY,color,w=2.5)=>{if(Math.abs(toY-fromY)<3)return;const s=Math.sign(toY-fromY);line([{x,y:fromY},{x,y:toY}],color,w);line([{x:x-5,y:toY-s*9},{x,y:toY},{x:x+5,y:toY-s*9}],color,2);};
+    // Height (m) to screen. One floor is 3 m; the building spans floors −3 to 8.
+    const [lo,hi]=LiftModel.floors,top=50,bottom=height-30,k=(bottom-top)/((hi-lo+1)*h),sy=y=>bottom-(y-(lo-.5)*h)*k;
+    const wide=width>=560,shaftX=wide?width*.2:width*.3,shaftW=Math.max(34,Math.min(56,width*.07)),groundY=sy(0);
+    ctx.fillStyle='#1b3647';ctx.fillRect(0,groundY,wide?width*.42:width*.62,bottom-groundY);
+    label(text('basement'),(wide?width*.42:width*.62)-6,groundY+14,'#9fb6c7','right',10);
+    for(let f=lo;f<=hi;f++){const fy=sy(f*h);line([{x:shaftX-shaftW/2-30,y:fy},{x:shaftX+shaftW/2+8,y:fy}],f===0?'#8aa3b5':'#2c4a5f',f===0?2:1);label(floorText(f),shaftX-shaftW/2-36,fy+4,'#b8ccdb','right',12);label(plain(f*h)+' m',shaftX+shaftW/2+12,fy+4,'#6f889b','left',10);}
+    label(text('floorAxis'),shaftX-shaftW/2-36,top-12,'#9fb6c7','right',11);label('y',shaftX+shaftW/2+12,top-12,'#9fb6c7','left',11);
+    line([{x:shaftX-shaftW/2,y:sy(hi*h+h/2)},{x:shaftX-shaftW/2,y:groundY+(bottom-groundY)}],'#3f6178',1);line([{x:shaftX+shaftW/2,y:sy(hi*h+h/2)},{x:shaftX+shaftW/2,y:bottom}],'#3f6178',1);
+    // Scheduled stops, numbered in order.
+    stops.forEach((f,i)=>{ctx.fillStyle='#efb958';ctx.beginPath();ctx.arc(shaftX-shaftW/2-14,sy(f*h)-7,4,0,Math.PI*2);ctx.fill();if(i>0)label(String(i),shaftX-shaftW/2-22,sy(f*h)-4,'#efb958','right',10);});
+    // Lift car: its floor is at y.
+    const carTop=sy(st.y+h*.85),carBottom=sy(st.y);ctx.fillStyle='#d1e3ed';ctx.fillRect(shaftX-shaftW/2+3,carTop,shaftW-6,carBottom-carTop);
+    const open=st.phase.type==='dwell'&&!done&&model.t>st.phase.t0;ctx.fillStyle='#102637';if(open)ctx.fillRect(shaftX-shaftW*.3,carTop+4,shaftW*.6,carBottom-carTop-6);else line([{x:shaftX,y:carTop+3},{x:shaftX,y:carBottom-2}],'#8aa3b5',1);
+    if($('show-vectors').checked){
+      const dx=shaftX+shaftW/2+48;line([{x:dx-8,y:sy(y0)},{x:dx+8,y:sy(y0)}],'#77b9ff',2);label('yᵢ',dx+10,sy(y0)+4,'#77b9ff','left',11);
+      arrow(dx,sy(y0),sy(st.y),'#77b9ff');if(Math.abs(st.y-y0)>.5)label('Δy',dx+10,(sy(y0)+sy(st.y))/2,'#77b9ff','left',12);
+      if(!done&&st.v!==0){arrow(shaftX,carTop-6,carTop-6-st.v*ARROW,'#f2f8fc');}
+    }
+    // Trip log: each stretch side by side, so the total ink is the distance travelled.
+    if($('show-log').checked){
+      const x0=wide?width*.5:width*.66,x1=width-24,legs=model.plan.filter(p=>p.type==='move'),gap=(x1-x0)/Math.max(1,legs.length);
+      label(text('logTitle'),x0,top-12,'#d1e3ed','left',12);
+      legs.forEach((p,i)=>{
+        const x=x0+gap*(i+.5),dur=p.t1-p.t0,f=done?1:Math.min(1,Math.max(0,dur?(model.t-p.t0)/dur:1)),cur=p.from+(p.to-p.from)*f;
+        line([{x,y:sy(p.from)},{x,y:sy(p.to)}],'#2c5f57',2,[3,4]);
+        if(f>0){line([{x,y:sy(p.from)},{x,y:sy(cur)}],'#75efc7',5);if(gap>=62)label(plain(Math.abs(cur-p.from))+' m',x+7,(sy(p.from)+sy(cur))/2+4,'#75efc7','left',11);}
+        if(i<legs.length-1)line([{x,y:sy(p.to)},{x:x+gap,y:sy(p.to)}],'#3f6178',1,[2,3]);
+      });
+      label(text('logTotal',{s:plain(st.s)}),x1,height-10,'#75efc7','right',13);
+    }
+    label(text('arrowScale'),8,height-10,'#9fb6c7','left',11);
+    if(done)label(text('arrivedBanner',{s:plain(st.s),dy:signed(st.y-y0,0)}),width/2,20,'#75efc7','center',width<430?13:15);
+  }
+  function frame(now){if(previous===null)previous=now;const elapsed=Math.min(.1,(now-previous)/1000);previous=now;if(running){accumulator+=elapsed;while(accumulator>=H&&running){accumulator-=H;simulate(H);}draw();}if(now-lastUpdate>=80){update();lastUpdate=now;}requestAnimationFrame(frame);}
+  window.addEventListener('resize',resize);if(typeof ResizeObserver!=='undefined')new ResizeObserver(resize).observe(canvas);
+  sync();setRunning(false);update();resize();requestAnimationFrame(frame);
+})();
+</script>
+</body>
+</html>

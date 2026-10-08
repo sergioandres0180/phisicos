@@ -1,0 +1,280 @@
+<!doctype html>
+<html lang="en">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Galileo's Bells · Phisicos</title>
+<style>
+.bells-page .question{font-size:15px;font-weight:600;margin-top:4px}.bells-page .answer-row .symbol{min-width:44px}.bells-page .answer-row input:disabled{background:#f2f6f9;color:var(--muted)}.bells-page .bell-rows .answer-row{margin-top:6px}.bells-page [hidden]{display:none!important}
+</style>
+</head>
+<body>
+<div class="shell module-page bells-page">
+__HEADER__
+<main id="main-content">
+__BREADCRUMBS__
+
+<div class="masthead"><div><h1>{{title}}</h1><p class="intro">{{subtitle}}</p></div><div class="concept-tags"><span class="tag speed">{{tag1}}</span><span class="tag velocity">{{tag2}}</span></div></div>
+<noscript><p class="no-js">{{noScript}}</p></noscript>
+<div class="layout">
+<aside class="sidebar" aria-label="{{setup}}">
+  <section class="control-section"><h2 class="eyebrow">{{setup}}</h2><div class="mission-list" role="group" aria-label="{{setup}}">
+    <button id="mission-0" aria-pressed="true"><b>1 · {{mission0}}</b><span id="given-0">a</span></button>
+    <button id="mission-1" aria-pressed="false"><b>2 · {{mission1}}</b><span id="given-1">a</span></button>
+    <button id="mission-2" aria-pressed="false"><b>3 · {{mission2}}</b><span id="given-2">a</span></button>
+    <button id="mission-3" aria-pressed="false"><b>4 · {{mission3}}</b><span id="given-3">a</span></button>
+  </div><p class="hint">{{setupNote}}</p></section>
+  <section class="control-section"><h2 class="eyebrow">{{answerHeading}}</h2>
+    <p class="question" id="question">{{questionPositions}}</p>
+    <div class="bell-rows" role="group" aria-label="{{bellsGroup}}">
+      <div class="answer-row"><label class="symbol" for="bell-0">d₁ =</label><input id="bell-0" type="number" inputmode="decimal" step="any" min="0" value=""><span class="unit">m</span></div>
+      <div class="answer-row"><label class="symbol" for="bell-1">d₂ =</label><input id="bell-1" type="number" inputmode="decimal" step="any" min="0" value=""><span class="unit">m</span></div>
+      <div class="answer-row"><label class="symbol" for="bell-2">d₃ =</label><input id="bell-2" type="number" inputmode="decimal" step="any" min="0" value=""><span class="unit">m</span></div>
+      <div class="answer-row"><label class="symbol" for="bell-3">d₄ =</label><input id="bell-3" type="number" inputmode="decimal" step="any" min="0" value=""><span class="unit">m</span></div>
+    </div>
+    <div class="answer-row" id="accel-row"><label class="symbol" for="accel">a =</label><input id="accel" type="number" inputmode="decimal" step="any" min="0" value=""><span class="unit">m/s²</span></div>
+    <p class="hint" id="answer-hint">{{answerHint}}</p>
+  </section>
+  <section class="control-section"><h2 class="eyebrow">{{observe}}</h2><label class="check"><input id="show-vectors" type="checkbox" checked>{{vectors}}</label><label class="check"><input id="show-gaps" type="checkbox" checked>{{gaps}}</label><label class="check"><input id="sound" type="checkbox" checked>{{sound}}</label><p class="hint">{{observeHint}}</p></section>
+</aside>
+<div class="workspace">
+  <section class="scene" aria-label="{{sceneTitle}}"><div class="scene-top"><div><h2 class="scene-title">{{sceneTitle}}</h2><p class="scene-subtitle" id="mission-label">{{mission0}}</p></div><span class="status" id="bells-status"><i class="status-dot" aria-hidden="true"></i><span id="bells-status-text">{{ready}}</span></span></div>
+    <div class="module-stage"><canvas id="bells-canvas" role="img" aria-label="{{canvasLabel}}">{{noScript}}</canvas></div>
+    <div class="legend"><span><i class="line-key mint"></i>{{ringLegend}}</span><span><i class="line-key orange"></i>{{beatLegend}}</span><span><i class="line-key white"></i>{{velocityLegend}}</span><span><i class="line-key blue"></i>{{accelerationLegend}}</span><span><i class="line-key gray"></i>{{gapLegend}}</span></div>
+    <div class="module-equation"><span>{{equationTitle}}</span><output id="bells-equation">x = ½·a·t²</output></div>
+    <div class="transport"><button id="play" class="primary" disabled>{{play}}</button><button id="pause" disabled>{{pause}}</button><button id="step" disabled>{{step}}</button><button id="reset" class="reset">{{reset}}</button></div>
+  </section>
+  <section class="metrics" aria-label="{{observe}}">
+    <div class="metric scalar"><h3 class="metric-label">{{time}}</h3><p class="metric-value"><span id="time-value">0.00</span> <small>s</small></p><p class="metric-equation">t</p></div>
+    <div class="metric vector"><h3 class="metric-label">{{position}}</h3><p class="metric-value"><span id="position-value">0.00</span> <small>m</small></p><p class="metric-equation">x = ½·a·t²</p></div>
+    <div class="metric vector"><h3 class="metric-label">{{velocity}}</h3><p class="metric-value"><span id="velocity-value">0.00</span> <small>m/s</small></p><p class="metric-equation">v = a·t</p></div>
+    <div class="metric vector"><h3 class="metric-label">{{acceleration}}</h3><p class="metric-value"><span id="acceleration-value">—</span> <small>m/s²</small></p><p class="metric-equation">a</p></div>
+    <div class="metric scalar"><h3 class="metric-label">{{rung}}</h3><p class="metric-value"><span id="rung-value">0 / 4</span></p><p class="metric-equation">Δtₖ = tₖ − tₖ₋₁</p></div>
+  </section>
+  <div class="insight" id="insight"><span class="insight-icon" aria-hidden="true">↗</span><div><strong id="lesson-title">{{predictTitle}}</strong><p id="lesson-copy">{{predictCopy}}</p></div></div>
+  <section class="challenge"><div class="mission-heading"><h2 class="challenge-title">{{missionTitle}}</h2><div class="score-card"><span>{{score}}</span><strong id="mission-score">—</strong></div></div><p class="mission-copy">{{missionCopy}}</p><div class="badges"><span id="beat-badge">✓ {{beatBadge}}</span><span id="first-badge">① {{firstBadge}}</span></div></section>
+</div>
+</div>
+<article class="learning-content"><section><h2>{{guideTitle}}</h2><ol><li>{{instruction1}}</li><li>{{instruction2}}</li><li>{{instruction3}}</li><li>{{instruction4}}</li></ol></section><section><h2>{{conceptTitle}}</h2><p>{{conceptCopy}}</p><aside class="worked-example"><h3>{{exampleTitle}}</h3><p>{{exampleCopy}}</p></aside></section><section><h2>{{modelTitle}}</h2><p>{{modelCopy}}</p></section></article>
+<p class="language-note" id="language-note">{{languageNote}}</p>
+</main>
+__FOOTER__
+<p class="sr-only" id="announcement" role="status" aria-live="polite"></p>
+</div>
+<script id="bells-model">
+class BellsModel {
+  // x is the distance travelled down the ramp from the release point. The ball starts from rest at t = 0
+  // and keeps a constant acceleration a along the ramp until the end stop at x = L.
+  // Four bells should ring on the beat: at t = Δt, 2Δt, 3Δt, and 4Δt. Each ramp is a little more than twice the
+  // last bell's distance, so the common a·t² slip still fits on it and can be explained.
+  static missions = [
+    {a:1,beat:1,track:18,ask:'positions'},
+    {a:2,beat:1,track:34,ask:'positions'},
+    {a:1,beat:2,track:66,ask:'positions'},
+    {a:null,beat:1,track:14,bells:[.75,3,6.75,12],ask:'acceleration'}
+  ];
+  static count = 4;
+  static tolerance = .05; // s, how far a ring may be from its beat
+  static maxAcceleration = 5; // m/s²
+  static playback = 1;
+  constructor(index = 0){this.setMission(index);}
+  setMission(index){
+    this.index=index;this.config=BellsModel.missions[index];
+    this.bells=this.config.bells?[...this.config.bells]:Array(BellsModel.count).fill(null);
+    this.a=this.config.a;this.attempts=0;this.reset();
+  }
+  reset(){this.t=0;this.status='rolling';}
+  setBell(i,d){
+    if(this.config.ask!=='positions'||!Number.isInteger(i)||i<0||i>=BellsModel.count)return false;
+    if(d!==null&&(!Number.isFinite(d)||d<=0||d>this.config.track))return false;
+    this.bells[i]=d;this.reset();return true;
+  }
+  setAcceleration(a){
+    if(this.config.ask!=='acceleration')return false;
+    if(a!==null&&(!Number.isFinite(a)||a<=0||a>BellsModel.maxAcceleration))return false;
+    this.a=a;this.reset();return true;
+  }
+  ready(){return this.a!==null&&this.bells.every(d=>d!==null);}
+  endTime(){return Math.sqrt(2*this.config.track/this.a);}
+  x(t){return Math.min(this.config.track,.5*this.a*t*t);}
+  v(t){return this.a*Math.min(t,this.endTime());}
+  // Each bell rings exactly when x = d: t = √(2d ÷ a), never at the end of a timestep.
+  ringTime(i){return Math.sqrt(2*this.bells[i]/this.a);}
+  rings(){return this.bells.map((d,i)=>({i,d,t:this.ringTime(i)})).sort((p,q)=>p.t-q.t||p.i-q.i);}
+  now(){return this.status==='done'?this.endTime():this.t;}
+  advance(dt){
+    if(!Number.isFinite(dt)||dt<0)throw new Error('Invalid timestep');
+    if(this.status==='done'||!this.ready())return null;
+    const T=this.endTime(),t1=Math.min(this.t+dt,T),rung=this.rings().filter(r=>r.t>this.t&&r.t<=t1).map(r=>r.i);
+    if(this.t+dt>=T*(1-1e-12)){this.t=T;this.status='done';this.attempts++;return {t:T,rung,done:true};}
+    this.t=t1;return rung.length?{t:t1,rung,done:false}:null;
+  }
+  exact(){
+    const c=this.config;
+    if(c.ask==='acceleration')return 2*c.bells[0]/c.beat**2;
+    return Array.from({length:BellsModel.count},(_,k)=>.5*c.a*((k+1)*c.beat)**2);
+  }
+  evaluate(){
+    if(!this.ready())return {ok:false,errors:[],worst:null,slip:null,first:false,exact:this.exact()};
+    const c=this.config,rings=this.rings(),errors=rings.map((r,k)=>r.t-(k+1)*c.beat);
+    const ok=errors.every(e=>Math.abs(e)<=BellsModel.tolerance+1e-12);
+    const worst=errors.reduce((w,e,k)=>Math.abs(e)>Math.abs(errors[w])?k:w,0);
+    let slip=null;
+    if(!ok){
+      const near=(p,q)=>Math.abs(p-q)<=Math.max(.02,.01*Math.abs(q)),ds=rings.map(r=>r.d),beats=ds.map((_,k)=>(k+1)*c.beat);
+      if(c.ask==='positions'){
+        if(ds.every((d,k)=>near(d,c.a*beats[k]*beats[k])))slip='noHalf';
+        else if(ds.every((d,k)=>near(d,c.a*beats[k])))slip='speed';
+        else if(ds.every((d,k)=>near(d,(k+1)*ds[0])))slip='even';
+      }
+      else if(near(this.a,this.exact()/2))slip='halfA';
+    }
+    return {ok,errors,worst,slip,first:ok&&this.attempts===1,exact:this.exact()};
+  }
+  score(){if(this.status!=='done')return 0;const e=this.evaluate();return (e.ok?100:0)+(e.first?50:0);}
+  snapshot(){return {index:this.index,bells:[...this.bells],a:this.a,attempts:this.attempts,t:this.t,status:this.status};}
+  restore(saved){
+    if(!Number.isInteger(saved?.index)||!BellsModel.missions[saved.index])return false;
+    const probe=new BellsModel(saved.index),c=probe.config;
+    if(!Array.isArray(saved.bells)||saved.bells.length!==BellsModel.count)return false;
+    if(c.ask==='positions'){if(saved.a!==c.a||!saved.bells.every((d,i)=>probe.setBell(i,d)))return false;}
+    else if(!saved.bells.every((d,i)=>d===c.bells[i])||!probe.setAcceleration(saved.a??null))return false;
+    if(!Number.isInteger(saved.attempts)||saved.attempts<0)return false;
+    if(!['rolling','done'].includes(saved.status)||!Number.isFinite(saved.t)||saved.t<0)return false;
+    if(!probe.ready()&&(saved.t>0||saved.status==='done'))return false;
+    if(probe.ready()&&saved.t>probe.endTime()*(1+1e-9))return false;
+    if(saved.status==='done'&&saved.attempts<1)return false;
+    this.setMission(saved.index);this.bells=[...probe.bells];this.a=probe.a;this.attempts=saved.attempts;
+    this.status=saved.status;this.t=saved.status==='done'?this.endTime():saved.t;return true;
+  }
+}
+globalThis.BellsModel=BellsModel;
+</script>
+<script id="bells-locale" type="application/json">__LOCALE__</script>
+<script id="bells-interface">
+(() => {
+  'use strict';
+  const $=id=>document.getElementById(id),locale=JSON.parse($('bells-locale').textContent);
+  const text=(key,values={})=>locale.strings[key].replace(/\{(\w+)\}/g,(_,name)=>values[name]??'{'+name+'}');
+  const number=(n,d=2)=>Math.abs(n)<.5*10**-d?(0).toLocaleString(locale.lang,{minimumFractionDigits:d,maximumFractionDigits:d}):n.toLocaleString(locale.lang,{minimumFractionDigits:d,maximumFractionDigits:d,useGrouping:false});
+  const plain=n=>n.toLocaleString(locale.lang,{maximumFractionDigits:3,useGrouping:false});
+  const model=new BellsModel();
+  const canvas=$('bells-canvas'),ctx=canvas.getContext('2d');
+  const H=1/120,transferKey='phisicos-bells-language-transfer';
+  let running=false,previous=null,accumulator=0,lastUpdate=0,width=800,height=410,audio=null;
+  const say=message=>{$('announcement').textContent=message;};
+  try{const data=JSON.parse(sessionStorage.getItem(transferKey)||'null');sessionStorage.removeItem(transferKey);if(data)model.restore(data.state);}catch{$('language-note').hidden=true;}
+  // Short synthesized tones: a low click on each beat and a high bell for each ring. Silent where Web Audio is missing.
+  function tone(freq,duration){
+    if(!$('sound').checked)return;
+    try{
+      const AC=window.AudioContext||window.webkitAudioContext;if(!AC)return;
+      audio=audio||new AC();const o=audio.createOscillator(),g=audio.createGain(),t0=audio.currentTime;
+      o.frequency.value=freq;g.gain.setValueAtTime(.18,t0);g.gain.exponentialRampToValueAtTime(.001,t0+duration);
+      o.connect(g);g.connect(audio.destination);o.start(t0);o.stop(t0+duration);
+    }catch{}
+  }
+  function setRunning(value){
+    const done=model.status==='done',blocked=!model.ready();running=value&&!done&&!blocked;previous=null;accumulator=0;
+    $('play').disabled=running||done||blocked;$('pause').disabled=!running;$('step').disabled=running||done||blocked;
+    $('bells-status').classList.toggle('running',running);
+    $('bells-status-text').textContent=text(done?'done':running?'running':model.t?'paused':'ready');
+  }
+  function sync(){
+    const c=model.config,fixed=c.ask==='acceleration';
+    BellsModel.missions.forEach((m,i)=>{$('mission-'+i).setAttribute('aria-pressed',String(i===model.index));$('given-'+i).textContent='a = '+(m.a===null?'?':plain(m.a)+' m/s²')+' · Δt = '+plain(m.beat)+' s · L = '+plain(m.track)+' m';});
+    model.bells.forEach((d,i)=>{$('bell-'+i).value=d===null?'':String(d);$('bell-'+i).disabled=fixed;});
+    $('accel-row').hidden=!fixed;$('accel').value=fixed&&model.a!==null?String(model.a):'';
+    $('question').textContent=text(fixed?'questionAcceleration':'questionPositions',{beat:plain(c.beat),a:c.a===null?'':plain(c.a),L:plain(c.track)});
+    $('answer-hint').textContent=text(fixed?'accelHint':'answerHint',{L:plain(c.track),max:plain(BellsModel.maxAcceleration)});
+    $('mission-label').textContent=text('mission'+model.index);
+  }
+  function update(){
+    const c=model.config,ready=model.ready(),done=model.status==='done',t=ready?model.now():0,e=model.evaluate();
+    const rungCount=ready?model.rings().filter(r=>r.t<=t+1e-12).length:0;
+    $('time-value').textContent=number(t);$('position-value').textContent=number(ready?model.x(t):0);$('velocity-value').textContent=number(ready?model.v(t):0);
+    $('acceleration-value').textContent=model.a===null?'—':number(model.a);$('rung-value').textContent=rungCount+' / '+BellsModel.count;
+    $('bells-equation').textContent=ready?'x = ½ × '+number(model.a)+' × '+number(t)+'² = '+number(model.x(t))+' m · v = '+number(model.v(t))+' m/s':'x = ½·a·t² · v = a·t';
+    let key,copy,values={t:number(t,1),x:number(ready?model.x(t):0),v:number(ready?model.v(t):0),beat:plain(c.beat)};
+    const slipKey={noHalf:'slipNoHalf',speed:'slipSpeed',even:'slipEven',halfA:'slipHalfA'};
+    if(done){
+      const err=e.errors[e.worst],miss={n:e.worst+1,e:number(Math.abs(err))};
+      if(e.ok){key='good';copy=text('goodCopy',{max:number(Math.max(...e.errors.map(Math.abs)))})+' '+text('why'+model.index);}
+      else{key='miss';copy=text(err<0?'missEarlyCopy':'missLateCopy',miss)+' '+(e.slip?text(slipKey[e.slip]):text('hint'+model.index));}
+    }
+    else if(!ready){key='predict';copy=text('predictCopy');}
+    else if(model.t>0){key='running';copy=text('runningCopy',{...values,n:rungCount});}
+    else{key='ready';copy=text('readyCopy');}
+    $('lesson-title').textContent=text(key+'Title',values);$('lesson-copy').textContent=copy;
+    $('insight').classList.toggle('warning',key==='miss');
+    $('mission-score').textContent=done?String(model.score()):'—';
+    $('beat-badge').classList.toggle('earned',done&&e.ok);$('first-badge').classList.toggle('earned',done&&e.first);
+  }
+  function refresh(){setRunning(false);update();draw();}
+  function simulate(dt){
+    const before=model.t,result=model.advance(dt*BellsModel.playback),beat=model.config.beat;
+    if(model.t>0&&Math.floor(model.t/beat+1e-9)>Math.floor(before/beat+1e-9))tone(220,.08);
+    if(result?.rung.length)tone(1320,.6);
+    if(result?.done){setRunning(false);update();say(text('doneAnnouncement')+' '+$('lesson-title').textContent);return true;}
+    return false;
+  }
+  $('play').addEventListener('click',()=>{if(model.t===0)tone(220,.08);setRunning(true);update();say(text('startedAnnouncement'));});
+  $('pause').addEventListener('click',()=>{setRunning(false);update();say(text('pausedAnnouncement'));});
+  $('step').addEventListener('click',()=>{for(let i=0;i<12;i++)if(simulate(H))break;setRunning(false);update();draw();});
+  $('reset').addEventListener('click',()=>{model.reset();refresh();say(text('resetAnnouncement'));});
+  BellsModel.missions.forEach((_,i)=>$('mission-'+i).addEventListener('click',()=>{model.setMission(i);sync();refresh();say(text('missionAnnouncement',{name:text('mission'+i)}));}));
+  const read=event=>{const raw=String(event.target.value).trim();return raw===''?null:Number(raw);};
+  for(let i=0;i<BellsModel.count;i++)$('bell-'+i).addEventListener('input',event=>{if(!model.setBell(i,read(event)))model.setBell(i,null);refresh();});
+  $('accel').addEventListener('input',event=>{if(!model.setAcceleration(read(event)))model.setAcceleration(null);refresh();});
+  for(const id of ['show-vectors','show-gaps','sound'])$(id).addEventListener('change',()=>{update();draw();});
+  function suspend(){if(running){setRunning(false);say(text('suspendedAnnouncement'));}update();draw();}
+  window.addEventListener('blur',suspend);document.addEventListener('visibilitychange',()=>{if(document.hidden)suspend();});
+  for(const link of document.querySelectorAll('.language-menu a'))link.addEventListener('click',()=>{setRunning(false);try{sessionStorage.setItem(transferKey,JSON.stringify({state:model.snapshot()}));}catch{}});
+  function resize(){const rect=canvas.getBoundingClientRect();if(rect.width<=0)return;width=rect.width;height=rect.height;const dpr=Math.min(window.devicePixelRatio||1,3);canvas.width=Math.round(width*dpr);canvas.height=Math.round(height*dpr);ctx.setTransform(dpr,0,0,dpr,0,0);draw();}
+  const VEL=6,ACC=24,SLOPE=11*Math.PI/180; // px per m/s, px per m/s², and the drawn slope, all stated on the canvas.
+  const tick=span=>[1,2,5,10].find(s=>span/s<=10)||20;
+  function draw(){
+    if(!ctx)return;
+    const c=model.config,ready=model.ready(),done=model.status==='done',t=ready?model.now():0,L=c.track;
+    ctx.clearRect(0,0,width,height);
+    const label=(str,px,py,color='#b8ccdb',align='left',font=12)=>{ctx.fillStyle=color;ctx.textAlign=align;ctx.font=font+'px -apple-system,BlinkMacSystemFont,sans-serif';ctx.fillText(str,px,py);};
+    const line=(points,color,w=1,dash=[])=>{ctx.beginPath();ctx.strokeStyle=color;ctx.lineWidth=w;ctx.setLineDash(dash);points.forEach((q,i)=>i?ctx.lineTo(q.x,q.y):ctx.moveTo(q.x,q.y));ctx.stroke();ctx.setLineDash([]);};
+    // Ramp: one length scale along the incline, drawn at a fixed slope; the acceleration a sets the physics.
+    const x0=46,y0=100,len=Math.max(120,(width-92)/Math.cos(SLOPE)),cos=Math.cos(SLOPE),sin=Math.sin(SLOPE);
+    const at=(d,off=0)=>({x:x0+d/L*len*cos+off*sin,y:y0+d/L*len*sin-off*cos});
+    label(text('rampTitle'),x0,22,'#d1e3ed','left',12);label(text('arrowScale'),width-12,22,'#9fb6c7','right',10);
+    line([at(0,-4),at(L,-4)],'#5b7488',6);line([at(L,-4),at(L,24)],'#efb958',3);
+    const step=tick(L);for(let d=0;d<=L+1e-9;d+=step){const p=at(d,-10),q=at(d,-16);line([p,q],'#5b7488',1);label(plain(d)+' m',q.x,q.y+12,'#9fb6c7','center',10);}
+    const rings=ready?model.rings():model.bells.map((d,i)=>({i,d,t:Infinity})).filter(r=>r.d!==null).sort((p,q)=>p.d-q.d);
+    // Gaps between neighbouring bells, along the ramp: the odd-number pattern 1 : 3 : 5 : 7 when the beat is steady.
+    if($('show-gaps').checked&&rings.length){
+      let prev=0;rings.forEach(r=>{const a=at(prev,62),b=at(r.d,62);line([a,b],'#8aa3b5',1.5);line([at(r.d,56),at(r.d,68)],'#8aa3b5',1);const mid=at((prev+r.d)/2,74);label(plain(Number((r.d-prev).toFixed(3))),mid.x,mid.y,'#9fb6c7','center',10);prev=r.d;});
+      line([at(0,56),at(0,68)],'#8aa3b5',1);
+    }
+    for(const r of rings){
+      const hit=r.t<=t+1e-12,base=at(r.d,8),top=at(r.d,34),color=hit?'#75efc7':'#d1e3ed';
+      line([base,top],'#5b7488',1.5);ctx.fillStyle=color;ctx.beginPath();ctx.moveTo(top.x-7,top.y+12);ctx.lineTo(top.x+7,top.y+12);ctx.lineTo(top.x+4,top.y);ctx.lineTo(top.x-4,top.y);ctx.closePath();ctx.fill();
+      label(String(r.i+1),top.x,top.y-5,color,'center',11);
+      if(hit&&t-r.t<.4){ctx.strokeStyle='#75efc7';ctx.lineWidth=1.5;ctx.beginPath();ctx.arc(top.x,top.y+6,14+(t-r.t)*30,-Math.PI*.8,-Math.PI*.2);ctx.stroke();}
+    }
+    // The ball, with its velocity and acceleration along the ramp.
+    const xb=ready?model.x(t):0,ball=at(xb,8);
+    if($('show-vectors').checked&&ready){
+      const arrow=(len2,color,off)=>{if(len2<3)return;const a=at(xb,off),b={x:a.x+len2*cos,y:a.y+len2*sin};line([a,b],color,2.5);line([{x:b.x-9*cos+5*sin,y:b.y-9*sin-5*cos},b,{x:b.x-9*cos-5*sin,y:b.y-9*sin+5*cos}],color,2);};
+      if(!done)arrow(model.v(t)*VEL,'#f2f8fc',16);arrow(model.a*ACC,'#77b9ff',27);
+    }
+    ctx.fillStyle='#efe6d0';ctx.beginPath();ctx.arc(ball.x,ball.y,8,0,Math.PI*2);ctx.fill();
+    // Rhythm strip: the beat (orange) against the rings (mint), on one time axis.
+    const T=Math.max(4.5*c.beat,ready?model.endTime():0),sx0=46,sx1=width-24,sy=height-58,tx=u=>sx0+u/T*(sx1-sx0);
+    label(text('rhythmTitle'),sx0,sy-34,'#d1e3ed','left',12);
+    line([{x:sx0,y:sy},{x:sx1,y:sy}],'#5b7488',1.5);
+    for(let k=0;k<=BellsModel.count;k++){const u=k*c.beat;line([{x:tx(u),y:sy-14},{x:tx(u),y:sy+14}],'#efb958',2);label(plain(u)+' s',tx(u),sy+28,'#efb958','center',10);}
+    if(ready)for(const [k,r] of rings.entries())if(r.t<=t+1e-12){ctx.fillStyle='#75efc7';ctx.beginPath();ctx.arc(tx(r.t),sy,5,0,Math.PI*2);ctx.fill();label(String(r.i+1),tx(r.t),sy-18,'#75efc7','center',10);if(done){const err=r.t-(k+1)*c.beat;if(Math.abs(err)>BellsModel.tolerance)label((err>0?'+':'−')+number(Math.abs(err))+' s',tx(r.t),sy+44,'#efb958','center',10);}}
+    if(ready)line([{x:tx(t),y:sy-20},{x:tx(t),y:sy+20}],'#f2f8fc',1.5);
+    label(text('slopeNote'),width-12,sy-34,'#9fb6c7','right',10);
+    if(done){const e=model.evaluate();label(e.ok?text('beatBanner'):text('offBanner'),width/2,height*.52,e.ok?'#75efc7':'#efb958','center',width<430?13:15);}
+  }
+  function frame(now){if(previous===null)previous=now;const elapsed=Math.min(.1,(now-previous)/1000);previous=now;if(running){accumulator+=elapsed;while(accumulator>=H&&running){accumulator-=H;simulate(H);}draw();}if(now-lastUpdate>=80){update();lastUpdate=now;}requestAnimationFrame(frame);}
+  window.addEventListener('resize',resize);if(typeof ResizeObserver!=='undefined')new ResizeObserver(resize).observe(canvas);
+  sync();setRunning(false);update();resize();requestAnimationFrame(frame);
+})();
+</script>
+</body>
+</html>

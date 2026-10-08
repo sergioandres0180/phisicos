@@ -1,0 +1,254 @@
+<!doctype html>
+<html lang="en">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Formula Test Drive · Phisicos</title>
+<style>
+.pickform-page .question{font-size:15px;font-weight:600;margin-top:4px}
+.pickform-page .options{display:grid;gap:8px;margin-top:10px}.pickform-page .options button{min-height:48px;border:1px solid var(--line);border-radius:10px;background:#fff;text-align:left;padding:8px 12px;color:var(--ink)}
+.pickform-page .options button[aria-pressed=true]{background:#e4f3ed;border-color:#81bea8}.pickform-page .options b{display:block;font:600 16px ui-monospace,SFMono-Regular,monospace}.pickform-page .options span{display:block;font:12px ui-monospace,SFMono-Regular,monospace;color:var(--muted);margin-top:3px;min-height:15px}
+</style>
+</head>
+<body>
+<div class="shell module-page pickform-page">
+__HEADER__
+<main id="main-content">
+__BREADCRUMBS__
+
+<div class="masthead"><div><h1>{{title}}</h1><p class="intro">{{subtitle}}</p></div><div class="concept-tags"><span class="tag speed">{{tag1}}</span><span class="tag velocity">{{tag2}}</span></div></div>
+<noscript><p class="no-js">{{noScript}}</p></noscript>
+<div class="layout">
+<aside class="sidebar" aria-label="{{setup}}">
+  <section class="control-section"><h2 class="eyebrow">{{setup}}</h2><div class="mission-list" role="group" aria-label="{{setup}}">
+    <button id="mission-0" aria-pressed="true"><b>1 · {{mission0}}</b><span id="given-0">=</span></button>
+    <button id="mission-1" aria-pressed="false"><b>2 · {{mission1}}</b><span id="given-1">=</span></button>
+    <button id="mission-2" aria-pressed="false"><b>3 · {{mission2}}</b><span id="given-2">=</span></button>
+    <button id="mission-3" aria-pressed="false"><b>4 · {{mission3}}</b><span id="given-3">=</span></button>
+    <button id="mission-4" aria-pressed="false"><b>5 · {{mission4}}</b><span id="given-4">=</span></button>
+  </div><p class="hint">{{setupNote}}</p></section>
+  <section class="control-section"><h2 class="eyebrow">{{chooseHeading}}</h2>
+    <p class="question" id="question">{{questionGeneric}}</p>
+    <div class="options" role="group" aria-labelledby="question">
+      <button id="opt-0" aria-pressed="false"><b id="opt-0-f">=</b><span id="opt-0-u"></span></button>
+      <button id="opt-1" aria-pressed="false"><b id="opt-1-f">=</b><span id="opt-1-u"></span></button>
+      <button id="opt-2" aria-pressed="false"><b id="opt-2-f">=</b><span id="opt-2-u"></span></button>
+      <button id="opt-3" aria-pressed="false"><b id="opt-3-f">=</b><span id="opt-3-u"></span></button>
+    </div>
+    <p class="hint">{{chooseHint}}</p>
+  </section>
+  <section class="control-section"><h2 class="eyebrow">{{observe}}</h2><label class="check"><input id="show-units" type="checkbox">{{units}}</label><label class="check"><input id="show-vectors" type="checkbox" checked>{{vectors}}</label><p class="hint">{{observeHint}}</p></section>
+</aside>
+<div class="workspace">
+  <section class="scene" aria-label="{{sceneTitle}}"><div class="scene-top"><div><h2 class="scene-title">{{sceneTitle}}</h2><p class="scene-subtitle" id="mission-label">{{mission0}}</p></div><span class="status" id="pickform-status"><i class="status-dot" aria-hidden="true"></i><span id="pickform-status-text">{{ready}}</span></span></div>
+    <div class="module-stage"><canvas id="pickform-canvas" role="img" aria-label="{{canvasLabel}}">{{noScript}}</canvas></div>
+    <div class="legend"><span><i class="line-key white"></i>{{velocityLegend}}</span><span><i class="line-key orange"></i>{{accelerationLegend}}</span><span><i class="line-key mint"></i>{{goalLegend}}</span><span><i class="line-key blue"></i>{{valueLegend}}</span></div>
+    <div class="module-equation"><span>{{equationTitle}}</span><output id="pickform-equation">?</output></div>
+    <div class="transport"><button id="play" class="primary" disabled>{{play}}</button><button id="pause" disabled>{{pause}}</button><button id="step" disabled>{{step}}</button><button id="reset" class="reset">{{reset}}</button></div>
+  </section>
+  <section class="metrics" aria-label="{{observe}}">
+    <div class="metric scalar"><h3 class="metric-label">{{time}}</h3><p class="metric-value"><span id="time-value">0.00</span> <small>s</small></p><p class="metric-equation">t</p></div>
+    <div class="metric vector"><h3 class="metric-label">{{position}}</h3><p class="metric-value"><span id="position-value">0.00</span> <small>m</small></p><p class="metric-equation">x</p></div>
+    <div class="metric vector"><h3 class="metric-label">{{velocity}}</h3><p class="metric-value"><span id="velocity-value">0.00</span> <small>m/s</small></p><p class="metric-equation">vₓ</p></div>
+    <div class="metric vector"><h3 class="metric-label">{{acceleration}}</h3><p class="metric-value"><span id="acceleration-value">0.00</span> <small>m/s²</small></p><p class="metric-equation">aₓ</p></div>
+    <div class="metric scalar"><h3 class="metric-label">{{yourValue}}</h3><p class="metric-value"><span id="chosen-value">—</span></p><p class="metric-equation" id="chosen-symbol">?</p></div>
+  </section>
+  <div class="insight" id="insight"><span class="insight-icon" aria-hidden="true">↗</span><div><strong id="lesson-title">{{chooseTitle}}</strong><p id="lesson-copy">{{chooseCopy}}</p></div></div>
+  <section class="challenge"><div class="mission-heading"><h2 class="challenge-title">{{missionTitle}}</h2><div class="score-card"><span>{{score}}</span><strong id="mission-score">—</strong></div></div><p class="mission-copy">{{missionCopy}}</p><div class="badges"><span id="right-badge">✓ {{rightBadge}}</span><span id="first-badge">① {{firstBadge}}</span></div></section>
+</div>
+</div>
+<article class="learning-content"><section><h2>{{guideTitle}}</h2><ol><li>{{instruction1}}</li><li>{{instruction2}}</li><li>{{instruction3}}</li><li>{{instruction4}}</li></ol></section><section><h2>{{conceptTitle}}</h2><p>{{conceptCopy}}</p><aside class="worked-example"><h3>{{exampleTitle}}</h3><p>{{exampleCopy}}</p></aside></section><section><h2>{{modelTitle}}</h2><p>{{modelCopy}}</p></section></article>
+<p class="language-note" id="language-note">{{languageNote}}</p>
+</main>
+__FOOTER__
+<p class="sr-only" id="announcement" role="status" aria-live="polite"></p>
+</div>
+<script id="pickform-model">
+class PickModel {
+  // Each situation has given values and one unknown. Four rearranged formulas are offered; the chosen one gives a value
+  // that sets the car's motion. x is measured from the goal line, +x in the direction of travel, and the motion is
+  // computed exactly from constant acceleration on each piece.
+  static missions = [
+    {unknown:'t',unit:'s',given:{d:150,v:25},correct:1,run:'cruise',options:[
+      {f:'t = v ÷ d',units:'1/s',slip:'inverted',value:g=>g.v/g.d},
+      {f:'t = d ÷ v',units:'s',value:g=>g.d/g.v},
+      {f:'t = d · v',units:'m²/s',slip:'product',value:g=>g.d*g.v},
+      {f:'t = d − v',units:'m − m/s',slip:'mixed',value:g=>g.d-g.v}]},
+    {unknown:'a',unit:'m/s²',given:{v0:5,v:25,t:8},correct:2,run:'speed',options:[
+      {f:'a = (v + v₀) ÷ t',units:'m/s²',slip:'sign',value:g=>(g.v+g.v0)/g.t},
+      {f:'a = v ÷ t − v₀',units:'m/s² − m/s',slip:'mixed',value:g=>g.v/g.t-g.v0},
+      {f:'a = (v − v₀) ÷ t',units:'m/s²',value:g=>(g.v-g.v0)/g.t},
+      {f:'a = t ÷ (v − v₀)',units:'s²/m',slip:'inverted',value:g=>g.t/(g.v-g.v0)}]},
+    {unknown:'d',unit:'m',given:{v:20,a:5},correct:3,run:'brake',options:[
+      {f:'d = v² ÷ a',units:'m',slip:'factor',value:g=>g.v**2/g.a},
+      {f:'d = v ÷ (2a)',units:'s',slip:'square',value:g=>g.v/(2*g.a)},
+      {f:'d = 2a ÷ v²',units:'1/m',slip:'inverted',value:g=>2*g.a/g.v**2},
+      {f:'d = v² ÷ (2a)',units:'m',value:g=>g.v**2/(2*g.a)}]},
+    {unknown:'t',unit:'s',given:{x:50,a:4},correct:0,run:'launch',options:[
+      {f:'t = √(2x ÷ a)',units:'s',value:g=>Math.sqrt(2*g.x/g.a)},
+      {f:'t = 2x ÷ a',units:'s²',slip:'root',value:g=>2*g.x/g.a},
+      {f:'t = √(x ÷ (2a))',units:'s',slip:'factor',value:g=>Math.sqrt(g.x/(2*g.a))},
+      {f:'t = √(2a ÷ x)',units:'1/s',slip:'inverted',value:g=>Math.sqrt(2*g.a/g.x)}]},
+    {unknown:'v0',unit:'m/s',given:{a:5,d:10},correct:3,run:'stop',options:[
+      {f:'v₀ = 2a·d',units:'m²/s²',slip:'root',value:g=>2*g.a*g.d},
+      {f:'v₀ = √(a·d)',units:'m/s',slip:'factor',value:g=>Math.sqrt(g.a*g.d)},
+      {f:'v₀ = √(2d ÷ a)',units:'s',slip:'inverted',value:g=>Math.sqrt(2*g.d/g.a)},
+      {f:'v₀ = √(2a·d)',units:'m/s',value:g=>Math.sqrt(2*g.a*g.d)}]}
+  ];
+  static names = {t:'t',d:'d',v:'v',v0:'v₀',a:'a',x:'x'};
+  static units = {t:'s',d:'m',v:'m/s',v0:'m/s',a:'m/s²',x:'m'};
+  static tolerance = {x:.5,v:.05}; // m from the line, m/s from the target speed
+  static realTime = 8; // s: longer runs play faster so that every run lasts at most this long
+  constructor(index = 0){this.setMission(index);}
+  setMission(index){this.index=index;this.config=PickModel.missions[index];this.choice=null;this.attempts=0;this.reset();}
+  reset(){this.t=0;this.status='driving';}
+  choose(i){if(i!==null&&!(Number.isInteger(i)&&i>=0&&i<this.config.options.length))return false;this.choice=i;this.reset();return true;}
+  ready(){return this.choice!==null;}
+  valueOf(i){return this.config.options[i].value(this.config.given);}
+  chosen(){return this.choice===null?null:this.valueOf(this.choice);}
+  // The motion each situation runs with a value w for the unknown: start, legs of [duration, acceleration], and the goal.
+  plan(w=this.chosen()){
+    const g=this.config.given;
+    switch(this.config.run){
+      case 'cruise':return {x0:-g.d,v0:g.v,legs:[[Math.max(0,w),0]],goal:{kind:'x',target:0}};
+      case 'speed':return {x0:0,v0:g.v0,legs:[[g.t,w]],goal:{kind:'v',target:g.v}};
+      case 'brake':return {x0:-90,v0:g.v,legs:[[Math.max(0,(90-w)/g.v),0],[g.v/g.a,-g.a]],goal:{kind:'x',target:0}};
+      case 'launch':return {x0:-g.x,v0:0,legs:[[Math.max(0,w),g.a]],goal:{kind:'x',target:0}};
+      default:return {x0:-g.d,v0:w,legs:[[Math.max(0,w/g.a),-g.a]],goal:{kind:'x',target:0}};
+    }
+  }
+  duration(){return this.plan().legs.reduce((s,[d])=>s+d,0);}
+  playback(){return Math.max(1,this.duration()/PickModel.realTime);}
+  state(t){
+    const p=this.plan();let x=p.x0,v=p.v0,u=Math.max(0,t);
+    for(const [d,a] of p.legs){const tau=Math.min(u,d);if(u<=d&&d>0)return {x:x+v*tau+.5*a*tau*tau,v:v+a*tau,a};x+=v*d+.5*a*d*d;v+=a*d;u-=d;}
+    return {x,v,a:0};
+  }
+  now(){return this.status==='done'?this.duration():this.t;}
+  advance(dt){
+    if(!Number.isFinite(dt)||dt<0)throw new Error('Invalid timestep');
+    if(this.status==='done'||!this.ready())return null;
+    // The run ends exactly at the end of its last leg.
+    const T=this.duration();
+    if(this.t+dt>=T*(1-1e-12)){this.t=T;this.status='done';this.attempts++;return {t:T};}
+    this.t+=dt;return null;
+  }
+  // The result of the run: how far from the goal line, or how far from the target speed, the car ends.
+  outcome(){const p=this.plan(),end=this.state(this.duration());return p.goal.kind==='x'?end.x-p.goal.target:end.v-p.goal.target;}
+  unitsMatch(i){return this.config.options[i].units===this.config.unit;}
+  evaluate(){
+    if(!this.ready())return {ok:false,slip:null,first:false,outcome:null};
+    const ok=this.choice===this.config.correct;
+    return {ok,slip:ok?null:this.config.options[this.choice].slip,first:ok&&this.attempts===1,outcome:this.outcome(),unitsMatch:this.unitsMatch(this.choice)};
+  }
+  score(){if(this.status!=='done')return 0;const e=this.evaluate();return (e.ok?100:0)+(e.first?50:0);}
+  snapshot(){return {index:this.index,choice:this.choice,attempts:this.attempts,t:this.t,status:this.status};}
+  restore(saved){
+    if(!Number.isInteger(saved?.index)||!PickModel.missions[saved.index])return false;
+    const probe=new PickModel(saved.index);
+    if(!probe.choose(saved.choice??null)||!Number.isInteger(saved.attempts)||saved.attempts<0)return false;
+    if(!['driving','done'].includes(saved.status)||!Number.isFinite(saved.t)||saved.t<0)return false;
+    if(probe.choice===null&&(saved.t>0||saved.status==='done'))return false;
+    if(probe.choice!==null&&saved.t>probe.duration()*(1+1e-9))return false;
+    if(saved.status==='done'&&saved.attempts<1)return false;
+    this.setMission(saved.index);this.choice=probe.choice;this.attempts=saved.attempts;
+    this.status=saved.status;this.t=saved.status==='done'?this.duration():saved.t;return true;
+  }
+}
+globalThis.PickModel=PickModel;
+</script>
+<script id="pickform-locale" type="application/json">__LOCALE__</script>
+<script id="pickform-interface">
+(() => {
+  'use strict';
+  const $=id=>document.getElementById(id),locale=JSON.parse($('pickform-locale').textContent);
+  const text=(key,values={})=>locale.strings[key].replace(/\{(\w+)\}/g,(_,name)=>values[name]??'{'+name+'}');
+  const number=(n,d=2)=>Math.abs(n)<.5*10**-d?(0).toLocaleString(locale.lang,{minimumFractionDigits:d,maximumFractionDigits:d}):n.toLocaleString(locale.lang,{minimumFractionDigits:d,maximumFractionDigits:d,useGrouping:false});
+  const plain=n=>Number(n.toPrecision(6)).toLocaleString(locale.lang,{maximumFractionDigits:3,useGrouping:false}).replace('-','−');
+  const signed=(n,d=2)=>(n>.5*10**-d?'+':'')+number(n,d);
+  const model=new PickModel();
+  const canvas=$('pickform-canvas'),ctx=canvas.getContext('2d');
+  const H=1/120,transferKey='phisicos-pickform-language-transfer',N=PickModel.names,U=PickModel.units;
+  let running=false,previous=null,accumulator=0,lastUpdate=0,width=800,height=410;
+  const say=message=>{$('announcement').textContent=message;};
+  try{const data=JSON.parse(sessionStorage.getItem(transferKey)||'null');sessionStorage.removeItem(transferKey);if(data)model.restore(data.state);}catch{$('language-note').hidden=true;}
+  const unknown=()=>N[model.config.unknown];
+  const amount=w=>plain(w)+' '+model.config.unit;
+  function setRunning(value){
+    const done=model.status==='done',blocked=!model.ready();running=value&&!done&&!blocked;previous=null;accumulator=0;
+    $('play').disabled=running||done||blocked;$('pause').disabled=!running;$('step').disabled=running||done||blocked;
+    $('pickform-status').classList.toggle('running',running);
+    $('pickform-status-text').textContent=text(done?'done':running?'running':model.t?'paused':'ready');
+  }
+  function sync(){
+    const c=model.config,showUnits=$('show-units').checked;
+    PickModel.missions.forEach((m,i)=>{$('mission-'+i).setAttribute('aria-pressed',String(i===model.index));$('given-'+i).textContent=Object.entries(m.given).map(([s,v])=>N[s]+' = '+plain(v)+' '+U[s]).join(' · ')+' → '+N[m.unknown];});
+    c.options.forEach((o,i)=>{$('opt-'+i).setAttribute('aria-pressed',String(i===model.choice));$('opt-'+i+'-f').textContent=o.f;$('opt-'+i+'-u').textContent=showUnits?'['+o.units+'] '+(model.unitsMatch(i)?'✓':'✗'):'';});
+    $('question').textContent=text('question',{s:unknown(),u:c.unit});$('chosen-symbol').textContent=unknown();
+    $('mission-label').textContent=text('mission'+model.index);
+  }
+  function update(){
+    const c=model.config,ready=model.ready(),done=model.status==='done',t=ready?model.now():0,e=model.evaluate(),s=ready?model.state(t):{x:model.plan(0).x0,v:model.plan(0).v0,a:0};
+    $('time-value').textContent=number(t);$('position-value').textContent=signed(s.x);$('velocity-value').textContent=signed(s.v);$('acceleration-value').textContent=signed(s.a);
+    $('chosen-value').textContent=ready?amount(model.chosen()):'—';
+    $('pickform-equation').textContent=ready?c.options[model.choice].f+' = '+amount(model.chosen())+(model.playback()>1?' · '+text('fastForward',{k:plain(Number(model.playback().toFixed(1)))}):''):'?';
+    let key,copy;const values={s:unknown(),r:ready?amount(model.chosen()):'',u:c.unit,t:number(t,1)};
+    const slipKey={inverted:'slipInverted',product:'slipProduct',mixed:'slipMixed',sign:'slipSign',factor:'slipFactor',square:'slipSquare',root:'slipRoot'};
+    if(done){
+      const o=e.outcome,goal=model.plan().goal,result=goal.kind==='v'?text('speedCopy',{v:number(goal.target+o,1),w:plain(goal.target)}):Math.abs(o)<=PickModel.tolerance.x?text('onLineCopy'):text(o>0?'overCopy':'shortCopy',{g:number(Math.abs(o),1)});
+      if(e.ok){key='good';copy=text('goodCopy',values)+' '+result+' '+text('why'+model.index);}
+      else{key='miss';copy=result+' '+text(slipKey[e.slip],values)+' '+text(e.unitsMatch?'unitsFooled':'unitsWarned');}
+    }
+    else if(!ready){key='choose';copy=text('chooseCopy');}
+    else if(model.t>0){key='running';copy=text('runningCopy',values);}
+    else{key='ready';copy=text('readyCopy',values);}
+    $('lesson-title').textContent=text(key+'Title',values);$('lesson-copy').textContent=copy;
+    $('insight').classList.toggle('warning',key==='miss');
+    $('mission-score').textContent=done?String(model.score()):'—';
+    $('right-badge').classList.toggle('earned',done&&e.ok);$('first-badge').classList.toggle('earned',done&&e.first);
+  }
+  function refresh(){sync();setRunning(false);update();draw();}
+  function simulate(dt){if(model.advance(dt*model.playback())){setRunning(false);update();say(text('doneAnnouncement')+' '+$('lesson-title').textContent);return true;}return false;}
+  for(let i=0;i<4;i++)$('opt-'+i).addEventListener('click',()=>{model.choose(i);refresh();say(model.config.options[i].f);});
+  $('play').addEventListener('click',()=>{setRunning(true);update();say(text('startedAnnouncement'));});
+  $('pause').addEventListener('click',()=>{setRunning(false);update();say(text('pausedAnnouncement'));});
+  $('step').addEventListener('click',()=>{for(let i=0;i<12;i++)if(simulate(H))break;setRunning(false);update();draw();});
+  $('reset').addEventListener('click',()=>{model.reset();refresh();say(text('resetAnnouncement'));});
+  PickModel.missions.forEach((_,i)=>$('mission-'+i).addEventListener('click',()=>{model.setMission(i);refresh();say(text('missionAnnouncement',{name:text('mission'+i)}));}));
+  $('show-units').addEventListener('change',()=>{sync();update();});$('show-vectors').addEventListener('change',()=>{update();draw();});
+  function suspend(){if(running){setRunning(false);say(text('suspendedAnnouncement'));}update();draw();}
+  window.addEventListener('blur',suspend);document.addEventListener('visibilitychange',()=>{if(document.hidden)suspend();});
+  for(const link of document.querySelectorAll('.language-menu a'))link.addEventListener('click',()=>{setRunning(false);try{sessionStorage.setItem(transferKey,JSON.stringify({state:model.snapshot()}));}catch{}});
+  function resize(){const rect=canvas.getBoundingClientRect();if(rect.width<=0)return;width=rect.width;height=rect.height;const dpr=Math.min(window.devicePixelRatio||1,3);canvas.width=Math.round(width*dpr);canvas.height=Math.round(height*dpr);ctx.setTransform(dpr,0,0,dpr,0,0);draw();}
+  const VEL=3,ACC=8,CAR=4.5; // px per m/s, px per m/s², and the car length (m)
+  function draw(){
+    if(!ctx)return;
+    const c=model.config,ready=model.ready(),done=model.status==='done',t=ready?model.now():0,p=model.plan(ready?model.chosen():0),s=ready?model.state(t):{x:p.x0,v:p.v0,a:0},speedGoal=p.goal.kind==='v';
+    ctx.clearRect(0,0,width,height);
+    const label=(str,px,py,color='#b8ccdb',align='left',font=12)=>{ctx.fillStyle=color;ctx.textAlign=align;ctx.font=font+'px -apple-system,BlinkMacSystemFont,sans-serif';ctx.fillText(str,px,py);};
+    const line=(points,color,w=1,dash=[])=>{ctx.beginPath();ctx.strokeStyle=color;ctx.lineWidth=w;ctx.setLineDash(dash);points.forEach((q,i)=>i?ctx.lineTo(q.x,q.y):ctx.moveTo(q.x,q.y));ctx.stroke();ctx.setLineDash([]);};
+    const arrowH=(fromX,toX,py,color,w=2.5)=>{if(Math.abs(toX-fromX)<3)return;const d=Math.sign(toX-fromX);line([{x:fromX,y:py},{x:toX,y:py}],color,w);line([{x:toX-d*9,y:py-5},{x:toX,y:py},{x:toX-d*9,y:py+5}],color,2);};
+    // A fixed road view per situation, set by the givens only, so it never hints at the right formula.
+    const lo=speedGoal?-20:p.x0-CAR-3,hi=speedGoal?220:20,rx0=20,rx1=width-20,px=x=>rx0+(Math.min(Math.max(x,lo),hi)-lo)/(hi-lo)*(rx1-rx0),top=96,bottom=156,mid=(top+bottom)/2;
+    label(text('roadTitle'),rx0,24,'#d1e3ed','left',12);label(text('arrowScale'),width-12,24,'#9fb6c7','right',10);
+    if(ready)label(text('formulaInUse',{f:c.options[model.choice].f,r:amount(model.chosen())}),rx0,52,'#77b9ff','left',width<430?12:15);
+    ctx.fillStyle='#22394a';ctx.fillRect(rx0,top,rx1-rx0,bottom-top);line([{x:rx0,y:mid+16},{x:rx1,y:mid+16}],'#5b7488',1,[10,10]);
+    const step=hi-lo>120?20:10;for(let x=Math.ceil(lo/step)*step;x<=hi;x+=step){line([{x:px(x),y:bottom},{x:px(x),y:bottom+5}],'#5b7488',1);label(String(x||0).replace('-','−'),px(x),bottom+17,'#9fb6c7','center',10);}
+    label('x (m)',rx1,bottom+30,'#9fb6c7','right',10);
+    if(!speedGoal){line([{x:px(0),y:top-6},{x:px(0),y:bottom+6}],'#75efc7',4);label(text('goalLine'),px(0),top-12,'#75efc7','center',10);}
+    const front=px(s.x),back=px(s.x-CAR);ctx.fillStyle='#efe6d0';ctx.fillRect(back,mid-9,Math.max(4,front-back),18);ctx.fillStyle='#102637';ctx.fillRect(front-Math.max(3,(front-back)*.35),mid-6,Math.max(2,(front-back)*.2),12);
+    if(s.x>hi)label('→ x = '+signed(s.x,1)+' m',rx1-4,mid-14,'#efb958','right',11);
+    if($('show-vectors').checked){arrowH(front,front+s.v*VEL,mid-18,'#f2f8fc');arrowH(front,front+s.a*ACC,mid+22,'#efb958',2);}
+    // Speedometer: the target speed is the goal in the acceleration situation; the bar shows the speed in every situation.
+    const sx0=rx0,sx1=rx1,sy=height-62,vmax=40,sp=v=>sx0+(Math.min(Math.max(v,-vmax),vmax)+vmax)/(2*vmax)*(sx1-sx0);
+    label(text('speedTitle'),sx0,sy-22,'#d1e3ed','left',12);ctx.fillStyle='#163449';ctx.fillRect(sx0,sy-8,sx1-sx0,16);
+    for(let v=-40;v<=40;v+=10){line([{x:sp(v),y:sy+8},{x:sp(v),y:sy+13}],'#5b7488',1);label(String(v).replace('-','−'),sp(v),sy+26,'#9fb6c7','center',10);}
+    label('v (m/s)',sx1,sy+40,'#9fb6c7','right',10);
+    if(speedGoal){line([{x:sp(p.goal.target),y:sy-14},{x:sp(p.goal.target),y:sy+14}],'#75efc7',3);label(text('targetSpeed',{v:plain(p.goal.target)}),sp(p.goal.target),sy-18,'#75efc7','center',10);}
+    ctx.fillStyle='#f2f8fc';ctx.fillRect(Math.min(sp(0),sp(s.v)),sy-4,Math.abs(sp(s.v)-sp(0)),8);
+    if(done){const e=model.evaluate(),o=e.outcome;label(e.ok?text('rightBanner'):speedGoal?text('speedBanner',{v:number(p.goal.target+o,1)}):text(o>0?'overBanner':'shortBanner',{g:number(Math.abs(o),1)}),width/2,bottom+66,e.ok?'#75efc7':'#efb958','center',width<430?12:14);}
+  }
+  function frame(now){if(previous===null)previous=now;const elapsed=Math.min(.1,(now-previous)/1000);previous=now;if(running){accumulator+=elapsed;while(accumulator>=H&&running){accumulator-=H;simulate(H);}draw();}if(now-lastUpdate>=80){update();lastUpdate=now;}requestAnimationFrame(frame);}
+  window.addEventListener('resize',resize);if(typeof ResizeObserver!=='undefined')new ResizeObserver(resize).observe(canvas);
+  sync();setRunning(false);update();resize();requestAnimationFrame(frame);
+})();
+</script>
+</body>
+</html>

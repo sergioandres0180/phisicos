@@ -1,0 +1,256 @@
+<!doctype html>
+<html lang="en">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Two Shadows · Phisicos</title>
+<style>
+.shadows-page .answer-row .symbol{min-width:56px}.shadows-page .question{font-size:15px;font-weight:600;margin-top:4px}
+.shadows-page .line-key.blue{background:#77b9ff}.shadows-page .line-key.violet{background:#c9a2ff}.shadows-page .line-key.white{background:#f2f8fc}
+</style>
+</head>
+<body>
+<div class="shell module-page shadows-page">
+__HEADER__
+<main id="main-content">
+__BREADCRUMBS__
+
+<div class="masthead"><div><h1>{{title}}</h1><p class="intro">{{subtitle}}</p></div><div class="concept-tags"><span class="tag speed">{{tag1}}</span><span class="tag velocity">{{tag2}}</span></div></div>
+<noscript><p class="no-js">{{noScript}}</p></noscript>
+<div class="layout">
+<aside class="sidebar" aria-label="{{setup}}">
+  <section class="control-section"><h2 class="eyebrow">{{setup}}</h2><div class="mission-list" role="group" aria-label="{{setup}}">
+    <button id="mission-0" aria-pressed="true"><b>1 · {{mission0}}</b><span id="given-0">v₀</span></button>
+    <button id="mission-1" aria-pressed="false"><b>2 · {{mission1}}</b><span id="given-1">v₀</span></button>
+    <button id="mission-2" aria-pressed="false"><b>3 · {{mission2}}</b><span id="given-2">v₀</span></button>
+    <button id="mission-3" aria-pressed="false"><b>4 · {{mission3}}</b><span id="given-3">v₀</span></button>
+    <button id="mission-4" aria-pressed="false"><b>5 · {{mission4}}</b><span id="given-4">v₀</span></button>
+  </div><p class="hint">{{setupNote}}</p></section>
+  <section class="control-section"><h2 class="eyebrow">{{answerHeading}}</h2>
+    <p class="question" id="question">{{questionVx}}</p>
+    <p class="field-label"><label for="answer">{{answerLabel}}</label></p>
+    <div class="answer-row"><span class="symbol" id="answer-symbol">vₓ =</span><input id="answer" type="number" inputmode="decimal" step="any" value=""><span class="unit" id="answer-unit">m/s</span></div>
+    <p class="hint">{{answerHint}}</p>
+  </section>
+  <section class="control-section"><h2 class="eyebrow">{{observe}}</h2><label class="check"><input id="show-vectors" type="checkbox" checked>{{vectors}}</label><label class="check"><input id="show-strobe" type="checkbox" checked>{{strobe}}</label><p class="hint">{{observeHint}}</p></section>
+</aside>
+<div class="workspace">
+  <section class="scene" aria-label="{{sceneTitle}}"><div class="scene-top"><div><h2 class="scene-title">{{sceneTitle}}</h2><p class="scene-subtitle" id="mission-label">{{mission0}}</p></div><span class="status" id="shadows-status"><i class="status-dot" aria-hidden="true"></i><span id="shadows-status-text">{{ready}}</span></span></div>
+    <div class="module-stage"><canvas id="shadows-canvas" role="img" aria-label="{{canvasLabel}}">{{noScript}}</canvas></div>
+    <div class="legend"><span><i class="line-key white"></i>{{velocityLegend}}</span><span><i class="line-key blue"></i>{{floorLegend}}</span><span><i class="line-key violet"></i>{{wallLegend}}</span><span><i class="line-key mint"></i>{{traceLegend}}</span><span><i class="line-key orange"></i>{{predictionLegend}}</span></div>
+    <div class="module-equation"><span>{{equationTitle}}</span><output id="shadows-equation">vₓ = v₀·cos θ</output></div>
+    <div class="transport"><button id="play" class="primary" disabled>{{play}}</button><button id="pause" disabled>{{pause}}</button><button id="step" disabled>{{step}}</button><button id="reset" class="reset">{{reset}}</button></div>
+  </section>
+  <section class="metrics" aria-label="{{observe}}">
+    <div class="metric scalar"><h3 class="metric-label">{{time}}</h3><p class="metric-value"><span id="time-value">0.00</span> <small>s</small></p><p class="metric-equation">t</p></div>
+    <div class="metric vector"><h3 class="metric-label">{{floorShadow}}</h3><p class="metric-value"><span id="x-value">0.00</span> <small>m</small></p><p class="metric-equation">x = vₓ·t</p></div>
+    <div class="metric vector"><h3 class="metric-label">{{wallShadow}}</h3><p class="metric-value"><span id="y-value">0.00</span> <small>m</small></p><p class="metric-equation">y = v_y0·t − ½·g·t²</p></div>
+    <div class="metric vector"><h3 class="metric-label">{{horizontalVelocity}}</h3><p class="metric-value"><span id="vx-value">—</span> <small>m/s</small></p><p class="metric-equation">vₓ = v₀·cos θ</p></div>
+    <div class="metric vector"><h3 class="metric-label">{{verticalVelocity}}</h3><p class="metric-value"><span id="vy-value">—</span> <small>m/s</small></p><p class="metric-equation">{{vyFormula}}</p></div>
+  </section>
+  <div class="insight" id="insight"><span class="insight-icon" aria-hidden="true">↗</span><div><strong id="lesson-title">{{predictTitle}}</strong><p id="lesson-copy">{{predictCopy}}</p></div></div>
+  <section class="challenge"><div class="mission-heading"><h2 class="challenge-title">{{missionTitle}}</h2><div class="score-card"><span>{{score}}</span><strong id="mission-score">—</strong></div></div><p class="mission-copy">{{missionCopy}}</p><div class="badges"><span id="right-badge">✓ {{rightBadge}}</span><span id="first-badge">① {{firstBadge}}</span></div></section>
+</div>
+</div>
+<article class="learning-content"><section><h2>{{guideTitle}}</h2><ol><li>{{instruction1}}</li><li>{{instruction2}}</li><li>{{instruction3}}</li><li>{{instruction4}}</li></ol></section><section><h2>{{conceptTitle}}</h2><p>{{conceptCopy}}</p><aside class="worked-example"><h3>{{exampleTitle}}</h3><p>{{exampleCopy}}</p></aside></section><section><h2>{{modelTitle}}</h2><p>{{modelCopy}}</p></section></article>
+<p class="language-note" id="language-note">{{languageNote}}</p>
+</main>
+__FOOTER__
+<p class="sr-only" id="announcement" role="status" aria-live="polite"></p>
+</div>
+<script id="shadows-model">
+class ShadowsModel {
+  // x is horizontal from the launch point, y is height above the ground, up positive. The ball leaves the ground at
+  // t = 0 with speed v₀ at θ above the horizontal: vₓ = v₀·cos θ stays constant, v_y = v₀·sin θ − g·t. The floor
+  // shadow shows x(t), a uniform motion; the wall shadow shows y(t), a vertical throw. Both end at t = 2·v₀·sin θ ÷ g.
+  static missions = [
+    {v0:20,angle:30,ask:'vx'},
+    {v0:20,angle:60,ask:'topTime'},
+    {v0:20,angle:60,ask:'height'},
+    {v0:20,angle:60,ask:'topSpeed'},
+    {v0:20,angle:45,ask:'range'}
+  ];
+  static g = 9.8; // m/s²
+  static tolerance = .02; // relative
+  static strobe = .2; // s between strobe images
+  static playback = 1; // the flights last 2–4 s, so they play in real time
+  static units = {vx:'m/s',topTime:'s',height:'m',topSpeed:'m/s',range:'m'};
+  constructor(index = 0){this.setMission(index);}
+  setMission(index){this.index=index;this.config=ShadowsModel.missions[index];this.answer=null;this.attempts=0;this.reset();}
+  reset(){this.t=0;this.status='flying';}
+  valid(value){return Number.isFinite(value)&&(this.config.ask==='topSpeed'?value>=0:value>0)&&value<=200;}
+  setAnswer(value){if(value!==null&&!this.valid(value))return false;this.answer=value;this.reset();return true;}
+  ready(){return this.answer!==null;}
+  vx0(){return this.config.v0*Math.cos(this.config.angle*Math.PI/180);}
+  vy0(){return this.config.v0*Math.sin(this.config.angle*Math.PI/180);}
+  topTime(){return this.vy0()/ShadowsModel.g;}
+  landTime(){return 2*this.vy0()/ShadowsModel.g;}
+  clamp(t){return Math.min(Math.max(t,0),this.landTime());}
+  x(t){return this.vx0()*this.clamp(t);}
+  y(t){const u=this.clamp(t);return Math.max(0,this.vy0()*u-.5*ShadowsModel.g*u*u);}
+  // At touchdown the velocity just before contact is kept.
+  vy(t){return this.vy0()-ShadowsModel.g*this.clamp(t);}
+  maxHeight(){return this.vy0()**2/(2*ShadowsModel.g);}
+  now(){return this.status==='landed'?this.landTime():this.t;}
+  advance(dt){
+    if(!Number.isFinite(dt)||dt<0)throw new Error('Invalid timestep');
+    if(this.status==='landed'||!this.ready())return null;
+    // The top and the landing are solved exactly; only the landing ends the run.
+    const T=this.landTime(),top=this.topTime(),passedTop=this.t<top&&this.t+dt>=top;
+    if(this.t+dt>=T*(1-1e-12)){this.t=T;this.status='landed';this.attempts++;return {t:T,top:passedTop,done:true};}
+    this.t+=dt;return passedTop?{t:this.t,top:true,done:false}:null;
+  }
+  exact(){
+    const vx=this.vx0(),vy=this.vy0(),g=ShadowsModel.g;
+    return {vx,topTime:vy/g,height:vy*vy/(2*g),topSpeed:vx,range:vx*2*vy/g}[this.config.ask];
+  }
+  unit(){return ShadowsModel.units[this.config.ask];}
+  evaluate(){
+    if(!this.ready())return {ok:false,slip:null,first:false,exact:this.exact()};
+    const c=this.config,g=ShadowsModel.g,a=this.answer,e=this.exact(),vx=this.vx0(),vy=this.vy0(),T=this.landTime();
+    const near=(p,q)=>Math.abs(p-q)<=ShadowsModel.tolerance*Math.abs(q)+1e-9,ok=near(a,e);
+    let slip=null;
+    if(!ok){
+      if(c.ask==='vx'){if(near(a,vy))slip='sinCos';else if(near(a,c.v0))slip='useV0';}
+      else if(c.ask==='topTime'){if(near(a,c.v0/g))slip='useV0';else if(near(a,2*vy/g))slip='whole';else if(near(a,vx/g))slip='sinCos';}
+      else if(c.ask==='height'){if(near(a,c.v0**2/(2*g)))slip='useV0';else if(near(a,vx*vx/(2*g)))slip='sinCos';else if(near(a,vy*vy/g))slip='noHalf';}
+      else if(c.ask==='topSpeed'){if(a<.05)slip='zeroTop';else if(near(a,c.v0))slip='useV0';else if(near(a,vy))slip='vyOnly';}
+      else{if(near(a,vx*T/2))slip='half';else if(near(a,c.v0*T))slip='useV0';}
+    }
+    return {ok,slip,first:ok&&this.attempts===1,exact:e};
+  }
+  score(){if(this.status!=='landed')return 0;const e=this.evaluate();return (e.ok?100:0)+(e.first?50:0);}
+  snapshot(){return {index:this.index,answer:this.answer,attempts:this.attempts,t:this.t,status:this.status};}
+  restore(saved){
+    if(!Number.isInteger(saved?.index)||!ShadowsModel.missions[saved.index])return false;
+    const probe=new ShadowsModel(saved.index);
+    if(!probe.setAnswer(saved.answer??null)||!Number.isInteger(saved.attempts)||saved.attempts<0)return false;
+    if(!['flying','landed'].includes(saved.status)||!Number.isFinite(saved.t)||saved.t<0||saved.t>probe.landTime()*(1+1e-9))return false;
+    if(probe.answer===null&&(saved.t>0||saved.status==='landed'))return false;
+    if(saved.status==='landed'&&saved.attempts<1)return false;
+    this.setMission(saved.index);this.answer=probe.answer;this.attempts=saved.attempts;
+    this.status=saved.status;this.t=saved.status==='landed'?this.landTime():saved.t;return true;
+  }
+}
+globalThis.ShadowsModel=ShadowsModel;
+</script>
+<script id="shadows-locale" type="application/json">__LOCALE__</script>
+<script id="shadows-interface">
+(() => {
+  'use strict';
+  const $=id=>document.getElementById(id),locale=JSON.parse($('shadows-locale').textContent);
+  const text=(key,values={})=>locale.strings[key].replace(/\{(\w+)\}/g,(_,name)=>values[name]??'{'+name+'}');
+  const number=(n,d=2)=>Math.abs(n)<.5*10**-d?(0).toLocaleString(locale.lang,{minimumFractionDigits:d,maximumFractionDigits:d}):n.toLocaleString(locale.lang,{minimumFractionDigits:d,maximumFractionDigits:d,useGrouping:false});
+  const plain=n=>n.toLocaleString(locale.lang,{maximumFractionDigits:2,useGrouping:false}).replace('-','−');
+  const signed=(n,d=2)=>(n>.5*10**-d?'+':'')+number(n,d);
+  const model=new ShadowsModel();
+  const canvas=$('shadows-canvas'),ctx=canvas.getContext('2d');
+  const H=1/120,G=ShadowsModel.g,transferKey='phisicos-shadows-language-transfer',sin=text('sinName');
+  let running=false,previous=null,accumulator=0,lastUpdate=0,width=800,height=410;
+  const say=message=>{$('announcement').textContent=message;};
+  try{const data=JSON.parse(sessionStorage.getItem(transferKey)||'null');sessionStorage.removeItem(transferKey);if(data)model.restore(data.state);}catch{$('language-note').hidden=true;}
+  const amount=v=>plain(Number(v.toFixed(3)))+' '+model.unit();
+  const symbols={vx:'vₓ =',topTime:'t_top =',height:'y_max =',topSpeed:'|v|_top =',range:'x_land ='};
+  const questions={vx:'questionVx',topTime:'questionTopTime',height:'questionHeight',topSpeed:'questionTopSpeed',range:'questionRange'};
+  const slipKey={sinCos:'slipSinCos',useV0:'slipUseV0',whole:'slipWhole',noHalf:'slipNoHalf',zeroTop:'slipZeroTop',vyOnly:'slipVyOnly',half:'slipHalf'};
+  function setRunning(value){
+    const done=model.status==='landed',blocked=!model.ready();running=value&&!done&&!blocked;previous=null;accumulator=0;
+    $('play').disabled=running||done||blocked;$('pause').disabled=!running;$('step').disabled=running||done||blocked;
+    $('shadows-status').classList.toggle('running',running);
+    $('shadows-status-text').textContent=text(done?'done':running?'running':model.t?'paused':'ready');
+  }
+  function sync(){
+    const c=model.config;
+    ShadowsModel.missions.forEach((m,i)=>{$('mission-'+i).setAttribute('aria-pressed',String(i===model.index));$('given-'+i).textContent='v₀ = '+plain(m.v0)+' m/s · θ = '+plain(m.angle)+'°';});
+    $('question').textContent=text(questions[c.ask]);$('answer-symbol').textContent=symbols[c.ask];$('answer-unit').textContent=model.unit();
+    $('answer').value=model.answer===null?'':String(model.answer);$('mission-label').textContent=text('mission'+model.index);
+  }
+  function update(){
+    const c=model.config,ready=model.ready(),done=model.status==='landed',t=ready?model.now():0,e=model.evaluate(),x=model.x(t),y=model.y(t),vy=model.vy(t);
+    // The velocity components are shown once the ball is in the air, and vₓ only after landing when it is the answer.
+    const launched=ready&&t>0,hideVx=!done&&(c.ask==='vx'||c.ask==='topSpeed');
+    $('time-value').textContent=number(t);$('x-value').textContent=number(x);$('y-value').textContent=number(y);
+    $('vx-value').textContent=launched&&!hideVx?signed(model.vx0()):'—';$('vy-value').textContent=launched?signed(vy):'—';
+    $('shadows-equation').textContent=launched?(hideVx?'vₓ = v₀·cos θ':'vₓ = '+number(c.v0,1)+' × cos '+plain(c.angle)+'° = '+number(model.vx0())+' m/s')+' · v_y = '+number(c.v0,1)+' × '+sin+' '+plain(c.angle)+'° − '+number(G)+' × '+number(t)+' = '+signed(vy)+' m/s':'vₓ = v₀·cos θ · v_y = v₀·'+sin+' θ − g·t';
+    let key,copy;const values={vy:signed(vy,1)};
+    if(done){
+      const r={x:number(x),t:number(t),h:number(model.maxHeight()),top:number(model.topTime()),p:amount(model.answer)};
+      if(e.ok){key='good';copy=text('flightCopy',r)+' '+text('why'+model.index);}
+      else{key='miss';copy=text('flightCopy',r)+' '+text('missCopy',r)+' '+(e.slip?text(slipKey[e.slip]):text('hint'+model.index));}
+    }
+    else if(!ready){key='predict';copy=text('predictCopy');}
+    else if(model.t>0){key='running';copy=text(vy>1e-9?'risingCopy':vy<-1e-9?'fallingCopy':'topCopy',values);}
+    else{key='ready';copy=text('readyCopy');}
+    $('lesson-title').textContent=text(key+'Title',{t:number(t,1),p:ready?amount(model.answer):''});$('lesson-copy').textContent=copy;
+    $('insight').classList.toggle('warning',key==='miss');
+    $('mission-score').textContent=done?String(model.score()):'—';
+    $('right-badge').classList.toggle('earned',done&&e.ok);$('first-badge').classList.toggle('earned',done&&e.first);
+  }
+  function refresh(){setRunning(false);update();draw();}
+  function simulate(dt){
+    const result=model.advance(dt*ShadowsModel.playback);
+    if(result?.top)say(text('topAnnouncement'));
+    if(result?.done){setRunning(false);update();say(text('doneAnnouncement')+' '+$('lesson-title').textContent);return true;}
+    return false;
+  }
+  $('answer').addEventListener('input',event=>{const raw=String(event.target.value).trim(),value=raw===''?null:Number(raw);if(!model.setAnswer(value))model.setAnswer(null);refresh();});
+  $('play').addEventListener('click',()=>{setRunning(true);update();say(text('startedAnnouncement'));});
+  $('pause').addEventListener('click',()=>{setRunning(false);update();say(text('pausedAnnouncement'));});
+  $('step').addEventListener('click',()=>{for(let i=0;i<12;i++)if(simulate(H))break;setRunning(false);update();draw();});
+  $('reset').addEventListener('click',()=>{model.reset();refresh();say(text('resetAnnouncement'));});
+  ShadowsModel.missions.forEach((_,i)=>$('mission-'+i).addEventListener('click',()=>{model.setMission(i);sync();refresh();say(text('missionAnnouncement',{name:text('mission'+i)}));}));
+  for(const id of ['show-vectors','show-strobe'])$(id).addEventListener('change',()=>{update();draw();});
+  function suspend(){if(running){setRunning(false);say(text('suspendedAnnouncement'));}update();draw();}
+  window.addEventListener('blur',suspend);document.addEventListener('visibilitychange',()=>{if(document.hidden)suspend();});
+  for(const link of document.querySelectorAll('.language-menu a'))link.addEventListener('click',()=>{setRunning(false);try{sessionStorage.setItem(transferKey,JSON.stringify({state:model.snapshot()}));}catch{}});
+  function resize(){const rect=canvas.getBoundingClientRect();if(rect.width<=0)return;width=rect.width;height=rect.height;const dpr=Math.min(window.devicePixelRatio||1,3);canvas.width=Math.round(width*dpr);canvas.height=Math.round(height*dpr);ctx.setTransform(dpr,0,0,dpr,0,0);draw();}
+  // One fixed view for every throw, with the same scale on both axes.
+  const XMIN=-8,XMAX=50,WALL=-5,VEL=3; // m, m, m, px per m/s
+  function draw(){
+    if(!ctx)return;
+    const c=model.config,ready=model.ready(),done=model.status==='landed',t=ready?model.now():0;
+    ctx.clearRect(0,0,width,height);
+    const label=(str,px,py,color='#b8ccdb',align='left',font=12)=>{ctx.fillStyle=color;ctx.textAlign=align;ctx.font=font+'px -apple-system,BlinkMacSystemFont,sans-serif';ctx.fillText(str,px,py);};
+    const line=(points,color,w=1,dash=[])=>{ctx.beginPath();ctx.strokeStyle=color;ctx.lineWidth=w;ctx.setLineDash(dash);points.forEach((p,i)=>i?ctx.lineTo(p.x,p.y):ctx.moveTo(p.x,p.y));ctx.stroke();ctx.setLineDash([]);};
+    const arrow=(from,dx,dy,color,w=2.5)=>{const len=Math.hypot(dx,dy);if(len<4)return;const ux=dx/len,uy=dy/len,to={x:from.x+dx,y:from.y+dy};line([from,to],color,w);line([{x:to.x-ux*9-uy*5,y:to.y-uy*9+ux*5},to,{x:to.x-ux*9+uy*5,y:to.y-uy*9-ux*5}],color,2);};
+    const blob=(px,py,rx,ry,color)=>{ctx.fillStyle=color;ctx.beginPath();ctx.ellipse(px,py,rx,ry,0,0,Math.PI*2);ctx.fill();};
+    const left=14,s=(width-34)/(XMAX-XMIN),gy=height-50,X=x=>left+(x-XMIN)*s,Y=y=>gy-y*s,wx=X(WALL);
+    const title=text('viewTitle'),note=text('arrowScale');
+    ctx.font='12px -apple-system,BlinkMacSystemFont,sans-serif';const titleWidth=ctx.measureText(title).width;ctx.font='10px -apple-system,BlinkMacSystemFont,sans-serif';
+    // Long translated titles shrink to fit narrow canvases.
+    label(title,16,20,'#d1e3ed','left',titleWidth>width-32?Math.max(8,Math.floor(12*(width-32)/titleWidth)):12);
+    if(16+titleWidth+24+ctx.measureText(note).width<=width-12)label(note,width-12,20,'#9fb6c7','right',10);else label(note,16,height-8,'#9fb6c7','left',10);
+    // Floor with x ticks, and the wall with y ticks.
+    ctx.fillStyle='#173246';ctx.fillRect(0,gy,width,height-gy-18);line([{x:wx,y:gy},{x:width,y:gy}],'#5b7488',1.5);
+    for(let u=0;u<=XMAX;u+=10){line([{x:X(u),y:gy},{x:X(u),y:gy+5}],'#5b7488',1);label(plain(u),X(u),gy+18,'#9fb6c7','center',10);}
+    label(text('axisX'),width-20,gy+32,'#9fb6c7','right',10);
+    ctx.fillStyle='#24465e';ctx.fillRect(wx-6,40,6,gy-40);
+    for(let h=5;Y(h)>48;h+=5){line([{x:wx,y:Y(h)},{x:wx+5,y:Y(h)}],'#5b7488',1);label(plain(h),wx-9,Y(h)+4,'#9fb6c7','right',10);}
+    label(text('axisY'),wx+8,46,'#9fb6c7','left',10);
+    label(text('floorLabel'),X(0),gy+32,'#77b9ff','left',10);
+    if(!ready)return;
+    const T=model.landTime(),x=model.x(t),y=model.y(t),vy=model.vy(t),ball={x:X(x),y:Y(y)-6};
+    // Predictions are drawn in orange; none of them needs the answer.
+    if(c.ask==='height'){line([{x:wx,y:Y(model.answer)},{x:X(XMAX),y:Y(model.answer)}],'#efb958',1.5,[6,4]);label(text('predictedHeight',{p:number(model.answer)}),X(XMAX),Y(model.answer)-6,'#efb958','right',10);}
+    if(c.ask==='range'){const fx=X(model.answer);line([{x:fx,y:gy},{x:fx,y:gy-26}],'#efb958',2);ctx.fillStyle='#efb958';ctx.beginPath();ctx.moveTo(fx,gy-26);ctx.lineTo(fx+14,gy-21);ctx.lineTo(fx,gy-16);ctx.fill();}
+    if((c.ask==='vx'||c.ask==='topSpeed')&&t>0){const fx=X(model.answer*t);ctx.strokeStyle='#efb958';ctx.lineWidth=2;ctx.beginPath();ctx.ellipse(fx,gy-2,9,4,0,0,Math.PI*2);ctx.stroke();label(text('predictedShadow'),fx,gy-12,'#efb958','center',10);}
+    // The path so far.
+    if(t>0){const pts=[];for(let k=0;k<=48;k++){const u=t*k/48;pts.push({x:X(model.x(u)),y:Y(model.y(u))-6});}line(pts,'#75efc7',2);}
+    if($('show-strobe').checked)for(let k=1;k*ShadowsModel.strobe<t-1e-9;k++){
+      const u=k*ShadowsModel.strobe,sx=X(model.x(u)),sy=Y(model.y(u));
+      ctx.strokeStyle='#8aa3b5';ctx.lineWidth=1;ctx.beginPath();ctx.arc(sx,sy-6,6,0,Math.PI*2);ctx.stroke();
+      line([{x:sx,y:gy+1},{x:sx,y:gy-4}],'#77b9ff',1.5);line([{x:wx,y:sy-6},{x:wx+6,y:sy-6}],'#c9a2ff',1.5);
+    }
+    if(t>=model.topTime()-1e-12){const ty=Y(model.maxHeight())-6;line([{x:X(model.x(model.topTime()))-30,y:ty},{x:X(model.x(model.topTime()))+30,y:ty}],'#75efc7',1,[4,4]);label(text('topLabel'),X(model.x(model.topTime())),ty-8,'#75efc7','center',10);}
+    if(c.ask==='topTime'&&t>=model.answer-1e-12&&model.answer<=T){const pu=model.answer,px=X(model.x(pu)),py=Y(model.y(pu))-6;ctx.strokeStyle='#efb958';ctx.lineWidth=2;ctx.beginPath();ctx.arc(px,py,11,0,Math.PI*2);ctx.stroke();label(text('predictionMark',{p:number(pu)}),px+14,py-10,'#efb958','left',10);}
+    // Light lines from the ball to its two shadows.
+    line([ball,{x:ball.x,y:gy-2}],'#77b9ff',1,[2,4]);line([ball,{x:wx,y:ball.y}],'#c9a2ff',1,[2,4]);
+    blob(ball.x,gy-2,9,3.5,'#77b9ff');blob(wx,ball.y,3.5,9,'#c9a2ff');
+    ctx.fillStyle='#efe6d0';ctx.beginPath();ctx.arc(ball.x,ball.y,6,0,Math.PI*2);ctx.fill();
+    if($('show-vectors').checked&&!done&&t>0){const vx=model.vx0();arrow(ball,vx*VEL,-vy*VEL,'#f2f8fc');arrow({x:ball.x,y:gy-2},vx*VEL,0,'#77b9ff',2);arrow({x:wx,y:ball.y},0,-vy*VEL,'#c9a2ff',2);}
+    if(done){const e=model.evaluate();label(text('landedBanner',{x:number(x),t:number(T)}),width/2,48,e.ok?'#75efc7':'#efb958','center',width<430?12:14);}
+  }
+  function frame(now){if(previous===null)previous=now;const elapsed=Math.min(.1,(now-previous)/1000);previous=now;if(running){accumulator+=elapsed;while(accumulator>=H&&running){accumulator-=H;simulate(H);}draw();}if(now-lastUpdate>=80){update();lastUpdate=now;}requestAnimationFrame(frame);}
+  window.addEventListener('resize',resize);if(typeof ResizeObserver!=='undefined')new ResizeObserver(resize).observe(canvas);
+  sync();setRunning(false);update();resize();requestAnimationFrame(frame);
+})();
+</script>
+</body>
+</html>

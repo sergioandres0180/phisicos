@@ -15,6 +15,9 @@ RewriteCond %{HTTPS} !=on [OR]
 RewriteCond %{HTTP_HOST} !^__HOST_REGEX__$ [NC]
 RewriteRule ^ __ORIGIN__%{REQUEST_URI} [R=301,L,NE]
 
+# Games moved under their topic (/games/<topic>/<game>/). Old routes, with or without index.html, redirect in one hop.
+__LEGACY_REDIRECTS__
+
 # Redirect explicitly requested index.html files, never internal DirectoryIndex requests.
 RewriteCond %{THE_REQUEST} \s/+[^?\s]*index\.html(?:[?\s]) [NC]
 RewriteRule ^(.*)index\.html$ __ORIGIN__/$1 [R=301,L,NE]

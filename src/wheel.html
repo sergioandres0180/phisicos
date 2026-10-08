@@ -1,0 +1,260 @@
+<!doctype html>
+<html lang="en">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Ferris Wheel · Phisicos</title>
+<style>
+.wheel-page .answer-row input{width:130px}.wheel-page .answer-row .symbol{min-width:58px}.wheel-page .answer-row .form{font-size:12px;color:var(--green);font-weight:600}
+.wheel-page .root-row{display:flex;gap:8px;margin-top:10px;align-items:center;flex-wrap:wrap}.wheel-page .root-row .secondary{min-width:52px;font:600 16px ui-monospace,SFMono-Regular,monospace}.wheel-page .root-row span{font-size:12px;color:var(--muted)}
+</style>
+</head>
+<body>
+<div class="shell module-page wheel-page">
+__HEADER__
+<main id="main-content">
+__BREADCRUMBS__
+
+<div class="masthead"><div><h1>{{title}}</h1><p class="intro">{{subtitle}}</p></div><div class="concept-tags"><span class="tag speed">{{tag1}}</span><span class="tag velocity">{{tag2}}</span></div></div>
+<noscript><p class="no-js">{{noScript}}</p></noscript>
+<div class="layout">
+<aside class="sidebar" aria-label="{{setup}}">
+  <section class="control-section"><h2 class="eyebrow">{{setup}}</h2><div class="mission-list" role="group" aria-label="{{setup}}">
+    <button id="mission-0" aria-pressed="true"><b>1 · {{mission0}}</b><span id="given-0">θ = 30°</span></button>
+    <button id="mission-1" aria-pressed="false"><b>2 · {{mission1}}</b><span id="given-1">θ = 135°</span></button>
+    <button id="mission-2" aria-pressed="false"><b>3 · {{mission2}}</b><span id="given-2">θ = 210°</span></button>
+    <button id="mission-3" aria-pressed="false"><b>4 · {{mission3}}</b><span id="given-3">θ = 270°</span></button>
+    <button id="mission-4" aria-pressed="false"><b>5 · {{mission4}}</b><span id="given-4">θ = 300°</span></button>
+    <button id="mission-5" aria-pressed="false"><b>6 · {{mission5}}</b><span id="given-5">θ = 405°</span></button>
+  </div><p class="hint">{{setupNote}}</p></section>
+  <section class="control-section"><h2 class="eyebrow">{{predictHeading}}</h2>
+    <div class="answer-row"><label class="symbol" for="cos-answer">cos θ =</label><input id="cos-answer" type="text" inputmode="text" autocomplete="off" spellcheck="false" value=""><span class="form" id="cos-form"></span></div>
+    <div class="answer-row"><label class="symbol" for="sin-answer" id="sin-symbol">sin θ =</label><input id="sin-answer" type="text" inputmode="text" autocomplete="off" spellcheck="false" value=""><span class="form" id="sin-form"></span></div>
+    <div class="root-row"><button id="insert-root" class="secondary" aria-label="{{insertRoot}}">√</button><span>{{formatHint}}</span></div>
+    <div class="readout" id="prediction-box"><span>{{prediction}}</span><strong id="prediction-value">—</strong><p class="hint" id="prediction-note">{{predictionEmpty}}</p></div>
+  </section>
+  <section class="control-section"><h2 class="eyebrow">{{observe}}</h2><label class="check"><input id="show-shadows" type="checkbox" checked>{{shadows}}</label><label class="check"><input id="show-vectors" type="checkbox" checked>{{vectors}}</label><label class="check"><input id="show-graph" type="checkbox" checked>{{graph}}</label><p class="hint">{{observeHint}}</p></section>
+</aside>
+<div class="workspace">
+  <section class="scene" aria-label="{{sceneTitle}}"><div class="scene-top"><div><h2 class="scene-title">{{sceneTitle}}</h2><p class="scene-subtitle" id="mission-label">{{mission0}}</p></div><span class="status" id="wheel-status"><i class="status-dot" aria-hidden="true"></i><span id="wheel-status-text">{{ready}}</span></span></div>
+    <div class="module-stage"><canvas id="wheel-canvas" role="img" aria-label="{{canvasLabel}}">{{noScript}}</canvas></div>
+    <div class="legend"><span><i class="line-key mint"></i>{{cosLegend}}</span><span><i class="line-key blue"></i>{{sinLegend}}</span><span><i class="line-key white"></i>{{velocityLegend}}</span><span><i class="line-key orange"></i>{{targetLegend}}</span><span><i class="line-key gray"></i>{{predictionLegend}}</span></div>
+    <div class="module-equation"><span>{{equationTitle}}</span><output id="wheel-equation">x = R · cos θ · y = R · sin θ</output></div>
+    <div class="transport"><button id="play" class="primary" disabled>{{play}}</button><button id="pause" disabled>{{pause}}</button><button id="step" disabled>{{step}}</button><button id="reset" class="reset">{{reset}}</button></div>
+  </section>
+  <section class="metrics" aria-label="{{observe}}">
+    <div class="metric scalar"><h3 class="metric-label">{{time}}</h3><p class="metric-value"><span id="time-value">0.0</span> <small>s</small></p><p class="metric-equation">t</p></div>
+    <div class="metric scalar"><h3 class="metric-label">{{angle}}</h3><p class="metric-value"><span id="angle-value">0.0°</span></p><p class="metric-equation">θ = ω · t</p></div>
+    <div class="metric vector"><h3 class="metric-label">{{unitPoint}}</h3><p class="metric-value"><span id="unit-value">(1.000, 0.000)</span></p><p class="metric-equation" id="unit-equation">(cos θ, sin θ)</p></div>
+    <div class="metric vector"><h3 class="metric-label">{{position}}</h3><p class="metric-value"><span id="position-value">(10.00, 0.00)</span> <small>m</small></p><p class="metric-equation">r = (x, y)</p></div>
+    <div class="metric scalar"><h3 class="metric-label">{{height}}</h3><p class="metric-value"><span id="height-value">12.00</span> <small>m</small></p><p class="metric-equation">h = C + y</p></div>
+  </section>
+  <div class="insight" id="insight"><span class="insight-icon" aria-hidden="true">↗</span><div><strong id="lesson-title">{{predictTitle}}</strong><p id="lesson-copy">{{predictCopy}}</p></div></div>
+  <section class="challenge"><div class="mission-heading"><h2 class="challenge-title">{{missionTitle}}</h2><div class="score-card"><span>{{score}}</span><strong id="mission-score">—</strong></div></div><p class="mission-copy">{{missionCopy}}</p><div class="badges"><span id="found-badge">✓ {{foundBadge}}</span><span id="exact-badge">√ {{exactBadge}}</span></div></section>
+</div>
+</div>
+<article class="learning-content"><section><h2>{{guideTitle}}</h2><ol><li>{{instruction1}}</li><li>{{instruction2}}</li><li>{{instruction3}}</li><li>{{instruction4}}</li></ol></section><section><h2>{{conceptTitle}}</h2><p>{{conceptCopy}}</p><aside class="worked-example"><h3>{{exampleTitle}}</h3><p>{{exampleCopy}}</p></aside></section><section><h2>{{modelTitle}}</h2><p>{{modelCopy}}</p></section></article>
+<p class="language-note" id="language-note">{{languageNote}}</p>
+</main>
+__FOOTER__
+<p class="sr-only" id="announcement" role="status" aria-live="polite"></p>
+</div>
+<script id="wheel-model">
+class WheelModel {
+  // x points right and y points up from the hub; θ is measured counter-clockwise from the 3 o'clock position.
+  static missions = [{id:'q1',angle:30},{id:'q2',angle:135},{id:'q3',angle:210},{id:'down',angle:270},{id:'q4',angle:300},{id:'turn',angle:405}];
+  static radius = 10; // m
+  static hub = 12; // m, hub height C above the ground
+  static omega = 1.5; // degrees per second: one turn every 4 minutes
+  static playback = 20; // physical seconds per second of playback
+  static tolerance = .01; // a prediction is right when both values are within 0.01
+  // Reads a decimal (0.866, −0,5) or an exact form (√3/2, -1/2, 1/√2, sqrt(2)/2).
+  // Exact forms use only whole numbers, fractions, and square roots.
+  static parse(raw){
+    const s=String(raw).trim().replace(/\s+/g,'').replace(/[−–]/g,'-').replace(/,/g,'.').replace(/sqrt/gi,'√');
+    const m=/^([+-]?)([^/]+)(?:\/([^/]+))?$/.exec(s);if(!m)return null;
+    const term=t=>{const q=/^(\d+(?:\.\d+)?|\.\d+)?(?:[*·×]?√\(?(\d+(?:\.\d+)?|\.\d+)\)?)?$/.exec(t);if(!q||(q[1]===undefined&&q[2]===undefined))return null;return {value:Number(q[1]??1)*Math.sqrt(Number(q[2]??1)),decimal:/\./.test(t)};};
+    const top=term(m[2]),bottom=m[3]===undefined?{value:1,decimal:false}:term(m[3]);
+    if(!top||!bottom||bottom.value===0)return null;
+    const value=(m[1]==='-'?-1:1)*top.value/bottom.value;
+    return Number.isFinite(value)?{value,exact:!top.decimal&&!bottom.decimal}:null;
+  }
+  constructor(index = 0){this.setMission(index);}
+  setMission(index){this.index=index;this.config=WheelModel.missions[index];this.cosText='';this.sinText='';this.cos=null;this.sin=null;this.reset();}
+  reset(){this.t=0;this.status='turning';}
+  // Sine and cosine never leave [−1, 1], so larger values are not accepted as predictions.
+  setAnswer(which,raw){
+    if(which!=='cos'&&which!=='sin')return false;
+    const text=String(raw??'').slice(0,40),parsed=text.trim()===''?null:WheelModel.parse(text),valid=parsed!==null&&Math.abs(parsed.value)<=1+1e-12;
+    this[which+'Text']=text;this[which]=valid?parsed:null;this.reset();return valid||text.trim()==='';
+  }
+  ready(){return this.cos!==null&&this.sin!==null;}
+  exact(){const a=this.config.angle*Math.PI/180;return {cos:Math.cos(a),sin:Math.sin(a)};}
+  turnTime(){return this.config.angle/WheelModel.omega;}
+  angle(){return this.status==='stopped'?this.config.angle:WheelModel.omega*this.t;}
+  position(){const a=this.angle()*Math.PI/180,R=WheelModel.radius;return {x:R*Math.cos(a),y:R*Math.sin(a)};}
+  // Uniform circular motion: the velocity is tangent to the wheel with size R · ω.
+  velocity(){if(this.status==='stopped')return {x:0,y:0};const a=this.angle()*Math.PI/180,v=WheelModel.radius*WheelModel.omega*Math.PI/180;return {x:-v*Math.sin(a),y:v*Math.cos(a)};}
+  advance(dt){
+    if(!Number.isFinite(dt)||dt<0)throw new Error('Invalid timestep');
+    if(this.status==='stopped'||!this.ready())return null;
+    // The cabin stops exactly at the target angle, t = θ ÷ ω.
+    const T=this.turnTime();
+    if(this.t+dt>=T*(1-1e-12)){this.t=T;this.status='stopped';return {t:T};}
+    this.t+=dt;return null;
+  }
+  evaluate(){
+    const x=this.exact(),tol=WheelModel.tolerance,close=(a,b)=>Math.abs(a-b)<=tol+1e-12;
+    if(!this.ready())return {found:false,exactForm:false,swap:false,sign:false,miss:null};
+    const c=this.cos.value,s=this.sin.value,found=close(c,x.cos)&&close(s,x.sin);
+    return {found,exactForm:found&&this.cos.exact&&this.sin.exact&&Math.abs(c-x.cos)<1e-9&&Math.abs(s-x.sin)<1e-9,
+      swap:!found&&close(c,x.sin)&&close(s,x.cos),sign:!found&&close(Math.abs(c),Math.abs(x.cos))&&close(Math.abs(s),Math.abs(x.sin)),
+      miss:WheelModel.radius*Math.hypot(c-x.cos,s-x.sin)};
+  }
+  score(){if(this.status!=='stopped')return 0;const e=this.evaluate();return (e.found?100:0)+(e.exactForm?50:0);}
+  snapshot(){return {index:this.index,cosText:this.cosText,sinText:this.sinText,t:this.t,status:this.status};}
+  restore(saved){
+    if(!Number.isInteger(saved?.index)||!WheelModel.missions[saved.index])return false;
+    if(typeof saved.cosText!=='string'||typeof saved.sinText!=='string'||saved.cosText.length>40||saved.sinText.length>40)return false;
+    const probe=new WheelModel(saved.index);probe.setAnswer('cos',saved.cosText);probe.setAnswer('sin',saved.sinText);
+    if(!['turning','stopped'].includes(saved.status)||!Number.isFinite(saved.t)||saved.t<0||saved.t>probe.turnTime()*(1+1e-9))return false;
+    if(!probe.ready()&&(saved.t>0||saved.status==='stopped'))return false;
+    this.setMission(saved.index);this.setAnswer('cos',saved.cosText);this.setAnswer('sin',saved.sinText);
+    this.status=saved.status;this.t=saved.status==='stopped'?this.turnTime():saved.t;return true;
+  }
+}
+globalThis.WheelModel=WheelModel;
+</script>
+<script id="wheel-locale" type="application/json">__LOCALE__</script>
+<script id="wheel-interface">
+(() => {
+  'use strict';
+  const $=id=>document.getElementById(id),locale=JSON.parse($('wheel-locale').textContent);
+  const text=(key,values={})=>locale.strings[key].replace(/\{(\w+)\}/g,(_,name)=>values[name]??'{'+name+'}');
+  const number=(n,d=2)=>Math.abs(n)<.5*10**-d?(0).toLocaleString(locale.lang,{minimumFractionDigits:d,maximumFractionDigits:d}):n.toLocaleString(locale.lang,{minimumFractionDigits:d,maximumFractionDigits:d,useGrouping:false});
+  // Decimal-comma locales separate vector components with a semicolon.
+  const pair=(a,b,d=2)=>'('+number(a,d)+(locale.lang==='en'?', ':'; ')+number(b,d)+')';
+  const model=new WheelModel(),R=WheelModel.radius,C=WheelModel.hub,sin=text('sinName');
+  const canvas=$('wheel-canvas'),ctx=canvas.getContext('2d');
+  const H=1/120,transferKey='phisicos-wheel-language-transfer';
+  let running=false,previous=null,accumulator=0,lastUpdate=0,width=800,height=410,lastInput='cos-answer';
+  const say=message=>{$('announcement').textContent=message;};
+  try{const data=JSON.parse(sessionStorage.getItem(transferKey)||'null');sessionStorage.removeItem(transferKey);if(data)model.restore(data.state);}catch{$('language-note').hidden=true;}
+  const quadrant=a=>{const m=((a%360)+360)%360;return m%90===0?null:['I','II','III','IV'][Math.floor(m/90)];};
+  const signWord=v=>text(Math.abs(v)<1e-9?'zero':v>0?'positive':'negative');
+  function setRunning(value){
+    const done=model.status==='stopped',blocked=!model.ready();running=value&&!done&&!blocked;previous=null;accumulator=0;
+    $('play').disabled=running||done||blocked;$('pause').disabled=!running;$('step').disabled=running||done||blocked;
+    $('wheel-status').classList.toggle('running',running);
+    $('wheel-status-text').textContent=text(done?'stopped':running?'running':model.t?'paused':'ready');
+  }
+  function sync(){
+    WheelModel.missions.forEach((m,i)=>$('mission-'+i).setAttribute('aria-pressed',String(i===model.index)));
+    $('cos-answer').value=model.cosText;$('sin-answer').value=model.sinText;$('sin-symbol').textContent=sin+' θ =';
+    $('mission-label').textContent=text('mission'+model.index);
+  }
+  function update(){
+    const p=model.position(),a=model.angle(),done=model.status==='stopped',e=model.evaluate(),x=model.exact(),ready=model.ready();
+    $('time-value').textContent=number(model.t,1);$('angle-value').textContent=number(a,1)+'°';
+    $('unit-value').textContent=pair(p.x/R,p.y/R,3);$('unit-equation').textContent='(cos θ, '+sin+' θ)';
+    $('position-value').textContent=pair(p.x,p.y);$('height-value').textContent=number(C+p.y);
+    $('wheel-equation').textContent='x = R · cos θ = '+number(p.x)+' m · y = R · '+sin+' θ = '+number(p.y)+' m';
+    for(const k of ['cos','sin'])$(k+'-form').textContent=model[k]===null?'':text(model[k].exact?'exactForm':'decimalForm');
+    const invalid=['cos','sin'].some(k=>model[k]===null&&model[k+'Text'].trim()!=='');
+    $('prediction-value').textContent=ready?pair(R*model.cos.value,R*model.sin.value)+' m':'—';
+    $('prediction-note').textContent=invalid?text('invalidValue'):ready?text('predictionHeight',{h:number(C+R*model.sin.value)}):text('predictionEmpty');
+    $('prediction-box').classList.toggle('ok',ready);
+    const q=quadrant(model.config.angle);
+    let key,copy,values={a:number(a,1),x:ready?number(R*model.cos.value):'',y:ready?number(R*model.sin.value):'',miss:number(e.miss??0)};
+    if(done){
+      if(e.found){key='found';copy=text('why'+model.index)+' '+text(e.exactForm?'exactPraise':'exactNudge');}
+      else if(e.swap){key='swap';copy=text('swapCopy');}
+      else if(e.sign){key='sign';copy=text(q?'signCopy':'signAxisCopy',{q,cs:signWord(x.cos),ss:signWord(x.sin)});}
+      else{key='miss';copy=text('hint'+model.index);}
+    }
+    else if(!ready){key='predict';copy=text('predictCopy');}
+    else if(model.t>0){key='turning';copy=text('turningCopy');}
+    else{key='ready';copy=text('readyCopy');}
+    $('lesson-title').textContent=text(key+'Title',values);$('lesson-copy').textContent=copy;
+    $('insight').classList.toggle('warning',done&&!e.found);
+    $('mission-score').textContent=done?String(model.score()):'—';
+    $('found-badge').classList.toggle('earned',done&&e.found);$('exact-badge').classList.toggle('earned',done&&e.exactForm);
+  }
+  function refresh(){setRunning(false);update();draw();}
+  function simulate(dt){if(model.advance(dt*WheelModel.playback)){setRunning(false);update();say(text('stoppedAnnouncement')+' '+$('lesson-title').textContent);return true;}return false;}
+  $('play').addEventListener('click',()=>{setRunning(true);update();say(text('startedAnnouncement'));});
+  $('pause').addEventListener('click',()=>{setRunning(false);update();say(text('pausedAnnouncement'));});
+  $('step').addEventListener('click',()=>{for(let i=0;i<12;i++)if(simulate(H))break;setRunning(false);update();draw();});
+  $('reset').addEventListener('click',()=>{model.reset();refresh();say(text('resetAnnouncement'));});
+  WheelModel.missions.forEach((_,i)=>$('mission-'+i).addEventListener('click',()=>{model.setMission(i);sync();refresh();say(text('missionAnnouncement',{name:text('mission'+i)}));}));
+  for(const k of ['cos','sin']){
+    const id=k+'-answer';
+    $(id).addEventListener('input',event=>{model.setAnswer(k,event.target.value);refresh();});
+    $(id).addEventListener('focus',()=>{lastInput=id;});
+  }
+  // Touch keyboards rarely offer √, so a button adds it to the field used last.
+  $('insert-root').addEventListener('click',()=>{const input=$(lastInput);input.value+='√';model.setAnswer(lastInput.slice(0,3),input.value);if(input.focus)input.focus();refresh();});
+  for(const id of ['show-shadows','show-vectors','show-graph'])$(id).addEventListener('change',()=>{update();draw();});
+  function suspend(){if(running){setRunning(false);say(text('suspendedAnnouncement'));}update();draw();}
+  window.addEventListener('blur',suspend);document.addEventListener('visibilitychange',()=>{if(document.hidden)suspend();});
+  for(const link of document.querySelectorAll('.language-menu a'))link.addEventListener('click',()=>{setRunning(false);try{sessionStorage.setItem(transferKey,JSON.stringify({state:model.snapshot()}));}catch{}});
+  function resize(){const rect=canvas.getBoundingClientRect();if(rect.width<=0)return;width=rect.width;height=rect.height;const dpr=Math.min(window.devicePixelRatio||1,3);canvas.width=Math.round(width*dpr);canvas.height=Math.round(height*dpr);ctx.setTransform(dpr,0,0,dpr,0,0);draw();}
+  const ARROW=150; // px per m/s, stated on the canvas.
+  function draw(){
+    if(!ctx)return;
+    const a=model.angle(),rad=a*Math.PI/180,p=model.position(),done=model.status==='stopped',target=model.config.angle,e=model.evaluate();
+    ctx.clearRect(0,0,width,height);
+    const label=(s,x,y,color='#b8ccdb',align='left',font=12)=>{ctx.fillStyle=color;ctx.textAlign=align;ctx.font=font+'px -apple-system,BlinkMacSystemFont,sans-serif';ctx.fillText(s,x,y);};
+    const line=(points,color,w=1,dash=[])=>{ctx.beginPath();ctx.strokeStyle=color;ctx.lineWidth=w;ctx.setLineDash(dash);points.forEach((q,i)=>i?ctx.lineTo(q.x,q.y):ctx.moveTo(q.x,q.y));ctx.stroke();ctx.setLineDash([]);};
+    const arrow=(from,dx,dy,color,w=2.5)=>{const to={x:from.x+dx,y:from.y+dy},len=Math.hypot(dx,dy);if(len<3)return to;line([from,to],color,w);const ux=dx/len,uy=dy/len;line([{x:to.x-ux*8-uy*4,y:to.y-uy*8+ux*4},to,{x:to.x-ux*8+uy*4,y:to.y-uy*8-ux*4}],color,2);return to;};
+    const graph=$('show-graph').checked&&width>=560;
+    // Wheel on the left (or centred), drawn to scale with the ground C below the hub.
+    const top=graph?24:44,area=graph?width*.48:width,r=Math.min(area/2-50,(height-top-36)/(1+C/R)-6),cx=area/2+(graph?8:0),cy=top+r,k=r/R;
+    const groundY=cy+C*k,to=(x,y)=>({x:cx+x*k,y:cy-y*k});
+    ctx.fillStyle='#1b3647';ctx.fillRect(0,groundY,graph?area:width,height-groundY);
+    line([{x:cx,y:cy},{x:cx-r*.45,y:groundY}],'#5b7488',3);line([{x:cx,y:cy},{x:cx+r*.45,y:groundY}],'#5b7488',3);
+    label(text('arrowScale'),width-14,20,'#9fb6c7','right',11);label(text('playbackScale',{k:WheelModel.playback}),width-14,36,'#9fb6c7','right',11);
+    // Axes through the hub, with the sign of (cos θ, sin θ) in each quadrant.
+    line([{x:cx-r-18,y:cy},{x:cx+r+18,y:cy}],'#5b7488',1,[4,4]);line([{x:cx,y:cy-r-16},{x:cx,y:cy+r+16}],'#5b7488',1,[4,4]);
+    const qs=[['I','(+, +)',1,1],['II','(−, +)',-1,1],['III','(−, −)',-1,-1],['IV','(+, −)',1,-1]];
+    for(const [n,s,dx,dy] of qs){label(n+' '+s,cx+dx*r*.78,cy-dy*r*.78+4,'#6f889b','center',11);}
+    ctx.beginPath();ctx.strokeStyle='#8aa3b5';ctx.lineWidth=3;ctx.arc(cx,cy,r,0,Math.PI*2);ctx.stroke();
+    for(let i=0;i<8;i++){const s=i*Math.PI/4-rad;line([{x:cx,y:cy},{x:cx+Math.cos(s)*r,y:cy+Math.sin(s)*r}],'#3f6178',1);}
+    // Target angle and the angle turned so far.
+    const tr=target*Math.PI/180,tp=to(R*Math.cos(tr),R*Math.sin(tr));
+    line([{x:cx,y:cy},tp],'#efb958',1.5,[5,4]);label('θ = '+target+'°',tp.x+(Math.cos(tr)>=0?10:-10),tp.y-10,'#efb958',Math.cos(tr)>=0?'left':'right',12);
+    if(a>0){ctx.beginPath();ctx.strokeStyle='#f2f8fc';ctx.lineWidth=1.5;ctx.arc(cx,cy,26,-Math.min(rad,2*Math.PI-1e-6),0);ctx.stroke();if(a>=360)label('+'+Math.floor(a/360)+' × 360°',cx+30,cy+16,'#f2f8fc','left',11);}
+    const cab=to(p.x,p.y);
+    if($('show-shadows').checked){
+      line([cab,{x:cab.x,y:cy}],'#77b9ff',1,[3,3]);line([cab,{x:cx,y:cab.y}],'#75efc7',1,[3,3]);
+      line([{x:cx,y:cy},{x:cab.x,y:cy}],'#75efc7',4);line([{x:cx,y:cy},{x:cx,y:cab.y}],'#77b9ff',4);
+      label('R · cos θ',(cx+cab.x)/2,cy+(p.y>=0?16:-8),'#75efc7','center',11);label('R · '+sin+' θ',cx+(p.x>=0?-6:6),(cy+cab.y)/2,'#77b9ff',p.x>=0?'right':'left',11);
+    }
+    line([{x:cx,y:cy},cab],'#f2f8fc',1.5);
+    // Predicted cabin position from the learner's cos θ and sin θ.
+    if(model.ready()){const g=to(R*model.cos.value,R*model.sin.value);ctx.beginPath();ctx.strokeStyle='#8aa3b5';ctx.lineWidth=2;ctx.setLineDash([3,3]);ctx.arc(g.x,g.y,11,0,Math.PI*2);ctx.stroke();ctx.setLineDash([]);label(text('yourCabin'),g.x,g.y+30,'#b8ccdb','center',11);}
+    // The cabin hangs below its pivot on the rim.
+    ctx.fillStyle='#efb958';ctx.fillRect(cab.x-7,cab.y,14,12);ctx.fillStyle='#f2f8fc';ctx.beginPath();ctx.arc(cab.x,cab.y,3,0,Math.PI*2);ctx.fill();
+    ctx.fillStyle='#d1e3ed';ctx.beginPath();ctx.arc(cx,cy,5,0,Math.PI*2);ctx.fill();
+    const v=model.velocity();
+    if($('show-vectors').checked&&!done)arrow(cab,v.x*ARROW,-v.y*ARROW,'#f2f8fc');
+    // Graph: cos θ and sin θ against θ, traced as the wheel turns.
+    if(graph){
+      const gx=width*.53,gw=width-gx-24,gy=46,gh=height-110,max=Math.max(360,target),X=d=>gx+d/max*gw,Y=v=>gy+gh/2-v*gh/2;
+      label(text('graphTitle'),gx,24,'#d1e3ed','left',12);
+      line([{x:gx,y:Y(0)},{x:gx+gw,y:Y(0)}],'#5b7488',1);line([{x:gx,y:gy},{x:gx,y:gy+gh}],'#5b7488',1);
+      for(const v of [1,-1]){line([{x:gx,y:Y(v)},{x:gx+gw,y:Y(v)}],'#284354',1,[2,4]);label(String(v).replace('-','−'),gx-6,Y(v)+4,'#9fb6c7','right',11);}
+      for(let d=90;d<=max;d+=90){line([{x:X(d),y:gy},{x:X(d),y:gy+gh}],'#284354',1,[2,4]);label(d+'°',X(d),gy+gh+16,'#9fb6c7','center',11);}
+      const curve=(f,color,upTo,w)=>{const pts=[];for(let d=0;d<=upTo;d+=2)pts.push({x:X(d),y:Y(f(d*Math.PI/180))});pts.push({x:X(upTo),y:Y(f(upTo*Math.PI/180))});line(pts,color,w);};
+      curve(Math.cos,'#2c5f57',max,1.5);curve(Math.sin,'#2b4f78',max,1.5);
+      if(a>0){curve(Math.cos,'#75efc7',a,2.5);curve(Math.sin,'#77b9ff',a,2.5);}
+      line([{x:X(target),y:gy},{x:X(target),y:gy+gh}],'#efb958',1.5,[5,4]);
+      for(const [f,color] of [[Math.cos,'#75efc7'],[Math.sin,'#77b9ff']]){ctx.fillStyle=color;ctx.beginPath();ctx.arc(X(a),Y(f(rad)),4,0,Math.PI*2);ctx.fill();}
+      const lx=X(a),right=lx>gx+gw*.75,ax=right?lx-8:lx+8,al=right?'right':'left';label('cos θ',ax,Y(Math.cos(rad))-8,'#75efc7',al,12);label(sin+' θ',ax,Y(Math.sin(rad))+18,'#77b9ff',al,12);
+    }
+    if(done)label(e.found?text('foundBanner'):text('missBanner'),area/2,Math.min(height-8,groundY+26),e.found?'#75efc7':'#efb958','center',width<430?14:16);
+  }
+  function frame(now){if(previous===null)previous=now;const elapsed=Math.min(.1,(now-previous)/1000);previous=now;if(running){accumulator+=elapsed;while(accumulator>=H&&running){accumulator-=H;simulate(H);}draw();}if(now-lastUpdate>=80){update();lastUpdate=now;}requestAnimationFrame(frame);}
+  window.addEventListener('resize',resize);if(typeof ResizeObserver!=='undefined')new ResizeObserver(resize).observe(canvas);
+  sync();setRunning(false);update();resize();requestAnimationFrame(frame);
+})();
+</script>
+</body>
+</html>

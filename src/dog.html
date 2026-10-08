@@ -1,0 +1,238 @@
+<!doctype html>
+<html lang="en">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Dog Walk · Phisicos</title>
+<style>
+.dog-page .answer-row .symbol{min-width:44px}.dog-page .question{font-size:15px;font-weight:600;margin-top:4px}
+</style>
+</head>
+<body>
+<div class="shell module-page dog-page">
+__HEADER__
+<main id="main-content">
+__BREADCRUMBS__
+
+<div class="masthead"><div><h1>{{title}}</h1><p class="intro">{{subtitle}}</p></div><div class="concept-tags"><span class="tag speed">{{tag1}}</span><span class="tag velocity">{{tag2}}</span></div></div>
+<noscript><p class="no-js">{{noScript}}</p></noscript>
+<div class="layout">
+<aside class="sidebar" aria-label="{{setup}}">
+  <section class="control-section"><h2 class="eyebrow">{{setup}}</h2><div class="mission-list" role="group" aria-label="{{setup}}">
+    <button id="mission-0" aria-pressed="true"><b>1 · {{mission0}}</b><span id="given-0">x(8 s)</span></button>
+    <button id="mission-1" aria-pressed="false"><b>2 · {{mission1}}</b><span id="given-1">Δx</span></button>
+    <button id="mission-2" aria-pressed="false"><b>3 · {{mission2}}</b><span id="given-2">s</span></button>
+    <button id="mission-3" aria-pressed="false"><b>4 · {{mission3}}</b><span id="given-3">t</span></button>
+    <button id="mission-4" aria-pressed="false"><b>5 · {{mission4}}</b><span id="given-4">s</span></button>
+    <button id="mission-5" aria-pressed="false"><b>6 · {{mission5}}</b><span id="given-5">|x|</span></button>
+  </div><p class="hint">{{setupNote}}</p></section>
+  <section class="control-section"><h2 class="eyebrow">{{answerHeading}}</h2>
+    <p class="question" id="question">{{questionPosition}}</p>
+    <p class="field-label"><label for="answer">{{answerLabel}}</label></p>
+    <div class="answer-row"><span class="symbol" id="answer-symbol">x =</span><input id="answer" type="number" inputmode="decimal" step="any" value=""><span class="unit" id="answer-unit">m</span></div>
+    <p class="hint">{{answerHint}}</p>
+  </section>
+  <section class="control-section"><h2 class="eyebrow">{{observe}}</h2><label class="check"><input id="show-vectors" type="checkbox" checked>{{vectors}}</label><label class="check"><input id="show-link" type="checkbox" checked>{{link}}</label><p class="hint">{{observeHint}}</p></section>
+</aside>
+<div class="workspace">
+  <section class="scene" aria-label="{{sceneTitle}}"><div class="scene-top"><div><h2 class="scene-title">{{sceneTitle}}</h2><p class="scene-subtitle" id="mission-label">{{mission0}}</p></div><span class="status" id="dog-status"><i class="status-dot" aria-hidden="true"></i><span id="dog-status-text">{{ready}}</span></span></div>
+    <div class="module-stage"><canvas id="dog-canvas" role="img" aria-label="{{canvasLabel}}">{{noScript}}</canvas></div>
+    <div class="legend"><span><i class="line-key gray"></i>{{graphLegend}}</span><span><i class="line-key mint"></i>{{traceLegend}}</span><span><i class="line-key white"></i>{{velocityLegend}}</span><span><i class="line-key blue"></i>{{dispLegend}}</span><span><i class="line-key orange"></i>{{markLegend}}</span></div>
+    <div class="module-equation"><span>{{equationTitle}}</span><output id="dog-equation">x(t)</output></div>
+    <div class="transport"><button id="play" class="primary" disabled>{{play}}</button><button id="pause" disabled>{{pause}}</button><button id="step" disabled>{{step}}</button><button id="reset" class="reset">{{reset}}</button></div>
+  </section>
+  <section class="metrics" aria-label="{{observe}}">
+    <div class="metric scalar"><h3 class="metric-label">{{time}}</h3><p class="metric-value"><span id="time-value">0.00</span> <small>s</small></p><p class="metric-equation">t</p></div>
+    <div class="metric vector"><h3 class="metric-label">{{position}}</h3><p class="metric-value"><span id="position-value">0.00</span> <small>m</small></p><p class="metric-equation">x</p></div>
+    <div class="metric vector"><h3 class="metric-label">{{velocity}}</h3><p class="metric-value"><span id="velocity-value">0.00</span> <small>m/s</small></p><p class="metric-equation">vₓ</p></div>
+    <div class="metric scalar"><h3 class="metric-label">{{distance}}</h3><p class="metric-value"><span id="distance-value">0.00</span> <small>m</small></p><p class="metric-equation">s</p></div>
+    <div class="metric vector"><h3 class="metric-label">{{displacement}}</h3><p class="metric-value"><span id="disp-value">0.00</span> <small>m</small></p><p class="metric-equation">Δx = x − x(0)</p></div>
+  </section>
+  <div class="insight" id="insight"><span class="insight-icon" aria-hidden="true">↗</span><div><strong id="lesson-title">{{predictTitle}}</strong><p id="lesson-copy">{{predictCopy}}</p></div></div>
+  <section class="challenge"><div class="mission-heading"><h2 class="challenge-title">{{missionTitle}}</h2><div class="score-card"><span>{{score}}</span><strong id="mission-score">—</strong></div></div><p class="mission-copy">{{missionCopy}}</p><div class="badges"><span id="correct-badge">✓ {{correctBadge}}</span><span id="first-badge">① {{firstBadge}}</span></div></section>
+</div>
+</div>
+<article class="learning-content"><section><h2>{{guideTitle}}</h2><ol><li>{{instruction1}}</li><li>{{instruction2}}</li><li>{{instruction3}}</li><li>{{instruction4}}</li></ol></section><section><h2>{{conceptTitle}}</h2><p>{{conceptCopy}}</p><aside class="worked-example"><h3>{{exampleTitle}}</h3><p>{{exampleCopy}}</p></aside></section><section><h2>{{modelTitle}}</h2><p>{{modelCopy}}</p></section></article>
+<p class="language-note" id="language-note">{{languageNote}}</p>
+</main>
+__FOOTER__
+<p class="sr-only" id="announcement" role="status" aria-live="polite"></p>
+</div>
+<script id="dog-model">
+class DogModel {
+  // x is the dog's position along a straight path, measured from the bench; +x points toward the lake.
+  // A walk is a start position and legs of [duration (s), constant velocity (m/s)], so x(t) is piecewise linear.
+  static missions = [
+    {x0:0,legs:[[4,1.5],[2,0],[4,-1]],ask:'position',t1:8},
+    {x0:2,legs:[[3,2],[3,-3],[2,1]],ask:'displacement',t1:0,t2:8},
+    {x0:2,legs:[[3,2],[3,-3],[2,1]],ask:'distance',t1:0,t2:8},
+    {x0:0,legs:[[5,1.2],[1,0],[3,-2]],ask:'time'},
+    {x0:3,legs:[[2,-3],[2,0],[4,1.5]],ask:'distance',t1:0,t2:8},
+    {x0:1,legs:[[4,2],[3,-3],[3,1]],ask:'farthest'}
+  ];
+  static playback = 1; // the walks last 8–10 s, so they play in real time
+  static tolerance = .05; // m or s
+  constructor(index = 0){this.setMission(index);}
+  setMission(index){this.index=index;this.config=DogModel.missions[index];this.answer=null;this.attempts=0;this.reset();}
+  reset(){this.t=0;this.status='walking';}
+  setAnswer(value){if(value!==null&&!Number.isFinite(value))return false;this.answer=value;this.reset();return true;}
+  duration(){return this.config.legs.reduce((a,[d])=>a+d,0);}
+  // Breakpoints (t, x) of the graph.
+  points(){const pts=[{t:0,x:this.config.x0}];for(const [d,v] of this.config.legs){const p=pts[pts.length-1];pts.push({t:p.t+d,x:p.x+v*d});}return pts;}
+  x(t){const pts=this.points();if(t<=0)return pts[0].x;for(let i=1;i<pts.length;i++)if(t<=pts[i].t){const a=pts[i-1],b=pts[i];return a.x+(b.x-a.x)*(t-a.t)/(b.t-a.t);}return pts[pts.length-1].x;}
+  v(t){if(this.status==='done')return 0;let s=0;for(const [d,v] of this.config.legs){if(t<s+d)return v;s+=d;}return 0;}
+  // Distance between two times: the sum of |Δx| over every piece of the graph.
+  distance(t1,t2){const pts=this.points(),ts=[t1,...pts.map(p=>p.t).filter(t=>t>t1&&t<t2),t2];let s=0;for(let i=1;i<ts.length;i++)s+=Math.abs(this.x(ts[i])-this.x(ts[i-1]));return s;}
+  now(){return this.status==='done'?this.duration():this.t;}
+  advance(dt){
+    if(!Number.isFinite(dt)||dt<0)throw new Error('Invalid timestep');
+    if(this.status==='done'||this.answer===null)return null;
+    // The walk ends exactly at its total duration.
+    const T=this.duration();
+    if(this.t+dt>=T*(1-1e-12)){this.t=T;this.status='done';this.attempts++;return {t:T};}
+    this.t+=dt;return null;
+  }
+  // First return to the bench after leaving it, solved exactly on the leg that crosses x = 0.
+  returnTime(){const pts=this.points();for(let i=1;i<pts.length;i++){const a=pts[i-1],b=pts[i];if(b.t>0&&a.x!==b.x&&(a.x>0&&b.x<=0||a.x<0&&b.x>=0))return a.t+(0-a.x)*(b.t-a.t)/(b.x-a.x);}return null;}
+  exact(){
+    const c=this.config,pts=this.points();
+    if(c.ask==='position')return this.x(c.t1);
+    if(c.ask==='displacement')return this.x(c.t2)-this.x(c.t1);
+    if(c.ask==='distance')return this.distance(c.t1,c.t2);
+    if(c.ask==='time')return this.returnTime();
+    return Math.max(...pts.map(p=>Math.abs(p.x)));
+  }
+  unit(){return this.config.ask==='time'?'s':'m';}
+  evaluate(){
+    const c=this.config,a=this.answer,ex=this.exact(),tol=DogModel.tolerance,near=(p,q)=>p!==null&&Math.abs(p-q)<=tol,ok=near(a,ex);
+    let slip=null;
+    if(a!==null&&!ok){
+      const T=this.duration();
+      if(c.ask==='position'&&near(a,this.distance(0,c.t1)))slip='positionDistance';
+      else if(c.ask==='position'&&Math.abs(ex)>tol&&near(a,-ex))slip='sign';
+      else if(c.ask==='displacement'&&near(a,this.distance(c.t1,c.t2)))slip='displacementDistance';
+      // Reading the graph's height at the later time is the likelier slip when it also equals −Δx.
+      else if(c.ask==='displacement'&&Math.abs(this.x(c.t1))>tol&&near(a,this.x(c.t2)))slip='final';
+      else if(c.ask==='displacement'&&Math.abs(ex)>tol&&near(a,-ex))slip='sign';
+      else if(c.ask==='distance'&&near(Math.abs(a),Math.abs(this.x(c.t2)-this.x(c.t1))))slip='distanceDisplacement';
+      else if(c.ask==='farthest'&&near(a,Math.abs(this.x(T))))slip='farthestFinal';
+      else if(c.ask==='farthest'&&near(a,this.distance(0,T)))slip='farthestDistance';
+    }
+    return {exact:ex,ok,slip,first:ok&&this.attempts===1};
+  }
+  score(){if(this.status!=='done')return 0;const e=this.evaluate();return (e.ok?100:0)+(e.first?50:0);}
+  snapshot(){return {index:this.index,answer:this.answer,attempts:this.attempts,t:this.t,status:this.status};}
+  restore(saved){
+    if(!Number.isInteger(saved?.index)||!DogModel.missions[saved.index])return false;
+    const probe=new DogModel(saved.index);
+    if(!probe.setAnswer(saved.answer??null)||!Number.isInteger(saved.attempts)||saved.attempts<0)return false;
+    if(!['walking','done'].includes(saved.status)||!Number.isFinite(saved.t)||saved.t<0||saved.t>probe.duration()*(1+1e-9))return false;
+    if(probe.answer===null&&(saved.t>0||saved.status==='done'))return false;
+    if(saved.status==='done'&&saved.attempts<1)return false;
+    this.setMission(saved.index);this.answer=probe.answer;this.attempts=saved.attempts;
+    this.status=saved.status;this.t=saved.status==='done'?this.duration():saved.t;return true;
+  }
+}
+globalThis.DogModel=DogModel;
+</script>
+<script id="dog-locale" type="application/json">__LOCALE__</script>
+<script id="dog-interface">
+(() => {
+  'use strict';
+  const $=id=>document.getElementById(id),locale=JSON.parse($('dog-locale').textContent);
+  const text=(key,values={})=>locale.strings[key].replace(/\{(\w+)\}/g,(_,name)=>values[name]??'{'+name+'}');
+  const number=(n,d=2)=>Math.abs(n)<.5*10**-d?(0).toLocaleString(locale.lang,{minimumFractionDigits:d,maximumFractionDigits:d}):n.toLocaleString(locale.lang,{minimumFractionDigits:d,maximumFractionDigits:d,useGrouping:false});
+  const plain=n=>n.toLocaleString(locale.lang,{maximumFractionDigits:2,useGrouping:false}).replace('-','−');
+  const signed=(n,d=2)=>(n>.5*10**-d?'+':'')+number(n,d);
+  const model=new DogModel();
+  const canvas=$('dog-canvas'),ctx=canvas.getContext('2d');
+  const H=1/120,transferKey='phisicos-dog-language-transfer';
+  let running=false,previous=null,accumulator=0,lastUpdate=0,width=800,height=410;
+  const say=message=>{$('announcement').textContent=message;};
+  try{const data=JSON.parse(sessionStorage.getItem(transferKey)||'null');sessionStorage.removeItem(transferKey);if(data)model.restore(data.state);}catch{$('language-note').hidden=true;}
+  const symbols={position:c=>'x('+plain(c.t1)+' s) =',displacement:()=>'Δx =',distance:()=>'s =',time:()=>'t =',farthest:()=>'|x|max ='};
+  const questionKey=c=>'question'+c.ask[0].toUpperCase()+c.ask.slice(1);
+  const ask=c=>text(questionKey(c),{t1:plain(c.t1??0),t2:plain(c.t2??0)});
+  const amount=v=>plain(Number(v.toFixed(2)))+' '+model.unit();
+  function setRunning(value){
+    const done=model.status==='done',blocked=model.answer===null;running=value&&!done&&!blocked;previous=null;accumulator=0;
+    $('play').disabled=running||done||blocked;$('pause').disabled=!running;$('step').disabled=running||done||blocked;
+    $('dog-status').classList.toggle('running',running);
+    $('dog-status-text').textContent=text(done?'done':running?'running':model.t?'paused':'ready');
+  }
+  function sync(){
+    DogModel.missions.forEach((m,i)=>{$('mission-'+i).setAttribute('aria-pressed',String(i===model.index));$('given-'+i).textContent=symbols[m.ask](m).replace(' =','');});
+    $('question').textContent=ask(model.config);$('answer-symbol').textContent=symbols[model.config.ask](model.config);$('answer-unit').textContent=model.unit();
+    $('answer').value=model.answer===null?'':String(model.answer);$('mission-label').textContent=text('mission'+model.index);
+  }
+  function update(){
+    const t=model.now(),x=model.x(t),done=model.status==='done',e=model.evaluate(),x0=model.config.x0,s=model.distance(0,t);
+    $('time-value').textContent=number(t);$('position-value').textContent=signed(x);$('velocity-value').textContent=signed(model.v(t));
+    $('distance-value').textContent=number(s);$('disp-value').textContent=signed(x-x0);
+    $('dog-equation').textContent='x('+number(t,1)+' s) = '+number(x)+' m · Δx = '+number(x)+' − '+(x0<0?'('+number(x0)+')':number(x0))+' = '+number(x-x0)+' m · s = '+number(s)+' m';
+    let key,copy,values={a:e.exact===null?'':amount(e.exact),x:signed(x),v:signed(model.v(t)),t:number(t,1)};
+    const slipKey={positionDistance:'slipPositionDistance',sign:'slipSign',displacementDistance:'slipDisplacementDistance',final:'slipFinal',distanceDisplacement:'slipDistanceDisplacement',farthestFinal:'slipFarthestFinal',farthestDistance:'slipFarthestDistance'};
+    if(done){
+      if(e.ok){key='good';copy=text('goodCopy',values)+' '+text('why'+model.index);}
+      else{key='miss';copy=text('missCopy',values)+' '+(e.slip?text(slipKey[e.slip]):text('hint'+model.index));}
+    }
+    else if(model.answer===null){key='predict';copy=text('predictCopy');}
+    else if(model.t>0){key='running';copy=text('runningCopy',values);}
+    else{key='ready';copy=text('readyCopy');}
+    $('lesson-title').textContent=text(key+'Title',{...values,p:model.answer===null?'':amount(model.answer)});$('lesson-copy').textContent=copy;
+    $('insight').classList.toggle('warning',key==='miss');
+    $('mission-score').textContent=done?String(model.score()):'—';
+    $('correct-badge').classList.toggle('earned',done&&e.ok);$('first-badge').classList.toggle('earned',done&&e.first);
+  }
+  function refresh(){setRunning(false);update();draw();}
+  function simulate(dt){if(model.advance(dt*DogModel.playback)){setRunning(false);update();say(text('doneAnnouncement')+' '+$('lesson-title').textContent);return true;}return false;}
+  $('answer').addEventListener('input',event=>{const raw=String(event.target.value).trim(),value=raw===''?null:Number(raw);if(!model.setAnswer(value))model.setAnswer(null);refresh();});
+  $('play').addEventListener('click',()=>{setRunning(true);update();say(text('startedAnnouncement'));});
+  $('pause').addEventListener('click',()=>{setRunning(false);update();say(text('pausedAnnouncement'));});
+  $('step').addEventListener('click',()=>{for(let i=0;i<12;i++)if(simulate(H))break;setRunning(false);update();draw();});
+  $('reset').addEventListener('click',()=>{model.reset();refresh();say(text('resetAnnouncement'));});
+  DogModel.missions.forEach((_,i)=>$('mission-'+i).addEventListener('click',()=>{model.setMission(i);sync();refresh();say(text('missionAnnouncement',{name:text('mission'+i)}));}));
+  for(const id of ['show-vectors','show-link'])$(id).addEventListener('change',()=>{update();draw();});
+  function suspend(){if(running){setRunning(false);say(text('suspendedAnnouncement'));}update();draw();}
+  window.addEventListener('blur',suspend);document.addEventListener('visibilitychange',()=>{if(document.hidden)suspend();});
+  for(const link of document.querySelectorAll('.language-menu a'))link.addEventListener('click',()=>{setRunning(false);try{sessionStorage.setItem(transferKey,JSON.stringify({state:model.snapshot()}));}catch{}});
+  function resize(){const rect=canvas.getBoundingClientRect();if(rect.width<=0)return;width=rect.width;height=rect.height;const dpr=Math.min(window.devicePixelRatio||1,3);canvas.width=Math.round(width*dpr);canvas.height=Math.round(height*dpr);ctx.setTransform(dpr,0,0,dpr,0,0);draw();}
+  const ARROW=14; // px per m/s, stated on the canvas.
+  function draw(){
+    if(!ctx)return;
+    const c=model.config,pts=model.points(),T=model.duration(),t=model.now(),x=model.x(t),done=model.status==='done';
+    ctx.clearRect(0,0,width,height);
+    const label=(s,px,py,color='#b8ccdb',align='left',font=12)=>{ctx.fillStyle=color;ctx.textAlign=align;ctx.font=font+'px -apple-system,BlinkMacSystemFont,sans-serif';ctx.fillText(s,px,py);};
+    const line=(points,color,w=1,dash=[])=>{ctx.beginPath();ctx.strokeStyle=color;ctx.lineWidth=w;ctx.setLineDash(dash);points.forEach((q,i)=>i?ctx.lineTo(q.x,q.y):ctx.moveTo(q.x,q.y));ctx.stroke();ctx.setLineDash([]);};
+    const arrowV=(px,fromY,toY,color,w=2.5)=>{if(Math.abs(toY-fromY)<3)return;const s=Math.sign(toY-fromY);line([{x:px,y:fromY},{x:px,y:toY}],color,w);line([{x:px-5,y:toY-s*9},{x:px,y:toY},{x:px+5,y:toY-s*9}],color,2);};
+    // One vertical scale for the path and the graph, so the dog and its point on the graph sit at the same height.
+    const xs=pts.map(p=>p.x),lo=Math.floor(Math.min(0,...xs))-1,hi=Math.ceil(Math.max(0,...xs))+1;
+    const top=40,bottom=height-44,sy=v=>bottom-(v-lo)/(hi-lo)*(bottom-top);
+    const pathX=Math.max(64,width*.1),gx0=pathX+Math.max(56,width*.1),gx1=width-20,tx=v=>gx0+v/T*(gx1-gx0);
+    // Path, seen from above and turned so that +x points up the screen.
+    ctx.fillStyle='#163d5a';ctx.fillRect(pathX-26,top-30,52,18);label(text('lake'),pathX,top-17,'#9fd0ff','center',10);
+    line([{x:pathX,y:sy(hi)},{x:pathX,y:sy(lo)}],'#5b7488',8);
+    ctx.fillStyle='#efb958';ctx.fillRect(pathX-16,sy(0)-3,10,6);label(text('bench'),pathX-18,sy(0)+4,'#efb958','right',10);
+    label(text('pathTitle'),pathX,height-24,'#9fb6c7','center',11);
+    // Graph grid: 1 s and 1 m lines so values can be read off.
+    for(let v=lo;v<=hi;v++){line([{x:gx0,y:sy(v)},{x:gx1,y:sy(v)}],v===0?'#5b7488':'#203d50',1);if(v%2===0)label(plain(v),gx0-6,sy(v)+4,'#9fb6c7','right',11);}
+    for(let s=0;s<=T;s++){line([{x:tx(s),y:sy(lo)},{x:tx(s),y:sy(hi)}],'#203d50',1);label(plain(s),tx(s),bottom+16,'#9fb6c7','center',11);}
+    label(text('axisTime'),gx1,bottom+32,'#9fb6c7','right',11);label(text('axisPosition'),gx0-6,top-2,'#9fb6c7','right',11);label(text('graphTitle'),gx0+4,top-16,'#d1e3ed','left',12);
+    // The question's marks: chosen times, the bench line, or nothing for the farthest point.
+    if(c.t1!==undefined)for(const m of [c.t1,c.t2].filter(v=>v!==undefined)){line([{x:tx(m),y:sy(lo)},{x:tx(m),y:sy(hi)}],'#efb958',1.5,[5,4]);label('t = '+plain(m)+' s',tx(m)+(m>=T?-4:4),top-2,'#efb958',m>=T?'right':'left',11);}
+    if(c.ask==='time')line([{x:gx0,y:sy(0)},{x:gx1,y:sy(0)}],'#efb958',1.5,[5,4]);
+    // Whole walk (dashed) and the part already walked (solid).
+    line(pts.map(p=>({x:tx(p.t),y:sy(p.x)})),'#8aa3b5',2,[6,5]);
+    const walked=[...pts.filter(p=>p.t<t),{t,x}];line(walked.map(p=>({x:tx(p.t),y:sy(p.x)})),'#75efc7',3);
+    ctx.fillStyle='#75efc7';ctx.beginPath();ctx.arc(tx(t),sy(x),5,0,Math.PI*2);ctx.fill();
+    if($('show-link').checked)line([{x:pathX+10,y:sy(x)},{x:tx(t),y:sy(x)}],'#d1e3ed',1,[2,4]);
+    // Dog on the path, its displacement from the start, and its velocity.
+    if($('show-vectors').checked){arrowV(pathX+18,sy(c.x0),sy(x),'#77b9ff');if(!done)arrowV(pathX-24,sy(x),sy(x)-model.v(t)*ARROW,'#f2f8fc');}
+    ctx.fillStyle='#e8c39e';ctx.beginPath();ctx.ellipse(pathX,sy(x),8,6,0,0,Math.PI*2);ctx.fill();ctx.fillStyle='#8a5a2b';ctx.beginPath();ctx.arc(pathX,sy(x)-6,3.5,0,Math.PI*2);ctx.fill();
+    label(text('arrowScale'),width-12,14,'#9fb6c7','right',10);
+    if(done)label(text('doneBanner',{a:amount(model.evaluate().exact)}),(gx0+gx1)/2,top+16,model.evaluate().ok?'#75efc7':'#efb958','center',width<430?13:15);
+  }
+  function frame(now){if(previous===null)previous=now;const elapsed=Math.min(.1,(now-previous)/1000);previous=now;if(running){accumulator+=elapsed;while(accumulator>=H&&running){accumulator-=H;simulate(H);}draw();}if(now-lastUpdate>=80){update();lastUpdate=now;}requestAnimationFrame(frame);}
+  window.addEventListener('resize',resize);if(typeof ResizeObserver!=='undefined')new ResizeObserver(resize).observe(canvas);
+  sync();setRunning(false);update();resize();requestAnimationFrame(frame);
+})();
+</script>
+</body>
+</html>

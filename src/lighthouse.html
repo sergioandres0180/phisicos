@@ -1,0 +1,270 @@
+<!doctype html>
+<html lang="en">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Lighthouse Rescue · Phisicos</title>
+<style>
+.lighthouse-page .tip{margin-top:14px;font-size:13px}.lighthouse-page .tip summary{cursor:pointer;font-weight:600;min-height:32px}.lighthouse-page .tip p{color:var(--muted);margin-top:4px}
+</style>
+</head>
+<body>
+<div class="shell module-page lighthouse-page">
+__HEADER__
+<main id="main-content">
+__BREADCRUMBS__
+
+<div class="masthead"><div><h1>{{title}}</h1><p class="intro">{{subtitle}}</p></div><div class="concept-tags"><span class="tag speed">{{tag1}}</span><span class="tag velocity">{{tag2}}</span></div></div>
+<noscript><p class="no-js">{{noScript}}</p></noscript>
+<div class="layout">
+<aside class="sidebar" aria-label="{{setup}}">
+  <section class="control-section"><h2 class="eyebrow">{{setup}}</h2><div class="mission-list" role="group" aria-label="{{setup}}">
+    <button id="mission-0" aria-pressed="true"><b>1 · {{mission0}}</b><span id="given-0">H = 45 m · D = 120 m</span></button>
+    <button id="mission-1" aria-pressed="false"><b>2 · {{mission1}}</b><span id="given-1">H = 50 m · r = 200 m</span></button>
+    <button id="mission-2" aria-pressed="false"><b>3 · {{mission2}}</b><span id="given-2">D = 180 m · r = 200 m</span></button>
+    <button id="mission-3" aria-pressed="false"><b>4 · {{mission3}}</b><span id="given-3">H = 60 m · D = 250 m</span></button>
+    <button id="mission-4" aria-pressed="false"><b>5 · {{mission4}}</b><span id="given-4">H = 35 m · α = 8°</span></button>
+    <button id="mission-5" aria-pressed="false"><b>6 · {{mission5}}</b><span id="given-5">H = 40 m · γ = 70°</span></button>
+  </div><p class="hint">{{setupNote}}</p></section>
+  <section class="control-section"><h2 class="eyebrow">{{aimHeading}}</h2>
+    <p class="field-label"><label for="answer" id="answer-label">{{answerAngle}}</label></p>
+    <div class="answer-row"><span class="symbol" id="answer-symbol">α =</span><input id="answer" type="number" inputmode="decimal" min="0" step="any" value=""><span class="unit" id="answer-unit">°</span></div>
+    <p class="hint">{{answerHint}}</p>
+    <details class="tip"><summary>{{tipTitle}}</summary><p>{{tipCopy}}</p></details>
+  </section>
+  <section class="control-section"><h2 class="eyebrow">{{observe}}</h2><label class="check"><input id="show-sides" type="checkbox" checked>{{sides}}</label><label class="check"><input id="show-vectors" type="checkbox" checked>{{vectors}}</label><label class="check"><input id="show-sight" type="checkbox">{{sight}}</label><p class="hint">{{sightHint}}</p></section>
+</aside>
+<div class="workspace">
+  <section class="scene" aria-label="{{sceneTitle}}"><div class="scene-top"><div><h2 class="scene-title">{{sceneTitle}}</h2><p class="scene-subtitle" id="mission-label">{{mission0}}</p></div><span class="status" id="drone-status"><i class="status-dot" aria-hidden="true"></i><span id="drone-status-text">{{ready}}</span></span></div>
+    <div class="module-stage"><canvas id="lighthouse-canvas" role="img" aria-label="{{canvasLabel}}">{{noScript}}</canvas></div>
+    <div class="legend"><span><i class="line-key white"></i>{{velocityLegend}}</span><span><i class="line-key mint"></i>{{horizontalLegend}}</span><span><i class="line-key blue"></i>{{verticalLegend}}</span><span><i class="line-key gray"></i>{{sightLegend}}</span><span><i class="line-key orange"></i>{{targetLegend}}</span></div>
+    <div class="module-equation"><span>{{equationTitle}}</span><output id="drone-equation">v = 10 m/s</output></div>
+    <div class="transport"><button id="play" class="primary" disabled>{{play}}</button><button id="pause" disabled>{{pause}}</button><button id="step" disabled>{{step}}</button><button id="reset" class="reset">{{reset}}</button></div>
+  </section>
+  <section class="metrics" aria-label="{{observe}}">
+    <div class="metric scalar"><h3 class="metric-label">{{time}}</h3><p class="metric-value"><span id="time-value">0.00</span> <small>s</small></p><p class="metric-equation">t</p></div>
+    <div class="metric vector"><h3 class="metric-label">{{position}}</h3><p class="metric-value"><span id="position-value">(0.0, 0.0)</span> <small>m</small></p><p class="metric-equation">r = (x, y)</p></div>
+    <div class="metric vector"><h3 class="metric-label">{{velocity}}</h3><p class="metric-value"><span id="velocity-value">(0.00, 0.00)</span> <small>m/s</small></p><p class="metric-equation">v = (vₓ, v_y)</p></div>
+    <div class="metric scalar"><h3 class="metric-label">{{flown}}</h3><p class="metric-value"><span id="flown-value">0.0</span> <small>m</small></p><p class="metric-equation">s = |v| · t</p></div>
+    <div class="metric scalar"><h3 class="metric-label" id="angle-label">{{angleDown}}</h3><p class="metric-value"><span id="angle-value">—</span></p><p class="metric-equation">tan⁻¹(|v_y| ÷ |vₓ|)</p></div>
+  </section>
+  <div class="insight" id="insight"><span class="insight-icon" aria-hidden="true">↗</span><div><strong id="lesson-title">{{aimTitle}}</strong><p id="lesson-copy">{{aimCopy}}</p></div></div>
+  <section class="challenge"><div class="mission-heading"><h2 class="challenge-title">{{missionTitle}}</h2><div class="score-card"><span>{{score}}</span><strong id="mission-score">—</strong></div></div><p class="mission-copy" id="mission-copy">{{goalLamp}}</p><div class="badges"><span id="hit-badge">✓ {{hitBadge}}</span><span id="precise-badge">◎ {{preciseBadge}}</span></div></section>
+</div>
+</div>
+<article class="learning-content"><section><h2>{{guideTitle}}</h2><ol><li>{{instruction1}}</li><li>{{instruction2}}</li><li>{{instruction3}}</li><li>{{instruction4}}</li></ol></section><section><h2>{{conceptTitle}}</h2><p>{{conceptCopy}}</p><aside class="worked-example"><h3>{{exampleTitle}}</h3><p>{{exampleCopy}}</p></aside></section><section><h2>{{modelTitle}}</h2><p>{{modelCopy}}</p></section></article>
+<p class="language-note" id="language-note">{{languageNote}}</p>
+</main>
+__FOOTER__
+<p class="sr-only" id="announcement" role="status" aria-live="polite"></p>
+</div>
+<script id="lighthouse-model">
+class LighthouseModel {
+  // x points out to sea from the foot of the lighthouse; y points up from sea level. The lamp is at (0, H).
+  // Angles of depression (α) and elevation (β) are measured from the horizontal; γ is measured from the vertical.
+  static missions = [
+    {id:'depression',H:45,D:120,unknown:'angle',symbol:'α',from:'lamp',view:160,trap:s=>90-s.angle},
+    {id:'sine',H:50,r:200,unknown:'angle',symbol:'α',from:'lamp',view:240,trap:s=>90-s.angle},
+    {id:'cosine',D:180,r:200,unknown:'angle',symbol:'α',from:'lamp',view:230,trap:s=>90-s.angle},
+    {id:'elevation',H:60,D:250,unknown:'angle',symbol:'β',from:'ship',view:300,trap:s=>90-s.angle},
+    {id:'distance',H:35,alpha:8,unknown:'distance',symbol:'D',from:'lamp',view:320,trap:s=>s.H*Math.tan(s.angle*Math.PI/180)},
+    {id:'vertical',H:40,gamma:70,unknown:'distance',symbol:'D',from:'lamp',view:150,trap:s=>s.H/Math.tan(70*Math.PI/180)}
+  ];
+  static speed = 10; // m/s, constant along the straight flight path
+  static playback = 4; // physical seconds per second of playback
+  static hitRadius = 5; // m: half the ship's length, and the size of the lamp gallery
+  static tolerance = .01; // precise answers are within 1% of the exact value
+  static maxDistance = 2000;
+  // Solves the right triangle formed by the lamp, the foot of the lighthouse, and the ship.
+  static solve(c){
+    const deg=Math.PI/180;let {H,D,r}=c,angle=c.alpha??(c.gamma!==undefined?90-c.gamma:undefined);
+    if(angle!==undefined)D=H/Math.tan(angle*deg);
+    else if(H!==undefined&&D!==undefined)angle=Math.atan2(H,D)/deg;
+    else if(H!==undefined){angle=Math.asin(H/r)/deg;D=Math.sqrt(r*r-H*H);}
+    else{angle=Math.acos(D/r)/deg;H=Math.sqrt(r*r-D*D);}
+    return {H,D,r:Math.hypot(H,D),angle};
+  }
+  constructor(index = 0){this.setMission(index);}
+  setMission(index){this.index=index;this.config=LighthouseModel.missions[index];this.tri=LighthouseModel.solve(this.config);this.answer=null;this.reset();}
+  reset(){this.t=0;this.status='flying';}
+  setAnswer(value){
+    const max=this.config.unknown==='angle'?90:LighthouseModel.maxDistance;
+    if(value!==null&&!(Number.isFinite(value)&&value>0&&value<max))return false;
+    this.answer=value;this.reset();return true;
+  }
+  exact(){return this.config.unknown==='angle'?this.tri.angle:this.tri.D;}
+  aim(){return this.config.unknown==='angle'?this.answer:this.tri.angle;}
+  ship(){return this.config.unknown==='distance'?this.answer:this.tri.D;}
+  // Straight flight: from the lamp down to the sea, or from the ship up to the lighthouse.
+  path(){
+    const a=this.aim();if(a===null)return null;
+    const rad=a*Math.PI/180,{H}=this.tri;
+    if(this.config.from==='lamp')return {start:{x:0,y:H},dir:{x:Math.cos(rad),y:-Math.sin(rad)},length:H/Math.sin(rad),end:{x:H/Math.tan(rad),y:0}};
+    const D=this.ship();return {start:{x:D,y:0},dir:{x:-Math.cos(rad),y:Math.sin(rad)},length:D/Math.cos(rad),end:{x:0,y:D*Math.tan(rad)}};
+  }
+  flightTime(){const p=this.path();return p?p.length/LighthouseModel.speed:0;}
+  flown(){return this.status==='done'?this.path().length:LighthouseModel.speed*this.t;}
+  position(){const p=this.path();if(!p)return {x:0,y:this.tri.H};const s=this.flown();return {x:p.start.x+p.dir.x*s,y:p.start.y+p.dir.y*s};}
+  velocity(){const p=this.path();if(!p||this.status==='done')return {x:0,y:0};return {x:p.dir.x*LighthouseModel.speed,y:p.dir.y*LighthouseModel.speed};}
+  advance(dt){
+    if(!Number.isFinite(dt)||dt<0)throw new Error('Invalid timestep');
+    if(this.status==='done'||this.answer===null)return null;
+    // The splash-down (or arrival at the lighthouse) is solved exactly at t = length ÷ speed.
+    const T=this.flightTime();
+    if(this.t+dt>=T*(1-1e-12)){this.t=T;this.status='done';return {t:T};}
+    this.t+=dt;return null;
+  }
+  // Signed miss: + means beyond the ship, above the lamp, or a ship waiting too far out.
+  evaluate(){
+    const exact=this.exact(),a=this.answer,tol=LighthouseModel.tolerance,c=this.config;
+    if(a===null)return {exact,answer:null,miss:null,hit:false,precise:false,trap:false};
+    const p=this.path(),miss=c.unknown==='distance'?a-p.end.x:c.from==='lamp'?p.end.x-this.ship():p.end.y-this.tri.H;
+    const precise=Math.abs(a-exact)<=tol*exact+1e-12,trapValue=c.trap(this.tri);
+    return {exact,answer:a,miss,hit:Math.abs(miss)<=LighthouseModel.hitRadius,precise,trap:!precise&&Math.abs(a-trapValue)<=tol*trapValue};
+  }
+  score(){if(this.status!=='done')return 0;const e=this.evaluate();return (e.hit?100:0)+(e.precise?50:0);}
+  snapshot(){return {index:this.index,answer:this.answer,t:this.t,status:this.status};}
+  restore(saved){
+    if(!Number.isInteger(saved?.index)||!LighthouseModel.missions[saved.index])return false;
+    const probe=new LighthouseModel(saved.index);
+    if(!probe.setAnswer(saved.answer??null))return false;
+    if(!['flying','done'].includes(saved.status)||!Number.isFinite(saved.t)||saved.t<0||saved.t>probe.flightTime()*(1+1e-9))return false;
+    if(probe.answer===null&&(saved.t>0||saved.status==='done'))return false;
+    this.setMission(saved.index);this.answer=probe.answer;
+    this.status=saved.status;this.t=saved.status==='done'?this.flightTime():saved.t;return true;
+  }
+}
+globalThis.LighthouseModel=LighthouseModel;
+</script>
+<script id="lighthouse-locale" type="application/json">__LOCALE__</script>
+<script id="lighthouse-interface">
+(() => {
+  'use strict';
+  const $=id=>document.getElementById(id),locale=JSON.parse($('lighthouse-locale').textContent);
+  const text=(key,values={})=>locale.strings[key].replace(/\{(\w+)\}/g,(_,name)=>values[name]??'{'+name+'}');
+  const number=(n,d=2)=>Math.abs(n)<.5*10**-d?(0).toLocaleString(locale.lang,{minimumFractionDigits:d,maximumFractionDigits:d}):n.toLocaleString(locale.lang,{minimumFractionDigits:d,maximumFractionDigits:d,useGrouping:false});
+  const plain=n=>n.toLocaleString(locale.lang,{maximumFractionDigits:3,useGrouping:false});
+  // Decimal-comma locales separate vector components with a semicolon.
+  const pair=(a,b,d=2)=>'('+number(a,d)+(locale.lang==='en'?', ':'; ')+number(b,d)+')';
+  const model=new LighthouseModel();
+  const canvas=$('lighthouse-canvas'),ctx=canvas.getContext('2d');
+  const H=1/120,transferKey='phisicos-lighthouse-language-transfer',sin=text('sinName');
+  let running=false,previous=null,accumulator=0,lastUpdate=0,width=800,height=410;
+  const say=message=>{$('announcement').textContent=message;};
+  try{const data=JSON.parse(sessionStorage.getItem(transferKey)||'null');sessionStorage.removeItem(transferKey);if(data)model.restore(data.state);}catch{$('language-note').hidden=true;}
+  // Non-breaking spaces keep each quantity together; lines may wrap only between quantities.
+  const given=(name,value,unit)=>name+' = '+plain(value)+(unit==='°'?'°':' '+unit);
+  const givens=c=>[['H',c.H,'m'],['D',c.D,'m'],['r',c.r,'m'],['α',c.alpha,'°'],['γ',c.gamma,'°']].filter(g=>g[1]!==undefined).map(g=>given(...g)).join(' · ');
+  const isAngle=()=>model.config.unknown==='angle';
+  const amount=(n,angle=isAngle())=>angle?number(n)+'°':number(n,1)+' m';
+  const goalKey=()=>model.config.unknown==='distance'?'goalDistance':model.config.from==='ship'?'goalShip':'goalLamp';
+  function setRunning(value){
+    const done=model.status==='done',blocked=model.answer===null;running=value&&!done&&!blocked;previous=null;accumulator=0;
+    $('play').disabled=running||done||blocked;$('pause').disabled=!running;$('step').disabled=running||done||blocked;
+    $('drone-status').classList.toggle('running',running);
+    $('drone-status-text').textContent=text(done?'done':running?'running':model.t?'paused':'ready');
+  }
+  function sync(){
+    LighthouseModel.missions.forEach((m,i)=>{$('mission-'+i).setAttribute('aria-pressed',String(i===model.index));$('given-'+i).textContent=givens(m);});
+    $('answer-symbol').textContent=model.config.symbol+' =';$('answer-unit').textContent=isAngle()?'°':'m';
+    $('answer-label').textContent=text(isAngle()?'answerAngle':'answerDistance');$('answer').value=model.answer===null?'':String(model.answer);
+    $('angle-label').textContent=text(model.config.from==='ship'?'angleUp':'angleDown');
+    $('mission-label').textContent=text('mission'+model.index);$('mission-copy').textContent=text(goalKey());
+  }
+  function update(){
+    const c=model.config,p=model.position(),v=model.velocity(),done=model.status==='done',e=model.evaluate(),aim=model.aim();
+    $('time-value').textContent=number(model.t);$('position-value').textContent=pair(p.x,p.y,1);$('velocity-value').textContent=pair(v.x,v.y);
+    $('flown-value').textContent=number(model.flown(),1);$('angle-value').textContent=aim===null?'—':number(aim)+'°';
+    const a=c.symbol==='D'?'α':c.symbol;
+    $('drone-equation').textContent=aim===null?'v = 10 m/s':'|vₓ| = v · cos '+a+' = '+number(Math.abs(model.path().dir.x)*LighthouseModel.speed)+' m/s · |v_y| = v · '+sin+' '+a+' = '+number(Math.abs(model.path().dir.y)*LighthouseModel.speed)+' m/s';
+    let key,values={s:c.symbol,value:e.answer===null?'':amount(e.answer),exact:amount(e.exact),miss:number(Math.abs(e.miss??0),1),pct:number(model.flown()/model.path()?.length*100||0,0)},copy;
+    if(done){
+      if(e.hit){key='hit';copy=text('hitCopy',values)+' '+text('why'+model.index);}
+      else if(e.trap){key='trap';copy=text('trap'+model.index);}
+      else{key='miss';const side=c.unknown==='distance'?(e.miss>0?'missFar':'missNear'):c.from==='lamp'?(e.miss>0?'missBeyond':'missShort'):(e.miss>0?'missAbove':'missBelow');copy=text(side,values)+' '+text('hint'+model.index);}
+    }
+    else if(e.answer===null){key='aim';copy=text('aimCopy');}
+    else if(model.t>0){key='flying';copy=text('flyingCopy',values);}
+    else{key='ready';copy=text('readyCopy');}
+    $('lesson-title').textContent=text(key+'Title',values);$('lesson-copy').textContent=copy;
+    $('insight').classList.toggle('warning',key==='miss'||key==='trap');
+    $('mission-score').textContent=done?String(model.score()):'—';
+    $('hit-badge').classList.toggle('earned',done&&e.hit);$('precise-badge').classList.toggle('earned',done&&e.precise);
+  }
+  function refresh(){setRunning(false);update();draw();}
+  function simulate(dt){if(model.advance(dt*LighthouseModel.playback)){setRunning(false);update();say(text('doneAnnouncement')+' '+$('lesson-title').textContent);return true;}return false;}
+  $('play').addEventListener('click',()=>{setRunning(true);update();say(text('startedAnnouncement'));});
+  $('pause').addEventListener('click',()=>{setRunning(false);update();say(text('pausedAnnouncement'));});
+  $('step').addEventListener('click',()=>{for(let i=0;i<12;i++)if(simulate(H))break;setRunning(false);update();draw();});
+  $('reset').addEventListener('click',()=>{model.reset();refresh();say(text('resetAnnouncement'));});
+  LighthouseModel.missions.forEach((_,i)=>$('mission-'+i).addEventListener('click',()=>{model.setMission(i);sync();refresh();say(text('missionAnnouncement',{name:text('mission'+i)}));}));
+  $('answer').addEventListener('input',event=>{const raw=String(event.target.value).trim(),value=raw===''?null:Number(raw);if(!model.setAnswer(value))model.setAnswer(null);refresh();});
+  for(const id of ['show-sides','show-vectors','show-sight'])$(id).addEventListener('change',()=>{update();draw();});
+  function suspend(){if(running){setRunning(false);say(text('suspendedAnnouncement'));}update();draw();}
+  window.addEventListener('blur',suspend);document.addEventListener('visibilitychange',()=>{if(document.hidden)suspend();});
+  for(const link of document.querySelectorAll('.language-menu a'))link.addEventListener('click',()=>{setRunning(false);try{sessionStorage.setItem(transferKey,JSON.stringify({state:model.snapshot()}));}catch{}});
+  function resize(){const rect=canvas.getBoundingClientRect();if(rect.width<=0)return;width=rect.width;height=rect.height;const dpr=Math.min(window.devicePixelRatio||1,3);canvas.width=Math.round(width*dpr);canvas.height=Math.round(height*dpr);ctx.setTransform(dpr,0,0,dpr,0,0);draw();}
+  const ARROW=4; // px per m/s, stated on the canvas.
+  function draw(){
+    if(!ctx)return;
+    const c=model.config,tri=model.tri,done=model.status==='done',e=model.evaluate(),path=model.path(),p=model.position(),shipX=model.ship();
+    ctx.clearRect(0,0,width,height);
+    const label=(s,x,y,color='#b8ccdb',align='left',font=12)=>{ctx.fillStyle=color;ctx.textAlign=align;ctx.font=font+'px -apple-system,BlinkMacSystemFont,sans-serif';ctx.fillText(s,x,y);};
+    const line=(points,color,w=1,dash=[])=>{ctx.beginPath();ctx.strokeStyle=color;ctx.lineWidth=w;ctx.setLineDash(dash);points.forEach((q,i)=>i?ctx.lineTo(q.x,q.y):ctx.moveTo(q.x,q.y));ctx.stroke();ctx.setLineDash([]);};
+    const arrow=(from,dx,dy,color,w=2.5,dash=[])=>{const to={x:from.x+dx,y:from.y+dy},len=Math.hypot(dx,dy);if(len<3)return to;line([from,to],color,w,dash);const ux=dx/len,uy=dy/len;line([{x:to.x-ux*8-uy*4,y:to.y-uy*8+ux*4},to,{x:to.x-ux*8+uy*4,y:to.y-uy*8-ux*4}],color,2);return to;};
+    // One scale for both axes so every angle on screen is the true angle.
+    // The view is fixed per mission and only grows to include the learner's own ship or flight.
+    const shown=done||model.t>0,xmax=Math.max(c.view,shipX??0,shown&&path?path.end.x:0)*1.06+10,ymax=Math.max(tri.H,shown&&path?path.end.y:0)*1.3+10,xmin=-.12*xmax;
+    const scale=Math.min((width-30)/(xmax-xmin),(height-100)/ymax),seaY=height-54,ox=15-xmin*scale;
+    const sx=x=>ox+x*scale,sy=y=>seaY-y*scale;
+    ctx.fillStyle='#163d5a';ctx.fillRect(0,seaY,width,height-seaY);
+    for(let x=(model.t*7)%40;x<width;x+=40)line([{x,y:seaY+16},{x:x+14,y:seaY+16}],'#2e6286',2);
+    label(text('arrowScale'),width-14,20,'#9fb6c7','right',11);label(text('playbackScale',{k:LighthouseModel.playback}),width-14,36,'#9fb6c7','right',11);
+    // Cliff and lighthouse; the lamp sits exactly above x = 0.
+    const lamp={x:sx(0),y:sy(tri.H)},base={x:sx(0),y:seaY},cliffTop=sy(tri.H*.62),tw=Math.max(8,4*scale);
+    ctx.fillStyle='#3a4b3f';ctx.fillRect(0,cliffTop,base.x+tw*.6,seaY-cliffTop);
+    ctx.fillStyle='#e6edf2';ctx.fillRect(lamp.x-tw/2,lamp.y,tw,cliffTop-lamp.y);ctx.fillStyle='#c94f4f';ctx.fillRect(lamp.x-tw/2,(lamp.y+cliffTop)/2-3,tw,6);
+    ctx.fillStyle='#ffe28a';ctx.beginPath();ctx.arc(lamp.x,lamp.y,5,0,Math.PI*2);ctx.fill();
+    label(text('lighthouse'),8,seaY+34,'#d1e3ed','left',11);
+    // The ship waits at D (or at the learner's D); without an answer it stays out of the scene.
+    if(shipX!==null){
+      const sxp=sx(shipX),half=Math.max(9,LighthouseModel.hitRadius*scale);
+      ctx.fillStyle='#d1e3ed';ctx.beginPath();ctx.moveTo(sxp-half,seaY-6);ctx.lineTo(sxp+half,seaY-6);ctx.lineTo(sxp+half*.7,seaY+2);ctx.lineTo(sxp-half*.7,seaY+2);ctx.closePath();ctx.fill();
+      ctx.fillRect(sxp-2,seaY-16,4,10);line([{x:sxp-half,y:seaY-8},{x:sxp+half,y:seaY-8}],'#efb958',2);
+      label(text('ship'),sxp,seaY+34,'#efb958','center',11);
+    }else label('D = ?',width-60,seaY-12,'#efb958','center',12);
+    if(c.from==='ship')line([{x:lamp.x-10,y:lamp.y},{x:lamp.x+10,y:lamp.y}],'#efb958',3);
+    // Right triangle: legs at lamp level and through the ship for depression, or along the sea and the tower otherwise.
+    if($('show-sides').checked&&shipX!==null){
+      const ship={x:sx(shipX),y:seaY},above={x:sx(shipX),y:lamp.y},lampLevel=c.from==='lamp'&&c.gamma===undefined;
+      const corner=lampLevel?above:base,horizontal=lampLevel?[lamp,above]:[base,ship],vertical=lampLevel?[above,ship]:[base,lamp];
+      line(horizontal,'#75efc7',2,[6,5]);line(vertical,'#77b9ff',2,[6,5]);line([lamp,ship],'#8aa3b5',1.5,[2,4]);
+      const m=10,dx=corner.x===lamp.x?m:-m,dy=corner.y===seaY?-m:m;line([{x:corner.x+dx,y:corner.y},{x:corner.x+dx,y:corner.y+dy},{x:corner.x,y:corner.y+dy}],'#9fb6c7',1);
+      // Opposite and adjacent are named from the marked angle; the angle from the vertical swaps them.
+      const fromVertical=c.gamma!==undefined;
+      label(text(fromVertical?'opposite':'adjacent')+' · D',(horizontal[0].x+horizontal[1].x)/2,horizontal[0].y+(lampLevel?-8:20),'#75efc7','center',12);
+      label(text(fromVertical?'adjacent':'opposite')+' · H',vertical[0].x+(lampLevel?8:-8),(vertical[0].y+vertical[1].y)/2,'#77b9ff',lampLevel?'left':'right',12);
+      label(text('hypotenuse')+' · r',(lamp.x+ship.x)/2+8,(lamp.y+ship.y)/2+16,'#b8ccdb','left',12);
+    }
+    // Marked angle, drawn at its true size.
+    const aim=model.aim(),rad=aim===null?null:aim*Math.PI/180,known=c.unknown==='distance',name=c.gamma!==undefined?'γ':c.symbol==='D'?'α':c.symbol;
+    const value=known?(c.gamma!==undefined?c.gamma:c.alpha):aim,angleText=name+' = '+(value===null?'?':plain(Number(value.toFixed(2)))+'°');
+    ctx.strokeStyle='#f2f8fc';ctx.lineWidth=1.5;
+    if(c.from==='lamp'&&c.gamma===undefined){line([lamp,{x:lamp.x+60,y:lamp.y}],'#f2f8fc',1,[3,3]);if(rad!==null){ctx.beginPath();ctx.arc(lamp.x,lamp.y,40,0,rad);ctx.stroke();}label(angleText,lamp.x+46,lamp.y+(rad===null?-6:16),'#f2f8fc','left',12);}
+    else if(c.gamma!==undefined){line([lamp,{x:lamp.x,y:lamp.y+60}],'#f2f8fc',1,[3,3]);ctx.beginPath();ctx.arc(lamp.x,lamp.y,36,rad,Math.PI/2);ctx.stroke();label(angleText,lamp.x+14,lamp.y+56,'#f2f8fc','left',12);}
+    else if(shipX!==null){const ship={x:sx(shipX),y:seaY-8};line([ship,{x:ship.x-60,y:ship.y}],'#f2f8fc',1,[3,3]);if(rad!==null){ctx.beginPath();ctx.arc(ship.x,ship.y,44,Math.PI,Math.PI+rad);ctx.stroke();}label(angleText,ship.x-50,ship.y-10,'#f2f8fc','right',12);}
+    if(path&&$('show-sight').checked)line([{x:sx(path.start.x),y:sy(path.start.y)},{x:sx(path.end.x),y:sy(path.end.y)}],'#8aa3b5',1.5,[8,6]);
+    // Drone: flown track, body, and velocity with its components.
+    if(path){
+      const d={x:sx(p.x),y:sy(p.y)};line([{x:sx(path.start.x),y:sy(path.start.y)},d],'#d1e3ed',1.5);
+      ctx.fillStyle='#f2f8fc';ctx.fillRect(d.x-6,d.y-3,12,6);line([{x:d.x-10,y:d.y-6},{x:d.x-3,y:d.y-6}],'#f2f8fc',2);line([{x:d.x+3,y:d.y-6},{x:d.x+10,y:d.y-6}],'#f2f8fc',2);
+      const v=model.velocity();
+      if($('show-vectors').checked&&!done){arrow(d,v.x*ARROW,0,'#75efc7',2,[4,3]);arrow({x:d.x+v.x*ARROW,y:d.y},0,-v.y*ARROW,'#77b9ff',2,[4,3]);arrow(d,v.x*ARROW,-v.y*ARROW,'#f2f8fc');}
+      if(done&&!e.hit){const end={x:sx(path.end.x),y:sy(path.end.y)};ctx.beginPath();ctx.strokeStyle='#efb958';ctx.lineWidth=2;ctx.arc(end.x,end.y,7,0,Math.PI*2);ctx.stroke();}
+    }
+    if(done)label(e.hit?text('hitBanner'):text('missBanner',{miss:number(Math.abs(e.miss),1)}),width/2,width<520?62:28,e.hit?'#75efc7':'#efb958','center',width<430?14:17);
+  }
+  function frame(now){if(previous===null)previous=now;const elapsed=Math.min(.1,(now-previous)/1000);previous=now;if(running){accumulator+=elapsed;while(accumulator>=H&&running){accumulator-=H;simulate(H);}draw();}if(now-lastUpdate>=80){update();lastUpdate=now;}requestAnimationFrame(frame);}
+  window.addEventListener('resize',resize);if(typeof ResizeObserver!=='undefined')new ResizeObserver(resize).observe(canvas);
+  sync();setRunning(false);update();resize();requestAnimationFrame(frame);
+})();
+</script>
+</body>
+</html>

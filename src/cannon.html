@@ -1,0 +1,289 @@
+<!doctype html>
+<html lang="en">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Range Cannon · Phisicos</title>
+<style>
+.cannon-page .answer-row .symbol{min-width:56px}.cannon-page .question{font-size:15px;font-weight:600;margin-top:4px}
+.cannon-page .line-key.blue{background:#77b9ff}.cannon-page .line-key.white{background:#f2f8fc}
+</style>
+</head>
+<body>
+<div class="shell module-page cannon-page">
+__HEADER__
+<main id="main-content">
+__BREADCRUMBS__
+
+<div class="masthead"><div><h1>{{title}}</h1><p class="intro">{{subtitle}}</p></div><div class="concept-tags"><span class="tag speed">{{tag1}}</span><span class="tag velocity">{{tag2}}</span></div></div>
+<noscript><p class="no-js">{{noScript}}</p></noscript>
+<div class="layout">
+<aside class="sidebar" aria-label="{{setup}}">
+  <section class="control-section"><h2 class="eyebrow">{{setup}}</h2><div class="mission-list" role="group" aria-label="{{setup}}">
+    <button id="mission-0" aria-pressed="true"><b>1 · {{mission0}}</b><span id="given-0">v₀</span></button>
+    <button id="mission-1" aria-pressed="false"><b>2 · {{mission1}}</b><span id="given-1">v₀</span></button>
+    <button id="mission-2" aria-pressed="false"><b>3 · {{mission2}}</b><span id="given-2">v₀</span></button>
+    <button id="mission-3" aria-pressed="false"><b>4 · {{mission3}}</b><span id="given-3">v₀</span></button>
+    <button id="mission-4" aria-pressed="false"><b>5 · {{mission4}}</b><span id="given-4">θ</span></button>
+  </div><p class="hint">{{setupNote}}</p></section>
+  <section class="control-section"><h2 class="eyebrow">{{answerHeading}}</h2>
+    <p class="question" id="question">{{questionRange}}</p>
+    <p class="field-label"><label for="answer">{{answerLabel}}</label></p>
+    <div class="answer-row"><span class="symbol" id="answer-symbol">R =</span><input id="answer" type="number" inputmode="decimal" step="any" value=""><span class="unit" id="answer-unit">m</span></div>
+    <p class="hint">{{answerHint}}</p>
+  </section>
+  <section class="control-section"><h2 class="eyebrow">{{observe}}</h2><label class="check"><input id="show-vectors" type="checkbox" checked>{{vectors}}</label><label class="check"><input id="show-strobe" type="checkbox" checked>{{strobe}}</label><p class="hint">{{observeHint}}</p></section>
+</aside>
+<div class="workspace">
+  <section class="scene" aria-label="{{sceneTitle}}"><div class="scene-top"><div><h2 class="scene-title">{{sceneTitle}}</h2><p class="scene-subtitle" id="mission-label">{{mission0}}</p></div><span class="status" id="cannon-status"><i class="status-dot" aria-hidden="true"></i><span id="cannon-status-text">{{ready}}</span></span></div>
+    <div class="module-stage"><canvas id="cannon-canvas" role="img" aria-label="{{canvasLabel}}">{{noScript}}</canvas></div>
+    <div class="legend"><span><i class="line-key white"></i>{{velocityLegend}}</span><span><i class="line-key blue"></i>{{componentLegend}}</span><span><i class="line-key mint"></i>{{traceLegend}}</span><span><i class="line-key gray"></i>{{referenceLegend}}</span><span><i class="line-key orange"></i>{{predictionLegend}}</span></div>
+    <div class="module-equation"><span>{{equationTitle}}</span><output id="cannon-equation">x = vₓ·t</output></div>
+    <div class="transport"><button id="play" class="primary" disabled>{{play}}</button><button id="pause" disabled>{{pause}}</button><button id="step" disabled>{{step}}</button><button id="reset" class="reset">{{reset}}</button></div>
+  </section>
+  <section class="metrics" aria-label="{{observe}}">
+    <div class="metric scalar"><h3 class="metric-label">{{time}}</h3><p class="metric-value"><span id="time-value">0.00</span> <small>s</small></p><p class="metric-equation">t</p></div>
+    <div class="metric vector"><h3 class="metric-label">{{position}}</h3><p class="metric-value"><span id="x-value">0.00</span> <small>m</small></p><p class="metric-equation">x = vₓ·t</p></div>
+    <div class="metric vector"><h3 class="metric-label">{{height}}</h3><p class="metric-value"><span id="y-value">0.00</span> <small>m</small></p><p class="metric-equation">y = v_y0·t − ½·g·t²</p></div>
+    <div class="metric vector"><h3 class="metric-label">{{horizontalVelocity}}</h3><p class="metric-value"><span id="vx-value">0.00</span> <small>m/s</small></p><p class="metric-equation">vₓ = v₀·cos θ</p></div>
+    <div class="metric vector"><h3 class="metric-label">{{verticalVelocity}}</h3><p class="metric-value"><span id="vy-value">0.00</span> <small>m/s</small></p><p class="metric-equation">{{vyFormula}}</p></div>
+  </section>
+  <div class="insight" id="insight"><span class="insight-icon" aria-hidden="true">↗</span><div><strong id="lesson-title">{{predictTitle}}</strong><p id="lesson-copy">{{predictCopy}}</p></div></div>
+  <section class="challenge"><div class="mission-heading"><h2 class="challenge-title">{{missionTitle}}</h2><div class="score-card"><span>{{score}}</span><strong id="mission-score">—</strong></div></div><p class="mission-copy">{{missionCopy}}</p><div class="badges"><span id="right-badge">✓ {{rightBadge}}</span><span id="first-badge">① {{firstBadge}}</span></div></section>
+</div>
+</div>
+<article class="learning-content"><section><h2>{{guideTitle}}</h2><ol><li>{{instruction1}}</li><li>{{instruction2}}</li><li>{{instruction3}}</li><li>{{instruction4}}</li></ol></section><section><h2>{{conceptTitle}}</h2><p>{{conceptCopy}}</p><aside class="worked-example"><h3>{{exampleTitle}}</h3><p>{{exampleCopy}}</p></aside></section><section><h2>{{modelTitle}}</h2><p>{{modelCopy}}</p></section></article>
+<p class="language-note" id="language-note">{{languageNote}}</p>
+</main>
+__FOOTER__
+<p class="sr-only" id="announcement" role="status" aria-live="polite"></p>
+</div>
+<script id="cannon-model">
+class CannonModel {
+  // x is horizontal from the muzzle, y is height above the ground; the ball is fired from ground level and lands at
+  // the same level. With speed v₀ at θ above the horizontal: x = v₀·cos θ·t and y = v₀·sin θ·t − ½·g·t², landing at
+  // T = 2·v₀·sin θ ÷ g with range R = v₀²·sin(2θ) ÷ g. Complementary angles share a range, and 45° reaches farthest.
+  static missions = [
+    {v0:20,angle:30,ask:'range'},
+    {v0:20,angle:30,ask:'otherAngle'},
+    {v0:25,angle:45,ask:'maxRange'},
+    {v0:20,target:30,ask:'angle'},
+    {angle:45,target:40,ask:'speed'}
+  ];
+  static g = 9.8; // m/s²
+  static tolerance = .02; // relative, for distances and speeds
+  static angleTolerance = .5; // degrees
+  static strobe = .2; // s between strobe images
+  static playback = 1; // the flights last at most about 9 s, so they play in real time
+  static units = {range:'m',otherAngle:'°',maxRange:'m',angle:'°',speed:'m/s'};
+  static rad(degrees){return degrees*Math.PI/180;}
+  static rangeOf(v0,degrees){return v0*v0*Math.sin(2*CannonModel.rad(degrees))/CannonModel.g;}
+  constructor(index = 0){this.setMission(index);}
+  setMission(index){this.index=index;this.config=CannonModel.missions[index];this.answer=null;this.attempts=0;this.reset();}
+  reset(){this.t=0;this.status='flying';}
+  angleAsk(){return this.config.ask==='angle'||this.config.ask==='otherAngle';}
+  valid(value){
+    if(!Number.isFinite(value))return false;
+    if(this.angleAsk())return value>0&&value<90;
+    return value>0&&value<=(this.config.ask==='speed'?60:500);
+  }
+  setAnswer(value){if(value!==null&&!this.valid(value))return false;this.answer=value;this.reset();return true;}
+  ready(){return this.answer!==null;}
+  // The shot actually fired: the answer sets the angle or the speed when the question asks for one.
+  shot(){const c=this.config,a=this.answer;return {angle:this.angleAsk()?a??45:c.angle,v0:c.ask==='speed'?a??0:c.v0};}
+  vx0(){const s=this.shot();return s.v0*Math.cos(CannonModel.rad(s.angle));}
+  vy0(){const s=this.shot();return s.v0*Math.sin(CannonModel.rad(s.angle));}
+  topTime(){return this.vy0()/CannonModel.g;}
+  landTime(){return 2*this.vy0()/CannonModel.g;}
+  clamp(t){return Math.min(Math.max(t,0),this.landTime());}
+  x(t){return this.vx0()*this.clamp(t);}
+  y(t){const u=this.clamp(t);return Math.max(0,this.vy0()*u-.5*CannonModel.g*u*u);}
+  // At touchdown the velocity just before contact is kept.
+  vy(t){return this.vy0()-CannonModel.g*this.clamp(t);}
+  maxHeight(){return this.vy0()**2/(2*CannonModel.g);}
+  landX(){return this.x(this.landTime());}
+  // A flag to aim at: the given target, or where the reference angle lands.
+  target(){const c=this.config;return c.target??(c.ask==='otherAngle'?CannonModel.rangeOf(c.v0,c.angle):null);}
+  now(){return this.status==='landed'?this.landTime():this.t;}
+  advance(dt){
+    if(!Number.isFinite(dt)||dt<0)throw new Error('Invalid timestep');
+    if(this.status==='landed'||!this.ready())return null;
+    // The top and the landing are solved exactly; only the landing ends the run.
+    const T=this.landTime(),top=this.topTime(),passedTop=this.t<top&&this.t+dt>=top;
+    if(this.t+dt>=T*(1-1e-12)){this.t=T;this.status='landed';this.attempts++;return {t:T,top:passedTop,done:true};}
+    this.t+=dt;return passedTop?{t:this.t,top:true,done:false}:null;
+  }
+  // Both angles that reach the target at speed v₀; the lower one is the one reported as exact.
+  roots(){const c=this.config,low=Math.asin(CannonModel.g*c.target/(c.v0*c.v0))*90/Math.PI;return [low,90-low];}
+  exact(){
+    const c=this.config,g=CannonModel.g;
+    if(c.ask==='range')return CannonModel.rangeOf(c.v0,c.angle);
+    if(c.ask==='otherAngle')return 90-c.angle;
+    if(c.ask==='maxRange')return c.v0*c.v0/g;
+    if(c.ask==='angle')return this.roots()[0];
+    return Math.sqrt(g*c.target/Math.sin(2*CannonModel.rad(c.angle)));
+  }
+  unit(){return CannonModel.units[this.config.ask];}
+  evaluate(){
+    if(!this.ready())return {ok:false,slip:null,first:false,exact:this.exact()};
+    const c=this.config,g=CannonModel.g,a=this.answer,e=this.exact(),near=(p,q)=>Math.abs(p-q)<=CannonModel.tolerance*Math.abs(q)+1e-9,close=(p,q)=>Math.abs(p-q)<=CannonModel.angleTolerance;
+    const ok=c.ask==='angle'?this.roots().some(r=>close(a,r)):c.ask==='otherAngle'?close(a,e):near(a,e);
+    let slip=null;
+    if(!ok){
+      if(c.ask==='range'){
+        const s=Math.sin(CannonModel.rad(c.angle)),k=Math.cos(CannonModel.rad(c.angle));
+        if(near(a,c.v0*c.v0*s/g))slip='sinTheta';else if(near(a,c.v0*c.v0*s*k/g))slip='half';else if(near(a,c.v0*c.v0/g))slip='max';
+      }
+      else if(c.ask==='otherAngle'){if(close(a,c.angle))slip='same';else if(close(a,45))slip='fortyFive';}
+      else if(c.ask==='maxRange'){if(near(a,c.v0*c.v0/(2*g)))slip='maxHalf';else if(near(a,2*c.v0*c.v0/g))slip='maxDouble';}
+      else if(c.ask==='angle'){const [low,high]=this.roots();if(close(a,2*low))slip='noHalf';else if(Math.abs(a-CannonModel.rad(low))<=.01||Math.abs(a-CannonModel.rad(high))<=.01)slip='radians';}
+      else{if(near(a,Math.sqrt(g*c.target/2)))slip='speedHalf';else if(near(a,Math.sqrt(2*g*c.target)))slip='speedTwo';}
+    }
+    return {ok,slip,first:ok&&this.attempts===1,exact:e};
+  }
+  score(){if(this.status!=='landed')return 0;const e=this.evaluate();return (e.ok?100:0)+(e.first?50:0);}
+  snapshot(){return {index:this.index,answer:this.answer,attempts:this.attempts,t:this.t,status:this.status};}
+  restore(saved){
+    if(!Number.isInteger(saved?.index)||!CannonModel.missions[saved.index])return false;
+    const probe=new CannonModel(saved.index);
+    if(!probe.setAnswer(saved.answer??null)||!Number.isInteger(saved.attempts)||saved.attempts<0)return false;
+    if(!['flying','landed'].includes(saved.status)||!Number.isFinite(saved.t)||saved.t<0||saved.t>probe.landTime()*(1+1e-9))return false;
+    if(probe.answer===null&&(saved.t>0||saved.status==='landed'))return false;
+    if(saved.status==='landed'&&saved.attempts<1)return false;
+    this.setMission(saved.index);this.answer=probe.answer;this.attempts=saved.attempts;
+    this.status=saved.status;this.t=saved.status==='landed'?this.landTime():saved.t;return true;
+  }
+}
+globalThis.CannonModel=CannonModel;
+</script>
+<script id="cannon-locale" type="application/json">__LOCALE__</script>
+<script id="cannon-interface">
+(() => {
+  'use strict';
+  const $=id=>document.getElementById(id),locale=JSON.parse($('cannon-locale').textContent);
+  const text=(key,values={})=>locale.strings[key].replace(/\{(\w+)\}/g,(_,name)=>values[name]??'{'+name+'}');
+  const number=(n,d=2)=>Math.abs(n)<.5*10**-d?(0).toLocaleString(locale.lang,{minimumFractionDigits:d,maximumFractionDigits:d}):n.toLocaleString(locale.lang,{minimumFractionDigits:d,maximumFractionDigits:d,useGrouping:false});
+  const plain=n=>n.toLocaleString(locale.lang,{maximumFractionDigits:2,useGrouping:false}).replace('-','−');
+  const signed=(n,d=2)=>(n>.5*10**-d?'+':'')+number(n,d);
+  const model=new CannonModel();
+  const canvas=$('cannon-canvas'),ctx=canvas.getContext('2d');
+  const H=1/120,G=CannonModel.g,transferKey='phisicos-cannon-language-transfer',sin=text('sinName');
+  let running=false,previous=null,accumulator=0,lastUpdate=0,width=800,height=410;
+  const say=message=>{$('announcement').textContent=message;};
+  try{const data=JSON.parse(sessionStorage.getItem(transferKey)||'null');sessionStorage.removeItem(transferKey);if(data)model.restore(data.state);}catch{$('language-note').hidden=true;}
+  const amount=v=>plain(Number(v.toFixed(3)))+(model.unit()==='°'?'°':' '+model.unit());
+  const symbols={range:'R =',otherAngle:'θ₂ =',maxRange:'R_max =',angle:'θ =',speed:'v₀ ='};
+  const questions={range:'questionRange',otherAngle:'questionOtherAngle',maxRange:'questionMaxRange',angle:'questionAngle',speed:'questionSpeed'};
+  const slipKey={sinTheta:'slipSinTheta',half:'slipHalf',max:'slipMax',same:'slipSame',fortyFive:'slipFortyFive',maxHalf:'slipMaxHalf',maxDouble:'slipMaxDouble',noHalf:'slipNoHalf',radians:'slipRadians',speedHalf:'slipSpeedHalf',speedTwo:'slipSpeedTwo'};
+  function setRunning(value){
+    const done=model.status==='landed',blocked=!model.ready();running=value&&!done&&!blocked;previous=null;accumulator=0;
+    $('play').disabled=running||done||blocked;$('pause').disabled=!running;$('step').disabled=running||done||blocked;
+    $('cannon-status').classList.toggle('running',running);
+    $('cannon-status-text').textContent=text(done?'done':running?'running':model.t?'paused':'ready');
+  }
+  function given(m){
+    const parts=[];if(m.v0)parts.push('v₀ = '+plain(m.v0)+' m/s');if(m.angle&&m.ask!=='maxRange')parts.push('θ = '+plain(m.angle)+'°');if(m.target)parts.push(text('targetGiven',{d:plain(m.target)}));
+    return parts.join(' · ');
+  }
+  function sync(){
+    const c=model.config;
+    CannonModel.missions.forEach((m,i)=>{$('mission-'+i).setAttribute('aria-pressed',String(i===model.index));$('given-'+i).textContent=given(m);});
+    $('question').textContent=text(questions[c.ask]);$('answer-symbol').textContent=symbols[c.ask];$('answer-unit').textContent=model.unit();
+    $('answer').value=model.answer===null?'':String(model.answer);$('mission-label').textContent=text('mission'+model.index);
+  }
+  function update(){
+    const c=model.config,ready=model.ready(),done=model.status==='landed',t=ready?model.now():0,e=model.evaluate(),x=model.x(t),y=model.y(t),vy=model.vy(t);
+    $('time-value').textContent=number(t);$('x-value').textContent=number(x);$('y-value').textContent=number(y);
+    $('vx-value').textContent=ready?signed(model.vx0()):'—';$('vy-value').textContent=ready?signed(vy):'—';
+    $('cannon-equation').textContent=ready?'x = '+number(model.vx0())+' × '+number(t)+' = '+number(x)+' m · y = '+number(model.vy0())+' × '+number(t)+' − ½ × '+number(G)+' × '+number(t)+'² = '+number(y)+' m':'x = vₓ·t · y = v_y0·t − ½·g·t²';
+    let key,copy;const values={vy:signed(vy,1)};
+    if(done){
+      const target=model.target(),gap=target===null?0:model.landX()-target,r={x:number(model.landX()),t:number(t),d:number(Math.abs(gap)),p:amount(model.answer)};
+      let base=text('landedCopy',r);
+      if(target!==null)base+=' '+text(Math.abs(gap)<.05?'onTargetCopy':gap>0?'longCopy':'shortCopy',r);
+      if(e.ok){key='good';copy=base+' '+text('why'+model.index);}
+      else{key='miss';copy=base+' '+text('missCopy',r)+' '+(e.slip?text(slipKey[e.slip]):text('hint'+model.index));}
+    }
+    else if(!ready){key='predict';copy=text('predictCopy');}
+    else if(model.t>0){key='running';copy=text(vy>1e-9?'risingCopy':vy<-1e-9?'fallingCopy':'topCopy',values);}
+    else{key='ready';copy=text('readyCopy');}
+    $('lesson-title').textContent=text(key+'Title',{t:number(t,1),p:ready?amount(model.answer):''});$('lesson-copy').textContent=copy;
+    $('insight').classList.toggle('warning',key==='miss');
+    $('mission-score').textContent=done?String(model.score()):'—';
+    $('right-badge').classList.toggle('earned',done&&e.ok);$('first-badge').classList.toggle('earned',done&&e.first);
+  }
+  function refresh(){setRunning(false);update();draw();}
+  function simulate(dt){
+    const result=model.advance(dt*CannonModel.playback);
+    if(result?.top)say(text('topAnnouncement'));
+    if(result?.done){setRunning(false);update();say(text('doneAnnouncement')+' '+$('lesson-title').textContent);return true;}
+    return false;
+  }
+  $('answer').addEventListener('input',event=>{const raw=String(event.target.value).trim(),value=raw===''?null:Number(raw);if(!model.setAnswer(value))model.setAnswer(null);refresh();});
+  $('play').addEventListener('click',()=>{setRunning(true);update();say(text('startedAnnouncement'));});
+  $('pause').addEventListener('click',()=>{setRunning(false);update();say(text('pausedAnnouncement'));});
+  $('step').addEventListener('click',()=>{for(let i=0;i<12;i++)if(simulate(H))break;setRunning(false);update();draw();});
+  $('reset').addEventListener('click',()=>{model.reset();refresh();say(text('resetAnnouncement'));});
+  CannonModel.missions.forEach((_,i)=>$('mission-'+i).addEventListener('click',()=>{model.setMission(i);sync();refresh();say(text('missionAnnouncement',{name:text('mission'+i)}));}));
+  for(const id of ['show-vectors','show-strobe'])$(id).addEventListener('change',()=>{update();draw();});
+  function suspend(){if(running){setRunning(false);say(text('suspendedAnnouncement'));}update();draw();}
+  window.addEventListener('blur',suspend);document.addEventListener('visibilitychange',()=>{if(document.hidden)suspend();});
+  for(const link of document.querySelectorAll('.language-menu a'))link.addEventListener('click',()=>{setRunning(false);try{sessionStorage.setItem(transferKey,JSON.stringify({state:model.snapshot()}));}catch{}});
+  function resize(){const rect=canvas.getBoundingClientRect();if(rect.width<=0)return;width=rect.width;height=rect.height;const dpr=Math.min(window.devicePixelRatio||1,3);canvas.width=Math.round(width*dpr);canvas.height=Math.round(height*dpr);ctx.setTransform(dpr,0,0,dpr,0,0);draw();}
+  // One fixed field for every shot, with the same scale on both axes, and a fixed range–angle graph.
+  const XMIN=-4,XMAX=80,RMAX=80,VEL=2.5; // m, m, m, px per m/s
+  function draw(){
+    if(!ctx)return;
+    const c=model.config,ready=model.ready(),done=model.status==='landed',t=ready?model.now():0,shot=model.shot();
+    ctx.clearRect(0,0,width,height);
+    const label=(str,px,py,color='#b8ccdb',align='left',font=12)=>{ctx.fillStyle=color;ctx.textAlign=align;ctx.font=font+'px -apple-system,BlinkMacSystemFont,sans-serif';ctx.fillText(str,px,py);};
+    const line=(points,color,w=1,dash=[])=>{ctx.beginPath();ctx.strokeStyle=color;ctx.lineWidth=w;ctx.setLineDash(dash);points.forEach((p,i)=>i?ctx.lineTo(p.x,p.y):ctx.moveTo(p.x,p.y));ctx.stroke();ctx.setLineDash([]);};
+    const arrow=(from,dx,dy,color,w=2.5)=>{const len=Math.hypot(dx,dy);if(len<4)return;const ux=dx/len,uy=dy/len,to={x:from.x+dx,y:from.y+dy};line([from,to],color,w);line([{x:to.x-ux*9-uy*5,y:to.y-uy*9+ux*5},to,{x:to.x-ux*9+uy*5,y:to.y-uy*9-ux*5}],color,2);};
+    const flag=(fx,color,str)=>{line([{x:fx,y:gy},{x:fx,y:gy-26}],color,2);ctx.fillStyle=color;ctx.beginPath();ctx.moveTo(fx,gy-26);ctx.lineTo(fx+14,gy-21);ctx.lineTo(fx,gy-16);ctx.fill();label(str,fx,gy-32,color,'center',10);};
+    const left=16,s=(width-36)/(XMAX-XMIN),gy=height-50,X=x=>left+(x-XMIN)*s,Y=y=>gy-y*s;
+    const title=text('viewTitle'),note=text('arrowScale');
+    // Long translated titles shrink to fit narrow canvases.
+    ctx.font='12px -apple-system,BlinkMacSystemFont,sans-serif';const titleWidth=ctx.measureText(title).width;
+    label(title,16,20,'#d1e3ed','left',titleWidth>width-32?Math.max(8,Math.floor(12*(width-32)/titleWidth)):12);label(note,16,height-8,'#9fb6c7','left',10);
+    ctx.fillStyle='#173246';ctx.fillRect(0,gy,width,height-gy-18);line([{x:0,y:gy},{x:width,y:gy}],'#5b7488',1.5);
+    for(let u=0;u<=XMAX;u+=10){line([{x:X(u),y:gy},{x:X(u),y:gy+5}],'#5b7488',1);label(plain(u),X(u),gy+18,'#9fb6c7','center',10);}
+    label(text('axisX'),width-20,gy+32,'#9fb6c7','right',10);
+    // The reference shot of the complementary-angle mission, and the flags.
+    const path=(v0,deg,upTo,color,w,dash)=>{const vx=v0*Math.cos(CannonModel.rad(deg)),vy=v0*Math.sin(CannonModel.rad(deg)),T=Math.min(upTo,2*vy/G),pts=[];for(let k=0;k<=60;k++){const u=T*k/60;pts.push({x:X(vx*u),y:Y(Math.max(0,vy*u-.5*G*u*u))});}line(pts,color,w,dash);};
+    if(c.ask==='otherAngle')path(c.v0,c.angle,1e9,'#8aa3b5',1.5,[6,4]);
+    const target=model.target();
+    if(target!==null)flag(X(target),'#75efc7',c.ask==='otherAngle'?text('referenceLabel',{a:plain(c.angle)}):text('targetLabel'));
+    if(ready&&(c.ask==='range'||c.ask==='maxRange'))flag(X(model.answer),'#efb958',text('yourFlag'));
+    // The cannon points along the shot; with no answer yet, an angle question shows it at 45°.
+    const pivot={x:X(0),y:gy-9},a=CannonModel.rad(shot.angle);
+    ctx.strokeStyle='#d1e3ed';ctx.lineWidth=8;ctx.lineCap='round';ctx.beginPath();ctx.moveTo(pivot.x,pivot.y);ctx.lineTo(pivot.x+28*Math.cos(a),pivot.y-28*Math.sin(a));ctx.stroke();ctx.lineCap='butt';
+    ctx.fillStyle='#5b7488';ctx.beginPath();ctx.arc(pivot.x,pivot.y,9,0,Math.PI*2);ctx.fill();
+    if(ready||!model.angleAsk()){ctx.strokeStyle='#9fb6c7';ctx.lineWidth=1;ctx.beginPath();ctx.arc(pivot.x,pivot.y,40,-a,0);ctx.stroke();label('θ = '+plain(shot.angle)+'°',pivot.x+46,pivot.y-4,'#9fb6c7','left',10);}
+    if(ready){
+      const x=model.x(t),y=model.y(t),vy=model.vy(t),ball={x:X(x),y:Y(y)-5};
+      if(t>0)path(shot.v0,shot.angle,t,'#75efc7',2,[]);
+      if($('show-strobe').checked)for(let k=1;k*CannonModel.strobe<t-1e-9;k++){const u=k*CannonModel.strobe;ctx.strokeStyle='#8aa3b5';ctx.lineWidth=1;ctx.beginPath();ctx.arc(X(model.x(u)),Y(model.y(u))-5,5,0,Math.PI*2);ctx.stroke();}
+      ctx.fillStyle='#efe6d0';ctx.beginPath();ctx.arc(ball.x,ball.y,5,0,Math.PI*2);ctx.fill();
+      if($('show-vectors').checked&&t>0&&!done){arrow(ball,model.vx0()*VEL,0,'#77b9ff',2);arrow(ball,0,-vy*VEL,'#77b9ff',2);arrow(ball,model.vx0()*VEL,-vy*VEL,'#f2f8fc');}
+      if(done){const e=model.evaluate();label(text(e.ok?'hitBanner':'landedBanner',{x:number(model.landX())}),16,44,e.ok?'#75efc7':'#efb958','left',width<430?12:14);}
+    }
+    // Range–angle graph: after each landing it shows R(θ) for this speed, with the shot marked. On narrow canvases it
+    // sits lower, leaving the title and the result banner clear above it.
+    const gx1=width-20,gx0=Math.max(width*.56,gx1-280),gtop=width<560?84:46,gbottom=gtop+Math.min(110,height*.26),gx=u=>gx0+u/90*(gx1-gx0),gyR=r=>gbottom-Math.min(r,RMAX)/RMAX*(gbottom-gtop);
+    ctx.fillStyle='rgba(16,38,55,.85)';ctx.fillRect(gx0-34,gtop-30,gx1-gx0+44,gbottom-gtop+58);
+    const graphTitle=text('graphTitle'),room=gx1-gx0+40;ctx.font='10px -apple-system,BlinkMacSystemFont,sans-serif';const graphWidth=ctx.measureText(graphTitle).width;
+    label(graphTitle,gx0-28,gtop-14,'#d1e3ed','left',graphWidth>room?Math.max(7,Math.floor(10*room/graphWidth)):10);
+    for(const r of [0,40,80]){line([{x:gx0,y:gyR(r)},{x:gx1,y:gyR(r)}],r?'#203d50':'#5b7488',1);label(plain(r),gx0-5,gyR(r)+4,'#9fb6c7','right',10);}
+    for(const u of [0,45,90]){line([{x:gx(u),y:gtop},{x:gx(u),y:gbottom}],'#203d50',1);label(plain(u)+'°',gx(u),gbottom+13,'#9fb6c7','center',10);}
+    label(text('axisR'),gx0-28,gbottom+24,'#9fb6c7','left',10);
+    if(target!==null)line([{x:gx0,y:gyR(target)},{x:gx1,y:gyR(target)}],'#75efc7',1,[4,3]);
+    if(done){
+      const pts=[];for(let k=0;k<=45;k++)pts.push({x:gx(2*k),y:gyR(CannonModel.rangeOf(shot.v0,2*k))});line(pts,'#75efc7',1.5);
+      ctx.fillStyle='#f2f8fc';ctx.beginPath();ctx.arc(gx(shot.angle),gyR(model.landX()),4,0,Math.PI*2);ctx.fill();
+    }
+    else label(text('graphHint'),(gx0+gx1)/2,(gtop+gbottom)/2,'#9fb6c7','center',10);
+  }
+  function frame(now){if(previous===null)previous=now;const elapsed=Math.min(.1,(now-previous)/1000);previous=now;if(running){accumulator+=elapsed;while(accumulator>=H&&running){accumulator-=H;simulate(H);}draw();}if(now-lastUpdate>=80){update();lastUpdate=now;}requestAnimationFrame(frame);}
+  window.addEventListener('resize',resize);if(typeof ResizeObserver!=='undefined')new ResizeObserver(resize).observe(canvas);
+  sync();setRunning(false);update();resize();requestAnimationFrame(frame);
+})();
+</script>
+</body>
+</html>

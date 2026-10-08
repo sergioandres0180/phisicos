@@ -8,7 +8,7 @@ try{
  for(const invalid of ['', 'http://localhost:4173', 'https://phisicos.test/path', 'https://user:password@phisicos.test'])assert.notEqual(run(invalid).status,0,'accepted invalid production origin');
  console.log('PASS production build rejects missing, local, insecure, and malformed origins');
  const result=run('https://phisicos.test');assert.equal(result.status,0,result.stderr);
- const pages=require('./locales/pages.cjs'),kinds=['home','game',...require('./locales/games.cjs').map(g=>g.kind)];
+ const pages=require('./locales/pages.cjs'),{kinds}=require('./locales/site.cjs');
  for(const p of Object.values(pages))for(const route of kinds.map(kind=>p[kind])){
    const html=fs.readFileSync(path.join(fixture,'dist',route,'index.html'),'utf8');
    assert.ok(html.includes(`rel="canonical" href="https://phisicos.test${route}"`));

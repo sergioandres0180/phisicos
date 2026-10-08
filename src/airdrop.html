@@ -1,0 +1,294 @@
+<!doctype html>
+<html lang="en">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Air Drop · Phisicos</title>
+<style>
+.airdrop-page .answer-row .symbol{min-width:44px}.airdrop-page .question{font-size:15px;font-weight:600;margin-top:4px}
+.airdrop-page .line-key.blue{background:#77b9ff}.airdrop-page .line-key.white{background:#f2f8fc}
+</style>
+</head>
+<body>
+<div class="shell module-page airdrop-page">
+__HEADER__
+<main id="main-content">
+__BREADCRUMBS__
+
+<div class="masthead"><div><h1>{{title}}</h1><p class="intro">{{subtitle}}</p></div><div class="concept-tags"><span class="tag speed">{{tag1}}</span><span class="tag velocity">{{tag2}}</span></div></div>
+<noscript><p class="no-js">{{noScript}}</p></noscript>
+<div class="layout">
+<aside class="sidebar" aria-label="{{setup}}">
+  <section class="control-section"><h2 class="eyebrow">{{setup}}</h2><div class="mission-list" role="group" aria-label="{{setup}}">
+    <button id="mission-0" aria-pressed="true"><b>1 · {{mission0}}</b><span id="given-0">h</span></button>
+    <button id="mission-1" aria-pressed="false"><b>2 · {{mission1}}</b><span id="given-1">h</span></button>
+    <button id="mission-2" aria-pressed="false"><b>3 · {{mission2}}</b><span id="given-2">h</span></button>
+    <button id="mission-3" aria-pressed="false"><b>4 · {{mission3}}</b><span id="given-3">h</span></button>
+    <button id="mission-4" aria-pressed="false"><b>5 · {{mission4}}</b><span id="given-4">d</span></button>
+  </div><p class="hint">{{setupNote}}</p></section>
+  <section class="control-section"><h2 class="eyebrow">{{answerHeading}}</h2>
+    <p class="question" id="question">{{questionTime}}</p>
+    <p class="field-label"><label for="answer">{{answerLabel}}</label></p>
+    <div class="answer-row"><span class="symbol" id="answer-symbol">t =</span><input id="answer" type="number" inputmode="decimal" step="any" value=""><span class="unit" id="answer-unit">s</span></div>
+    <p class="hint">{{answerHint}}</p>
+  </section>
+  <section class="control-section"><h2 class="eyebrow">{{observe}}</h2><label class="check"><input id="show-vectors" type="checkbox" checked>{{vectors}}</label><label class="check"><input id="show-strobe" type="checkbox" checked>{{strobe}}</label><label class="check"><input id="show-ghost" type="checkbox" checked>{{ghost}}</label><p class="hint">{{observeHint}}</p></section>
+</aside>
+<div class="workspace">
+  <section class="scene" aria-label="{{sceneTitle}}"><div class="scene-top"><div><h2 class="scene-title">{{sceneTitle}}</h2><p class="scene-subtitle" id="mission-label">{{mission0}}</p></div><span class="status" id="airdrop-status"><i class="status-dot" aria-hidden="true"></i><span id="airdrop-status-text">{{ready}}</span></span></div>
+    <div class="module-stage"><canvas id="airdrop-canvas" role="img" aria-label="{{canvasLabel}}">{{noScript}}</canvas></div>
+    <div class="legend"><span><i class="line-key white"></i>{{velocityLegend}}</span><span><i class="line-key blue"></i>{{componentLegend}}</span><span><i class="line-key gray"></i>{{ghostLegend}}</span><span><i class="line-key orange"></i>{{predictionLegend}}</span><span><i class="line-key mint"></i>{{targetLegend}}</span></div>
+    <div class="module-equation"><span>{{equationTitle}}</span><output id="airdrop-equation">x = x_r + v·t</output></div>
+    <div class="transport"><button id="play" class="primary" disabled>{{play}}</button><button id="pause" disabled>{{pause}}</button><button id="step" disabled>{{step}}</button><button id="reset" class="reset">{{reset}}</button></div>
+  </section>
+  <section class="metrics" aria-label="{{observe}}">
+    <div class="metric scalar"><h3 class="metric-label">{{time}}</h3><p class="metric-value"><span id="time-value">0.00</span> <small>s</small></p><p class="metric-equation">t</p></div>
+    <div class="metric vector"><h3 class="metric-label">{{position}}</h3><p class="metric-value"><span id="x-value">0.0</span> <small>m</small></p><p class="metric-equation">x = x_r + vₓ·t</p></div>
+    <div class="metric vector"><h3 class="metric-label">{{height}}</h3><p class="metric-value"><span id="y-value">0.0</span> <small>m</small></p><p class="metric-equation">y = h − ½·g·t²</p></div>
+    <div class="metric vector"><h3 class="metric-label">{{horizontalVelocity}}</h3><p class="metric-value"><span id="vx-value">0.00</span> <small>m/s</small></p><p class="metric-equation">vₓ = v</p></div>
+    <div class="metric vector"><h3 class="metric-label">{{verticalVelocity}}</h3><p class="metric-value"><span id="vy-value">0.00</span> <small>m/s</small></p><p class="metric-equation">v_y = −g·t</p></div>
+  </section>
+  <div class="insight" id="insight"><span class="insight-icon" aria-hidden="true">↗</span><div><strong id="lesson-title">{{predictTitle}}</strong><p id="lesson-copy">{{predictCopy}}</p></div></div>
+  <section class="challenge"><div class="mission-heading"><h2 class="challenge-title">{{missionTitle}}</h2><div class="score-card"><span>{{score}}</span><strong id="mission-score">—</strong></div></div><p class="mission-copy">{{missionCopy}}</p><div class="badges"><span id="right-badge">✓ {{rightBadge}}</span><span id="first-badge">① {{firstBadge}}</span></div></section>
+</div>
+</div>
+<article class="learning-content"><section><h2>{{guideTitle}}</h2><ol><li>{{instruction1}}</li><li>{{instruction2}}</li><li>{{instruction3}}</li><li>{{instruction4}}</li></ol></section><section><h2>{{conceptTitle}}</h2><p>{{conceptCopy}}</p><aside class="worked-example"><h3>{{exampleTitle}}</h3><p>{{exampleCopy}}</p></aside></section><section><h2>{{modelTitle}}</h2><p>{{modelCopy}}</p></section></article>
+<p class="language-note" id="language-note">{{languageNote}}</p>
+</main>
+__FOOTER__
+<p class="sr-only" id="announcement" role="status" aria-live="polite"></p>
+</div>
+<script id="airdrop-model">
+class AirdropModel {
+  // x is horizontal, +x in the plane's direction of flight; y is height above the ground, up positive. With a target,
+  // x is measured from the target; without one, from the release point. The crate leaves the plane at (x_r, h) with the
+  // plane's velocity (v, 0) and then has a = (0, −g): x = x_r + v·t and y = h − ½·g·t² until it lands at t = √(2h ÷ g).
+  static missions = [
+    {h:19.6,v:40,ask:'time'},
+    {h:44.1,v:50,ask:'lead'},
+    {h:44.1,v:80,ask:'time',compare:50},
+    {h:44.1,v:39.2,ask:'speed'},
+    {lead:150,v:50,ask:'height'}
+  ];
+  static views = [[-20,120],[-260,60],[-20,300],[-20,160],[-260,60]]; // m of ground shown, fixed per mission
+  static g = 9.8; // m/s²
+  static tolerance = .02; // relative
+  static strobe = .25; // s between strobe images
+  static playback = 1; // the drops last 2–3 s, so they play in real time
+  static units = {time:'s',lead:'m',speed:'m/s',height:'m'};
+  constructor(index = 0){this.setMission(index);}
+  setMission(index){this.index=index;this.config=AirdropModel.missions[index];this.answer=null;this.attempts=0;this.reset();}
+  reset(){this.t=0;this.status='falling';}
+  // With a target, the answer sets where the crate is released (lead) or how high the plane flies (height).
+  targeted(){return this.config.ask==='lead'||this.config.ask==='height';}
+  valid(value){
+    if(!Number.isFinite(value))return false;
+    const ask=this.config.ask;
+    if(ask==='lead')return value>=0&&value<=1000;
+    return value>0&&value<=(ask==='time'?30:500);
+  }
+  setAnswer(value){if(value!==null&&!this.valid(value))return false;this.answer=value;this.reset();return true;}
+  ready(){return this.answer!==null;}
+  height(){return this.config.ask==='height'?this.answer??0:this.config.h;}
+  release(){const c=this.config;return c.ask==='lead'?-(this.answer??0):c.ask==='height'?-c.lead:0;}
+  landTime(){return Math.sqrt(2*this.height()/AirdropModel.g);}
+  clamp(t){return Math.min(Math.max(t,0),this.landTime());}
+  x(t){return this.release()+this.config.v*this.clamp(t);}
+  y(t){const u=this.clamp(t);return Math.max(0,this.height()-.5*AirdropModel.g*u*u);}
+  // At touchdown the velocity just before contact is kept: the ground then stops the crate.
+  vx(){return this.config.v;}
+  vy(t){return -AirdropModel.g*this.clamp(t);}
+  speed(t){return Math.hypot(this.vx(),this.vy(t));}
+  landX(){return this.x(this.landTime());}
+  now(){return this.status==='landed'?this.landTime():this.t;}
+  advance(dt){
+    if(!Number.isFinite(dt)||dt<0)throw new Error('Invalid timestep');
+    if(this.status==='landed'||!this.ready())return null;
+    // Touchdown is solved exactly at t = √(2h ÷ g).
+    const T=this.landTime();
+    if(this.t+dt>=T*(1-1e-12)){this.t=T;this.status='landed';this.attempts++;return {t:T};}
+    this.t+=dt;return null;
+  }
+  exact(){
+    const c=this.config,g=AirdropModel.g;
+    if(c.ask==='height')return .5*g*(c.lead/c.v)**2;
+    const T=Math.sqrt(2*c.h/g);
+    return {time:T,lead:c.v*T,speed:Math.hypot(c.v,g*T)}[c.ask];
+  }
+  unit(){return AirdropModel.units[this.config.ask];}
+  evaluate(){
+    if(!this.ready())return {ok:false,slip:null,first:false,exact:this.exact()};
+    const c=this.config,g=AirdropModel.g,a=this.answer,e=this.exact(),near=(p,q)=>Math.abs(p-q)<=AirdropModel.tolerance*Math.abs(q)+1e-9,ok=near(a,e);
+    let slip=null;
+    if(!ok){
+      if(c.ask==='time'){
+        if(near(a,2*c.h/g))slip='noRoot';
+        else if(near(a,Math.sqrt(c.h/g)))slip='noTwo';
+        else if(near(a,c.h/c.v))slip='hOverV';
+        else if(c.compare&&(near(a,e*c.compare/c.v)||near(a,e*c.v/c.compare)))slip='speedTime';
+      }
+      else if(c.ask==='lead'){
+        const T=Math.sqrt(2*c.h/g);
+        if(a<1e-9)slip='overhead';
+        else if(near(a,T))slip='leadTime';
+        else if(near(a,c.v*2*c.h/g))slip='leadNoRoot';
+        else if(near(a,c.v*Math.sqrt(c.h/g)))slip='leadNoTwo';
+      }
+      else if(c.ask==='speed'){
+        const vy=g*Math.sqrt(2*c.h/g);
+        if(near(a,c.v))slip='onlyX';
+        else if(near(a,vy))slip='onlyY';
+        else if(near(a,c.v+vy))slip='sum';
+      }
+      else{
+        const T=c.lead/c.v;
+        if(near(a,T))slip='heightTime';
+        else if(near(a,g*T))slip='heightSpeed';
+        else if(near(a,g*T*T))slip='noHalf';
+      }
+    }
+    return {ok,slip,first:ok&&this.attempts===1,exact:e};
+  }
+  score(){if(this.status!=='landed')return 0;const e=this.evaluate();return (e.ok?100:0)+(e.first?50:0);}
+  snapshot(){return {index:this.index,answer:this.answer,attempts:this.attempts,t:this.t,status:this.status};}
+  restore(saved){
+    if(!Number.isInteger(saved?.index)||!AirdropModel.missions[saved.index])return false;
+    const probe=new AirdropModel(saved.index);
+    if(!probe.setAnswer(saved.answer??null)||!Number.isInteger(saved.attempts)||saved.attempts<0)return false;
+    if(!['falling','landed'].includes(saved.status)||!Number.isFinite(saved.t)||saved.t<0||saved.t>probe.landTime()*(1+1e-9))return false;
+    if(probe.answer===null&&(saved.t>0||saved.status==='landed'))return false;
+    if(saved.status==='landed'&&saved.attempts<1)return false;
+    this.setMission(saved.index);this.answer=probe.answer;this.attempts=saved.attempts;
+    this.status=saved.status;this.t=saved.status==='landed'?this.landTime():saved.t;return true;
+  }
+}
+globalThis.AirdropModel=AirdropModel;
+</script>
+<script id="airdrop-locale" type="application/json">__LOCALE__</script>
+<script id="airdrop-interface">
+(() => {
+  'use strict';
+  const $=id=>document.getElementById(id),locale=JSON.parse($('airdrop-locale').textContent);
+  const text=(key,values={})=>locale.strings[key].replace(/\{(\w+)\}/g,(_,name)=>values[name]??'{'+name+'}');
+  const number=(n,d=2)=>Math.abs(n)<.5*10**-d?(0).toLocaleString(locale.lang,{minimumFractionDigits:d,maximumFractionDigits:d}):n.toLocaleString(locale.lang,{minimumFractionDigits:d,maximumFractionDigits:d,useGrouping:false});
+  const plain=n=>n.toLocaleString(locale.lang,{maximumFractionDigits:2,useGrouping:false}).replace('-','−');
+  const signed=(n,d=2)=>(n>.5*10**-d?'+':'')+number(n,d);
+  const model=new AirdropModel();
+  const canvas=$('airdrop-canvas'),ctx=canvas.getContext('2d');
+  const H=1/120,G=AirdropModel.g,transferKey='phisicos-airdrop-language-transfer';
+  let running=false,previous=null,accumulator=0,lastUpdate=0,width=800,height=410;
+  const say=message=>{$('announcement').textContent=message;};
+  try{const data=JSON.parse(sessionStorage.getItem(transferKey)||'null');sessionStorage.removeItem(transferKey);if(data)model.restore(data.state);}catch{$('language-note').hidden=true;}
+  const amount=v=>plain(Number(v.toFixed(3)))+' '+model.unit();
+  const symbols={time:'t =',lead:'d =',speed:'|v| =',height:'h ='};
+  const questions={time:'questionTime',lead:'questionLead',speed:'questionSpeed',height:'questionHeight'};
+  const slipKey={noRoot:'slipNoRoot',noTwo:'slipNoTwo',hOverV:'slipHOverV',speedTime:'slipSpeedTime',overhead:'slipOverhead',leadTime:'slipLeadTime',leadNoRoot:'slipLeadNoRoot',leadNoTwo:'slipLeadNoTwo',onlyX:'slipOnlyX',onlyY:'slipOnlyY',sum:'slipSum',heightTime:'slipHeightTime',heightSpeed:'slipHeightSpeed',noHalf:'slipNoHalf'};
+  function setRunning(value){
+    const done=model.status==='landed',blocked=!model.ready();running=value&&!done&&!blocked;previous=null;accumulator=0;
+    $('play').disabled=running||done||blocked;$('pause').disabled=!running;$('step').disabled=running||done||blocked;
+    $('airdrop-status').classList.toggle('running',running);
+    $('airdrop-status-text').textContent=text(done?'done':running?'running':model.t?'paused':'ready');
+  }
+  function given(m){
+    const first=m.ask==='height'?'d = '+plain(m.lead)+' m':'h = '+plain(m.h)+' m';
+    return first+' · v = '+plain(m.v)+' m/s'+(m.compare?' ('+plain(m.compare)+' m/s)':'');
+  }
+  function sync(){
+    const c=model.config;
+    AirdropModel.missions.forEach((m,i)=>{$('mission-'+i).setAttribute('aria-pressed',String(i===model.index));$('given-'+i).textContent=given(m);});
+    $('question').textContent=text(c.compare?'questionCompare':questions[c.ask],{v:plain(c.v),w:plain(c.compare||0)});
+    $('answer-symbol').textContent=symbols[c.ask];$('answer-unit').textContent=model.unit();
+    $('answer').value=model.answer===null?'':String(model.answer);$('mission-label').textContent=text('mission'+model.index);
+  }
+  function outcome(){
+    const T=model.landTime(),gap=model.landX(),r={t:number(T),v:number(model.speed(T),1),p:amount(model.answer),d:number(Math.abs(gap),1)};
+    let copy=text('landedCopy',r);
+    if(model.targeted())copy+=' '+text(Math.abs(gap)<.05?'onTargetCopy':gap>0?'pastCopy':'shortCopy',r);
+    return {copy,r,gap};
+  }
+  function update(){
+    const c=model.config,ready=model.ready(),done=model.status==='landed',t=ready?model.now():0,e=model.evaluate();
+    const x=model.x(t),y=model.y(t),vy=model.vy(t);
+    $('time-value').textContent=number(t);$('x-value').textContent=number(x,1);$('y-value').textContent=number(y,1);
+    $('vx-value').textContent=signed(model.vx());$('vy-value').textContent=signed(vy);
+    $('airdrop-equation').textContent=ready?'x = '+number(model.release(),1)+' + '+number(c.v,1)+' × '+number(t)+' = '+number(x,1)+' m · y = '+number(model.height(),1)+' − ½ × '+number(G)+' × '+number(t)+'² = '+number(y,1)+' m':'x = x_r + v·t · y = h − ½·g·t²';
+    let key,copy;
+    if(done){
+      const o=outcome();
+      if(e.ok){key='good';copy=o.copy+' '+text('why'+model.index);}
+      else{key='miss';copy=o.copy+' '+text('missCopy',o.r)+' '+(e.slip?text(slipKey[e.slip]):text('hint'+model.index));}
+    }
+    else if(!ready){key='predict';copy=text('predictCopy');}
+    else if(model.t>0){key='running';copy=text('runningCopy',{y:number(y,1),vx:signed(model.vx(),1),vy:signed(vy,1)});}
+    else{key='ready';copy=text('readyCopy');}
+    $('lesson-title').textContent=text(key+'Title',{t:number(t,1),p:ready?amount(model.answer):''});$('lesson-copy').textContent=copy;
+    $('insight').classList.toggle('warning',key==='miss');
+    $('mission-score').textContent=done?String(model.score()):'—';
+    $('right-badge').classList.toggle('earned',done&&e.ok);$('first-badge').classList.toggle('earned',done&&e.first);
+  }
+  function refresh(){setRunning(false);update();draw();}
+  function simulate(dt){
+    const result=model.advance(dt*AirdropModel.playback);
+    if(result){setRunning(false);update();say(text('doneAnnouncement')+' '+$('lesson-title').textContent);return true;}
+    return false;
+  }
+  $('answer').addEventListener('input',event=>{const raw=String(event.target.value).trim(),value=raw===''?null:Number(raw);if(!model.setAnswer(value))model.setAnswer(null);refresh();});
+  $('play').addEventListener('click',()=>{setRunning(true);update();say(text('startedAnnouncement'));});
+  $('pause').addEventListener('click',()=>{setRunning(false);update();say(text('pausedAnnouncement'));});
+  $('step').addEventListener('click',()=>{for(let i=0;i<12;i++)if(simulate(H))break;setRunning(false);update();draw();});
+  $('reset').addEventListener('click',()=>{model.reset();refresh();say(text('resetAnnouncement'));});
+  AirdropModel.missions.forEach((_,i)=>$('mission-'+i).addEventListener('click',()=>{model.setMission(i);sync();refresh();say(text('missionAnnouncement',{name:text('mission'+i)}));}));
+  for(const id of ['show-vectors','show-strobe','show-ghost'])$(id).addEventListener('change',()=>{update();draw();});
+  function suspend(){if(running){setRunning(false);say(text('suspendedAnnouncement'));}update();draw();}
+  window.addEventListener('blur',suspend);document.addEventListener('visibilitychange',()=>{if(document.hidden)suspend();});
+  for(const link of document.querySelectorAll('.language-menu a'))link.addEventListener('click',()=>{setRunning(false);try{sessionStorage.setItem(transferKey,JSON.stringify({state:model.snapshot()}));}catch{}});
+  function resize(){const rect=canvas.getBoundingClientRect();if(rect.width<=0)return;width=rect.width;height=rect.height;const dpr=Math.min(window.devicePixelRatio||1,3);canvas.width=Math.round(width*dpr);canvas.height=Math.round(height*dpr);ctx.setTransform(dpr,0,0,dpr,0,0);draw();}
+  const VEL=1.2; // px per m/s for every velocity arrow
+  function draw(){
+    if(!ctx)return;
+    const c=model.config,ready=model.ready(),done=model.status==='landed',t=ready?model.now():0,showCrate=ready||!model.targeted();
+    ctx.clearRect(0,0,width,height);
+    const label=(str,px,py,color='#b8ccdb',align='left',font=12)=>{ctx.fillStyle=color;ctx.textAlign=align;ctx.font=font+'px -apple-system,BlinkMacSystemFont,sans-serif';ctx.fillText(str,px,py);};
+    const line=(points,color,w=1,dash=[])=>{ctx.beginPath();ctx.strokeStyle=color;ctx.lineWidth=w;ctx.setLineDash(dash);points.forEach((p,i)=>i?ctx.lineTo(p.x,p.y):ctx.moveTo(p.x,p.y));ctx.stroke();ctx.setLineDash([]);};
+    const arrow=(from,dx,dy,color,w=2.5)=>{const len=Math.hypot(dx,dy);if(len<4)return;const ux=dx/len,uy=dy/len,to={x:from.x+dx,y:from.y+dy};line([from,to],color,w);line([{x:to.x-ux*9-uy*5,y:to.y-uy*9+ux*5},to,{x:to.x-ux*9+uy*5,y:to.y-uy*9-ux*5}],color,2);};
+    // One scale for both axes, fixed per mission, so the picture never gives the answer away.
+    const [x0,x1]=AirdropModel.views[model.index],left=40,right=width-20,s=(right-left)/(x1-x0),gy=height-56,X=x=>left+(x-x0)*s,Y=y=>gy-y*s;
+    const title=text('viewTitle'),note=text('arrowScale');
+    ctx.font='12px -apple-system,BlinkMacSystemFont,sans-serif';const titleWidth=ctx.measureText(title).width;ctx.font='10px -apple-system,BlinkMacSystemFont,sans-serif';
+    // Long translated titles shrink to fit narrow canvases.
+    label(title,16,20,'#d1e3ed','left',titleWidth>width-32?Math.max(8,Math.floor(12*(width-32)/titleWidth)):12);
+    if(16+titleWidth+24+ctx.measureText(note).width<=width-12)label(note,width-12,20,'#9fb6c7','right',10);else label(note,16,height-8,'#9fb6c7','left',10);
+    ctx.fillStyle='#173246';ctx.fillRect(0,gy,width,height-gy-18);line([{x:0,y:gy},{x:width,y:gy}],'#5b7488',1.5);
+    const step=x1-x0>250?50:20;
+    for(let u=Math.ceil(x0/step)*step;u<=x1;u+=step){line([{x:X(u),y:gy},{x:X(u),y:gy+5}],'#5b7488',1);label(plain(u||0),X(u),gy+18,'#9fb6c7','center',10);}
+    label(text('axisX'),right,gy+32,'#9fb6c7','right',10);
+    if(model.targeted()){line([{x:X(0),y:gy},{x:X(0),y:gy-28}],'#75efc7',2);ctx.fillStyle='#75efc7';ctx.beginPath();ctx.moveTo(X(0),gy-28);ctx.lineTo(X(0)+16,gy-23);ctx.lineTo(X(0),gy-18);ctx.fill();label(text('targetLabel'),X(0)+4,gy-34,'#75efc7','center',10);}
+    if(!showCrate)return;
+    const h=model.height(),xr=model.release(),T=model.landTime(),x=model.x(t),y=model.y(t);
+    if(ready){line([{x:X(xr),y:Y(h)-18},{x:X(xr),y:gy}],'#5b7488',1,[4,4]);label(text('releaseLabel'),X(xr)+5,gy-6,'#9fb6c7','left',10);}
+    const crate=(px,py,fill,stroke)=>{if(fill){ctx.fillStyle=fill;ctx.fillRect(px-6,py-12,12,12);}else{ctx.strokeStyle=stroke;ctx.lineWidth=1;ctx.strokeRect(px-6,py-12,12,12);}};
+    const ball=(px,py,fill,stroke)=>{ctx.beginPath();ctx.arc(px,py-6,6,0,Math.PI*2);if(fill){ctx.fillStyle=fill;ctx.fill();}else{ctx.strokeStyle=stroke;ctx.lineWidth=1;ctx.stroke();}};
+    const ghost=$('show-ghost').checked;
+    if($('show-strobe').checked&&ready)for(let k=1;k*AirdropModel.strobe<t-1e-9;k++){const u=k*AirdropModel.strobe;crate(X(model.x(u)),Y(model.y(u)),null,'#8aa3b5');if(ghost)ball(X(xr),Y(model.y(u)),null,'#5b7488');}
+    if(c.compare&&ready){const xc=c.compare*model.clamp(t);crate(X(xc),Y(y),'#8aa3b5');label(text('compareLabel',{v:plain(c.compare)}),X(xc),Y(y)-18,'#9fb6c7','center',10);}
+    if(ghost&&ready&&t>0)ball(X(xr),Y(y),'#8aa3b5');
+    // The plane keeps flying at v, so the crate stays right below it until it lands.
+    const px=X(x),py=Y(h)-18;
+    if(t>0)line([{x:px,y:py+6},{x:px,y:Y(y)-12}],'#5b7488',1,[3,4]);
+    ctx.fillStyle='#d1e3ed';ctx.fillRect(px-18,py-4,32,8);ctx.beginPath();ctx.moveTo(px+14,py-4);ctx.lineTo(px+20,py);ctx.lineTo(px+14,py+4);ctx.fill();
+    ctx.beginPath();ctx.moveTo(px-18,py-4);ctx.lineTo(px-24,py-14);ctx.lineTo(px-12,py-4);ctx.fill();ctx.beginPath();ctx.moveTo(px-4,py);ctx.lineTo(px-12,py+12);ctx.lineTo(px+2,py);ctx.fill();
+    crate(X(x),Y(y),'#e9d9a6');
+    // The predicted fall time is marked where the crate is at that instant.
+    if(c.ask==='time'&&ready&&t>=model.answer-1e-12&&model.answer<=T){const pu=model.answer;ctx.strokeStyle='#efb958';ctx.lineWidth=2;ctx.beginPath();ctx.arc(X(model.x(pu)),Y(model.y(pu))-6,11,0,Math.PI*2);ctx.stroke();const mx=X(model.x(pu)),room=mx+90<width;label(text('predictionMark',{p:number(pu)}),room?mx+14:mx-14,Y(model.y(pu))-14,'#efb958',room?'left':'right',10);}
+    if($('show-vectors').checked&&ready){const from={x:X(x),y:Y(y)-6},vy=model.vy(t);arrow(from,model.vx()*VEL,0,'#77b9ff',2);arrow(from,0,-vy*VEL,'#77b9ff',2);arrow(from,model.vx()*VEL,-vy*VEL,'#f2f8fc');}
+    if(done){
+      const gap=model.landX(),e=model.evaluate();let banner;
+      if(!model.targeted())banner=text('landedBanner',{t:number(T),v:number(model.speed(T),1)});
+      else banner=Math.abs(gap)<.05?text('hitBanner'):text(gap>0?'pastBanner':'shortBanner',{d:number(Math.abs(gap),1)});
+      label(banner,width/2,48,e.ok?'#75efc7':'#efb958','center',width<430?12:14);
+    }
+  }
+  function frame(now){if(previous===null)previous=now;const elapsed=Math.min(.1,(now-previous)/1000);previous=now;if(running){accumulator+=elapsed;while(accumulator>=H&&running){accumulator-=H;simulate(H);}draw();}if(now-lastUpdate>=80){update();lastUpdate=now;}requestAnimationFrame(frame);}
+  window.addEventListener('resize',resize);if(typeof ResizeObserver!=='undefined')new ResizeObserver(resize).observe(canvas);
+  sync();setRunning(false);update();resize();requestAnimationFrame(frame);
+})();
+</script>
+</body>
+</html>

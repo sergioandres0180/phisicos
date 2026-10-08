@@ -1,0 +1,285 @@
+<!doctype html>
+<html lang="en">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Reaction Ruler · Phisicos</title>
+<style>
+.ruler-page .answer-row .symbol{min-width:44px}.ruler-page .question{font-size:15px;font-weight:600;margin-top:4px}
+.ruler-page .try-row{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:10px}.ruler-page .try-row button{min-height:44px;border-radius:9px;border:1px solid var(--line);background:#fff;font-weight:650;color:var(--ink)}.ruler-page .try-row #catch{background:var(--green);border-color:var(--green);color:#fff}.ruler-page .try-row button:disabled{opacity:.45}
+.ruler-page .try-result{margin-top:10px;font-size:14px;min-height:42px}
+</style>
+</head>
+<body>
+<div class="shell module-page ruler-page">
+__HEADER__
+<main id="main-content">
+__BREADCRUMBS__
+
+<div class="masthead"><div><h1>{{title}}</h1><p class="intro">{{subtitle}}</p></div><div class="concept-tags"><span class="tag speed">{{tag1}}</span><span class="tag velocity">{{tag2}}</span></div></div>
+<noscript><p class="no-js">{{noScript}}</p></noscript>
+<div class="layout">
+<aside class="sidebar" aria-label="{{setup}}">
+  <section class="control-section"><h2 class="eyebrow">{{setup}}</h2><div class="mission-list" role="group" aria-label="{{setup}}">
+    <button id="mission-0" aria-pressed="true"><b>1 · {{mission0}}</b><span id="given-0">d</span></button>
+    <button id="mission-1" aria-pressed="false"><b>2 · {{mission1}}</b><span id="given-1">t</span></button>
+    <button id="mission-2" aria-pressed="false"><b>3 · {{mission2}}</b><span id="given-2">t</span></button>
+    <button id="mission-3" aria-pressed="false"><b>4 · {{mission3}}</b><span id="given-3">L</span></button>
+  </div><p class="hint">{{setupNote}}</p></section>
+  <section class="control-section"><h2 class="eyebrow">{{answerHeading}}</h2>
+    <p class="question" id="question">{{questionTime}}</p>
+    <p class="field-label"><label for="answer">{{answerLabel}}</label></p>
+    <div class="answer-row"><span class="symbol" id="answer-symbol">t =</span><input id="answer" type="number" inputmode="decimal" step="any" min="0" value=""><span class="unit" id="answer-unit">s</span></div>
+    <p class="hint">{{answerHint}}</p>
+  </section>
+  <section class="control-section"><h2 class="eyebrow">{{tryHeading}}</h2><p class="hint">{{tryHint}}</p>
+    <div class="try-row"><button id="try">{{tryButton}}</button><button id="catch" disabled>{{catchButton}}</button></div>
+    <p class="try-result" id="try-result" role="status">{{tryIdle}}</p>
+  </section>
+  <section class="control-section"><h2 class="eyebrow">{{observe}}</h2><label class="check"><input id="show-vectors" type="checkbox" checked>{{vectors}}</label><p class="hint">{{observeHint}}</p></section>
+</aside>
+<div class="workspace">
+  <section class="scene" aria-label="{{sceneTitle}}"><div class="scene-top"><div><h2 class="scene-title">{{sceneTitle}}</h2><p class="scene-subtitle" id="mission-label">{{mission0}}</p></div><span class="status" id="ruler-status"><i class="status-dot" aria-hidden="true"></i><span id="ruler-status-text">{{ready}}</span></span></div>
+    <div class="module-stage"><canvas id="ruler-canvas" role="img" aria-label="{{canvasLabel}}">{{noScript}}</canvas></div>
+    <div class="legend"><span><i class="line-key white"></i>{{velocityLegend}}</span><span><i class="line-key orange"></i>{{predictionLegend}}</span><span><i class="line-key mint"></i>{{traceLegend}}</span><span><i class="line-key gray"></i>{{endLegend}}</span></div>
+    <div class="module-equation"><span>{{equationTitle}}</span><output id="ruler-equation">d = ½·g·t²</output></div>
+    <div class="transport"><button id="play" class="primary" disabled>{{play}}</button><button id="pause" disabled>{{pause}}</button><button id="step" disabled>{{step}}</button><button id="reset" class="reset">{{reset}}</button></div>
+  </section>
+  <section class="metrics" aria-label="{{observe}}">
+    <div class="metric scalar"><h3 class="metric-label">{{time}}</h3><p class="metric-value"><span id="time-value">0.000</span> <small>s</small></p><p class="metric-equation">t</p></div>
+    <div class="metric scalar"><h3 class="metric-label">{{fallen}}</h3><p class="metric-value"><span id="fallen-value">0.0</span> <small>cm</small></p><p class="metric-equation">d = ½·g·t²</p></div>
+    <div class="metric vector"><h3 class="metric-label">{{velocity}}</h3><p class="metric-value"><span id="velocity-value">0.00</span> <small>m/s</small></p><p class="metric-equation">v = g·t ↓</p></div>
+    <div class="metric vector"><h3 class="metric-label">{{acceleration}}</h3><p class="metric-value"><span id="acceleration-value">9.80</span> <small>m/s²</small></p><p class="metric-equation">a = g ↓</p></div>
+    <div class="metric scalar"><h3 class="metric-label">{{slowMotion}}</h3><p class="metric-value"><span id="playback-value">×0.1</span></p><p class="metric-equation">Δt_play = 10·Δt</p></div>
+  </section>
+  <div class="insight" id="insight"><span class="insight-icon" aria-hidden="true">↗</span><div><strong id="lesson-title">{{predictTitle}}</strong><p id="lesson-copy">{{predictCopy}}</p></div></div>
+  <section class="challenge"><div class="mission-heading"><h2 class="challenge-title">{{missionTitle}}</h2><div class="score-card"><span>{{score}}</span><strong id="mission-score">—</strong></div></div><p class="mission-copy">{{missionCopy}}</p><div class="badges"><span id="right-badge">✓ {{rightBadge}}</span><span id="first-badge">① {{firstBadge}}</span></div></section>
+</div>
+</div>
+<article class="learning-content"><section><h2>{{guideTitle}}</h2><ol><li>{{instruction1}}</li><li>{{instruction2}}</li><li>{{instruction3}}</li><li>{{instruction4}}</li></ol></section><section><h2>{{conceptTitle}}</h2><p>{{conceptCopy}}</p><aside class="worked-example"><h3>{{exampleTitle}}</h3><p>{{exampleCopy}}</p></aside></section><section><h2>{{modelTitle}}</h2><p>{{modelCopy}}</p></section></article>
+<p class="language-note" id="language-note">{{languageNote}}</p>
+</main>
+__FOOTER__
+<p class="sr-only" id="announcement" role="status" aria-live="polite"></p>
+</div>
+<script id="ruler-model">
+class RulerModel {
+  // d is how far the ruler has fallen through the catcher's open fingers since it was released, down positive, in metres.
+  // It falls from rest with a = g, d = ½·g·t², until the fingers close, or until all of its length has passed them.
+  static missions = [
+    {ask:'time',d:.20},
+    {ask:'distance',t:.15},
+    {ask:'distance',t:.20,compare:.10},
+    {ask:'longest'}
+  ];
+  static g = 9.8; // m/s²
+  static length = .30; // m
+  static playback = .1; // the falls last about 0.2 s, so they play in slow motion
+  static tolerance = {time:.005,distance:.5}; // s, cm
+  constructor(index = 0){this.setMission(index);this.practice=null;}
+  setMission(index){this.index=index;this.config=RulerModel.missions[index];this.answer=null;this.attempts=0;this.reset();}
+  reset(){this.t=0;this.status='falling';}
+  kind(){return this.config.ask==='distance'?'distance':'time';}
+  valid(value){return Number.isFinite(value)&&value>0&&value<=(this.kind()==='time'?5:200);}
+  setAnswer(value){if(value!==null&&!this.valid(value))return false;this.answer=value;this.reset();return true;}
+  ready(){return this.answer!==null;}
+  static fall(t){return .5*RulerModel.g*t*t;}
+  static timeFor(d){return Math.sqrt(2*d/RulerModel.g);}
+  // The whole ruler has passed the fingers once it has fallen its own length.
+  static slipTime(){return RulerModel.timeFor(RulerModel.length);}
+  catchTime(){const c=this.config;return c.ask==='time'?RulerModel.timeFor(c.d):c.ask==='distance'?c.t:null;}
+  endTime(){return this.catchTime()??RulerModel.slipTime();}
+  clamp(t){return Math.min(Math.max(t,0),this.endTime());}
+  d(t){return Math.min(RulerModel.length,RulerModel.fall(this.clamp(t)));}
+  v(t){return RulerModel.g*this.clamp(t);}
+  now(){return this.status==='done'?this.endTime():this.t;}
+  advance(dt){
+    if(!Number.isFinite(dt)||dt<0)throw new Error('Invalid timestep');
+    if(this.status==='done'||!this.ready())return null;
+    // The catch (or the ruler slipping through) is solved exactly.
+    const T=this.endTime();
+    if(this.t+dt>=T*(1-1e-12)){this.t=T;this.status='done';this.attempts++;return {t:T,caught:this.catchTime()!==null};}
+    this.t+=dt;return null;
+  }
+  exact(){
+    const c=this.config;
+    if(c.ask==='time')return RulerModel.timeFor(c.d);
+    if(c.ask==='distance')return RulerModel.fall(c.t)*100;
+    return RulerModel.slipTime();
+  }
+  unit(){return this.kind()==='time'?'s':'cm';}
+  evaluate(){
+    if(!this.ready())return {ok:false,slip:null,first:false,exact:this.exact()};
+    const c=this.config,g=RulerModel.g,a=this.answer,e=this.exact(),tol=RulerModel.tolerance[this.kind()],near=(p,q)=>Math.abs(p-q)<=tol+1e-12,ok=near(a,e);
+    let slip=null;
+    if(!ok){
+      if(this.kind()==='time'){
+        const D=c.ask==='time'?c.d:RulerModel.length;
+        if(near(a,2*D/g))slip='noRoot';
+        else if(near(a,Math.sqrt(D/g)))slip='noTwo';
+        else if(Math.abs(a-RulerModel.timeFor(D*100))<=.05)slip='centimetres';
+      }
+      else if(near(a,g*c.t*c.t*100))slip='noHalf';
+      else if(Math.abs(a-RulerModel.fall(c.t))<=.005)slip='metres';
+      else if(c.compare&&near(a,RulerModel.fall(c.compare)*100*c.t/c.compare))slip='linear';
+      else if(near(a,g*c.t*100))slip='speed';
+    }
+    return {ok,slip,first:ok&&this.attempts===1,exact:e};
+  }
+  score(){if(this.status!=='done')return 0;const e=this.evaluate();return (e.ok?100:0)+(e.first?50:0);}
+  // Test yourself: after a random wait the ruler drops; closing the fingers measures a real reaction time.
+  startPractice(delay){if(!Number.isFinite(delay)||delay<0)return false;this.practice={delay,t:0,state:'waiting',reaction:null,distance:null};return true;}
+  advancePractice(dt){
+    const p=this.practice;if(!p||!['waiting','falling'].includes(p.state))return null;
+    p.t+=dt;if(p.state==='waiting'&&p.t>=p.delay)p.state='falling';
+    // Missed: the ruler has slipped through, at an exact time.
+    if(p.state==='falling'&&p.t-p.delay>=RulerModel.slipTime()){p.t=p.delay+RulerModel.slipTime();p.state='missed';p.distance=RulerModel.length;}
+    return p.state;
+  }
+  catchPractice(){
+    const p=this.practice;if(!p)return null;
+    if(p.state==='waiting')p.state='early';
+    else if(p.state==='falling'){p.reaction=p.t-p.delay;p.distance=RulerModel.fall(p.reaction);p.state='caught';}
+    return p.state;
+  }
+  practiceFall(){const p=this.practice;if(!p)return 0;if(p.state==='falling')return Math.min(RulerModel.length,RulerModel.fall(p.t-p.delay));return p.distance??0;}
+  snapshot(){return {index:this.index,answer:this.answer,attempts:this.attempts,t:this.t,status:this.status};}
+  restore(saved){
+    if(!Number.isInteger(saved?.index)||!RulerModel.missions[saved.index])return false;
+    const probe=new RulerModel(saved.index);
+    if(!probe.setAnswer(saved.answer??null)||!Number.isInteger(saved.attempts)||saved.attempts<0)return false;
+    if(!['falling','done'].includes(saved.status)||!Number.isFinite(saved.t)||saved.t<0||saved.t>probe.endTime()*(1+1e-9))return false;
+    if(probe.answer===null&&(saved.t>0||saved.status==='done'))return false;
+    if(saved.status==='done'&&saved.attempts<1)return false;
+    this.setMission(saved.index);this.answer=probe.answer;this.attempts=saved.attempts;
+    this.status=saved.status;this.t=saved.status==='done'?this.endTime():saved.t;return true;
+  }
+}
+globalThis.RulerModel=RulerModel;
+</script>
+<script id="ruler-locale" type="application/json">__LOCALE__</script>
+<script id="ruler-interface">
+(() => {
+  'use strict';
+  const $=id=>document.getElementById(id),locale=JSON.parse($('ruler-locale').textContent);
+  const text=(key,values={})=>locale.strings[key].replace(/\{(\w+)\}/g,(_,name)=>values[name]??'{'+name+'}');
+  const number=(n,d=2)=>Math.abs(n)<.5*10**-d?(0).toLocaleString(locale.lang,{minimumFractionDigits:d,maximumFractionDigits:d}):n.toLocaleString(locale.lang,{minimumFractionDigits:d,maximumFractionDigits:d,useGrouping:false});
+  const plain=n=>n.toLocaleString(locale.lang,{maximumFractionDigits:3,useGrouping:false});
+  const model=new RulerModel();
+  const canvas=$('ruler-canvas'),ctx=canvas.getContext('2d');
+  const H=1/120,transferKey='phisicos-ruler-language-transfer',G=RulerModel.g,L=RulerModel.length;
+  let running=false,previous=null,accumulator=0,lastUpdate=0,width=800,height=410;
+  const say=message=>{$('announcement').textContent=message;};
+  try{const data=JSON.parse(sessionStorage.getItem(transferKey)||'null');sessionStorage.removeItem(transferKey);if(data)model.restore(data.state);}catch{$('language-note').hidden=true;}
+  const amount=v=>plain(Number(v.toFixed(3)))+' '+model.unit();
+  const practicing=()=>!!model.practice&&['waiting','falling'].includes(model.practice.state);
+  function setRunning(value){
+    const done=model.status==='done',blocked=!model.ready();running=value&&!done&&!blocked;previous=null;accumulator=0;status();
+  }
+  // Buttons and status only; it never touches the frame clock, so the practice drop keeps its real time.
+  function status(){
+    const done=model.status==='done',blocked=!model.ready();
+    $('play').disabled=running||done||blocked;$('pause').disabled=!running;$('step').disabled=running||done||blocked;
+    $('ruler-status').classList.toggle('running',running||practicing());
+    $('ruler-status-text').textContent=text(practicing()?'practicing':done?'done':running?'running':model.t?'paused':'ready');
+    $('catch').disabled=!practicing();
+  }
+  function sync(){
+    const c=model.config,q=(name,value,unit)=>name+' = '+plain(value)+' '+unit;
+    RulerModel.missions.forEach((m,i)=>{$('mission-'+i).setAttribute('aria-pressed',String(i===model.index));
+      $('given-'+i).textContent=m.ask==='time'?q('d',m.d*100,'cm'):m.ask==='longest'?q('L',L*100,'cm'):q('t',m.t,'s')+(m.compare?' · '+q('t',m.compare,'s')+' → '+plain(Number((RulerModel.fall(m.compare)*100).toFixed(2)))+' cm':'');});
+    $('question').textContent=text({time:'questionTime',longest:'questionLongest',distance:c.compare?'questionCompare':'questionDistance'}[c.ask]);
+    $('answer-symbol').textContent=c.ask==='distance'?'d =':'t =';$('answer-unit').textContent=model.unit();
+    $('answer').value=model.answer===null?'':String(model.answer);$('mission-label').textContent=text('mission'+model.index);
+  }
+  function stopPractice(){if(model.practice){model.practice=null;$('try-result').textContent=text('tryIdle');}}
+  function update(){
+    const c=model.config,ready=model.ready(),done=model.status==='done',t=ready?model.now():0,e=model.evaluate(),d=model.d(t);
+    $('playback-value').textContent='×'+plain(model.practice?1:RulerModel.playback);$('time-value').textContent=number(t,3);$('fallen-value').textContent=number(d*100,1);$('velocity-value').textContent=number(model.v(t));$('acceleration-value').textContent=number(G);
+    $('ruler-equation').textContent='d = ½ × '+number(G)+' × '+number(t,3)+'² = '+number(d,3)+' m = '+number(d*100,1)+' cm';
+    let key,copy;const values={t:number(t,3),d:number(d*100,1)};
+    const slipKey={noRoot:'slipNoRoot',noTwo:'slipNoTwo',centimetres:'slipCentimetres',noHalf:'slipNoHalf',metres:'slipMetres',linear:'slipLinear',speed:'slipSpeed'};
+    if(done){
+      const r={...values,p:amount(model.answer)},end=model.catchTime()===null?'slipCopy':'caughtCopy';
+      if(e.ok){key='good';copy=text(end,r)+' '+text('why'+model.index);}
+      else{key='miss';copy=text(end,r)+' '+text('missCopy',r)+' '+(e.slip?text(slipKey[e.slip]):text('hint'+model.index));}
+    }
+    else if(!ready){key='predict';copy=text('predictCopy');}
+    else if(model.t>0){key='running';copy=text('runningCopy',values);}
+    else{key='ready';copy=text('readyCopy');}
+    $('lesson-title').textContent=text(key+'Title',{...values,p:ready?amount(model.answer):''});$('lesson-copy').textContent=copy;
+    $('insight').classList.toggle('warning',key==='miss');
+    $('mission-score').textContent=done?String(model.score()):'—';
+    $('right-badge').classList.toggle('earned',done&&e.ok);$('first-badge').classList.toggle('earned',done&&e.first);
+  }
+  function refresh(){setRunning(false);update();draw();}
+  function simulate(dt){if(model.advance(dt*RulerModel.playback)){setRunning(false);update();say(text('doneAnnouncement')+' '+$('lesson-title').textContent);return true;}return false;}
+  function practiceResult(){
+    const p=model.practice;if(!p)return;
+    if(p.state==='caught')$('try-result').textContent=text('tryCaught',{d:number(p.distance*100,1),t:number(p.reaction,3)});
+    else if(p.state==='early')$('try-result').textContent=text('tryEarly');
+    else if(p.state==='missed')$('try-result').textContent=text('tryMissed');
+    if(!practicing()){status();say($('try-result').textContent);}
+  }
+  $('answer').addEventListener('input',event=>{const raw=String(event.target.value).trim(),value=raw===''?null:Number(raw);stopPractice();if(!model.setAnswer(value))model.setAnswer(null);refresh();});
+  $('play').addEventListener('click',()=>{stopPractice();setRunning(true);update();say(text('startedAnnouncement'));});
+  $('pause').addEventListener('click',()=>{setRunning(false);update();say(text('pausedAnnouncement'));});
+  $('step').addEventListener('click',()=>{stopPractice();for(let i=0;i<12;i++)if(simulate(H))break;setRunning(false);update();draw();});
+  $('reset').addEventListener('click',()=>{stopPractice();model.reset();refresh();say(text('resetAnnouncement'));});
+  RulerModel.missions.forEach((_,i)=>$('mission-'+i).addEventListener('click',()=>{stopPractice();model.setMission(i);sync();refresh();say(text('missionAnnouncement',{name:text('mission'+i)}));}));
+  // The wait before the drop is random, so the catch measures a real reaction, not a rhythm.
+  $('try').addEventListener('click',()=>{model.reset();model.startPractice(1+Math.random()*2);$('try-result').textContent=text('tryWatch');refresh();say(text('tryWatch'));});
+  const catchNow=()=>{if(!practicing())return;model.catchPractice();practiceResult();update();draw();};
+  $('catch').addEventListener('click',catchNow);
+  document.addEventListener('keydown',event=>{if(event.code==='Space'&&practicing()&&!/^(INPUT|BUTTON|TEXTAREA|SELECT)$/.test(event.target?.tagName||'')){event.preventDefault();catchNow();}});
+  $('show-vectors').addEventListener('change',()=>{update();draw();});
+  function suspend(){if(running){setRunning(false);say(text('suspendedAnnouncement'));}if(practicing()){stopPractice();setRunning(false);}update();draw();}
+  window.addEventListener('blur',suspend);document.addEventListener('visibilitychange',()=>{if(document.hidden)suspend();});
+  for(const link of document.querySelectorAll('.language-menu a'))link.addEventListener('click',()=>{setRunning(false);try{sessionStorage.setItem(transferKey,JSON.stringify({state:model.snapshot()}));}catch{}});
+  function resize(){const rect=canvas.getBoundingClientRect();if(rect.width<=0)return;width=rect.width;height=rect.height;const dpr=Math.min(window.devicePixelRatio||1,3);canvas.width=Math.round(width*dpr);canvas.height=Math.round(height*dpr);ctx.setTransform(dpr,0,0,dpr,0,0);draw();}
+  const TVIEW=.3,DVIEW=45; // fixed graph spans: s and cm
+  function draw(){
+    if(!ctx)return;
+    const c=model.config,practice=!!model.practice,ready=model.ready(),done=model.status==='done',t=ready&&!practice?model.now():0;
+    const d=practice?model.practiceFall():model.d(t),v=practice?(model.practice.state==='falling'?G*(model.practice.t-model.practice.delay):0):model.v(t);
+    ctx.clearRect(0,0,width,height);
+    const label=(str,px,py,color='#b8ccdb',align='left',font=12)=>{ctx.fillStyle=color;ctx.textAlign=align;ctx.font=font+'px -apple-system,BlinkMacSystemFont,sans-serif';ctx.fillText(str,px,py);};
+    const line=(points,color,w=1,dash=[])=>{ctx.beginPath();ctx.strokeStyle=color;ctx.lineWidth=w;ctx.setLineDash(dash);points.forEach((p,i)=>i?ctx.lineTo(p.x,p.y):ctx.moveTo(p.x,p.y));ctx.stroke();ctx.setLineDash([]);};
+    // The ruler: 0 cm at its bottom end, which starts level with the open fingers; the mark at the fingers reads d.
+    const S=(height-70)/(L*100*2),fy=40+L*100*S,cx=Math.max(120,width*.22),bottom=fy+d*100*S,rw=34;
+    // On narrow canvases the slow-motion note drops to the bottom-left corner, below the ruler and clear of the graph's axis labels.
+    const title=text(practice?'tryTitle':'rulerTitle'),note=text('slowNote');
+    ctx.font='12px -apple-system,BlinkMacSystemFont,sans-serif';const titleWidth=ctx.measureText(title).width;ctx.font='10px -apple-system,BlinkMacSystemFont,sans-serif';
+    label(title,16,20,'#d1e3ed','left',12);
+    if(16+titleWidth+24+ctx.measureText(note).width<=width-12)label(note,width-12,20,'#9fb6c7','right',10);else label(note,16,height-8,'#9fb6c7','left',10);
+    ctx.fillStyle='#e9d9a6';ctx.fillRect(cx-rw/2,bottom-L*100*S,rw,L*100*S);
+    for(let k=0;k<=L*100;k++){const yk=bottom-k*S;line([{x:cx-rw/2,y:yk},{x:cx-rw/2+(k%5===0?12:6),y:yk}],'#5a4a2a',1);if(k%5===0)label(String(k),cx+rw/2-3,yk+4,'#5a4a2a','right',10);}
+    const caught=practice?model.practice.state==='caught':done&&model.catchTime()!==null,gap=caught?3:12;
+    ctx.fillStyle='#e8c39e';ctx.fillRect(cx-rw/2-gap-16,fy-8,16,16);ctx.fillRect(cx+rw/2+gap,fy-8,16,16);
+    label(text('fingers'),cx+rw/2+gap+22,fy+4,'#9fb6c7','left',10);
+    // The predicted mark rides on the ruler; when the prediction is right it stops at the fingers.
+    if(!practice&&ready&&c.ask==='distance'){const yp=bottom-model.answer*S;line([{x:cx-rw/2-6,y:yp},{x:cx+rw/2+6,y:yp}],'#efb958',2);}
+    if($('show-vectors').checked&&v>0){const len=Math.min(110,v*25);line([{x:cx-rw/2-40,y:bottom-L*50*S},{x:cx-rw/2-40,y:bottom-L*50*S+len}],'#f2f8fc',2.5);line([{x:cx-rw/2-45,y:bottom-L*50*S+len-9},{x:cx-rw/2-40,y:bottom-L*50*S+len},{x:cx-rw/2-35,y:bottom-L*50*S+len-9}],'#f2f8fc',2);}
+    if(practice&&model.practice.state==='waiting')label(text('tryWatch'),cx,fy+L*100*S*.6,'#d1e3ed','center',13);
+    // d–t graph on fixed spans, traced as the ruler falls.
+    const gx0=width*.45+30,gx1=width-20,gtop=50,gbottom=height-40,gx=u=>gx0+u/TVIEW*(gx1-gx0),gy=w=>gbottom-w/DVIEW*(gbottom-gtop);
+    label(text('graphTitle'),gx0,gtop-20,'#d1e3ed','left',12);label(text('axisDistance'),gx0-6,gtop-6,'#9fb6c7','right',10);label(text('axisTime'),gx1,gbottom+28,'#9fb6c7','right',10);
+    for(let w=0;w<=DVIEW;w+=5){line([{x:gx0,y:gy(w)},{x:gx1,y:gy(w)}],w===0?'#5b7488':'#203d50',1);if(w%10===0)label(String(w),gx0-6,gy(w)+4,'#9fb6c7','right',10);}
+    for(let k=0;k<=6;k++){const u=k*.05;line([{x:gx(u),y:gtop},{x:gx(u),y:gbottom}],'#203d50',1);if(k%2===0)label(plain(u),gx(u),gbottom+14,'#9fb6c7','center',10);}
+    line([{x:gx0,y:gy(L*100)},{x:gx1,y:gy(L*100)}],'#8aa3b5',1.5,[6,4]);label(text('endOfRuler'),gx1-4,gy(L*100)-6,'#9fb6c7','right',10);
+    const tt=practice?(model.practice.state==='falling'?model.practice.t-model.practice.delay:model.practice.reaction??(model.practice.state==='missed'?RulerModel.slipTime():0)):t;
+    if(tt>0){const pts=[];for(let k=0;k<=40;k++){const u=tt*k/40;pts.push({x:gx(u),y:gy(Math.min(L,RulerModel.fall(u))*100)});}line(pts,'#75efc7',3);ctx.fillStyle='#75efc7';ctx.beginPath();ctx.arc(gx(tt),gy(d*100),4.5,0,Math.PI*2);ctx.fill();}
+    if(!practice&&ready&&c.ask!=='distance'&&model.answer<=TVIEW)line([{x:gx(model.answer),y:gtop},{x:gx(model.answer),y:gbottom}],'#efb958',1.5,[5,4]);
+    if(done&&!practice){const e=model.evaluate();label(text(model.catchTime()===null?'slipBanner':'caughtBanner',{d:number(d*100,1),t:number(t,3)}),(gx0+gx1)/2,gtop+18,e.ok?'#75efc7':'#efb958','center',width<430?12:14);}
+  }
+  function frame(now){
+    if(previous===null)previous=now;const elapsed=Math.min(.1,(now-previous)/1000);previous=now;
+    if(running){accumulator+=elapsed;while(accumulator>=H&&running){accumulator-=H;simulate(H);}draw();}
+    // Test yourself runs in real time: a reaction is measured at full speed.
+    if(practicing()){const before=model.practice.state,state=model.advancePractice(elapsed);if(state!==before){if(state==='missed')practiceResult();status();}draw();}
+    if(now-lastUpdate>=80){update();lastUpdate=now;}requestAnimationFrame(frame);
+  }
+  window.addEventListener('resize',resize);if(typeof ResizeObserver!=='undefined')new ResizeObserver(resize).observe(canvas);
+  $('try-result').textContent=text('tryIdle');
+  sync();setRunning(false);update();resize();requestAnimationFrame(frame);
+})();
+</script>
+</body>
+</html>

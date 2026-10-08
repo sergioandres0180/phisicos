@@ -1,0 +1,245 @@
+<!doctype html>
+<html lang="en">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Graph Rider · Phisicos</title>
+<style>
+.graph-page .field{margin-top:16px}.graph-page .field:first-of-type{margin-top:8px}.graph-page .label-row output{white-space:normal;text-align:right}.graph-page .question{font-size:15px;font-weight:600;margin-top:4px}.graph-page [hidden]{display:none!important}
+</style>
+</head>
+<body>
+<div class="shell module-page graph-page">
+__HEADER__
+<main id="main-content">
+__BREADCRUMBS__
+
+<div class="masthead"><div><h1>{{title}}</h1><p class="intro">{{subtitle}}</p></div><div class="concept-tags"><span class="tag speed">{{tag1}}</span><span class="tag velocity">{{tag2}}</span></div></div>
+<noscript><p class="no-js">{{noScript}}</p></noscript>
+<div class="layout">
+<aside class="sidebar" aria-label="{{setup}}">
+  <section class="control-section"><h2 class="eyebrow">{{setup}}</h2><div class="mission-list" role="group" aria-label="{{setup}}">
+    <button id="mission-0" aria-pressed="true"><b>1 · {{mission0}}</b><span id="given-0">v₀</span></button>
+    <button id="mission-1" aria-pressed="false"><b>2 · {{mission1}}</b><span id="given-1">v₀</span></button>
+    <button id="mission-2" aria-pressed="false"><b>3 · {{mission2}}</b><span id="given-2">v₀</span></button>
+    <button id="mission-3" aria-pressed="false"><b>4 · {{mission3}}</b><span id="given-3">v₀</span></button>
+  </div><p class="hint">{{setupNote}}</p></section>
+  <section class="control-section"><h2 class="eyebrow">{{planHeading}}</h2>
+    <p class="question">{{planQuestion}}</p>
+    <div class="field" id="leg-field-0"><div class="label-row"><label for="acc-0" id="acc-0-label">1</label><output id="acc-0-value" for="acc-0">0</output></div><input id="acc-0" type="range" min="-3" max="3" step="0.5" value="0"><div class="range-ends"><span>−3 m/s²</span><span>+3 m/s²</span></div></div>
+    <div class="field" id="leg-field-1"><div class="label-row"><label for="acc-1" id="acc-1-label">2</label><output id="acc-1-value" for="acc-1">0</output></div><input id="acc-1" type="range" min="-3" max="3" step="0.5" value="0"><div class="range-ends"><span>−3 m/s²</span><span>+3 m/s²</span></div></div>
+    <div class="field" id="leg-field-2"><div class="label-row"><label for="acc-2" id="acc-2-label">3</label><output id="acc-2-value" for="acc-2">0</output></div><input id="acc-2" type="range" min="-3" max="3" step="0.5" value="0"><div class="range-ends"><span>−3 m/s²</span><span>+3 m/s²</span></div></div>
+    <p class="hint">{{planHint}}</p>
+  </section>
+  <section class="control-section"><h2 class="eyebrow">{{observe}}</h2><label class="check"><input id="show-vectors" type="checkbox" checked>{{vectors}}</label><label class="check"><input id="show-ghost" type="checkbox" checked>{{ghost}}</label><label class="check"><input id="show-area" type="checkbox" checked>{{area}}</label><p class="hint">{{observeHint}}</p></section>
+</aside>
+<div class="workspace">
+  <section class="scene" aria-label="{{sceneTitle}}"><div class="scene-top"><div><h2 class="scene-title">{{sceneTitle}}</h2><p class="scene-subtitle" id="mission-label">{{mission0}}</p></div><span class="status" id="graph-status"><i class="status-dot" aria-hidden="true"></i><span id="graph-status-text">{{ready}}</span></span></div>
+    <div class="module-stage"><canvas id="graph-canvas" role="img" aria-label="{{canvasLabel}}">{{noScript}}</canvas></div>
+    <div class="legend"><span><i class="line-key gray"></i>{{targetLegend}}</span><span><i class="line-key mint"></i>{{traceLegend}}</span><span><i class="line-key white"></i>{{velocityLegend}}</span><span><i class="line-key orange"></i>{{accelerationLegend}}</span><span><i class="line-key blue"></i>{{areaLegend}}</span></div>
+    <div class="module-equation"><span>{{equationTitle}}</span><output id="graph-equation">v = v₀ + a·t</output></div>
+    <div class="transport"><button id="play" class="primary">{{play}}</button><button id="pause" disabled>{{pause}}</button><button id="step">{{step}}</button><button id="reset" class="reset">{{reset}}</button></div>
+  </section>
+  <section class="metrics" aria-label="{{observe}}">
+    <div class="metric scalar"><h3 class="metric-label">{{time}}</h3><p class="metric-value"><span id="time-value">0.00</span> <small>s</small></p><p class="metric-equation">t</p></div>
+    <div class="metric vector"><h3 class="metric-label">{{velocity}}</h3><p class="metric-value"><span id="velocity-value">0.00</span> <small>m/s</small></p><p class="metric-equation">vₓ</p></div>
+    <div class="metric vector"><h3 class="metric-label">{{acceleration}}</h3><p class="metric-value"><span id="acceleration-value">0.0</span> <small>m/s²</small></p><p class="metric-equation">aₓ = Δv ÷ Δt</p></div>
+    <div class="metric vector"><h3 class="metric-label">{{displacement}}</h3><p class="metric-value"><span id="disp-value">0.00</span> <small>m</small></p><p class="metric-equation">Δx = {{areaSymbol}}</p></div>
+    <div class="metric vector"><h3 class="metric-label">{{gap}}</h3><p class="metric-value"><span id="gap-value">0.00</span> <small>m</small></p><p class="metric-equation">x − x_target</p></div>
+  </section>
+  <div class="insight" id="insight"><span class="insight-icon" aria-hidden="true">↗</span><div><strong id="lesson-title">{{readyTitle}}</strong><p id="lesson-copy">{{readyCopy}}</p></div></div>
+  <section class="challenge"><div class="mission-heading"><h2 class="challenge-title">{{missionTitle}}</h2><div class="score-card"><span>{{score}}</span><strong id="mission-score">—</strong></div></div><p class="mission-copy">{{missionCopy}}</p><div class="badges"><span id="match-badge">✓ {{matchBadge}}</span><span id="first-badge">① {{firstBadge}}</span></div></section>
+</div>
+</div>
+<article class="learning-content"><section><h2>{{guideTitle}}</h2><ol><li>{{instruction1}}</li><li>{{instruction2}}</li><li>{{instruction3}}</li><li>{{instruction4}}</li></ol></section><section><h2>{{conceptTitle}}</h2><p>{{conceptCopy}}</p><aside class="worked-example"><h3>{{exampleTitle}}</h3><p>{{exampleCopy}}</p></aside></section><section><h2>{{modelTitle}}</h2><p>{{modelCopy}}</p></section></article>
+<p class="language-note" id="language-note">{{languageNote}}</p>
+</main>
+__FOOTER__
+<p class="sr-only" id="announcement" role="status" aria-live="polite"></p>
+</div>
+<script id="graph-model">
+class GraphModel {
+  // x is the cart's position along a straight track, measured from its start; +x points right.
+  // A target is a starting velocity and legs of [duration (s), constant acceleration (m/s²)], so v(t) is piecewise linear.
+  // The learner's plan keeps the same legs and chooses one constant acceleration for each.
+  static missions = [
+    {v0:0,legs:[[4,1.5],[4,0]]},
+    {v0:0,legs:[[3,2],[3,0],[4,-1.5]]},
+    {v0:8,legs:[[4,-1],[2,0],[4,.5]]},
+    {v0:4,legs:[[4,-2],[2,0],[4,1]]}
+  ];
+  static limit = 3; // m/s², the slider range
+  static step = .5; // m/s², the slider resolution
+  static playback = 1; // the runs last 8–10 s, so they play in real time
+  constructor(index = 0){this.setMission(index);}
+  setMission(index){this.index=index;this.config=GraphModel.missions[index];this.plan=this.config.legs.map(()=>0);this.attempts=0;this.reset();}
+  reset(){this.t=0;this.status='driving';}
+  setAcceleration(leg,a){
+    if(!Number.isInteger(leg)||leg<0||leg>=this.plan.length||!Number.isFinite(a)||Math.abs(a)>GraphModel.limit+1e-9)return false;
+    this.plan[leg]=a;this.reset();return true;
+  }
+  duration(){return this.config.legs.reduce((s,[d])=>s+d,0);}
+  // Leg boundaries (t, x, v) for constant acceleration on each leg: exact, not integrated.
+  static breaks(v0,legs){const pts=[{t:0,x:0,v:v0}];for(const [d,a] of legs){const p=pts[pts.length-1];pts.push({t:p.t+d,x:p.x+p.v*d+.5*a*d*d,v:p.v+a*d});}return pts;}
+  planLegs(){return this.config.legs.map(([d],i)=>[d,this.plan[i]]);}
+  static at(v0,legs,t){
+    const pts=GraphModel.breaks(v0,legs),T=pts[pts.length-1].t,u=Math.min(Math.max(t,0),T);
+    let i=0;while(i<legs.length-1&&u>pts[i+1].t)i++;
+    const p=pts[i],a=legs[i][1],tau=u-p.t;
+    return {x:p.x+p.v*tau+.5*a*tau*tau,v:p.v+a*tau,a,leg:i,tau,v1:p.v};
+  }
+  target(t){return GraphModel.at(this.config.v0,this.config.legs,t);}
+  state(t){return GraphModel.at(this.config.v0,this.planLegs(),t);}
+  targetPoints(){return GraphModel.breaks(this.config.v0,this.config.legs);}
+  planPoints(){return GraphModel.breaks(this.config.v0,this.planLegs());}
+  // Distance along the track: |Δx| on each piece between leg boundaries and the instants where v = 0.
+  distance(t){
+    const legs=this.planLegs(),pts=this.planPoints(),cuts=[0];
+    legs.forEach(([,a],i)=>{const p=pts[i];if(a!==0){const r=p.t-p.v/a;if(r>p.t&&r<pts[i+1].t)cuts.push(r);}cuts.push(pts[i+1].t);});
+    let s=0,prev=this.state(0).x;
+    for(const c of cuts.filter(c=>c>0&&c<t).concat([t])){const x=this.state(c).x;s+=Math.abs(x-prev);prev=x;}
+    return s;
+  }
+  now(){return this.status==='done'?this.duration():this.t;}
+  advance(dt){
+    if(!Number.isFinite(dt)||dt<0)throw new Error('Invalid timestep');
+    if(this.status==='done')return null;
+    // The run ends exactly at the end of the last leg.
+    const T=this.duration();
+    if(this.t+dt>=T*(1-1e-12)){this.t=T;this.status='done';this.attempts++;return {t:T};}
+    this.t+=dt;return null;
+  }
+  exact(){return this.config.legs.map(([,a])=>a);}
+  evaluate(){
+    const exact=this.exact(),legs=this.plan.map((a,i)=>Math.abs(a-exact[i])<1e-9),ok=legs.every(Boolean),wrong=legs.indexOf(false);
+    let slip=null;
+    if(!ok){
+      const a=this.plan[wrong],e=exact[wrong];
+      if(e===0)slip='flat';
+      else if(Math.abs(a+e)<1e-9)slip='sign';
+      else if(a===0)slip='zero';
+      else if(Math.sign(a)!==Math.sign(e))slip='direction';
+      else slip=Math.abs(a)>Math.abs(e)?'steep':'shallow';
+    }
+    // v(t) differs linearly on every leg, so the largest gap between the graphs is at a leg boundary.
+    const tp=this.targetPoints(),pp=this.planPoints(),gap=Math.max(...tp.map((p,i)=>Math.abs(pp[i].v-p.v)));
+    return {exact,legs,ok,wrong,slip,gap,first:ok&&this.attempts===1};
+  }
+  score(){if(this.status!=='done')return 0;const e=this.evaluate();return (e.ok?100:0)+(e.first?50:0);}
+  snapshot(){return {index:this.index,plan:[...this.plan],attempts:this.attempts,t:this.t,status:this.status};}
+  restore(saved){
+    if(!Number.isInteger(saved?.index)||!GraphModel.missions[saved.index])return false;
+    const probe=new GraphModel(saved.index);
+    if(!Array.isArray(saved.plan)||saved.plan.length!==probe.plan.length||!saved.plan.every((a,i)=>probe.setAcceleration(i,a)))return false;
+    if(!Number.isInteger(saved.attempts)||saved.attempts<0)return false;
+    if(!['driving','done'].includes(saved.status)||!Number.isFinite(saved.t)||saved.t<0||saved.t>probe.duration()*(1+1e-9))return false;
+    if(saved.status==='done'&&saved.attempts<1)return false;
+    this.setMission(saved.index);this.plan=[...probe.plan];this.attempts=saved.attempts;
+    this.status=saved.status;this.t=saved.status==='done'?this.duration():saved.t;return true;
+  }
+}
+globalThis.GraphModel=GraphModel;
+</script>
+<script id="graph-locale" type="application/json">__LOCALE__</script>
+<script id="graph-interface">
+(() => {
+  'use strict';
+  const $=id=>document.getElementById(id),locale=JSON.parse($('graph-locale').textContent);
+  const text=(key,values={})=>locale.strings[key].replace(/\{(\w+)\}/g,(_,name)=>values[name]??'{'+name+'}');
+  const number=(n,d=2)=>Math.abs(n)<.5*10**-d?(0).toLocaleString(locale.lang,{minimumFractionDigits:d,maximumFractionDigits:d}):n.toLocaleString(locale.lang,{minimumFractionDigits:d,maximumFractionDigits:d,useGrouping:false});
+  const plain=n=>n.toLocaleString(locale.lang,{maximumFractionDigits:2,useGrouping:false}).replace('-','−');
+  const signed=(n,d=2)=>(n>.5*10**-d?'+':'')+number(n,d);
+  const model=new GraphModel();
+  const canvas=$('graph-canvas'),ctx=canvas.getContext('2d');
+  const H=1/120,transferKey='phisicos-graph-language-transfer';
+  let running=false,previous=null,accumulator=0,lastUpdate=0,width=800,height=410;
+  const say=message=>{$('announcement').textContent=message;};
+  try{const data=JSON.parse(sessionStorage.getItem(transferKey)||'null');sessionStorage.removeItem(transferKey);if(data)model.restore(data.state);}catch{$('language-note').hidden=true;}
+  const legTimes=i=>{const pts=model.targetPoints();return {n:i+1,t1:plain(pts[i].t),t2:plain(pts[i+1].t)};};
+  function setRunning(value){
+    const done=model.status==='done';running=value&&!done;previous=null;accumulator=0;
+    $('play').disabled=running||done;$('pause').disabled=!running;$('step').disabled=running||done;
+    $('graph-status').classList.toggle('running',running);
+    $('graph-status-text').textContent=text(done?'done':running?'running':model.t?'paused':'ready');
+  }
+  function sync(){
+    GraphModel.missions.forEach((m,i)=>{$('mission-'+i).setAttribute('aria-pressed',String(i===model.index));$('given-'+i).textContent='v₀ = '+plain(m.v0)+' m/s · '+text('givenLegs',{n:m.legs.length});});
+    for(let i=0;i<3;i++){
+      const used=i<model.plan.length;$('leg-field-'+i).hidden=!used;if(!used)continue;
+      $('acc-'+i+'-label').textContent=text('legLabel',legTimes(i));$('acc-'+i).value=String(model.plan[i]);
+    }
+    $('mission-label').textContent=text('mission'+model.index);
+  }
+  function update(){
+    const t=model.now(),s=model.state(t),g=model.target(t),done=model.status==='done',e=model.evaluate();
+    model.plan.forEach((a,i)=>{$('acc-'+i+'-value').textContent='a'+'₁₂₃'[i]+' = '+signed(a,1)+' m/s²';});
+    $('time-value').textContent=number(t);$('velocity-value').textContent=signed(s.v);$('acceleration-value').textContent=signed(s.a,1);
+    $('disp-value').textContent=signed(s.x);$('gap-value').textContent=signed(s.x-g.x);
+    $('graph-equation').textContent='v = '+number(s.v1)+' + ('+signed(s.a,1)+') × '+number(s.tau)+' = '+number(s.v)+' m/s · '+text('legShort',{n:s.leg+1});
+    let key,copy,values={t:number(t,1),v:signed(s.v),vt:signed(g.v),dx:signed(s.x,1)+' m',s:number(model.distance(t),1)+' m',gap:number(e.gap,1)};
+    const slipKey={flat:'slipFlat',sign:'slipSign',zero:'slipZero',direction:'slipDirection',steep:'slipSteep',shallow:'slipShallow'};
+    if(done){
+      if(e.ok){key='good';copy=text('goodCopy',values)+' '+text('why'+model.index);}
+      else{const leg=legTimes(e.wrong);key='miss';copy=text('missCopy',{...values,...leg})+' '+text(slipKey[e.slip],{...leg,a:signed(e.exact[e.wrong],1)});}
+    }
+    else if(model.t>0){key='running';copy=text('runningCopy',values);}
+    else{key='ready';copy=text('readyCopy');}
+    $('lesson-title').textContent=text(key+'Title',{...values,n:e.wrong+1});$('lesson-copy').textContent=copy;
+    $('insight').classList.toggle('warning',key==='miss');
+    $('mission-score').textContent=done?String(model.score()):'—';
+    $('match-badge').classList.toggle('earned',done&&e.ok);$('first-badge').classList.toggle('earned',done&&e.first);
+  }
+  function refresh(){setRunning(false);update();draw();}
+  function simulate(dt){if(model.advance(dt*GraphModel.playback)){setRunning(false);update();say(text('doneAnnouncement')+' '+$('lesson-title').textContent);return true;}return false;}
+  $('play').addEventListener('click',()=>{setRunning(true);update();say(text('startedAnnouncement'));});
+  $('pause').addEventListener('click',()=>{setRunning(false);update();say(text('pausedAnnouncement'));});
+  $('step').addEventListener('click',()=>{for(let i=0;i<12;i++)if(simulate(H))break;setRunning(false);update();draw();});
+  $('reset').addEventListener('click',()=>{model.reset();refresh();say(text('resetAnnouncement'));});
+  GraphModel.missions.forEach((_,i)=>$('mission-'+i).addEventListener('click',()=>{model.setMission(i);sync();refresh();say(text('missionAnnouncement',{name:text('mission'+i)}));}));
+  for(let i=0;i<3;i++)$('acc-'+i).addEventListener('input',event=>{if(model.setAcceleration(i,Number(event.target.value)))refresh();});
+  for(const id of ['show-vectors','show-ghost','show-area'])$(id).addEventListener('change',()=>{update();draw();});
+  function suspend(){if(running){setRunning(false);say(text('suspendedAnnouncement'));}update();draw();}
+  window.addEventListener('blur',suspend);document.addEventListener('visibilitychange',()=>{if(document.hidden)suspend();});
+  for(const link of document.querySelectorAll('.language-menu a'))link.addEventListener('click',()=>{setRunning(false);try{sessionStorage.setItem(transferKey,JSON.stringify({state:model.snapshot()}));}catch{}});
+  function resize(){const rect=canvas.getBoundingClientRect();if(rect.width<=0)return;width=rect.width;height=rect.height;const dpr=Math.min(window.devicePixelRatio||1,3);canvas.width=Math.round(width*dpr);canvas.height=Math.round(height*dpr);ctx.setTransform(dpr,0,0,dpr,0,0);draw();}
+  const VEL=8,ACC=16; // px per m/s and per m/s², stated on the canvas.
+  const tick=span=>[1,2,5,10,20,50].find(s=>span/s<=10)||100;
+  function draw(){
+    if(!ctx)return;
+    const T=model.duration(),t=model.now(),s=model.state(t),g=model.target(t),done=model.status==='done',tp=model.targetPoints(),pp=model.planPoints();
+    ctx.clearRect(0,0,width,height);
+    const label=(str,px,py,color='#b8ccdb',align='left',font=12)=>{ctx.fillStyle=color;ctx.textAlign=align;ctx.font=font+'px -apple-system,BlinkMacSystemFont,sans-serif';ctx.fillText(str,px,py);};
+    const line=(points,color,w=1,dash=[])=>{ctx.beginPath();ctx.strokeStyle=color;ctx.lineWidth=w;ctx.setLineDash(dash);points.forEach((q,i)=>i?ctx.lineTo(q.x,q.y):ctx.moveTo(q.x,q.y));ctx.stroke();ctx.setLineDash([]);};
+    const arrowH=(fromX,toX,py,color,w=2.5)=>{if(Math.abs(toX-fromX)<3)return;const d=Math.sign(toX-fromX);line([{x:fromX,y:py},{x:toX,y:py}],color,w);line([{x:toX-d*9,y:py-5},{x:toX,y:py},{x:toX-d*9,y:py+5}],color,2);};
+    // Track: both carts on one position scale that covers the whole target run and the whole planned run.
+    const samples=[];for(let k=0;k<=80;k++){const u=T*k/80;samples.push(model.target(u).x,model.state(u).x);}
+    const xlo=Math.min(0,...samples),xhi=Math.max(0,...samples),pad=Math.max(2,(xhi-xlo)*.06),lo=xlo-pad,hi=xhi+pad;
+    const rx0=36,rx1=width-24,px=x=>rx0+(x-lo)/(hi-lo)*(rx1-rx0),roadY=62;
+    label(text('trackTitle'),rx0,18,'#d1e3ed','left',12);label(text('arrowScale'),width-12,18,'#9fb6c7','right',10);
+    ctx.fillStyle='#163449';ctx.fillRect(rx0-10,roadY-22,rx1-rx0+20,44);
+    const step=tick(hi-lo);for(let v=Math.ceil(lo/step)*step;v<=hi;v+=step){line([{x:px(v),y:roadY+22},{x:px(v),y:roadY+28}],'#5b7488',1);label(plain(v||0),px(v),roadY+40,'#9fb6c7','center',10);}
+    label('x (m)',rx1+8,roadY+40,'#9fb6c7','right',10);
+    line([{x:px(0),y:roadY-22},{x:px(0),y:roadY+22}],'#efb958',1.5,[3,3]);
+    if($('show-ghost').checked){ctx.strokeStyle='#8aa3b5';ctx.lineWidth=1.5;ctx.setLineDash([4,3]);ctx.strokeRect(px(g.x)-15,roadY-9,30,16);ctx.setLineDash([]);label(text('ghostLabel'),px(g.x),roadY-13,'#8aa3b5','center',10);}
+    ctx.fillStyle='#75efc7';ctx.fillRect(px(s.x)-15,roadY-6,30,14);ctx.fillStyle='#102637';ctx.beginPath();ctx.arc(px(s.x)-8,roadY+9,3.5,0,Math.PI*2);ctx.arc(px(s.x)+8,roadY+9,3.5,0,Math.PI*2);ctx.fill();
+    if($('show-vectors').checked){arrowH(px(s.x),px(s.x)+s.v*VEL,roadY-1,'#f2f8fc');arrowH(px(s.x),px(s.x)+s.a*ACC,roadY+16,'#efb958',2);}
+    // v–t graph on a 1 s by 1 m/s grid (2 m/s when the range is large).
+    const vs=[...tp,...pp].map(p=>p.v),vlo=Math.floor(Math.min(0,...vs))-1,vhi=Math.ceil(Math.max(0,...vs))+1,vstep=vhi-vlo>12?2:1;
+    const top=128,bottom=height-38,gx0=Math.max(54,width*.08),gx1=width-20,tx=u=>gx0+u/T*(gx1-gx0),vy=v=>bottom-(v-vlo)/(vhi-vlo)*(bottom-top);
+    for(let v=vlo;v<=vhi;v++){line([{x:gx0,y:vy(v)},{x:gx1,y:vy(v)}],v===0?'#5b7488':'#203d50',1);if(v%vstep===0)label(plain(v),gx0-6,vy(v)+4,'#9fb6c7','right',11);}
+    for(let u=0;u<=T;u++){line([{x:tx(u),y:vy(vlo)},{x:tx(u),y:vy(vhi)}],'#203d50',1);label(plain(u),tx(u),bottom+15,'#9fb6c7','center',11);}
+    label(text('axisTime'),gx1,bottom+30,'#9fb6c7','right',11);label(text('axisVelocity'),gx0-6,top-6,'#9fb6c7','right',11);label(text('graphTitle'),gx0+4,top-8,'#d1e3ed','left',12);
+    for(let i=1;i<tp.length-1;i++)line([{x:tx(tp[i].t),y:vy(vlo)},{x:tx(tp[i].t),y:vy(vhi)}],'#5b7488',1,[2,4]);
+    for(let i=0;i<tp.length-1;i++)label(text('legShort',{n:i+1}),(tx(tp[i].t)+tx(tp[i+1].t))/2,bottom-6,'#9fb6c7','center',10);
+    // The part already driven, as points on the planned graph up to now.
+    const driven=[...pp.filter(p=>p.t<t),{t,v:s.v}];
+    if($('show-area').checked&&t>0){ctx.beginPath();ctx.moveTo(tx(0),vy(0));driven.forEach(p=>ctx.lineTo(tx(p.t),vy(p.v)));ctx.lineTo(tx(t),vy(0));ctx.closePath();ctx.fillStyle='rgba(119,185,255,.2)';ctx.fill();}
+    line(tp.map(p=>({x:tx(p.t),y:vy(p.v)})),'#8aa3b5',2,[6,5]);
+    line(driven.map(p=>({x:tx(p.t),y:vy(p.v)})),'#75efc7',3);
+    ctx.fillStyle='#75efc7';ctx.beginPath();ctx.arc(tx(t),vy(s.v),5,0,Math.PI*2);ctx.fill();
+    if(done){const e=model.evaluate();label(e.ok?text('matchBanner',{dx:signed(s.x,1)+' m'}):text('missBanner',{n:e.wrong+1}),(gx0+gx1)/2,top+18,e.ok?'#75efc7':'#efb958','center',width<430?13:15);}
+  }
+  function frame(now){if(previous===null)previous=now;const elapsed=Math.min(.1,(now-previous)/1000);previous=now;if(running){accumulator+=elapsed;while(accumulator>=H&&running){accumulator-=H;simulate(H);}draw();}if(now-lastUpdate>=80){update();lastUpdate=now;}requestAnimationFrame(frame);}
+  window.addEventListener('resize',resize);if(typeof ResizeObserver!=='undefined')new ResizeObserver(resize).observe(canvas);
+  sync();setRunning(false);update();resize();requestAnimationFrame(frame);
+})();
+</script>
+</body>
+</html>

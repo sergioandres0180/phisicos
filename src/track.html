@@ -1,0 +1,260 @@
+<!doctype html>
+<html lang="en">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Train Track · Phisicos</title>
+<style>
+.track-page .frame-row{display:grid;grid-template-columns:repeat(5,1fr);gap:6px;margin-top:8px}.track-page .frame-row button,.track-page .dir-row button{min-height:44px;border:1px solid var(--line);border-radius:9px;background:#fff;font:600 15px ui-monospace,SFMono-Regular,monospace;color:var(--ink)}.track-page .frame-row button[aria-pressed=true],.track-page .dir-row button[aria-pressed=true]{background:#e4f3ed;border-color:#81bea8}.track-page .frame-row button:disabled,.track-page .dir-row button:disabled{opacity:.45}
+.track-page .dir-row{display:grid;grid-template-columns:1fr 1fr;gap:6px;margin-top:8px}.track-page .dir-row button{font:600 14px -apple-system,BlinkMacSystemFont,sans-serif}
+.track-page .answer-row .symbol{min-width:44px}
+</style>
+</head>
+<body>
+<div class="shell module-page track-page">
+__HEADER__
+<main id="main-content">
+__BREADCRUMBS__
+
+<div class="masthead"><div><h1>{{title}}</h1><p class="intro">{{subtitle}}</p></div><div class="concept-tags"><span class="tag speed">{{tag1}}</span><span class="tag velocity">{{tag2}}</span></div></div>
+<noscript><p class="no-js">{{noScript}}</p></noscript>
+<div class="layout">
+<aside class="sidebar" aria-label="{{setup}}">
+  <section class="control-section"><h2 class="eyebrow">{{setup}}</h2><div class="mission-list" role="group" aria-label="{{setup}}">
+    <button id="mission-0" aria-pressed="true"><b>1 · {{mission0}}</b><span id="given-0">C → E</span></button>
+    <button id="mission-1" aria-pressed="false"><b>2 · {{mission1}}</b><span id="given-1">C → A</span></button>
+    <button id="mission-2" aria-pressed="false"><b>3 · {{mission2}}</b><span id="given-2">B → D</span></button>
+    <button id="mission-3" aria-pressed="false"><b>4 · {{mission3}}</b><span id="given-3">B → D</span></button>
+    <button id="mission-4" aria-pressed="false"><b>5 · {{mission4}}</b><span id="given-4">D → A</span></button>
+    <button id="mission-5" aria-pressed="false"><b>6 · {{mission5}}</b><span id="given-5">E → B</span></button>
+  </div><p class="hint">{{setupNote}}</p></section>
+  <section class="control-section"><h2 class="eyebrow">{{predictHeading}}</h2>
+    <p class="field-label"><label for="final-answer">{{finalLabel}}</label></p>
+    <div class="answer-row"><span class="symbol">x_f =</span><input id="final-answer" type="number" inputmode="decimal" step="any" value=""><span class="unit">m</span></div>
+    <p class="field-label"><label for="disp-answer">{{dispLabel}}</label></p>
+    <div class="answer-row"><span class="symbol">Δx =</span><input id="disp-answer" type="number" inputmode="decimal" step="any" value=""><span class="unit">m</span></div>
+    <p class="hint">{{predictHint}}</p>
+  </section>
+  <section class="control-section"><h2 class="eyebrow">{{exploreHeading}}</h2>
+    <p class="field-label" id="origin-label">{{originLabel}}</p>
+    <div class="frame-row" role="group" aria-labelledby="origin-label"><button id="origin-0" aria-pressed="false" disabled>A</button><button id="origin-1" aria-pressed="false" disabled>B</button><button id="origin-2" aria-pressed="true" disabled>C</button><button id="origin-3" aria-pressed="false" disabled>D</button><button id="origin-4" aria-pressed="false" disabled>E</button></div>
+    <p class="field-label" id="dir-label">{{dirLabel}}</p>
+    <div class="dir-row" role="group" aria-labelledby="dir-label"><button id="dir-east" aria-pressed="true" disabled>{{towardEast}} →</button><button id="dir-west" aria-pressed="false" disabled>← {{towardWest}}</button></div>
+    <p class="hint">{{exploreHint}}</p>
+    <label class="check"><input id="show-vectors" type="checkbox" checked>{{vectors}}</label>
+  </section>
+</aside>
+<div class="workspace">
+  <section class="scene" aria-label="{{sceneTitle}}"><div class="scene-top"><div><h2 class="scene-title">{{sceneTitle}}</h2><p class="scene-subtitle" id="mission-label">{{mission0}}</p></div><span class="status" id="train-status"><i class="status-dot" aria-hidden="true"></i><span id="train-status-text">{{ready}}</span></span></div>
+    <div class="module-stage"><canvas id="track-canvas" role="img" aria-label="{{canvasLabel}}">{{noScript}}</canvas></div>
+    <div class="legend"><span><i class="line-key orange"></i>{{originLegend}}</span><span><i class="line-key blue"></i>{{dispLegend}}</span><span><i class="line-key mint"></i>{{pathLegend}}</span><span><i class="line-key white"></i>{{velocityLegend}}</span><span><i class="line-key gray"></i>{{stationLegend}}</span></div>
+    <div class="module-equation"><span>{{equationTitle}}</span><output id="track-equation">Δx = x − xᵢ</output></div>
+    <div class="transport"><button id="play" class="primary" disabled>{{play}}</button><button id="pause" disabled>{{pause}}</button><button id="step" disabled>{{step}}</button><button id="reset" class="reset">{{reset}}</button></div>
+  </section>
+  <section class="metrics" aria-label="{{observe}}">
+    <div class="metric scalar"><h3 class="metric-label">{{time}}</h3><p class="metric-value"><span id="time-value">0.0</span> <small>s</small></p><p class="metric-equation">t</p></div>
+    <div class="metric vector"><h3 class="metric-label">{{position}}</h3><p class="metric-value"><span id="position-value">0</span> <small>m</small></p><p class="metric-equation">x</p></div>
+    <div class="metric vector"><h3 class="metric-label">{{displacement}}</h3><p class="metric-value"><span id="disp-value">0</span> <small>m</small></p><p class="metric-equation">Δx = x − xᵢ</p></div>
+    <div class="metric scalar"><h3 class="metric-label">{{distance}}</h3><p class="metric-value"><span id="distance-value">0</span> <small>m</small></p><p class="metric-equation">s</p></div>
+    <div class="metric vector"><h3 class="metric-label">{{velocity}}</h3><p class="metric-value"><span id="velocity-value">0</span> <small>m/s</small></p><p class="metric-equation">vₓ</p></div>
+  </section>
+  <div class="insight" id="insight"><span class="insight-icon" aria-hidden="true">↗</span><div><strong id="lesson-title">{{predictTitle}}</strong><p id="lesson-copy">{{predictCopy}}</p></div></div>
+  <section class="challenge"><div class="mission-heading"><h2 class="challenge-title">{{missionTitle}}</h2><div class="score-card"><span>{{score}}</span><strong id="mission-score">—</strong></div></div><p class="mission-copy">{{missionCopy}}</p><div class="badges"><span id="final-badge">x {{finalBadge}}</span><span id="disp-badge">Δx {{dispBadge}}</span></div></section>
+</div>
+</div>
+<article class="learning-content"><section><h2>{{guideTitle}}</h2><ol><li>{{instruction1}}</li><li>{{instruction2}}</li><li>{{instruction3}}</li><li>{{instruction4}}</li></ol></section><section><h2>{{conceptTitle}}</h2><p>{{conceptCopy}}</p><aside class="worked-example"><h3>{{exampleTitle}}</h3><p>{{exampleCopy}}</p></aside></section><section><h2>{{modelTitle}}</h2><p>{{modelCopy}}</p></section></article>
+<p class="language-note" id="language-note">{{languageNote}}</p>
+</main>
+__FOOTER__
+<p class="sr-only" id="announcement" role="status" aria-live="polite"></p>
+</div>
+<script id="track-model">
+class TrackModel {
+  // u is the distance along the track east of station A. A frame (origin station, positive direction)
+  // turns it into a position: x = dir · (u − u_origin). The train itself never depends on the frame.
+  static stations = [0,300,500,900,1200]; // A–E, metres east of A
+  static names = ['A','B','C','D','E'];
+  static missions = [
+    {origin:2,dir:1,from:2,to:4},
+    {origin:2,dir:1,from:2,to:0},
+    {origin:0,dir:1,from:1,to:3},
+    {origin:4,dir:1,from:1,to:3},
+    {origin:1,dir:-1,from:3,to:0},
+    {origin:3,dir:1,from:4,to:1}
+  ];
+  static speed = 20; // m/s, constant between the two stations
+  static playback = 5; // physical seconds per second of playback
+  static tolerance = .5; // m
+  constructor(index = 0){this.setMission(index);}
+  setMission(index){this.index=index;this.config=TrackModel.missions[index];this.final=null;this.disp=null;this.reset();}
+  // Reset restarts the trip and returns to the mission's frame.
+  reset(){this.t=0;this.status='running';this.origin=this.config.origin;this.dir=this.config.dir;}
+  setPrediction(final,disp){
+    for(const v of [final,disp])if(v!==null&&!Number.isFinite(v))return false;
+    this.final=final;this.disp=disp;this.reset();return true;
+  }
+  ready(){return this.final!==null&&this.disp!==null;}
+  // Exploring another frame is allowed only after arrival, so predictions are always judged in the mission frame.
+  setFrame(origin,dir){
+    if(this.status!=='arrived'||!TrackModel.names[origin]||(dir!==1&&dir!==-1))return false;
+    this.origin=origin;this.dir=dir;return true;
+  }
+  xOf(u,origin=this.origin,dir=this.dir){return dir*(u-TrackModel.stations[origin]);}
+  uStart(){return TrackModel.stations[this.config.from];}
+  uEnd(){return TrackModel.stations[this.config.to];}
+  tripTime(){return Math.abs(this.uEnd()-this.uStart())/TrackModel.speed;}
+  u(){const a=this.uStart(),b=this.uEnd(),s=Math.min(this.status==='arrived'?Infinity:this.t*TrackModel.speed,Math.abs(b-a));return a+Math.sign(b-a)*s;}
+  distance(){return Math.abs(this.u()-this.uStart());}
+  position(){return this.xOf(this.u());}
+  displacement(){return this.position()-this.xOf(this.uStart());}
+  velocity(){return this.status==='arrived'?0:this.dir*Math.sign(this.uEnd()-this.uStart())*TrackModel.speed;}
+  advance(dt){
+    if(!Number.isFinite(dt)||dt<0)throw new Error('Invalid timestep');
+    if(this.status==='arrived'||!this.ready())return null;
+    // Arrival is solved exactly at t = |u_end − u_start| ÷ v.
+    const T=this.tripTime();
+    if(this.t+dt>=T*(1-1e-12)){this.t=T;this.status='arrived';return {t:T};}
+    this.t+=dt;return null;
+  }
+  // Answers in the mission frame, and which classic slips a wrong prediction matches.
+  answers(){const c=this.config,xi=this.xOf(this.uStart(),c.origin,c.dir),xf=this.xOf(this.uEnd(),c.origin,c.dir);return {xi,xf,dx:xf-xi};}
+  evaluate(){
+    const a=this.answers(),tol=TrackModel.tolerance,near=(p,q)=>p!==null&&Math.abs(p-q)<=tol;
+    const finalOk=near(this.final,a.xf),dispOk=near(this.disp,a.dx);
+    let finalSlip=null,dispSlip=null;
+    if(this.final!==null&&!finalOk){
+      if(Math.abs(a.xf)>tol&&near(this.final,-a.xf))finalSlip='sign';
+      else if(near(this.final,this.uEnd()))finalSlip='track';
+      else if(near(this.final,Math.abs(a.dx)))finalSlip='distance';
+    }
+    if(this.disp!==null&&!dispOk){
+      if(Math.abs(a.xi)>tol&&near(this.disp,a.xf))dispSlip='final';
+      else if(near(this.disp,-a.dx))dispSlip='sign';
+    }
+    return {...a,finalOk,dispOk,finalSlip,dispSlip};
+  }
+  score(){if(this.status!=='arrived')return 0;const e=this.evaluate();return (e.finalOk?50:0)+(e.dispOk?50:0);}
+  snapshot(){return {index:this.index,final:this.final,disp:this.disp,t:this.t,status:this.status,origin:this.origin,dir:this.dir};}
+  restore(saved){
+    if(!Number.isInteger(saved?.index)||!TrackModel.missions[saved.index])return false;
+    const probe=new TrackModel(saved.index);
+    if(!probe.setPrediction(saved.final??null,saved.disp??null))return false;
+    if(!['running','arrived'].includes(saved.status)||!Number.isFinite(saved.t)||saved.t<0||saved.t>probe.tripTime()*(1+1e-9))return false;
+    if(!probe.ready()&&(saved.t>0||saved.status==='arrived'))return false;
+    if(saved.status==='arrived'){probe.status='arrived';probe.t=probe.tripTime();if(!probe.setFrame(saved.origin,saved.dir))return false;}
+    else if(saved.origin!==probe.config.origin||saved.dir!==probe.config.dir)return false;
+    else probe.t=saved.t;
+    Object.assign(this,{index:probe.index,config:probe.config,final:probe.final,disp:probe.disp,t:probe.t,status:probe.status,origin:probe.origin,dir:probe.dir});return true;
+  }
+}
+globalThis.TrackModel=TrackModel;
+</script>
+<script id="track-locale" type="application/json">__LOCALE__</script>
+<script id="track-interface">
+(() => {
+  'use strict';
+  const $=id=>document.getElementById(id),locale=JSON.parse($('track-locale').textContent);
+  const text=(key,values={})=>locale.strings[key].replace(/\{(\w+)\}/g,(_,name)=>values[name]??'{'+name+'}');
+  const number=(n,d=0)=>Math.abs(n)<.5*10**-d?(0).toLocaleString(locale.lang,{minimumFractionDigits:d,maximumFractionDigits:d}):n.toLocaleString(locale.lang,{minimumFractionDigits:d,maximumFractionDigits:d,useGrouping:false});
+  const signed=(n,d=0)=>(n>.5*10**-d?'+':'')+number(n,d);
+  const model=new TrackModel(),names=TrackModel.names,stations=TrackModel.stations;
+  const canvas=$('track-canvas'),ctx=canvas.getContext('2d');
+  const H=1/120,transferKey='phisicos-track-language-transfer';
+  let running=false,previous=null,accumulator=0,lastUpdate=0,width=800,height=410;
+  const say=message=>{$('announcement').textContent=message;};
+  try{const data=JSON.parse(sessionStorage.getItem(transferKey)||'null');sessionStorage.removeItem(transferKey);if(data)model.restore(data.state);}catch{$('language-note').hidden=true;}
+  const dirWord=d=>text(d>0?'towardEast':'towardWest');
+  const given=m=>text('givenFrame',{o:names[m.origin],dir:dirWord(m.dir)})+' · '+names[m.from]+' → '+names[m.to];
+  function setRunning(value){
+    const done=model.status==='arrived',blocked=!model.ready();running=value&&!done&&!blocked;previous=null;accumulator=0;
+    $('play').disabled=running||done||blocked;$('pause').disabled=!running;$('step').disabled=running||done||blocked;
+    $('train-status').classList.toggle('running',running);
+    $('train-status-text').textContent=text(done?'arrived':running?'running':model.t?'paused':'ready');
+    for(let i=0;i<5;i++)$('origin-'+i).disabled=!done;$('dir-east').disabled=!done;$('dir-west').disabled=!done;
+  }
+  function sync(){
+    TrackModel.missions.forEach((m,i)=>{$('mission-'+i).setAttribute('aria-pressed',String(i===model.index));$('given-'+i).textContent=given(m);});
+    $('final-answer').value=model.final===null?'':String(model.final);$('disp-answer').value=model.disp===null?'':String(model.disp);
+    $('mission-label').textContent=text('mission'+model.index);
+  }
+  function update(){
+    const done=model.status==='arrived',e=model.evaluate(),x=model.position(),xi=model.xOf(model.uStart()),dx=model.displacement();
+    for(let i=0;i<5;i++)$('origin-'+i).setAttribute('aria-pressed',String(i===model.origin));
+    $('dir-east').setAttribute('aria-pressed',String(model.dir>0));$('dir-west').setAttribute('aria-pressed',String(model.dir<0));
+    $('time-value').textContent=number(model.t,1);$('position-value').textContent=signed(x);$('disp-value').textContent=signed(dx);
+    $('distance-value').textContent=number(model.distance());$('velocity-value').textContent=signed(model.velocity());
+    // The equation keeps the subtraction visible: a negative start position needs its parentheses.
+    $('track-equation').textContent='Δx = x − xᵢ = '+signed(x)+' − '+(xi<-.5?'('+signed(xi)+')':signed(xi))+' = '+signed(dx)+' m';
+    const explored=done&&(model.origin!==model.config.origin||model.dir!==model.config.dir);
+    let key,copy,values={xf:signed(e.xf),dx:signed(e.dx),xi:signed(e.xi),x:signed(x),xs:signed(xi),d:signed(dx),o:names[model.origin],dir:dirWord(model.dir),mo:names[model.config.origin],pct:number(model.distance()/Math.abs(model.uEnd()-model.uStart())*100)};
+    if(explored){key='explore';copy=text('exploreCopy',values);}
+    else if(done){
+      if(e.finalOk&&e.dispOk){key='good';copy=text('why'+model.index);}
+      else{key='check';const parts=[];
+        if(!e.finalOk)parts.push(text({sign:'finalSign',track:'finalTrack',distance:'finalDistance'}[e.finalSlip]||'finalMiss',values));
+        if(!e.dispOk)parts.push(text({final:'dispFinal',sign:'dispSign'}[e.dispSlip]||'dispMiss',values));
+        parts.push(text('tryExplore'));copy=parts.join(' ');}
+    }
+    else if(!model.ready()){key='predict';copy=text('predictCopy');}
+    else if(model.t>0){key='running';copy=text('runningCopy',values);}
+    else{key='ready';copy=text('readyCopy');}
+    $('lesson-title').textContent=text(key+'Title',{...values,pf:model.final===null?'':signed(model.final),pd:model.disp===null?'':signed(model.disp)});$('lesson-copy').textContent=copy;
+    $('insight').classList.toggle('warning',key==='check');
+    $('mission-score').textContent=done?String(model.score()):'—';
+    $('final-badge').classList.toggle('earned',done&&e.finalOk);$('disp-badge').classList.toggle('earned',done&&e.dispOk);
+  }
+  function refresh(){setRunning(false);update();draw();}
+  function simulate(dt){if(model.advance(dt*TrackModel.playback)){setRunning(false);update();say(text('arrivedAnnouncement',{x:signed(model.position())})+' '+$('lesson-title').textContent);return true;}return false;}
+  const read=id=>{const raw=String($(id).value).trim();return raw===''?null:Number(raw);};
+  const readPrediction=()=>{if(!model.setPrediction(read('final-answer'),read('disp-answer')))model.setPrediction(null,null);refresh();};
+  $('final-answer').addEventListener('input',readPrediction);$('disp-answer').addEventListener('input',readPrediction);
+  $('play').addEventListener('click',()=>{setRunning(true);update();say(text('startedAnnouncement'));});
+  $('pause').addEventListener('click',()=>{setRunning(false);update();say(text('pausedAnnouncement'));});
+  $('step').addEventListener('click',()=>{for(let i=0;i<12;i++)if(simulate(H))break;setRunning(false);update();draw();});
+  $('reset').addEventListener('click',()=>{model.reset();refresh();say(text('resetAnnouncement'));});
+  TrackModel.missions.forEach((_,i)=>$('mission-'+i).addEventListener('click',()=>{model.setMission(i);sync();refresh();say(text('missionAnnouncement',{name:text('mission'+i)}));}));
+  for(let i=0;i<5;i++)$('origin-'+i).addEventListener('click',()=>{if(model.setFrame(i,model.dir)){refresh();say(text('frameAnnouncement',{o:names[i],dir:dirWord(model.dir)}));}});
+  for(const [id,d] of [['dir-east',1],['dir-west',-1]])$(id).addEventListener('click',()=>{if(model.setFrame(model.origin,d)){refresh();say(text('frameAnnouncement',{o:names[model.origin],dir:dirWord(d)}));}});
+  $('show-vectors').addEventListener('change',()=>{update();draw();});
+  function suspend(){if(running){setRunning(false);say(text('suspendedAnnouncement'));}update();draw();}
+  window.addEventListener('blur',suspend);document.addEventListener('visibilitychange',()=>{if(document.hidden)suspend();});
+  for(const link of document.querySelectorAll('.language-menu a'))link.addEventListener('click',()=>{setRunning(false);try{sessionStorage.setItem(transferKey,JSON.stringify({state:model.snapshot()}));}catch{}});
+  function resize(){const rect=canvas.getBoundingClientRect();if(rect.width<=0)return;width=rect.width;height=rect.height;const dpr=Math.min(window.devicePixelRatio||1,3);canvas.width=Math.round(width*dpr);canvas.height=Math.round(height*dpr);ctx.setTransform(dpr,0,0,dpr,0,0);draw();}
+  const ARROW=2.5; // px per m/s, stated on the canvas.
+  function draw(){
+    if(!ctx)return;
+    const done=model.status==='arrived',u=model.u(),u0=model.uStart();
+    ctx.clearRect(0,0,width,height);
+    const label=(s,x,y,color='#b8ccdb',align='left',font=12)=>{ctx.fillStyle=color;ctx.textAlign=align;ctx.font=font+'px -apple-system,BlinkMacSystemFont,sans-serif';ctx.fillText(s,x,y);};
+    const line=(points,color,w=1,dash=[])=>{ctx.beginPath();ctx.strokeStyle=color;ctx.lineWidth=w;ctx.setLineDash(dash);points.forEach((q,i)=>i?ctx.lineTo(q.x,q.y):ctx.moveTo(q.x,q.y));ctx.stroke();ctx.setLineDash([]);};
+    const arrow=(from,dx,color,w=2.5)=>{if(Math.abs(dx)<3)return;const to={x:from.x+dx,y:from.y},s=Math.sign(dx);line([from,to],color,w);line([{x:to.x-s*9,y:to.y-5},to,{x:to.x-s*9,y:to.y+5}],color,2);};
+    // Track coordinate u (m) to screen: west on the left.
+    const margin=Math.max(28,width*.05),sx=v=>margin+v/1200*(width-2*margin),trackY=height*.42,axisY=height*.72;
+    label(text('west'),12,22,'#9fb6c7','left',11);label(text('east'),width-12,22,'#9fb6c7','right',11);
+    label(text('arrowScale'),width-12,height-12,'#9fb6c7','right',11);label(text('playbackScale',{k:TrackModel.playback}),12,height-12,'#9fb6c7','left',11);
+    // Gaps between stations are the givens; positions are computed from them.
+    for(let i=0;i<4;i++)label(stations[i+1]-stations[i]+' m',(sx(stations[i])+sx(stations[i+1]))/2,trackY-46,'#9fb6c7','center',11);
+    line([{x:sx(0)-12,y:trackY+6},{x:sx(1200)+12,y:trackY+6}],'#5b7488',2);line([{x:sx(0)-12,y:trackY+12},{x:sx(1200)+12,y:trackY+12}],'#5b7488',2);
+    for(let v=0;v<=1200;v+=25)line([{x:sx(v),y:trackY+4},{x:sx(v),y:trackY+14}],'#3f6178',2);
+    stations.forEach((v,i)=>{ctx.fillStyle='#2c4a5f';ctx.fillRect(sx(v)-14,trackY+16,28,8);label(names[i],sx(v),trackY+42,'#d1e3ed','center',14);});
+    // Distance travelled: the stretch of track already covered.
+    line([{x:sx(u0),y:trackY+9},{x:sx(u),y:trackY+9}],'#75efc7',4);
+    // Axis in the current frame. Values appear only after arrival, so they cannot be read off before predicting.
+    const xmin=model.xOf(0),xmax=model.xOf(1200),left=Math.min(xmin,xmax);
+    line([{x:sx(0)-16,y:axisY},{x:sx(1200)+16,y:axisY}],'#8aa3b5',1.5);
+    const tip=model.dir>0?{x:sx(1200)+16,y:axisY}:{x:sx(0)-16,y:axisY},s=model.dir;
+    line([{x:tip.x-s*10,y:axisY-5},tip,{x:tip.x-s*10,y:axisY+5}],'#8aa3b5',1.5);label('+x',tip.x,axisY-18,'#d1e3ed','center',13);
+    for(let x=Math.ceil(left/100)*100;x<=left+1200;x+=100){const v=stations[model.origin]+x*model.dir,px=sx(v);line([{x:px,y:axisY-4},{x:px,y:axisY+4}],'#8aa3b5',1);if(done&&x!==0&&x%300===0)label(signed(x),px,axisY+20,'#9fb6c7','center',11);}
+    const ox=sx(stations[model.origin]);line([{x:ox,y:axisY-14},{x:ox,y:axisY+14}],'#efb958',3);label('0',ox,axisY+30,'#efb958','center',13);label(text('origin'),ox,axisY+46,'#efb958','center',11);
+    // Displacement: from the start to the train, drawn on the axis.
+    if($('show-vectors').checked&&Math.abs(u-u0)>1){arrow({x:sx(u0),y:axisY-22},sx(u)-sx(u0),'#77b9ff');label('Δx',(sx(u0)+sx(u))/2,axisY-30,'#77b9ff','center',12);}
+    line([{x:sx(u0),y:trackY+26},{x:sx(u0),y:axisY-14}],'#5b7488',1,[3,4]);label('xᵢ',sx(u0)+4,axisY-40,'#9fb6c7','left',11);
+    // Train.
+    const tx=sx(u);ctx.fillStyle='#d1e3ed';ctx.fillRect(tx-22,trackY-22,44,24);ctx.fillStyle='#102637';for(let k=0;k<3;k++)ctx.fillRect(tx-17+k*13,trackY-17,9,8);ctx.fillStyle='#efb958';ctx.fillRect(tx-22,trackY-2,44,4);
+    if($('show-vectors').checked&&!done){const v=model.velocity()*model.dir;arrow({x:tx,y:trackY-34},v*ARROW,'#f2f8fc');label('v',tx+v*ARROW/2,trackY-40,'#f2f8fc','center',12);}
+    if(done)label(text('arrivedBanner',{x:signed(model.position())}),width/2,width<520?52:28,'#75efc7','center',width<430?14:17);
+  }
+  function frame(now){if(previous===null)previous=now;const elapsed=Math.min(.1,(now-previous)/1000);previous=now;if(running){accumulator+=elapsed;while(accumulator>=H&&running){accumulator-=H;simulate(H);}draw();}if(now-lastUpdate>=80){update();lastUpdate=now;}requestAnimationFrame(frame);}
+  window.addEventListener('resize',resize);if(typeof ResizeObserver!=='undefined')new ResizeObserver(resize).observe(canvas);
+  sync();setRunning(false);update();resize();requestAnimationFrame(frame);
+})();
+</script>
+</body>
+</html>

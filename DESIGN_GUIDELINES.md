@@ -1,6 +1,6 @@
 # Phisicos design guidelines
 
-These guidelines extend **Speed & Velocity: an educational simulation game** to a consistent family of multilingual HTML5 educational simulation games. Lunar Lander: Eco-Mission, Unit Pipeline, the Powers-of-Ten Probe, River Crossing, Orienteering Walk, and Force Table follow it. Preserve existing games and their physics when adding another.
+These guidelines extend **Speed & Velocity: an educational simulation game** to a consistent family of multilingual HTML5 educational simulation games. Train Track, Lift Trips, Dog Walk, Graph Rider, Galileo's Bells, Stop on the Line, Lunar Lander: Eco-Mission, Unit Pipeline, the Powers-of-Ten Probe, River Crossing, Orienteering Walk, Force Table, Loading Ramp, Lighthouse Rescue, and Ferris Wheel follow it. Preserve existing games and their physics when adding another.
 
 ## 1. Experience and teaching
 
@@ -110,9 +110,69 @@ Playback is scaled by a stated power of ten (`k` physical seconds per playback s
 
 **Force Table.** Angles are counter-clockwise from 0°. Forces are constant during the short slide. The ring (0.2 kg) is held by static friction while `|ΣF| ≤ 0.05 N`; otherwise it accelerates along ΣF at `(|ΣF| − 0.04 N) ÷ m` until it reaches the stop pin 4 cm from the centre, solved exactly. A balanced ring must hold for 0.5 s. Keep the net force hidden until release, show Σ|F| as a contrasting scalar, and label any arrow exaggeration (ΣF is drawn ×3). Playback runs ×0.1 (slow motion).
 
+## 6d. Trigonometry games contract
+
+All three use one scale for both axes, so every angle on screen is drawn at its true size. Answers are typed; Play stays disabled until an answer is valid, and the unknown is never revealed by the scene before launch. Sides are named relative to the marked angle (opposite, adjacent, hypotenuse), never relative to a fixed corner. Spanish and Portuguese write sine as `sen`; every other language uses `sin`.
+
+**Loading Ramp.** x along the ground from the foot of the ramp, y up. The exact triangle is solved from two givens; the learner's answer sets the platform height, the platform distance, or the ramp length. A winch pulls the box at a constant 0.5 m/s along the ramp; the end is reached exactly at `t = length ÷ speed`. The ramp fits when the answer is within 1% of the exact side. Playback runs ×2.
+
+**Lighthouse Rescue.** x out to sea from the foot of the lighthouse, y up from sea level; the lamp is at (0, H). The drone flies in a straight line at a constant 10 m/s, from the lamp to sea level or from the ship to x = 0, solved exactly from the path length. A hit is within 5 m of the ship or the lamp; precision is within 1% of the exact answer. Playback runs ×4.
+
+**Ferris Wheel.** θ counter-clockwise from 3 o'clock, x right and y up from the hub; R = 10 m, hub height C = 12 m, ω = 1.5°/s. The cabin stops exactly at `t = θ ÷ ω`. Predictions accept decimals and exact forms built from whole numbers, fractions, and square roots, and must lie in [−1, 1]. Both values within 0.01 find the cabin; exact forms equal to the true values earn the bonus. Playback runs ×20.
+
+## 6e. Position games contract
+
+All three are one-dimensional. Position is always a signed number measured from a stated origin along a stated positive direction; distance is never negative and only grows; displacement is final minus initial position. Never display a value that lets the learner read the answer before predicting. Play stays disabled until every prediction is entered.
+
+**Train Track.** Stations sit at fixed track coordinates u (m east of A); a frame turns them into positions, x = dir · (u − u_origin). The train runs at a constant 20 m/s and arrives exactly at |Δu| ÷ v. Predictions are judged in the mission's frame. The frame can be explored only after arrival and never moves the train; Reset restores the mission frame. Playback runs ×5.
+
+**Lift Trips.** y is the height of the lift floor above the ground floor, up positive; floors are 3 m apart. The trip is an exact schedule of moving legs at 2 m/s and 1 s dwells with zero velocity at intermediate stops, so position, velocity, and distance follow analytically at any time. The distance counter only grows; the trip log's total ink equals the distance. Playback runs ×3.
+
+**Dog Walk.** x is measured from the bench, +x toward the lake. A walk is a list of constant-velocity legs, so x(t) is piecewise linear and every answer (positions, differences, sums of |Δx|, the first return to x = 0, the maximum |x|) is computed exactly from the breakpoints. The path and the graph share one vertical scale. A first-try bonus counts completed walks. Playback runs in real time.
+
+## 6f. Acceleration games contract
+
+All three are one-dimensional with constant acceleration on each piece of the motion, so position and velocity are evaluated in closed form (`v = v₀ + a·t`, `x = x₀ + v₀·t + ½·a·t²`) rather than integrated. Velocity is always continuous; only the acceleration may change instantly. Acceleration arrows are drawn separately from velocity arrows, with a stated scale. Playback runs in real time.
+
+**Graph Rider.** x along a straight track from the start, +x right. A target is v₀ and legs of (duration, constant acceleration); the learner's plan keeps the legs and chooses one acceleration per leg, from −3 to +3 m/s² in 0.5 m/s² steps. Play is always enabled because every plan is complete. The run ends exactly at the end of the last leg and keeps its final velocity (it does not stop). The planned line is drawn only as far as the cart has driven, so the slopes cannot be matched by eye before playing. Area under the learner's trace is shaded as the displacement; area below the axis is negative. A match needs every leg's acceleration to equal the target's.
+
+**Galileo's Bells.** x down the ramp from the release point; the ball starts from rest at t = 0 and keeps one constant acceleration along the ramp (rolling and friction are folded into a) until the end stop at x = L, solved exactly at `t = √(2L ÷ a)`. Each bell rings exactly at `t = √(2d ÷ a)`, never at the end of a timestep. Rings are sorted by time and compared with beats 1–4; a steady beat needs every ring within 0.05 s of its beat. Each ramp is a little more than twice the last bell's distance so that the a·t² slip still fits on it. The ramp is drawn at a fixed slope, stated on the canvas, with distances along it to scale. Sound is optional, synthesized with Web Audio, and silently absent where Web Audio is missing.
+
+**Stop on the Line.** x is the front bumper's position from the stop line, +x in the direction of travel. The car starts at a fixed x₀ per mission and cruises at v₀; braking starts at the learner's distance d before the line (after a 1 s reaction time on the reaction mission, where the light turns red at d), with constant deceleration a until v = 0, solved exactly at `t_brake + v₀ ÷ a`. At rest, velocity and acceleration are both zero. Valid answers are 0 < d ≤ |x₀| and 1 ≤ a ≤ 10 m/s². The road view is fixed per mission so that it never hints at the answer; a car that overruns the view is labelled with its exact position. Stopping within 0.5 m of the line succeeds. If the car crosses the line, report the crossing speed from `v² = v₀² − 2·a·s`. The values are teaching examples, not road-safety limits.
+
+## 6g. Free-fall games contract
+
+All three are one-dimensional with g = 9.8 m/s² (1.62 m/s² on the Moon), constant over the motion, and no air resistance, so position and velocity are evaluated in closed form. State the axis and its positive direction on the page and keep the sign of g consistent with it. A typed answer is right within 2% (Drop Test, Straight Up) or within 0.005 s or 0.5 cm (Reaction Ruler).
+
+**Drop Test.** y is the height of the bottom of the ball above the ground, up positive. The ball is released from rest at y = h and lands exactly at `t = √(2h ÷ g)`; the velocity just before contact is kept. On the heavy-or-light mission, two balls of different mass fall side by side. A strobe image every 0.1 s shows the growing spacing. Playback runs in real time.
+
+**Straight Up.** y is the height above the throwing hand, up positive. The ball leaves the hand at +v₀ and has a = −g the whole time, at the top too. The top (`t = v₀ ÷ g`) and the catch (`t = 2v₀ ÷ g`) are solved exactly; only the catch ends the run, and the velocity just before the catch is kept. Signed answers (acceleration, return velocity) accept either sign as input and judge it. The view and graph use the same scales for every throw so they never give the answer away. Playback runs in real time.
+
+**Reaction Ruler.** d is how far the 30 cm ruler has fallen through the open fingers, down positive. It falls from rest with d = ½·g·t² until the catch, or until it slips through at `t = √(2L ÷ g)`, both solved exactly. Scored drops play ×0.1 (slow motion). The test-yourself drop plays in real time after a random 1–3 s wait; a catch before the drop is reported as too early, and the result is not scored.
+
+## 6h. Formula games contract
+
+The unknown and every given carry the values of one real situation, so each rearrangement can be checked as numbers. Formulas and letters stay the same in every language; only explanations are translated.
+
+**Formula Balance.** Each side is a coefficient times letters raised to powers. Allowed steps are × or ÷ by a letter, × 2, ÷ 2, a square, and a square root, applied to both sides, the left only, or the right only, at most 12 steps, with undo and restart. The target is isolated when it stands alone with power 1. Weighing swings the beam with a damped motion toward an angle set by the difference between the sides (at most 0.35 rad), ending exactly after 4 s. All values are positive, so a square root is always allowed.
+
+**Undo Machine.** A formula is a forward chain of single operations on the unknown; the learner builds a reverse chain of up to six boxes from the inverses (+/−, ×/÷, square/√), applied in order to the known value. A token spends 0.8 s on each stretch of pipe, so a run lasts 0.8 s × (boxes + 1). A square root of a negative value stops the run with its own feedback. A result is right when it equals the true value within rounding.
+
+**Formula Test Drive.** x is measured from the goal line, +x in the direction of travel. Each situation offers four rearrangements: one right and three common mistakes; from the second situation on, at least one wrong option has the right units, so a unit check alone is not enough. The car moves with the chosen value, with constant acceleration on each piece, computed exactly. Success is within 0.5 m of the line or 0.05 m/s of the target speed. Runs longer than 8 s play faster, and the factor is shown. The units shown with each formula are derived from the units of the givens.
+
+## 6i. Projectile games contract
+
+All three use g = 9.8 m/s², no air resistance, x horizontal and y up, and evaluate the motion in closed form: x = x₀ + vₓ·t with constant vₓ, and y = y₀ + v_y0·t − ½·g·t². Every view uses one scale for both axes, so paths are true parabolas, and the view is fixed per mission or for the whole game, so it never gives an answer away. The top and the landing are solved exactly inside long steps; the velocity just before landing is kept. Velocity arrows show v in white and its components in blue, at a stated scale. A typed answer is right within 2%, or within 0.5° for an angle. Playback runs in real time.
+
+**Air Drop.** The crate leaves a plane in level flight at (x_r, h) with velocity (v, 0). With a target, x is measured from the target and the answer sets the release point (a lead of 0 is allowed, to show the overshoot) or the altitude; without one, x is measured from the release point and nothing on screen measures the answer. The plane keeps flying at v, so it stays exactly above the crate. A ball dropped from rest at the release point falls level with the crate. Strobe images every 0.25 s.
+
+**Two Shadows.** The ball is launched from the floor at v₀ and θ. The floor shadow shows x(t), a uniform motion; the wall shadow, on a wall at x = −5 m, shows y(t), a vertical throw. The view is fixed at −8 to 50 m for every throw. Velocity values and arrows appear only once the ball is in the air, and vₓ stays hidden until landing when it is the answer. Strobe marks every 0.2 s on the floor, the wall, and the path.
+
+**Range Cannon.** Launch and landing are at ground level, so R = v₀²·sin(2θ) ÷ g. An angle or speed answer aims the cannon, and a range answer plants a flag; speed answers are limited to 60 m/s, so a shot lasts at most about 9 s. For an angle that hits a target, either root counts. The field is fixed at 0 to 80 m. The range–angle graph shows R(θ) for the shot's speed only after landing, so it never reveals an answer before the shot.
+
 ## 7. Multilingual behavior
 
-Support the existing eight languages: English, Spanish, French, German, Dutch, Finnish, Norwegian Bokmål, and Danish. Translate visible UI, canvas labels, dynamic explanations, accessibility labels, errors, mission feedback, page titles, descriptions, and instructions. Keep physics identifiers and formulas independent of language.
+Support the existing eleven languages: English, Spanish, French, German, Dutch, Finnish, Norwegian Bokmål, Danish, Brazilian Portuguese (`pt`, `pt_BR`), Hindi (`hi`, `hi_IN`), and Japanese (`ja`, `ja_JP`). Hindi is written in Devanagari with Latin digits and a decimal point; unit symbols (m, s, m/s) and sin, cos, and tan stay in Latin script, as in Indian textbooks, and its URL slugs are transliterated into ASCII. Japanese (`ja`, `ja_JP`) follows the same rules for digits, unit symbols, sin/cos/tan, and romanized slugs; its headings use `word-break: auto-phrase`, and its meta descriptions may be shorter (over 50 characters) because each character carries more content. Translate visible UI, canvas labels, dynamic explanations, accessibility labels, errors, mission feedback, page titles, descriptions, and instructions. Keep physics identifiers and formulas independent of language.
 
 Use stable translation keys and named interpolation fields such as `{v}` and `{fuel}`. Build validation must reject missing translations or changed interpolation fields. Format numbers with the selected locale; keep numeric form values and internal physics state language-independent. Use semicolons for vector components in decimal-comma locales where needed.
 
@@ -120,7 +180,7 @@ Language links go to the equivalent game, not the homepage. For every template-d
 
 ## 8. Game catalog and delivery
 
-Add a homepage card only when the new game route works. Use localized navigation, equivalent language links, a unique heading, and useful instructions in the initial HTML. Retain the existing canonical/hreflang build convention. Local preview builds remain `noindex`; publishing uses the existing explicit public-origin requirement.
+Every game belongs to exactly one topic (Motion, Measurement, Formulas, Vectors, Trigonometry, Projectile motion) and lives at `<games index>/<topic>/<game>/`. A new game appears on its topic page, in the topic's group on the homepage, and in the topic's section of the Games menu; breadcrumbs follow the URL. Never move a published route without adding its old path to `locales/legacy-routes.cjs`, which the hosting build turns into a 301 redirect. To group games across topics (for example uniform linear motion), add a collection in `locales/tags.cjs` instead of moving games: the games keep their routes, gain an "Also in" link, and appear on the collection page. Add a homepage card only when the new game route works. Use localized navigation, equivalent language links, a unique heading, and useful instructions in the initial HTML. Retain the existing canonical/hreflang build convention. Local preview builds remain `noindex`; publishing uses the existing explicit public-origin requirement.
 
 Runtime implementation is HTML, CSS, Canvas, and vanilla JavaScript. Do not add runtime frameworks, remote fonts, translation services, or image dependencies for these simulations. The Node build script only generates static files; it is not a game runtime requirement. Do not edit generated `dist/` files directly.
 

@@ -1,0 +1,255 @@
+<!doctype html>
+<html lang="en">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Stop on the Line · Phisicos</title>
+<style>
+.brake-page .answer-row .symbol{min-width:44px}.brake-page .question{font-size:15px;font-weight:600;margin-top:4px}
+</style>
+</head>
+<body>
+<div class="shell module-page brake-page">
+__HEADER__
+<main id="main-content">
+__BREADCRUMBS__
+
+<div class="masthead"><div><h1>{{title}}</h1><p class="intro">{{subtitle}}</p></div><div class="concept-tags"><span class="tag speed">{{tag1}}</span><span class="tag velocity">{{tag2}}</span></div></div>
+<noscript><p class="no-js">{{noScript}}</p></noscript>
+<div class="layout">
+<aside class="sidebar" aria-label="{{setup}}">
+  <section class="control-section"><h2 class="eyebrow">{{setup}}</h2><div class="mission-list" role="group" aria-label="{{setup}}">
+    <button id="mission-0" aria-pressed="true"><b>1 · {{mission0}}</b><span id="given-0">v₀</span></button>
+    <button id="mission-1" aria-pressed="false"><b>2 · {{mission1}}</b><span id="given-1">v₀</span></button>
+    <button id="mission-2" aria-pressed="false"><b>3 · {{mission2}}</b><span id="given-2">v₀</span></button>
+    <button id="mission-3" aria-pressed="false"><b>4 · {{mission3}}</b><span id="given-3">v₀</span></button>
+    <button id="mission-4" aria-pressed="false"><b>5 · {{mission4}}</b><span id="given-4">v₀</span></button>
+  </div><p class="hint">{{setupNote}}</p></section>
+  <section class="control-section"><h2 class="eyebrow">{{answerHeading}}</h2>
+    <p class="question" id="question">{{questionDistance}}</p>
+    <p class="field-label"><label for="answer">{{answerLabel}}</label></p>
+    <div class="answer-row"><span class="symbol" id="answer-symbol">d =</span><input id="answer" type="number" inputmode="decimal" step="any" min="0" value=""><span class="unit" id="answer-unit">m</span></div>
+    <p class="hint" id="answer-hint">{{answerHint}}</p>
+  </section>
+  <section class="control-section"><h2 class="eyebrow">{{observe}}</h2><label class="check"><input id="show-vectors" type="checkbox" checked>{{vectors}}</label><label class="check"><input id="show-area" type="checkbox" checked>{{area}}</label><p class="hint">{{observeHint}}</p></section>
+</aside>
+<div class="workspace">
+  <section class="scene" aria-label="{{sceneTitle}}"><div class="scene-top"><div><h2 class="scene-title">{{sceneTitle}}</h2><p class="scene-subtitle" id="mission-label">{{mission0}}</p></div><span class="status" id="brake-status"><i class="status-dot" aria-hidden="true"></i><span id="brake-status-text">{{ready}}</span></span></div>
+    <div class="module-stage"><canvas id="brake-canvas" role="img" aria-label="{{canvasLabel}}">{{noScript}}</canvas></div>
+    <div class="legend"><span><i class="line-key white"></i>{{velocityLegend}}</span><span><i class="line-key orange"></i>{{accelerationLegend}}</span><span><i class="line-key mint"></i>{{traceLegend}}</span><span><i class="line-key blue"></i>{{areaLegend}}</span><span><i class="line-key gray"></i>{{skidLegend}}</span></div>
+    <div class="module-equation"><span>{{equationTitle}}</span><output id="brake-equation">v² = v₀² − 2·a·s</output></div>
+    <div class="transport"><button id="play" class="primary" disabled>{{play}}</button><button id="pause" disabled>{{pause}}</button><button id="step" disabled>{{step}}</button><button id="reset" class="reset">{{reset}}</button></div>
+  </section>
+  <section class="metrics" aria-label="{{observe}}">
+    <div class="metric scalar"><h3 class="metric-label">{{time}}</h3><p class="metric-value"><span id="time-value">0.00</span> <small>s</small></p><p class="metric-equation">t</p></div>
+    <div class="metric vector"><h3 class="metric-label">{{position}}</h3><p class="metric-value"><span id="position-value">0.00</span> <small>m</small></p><p class="metric-equation">x</p></div>
+    <div class="metric vector"><h3 class="metric-label">{{velocity}}</h3><p class="metric-value"><span id="velocity-value">0.00</span> <small>m/s</small></p><p class="metric-equation">vₓ</p></div>
+    <div class="metric vector"><h3 class="metric-label">{{acceleration}}</h3><p class="metric-value"><span id="acceleration-value">0.00</span> <small>m/s²</small></p><p class="metric-equation">aₓ</p></div>
+    <div class="metric scalar"><h3 class="metric-label">{{braking}}</h3><p class="metric-value"><span id="braking-value">0.00</span> <small>m</small></p><p class="metric-equation">s = v₀² ÷ (2a)</p></div>
+  </section>
+  <div class="insight" id="insight"><span class="insight-icon" aria-hidden="true">↗</span><div><strong id="lesson-title">{{predictTitle}}</strong><p id="lesson-copy">{{predictCopy}}</p></div></div>
+  <section class="challenge"><div class="mission-heading"><h2 class="challenge-title">{{missionTitle}}</h2><div class="score-card"><span>{{score}}</span><strong id="mission-score">—</strong></div></div><p class="mission-copy">{{missionCopy}}</p><div class="badges"><span id="line-badge">✓ {{lineBadge}}</span><span id="first-badge">① {{firstBadge}}</span></div></section>
+</div>
+</div>
+<article class="learning-content"><section><h2>{{guideTitle}}</h2><ol><li>{{instruction1}}</li><li>{{instruction2}}</li><li>{{instruction3}}</li><li>{{instruction4}}</li></ol></section><section><h2>{{conceptTitle}}</h2><p>{{conceptCopy}}</p><aside class="worked-example"><h3>{{exampleTitle}}</h3><p>{{exampleCopy}}</p></aside></section><section><h2>{{modelTitle}}</h2><p>{{modelCopy}}</p></section></article>
+<p class="language-note" id="language-note">{{languageNote}}</p>
+</main>
+__FOOTER__
+<p class="sr-only" id="announcement" role="status" aria-live="polite"></p>
+</div>
+<script id="brake-model">
+class BrakeModel {
+  // x is the front bumper's position measured from the stop line, +x in the direction of travel; the line is at x = 0.
+  // The car cruises at v₀, (after a reaction time, if any) brakes with a constant deceleration a, and stops where v = 0.
+  static missions = [
+    {v0:10,a:5,x0:-40,ask:'distance'},
+    {v0:20,a:5,x0:-90,ask:'distance',linear:20},
+    {v0:15,a:2.5,x0:-90,ask:'distance',wet:true},
+    {v0:20,a:5,x0:-100,react:1,ask:'distance'},
+    {v0:16,brakeAt:32,x0:-70,ask:'deceleration'}
+  ];
+  static tolerance = .5; // m from the line
+  static minDeceleration = 1; // m/s²
+  static maxDeceleration = 10; // m/s², about the grip of good tyres on dry asphalt
+  static playback = 1; // the runs last 5–10 s, so they play in real time
+  constructor(index = 0){this.setMission(index);}
+  setMission(index){this.index=index;this.config=BrakeModel.missions[index];this.answer=null;this.attempts=0;this.reset();}
+  reset(){this.t=0;this.status='driving';}
+  valid(value){
+    if(!Number.isFinite(value))return false;
+    return this.config.ask==='distance'?value>0&&value<=-this.config.x0:value>=BrakeModel.minDeceleration&&value<=BrakeModel.maxDeceleration;
+  }
+  setAnswer(value){if(value!==null&&!this.valid(value))return false;this.answer=value;this.reset();return true;}
+  ready(){return this.answer!==null;}
+  // Every event of the run in closed form: the signal, the start of braking, and the stop.
+  plan(){
+    const c=this.config,v0=c.v0,react=c.react||0,a=c.ask==='deceleration'?this.answer:c.a;
+    const signalX=c.ask==='distance'?-this.answer:-c.brakeAt,tSignal=(signalX-c.x0)/v0,tBrake=tSignal+react,xBrake=signalX+v0*react;
+    return {v0,a,react,signalX,tSignal,tBrake,xBrake,tStop:tBrake+v0/a,xStop:xBrake+v0*v0/(2*a)};
+  }
+  state(t){
+    const p=this.plan(),c=this.config;
+    if(t<p.tBrake)return {x:c.x0+p.v0*t,v:p.v0,a:0,phase:t<p.tSignal?'cruise':'react',braking:0};
+    if(t<p.tStop){const tau=t-p.tBrake,s=p.v0*tau-.5*p.a*tau*tau;return {x:p.xBrake+s,v:p.v0-p.a*tau,a:-p.a,phase:'braking',braking:s};}
+    // Stopped: zero velocity, and zero acceleration because the road holds the car at rest.
+    return {x:p.xStop,v:0,a:0,phase:'stopped',braking:p.xStop-p.xBrake};
+  }
+  now(){return this.status==='done'?this.plan().tStop:this.t;}
+  advance(dt){
+    if(!Number.isFinite(dt)||dt<0)throw new Error('Invalid timestep');
+    if(this.status==='done'||!this.ready())return null;
+    // The stop is solved exactly at t = t_brake + v₀ ÷ a.
+    const T=this.plan().tStop;
+    if(this.t+dt>=T*(1-1e-12)){this.t=T;this.status='done';this.attempts++;return {t:T};}
+    this.t+=dt;return null;
+  }
+  // Speed when the bumper reaches the line, if the car gets there: v² = v₀² − 2a·(distance braked before the line).
+  lineSpeed(){
+    const p=this.plan();if(p.xStop<=0)return null;
+    return p.xBrake>=0?p.v0:Math.sqrt(Math.max(0,p.v0*p.v0+2*p.a*p.xBrake));
+  }
+  exact(){const c=this.config;return c.ask==='distance'?c.v0*c.v0/(2*c.a)+c.v0*(c.react||0):c.v0*c.v0/(2*c.brakeAt);}
+  unit(){return this.config.ask==='distance'?'m':'m/s²';}
+  evaluate(){
+    if(!this.ready())return {ok:false,gap:null,slip:null,first:false,exact:this.exact()};
+    const c=this.config,p=this.plan(),gap=p.xStop,ok=Math.abs(gap)<=BrakeModel.tolerance+1e-12,v=this.answer;
+    let slip=null;
+    if(!ok){
+      const near=(q,r,tol=c.ask==='distance'?.5:.05)=>Math.abs(q-r)<=tol,tr=c.react||0;
+      if(c.ask==='distance'){
+        if(near(v,c.v0*c.v0/c.a+c.v0*tr))slip='noHalf';
+        else if(c.linear&&near(v,c.linear))slip='linear';
+        else if(tr&&near(v,c.v0*c.v0/(2*c.a)))slip='noReaction';
+        else if(near(v,c.v0/c.a))slip='time';
+      }
+      else if(near(v,c.v0*c.v0/c.brakeAt))slip='noHalfA';
+    }
+    return {ok,gap,slip,first:ok&&this.attempts===1,exact:this.exact()};
+  }
+  score(){if(this.status!=='done')return 0;const e=this.evaluate();return (e.ok?100:0)+(e.first?50:0);}
+  snapshot(){return {index:this.index,answer:this.answer,attempts:this.attempts,t:this.t,status:this.status};}
+  restore(saved){
+    if(!Number.isInteger(saved?.index)||!BrakeModel.missions[saved.index])return false;
+    const probe=new BrakeModel(saved.index);
+    if(!probe.setAnswer(saved.answer??null)||!Number.isInteger(saved.attempts)||saved.attempts<0)return false;
+    if(!['driving','done'].includes(saved.status)||!Number.isFinite(saved.t)||saved.t<0)return false;
+    if(probe.answer===null&&(saved.t>0||saved.status==='done'))return false;
+    if(probe.answer!==null&&saved.t>probe.plan().tStop*(1+1e-9))return false;
+    if(saved.status==='done'&&saved.attempts<1)return false;
+    this.setMission(saved.index);this.answer=probe.answer;this.attempts=saved.attempts;
+    this.status=saved.status;this.t=saved.status==='done'?this.plan().tStop:saved.t;return true;
+  }
+}
+globalThis.BrakeModel=BrakeModel;
+</script>
+<script id="brake-locale" type="application/json">__LOCALE__</script>
+<script id="brake-interface">
+(() => {
+  'use strict';
+  const $=id=>document.getElementById(id),locale=JSON.parse($('brake-locale').textContent);
+  const text=(key,values={})=>locale.strings[key].replace(/\{(\w+)\}/g,(_,name)=>values[name]??'{'+name+'}');
+  const number=(n,d=2)=>Math.abs(n)<.5*10**-d?(0).toLocaleString(locale.lang,{minimumFractionDigits:d,maximumFractionDigits:d}):n.toLocaleString(locale.lang,{minimumFractionDigits:d,maximumFractionDigits:d,useGrouping:false});
+  const plain=n=>n.toLocaleString(locale.lang,{maximumFractionDigits:2,useGrouping:false}).replace('-','−');
+  const signed=(n,d=2)=>(n>.5*10**-d?'+':'')+number(n,d);
+  const model=new BrakeModel();
+  const canvas=$('brake-canvas'),ctx=canvas.getContext('2d');
+  const H=1/120,transferKey='phisicos-brake-language-transfer';
+  let running=false,previous=null,accumulator=0,lastUpdate=0,width=800,height=410;
+  const say=message=>{$('announcement').textContent=message;};
+  try{const data=JSON.parse(sessionStorage.getItem(transferKey)||'null');sessionStorage.removeItem(transferKey);if(data)model.restore(data.state);}catch{$('language-note').hidden=true;}
+  const amount=v=>plain(Number(v.toFixed(2)))+' '+model.unit();
+  const q=(name,value,unit)=>name+' = '+plain(value)+' '+unit;
+  function setRunning(value){
+    const done=model.status==='done',blocked=!model.ready();running=value&&!done&&!blocked;previous=null;accumulator=0;
+    $('play').disabled=running||done||blocked;$('pause').disabled=!running;$('step').disabled=running||done||blocked;
+    $('brake-status').classList.toggle('running',running);
+    $('brake-status-text').textContent=text(done?'done':running?'running':model.t?'paused':'ready');
+  }
+  function sync(){
+    const c=model.config,distance=c.ask==='distance';
+    BrakeModel.missions.forEach((m,i)=>{$('mission-'+i).setAttribute('aria-pressed',String(i===model.index));$('given-'+i).textContent=[q('v₀',m.v0,'m/s'),m.a?q('a',m.a,'m/s²'):q('d',m.brakeAt,'m'),...(m.react?[q('t_r',m.react,'s')]:[])].join(' · ');});
+    $('question').textContent=text(c.react?'questionReaction':distance?'questionDistance':'questionDeceleration',{v:plain(c.v0),a:plain(c.a||0),d:plain(c.brakeAt||0),r:plain(c.react||0)});
+    $('answer-symbol').textContent=distance?'d =':'a =';$('answer-unit').textContent=model.unit();
+    $('answer-hint').textContent=text(distance?'answerHint':'decelHint',{max:plain(-c.x0),lo:plain(BrakeModel.minDeceleration),hi:plain(BrakeModel.maxDeceleration)});
+    $('answer').value=model.answer===null?'':String(model.answer);$('mission-label').textContent=text('mission'+model.index);
+  }
+  function update(){
+    const c=model.config,ready=model.ready(),done=model.status==='done',t=ready?model.now():0,e=model.evaluate();
+    const s=ready?model.state(t):{x:c.x0,v:c.v0,a:0,phase:'cruise',braking:0},p=ready?model.plan():null;
+    $('time-value').textContent=number(t);$('position-value').textContent=signed(s.x);$('velocity-value').textContent=signed(s.v);
+    $('acceleration-value').textContent=signed(s.a);$('braking-value').textContent=number(s.braking);
+    $('brake-equation').textContent=s.phase==='braking'||s.phase==='stopped'?'v² = v₀² − 2·a·s → '+number(s.v)+'² = '+number(c.v0)+'² − 2 × '+number(p.a)+' × '+number(s.braking):'d = v₀² ÷ (2a)'+(c.react?' + v₀·t_r':'')+' · v = '+number(s.v)+' m/s';
+    let key,copy,values={t:number(t,1),x:signed(s.x,1),v:number(s.v,1),a:number(ready?p.a:c.a||0,1)};
+    const slipKey={noHalf:'slipNoHalf',linear:'slipLinear',noReaction:'slipNoReaction',time:'slipTime',noHalfA:'slipNoHalfA'};
+    if(done){
+      const gap={g:number(Math.abs(e.gap),1),vc:model.lineSpeed()===null?'':number(model.lineSpeed(),1),ex:amount(e.exact)};
+      if(e.ok){key='good';copy=text('goodCopy',{...gap,gs:signed(e.gap,2)})+' '+text('why'+model.index);}
+      else{key=e.gap>0?'over':'short';copy=text(key+'Copy',gap)+' '+(e.slip?text(slipKey[e.slip]):text('hint'+model.index));}
+    }
+    else if(!ready){key='predict';copy=text('predictCopy');}
+    else if(model.t>0){key='running';copy=text(s.phase+'Copy',values);}
+    else{key='ready';copy=text('readyCopy');}
+    $('lesson-title').textContent=text(key+'Title',{...values,p:ready?amount(model.answer):''});$('lesson-copy').textContent=copy;
+    $('insight').classList.toggle('warning',key==='over'||key==='short');
+    $('mission-score').textContent=done?String(model.score()):'—';
+    $('line-badge').classList.toggle('earned',done&&e.ok);$('first-badge').classList.toggle('earned',done&&e.first);
+  }
+  function refresh(){setRunning(false);update();draw();}
+  function simulate(dt){if(model.advance(dt*BrakeModel.playback)){setRunning(false);update();say(text('doneAnnouncement')+' '+$('lesson-title').textContent);return true;}return false;}
+  $('answer').addEventListener('input',event=>{const raw=String(event.target.value).trim(),value=raw===''?null:Number(raw);if(!model.setAnswer(value))model.setAnswer(null);refresh();});
+  $('play').addEventListener('click',()=>{setRunning(true);update();say(text('startedAnnouncement'));});
+  $('pause').addEventListener('click',()=>{setRunning(false);update();say(text('pausedAnnouncement'));});
+  $('step').addEventListener('click',()=>{for(let i=0;i<12;i++)if(simulate(H))break;setRunning(false);update();draw();});
+  $('reset').addEventListener('click',()=>{model.reset();refresh();say(text('resetAnnouncement'));});
+  BrakeModel.missions.forEach((_,i)=>$('mission-'+i).addEventListener('click',()=>{model.setMission(i);sync();refresh();say(text('missionAnnouncement',{name:text('mission'+i)}));}));
+  for(const id of ['show-vectors','show-area'])$(id).addEventListener('change',()=>{update();draw();});
+  function suspend(){if(running){setRunning(false);say(text('suspendedAnnouncement'));}update();draw();}
+  window.addEventListener('blur',suspend);document.addEventListener('visibilitychange',()=>{if(document.hidden)suspend();});
+  for(const link of document.querySelectorAll('.language-menu a'))link.addEventListener('click',()=>{setRunning(false);try{sessionStorage.setItem(transferKey,JSON.stringify({state:model.snapshot()}));}catch{}});
+  function resize(){const rect=canvas.getBoundingClientRect();if(rect.width<=0)return;width=rect.width;height=rect.height;const dpr=Math.min(window.devicePixelRatio||1,3);canvas.width=Math.round(width*dpr);canvas.height=Math.round(height*dpr);ctx.setTransform(dpr,0,0,dpr,0,0);draw();}
+  const VEL=3,ACC=8,CAR=4.5,AHEAD=20; // px per m/s, px per m/s², car length (m), and the view past the line (m).
+  function draw(){
+    if(!ctx)return;
+    const c=model.config,ready=model.ready(),done=model.status==='done',t=ready?model.now():0,p=ready?model.plan():null;
+    const s=ready?model.state(t):{x:c.x0,v:c.v0,a:0,phase:'cruise',braking:0};
+    ctx.clearRect(0,0,width,height);
+    const label=(str,px,py,color='#b8ccdb',align='left',font=12)=>{ctx.fillStyle=color;ctx.textAlign=align;ctx.font=font+'px -apple-system,BlinkMacSystemFont,sans-serif';ctx.fillText(str,px,py);};
+    const line=(points,color,w=1,dash=[])=>{ctx.beginPath();ctx.strokeStyle=color;ctx.lineWidth=w;ctx.setLineDash(dash);points.forEach((q2,i)=>i?ctx.lineTo(q2.x,q2.y):ctx.moveTo(q2.x,q2.y));ctx.stroke();ctx.setLineDash([]);};
+    const arrowH=(fromX,toX,py,color,w=2.5)=>{if(Math.abs(toX-fromX)<3)return;const d=Math.sign(toX-fromX);line([{x:fromX,y:py},{x:toX,y:py}],color,w);line([{x:toX-d*9,y:py-5},{x:toX,y:py},{x:toX-d*9,y:py+5}],color,2);};
+    // Road: a fixed view per mission, from behind the start to 20 m past the line, so the view never hints at the answer.
+    const lo=c.x0-CAR-2,hi=AHEAD,rx0=20,rx1=width-20,px=x=>rx0+(Math.min(Math.max(x,lo),hi)-lo)/(hi-lo)*(rx1-rx0),roadTop=64,roadBottom=124,mid=(roadTop+roadBottom)/2;
+    label(text(c.wet?'wetRoad':'roadTitle'),rx0,20,'#d1e3ed','left',12);label(text('arrowScale'),rx0,roadBottom+30,'#9fb6c7','left',10);
+    ctx.fillStyle=c.wet?'#1d3f59':'#22394a';ctx.fillRect(rx0,roadTop,rx1-rx0,roadBottom-roadTop);
+    line([{x:rx0,y:mid+16},{x:rx1,y:mid+16}],'#5b7488',1,[10,10]);
+    for(let x=Math.ceil(lo/10)*10;x<=hi;x+=10){line([{x:px(x),y:roadBottom},{x:px(x),y:roadBottom+5}],'#5b7488',1);label(plain(x),px(x),roadBottom+17,'#9fb6c7','center',10);}
+    label('x (m)',rx1,roadBottom+30,'#9fb6c7','right',10);
+    // Stop line and traffic light: red from the start, or green until the signal when the driver must react.
+    line([{x:px(0),y:roadTop},{x:px(0),y:roadBottom}],'#f2f8fc',4);
+    const red=!c.react||(ready&&t>=p.tSignal);line([{x:px(0)+8,y:roadTop},{x:px(0)+8,y:roadTop-26}],'#5b7488',2);
+    ctx.fillStyle='#0b1b27';ctx.fillRect(px(0)+2,roadTop-46,12,22);ctx.fillStyle=red?'#ff6b5e':'#3d2a2a';ctx.beginPath();ctx.arc(px(0)+8,roadTop-40,4,0,Math.PI*2);ctx.fill();ctx.fillStyle=red?'#244236':'#75efc7';ctx.beginPath();ctx.arc(px(0)+8,roadTop-30,4,0,Math.PI*2);ctx.fill();
+    label(text('stopLine'),px(0)-6,roadTop-8,'#f2f8fc','right',10);
+    if(ready){
+      line([{x:px(p.signalX),y:roadTop-20},{x:px(p.signalX),y:roadBottom+4}],'#efb958',1.5,[5,4]);label(text(c.react?'signalMark':'brakeMark'),px(p.signalX),roadTop-24,'#efb958','center',10);
+      if(s.phase==='braking'||s.phase==='stopped'){line([{x:px(p.xBrake),y:mid-5},{x:px(s.x-CAR*.2),y:mid-5}],'#0b1b27',3);line([{x:px(p.xBrake),y:mid+5},{x:px(s.x-CAR*.2),y:mid+5}],'#0b1b27',3);}
+    }
+    // Car, with the front bumper at x.
+    const front=px(s.x),back=px(s.x-CAR);ctx.fillStyle='#75efc7';ctx.fillRect(back,mid-9,Math.max(4,front-back),18);ctx.fillStyle='#102637';ctx.fillRect(front-Math.max(3,(front-back)*.35),mid-6,Math.max(2,(front-back)*.2),12);
+    if(s.x>hi)label('→ x = '+signed(s.x,1)+' m',rx1-4,mid-14,'#efb958','right',11);
+    if($('show-vectors').checked){arrowH(front,front+s.v*VEL,mid-18,'#f2f8fc');arrowH(front,front+s.a*ACC,mid+22,'#efb958',2);}
+    // v–t graph of the run so far; the shaded area is the braking distance.
+    const T=ready?Math.max(p.tStop*1.04,1):8,top=184,bottom=height-36,gx0=Math.max(54,width*.08),gx1=width-20,vmax=Math.ceil(c.v0/5)*5+5;
+    const tx=u=>gx0+u/T*(gx1-gx0),vy=v=>bottom-v/vmax*(bottom-top);
+    for(let v=0;v<=vmax;v+=5){line([{x:gx0,y:vy(v)},{x:gx1,y:vy(v)}],v===0?'#5b7488':'#203d50',1);label(plain(v),gx0-6,vy(v)+4,'#9fb6c7','right',11);}
+    const ts=T>12?2:1;for(let u=0;u<=T;u+=ts){line([{x:tx(u),y:vy(0)},{x:tx(u),y:vy(vmax)}],'#203d50',1);label(plain(u),tx(u),bottom+15,'#9fb6c7','center',11);}
+    label(text('axisTime'),gx1,bottom+30,'#9fb6c7','right',11);label(text('axisVelocity'),gx0-6,top-8,'#9fb6c7','right',11);label(text('graphTitle'),gx0+4,top-8,'#d1e3ed','left',12);
+    if(ready&&t>0){
+      const pts=[{t:0,v:c.v0}];if(t>p.tBrake)pts.push({t:p.tBrake,v:c.v0});pts.push({t,v:s.v});
+      if($('show-area').checked&&t>p.tBrake){ctx.beginPath();ctx.moveTo(tx(p.tBrake),vy(0));ctx.lineTo(tx(p.tBrake),vy(c.v0));ctx.lineTo(tx(t),vy(s.v));ctx.lineTo(tx(t),vy(0));ctx.closePath();ctx.fillStyle='rgba(119,185,255,.22)';ctx.fill();label('s = '+number(s.braking,1)+' m',(tx(p.tBrake)+tx(t))/2,vy(0)-8,'#77b9ff','center',11);}
+      line(pts.map(q2=>({x:tx(q2.t),y:vy(q2.v)})),'#75efc7',3);ctx.fillStyle='#75efc7';ctx.beginPath();ctx.arc(tx(t),vy(s.v),5,0,Math.PI*2);ctx.fill();
+    }
+    if(done){const e=model.evaluate();label(e.ok?text('stopBanner',{g:signed(e.gap,2)}):text(e.gap>0?'overBanner':'shortBanner',{g:number(Math.abs(e.gap),1)}),(gx0+gx1)/2,top+20,e.ok?'#75efc7':'#efb958','center',width<430?13:15);}
+  }
+  function frame(now){if(previous===null)previous=now;const elapsed=Math.min(.1,(now-previous)/1000);previous=now;if(running){accumulator+=elapsed;while(accumulator>=H&&running){accumulator-=H;simulate(H);}draw();}if(now-lastUpdate>=80){update();lastUpdate=now;}requestAnimationFrame(frame);}
+  window.addEventListener('resize',resize);if(typeof ResizeObserver!=='undefined')new ResizeObserver(resize).observe(canvas);
+  sync();setRunning(false);update();resize();requestAnimationFrame(frame);
+})();
+</script>
+</body>
+</html>

@@ -1,0 +1,224 @@
+<!doctype html>
+<html lang="en">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Drop Test · Phisicos</title>
+<style>
+.drop-page .answer-row .symbol{min-width:44px}.drop-page .question{font-size:15px;font-weight:600;margin-top:4px}
+</style>
+</head>
+<body>
+<div class="shell module-page drop-page">
+__HEADER__
+<main id="main-content">
+__BREADCRUMBS__
+
+<div class="masthead"><div><h1>{{title}}</h1><p class="intro">{{subtitle}}</p></div><div class="concept-tags"><span class="tag speed">{{tag1}}</span><span class="tag velocity">{{tag2}}</span></div></div>
+<noscript><p class="no-js">{{noScript}}</p></noscript>
+<div class="layout">
+<aside class="sidebar" aria-label="{{setup}}">
+  <section class="control-section"><h2 class="eyebrow">{{setup}}</h2><div class="mission-list" role="group" aria-label="{{setup}}">
+    <button id="mission-0" aria-pressed="true"><b>1 · {{mission0}}</b><span id="given-0">h</span></button>
+    <button id="mission-1" aria-pressed="false"><b>2 · {{mission1}}</b><span id="given-1">h</span></button>
+    <button id="mission-2" aria-pressed="false"><b>3 · {{mission2}}</b><span id="given-2">h</span></button>
+    <button id="mission-3" aria-pressed="false"><b>4 · {{mission3}}</b><span id="given-3">h</span></button>
+    <button id="mission-4" aria-pressed="false"><b>5 · {{mission4}}</b><span id="given-4">h</span></button>
+  </div><p class="hint">{{setupNote}}</p></section>
+  <section class="control-section"><h2 class="eyebrow">{{answerHeading}}</h2>
+    <p class="question" id="question">{{questionTime}}</p>
+    <p class="field-label"><label for="answer">{{answerLabel}}</label></p>
+    <div class="answer-row"><span class="symbol" id="answer-symbol">t =</span><input id="answer" type="number" inputmode="decimal" step="any" min="0" value=""><span class="unit" id="answer-unit">s</span></div>
+    <p class="hint">{{answerHint}}</p>
+  </section>
+  <section class="control-section"><h2 class="eyebrow">{{observe}}</h2><label class="check"><input id="show-vectors" type="checkbox" checked>{{vectors}}</label><label class="check"><input id="show-strobe" type="checkbox" checked>{{strobe}}</label><p class="hint">{{observeHint}}</p></section>
+</aside>
+<div class="workspace">
+  <section class="scene" aria-label="{{sceneTitle}}"><div class="scene-top"><div><h2 class="scene-title">{{sceneTitle}}</h2><p class="scene-subtitle" id="mission-label">{{mission0}}</p></div><span class="status" id="drop-status"><i class="status-dot" aria-hidden="true"></i><span id="drop-status-text">{{ready}}</span></span></div>
+    <div class="module-stage"><canvas id="drop-canvas" role="img" aria-label="{{canvasLabel}}">{{noScript}}</canvas></div>
+    <div class="legend"><span><i class="line-key white"></i>{{velocityLegend}}</span><span><i class="line-key orange"></i>{{accelerationLegend}}</span><span><i class="line-key gray"></i>{{strobeLegend}}</span><span><i class="line-key mint"></i>{{traceLegend}}</span></div>
+    <div class="module-equation"><span>{{equationTitle}}</span><output id="drop-equation">y = h − ½·g·t²</output></div>
+    <div class="transport"><button id="play" class="primary" disabled>{{play}}</button><button id="pause" disabled>{{pause}}</button><button id="step" disabled>{{step}}</button><button id="reset" class="reset">{{reset}}</button></div>
+  </section>
+  <section class="metrics" aria-label="{{observe}}">
+    <div class="metric scalar"><h3 class="metric-label">{{time}}</h3><p class="metric-value"><span id="time-value">0.00</span> <small>s</small></p><p class="metric-equation">t</p></div>
+    <div class="metric vector"><h3 class="metric-label">{{height}}</h3><p class="metric-value"><span id="height-value">0.00</span> <small>m</small></p><p class="metric-equation">y</p></div>
+    <div class="metric vector"><h3 class="metric-label">{{velocity}}</h3><p class="metric-value"><span id="velocity-value">0.00</span> <small>m/s</small></p><p class="metric-equation">v = −g·t</p></div>
+    <div class="metric vector"><h3 class="metric-label">{{acceleration}}</h3><p class="metric-value"><span id="acceleration-value">0.00</span> <small>m/s²</small></p><p class="metric-equation">a = −g</p></div>
+    <div class="metric scalar"><h3 class="metric-label">{{fallen}}</h3><p class="metric-value"><span id="fallen-value">0.00</span> <small>m</small></p><p class="metric-equation">h − y = ½·g·t²</p></div>
+  </section>
+  <div class="insight" id="insight"><span class="insight-icon" aria-hidden="true">↗</span><div><strong id="lesson-title">{{predictTitle}}</strong><p id="lesson-copy">{{predictCopy}}</p></div></div>
+  <section class="challenge"><div class="mission-heading"><h2 class="challenge-title">{{missionTitle}}</h2><div class="score-card"><span>{{score}}</span><strong id="mission-score">—</strong></div></div><p class="mission-copy">{{missionCopy}}</p><div class="badges"><span id="right-badge">✓ {{rightBadge}}</span><span id="first-badge">① {{firstBadge}}</span></div></section>
+</div>
+</div>
+<article class="learning-content"><section><h2>{{guideTitle}}</h2><ol><li>{{instruction1}}</li><li>{{instruction2}}</li><li>{{instruction3}}</li><li>{{instruction4}}</li></ol></section><section><h2>{{conceptTitle}}</h2><p>{{conceptCopy}}</p><aside class="worked-example"><h3>{{exampleTitle}}</h3><p>{{exampleCopy}}</p></aside></section><section><h2>{{modelTitle}}</h2><p>{{modelCopy}}</p></section></article>
+<p class="language-note" id="language-note">{{languageNote}}</p>
+</main>
+__FOOTER__
+<p class="sr-only" id="announcement" role="status" aria-live="polite"></p>
+</div>
+<script id="drop-model">
+class DropModel {
+  // y is the height of the bottom of the ball above the ground, up positive. The ball is released from rest at y = h
+  // and falls with a = −g, without air resistance, until it touches the ground at t = √(2h ÷ g).
+  static missions = [
+    {h:4.9,g:9.8,ask:'time'},
+    {h:19.6,g:9.8,ask:'time'},
+    {h:19.6,g:9.8,ask:'speed'},
+    {h:44.1,g:9.8,ask:'time',masses:[.5,5]},
+    {h:3.24,g:1.62,ask:'time',moon:true}
+  ];
+  static earth = 9.8; // m/s²
+  static tolerance = .02; // relative
+  static strobe = .1; // s between strobe images
+  static playback = 1; // the drops last 1–3 s, so they play in real time
+  constructor(index = 0){this.setMission(index);}
+  setMission(index){this.index=index;this.config=DropModel.missions[index];this.answer=null;this.attempts=0;this.reset();}
+  reset(){this.t=0;this.status='falling';}
+  valid(value){return Number.isFinite(value)&&value>0&&value<=(this.config.ask==='time'?30:200);}
+  setAnswer(value){if(value!==null&&!this.valid(value))return false;this.answer=value;this.reset();return true;}
+  ready(){return this.answer!==null;}
+  landTime(){return Math.sqrt(2*this.config.h/this.config.g);}
+  clamp(t){return Math.min(Math.max(t,0),this.landTime());}
+  y(t){const u=this.clamp(t);return Math.max(0,this.config.h-.5*this.config.g*u*u);}
+  // At touchdown the velocity just before contact is kept: the ground then stops the ball.
+  v(t){return -this.config.g*this.clamp(t);}
+  now(){return this.status==='landed'?this.landTime():this.t;}
+  advance(dt){
+    if(!Number.isFinite(dt)||dt<0)throw new Error('Invalid timestep');
+    if(this.status==='landed'||!this.ready())return null;
+    // Touchdown is solved exactly at t = √(2h ÷ g).
+    const T=this.landTime();
+    if(this.t+dt>=T*(1-1e-12)){this.t=T;this.status='landed';this.attempts++;return {t:T};}
+    this.t+=dt;return null;
+  }
+  exact(){const c=this.config;return c.ask==='time'?this.landTime():Math.sqrt(2*c.g*c.h);}
+  unit(){return this.config.ask==='time'?'s':'m/s';}
+  evaluate(){
+    if(!this.ready())return {ok:false,slip:null,first:false,exact:this.exact()};
+    const c=this.config,a=this.answer,e=this.exact(),near=(p,q)=>Math.abs(p-q)<=DropModel.tolerance*Math.abs(q)+1e-12,ok=near(a,e);
+    let slip=null;
+    if(!ok){
+      if(c.ask==='time'){
+        if(near(a,2*c.h/c.g))slip='noRoot';
+        else if(near(a,Math.sqrt(c.h/c.g)))slip='noTwo';
+        else if(near(a,c.h/c.g))slip='hOverG';
+        else if(c.moon&&near(a,Math.sqrt(2*c.h/DropModel.earth)))slip='earth';
+        else if(c.masses&&a<e)slip='mass';
+      }
+      else if(near(a,c.g*c.h))slip='noRootV';
+      else if(near(a,Math.sqrt(c.g*c.h)))slip='noTwoV';
+      else if(near(a,this.landTime()))slip='timeV';
+    }
+    return {ok,slip,first:ok&&this.attempts===1,exact:e};
+  }
+  score(){if(this.status!=='landed')return 0;const e=this.evaluate();return (e.ok?100:0)+(e.first?50:0);}
+  snapshot(){return {index:this.index,answer:this.answer,attempts:this.attempts,t:this.t,status:this.status};}
+  restore(saved){
+    if(!Number.isInteger(saved?.index)||!DropModel.missions[saved.index])return false;
+    const probe=new DropModel(saved.index);
+    if(!probe.setAnswer(saved.answer??null)||!Number.isInteger(saved.attempts)||saved.attempts<0)return false;
+    if(!['falling','landed'].includes(saved.status)||!Number.isFinite(saved.t)||saved.t<0||saved.t>probe.landTime()*(1+1e-9))return false;
+    if(probe.answer===null&&(saved.t>0||saved.status==='landed'))return false;
+    if(saved.status==='landed'&&saved.attempts<1)return false;
+    this.setMission(saved.index);this.answer=probe.answer;this.attempts=saved.attempts;
+    this.status=saved.status;this.t=saved.status==='landed'?this.landTime():saved.t;return true;
+  }
+}
+globalThis.DropModel=DropModel;
+</script>
+<script id="drop-locale" type="application/json">__LOCALE__</script>
+<script id="drop-interface">
+(() => {
+  'use strict';
+  const $=id=>document.getElementById(id),locale=JSON.parse($('drop-locale').textContent);
+  const text=(key,values={})=>locale.strings[key].replace(/\{(\w+)\}/g,(_,name)=>values[name]??'{'+name+'}');
+  const number=(n,d=2)=>Math.abs(n)<.5*10**-d?(0).toLocaleString(locale.lang,{minimumFractionDigits:d,maximumFractionDigits:d}):n.toLocaleString(locale.lang,{minimumFractionDigits:d,maximumFractionDigits:d,useGrouping:false});
+  const plain=n=>n.toLocaleString(locale.lang,{maximumFractionDigits:2,useGrouping:false}).replace('-','−');
+  const signed=(n,d=2)=>(n>.5*10**-d?'+':'')+number(n,d);
+  const model=new DropModel();
+  const canvas=$('drop-canvas'),ctx=canvas.getContext('2d');
+  const H=1/120,transferKey='phisicos-drop-language-transfer';
+  let running=false,previous=null,accumulator=0,lastUpdate=0,width=800,height=410;
+  const say=message=>{$('announcement').textContent=message;};
+  try{const data=JSON.parse(sessionStorage.getItem(transferKey)||'null');sessionStorage.removeItem(transferKey);if(data)model.restore(data.state);}catch{$('language-note').hidden=true;}
+  const amount=v=>plain(Number(v.toFixed(3)))+' '+model.unit();
+  const q=(name,value,unit)=>name+' = '+plain(value)+' '+unit;
+  function setRunning(value){
+    const done=model.status==='landed',blocked=!model.ready();running=value&&!done&&!blocked;previous=null;accumulator=0;
+    $('play').disabled=running||done||blocked;$('pause').disabled=!running;$('step').disabled=running||done||blocked;
+    $('drop-status').classList.toggle('running',running);
+    $('drop-status-text').textContent=text(done?'done':running?'running':model.t?'paused':'ready');
+  }
+  function sync(){
+    const c=model.config;
+    DropModel.missions.forEach((m,i)=>{$('mission-'+i).setAttribute('aria-pressed',String(i===model.index));$('given-'+i).textContent=[q('h',m.h,'m'),q('g',m.g,'m/s²'),...(m.masses?[m.masses.map(k=>plain(k)+' kg').join(' + ')]:[])].join(' · ');});
+    $('question').textContent=text(c.masses?'questionMass':c.ask==='time'?'questionTime':'questionSpeed');
+    $('answer-symbol').textContent=c.ask==='time'?'t =':'|v| =';$('answer-unit').textContent=model.unit();
+    $('answer').value=model.answer===null?'':String(model.answer);$('mission-label').textContent=text('mission'+model.index);
+  }
+  function update(){
+    const c=model.config,ready=model.ready(),done=model.status==='landed',t=ready?model.now():0,e=model.evaluate(),y=model.y(t),v=model.v(t);
+    $('time-value').textContent=number(t);$('height-value').textContent=number(y);$('velocity-value').textContent=signed(v);
+    $('acceleration-value').textContent=signed(-c.g);$('fallen-value').textContent=number(c.h-y);
+    $('drop-equation').textContent='y = '+number(c.h)+' − ½ × '+number(c.g)+' × '+number(t)+'² = '+number(y)+' m · v = '+signed(v)+' m/s';
+    let key,copy;const values={t:number(t,1),v:number(Math.abs(v),1),d:number(c.h-y,1)};
+    const slipKey={noRoot:'slipNoRoot',noTwo:'slipNoTwo',hOverG:'slipHOverG',earth:'slipEarth',mass:'slipMass',noRootV:'slipNoRootV',noTwoV:'slipNoTwoV',timeV:'slipTimeV'};
+    if(done){
+      const r={t:number(model.landTime(),2),v:number(Math.abs(v),1),p:amount(model.answer)};
+      if(e.ok){key='good';copy=text('goodCopy',r)+' '+text('why'+model.index);}
+      else{key='miss';copy=text('missCopy',r)+' '+(e.slip?text(slipKey[e.slip]):text('hint'+model.index));}
+    }
+    else if(!ready){key='predict';copy=text('predictCopy');}
+    else if(model.t>0){key='running';copy=text('runningCopy',values);}
+    else{key='ready';copy=text('readyCopy');}
+    $('lesson-title').textContent=text(key+'Title',{...values,p:ready?amount(model.answer):''});$('lesson-copy').textContent=copy;
+    $('insight').classList.toggle('warning',key==='miss');
+    $('mission-score').textContent=done?String(model.score()):'—';
+    $('right-badge').classList.toggle('earned',done&&e.ok);$('first-badge').classList.toggle('earned',done&&e.first);
+  }
+  function refresh(){setRunning(false);update();draw();}
+  function simulate(dt){if(model.advance(dt*DropModel.playback)){setRunning(false);update();say(text('doneAnnouncement')+' '+$('lesson-title').textContent);return true;}return false;}
+  $('answer').addEventListener('input',event=>{const raw=String(event.target.value).trim(),value=raw===''?null:Number(raw);if(!model.setAnswer(value))model.setAnswer(null);refresh();});
+  $('play').addEventListener('click',()=>{setRunning(true);update();say(text('startedAnnouncement'));});
+  $('pause').addEventListener('click',()=>{setRunning(false);update();say(text('pausedAnnouncement'));});
+  $('step').addEventListener('click',()=>{for(let i=0;i<12;i++)if(simulate(H))break;setRunning(false);update();draw();});
+  $('reset').addEventListener('click',()=>{model.reset();refresh();say(text('resetAnnouncement'));});
+  DropModel.missions.forEach((_,i)=>$('mission-'+i).addEventListener('click',()=>{model.setMission(i);sync();refresh();say(text('missionAnnouncement',{name:text('mission'+i)}));}));
+  for(const id of ['show-vectors','show-strobe'])$(id).addEventListener('change',()=>{update();draw();});
+  function suspend(){if(running){setRunning(false);say(text('suspendedAnnouncement'));}update();draw();}
+  window.addEventListener('blur',suspend);document.addEventListener('visibilitychange',()=>{if(document.hidden)suspend();});
+  for(const link of document.querySelectorAll('.language-menu a'))link.addEventListener('click',()=>{setRunning(false);try{sessionStorage.setItem(transferKey,JSON.stringify({state:model.snapshot()}));}catch{}});
+  function resize(){const rect=canvas.getBoundingClientRect();if(rect.width<=0)return;width=rect.width;height=rect.height;const dpr=Math.min(window.devicePixelRatio||1,3);canvas.width=Math.round(width*dpr);canvas.height=Math.round(height*dpr);ctx.setTransform(dpr,0,0,dpr,0,0);draw();}
+  const VEL=3,ACC=6,CAP=120,TVIEW=4; // px per m/s, px per m/s², the velocity-arrow cap (px), and the fixed graph span (s).
+  const tick=span=>[1,2,5,10].find(s=>span/s<=10)||20;
+  function draw(){
+    if(!ctx)return;
+    const c=model.config,ready=model.ready(),done=model.status==='landed',t=ready?model.now():0,y=model.y(t),v=model.v(t);
+    ctx.clearRect(0,0,width,height);
+    const label=(str,px,py,color='#b8ccdb',align='left',font=12)=>{ctx.fillStyle=color;ctx.textAlign=align;ctx.font=font+'px -apple-system,BlinkMacSystemFont,sans-serif';ctx.fillText(str,px,py);};
+    const line=(points,color,w=1,dash=[])=>{ctx.beginPath();ctx.strokeStyle=color;ctx.lineWidth=w;ctx.setLineDash(dash);points.forEach((p,i)=>i?ctx.lineTo(p.x,p.y):ctx.moveTo(p.x,p.y));ctx.stroke();ctx.setLineDash([]);};
+    const arrowV=(px,fromY,toY,color,w=2.5)=>{if(Math.abs(toY-fromY)<3)return;const s=Math.sign(toY-fromY);line([{x:px,y:fromY},{x:px,y:toY}],color,w);line([{x:px-5,y:toY-s*9},{x:px,y:toY},{x:px+5,y:toY-s*9}],color,2);};
+    // Tower: one height scale, fixed per mission from the given height only.
+    const top=40,ground=height-36,view=Math.ceil(c.h*1.15),sy=h=>ground-h/view*(ground-top),tx0=Math.max(70,width*.1),bx=tx0+Math.max(70,width*.1);
+    label(text(c.moon?'moonTitle':'towerTitle'),16,20,'#d1e3ed','left',12);label(text('arrowScale'),width-12,20,'#9fb6c7','right',10);
+    ctx.fillStyle=c.moon?'#3a4a56':'#24425a';ctx.fillRect(0,ground,width*.45,height-ground);label(text('ground'),12,ground+18,'#9fb6c7','left',10);
+    ctx.fillStyle='#1b3448';ctx.fillRect(tx0-22,sy(c.h),22,ground-sy(c.h));line([{x:tx0-22,y:sy(c.h)},{x:bx+18,y:sy(c.h)}],'#5b7488',3);
+    const step=tick(view);for(let h=0;h<=view;h+=step){line([{x:tx0-28,y:sy(h)},{x:tx0-22,y:sy(h)}],'#5b7488',1);label(plain(h)+' m',tx0-32,sy(h)+4,'#9fb6c7','right',10);}
+    const balls=c.masses?[{x:bx-14,r:5,m:c.masses[0]},{x:bx+14,r:10,m:c.masses[1]}]:[{x:bx,r:8}];
+    // Strobe: the ball every 0.1 s, so the growing gaps show the growing speed.
+    if($('show-strobe').checked&&ready)for(let k=1;k*DropModel.strobe<t-1e-9;k++)for(const b of balls){ctx.strokeStyle='#8aa3b5';ctx.lineWidth=1;ctx.beginPath();ctx.arc(b.x,sy(model.y(k*DropModel.strobe))-b.r,b.r,0,Math.PI*2);ctx.stroke();}
+    for(const b of balls){ctx.fillStyle='#efe6d0';ctx.beginPath();ctx.arc(b.x,sy(y)-b.r,b.r,0,Math.PI*2);ctx.fill();if(b.m)label(plain(b.m)+' kg',b.x,sy(y)-2*b.r-6,'#d1e3ed','center',10);}
+    if($('show-vectors').checked&&ready){const b=balls[balls.length-1],len=Math.min(CAP,-v*VEL);if(!done)arrowV(b.x+b.r+14,sy(y)-b.r,sy(y)-b.r+len,'#f2f8fc');arrowV(b.x+b.r+28,sy(y)-b.r,sy(y)-b.r+c.g*ACC,'#efb958',2);if(-v*VEL>CAP)label(text('capped'),b.x+b.r+34,sy(y)-b.r+CAP,'#9fb6c7','left',10);}
+    // v–t graph on a fixed time span; the trace appears only as the ball falls.
+    const vmin=-Math.ceil(c.g*TVIEW/5)*5,gx0=width*.5+30,gx1=width-20,gtop=56,gbottom=height-40,gx=u=>gx0+u/TVIEW*(gx1-gx0),gy=w=>gtop+(0-w)/(0-vmin)*(gbottom-gtop);
+    label(text('graphTitle'),gx0,gtop-22,'#d1e3ed','left',12);label(text('axisVelocity'),gx0-6,gtop-6,'#9fb6c7','right',10);label(text('axisTime'),gx1,gbottom+28,'#9fb6c7','right',10);
+    const vs=tick(-vmin);for(let w=0;w>=vmin;w-=vs){line([{x:gx0,y:gy(w)},{x:gx1,y:gy(w)}],w===0?'#5b7488':'#203d50',1);label(plain(w),gx0-6,gy(w)+4,'#9fb6c7','right',10);}
+    for(let u=0;u<=TVIEW;u++){line([{x:gx(u),y:gtop},{x:gx(u),y:gbottom}],'#203d50',1);label(plain(u),gx(u),gbottom+14,'#9fb6c7','center',10);}
+    if(ready&&t>0){line([{x:gx(0),y:gy(0)},{x:gx(t),y:gy(v)}],'#75efc7',3);ctx.fillStyle='#75efc7';ctx.beginPath();ctx.arc(gx(t),gy(v),4.5,0,Math.PI*2);ctx.fill();}
+    if(done){const e=model.evaluate();label(text('landedBanner',{t:number(t),v:number(-v,1)}),(gx0+gx1)/2,gbottom-14,e.ok?'#75efc7':'#efb958','center',width<430?12:14);}
+  }
+  function frame(now){if(previous===null)previous=now;const elapsed=Math.min(.1,(now-previous)/1000);previous=now;if(running){accumulator+=elapsed;while(accumulator>=H&&running){accumulator-=H;simulate(H);}draw();}if(now-lastUpdate>=80){update();lastUpdate=now;}requestAnimationFrame(frame);}
+  window.addEventListener('resize',resize);if(typeof ResizeObserver!=='undefined')new ResizeObserver(resize).observe(canvas);
+  sync();setRunning(false);update();resize();requestAnimationFrame(frame);
+})();
+</script>
+</body>
+</html>

@@ -8,6 +8,6 @@
     "package:hosting": "node package-hosting.cjs",
     "dev": "node build.cjs --preview && node serve.cjs",
     "preview": "node serve.cjs",
-    "test": "node verify.cjs && node verify-chase.cjs && node verify-site.cjs && node verify-lander.cjs && node verify-pipeline.cjs && node verify-scale.cjs && node verify-river.cjs && node verify-walk.cjs && node verify-forces.cjs && node verify-build.cjs"
+    "test": "node verify.cjs && node verify-chase.cjs && node verify-site.cjs && node verify-track.cjs && node verify-lift.cjs && node verify-dog.cjs && node verify-graph.cjs && node verify-bells.cjs && node verify-brake.cjs && node verify-drop.cjs && node verify-toss.cjs && node verify-ruler.cjs && node verify-lander.cjs && node verify-pipeline.cjs && node verify-scale.cjs && node verify-balance.cjs && node verify-machine.cjs && node verify-pickform.cjs && node verify-river.cjs && node verify-walk.cjs && node verify-forces.cjs && node verify-ramp.cjs && node verify-lighthouse.cjs && node verify-wheel.cjs && node verify-airdrop.cjs && node verify-shadows.cjs && node verify-cannon.cjs && node verify-build.cjs"
   }
 }

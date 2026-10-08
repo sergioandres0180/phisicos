@@ -1,5 +1,5 @@
 // Optional real HTTP/TLS integration check. Requires Apache 2.4 and OpenSSL locally.
-const pages=require('./locales/pages.cjs'),kinds=['home','game',...require('./locales/games.cjs').map(g=>g.kind)],pageCount=Object.keys(pages).length*kinds.length;
+const pages=require('./locales/pages.cjs'),{kinds}=require('./locales/site.cjs'),legacy=require('./locales/legacy-routes.cjs'),pageCount=Object.keys(pages).length*kinds.length;
 // Defaults to macOS Apache; override APACHE_BIN, APACHE_MODULE_DIR and APACHE_MIME_TYPES elsewhere.
 const fs=require('node:fs'),path=require('node:path'),os=require('node:os'),net=require('node:net');
 const http=require('node:http'),https=require('node:https'),zlib=require('node:zlib'),assert=require('node:assert/strict');
@@ -55,8 +55,8 @@ DocumentRoot "${root}"
  for(let i=0;i<60;i++){try{await request('/');ready=true;break;}catch{if(server.exitCode!==null)break;await delay(100);}}
  assert.ok(ready,'Apache did not start: '+output);
  for(const opts of [{tls:false},{host:'www.phisicos.com'},{tls:false,host:'www.phisicos.com'}]){
-  const r=await request('/games/lunar-lander/?mission=eco',opts);
-  assert.equal(r.status,301);assert.equal(r.headers.location,'https://phisicos.com/games/lunar-lander/?mission=eco');
+  const r=await request(pages.en.lander+'?mission=eco',opts);
+  assert.equal(r.status,301);assert.equal(r.headers.location,'https://phisicos.com'+pages.en.lander+'?mission=eco');
  }
  console.log('PASS Apache HTTP and www redirects preserve path and query');
  for(const p of Object.values(pages))for(const route of kinds.map(kind=>p[kind])){
@@ -65,12 +65,16 @@ DocumentRoot "${root}"
   if(route!=='/'){const slash=await request(route.slice(0,-1));assert.equal(slash.status,301);assert.equal(slash.headers.location,'https://phisicos.com'+route);}
  }
  console.log(`PASS Apache serves all ${pageCount} canonical pages and redirects their duplicate URLs`);
+ for(const [lang,map] of Object.entries(legacy))for(const [kind,from] of Object.entries(map))for(const variant of [from,from.slice(0,-1),from+'index.html',from+'?ref=old']){
+  const r=await request(variant);assert.equal(r.status,301,variant);assert.equal(r.headers.location,'https://phisicos.com'+pages[lang][kind]+(variant.includes('?')?'?ref=old':''),variant);
+ }
+ console.log('PASS Apache redirects every old game route to its topic route in one hop, keeping the query');
  for(const route of ['/missing-page/','/es/juegos/no-existe/','/assets/no-such-file.css']){
   const r=await request(route);assert.equal(r.status,404);assert.ok(r.body.includes('<title>404 | Phisicos</title>'));assert.equal(r.headers['x-robots-tag'],'noindex');
  }
  const listing=await request('/assets/');assert.equal(listing.status,403);
- const head=await request('/games/lunar-lander/',{method:'HEAD'});assert.equal(head.status,200);assert.equal(head.body.length,0);
- const gzip=await request('/games/lunar-lander/',{headers:{'Accept-Encoding':'gzip'}});
+ const head=await request(pages.en.lander,{method:'HEAD'});assert.equal(head.status,200);assert.equal(head.body.length,0);
+ const gzip=await request(pages.en.lander,{headers:{'Accept-Encoding':'gzip'}});
  assert.equal(gzip.headers['content-encoding'],'gzip');assert.ok(zlib.gunzipSync(gzip.body).includes('<!doctype html>'));
  assert.equal(gzip.headers['cache-control'],'public, max-age=0, must-revalidate');
  const css=await request('/assets/site.css');assert.equal(css.status,200);assert.equal(css.headers['cache-control'],'public, max-age=86400');assert.match(css.headers['content-type'],/text\/css/);

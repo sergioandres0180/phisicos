@@ -1,0 +1,234 @@
+<!doctype html>
+<html lang="en">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Undo Machine · Phisicos</title>
+<style>
+.machine-page .question{font-size:15px;font-weight:600;margin-top:4px}.machine-page [hidden]{display:none!important}
+.machine-page .op-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:6px;margin-top:8px}.machine-page .op-grid button,.machine-page .sym-row button,.machine-page .edit-row button{min-height:44px;border:1px solid var(--line);border-radius:9px;background:#fff;font:600 15px ui-monospace,SFMono-Regular,monospace;color:var(--ink)}
+.machine-page .sym-row{display:flex;gap:6px;margin-top:8px;flex-wrap:wrap}.machine-page .sym-row button{min-width:44px;padding:0 10px}.machine-page .sym-row button[aria-pressed=true]{background:#e4f3ed;border-color:#81bea8}
+.machine-page .edit-row{display:grid;grid-template-columns:1fr 1fr;gap:6px;margin-top:10px}.machine-page .edit-row button{font-family:inherit;font-size:14px}
+.machine-page .chain{display:block;margin-top:12px;padding:10px;border-radius:9px;background:#f2f6f9;border:1px solid var(--line);font:600 15px ui-monospace,SFMono-Regular,monospace;overflow-wrap:anywhere}
+</style>
+</head>
+<body>
+<div class="shell module-page machine-page">
+__HEADER__
+<main id="main-content">
+__BREADCRUMBS__
+
+<div class="masthead"><div><h1>{{title}}</h1><p class="intro">{{subtitle}}</p></div><div class="concept-tags"><span class="tag speed">{{tag1}}</span><span class="tag velocity">{{tag2}}</span></div></div>
+<noscript><p class="no-js">{{noScript}}</p></noscript>
+<div class="layout">
+<aside class="sidebar" aria-label="{{setup}}">
+  <section class="control-section"><h2 class="eyebrow">{{setup}}</h2><div class="mission-list" role="group" aria-label="{{setup}}">
+    <button id="mission-0" aria-pressed="true"><b>1 · {{mission0}}</b><span id="given-0">=</span></button>
+    <button id="mission-1" aria-pressed="false"><b>2 · {{mission1}}</b><span id="given-1">=</span></button>
+    <button id="mission-2" aria-pressed="false"><b>3 · {{mission2}}</b><span id="given-2">=</span></button>
+    <button id="mission-3" aria-pressed="false"><b>4 · {{mission3}}</b><span id="given-3">=</span></button>
+    <button id="mission-4" aria-pressed="false"><b>5 · {{mission4}}</b><span id="given-4">=</span></button>
+  </div><p class="hint">{{setupNote}}</p></section>
+  <section class="control-section"><h2 class="eyebrow">{{buildHeading}}</h2>
+    <p class="question" id="question">{{questionGeneric}}</p>
+    <p class="field-label" id="sym-label">{{symbolLabel}}</p>
+    <div class="sym-row" role="group" aria-labelledby="sym-label"><button id="sym-0" aria-pressed="true">v</button><button id="sym-1" aria-pressed="false">2</button><button id="sym-2" aria-pressed="false">–</button></div>
+    <div class="op-grid" role="group" aria-label="{{opsLabel}}"><button id="op-add">+ v</button><button id="op-sub">− v</button><button id="op-square">( )²</button><button id="op-mul">× v</button><button id="op-div">÷ v</button><button id="op-root">√</button></div>
+    <div class="edit-row"><button id="remove-tile">{{removeTile}}</button><button id="clear-tiles">{{clearTiles}}</button></div>
+    <output class="chain" id="chain">x →</output>
+    <p class="hint">{{buildHint}}</p>
+  </section>
+  <section class="control-section"><h2 class="eyebrow">{{observe}}</h2><label class="check"><input id="show-forward" type="checkbox" checked>{{forward}}</label><label class="check"><input id="show-values" type="checkbox" checked>{{values}}</label><p class="hint">{{observeHint}}</p></section>
+</aside>
+<div class="workspace">
+  <section class="scene" aria-label="{{sceneTitle}}"><div class="scene-top"><div><h2 class="scene-title">{{sceneTitle}}</h2><p class="scene-subtitle" id="mission-label">{{mission0}}</p></div><span class="status" id="machine-status"><i class="status-dot" aria-hidden="true"></i><span id="machine-status-text">{{ready}}</span></span></div>
+    <div class="module-stage"><canvas id="machine-canvas" role="img" aria-label="{{canvasLabel}}">{{noScript}}</canvas></div>
+    <div class="legend"><span><i class="line-key gray"></i>{{forwardLegend}}</span><span><i class="line-key mint"></i>{{inverseLegend}}</span><span><i class="line-key blue"></i>{{tokenLegend}}</span><span><i class="line-key orange"></i>{{mismatchLegend}}</span></div>
+    <div class="module-equation"><span>{{equationTitle}}</span><output id="machine-equation">x →</output></div>
+    <div class="transport"><button id="play" class="primary" disabled>{{play}}</button><button id="pause" disabled>{{pause}}</button><button id="step" disabled>{{step}}</button><button id="reset" class="reset">{{reset}}</button></div>
+  </section>
+  <section class="metrics" aria-label="{{observe}}">
+    <div class="metric scalar"><h3 class="metric-label">{{tiles}}</h3><p class="metric-value"><span id="tiles-value">0</span></p><p class="metric-equation" id="tiles-forward">n</p></div>
+    <div class="metric scalar"><h3 class="metric-label">{{stage}}</h3><p class="metric-value"><span id="stage-value">0 / 0</span></p><p class="metric-equation">k</p></div>
+    <div class="metric scalar"><h3 class="metric-label">{{inMachine}}</h3><p class="metric-value"><span id="value-now">—</span></p><p class="metric-equation" id="value-symbol">x</p></div>
+    <div class="metric scalar"><h3 class="metric-label">{{yourResult}}</h3><p class="metric-value"><span id="result-value">—</span></p><p class="metric-equation" id="result-symbol">t</p></div>
+    <div class="metric scalar"><h3 class="metric-label">{{trueValue}}</h3><p class="metric-value"><span id="true-value">?</span></p><p class="metric-equation">✓</p></div>
+  </section>
+  <div class="insight" id="insight"><span class="insight-icon" aria-hidden="true">↗</span><div><strong id="lesson-title">{{buildTitle}}</strong><p id="lesson-copy">{{buildCopy}}</p></div></div>
+  <section class="challenge"><div class="mission-heading"><h2 class="challenge-title">{{missionTitle}}</h2><div class="score-card"><span>{{score}}</span><strong id="mission-score">—</strong></div></div><p class="mission-copy">{{missionCopy}}</p><div class="badges"><span id="right-badge">✓ {{rightBadge}}</span><span id="first-badge">① {{firstBadge}}</span></div></section>
+</div>
+</div>
+<article class="learning-content"><section><h2>{{guideTitle}}</h2><ol><li>{{instruction1}}</li><li>{{instruction2}}</li><li>{{instruction3}}</li><li>{{instruction4}}</li></ol></section><section><h2>{{conceptTitle}}</h2><p>{{conceptCopy}}</p><aside class="worked-example"><h3>{{exampleTitle}}</h3><p>{{exampleCopy}}</p></aside></section><section><h2>{{modelTitle}}</h2><p>{{modelCopy}}</p></section></article>
+<p class="language-note" id="language-note">{{languageNote}}</p>
+</main>
+__FOOTER__
+<p class="sr-only" id="announcement" role="status" aria-live="polite"></p>
+</div>
+<script id="machine-model">
+class MachineModel {
+  // A formula as a machine: the unknown goes in, the forward operations act in order, and the known result comes out.
+  // Solving runs a machine the other way: the known result goes in and each box undoes one forward step, last one first.
+  static missions = [
+    {formula:'d = v·t',unknown:'t',known:'d',values:{v:15,t:8,d:120},forward:[['mul','v']],palette:['v','2']},
+    {formula:'x = x₀ + v·t',unknown:'t',known:'x',values:{x0:20,v:5,t:6,x:50},forward:[['mul','v'],['add','x0']],palette:['v','x0','2']},
+    {formula:'v = v₀ + a·t',unknown:'a',known:'v',values:{v0:4,t:5,a:3,v:19},forward:[['mul','t'],['add','v0']],palette:['t','v0','2']},
+    {formula:'x = ½·a·t²',unknown:'t',known:'x',values:{a:4,t:5,x:50},forward:[['square'],['mul','a'],['div','2']],palette:['a','2']},
+    {formula:'v = √(v₀² + 2·a·d)',unknown:'d',known:'v',values:{v0sq:36,a:4,d:8,v:10},forward:[['mul','a'],['mul','2'],['add','v0sq'],['root']],palette:['a','v0sq','2']}
+  ];
+  static names = {t:'t',d:'d',v:'v',x:'x',x0:'x₀',v0:'v₀',a:'a',v0sq:'v₀²','2':'2'};
+  static inverse = {add:'sub',sub:'add',mul:'div',div:'mul',square:'root',root:'square'};
+  static signs = {add:'+',sub:'−',mul:'×',div:'÷'};
+  static maxTiles = 6;
+  static stage = .8; // s for the value to pass through one box
+  constructor(index = 0){this.setMission(index);}
+  setMission(index){this.index=index;this.config=MachineModel.missions[index];this.tiles=[];this.attempts=0;this.reset();}
+  reset(){this.t=0;this.status='building';}
+  value(sym){return sym==='2'?2:this.config.values[sym];}
+  static run(op,x,s){return {add:x+s,sub:x-s,mul:x*s,div:x/s,square:x*x,root:x<0?NaN:Math.sqrt(x)}[op];}
+  static needsSymbol(op){return op in MachineModel.signs;}
+  addTile(op,sym){
+    if(!(op in MachineModel.inverse)||this.tiles.length>=MachineModel.maxTiles)return false;
+    if(MachineModel.needsSymbol(op)&&!this.config.palette.includes(sym))return false;
+    this.tiles.push(MachineModel.needsSymbol(op)?[op,sym]:[op]);this.reset();return true;
+  }
+  removeTile(){if(!this.tiles.length)return false;this.tiles.pop();this.reset();return true;}
+  clearTiles(){this.tiles=[];this.reset();}
+  static label([op,sym]){return MachineModel.needsSymbol(op)?MachineModel.signs[op]+' '+MachineModel.names[sym]:op==='square'?'( )²':'√';}
+  forwardBoxes(){return this.config.forward.map(MachineModel.label);}
+  // The value after each box of a machine, starting from what goes in.
+  stagesOf(tiles,start){const out=[start];for(const [op,sym] of tiles)out.push(MachineModel.run(op,out[out.length-1],this.value(sym)));return out;}
+  stages(){return this.stagesOf(this.tiles,this.config.values[this.config.known]);}
+  // One stage per pipe: from the input end, through each box, to the output end.
+  duration(){return MachineModel.stage*(this.tiles.length+1);}
+  result(){const s=this.stages();return s[s.length-1];}
+  exact(){return this.config.values[this.config.unknown];}
+  now(){return this.status==='done'?this.duration():this.t;}
+  advance(dt){
+    if(!Number.isFinite(dt)||dt<0)throw new Error('Invalid timestep');
+    if(this.status==='done'||!this.tiles.length)return null;
+    // The value leaves the last box exactly at the end of its stage.
+    this.status='running';const T=this.duration();
+    if(this.t+dt>=T*(1-1e-12)){this.t=T;this.status='done';this.attempts++;return {t:T};}
+    this.t+=dt;return null;
+  }
+  // Boxes the token has reached by time t, and the value it carries: the value after the last box reached.
+  position(t){const n=this.tiles.length,k=Math.min(n,Math.floor(t/MachineModel.stage+1e-9));return {k,progress:n?Math.min(1,t/this.duration()):0,value:this.stages()[k]};}
+  correctTiles(){return [...this.config.forward].reverse().map(([op,sym])=>sym===undefined?[MachineModel.inverse[op]]:[MachineModel.inverse[op],sym]);}
+  evaluate(){
+    const r=this.result(),e=this.exact(),ok=this.tiles.length>0&&Number.isFinite(r)&&Math.abs(r-e)<=1e-9*Math.max(1,Math.abs(e));
+    let slip=null;
+    if(!ok&&this.tiles.length){
+      const key=t=>t.join(':'),mine=this.tiles.map(key).sort().join('|'),right=this.correctTiles().map(key).sort().join('|'),fwd=this.config.forward.map(key);
+      if(mine===right)slip='order';
+      else if(!Number.isFinite(r))slip='invalid';
+      else if(this.tiles.some(t=>fwd.includes(key(t))&&!this.correctTiles().map(key).includes(key(t))))slip='same';
+      else if(this.tiles.length<this.config.forward.length)slip='missing';
+    }
+    return {ok,slip,first:ok&&this.attempts===1&&this.tiles.length===this.config.forward.length,exact:e,result:r};
+  }
+  score(){if(this.status!=='done')return 0;const e=this.evaluate();return (e.ok?100:0)+(e.first?50:0);}
+  snapshot(){return {index:this.index,tiles:this.tiles.map(t=>[...t]),attempts:this.attempts,t:this.t,status:this.status};}
+  restore(saved){
+    if(!Number.isInteger(saved?.index)||!MachineModel.missions[saved.index])return false;
+    const probe=new MachineModel(saved.index);
+    if(!Array.isArray(saved.tiles)||!saved.tiles.every(t=>Array.isArray(t)&&probe.addTile(t[0],t[1])))return false;
+    if(!Number.isInteger(saved.attempts)||saved.attempts<0||!['building','running','done'].includes(saved.status)||!Number.isFinite(saved.t)||saved.t<0||saved.t>probe.duration()*(1+1e-9))return false;
+    if(saved.status==='done'&&(saved.attempts<1||!probe.tiles.length))return false;
+    this.setMission(saved.index);this.tiles=probe.tiles;this.attempts=saved.attempts;
+    this.status=saved.status;this.t=saved.status==='done'?this.duration():saved.t;return true;
+  }
+}
+globalThis.MachineModel=MachineModel;
+</script>
+<script id="machine-locale" type="application/json">__LOCALE__</script>
+<script id="machine-interface">
+(() => {
+  'use strict';
+  const $=id=>document.getElementById(id),locale=JSON.parse($('machine-locale').textContent);
+  const text=(key,values={})=>locale.strings[key].replace(/\{(\w+)\}/g,(_,name)=>values[name]??'{'+name+'}');
+  const plain=n=>Number.isFinite(n)?Number(n.toPrecision(6)).toLocaleString(locale.lang,{maximumFractionDigits:4,useGrouping:false}).replace('-','−'):'—';
+  const model=new MachineModel();
+  const canvas=$('machine-canvas'),ctx=canvas.getContext('2d');
+  const H=1/120,transferKey='phisicos-machine-language-transfer',N=MachineModel.names;
+  let running=false,previous=null,accumulator=0,lastUpdate=0,width=800,height=410,symbol=0;
+  const say=message=>{$('announcement').textContent=message;};
+  try{const data=JSON.parse(sessionStorage.getItem(transferKey)||'null');sessionStorage.removeItem(transferKey);if(data)model.restore(data.state);}catch{$('language-note').hidden=true;}
+  const sym=()=>model.config.palette[symbol];
+  const chainText=()=>N[model.config.known]+' → '+model.tiles.map(MachineModel.label).join(' → ')+(model.tiles.length?' → ':'')+N[model.config.unknown]+' ?';
+  function setRunning(value){
+    const done=model.status==='done',blocked=!model.tiles.length;running=value&&!done&&!blocked;previous=null;accumulator=0;
+    $('play').disabled=running||done||blocked;$('pause').disabled=!running;$('step').disabled=running||done||blocked;
+    $('machine-status').classList.toggle('running',running);
+    $('machine-status-text').textContent=text(done?'done':running?'running':model.t?'paused':'ready');
+  }
+  function sync(){
+    const c=model.config;
+    MachineModel.missions.forEach((m,i)=>{$('mission-'+i).setAttribute('aria-pressed',String(i===model.index));$('given-'+i).textContent=m.formula+' → '+N[m.unknown];});
+    for(let i=0;i<3;i++){$('sym-'+i).hidden=i>=c.palette.length;if(i<c.palette.length){$('sym-'+i).textContent=N[c.palette[i]];$('sym-'+i).setAttribute('aria-pressed',String(i===symbol));}}
+    for(const op of ['add','sub','mul','div'])$('op-'+op).textContent=MachineModel.signs[op]+' '+N[sym()];
+    $('question').textContent=text('question',{s:N[c.unknown],k:N[c.known],f:c.formula});
+    $('tiles-forward').textContent=text('forwardCount',{n:c.forward.length});$('value-symbol').textContent=N[c.known]+' →';$('result-symbol').textContent=N[c.unknown];
+    $('mission-label').textContent=text('mission'+model.index);
+  }
+  function update(){
+    const c=model.config,done=model.status==='done',e=model.evaluate(),pos=model.position(model.now()),n=model.tiles.length;
+    $('chain').textContent=chainText();$('tiles-value').textContent=String(n);$('stage-value').textContent=pos.k+' / '+n;
+    $('value-now').textContent=model.t>0||done?plain(pos.value):plain(c.values[c.known]);
+    $('result-value').textContent=done?plain(e.result):'—';$('true-value').textContent=done?plain(e.exact):'?';
+    const stages=model.stages();
+    $('machine-equation').textContent=N[c.known]+' = '+plain(stages[0])+model.tiles.map((t,i)=>' → '+MachineModel.label(t)+' → '+(done||i<pos.k?plain(stages[i+1]):'…')).join('');
+    let key,copy;const values={s:N[c.unknown],r:plain(e.result),e:plain(e.exact),n:String(c.forward.length)};
+    const slipKey={order:'slipOrder',same:'slipSame',missing:'slipMissing',invalid:'slipInvalid'};
+    if(done){
+      if(e.ok){key='good';copy=text('goodCopy',values)+' '+(e.first?text('why'+model.index):n>c.forward.length?text('longCopy',values):text('why'+model.index));}
+      else{key='miss';copy=text('missCopy',values)+' '+(e.slip?text(slipKey[e.slip]):text('hint'+model.index));}
+    }
+    else if(model.t>0){key='running';copy=text('runningCopy',{v:plain(pos.value)});}
+    else if(n){key='ready';copy=text('readyCopy',values);}
+    else{key='build';copy=text('buildCopy',values);}
+    $('lesson-title').textContent=text(key+'Title',values);$('lesson-copy').textContent=copy;
+    $('insight').classList.toggle('warning',key==='miss');
+    $('mission-score').textContent=done?String(model.score()):'—';
+    $('right-badge').classList.toggle('earned',done&&e.ok);$('first-badge').classList.toggle('earned',done&&e.first);
+  }
+  function refresh(){sync();setRunning(false);update();draw();}
+  function simulate(dt){if(model.advance(dt)){setRunning(false);update();say(text('doneAnnouncement')+' '+$('lesson-title').textContent);return true;}return false;}
+  for(const op of ['add','sub','mul','div','square','root'])$('op-'+op).addEventListener('click',()=>{if(model.addTile(op,sym())){refresh();say(chainText());}});
+  for(let i=0;i<3;i++)$('sym-'+i).addEventListener('click',()=>{symbol=i;sync();});
+  $('remove-tile').addEventListener('click',()=>{if(model.removeTile()){refresh();say(chainText());}});
+  $('clear-tiles').addEventListener('click',()=>{model.clearTiles();refresh();say(chainText());});
+  $('play').addEventListener('click',()=>{setRunning(true);update();say(text('startedAnnouncement'));});
+  $('pause').addEventListener('click',()=>{setRunning(false);update();say(text('pausedAnnouncement'));});
+  $('step').addEventListener('click',()=>{for(let i=0;i<12;i++)if(simulate(H))break;setRunning(false);update();draw();});
+  $('reset').addEventListener('click',()=>{model.reset();refresh();say(text('resetAnnouncement'));});
+  MachineModel.missions.forEach((_,i)=>$('mission-'+i).addEventListener('click',()=>{model.setMission(i);symbol=0;refresh();say(text('missionAnnouncement',{name:text('mission'+i)}));}));
+  for(const id of ['show-forward','show-values'])$(id).addEventListener('change',()=>{update();draw();});
+  function suspend(){if(running){setRunning(false);say(text('suspendedAnnouncement'));}update();draw();}
+  window.addEventListener('blur',suspend);document.addEventListener('visibilitychange',()=>{if(document.hidden)suspend();});
+  for(const link of document.querySelectorAll('.language-menu a'))link.addEventListener('click',()=>{setRunning(false);try{sessionStorage.setItem(transferKey,JSON.stringify({state:model.snapshot()}));}catch{}});
+  function resize(){const rect=canvas.getBoundingClientRect();if(rect.width<=0)return;width=rect.width;height=rect.height;const dpr=Math.min(window.devicePixelRatio||1,3);canvas.width=Math.round(width*dpr);canvas.height=Math.round(height*dpr);ctx.setTransform(dpr,0,0,dpr,0,0);draw();}
+  function draw(){
+    if(!ctx)return;
+    const c=model.config,done=model.status==='done',t=model.now(),pos=model.position(t),values=$('show-values').checked;
+    ctx.clearRect(0,0,width,height);
+    const label=(str,px,py,color='#b8ccdb',align='left',font=12,mono=false)=>{ctx.fillStyle=color;ctx.textAlign=align;ctx.font=(mono?'600 ':'')+font+'px '+(mono?'ui-monospace,SFMono-Regular,monospace':'-apple-system,BlinkMacSystemFont,sans-serif');ctx.fillText(str,px,py);};
+    const line=(points,color,w=1,dash=[])=>{ctx.beginPath();ctx.strokeStyle=color;ctx.lineWidth=w;ctx.setLineDash(dash);points.forEach((p,i)=>i?ctx.lineTo(p.x,p.y):ctx.moveTo(p.x,p.y));ctx.stroke();ctx.setLineDash([]);};
+    // A row of boxes joined by pipes: an input end, one box per operation, and an output end.
+    const row=(items,y,color,fill)=>{const n=items.length,gap=(width-40)/n,xs=items.map((_,i)=>20+gap*(i+.5)),bw=Math.min(gap-14,120);line([{x:xs[0],y},{x:xs[n-1],y}],color,3);items.forEach((it,i)=>{ctx.fillStyle=it.end?'#102637':fill;ctx.strokeStyle=it.mark||color;ctx.lineWidth=2;ctx.fillRect(xs[i]-bw/2,y-22,bw,44);ctx.strokeRect(xs[i]-bw/2,y-22,bw,44);label(it.text,xs[i],y+6,it.mark||'#f2f8fc','center',width<430?12:15,true);if(it.sub)label(it.sub,xs[i],y+40,'#9fb6c7','center',11,true);});return xs;};
+    label(text('formulaLabel',{f:c.formula}),16,22,'#d1e3ed','left',13);
+    if($('show-forward').checked){
+      label(text('forwardTitle'),16,52,'#9fb6c7','left',11);
+      const stages=model.stagesOf(c.forward,c.values[c.unknown]);
+      row([{text:N[c.unknown],end:true,sub:values?plain(stages[0]):''},...c.forward.map((f,i)=>({text:MachineModel.label(f),sub:values?'→ '+plain(stages[i+1]):''})),{text:N[c.known],end:true}],100,'#5b7488','#1b3448');
+    }
+    label(text('inverseTitle'),16,186,'#9fb6c7','left',11);
+    const e=model.evaluate(),stages=model.stages(),endMark=done?(e.ok?'#75efc7':'#efb958'):null;
+    const xs=row([{text:N[c.known]+' = '+plain(stages[0]),end:true},...model.tiles.map(tl=>({text:MachineModel.label(tl)})),{text:N[c.unknown]+(done?' = '+plain(e.result):' ?'),end:true,mark:endMark}],236,'#75efc7','#163d36');
+    // The token carries the current value along the pipe.
+    if(model.t>0||done){const n=model.tiles.length,f=Math.min(n+1,pos.progress*(n+1)),i=Math.min(xs.length-2,Math.floor(f)),x=xs[i]+(xs[i+1]-xs[i])*(f-i);ctx.fillStyle='#77b9ff';ctx.beginPath();ctx.arc(x,236-34,9,0,Math.PI*2);ctx.fill();if(values)label(plain(pos.value),x,236-48,'#77b9ff','center',12,true);}
+    if(done)label(e.ok?text('rightBanner',{s:N[c.unknown],r:plain(e.result)}):text('wrongBanner',{s:N[c.unknown],r:plain(e.result),e:plain(e.exact)}),width/2,height-24,e.ok?'#75efc7':'#efb958','center',width<430?12:14);
+  }
+  function frame(now){if(previous===null)previous=now;const elapsed=Math.min(.1,(now-previous)/1000);previous=now;if(running){accumulator+=elapsed;while(accumulator>=H&&running){accumulator-=H;simulate(H);}draw();}if(now-lastUpdate>=80){update();lastUpdate=now;}requestAnimationFrame(frame);}
+  window.addEventListener('resize',resize);if(typeof ResizeObserver!=='undefined')new ResizeObserver(resize).observe(canvas);
+  sync();setRunning(false);update();resize();requestAnimationFrame(frame);
+})();
+</script>
+</body>
+</html>
