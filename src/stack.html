@@ -1,0 +1,288 @@
+<!doctype html>
+<html lang="en">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Block Tower · Phisicos</title>
+<style>
+.stack-page .answer-row .symbol{min-width:44px}.stack-page .question{font-size:15px;font-weight:600;margin-top:4px}
+.stack-page .line-key.white{background:#f2f8fc}.stack-page .line-key.blue{background:#77b9ff}
+</style>
+</head>
+<body>
+<div class="shell module-page stack-page">
+__HEADER__
+<main id="main-content">
+__BREADCRUMBS__
+
+<div class="masthead"><div><h1>{{title}}</h1><p class="intro">{{subtitle}}</p></div><div class="concept-tags"><span class="tag speed">{{tag1}}</span><span class="tag velocity">{{tag2}}</span></div></div>
+<noscript><p class="no-js">{{noScript}}</p></noscript>
+<div class="layout">
+<aside class="sidebar" aria-label="{{setup}}">
+  <section class="control-section"><h2 class="eyebrow">{{setup}}</h2><div class="mission-list" role="group" aria-label="{{setup}}">
+    <button id="mission-0" aria-pressed="true"><b>1 · {{mission0}}</b><span id="given-0">L</span></button>
+    <button id="mission-1" aria-pressed="false"><b>2 · {{mission1}}</b><span id="given-1">L</span></button>
+    <button id="mission-2" aria-pressed="false"><b>3 · {{mission2}}</b><span id="given-2">L</span></button>
+    <button id="mission-3" aria-pressed="false"><b>4 · {{mission3}}</b><span id="given-3">L</span></button>
+    <button id="mission-4" aria-pressed="false"><b>5 · {{mission4}}</b><span id="given-4">L</span></button>
+  </div><p class="hint">{{setupNote}}</p></section>
+  <section class="control-section"><h2 class="eyebrow">{{answerHeading}}</h2>
+    <p class="question" id="question">{{question0}}</p>
+    <p class="field-label"><label for="answer">{{answerLabel}}</label></p>
+    <div class="answer-row"><span class="symbol" id="answer-symbol">d =</span><input id="answer" type="number" inputmode="decimal" step="any" value=""><span class="unit" id="answer-unit">m</span></div>
+    <p class="hint">{{answerHint}}</p>
+  </section>
+  <section class="control-section"><h2 class="eyebrow">{{observe}}</h2><label class="check"><input id="show-vectors" type="checkbox" checked>{{vectors}}</label><label class="check"><input id="show-ruler" type="checkbox" checked>{{ruler}}</label><p class="hint">{{observeHint}}</p></section>
+</aside>
+<div class="workspace">
+  <section class="scene" aria-label="{{sceneTitle}}"><div class="scene-top"><div><h2 class="scene-title">{{sceneTitle}}</h2><p class="scene-subtitle" id="mission-label">{{mission0}}</p></div><span class="status" id="stack-status"><i class="status-dot" aria-hidden="true"></i><span id="stack-status-text">{{ready}}</span></span></div>
+    <div class="module-stage"><canvas id="stack-canvas" role="img" aria-label="{{canvasLabel}}">{{noScript}}</canvas></div>
+    <div class="legend"><span><i class="line-key orange"></i>{{weightLegend}}</span><span><i class="line-key gray"></i>{{supportLegend}}</span><span><i class="line-key mint"></i>{{cmLegend}}</span><span><i class="line-key blue"></i>{{checkLegend}}</span></div>
+    <div class="module-equation"><span>{{equationTitle}}</span><output id="stack-equation">x_cm = Σm·x ÷ Σm</output></div>
+    <div class="transport"><button id="play" class="primary" disabled>{{play}}</button><button id="pause" disabled>{{pause}}</button><button id="step" disabled>{{step}}</button><button id="reset" class="reset">{{reset}}</button></div>
+  </section>
+  <section class="metrics" aria-label="{{observe}}">
+    <div class="metric scalar"><h3 class="metric-label">{{time}}</h3><p class="metric-value"><span id="time-value">0.00</span> <small>s</small></p><p class="metric-equation">t</p></div>
+    <div class="metric scalar"><h3 class="metric-label">{{angle}}</h3><p class="metric-value"><span id="angle-value">0.0</span> <small>°</small></p><p class="metric-equation">θ</p></div>
+    <div class="metric scalar"><h3 class="metric-label">{{topMetric}}</h3><p class="metric-value"><span id="top-value">—</span> <small>m</small></p><p class="metric-equation">x_top</p></div>
+    <div class="metric scalar"><h3 class="metric-label">{{massMetric}}</h3><p class="metric-value"><span id="mass-value">—</span> <small>kg</small></p><p class="metric-equation">Σm</p></div>
+    <div class="metric vector"><h3 class="metric-label">{{cmMetric}}</h3><p class="metric-value"><span id="cm-value">—</span> <small>m</small></p><p class="metric-equation">x_cm</p></div>
+  </section>
+  <div class="insight" id="insight"><span class="insight-icon" aria-hidden="true">↗</span><div><strong id="lesson-title">{{predictTitle}}</strong><p id="lesson-copy">{{predictCopy}}</p></div></div>
+  <section class="challenge"><div class="mission-heading"><h2 class="challenge-title">{{missionTitle}}</h2><div class="score-card"><span>{{score}}</span><strong id="mission-score">—</strong></div></div><p class="mission-copy">{{missionCopy}}</p><div class="badges"><span id="right-badge">✓ {{rightBadge}}</span><span id="first-badge">① {{firstBadge}}</span></div></section>
+</div>
+</div>
+<article class="learning-content"><section><h2>{{guideTitle}}</h2><ol><li>{{instruction1}}</li><li>{{instruction2}}</li><li>{{instruction3}}</li><li>{{instruction4}}</li></ol></section><section><h2>{{conceptTitle}}</h2><p>{{conceptCopy}}</p><aside class="worked-example"><h3>{{exampleTitle}}</h3><p>{{exampleCopy}}</p></aside></section><section><h2>{{modelTitle}}</h2><p>{{modelCopy}}</p></section></article>
+<p class="language-note" id="language-note">{{languageNote}}</p>
+</main>
+__FOOTER__
+<p class="sr-only" id="announcement" role="status" aria-live="polite"></p>
+</div>
+<script id="stack-model">
+class StackModel {
+  // Uniform blocks, 0.4 m long and 0.1 m high, lie on a table; x is measured from the table's edge, positive out past it.
+  // The bottom block's right end is at the overhang d, and each block above sticks out a given shift past the one below.
+  // A counterweight is a point mass on the bottom block's back end. The stack stays put while, at every level, the centre
+  // of mass of everything above lies over the edge below it (the table's edge for the bottom level). Otherwise the part above
+  // the lowest failing edge turns from rest about that edge, θ = ½·α·t² with α = M·g·d ÷ I, drawn until it has turned 30°.
+  static g = 9.8; // m/s²
+  static length = .4; // m
+  static height = .1; // m
+  static grace = 2e-4; // m: within 0.2 mm counts as over the edge, so a rounded answer does not topple
+  static hold = 2; // s a stack that stays put is watched
+  static maxTilt = 30*Math.PI/180;
+  static tolerance = .02;
+  static missions = [
+    {key:'one',ask:'overhang',blocks:[{m:1}]},
+    {key:'two',ask:'overhang',blocks:[{m:1},{m:1,shift:.2}]},
+    {key:'three',ask:'overhang',blocks:[{m:1},{m:1,shift:.1},{m:1,shift:.2}]},
+    {key:'counter',ask:'mass',blocks:[{m:2}],overhang:.25},
+    {key:'heavy',ask:'overhang',blocks:[{m:1},{m:3,shift:.2}]}
+  ];
+  static units = {overhang:'m',mass:'kg'};
+  constructor(index = 0){this.setMission(index);}
+  setMission(index){this.index=index;this.config=StackModel.missions[index];this.answer=null;this.attempts=0;this.reset();}
+  reset(){this.t=0;this.status='watching';}
+  valid(value){return Number.isFinite(value)&&value>0&&value<=(this.config.ask==='mass'?50:StackModel.length);}
+  setAnswer(value){if(value!==null&&!this.valid(value))return false;this.answer=value;this.reset();return true;}
+  ready(){return this.answer!==null;}
+  overhang(){return this.config.overhang??(this.config.ask==='overhang'?this.answer:null)??0;}
+  counter(){return this.config.ask==='mass'?this.answer??0:0;}
+  // Each block's right end, from the bottom up.
+  rights(){let r=this.overhang();return this.config.blocks.map((b,k)=>(r+=k?b.shift:0));}
+  // Every mass with its centre (x, y) and its level: blocks at their middles, the counterweight on the bottom block's back end.
+  items(){
+    const L=StackModel.length,H=StackModel.height,rs=this.rights(),list=this.config.blocks.map((b,k)=>({m:b.m,x:rs[k]-L/2,y:(k+.5)*H,level:k,block:true}));
+    if(this.config.ask==='mass')list.push({m:this.counter(),x:rs[0]-L,y:H+.03,level:0});
+    return list;
+  }
+  // The centre of mass of everything resting on level k, and the edge under it.
+  above(k){const list=this.items().filter(i=>i.level>=k),M=list.reduce((s,i)=>s+i.m,0);return {list,M,x:list.reduce((s,i)=>s+i.m*i.x,0)/M,y:list.reduce((s,i)=>s+i.m*i.y,0)/M};}
+  edge(k){return k===0?0:this.rights()[k-1];}
+  margin(k){return this.above(k).x-this.edge(k);}
+  levels(){return this.config.blocks.map((_,k)=>k);}
+  failLevel(){const k=this.levels().find(k=>this.margin(k)>StackModel.grace);return k===undefined?null:k;}
+  stable(){return this.failLevel()===null;}
+  total(){return this.above(0).M;}
+  cm(){return this.above(0).x;}
+  top(){const rs=this.rights();return rs[rs.length-1];}
+  // About the failing edge: the moment of inertia of everything that turns, blocks with their own L² + H² term.
+  inertia(){
+    const k=this.failLevel(),L=StackModel.length,H=StackModel.height,xe=this.edge(k),ye=k*H;
+    return this.above(k).list.reduce((s,i)=>s+i.m*((i.x-xe)**2+(i.y-ye)**2)+(i.block?i.m*(L*L+H*H)/12:0),0);
+  }
+  alpha(){return this.stable()?0:StackModel.g*this.above(this.failLevel()).M*this.margin(this.failLevel())/this.inertia();}
+  duration(){return this.stable()?StackModel.hold:Math.sqrt(2*StackModel.maxTilt/this.alpha());}
+  clamp(t){return Math.min(Math.max(t,0),this.duration());}
+  angle(t){const u=this.clamp(t);return .5*this.alpha()*u*u;}
+  outcome(){return this.stable()?'hold':'topple';}
+  now(){return this.status==='done'?this.duration():this.t;}
+  advance(dt){
+    if(!Number.isFinite(dt)||dt<0)throw new Error('Invalid timestep');
+    if(this.status==='done'||!this.ready())return null;
+    // A run counts as an attempt as soon as it starts; the 30° turn is found exactly.
+    if(this.t===0)this.attempts++;
+    const T=this.duration();
+    if(this.t+dt>=T*(1-1e-12)){this.t=T;this.status='done';return {t:T,done:true,outcome:this.outcome()};}
+    this.t+=dt;return null;
+  }
+  // The bottom overhang that puts the whole stack's centre of mass over the table's edge, or the counterweight that does.
+  exact(){
+    const c=this.config,L=StackModel.length;
+    if(c.ask==='mass'){const b=c.blocks[0],d=c.overhang;return b.m*(d-L/2)/(L-d);}
+    let shift=0,M=0,s=0;c.blocks.forEach((b,k)=>{shift+=k?b.shift:0;M+=b.m;s+=b.m*(shift-L/2);});
+    return -s/M;
+  }
+  unit(){return StackModel.units[this.config.ask];}
+  // An overhang must hold and be at most 2% short of the limit; a counterweight must hold with at most 2% to spare.
+  evaluate(){
+    if(!this.ready())return {ok:false,slip:null,first:false,exact:this.exact()};
+    const c=this.config,a=this.answer,e=this.exact(),t=StackModel.tolerance,near=(p,q)=>Math.abs(p-q)<=t*Math.abs(q)+1e-9;
+    const ok=this.stable()&&(c.ask==='mass'?a<=e*(1+t):a>=e*(1-t));
+    let slip=null;
+    if(!ok){
+      if(c.key==='one'){if(near(a,.4))slip='whole';else if(near(a,.1))slip='quarter';}
+      else if(c.key==='two'){if(near(a,.2))slip='ignoreTop';else if(near(a,.3))slip='total';}
+      else if(c.key==='three'){if(near(a,.1))slip='sameShift';else if(near(a,.05))slip='halving';else if(near(a,.2))slip='ignoreTop';}
+      else if(c.key==='counter'){if(near(a,2))slip='sameMass';else if(near(a,6))slip='invertedMass';}
+      else{if(near(a,.1))slip='equalMasses';else if(near(a,.2))slip='ignoreTop';}
+      if(!slip&&this.stable())slip=c.ask==='mass'?'spare':'short';
+    }
+    return {ok,slip,first:ok&&this.attempts===1,exact:e};
+  }
+  score(){if(this.status!=='done')return 0;const e=this.evaluate();return (e.ok?100:0)+(e.first?50:0);}
+  snapshot(){return {index:this.index,answer:this.answer,attempts:this.attempts,t:this.t,status:this.status};}
+  restore(saved){
+    if(!Number.isInteger(saved?.index)||!StackModel.missions[saved.index])return false;
+    const probe=new StackModel(saved.index);
+    if(!probe.setAnswer(saved.answer??null)||!Number.isInteger(saved.attempts)||saved.attempts<0)return false;
+    if(!['watching','done'].includes(saved.status)||!Number.isFinite(saved.t)||saved.t<0||saved.t>probe.duration()*(1+1e-9))return false;
+    if(probe.answer===null&&(saved.t>0||saved.status==='done'))return false;
+    if((saved.status==='done'||saved.t>0)&&saved.attempts<1)return false;
+    this.setMission(saved.index);this.answer=probe.answer;this.attempts=saved.attempts;
+    this.status=saved.status;this.t=saved.status==='done'?this.duration():saved.t;return true;
+  }
+}
+globalThis.StackModel=StackModel;
+</script>
+<script id="stack-locale" type="application/json">__LOCALE__</script>
+<script id="stack-interface">
+(() => {
+  'use strict';
+  const $=id=>document.getElementById(id),locale=JSON.parse($('stack-locale').textContent);
+  const text=(key,values={})=>locale.strings[key].replace(/\{(\w+)\}/g,(_,name)=>values[name]??'{'+name+'}');
+  const number=(n,d=2)=>Math.abs(n)<.5*10**-d?(0).toLocaleString(locale.lang,{minimumFractionDigits:d,maximumFractionDigits:d}):n.toLocaleString(locale.lang,{minimumFractionDigits:d,maximumFractionDigits:d,useGrouping:false});
+  const plain=n=>n.toLocaleString(locale.lang,{maximumFractionDigits:2,useGrouping:false}).replace('-','−');
+  const signed=(n,d)=>(n>=.5*10**-d?'+':n<=-.5*10**-d?'−':'')+number(Math.abs(n),d);
+  const model=new StackModel();
+  const canvas=$('stack-canvas'),ctx=canvas.getContext('2d');
+  const H=1/120,TAU=2*Math.PI,G=StackModel.g,BL=StackModel.length,BH=StackModel.height,transferKey='phisicos-stack-language-transfer';
+  let running=false,previous=null,accumulator=0,lastUpdate=0,width=800,height=410;
+  const say=message=>{$('announcement').textContent=message;};
+  try{const data=JSON.parse(sessionStorage.getItem(transferKey)||'null');sessionStorage.removeItem(transferKey);if(data)model.restore(data.state);}catch{$('language-note').hidden=true;}
+  const amount=v=>plain(Number(v.toPrecision(5)))+' '+model.unit();
+  const symbols={overhang:'d =',mass:'m =' };
+  const slipKey=name=>'slip'+name[0].toUpperCase()+name.slice(1);
+  function setRunning(value){
+    const done=model.status==='done',blocked=!model.ready();running=value&&!done&&!blocked;previous=null;accumulator=0;
+    $('play').disabled=running||done||blocked;$('pause').disabled=!running;$('step').disabled=running||done||blocked;
+    $('stack-status').classList.toggle('running',running);
+    $('stack-status-text').textContent=text(done?'done':running?'running':model.t?'paused':'ready');
+  }
+  // Givens: the blocks from the bottom up with how far each sticks out past the one below, then the overhang or counterweight.
+  function given(m){
+    const parts=m.blocks.map((b,k)=>plain(b.m)+' kg'+(k?' +'+plain(b.shift)+' m':''));
+    parts.push('d = '+(m.overhang===undefined?'?':plain(m.overhang)+' m'));if(m.ask==='mass')parts.push('m = ?');
+    return 'L = '+plain(BL)+' m · '+parts.join(' · ');
+  }
+  function sync(){
+    const c=model.config;
+    StackModel.missions.forEach((m,i)=>{$('mission-'+i).setAttribute('aria-pressed',String(i===model.index));$('given-'+i).textContent=given(m);});
+    $('question').textContent=text('question'+model.index);$('answer-symbol').textContent=symbols[c.ask];$('answer-unit').textContent=model.unit();
+    $('answer').value=model.answer===null?'':String(model.answer);$('mission-label').textContent=text('mission'+model.index);
+  }
+  // The whole stack's centre of mass and the edge checks show only once a run starts, because they give the answer away.
+  const started=()=>model.status==='done'||model.t>0;
+  const edgeName=k=>k===0?text('tableEdge'):text('blockEdge',{n:k});
+  function update(){
+    const c=model.config,ready=model.ready(),done=model.status==='done',t=ready?model.now():0,e=model.evaluate(),begun=started(),cm=model.cm(),M=model.total();
+    $('time-value').textContent=number(t);$('angle-value').textContent=number(model.angle(t)*180/Math.PI,1);
+    $('top-value').textContent=ready||c.overhang!==undefined?number(model.top(),3):'—';$('mass-value').textContent=ready||c.ask!=='mass'?number(M,2):'—';
+    $('cm-value').textContent=begun?signed(cm,3):'—';
+    $('stack-equation').textContent=begun?'x_cm = Σm·x ÷ Σm = '+signed(cm*M,3)+' ÷ '+number(M,2)+' = '+signed(cm,3)+' m':'x_cm = Σm·x ÷ Σm';
+    let key,copy;
+    const k=model.failLevel(),values=k===null?{top:number(model.top(),3)}:{edge:edgeName(k),cm:signed(model.above(k).x,3),e:signed(model.edge(k),3)};
+    if(done){
+      const base=text(model.outcome()+'Copy',values);
+      if(e.ok){key='good';copy=base+' '+text('why'+model.index);}
+      else{key='miss';copy=base+' '+text('missCopy',{p:amount(model.answer)})+' '+(e.slip?text(slipKey(e.slip)):text('hint'+model.index));}
+    }
+    else if(!ready){key='predict';copy=text('predictCopy');}
+    else if(model.t>0){key='running';copy=text(model.stable()?'restingCopy':'tippingCopy');}
+    else{key='ready';copy=text('readyCopy');}
+    $('lesson-title').textContent=text(key+'Title',{t:number(t),p:ready?amount(model.answer):''});$('lesson-copy').textContent=copy;
+    $('insight').classList.toggle('warning',key==='miss');
+    $('mission-score').textContent=done?String(model.score()):'—';
+    $('right-badge').classList.toggle('earned',done&&e.ok);$('first-badge').classList.toggle('earned',done&&e.first);
+  }
+  function refresh(){setRunning(false);update();draw();}
+  function simulate(dt){
+    const result=model.advance(dt);
+    if(result?.done){setRunning(false);update();say(text('doneAnnouncement')+' '+$('lesson-title').textContent);return true;}
+    return false;
+  }
+  $('answer').addEventListener('input',event=>{const raw=String(event.target.value).trim(),value=raw===''?null:Number(raw);if(!model.setAnswer(value))model.setAnswer(null);refresh();});
+  $('play').addEventListener('click',()=>{setRunning(true);update();say(text('startedAnnouncement'));});
+  $('pause').addEventListener('click',()=>{setRunning(false);update();say(text('pausedAnnouncement'));});
+  $('step').addEventListener('click',()=>{for(let i=0;i<12;i++)if(simulate(H))break;setRunning(false);update();draw();});
+  $('reset').addEventListener('click',()=>{model.reset();refresh();say(text('resetAnnouncement'));});
+  StackModel.missions.forEach((_,i)=>$('mission-'+i).addEventListener('click',()=>{model.setMission(i);sync();refresh();say(text('missionAnnouncement',{name:text('mission'+i)}));}));
+  for(const id of ['show-vectors','show-ruler'])$(id).addEventListener('change',()=>{update();draw();});
+  function suspend(){if(running){setRunning(false);say(text('suspendedAnnouncement'));}update();draw();}
+  window.addEventListener('blur',suspend);document.addEventListener('visibilitychange',()=>{if(document.hidden)suspend();});
+  for(const link of document.querySelectorAll('.language-menu a'))link.addEventListener('click',()=>{setRunning(false);try{sessionStorage.setItem(transferKey,JSON.stringify({state:model.snapshot()}));}catch{}});
+  function resize(){const rect=canvas.getBoundingClientRect();if(rect.width<=0)return;width=rect.width;height=rect.height;const dpr=Math.min(window.devicePixelRatio||1,3);canvas.width=Math.round(width*dpr);canvas.height=Math.round(height*dpr);ctx.setTransform(dpr,0,0,dpr,0,0);draw();}
+  // One scale for both axes, fixed for the whole game (0.7 m behind to 0.8 m past the edge); weights at 3 px per newton, up to 70 px.
+  const FS=3,CAP=70,BACK=.7,OUT=.8;
+  function draw(){
+    if(!ctx)return;
+    const c=model.config,ready=model.ready(),done=model.status==='done',t=ready?model.now():0,begun=started(),vectors=$('show-vectors').checked;
+    ctx.clearRect(0,0,width,height);
+    const label=(str,px,py,color='#b8ccdb',align='left',font=12)=>{ctx.fillStyle=color;ctx.textAlign=align;ctx.font=font+'px -apple-system,BlinkMacSystemFont,sans-serif';ctx.fillText(str,px,py);};
+    const line=(points,color,w=1,dash=[])=>{ctx.beginPath();ctx.strokeStyle=color;ctx.lineWidth=w;ctx.setLineDash(dash);points.forEach((q,i)=>i?ctx.lineTo(q.x,q.y):ctx.moveTo(q.x,q.y));ctx.stroke();ctx.setLineDash([]);};
+    const arrow=(from,dx,dy,color,w=2.5)=>{const len=Math.hypot(dx,dy);if(len<4)return;const ux=dx/len,uy=dy/len,to={x:from.x+dx,y:from.y+dy};line([from,to],color,w);line([{x:to.x-ux*9-uy*5,y:to.y-uy*9+ux*5},to,{x:to.x-ux*9+uy*5,y:to.y-uy*9-ux*5}],color,2);};
+    const fit=(str,px,py,color,size,room,align='left')=>{ctx.font=size+'px -apple-system,BlinkMacSystemFont,sans-serif';const w=ctx.measureText(str).width;label(str,px,py,color,align,w>room?Math.max(7,Math.floor(size*room/w)):size);};
+    const wide=width>=560,area=wide?width*.64:width;
+    fit(text('viewTitle'),16,20,'#d1e3ed',12,area-28);label(text('arrowScale'),16,height-8,'#9fb6c7','left',10);
+    const S=Math.min((area-40)/(BACK+OUT),(height-150)/.5),tableY=height-110,X0=20+BACK*S;
+    // Everything resting on the failing edge turns about it (clockwise, out over the edge).
+    const k=model.failLevel(),th=model.angle(t),xe=k===null?0:model.edge(k),ye=k===null?0:k*BH;
+    const P=(x,y,lvl)=>{if(k!==null&&lvl>=k){const dx=x-xe,dy=y-ye;x=xe+dx*Math.cos(th)+dy*Math.sin(th);y=ye-dx*Math.sin(th)+dy*Math.cos(th);}return {x:X0+x*S,y:tableY-y*S};};
+    ctx.fillStyle='#2b4457';ctx.fillRect(0,tableY,X0,height-tableY-60);line([{x:0,y:tableY},{x:X0,y:tableY}],'#8aa3b5',2);
+    label(text('tableName'),X0-8,tableY+18,'#d1e3ed','right',11);
+    // Ruler along the table top, every 0.1 m from the edge, labels staggered so they never overlap.
+    if($('show-ruler').checked)for(let i=-6;i<=8;i++){const x=i/10,q={x:X0+x*S,y:tableY};line([q,{x:q.x,y:q.y+8}],'#9fb6c7',1);label(plain(x)+' m',q.x,tableY+(i%2?34:46),'#9fb6c7','center',9);}
+    // Blocks from the bottom up; before an answer they wait flush with the edge, faded.
+    const rs=model.rights(),alphaFade=ready||c.ask==='mass'?1:.45;
+    ctx.globalAlpha=alphaFade;
+    c.blocks.forEach((b,i)=>{
+      const r=rs[i],corners=[P(r-BL,i*BH,i),P(r,i*BH,i),P(r,(i+1)*BH,i),P(r-BL,(i+1)*BH,i)];
+      ctx.fillStyle=i%2?'#c99a6e':'#e0b07a';ctx.beginPath();corners.forEach((q,j)=>j?ctx.lineTo(q.x,q.y):ctx.moveTo(q.x,q.y));ctx.closePath();ctx.fill();ctx.strokeStyle='#102637';ctx.lineWidth=1;ctx.stroke();
+      const mid=P(r-BL/2,(i+.5)*BH,i);label(plain(b.m)+' kg',mid.x,mid.y+4,'#102637','center',10);
+      if(vectors)arrow(mid,0,Math.min(b.m*G*FS,CAP),'#efb958',1.8);
+    });
+    if(c.ask==='mass'&&ready){const q=P(rs[0]-BL+.04,BH+.03,0),w=.05+.03*Math.sqrt(model.counter());ctx.fillStyle='#efb958';ctx.fillRect(q.x-w*S/2,q.y-w*S/2,w*S,w*S);label(plain(model.counter())+' kg',q.x,q.y-w*S/2-6,'#efb958','center',10);if(vectors)arrow(q,0,Math.min(model.counter()*G*FS,CAP),'#efb958',1.8);}
+    ctx.globalAlpha=1;
+    // The centre of mass resting on each edge, with its plumb line: green over the support, orange past it.
+    if(begun)model.levels().forEach(lv=>{const a=model.above(lv),ok=model.margin(lv)<=StackModel.grace,q=P(a.x,a.y,lv),col=ok?'#75efc7':'#efb958';ctx.strokeStyle=col;ctx.lineWidth=2;ctx.beginPath();ctx.arc(q.x,q.y,6,0,TAU);ctx.stroke();line([{x:q.x-6,y:q.y},{x:q.x+6,y:q.y}],col,1.5);line([q,P(a.x,lv*BH,lv)],col,1,[4,4]);});
+    if(done){const e=model.evaluate();fit((e.ok?text('rightBanner')+' · ':'')+text(model.stable()?'holdBanner':'toppleBanner'),16,44,e.ok?'#75efc7':'#efb958',width<430?12:14,area-28);}
+    if(!wide)return;
+    // The edge checks: how far each centre of mass is past the edge under it (negative is safe).
+    fit(text('checkTitle'),area+8,44,'#d1e3ed',10,width-area-16);
+    if(!begun){fit(text('checkHint'),area+8,70,'#9fb6c7',10,width-area-16);return;}
+    [...model.levels()].reverse().forEach((lv,i)=>{const d=model.margin(lv),ok=d<=StackModel.grace;fit((lv===0?text('tableName'):text('blockName',{n:lv}))+': '+signed(d,3)+' m '+(ok?'✓':'✗'),area+8,74+i*22,ok?'#75efc7':'#efb958',11,width-area-16);});
+  }
+  function frame(now){if(previous===null)previous=now;const elapsed=Math.min(.1,(now-previous)/1000);previous=now;if(running){accumulator+=elapsed;while(accumulator>=H&&running){accumulator-=H;simulate(H);}draw();}if(now-lastUpdate>=80){update();lastUpdate=now;}requestAnimationFrame(frame);}
+  window.addEventListener('resize',resize);if(typeof ResizeObserver!=='undefined')new ResizeObserver(resize).observe(canvas);
+  sync();setRunning(false);update();resize();requestAnimationFrame(frame);
+})();
+</script>
+</body>
+</html>

@@ -1,0 +1,278 @@
+<!doctype html>
+<html lang="en">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Lever Lab · Phisicos</title>
+<style>
+.lever-page .answer-row .symbol{min-width:44px}.lever-page .question{font-size:15px;font-weight:600;margin-top:4px}
+.lever-page .line-key.white{background:#f2f8fc}.lever-page .line-key.blue{background:#77b9ff}
+</style>
+</head>
+<body>
+<div class="shell module-page lever-page">
+__HEADER__
+<main id="main-content">
+__BREADCRUMBS__
+
+<div class="masthead"><div><h1>{{title}}</h1><p class="intro">{{subtitle}}</p></div><div class="concept-tags"><span class="tag speed">{{tag1}}</span><span class="tag velocity">{{tag2}}</span></div></div>
+<noscript><p class="no-js">{{noScript}}</p></noscript>
+<div class="layout">
+<aside class="sidebar" aria-label="{{setup}}">
+  <section class="control-section"><h2 class="eyebrow">{{setup}}</h2><div class="mission-list" role="group" aria-label="{{setup}}">
+    <button id="mission-0" aria-pressed="true"><b>1 · {{mission0}}</b><span id="given-0">W</span></button>
+    <button id="mission-1" aria-pressed="false"><b>2 · {{mission1}}</b><span id="given-1">W</span></button>
+    <button id="mission-2" aria-pressed="false"><b>3 · {{mission2}}</b><span id="given-2">W</span></button>
+    <button id="mission-3" aria-pressed="false"><b>4 · {{mission3}}</b><span id="given-3">W</span></button>
+    <button id="mission-4" aria-pressed="false"><b>5 · {{mission4}}</b><span id="given-4">W</span></button>
+  </div><p class="hint">{{setupNote}}</p></section>
+  <section class="control-section"><h2 class="eyebrow">{{answerHeading}}</h2>
+    <p class="question" id="question">{{question0}}</p>
+    <p class="field-label"><label for="answer">{{answerLabel}}</label></p>
+    <div class="answer-row"><span class="symbol" id="answer-symbol">F =</span><input id="answer" type="number" inputmode="decimal" step="any" value=""><span class="unit" id="answer-unit">N</span></div>
+    <p class="hint">{{answerHint}}</p>
+  </section>
+  <section class="control-section"><h2 class="eyebrow">{{observe}}</h2><label class="check"><input id="show-vectors" type="checkbox" checked>{{vectors}}</label><label class="check"><input id="show-arms" type="checkbox" checked>{{armsToggle}}</label><p class="hint">{{observeHint}}</p></section>
+</aside>
+<div class="workspace">
+  <section class="scene" aria-label="{{sceneTitle}}"><div class="scene-top"><div><h2 class="scene-title">{{sceneTitle}}</h2><p class="scene-subtitle" id="mission-label">{{mission0}}</p></div><span class="status" id="lever-status"><i class="status-dot" aria-hidden="true"></i><span id="lever-status-text">{{ready}}</span></span></div>
+    <div class="module-stage"><canvas id="lever-canvas" role="img" aria-label="{{canvasLabel}}">{{noScript}}</canvas></div>
+    <div class="legend"><span><i class="line-key blue"></i>{{effortLegend}}</span><span><i class="line-key orange"></i>{{loadLegend}}</span><span><i class="line-key gray"></i>{{fulcrumLegend}}</span><span><i class="line-key mint"></i>{{momentLegend}}</span></div>
+    <div class="module-equation"><span>{{equationTitle}}</span><output id="lever-equation">F·d_e = W·d_l</output></div>
+    <div class="transport"><button id="play" class="primary" disabled>{{play}}</button><button id="pause" disabled>{{pause}}</button><button id="step" disabled>{{step}}</button><button id="reset" class="reset">{{reset}}</button></div>
+  </section>
+  <section class="metrics" aria-label="{{observe}}">
+    <div class="metric scalar"><h3 class="metric-label">{{time}}</h3><p class="metric-value"><span id="time-value">0.00</span> <small>s</small></p><p class="metric-equation">t</p></div>
+    <div class="metric vector"><h3 class="metric-label">{{effortMetric}}</h3><p class="metric-value"><span id="effort-value">—</span> <small>N</small></p><p class="metric-equation">F</p></div>
+    <div class="metric vector"><h3 class="metric-label">{{momentMetric}}</h3><p class="metric-value"><span id="moment-value">—</span> <small>N·m</small></p><p class="metric-equation">F·d_e</p></div>
+    <div class="metric scalar"><h3 class="metric-label">{{maMetric}}</h3><p class="metric-value"><span id="ma-value">—</span> <small>×</small></p><p class="metric-equation">MA = d_e ÷ d_l</p></div>
+    <div class="metric scalar"><h3 class="metric-label">{{riseMetric}}</h3><p class="metric-value"><span id="rise-value">0.0</span> <small>cm</small></p><p class="metric-equation">Δy_l</p></div>
+  </section>
+  <div class="insight" id="insight"><span class="insight-icon" aria-hidden="true">↗</span><div><strong id="lesson-title">{{predictTitle}}</strong><p id="lesson-copy">{{predictCopy}}</p></div></div>
+  <section class="challenge"><div class="mission-heading"><h2 class="challenge-title">{{missionTitle}}</h2><div class="score-card"><span>{{score}}</span><strong id="mission-score">—</strong></div></div><p class="mission-copy">{{missionCopy}}</p><div class="badges"><span id="right-badge">✓ {{rightBadge}}</span><span id="first-badge">① {{firstBadge}}</span></div></section>
+</div>
+</div>
+<article class="learning-content"><section><h2>{{guideTitle}}</h2><ol><li>{{instruction1}}</li><li>{{instruction2}}</li><li>{{instruction3}}</li><li>{{instruction4}}</li></ol></section><section><h2>{{conceptTitle}}</h2><p>{{conceptCopy}}</p><aside class="worked-example"><h3>{{exampleTitle}}</h3><p>{{exampleCopy}}</p></aside></section><section><h2>{{modelTitle}}</h2><p>{{modelCopy}}</p></section></article>
+<p class="language-note" id="language-note">{{languageNote}}</p>
+</main>
+__FOOTER__
+<p class="sr-only" id="announcement" role="status" aria-live="polite"></p>
+</div>
+<script id="lever-model">
+class LeverModel {
+  // A light, rigid lever turns about its fulcrum. The load W acts at the load arm d_l from the fulcrum and the effort F at
+  // the effort arm d_e, both at right angles to the bar. Class 1 has the fulcrum between them; class 2 has the load
+  // between the fulcrum and the effort; class 3 has the effort between the fulcrum and the load. The effort grows steadily
+  // over 2 s; the load lifts exactly when F·d_e reaches W·d_l, and the lever then turns 8° in 1 s with the effort held.
+  // The mechanical advantage is MA = d_e ÷ d_l = W ÷ F at balance.
+  static ramp = 2; // s for the effort to grow from zero to F
+  static turn = 1; // s for a lifted load to rise
+  static hold = 1; // s a load that does not lift is watched
+  static swing = 8*Math.PI/180;
+  static grace = 5e-4; // within 0.05% counts as enough, so a rounded answer still lifts
+  static tolerance = .02;
+  static missions = [
+    {key:'crowbar',cls:1,ask:'effort',W:1200,dl:.2,de:1.2,F:null},
+    {key:'nutcracker',cls:2,ask:'effort',W:200,dl:.03,de:.15,F:null},
+    {key:'forearm',cls:3,ask:'effort',W:49,dl:.35,de:.04,F:null},
+    {key:'fulcrum',cls:1,ask:'fulcrum',W:1200,dl:null,de:null,F:300,L:1.5},
+    {key:'arm',cls:1,ask:'arm',W:2400,dl:.25,de:null,F:400}
+  ];
+  static units = {effort:'N',fulcrum:'m',arm:'m'};
+  constructor(index = 0){this.setMission(index);}
+  setMission(index){this.index=index;this.config=LeverModel.missions[index];this.answer=null;this.attempts=0;this.reset();}
+  reset(){this.t=0;this.status='pushing';}
+  valid(value){const c=this.config;if(!Number.isFinite(value)||value<=0)return false;return c.ask==='effort'?value<=1e5:c.ask==='fulcrum'?value<c.L:value<=3;}
+  setAnswer(value){if(value!==null&&!this.valid(value))return false;this.answer=value;this.reset();return true;}
+  ready(){return this.answer!==null;}
+  // The effort and both arms with the answer filled in; placing the fulcrum sets the load arm, and the rest of the bar is the effort arm.
+  F(){return this.config.F??this.answer??0;}
+  dl(){const c=this.config;return c.dl??(c.ask==='fulcrum'?this.answer??c.L/2:0);}
+  de(){const c=this.config;return c.de??(c.ask==='fulcrum'?c.L-(this.answer??c.L/2):this.answer??0);}
+  need(){return this.config.W*this.dl();}
+  peak(){return this.F()*this.de();}
+  ma(){return this.de()/this.dl();}
+  lifts(){return this.ready()&&this.peak()>=this.need()*(1-LeverModel.grace);}
+  liftTime(){return this.lifts()?LeverModel.ramp*Math.min(1,this.need()/this.peak()):null;}
+  duration(){return this.lifts()?this.liftTime()+LeverModel.turn:LeverModel.ramp+LeverModel.hold;}
+  clamp(t){return Math.min(Math.max(t,0),this.duration());}
+  effort(t){const u=this.clamp(t),end=this.lifts()?this.liftTime():LeverModel.ramp;return this.F()*Math.min(u,end)/LeverModel.ramp;}
+  moment(t){return this.effort(t)*this.de();}
+  angle(t){if(!this.lifts())return 0;const u=this.clamp(t)-this.liftTime();return u>0?LeverModel.swing*u/LeverModel.turn:0;}
+  // How far the load and the effort point have moved, at right angles to the bar's starting line.
+  rise(t){return this.dl()*Math.sin(this.angle(t));}
+  travel(t){return this.de()*Math.sin(this.angle(t));}
+  outcome(){return this.lifts()?'lift':'stuck';}
+  now(){return this.status==='done'?this.duration():this.t;}
+  advance(dt){
+    if(!Number.isFinite(dt)||dt<0)throw new Error('Invalid timestep');
+    if(this.status==='done'||!this.ready())return null;
+    // A run counts as an attempt as soon as it starts; the lift is found exactly.
+    if(this.t===0)this.attempts++;
+    const T=this.duration();
+    if(this.t+dt>=T*(1-1e-12)){this.t=T;this.status='done';return {t:T,done:true,outcome:this.outcome()};}
+    this.t+=dt;return null;
+  }
+  exact(){
+    const c=this.config;
+    if(c.ask==='effort')return c.W*c.dl/c.de;
+    if(c.ask==='fulcrum')return c.F*c.L/(c.W+c.F);
+    return c.W*c.dl/c.F;
+  }
+  unit(){return LeverModel.units[this.config.ask];}
+  // An effort or an effort arm must lift the load and be at most 2% above the least that does; a fulcrum must lift it and
+  // be at most 2% closer to the load than the farthest place that works.
+  evaluate(){
+    if(!this.ready())return {ok:false,slip:null,first:false,exact:this.exact()};
+    const c=this.config,a=this.answer,e=this.exact(),g=LeverModel.grace,t=LeverModel.tolerance,near=(p,q)=>Math.abs(p-q)<=t*Math.abs(q)+1e-9;
+    const ok=c.ask==='fulcrum'?a<=e*(1+g)&&a>=e*(1-t):a>=e*(1-g)&&a<=e*(1+t);
+    let slip=null;
+    if(!ok){
+      if(c.key==='crowbar'){if(near(a,c.W))slip='fullLoad';else if(near(a,c.W*c.de/c.dl))slip='inverted';}
+      else if(c.key==='nutcracker'){if(near(a,c.W))slip='fullLoad';else if(near(a,c.W*c.dl/(c.de-c.dl)))slip='gap';else if(near(a,c.W*c.de/c.dl))slip='inverted';}
+      else if(c.key==='forearm'){if(near(a,c.W))slip='fullLoad';else if(near(a,c.W*c.de/c.dl))slip='invertedThird';}
+      else if(c.key==='fulcrum'){if(near(a,c.L/2))slip='middle';else if(near(a,c.W*c.L/(c.W+c.F)))slip='invertedFulcrum';}
+      else{if(near(a,c.F*c.dl/c.W))slip='inverted';else if(near(a,e+c.dl))slip='wholeBar';}
+      if(!slip&&this.lifts())slip='spare';
+    }
+    return {ok,slip,first:ok&&this.attempts===1,exact:e};
+  }
+  score(){if(this.status!=='done')return 0;const e=this.evaluate();return (e.ok?100:0)+(e.first?50:0);}
+  snapshot(){return {index:this.index,answer:this.answer,attempts:this.attempts,t:this.t,status:this.status};}
+  restore(saved){
+    if(!Number.isInteger(saved?.index)||!LeverModel.missions[saved.index])return false;
+    const probe=new LeverModel(saved.index);
+    if(!probe.setAnswer(saved.answer??null)||!Number.isInteger(saved.attempts)||saved.attempts<0)return false;
+    if(!['pushing','done'].includes(saved.status)||!Number.isFinite(saved.t)||saved.t<0||saved.t>probe.duration()*(1+1e-9))return false;
+    if(probe.answer===null&&(saved.t>0||saved.status==='done'))return false;
+    if((saved.status==='done'||saved.t>0)&&saved.attempts<1)return false;
+    this.setMission(saved.index);this.answer=probe.answer;this.attempts=saved.attempts;
+    this.status=saved.status;this.t=saved.status==='done'?this.duration():saved.t;return true;
+  }
+}
+globalThis.LeverModel=LeverModel;
+</script>
+<script id="lever-locale" type="application/json">__LOCALE__</script>
+<script id="lever-interface">
+(() => {
+  'use strict';
+  const $=id=>document.getElementById(id),locale=JSON.parse($('lever-locale').textContent);
+  const text=(key,values={})=>locale.strings[key].replace(/\{(\w+)\}/g,(_,name)=>values[name]??'{'+name+'}');
+  const number=(n,d=2)=>Math.abs(n)<.5*10**-d?(0).toLocaleString(locale.lang,{minimumFractionDigits:d,maximumFractionDigits:d}):n.toLocaleString(locale.lang,{minimumFractionDigits:d,maximumFractionDigits:d,useGrouping:false});
+  const plain=n=>n.toLocaleString(locale.lang,{maximumFractionDigits:2,useGrouping:false}).replace('-','−');
+  const model=new LeverModel();
+  const canvas=$('lever-canvas'),ctx=canvas.getContext('2d');
+  const H=1/120,TAU=2*Math.PI,transferKey='phisicos-lever-language-transfer';
+  let running=false,previous=null,accumulator=0,lastUpdate=0,width=800,height=410;
+  const say=message=>{$('announcement').textContent=message;};
+  try{const data=JSON.parse(sessionStorage.getItem(transferKey)||'null');sessionStorage.removeItem(transferKey);if(data)model.restore(data.state);}catch{$('language-note').hidden=true;}
+  const amount=v=>plain(Number(v.toPrecision(5)))+' '+model.unit();
+  const symbols={effort:'F =',fulcrum:'d_l =',arm:'d_e ='};
+  const slipKey=name=>'slip'+name[0].toUpperCase()+name.slice(1);
+  function setRunning(value){
+    const done=model.status==='done',blocked=!model.ready();running=value&&!done&&!blocked;previous=null;accumulator=0;
+    $('play').disabled=running||done||blocked;$('pause').disabled=!running;$('step').disabled=running||done||blocked;
+    $('lever-status').classList.toggle('running',running);
+    $('lever-status-text').textContent=text(done?'done':running?'running':model.t?'paused':'ready');
+  }
+  // Givens: the class, the load and its arm, the effort and its arm, and the bar's length when the fulcrum is the answer.
+  function given(m){
+    const parts=['#'+m.cls,'W = '+plain(m.W)+' N','d_l = '+(m.dl===null?'?':plain(m.dl)+' m'),'F = '+(m.F===null?'?':plain(m.F)+' N'),'d_e = '+(m.de===null?'?':plain(m.de)+' m')];
+    if(m.L)parts.push('L = '+plain(m.L)+' m');
+    return parts.join(' · ');
+  }
+  function sync(){
+    const c=model.config;
+    LeverModel.missions.forEach((m,i)=>{$('mission-'+i).setAttribute('aria-pressed',String(i===model.index));$('given-'+i).textContent=given(m);});
+    $('question').textContent=text('question'+model.index);$('answer-symbol').textContent=symbols[c.ask];$('answer-unit').textContent=model.unit();
+    $('answer').value=model.answer===null?'':String(model.answer);$('mission-label').textContent=text('mission'+model.index);
+  }
+  // The effort's moment and the mechanical advantage show only once a run starts, because they give the answer away.
+  const started=()=>model.status==='done'||model.t>0;
+  function update(){
+    const c=model.config,ready=model.ready(),done=model.status==='done',t=ready?model.now():0,e=model.evaluate(),begun=started();
+    $('time-value').textContent=number(t);$('effort-value').textContent=ready?number(model.effort(t),1):'—';
+    $('moment-value').textContent=begun?number(model.moment(t),1):'—';$('ma-value').textContent=begun?number(model.ma(),2):'—';$('rise-value').textContent=number(model.rise(t)*100,1);
+    $('lever-equation').textContent=begun?'F·d_e = '+number(model.effort(t),1)+' × '+plain(Number(model.de().toPrecision(4)))+' = '+number(model.moment(t),1)+' N·m · W·d_l = '+plain(c.W)+' × '+plain(Number(model.dl().toPrecision(4)))+' = '+number(model.need(),1)+' N·m':'F·d_e = W·d_l';
+    let key,copy;
+    const values={need:number(model.need(),1),peak:number(model.peak(),1),tl:number(model.liftTime()??0),ma:number(model.ma(),2),m:number(model.moment(t),1)};
+    if(done){
+      const base=text(model.outcome()+'Copy',values);
+      if(e.ok){key='good';copy=base+' '+text('why'+model.index);}
+      else{key='miss';copy=base+' '+text('missCopy',{p:amount(model.answer)})+' '+(e.slip?text(slipKey(e.slip)):text('hint'+model.index));}
+    }
+    else if(!ready){key='predict';copy=text('predictCopy');}
+    else if(model.t>0){key='running';copy=text(model.angle(t)>0?'risingCopy':'pushingCopy',values);}
+    else{key='ready';copy=text('readyCopy');}
+    $('lesson-title').textContent=text(key+'Title',{t:number(t),p:ready?amount(model.answer):''});$('lesson-copy').textContent=copy;
+    $('insight').classList.toggle('warning',key==='miss');
+    $('mission-score').textContent=done?String(model.score()):'—';
+    $('right-badge').classList.toggle('earned',done&&e.ok);$('first-badge').classList.toggle('earned',done&&e.first);
+  }
+  function refresh(){setRunning(false);update();draw();}
+  function simulate(dt){
+    const result=model.advance(dt);
+    if(result?.done){setRunning(false);update();say(text('doneAnnouncement')+' '+$('lesson-title').textContent);return true;}
+    return false;
+  }
+  $('answer').addEventListener('input',event=>{const raw=String(event.target.value).trim(),value=raw===''?null:Number(raw);if(!model.setAnswer(value))model.setAnswer(null);refresh();});
+  $('play').addEventListener('click',()=>{setRunning(true);update();say(text('startedAnnouncement'));});
+  $('pause').addEventListener('click',()=>{setRunning(false);update();say(text('pausedAnnouncement'));});
+  $('step').addEventListener('click',()=>{for(let i=0;i<12;i++)if(simulate(H))break;setRunning(false);update();draw();});
+  $('reset').addEventListener('click',()=>{model.reset();refresh();say(text('resetAnnouncement'));});
+  LeverModel.missions.forEach((_,i)=>$('mission-'+i).addEventListener('click',()=>{model.setMission(i);sync();refresh();say(text('missionAnnouncement',{name:text('mission'+i)}));}));
+  for(const id of ['show-vectors','show-arms'])$(id).addEventListener('change',()=>{update();draw();});
+  function suspend(){if(running){setRunning(false);say(text('suspendedAnnouncement'));}update();draw();}
+  window.addEventListener('blur',suspend);document.addEventListener('visibilitychange',()=>{if(document.hidden)suspend();});
+  for(const link of document.querySelectorAll('.language-menu a'))link.addEventListener('click',()=>{setRunning(false);try{sessionStorage.setItem(transferKey,JSON.stringify({state:model.snapshot()}));}catch{}});
+  function resize(){const rect=canvas.getBoundingClientRect();if(rect.width<=0)return;width=rect.width;height=rect.height;const dpr=Math.min(window.devicePixelRatio||1,3);canvas.width=Math.round(width*dpr);canvas.height=Math.round(height*dpr);ctx.setTransform(dpr,0,0,dpr,0,0);draw();}
+  // Forces use one scale per mission set by the load alone (W is drawn 60 px long), so they never hint at the answer; efforts are capped at 120 px.
+  function draw(){
+    if(!ctx)return;
+    const c=model.config,ready=model.ready(),done=model.status==='done',t=ready?model.now():0,begun=started(),vectors=$('show-vectors').checked;
+    ctx.clearRect(0,0,width,height);
+    const label=(str,px,py,color='#b8ccdb',align='left',font=12)=>{ctx.fillStyle=color;ctx.textAlign=align;ctx.font=font+'px -apple-system,BlinkMacSystemFont,sans-serif';ctx.fillText(str,px,py);};
+    const line=(points,color,w=1,dash=[])=>{ctx.beginPath();ctx.strokeStyle=color;ctx.lineWidth=w;ctx.setLineDash(dash);points.forEach((q,i)=>i?ctx.lineTo(q.x,q.y):ctx.moveTo(q.x,q.y));ctx.stroke();ctx.setLineDash([]);};
+    const arrow=(from,dx,dy,color,w=2.5)=>{const len=Math.hypot(dx,dy);if(len<4)return;const ux=dx/len,uy=dy/len,to={x:from.x+dx,y:from.y+dy};line([from,to],color,w);line([{x:to.x-ux*9-uy*5,y:to.y-uy*9+ux*5},to,{x:to.x-ux*9+uy*5,y:to.y-uy*9-ux*5}],color,2);};
+    const fit=(str,px,py,color,size,room,align='left')=>{ctx.font=size+'px -apple-system,BlinkMacSystemFont,sans-serif';const w=ctx.measureText(str).width;label(str,px,py,color,align,w>room?Math.max(7,Math.floor(size*room/w)):size);};
+    const wide=width>=560,area=wide?width*.64:width;
+    fit(text('viewTitle'),16,20,'#d1e3ed',12,area-28);fit(text('class'+c.cls),16,40,'#efb958',12,area-28);
+    // u runs along the bar from its left end. Class 1 has the load at the left end, the fulcrum d_l in, and the effort d_e
+    // beyond it; classes 2 and 3 hinge at the left end. The view is fixed per mission (3 m of effort arm when the arm is the
+    // answer), so it never hints at the answer.
+    const dl=model.dl(),de=model.de(),cls1=c.cls===1,uF=cls1?dl:0,uL=cls1?0:dl,uE=cls1?dl+de:de,xL=uL-uF,xE=uE-uF;
+    const view=c.ask==='arm'?c.dl+3:c.ask==='fulcrum'?c.L:cls1?c.dl+c.de:Math.max(c.dl,c.de),S=(area-90)/(view*1.08),pad=.04*view,Y0=height*.55;
+    const fx=45+(uF+pad)*S;
+    // The load side rises: clockwise for class 1, counter-clockwise for classes 2 and 3.
+    const th=(cls1?-1:1)*model.angle(t),P=x=>({x:fx+x*Math.cos(th)*S,y:Y0-x*Math.sin(th)*S});
+    const ends=c.ask==='fulcrum'?[-uF,c.L-uF]:[-uF-pad,Math.max(uE,uL)-uF+pad];
+    ctx.fillStyle='#8aa3b5';ctx.beginPath();ctx.moveTo(fx,Y0+4);ctx.lineTo(fx-14,Y0+34);ctx.lineTo(fx+14,Y0+34);ctx.closePath();ctx.fill();
+    line([{x:16,y:Y0+34},{x:area-16,y:Y0+34}],'#5b7488',1.5);label(text('fulcrumLabel'),fx,Y0+50,'#9fb6c7','center',10);
+    line([P(ends[0]),P(ends[1])],'#c99a6e',7);
+    const FS=60/c.W,CAP=120;
+    // The load sits on (or hangs from) the bar; the effort pushes down for class 1 and lifts for classes 2 and 3.
+    const lq=P(xL);ctx.fillStyle='#efe6d0';ctx.fillRect(lq.x-14,lq.y-30,28,26);label('W = '+plain(c.W)+' N',lq.x,lq.y-38,'#d1e3ed','center',10);
+    if(vectors)arrow({x:lq.x,y:lq.y-4},0,c.W*FS,'#efb958');
+    if(ready){const eq=P(xE),f=model.effort(t),dir=c.cls===1?1:-1;ctx.fillStyle='#77b9ff';ctx.beginPath();ctx.arc(eq.x,eq.y,6,0,TAU);ctx.fill();const len=Math.min(f*FS,CAP);if(vectors)arrow({x:eq.x,y:eq.y-dir*(len+4)},0,dir*len,'#77b9ff');label('F',eq.x+10,eq.y+(c.cls===1?-14:24),'#77b9ff','left',12);}
+    if($('show-arms').checked&&(ready||c.ask==='effort')){
+      const yA=Y0+66,arm=(a,b,str,col)=>{const p={x:fx+a*S,y:yA},q={x:fx+b*S,y:yA};line([p,q],col,1.5);line([{x:p.x,y:yA-5},{x:p.x,y:yA+5}],col,1.5);line([{x:q.x,y:yA-5},{x:q.x,y:yA+5}],col,1.5);
+        // A short arm (the biceps' 4 cm) puts its label past the end mark, on the other side of the line, clear of the fulcrum label.
+        ctx.font='11px -apple-system,BlinkMacSystemFont,sans-serif';if(Math.abs(q.x-p.x)<ctx.measureText(str).width+8)label(str,Math.max(p.x,q.x)+8,yA+(col==='#efb958'?-8:16),col,'left',11);else label(str,(p.x+q.x)/2,yA+(col==='#efb958'?16:-8),col,'center',11);};
+      arm(0,xL,'d_l = '+plain(Number(dl.toPrecision(4)))+' m','#efb958');arm(0,xE,'d_e = '+plain(Number(de.toPrecision(4)))+' m','#77b9ff');
+    }
+    if(done){const e=model.evaluate();fit((e.ok?text('rightBanner')+' · ':'')+text(model.lifts()?'liftBanner':'stuckBanner'),16,62,e.ok?'#75efc7':'#efb958',width<430?12:14,area-28);}
+    label(text('arrowScale'),16,height-8,'#9fb6c7','left',10);
+    if(!wide)return;
+    // Moment gauge: the effort's moment against the load's, shown once a run starts.
+    const gx0=area+24,gx1=width-24,gtop=78,gbot=height-58,gw=Math.min(80,gx1-gx0);
+    fit(text('gaugeTitle'),area+8,44,'#d1e3ed',10,width-area-16);
+    if(!begun){fit(text('gaugeHint'),area+8,70,'#9fb6c7',10,width-area-16);return;}
+    const m=model.moment(t),need=model.need(),topM=Math.max(need,model.peak())*1.15,GY=v=>gbot-v/topM*(gbot-gtop),cx=gx0+(gx1-gx0-gw)/2;
+    ctx.fillStyle='#173246';ctx.fillRect(cx,gtop,gw,gbot-gtop);ctx.fillStyle='#75efc7';ctx.fillRect(cx,GY(m),gw,gbot-GY(m));
+    line([{x:cx-10,y:GY(need)},{x:cx+gw+10,y:GY(need)}],'#efb958',2,[6,4]);
+    fit('W·d_l = '+number(need,1),cx+gw/2,GY(need)-8,'#efb958',10,gx1-gx0+20,'center');fit('F·d_e = '+number(m,1),cx+gw/2,gbot+16,'#75efc7',10,gx1-gx0+20,'center');
+  }
+  function frame(now){if(previous===null)previous=now;const elapsed=Math.min(.1,(now-previous)/1000);previous=now;if(running){accumulator+=elapsed;while(accumulator>=H&&running){accumulator-=H;simulate(H);}draw();}if(now-lastUpdate>=80){update();lastUpdate=now;}requestAnimationFrame(frame);}
+  window.addEventListener('resize',resize);if(typeof ResizeObserver!=='undefined')new ResizeObserver(resize).observe(canvas);
+  sync();setRunning(false);update();resize();requestAnimationFrame(frame);
+})();
+</script>
+</body>
+</html>

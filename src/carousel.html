@@ -1,0 +1,294 @@
+<!doctype html>
+<html lang="en">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Carousel · Phisicos</title>
+<style>
+.carousel-page .answer-row .symbol{min-width:44px}.carousel-page .question{font-size:15px;font-weight:600;margin-top:4px}
+.carousel-page .line-key.white{background:#f2f8fc}
+</style>
+</head>
+<body>
+<div class="shell module-page carousel-page">
+__HEADER__
+<main id="main-content">
+__BREADCRUMBS__
+
+<div class="masthead"><div><h1>{{title}}</h1><p class="intro">{{subtitle}}</p></div><div class="concept-tags"><span class="tag speed">{{tag1}}</span><span class="tag velocity">{{tag2}}</span></div></div>
+<noscript><p class="no-js">{{noScript}}</p></noscript>
+<div class="layout">
+<aside class="sidebar" aria-label="{{setup}}">
+  <section class="control-section"><h2 class="eyebrow">{{setup}}</h2><div class="mission-list" role="group" aria-label="{{setup}}">
+    <button id="mission-0" aria-pressed="true"><b>1 · {{mission0}}</b><span id="given-0">r</span></button>
+    <button id="mission-1" aria-pressed="false"><b>2 · {{mission1}}</b><span id="given-1">T</span></button>
+    <button id="mission-2" aria-pressed="false"><b>3 · {{mission2}}</b><span id="given-2">ω</span></button>
+    <button id="mission-3" aria-pressed="false"><b>4 · {{mission3}}</b><span id="given-3">ω</span></button>
+    <button id="mission-4" aria-pressed="false"><b>5 · {{mission4}}</b><span id="given-4">ω</span></button>
+  </div><p class="hint">{{setupNote}}</p></section>
+  <section class="control-section"><h2 class="eyebrow">{{answerHeading}}</h2>
+    <p class="question" id="question">{{question0}}</p>
+    <p class="field-label"><label for="answer">{{answerLabel}}</label></p>
+    <div class="answer-row"><span class="symbol" id="answer-symbol">T =</span><input id="answer" type="number" inputmode="decimal" step="any" value=""><span class="unit" id="answer-unit">s</span></div>
+    <p class="hint">{{answerHint}}</p>
+  </section>
+  <section class="control-section"><h2 class="eyebrow">{{observe}}</h2><label class="check"><input id="show-vectors" type="checkbox" checked>{{vectors}}</label><label class="check"><input id="show-angle" type="checkbox" checked>{{angleGuide}}</label><p class="hint">{{observeHint}}</p></section>
+</aside>
+<div class="workspace">
+  <section class="scene" aria-label="{{sceneTitle}}"><div class="scene-top"><div><h2 class="scene-title">{{sceneTitle}}</h2><p class="scene-subtitle" id="mission-label">{{mission0}}</p></div><span class="status" id="carousel-status"><i class="status-dot" aria-hidden="true"></i><span id="carousel-status-text">{{ready}}</span></span></div>
+    <div class="module-stage"><canvas id="carousel-canvas" role="img" aria-label="{{canvasLabel}}">{{noScript}}</canvas></div>
+    <div class="legend"><span><i class="line-key white"></i>{{velocityLegend}}</span><span><i class="line-key gray"></i>{{radiusLegend}}</span><span><i class="line-key mint"></i>{{traceLegend}}</span><span><i class="line-key orange"></i>{{predictionLegend}}</span></div>
+    <div class="module-equation"><span>{{equationTitle}}</span><output id="carousel-equation">θ = ω·t</output></div>
+    <div class="transport"><button id="play" class="primary" disabled>{{play}}</button><button id="pause" disabled>{{pause}}</button><button id="step" disabled>{{step}}</button><button id="reset" class="reset">{{reset}}</button></div>
+  </section>
+  <section class="metrics" aria-label="{{observe}}">
+    <div class="metric scalar"><h3 class="metric-label">{{time}}</h3><p class="metric-value"><span id="time-value">0.00</span> <small>s</small></p><p class="metric-equation">t</p></div>
+    <div class="metric scalar"><h3 class="metric-label">{{angle}}</h3><p class="metric-value"><span id="angle-value">0.00</span> <small>rad</small></p><p class="metric-equation" id="angle-degrees">= 0.0°</p></div>
+    <div class="metric scalar"><h3 class="metric-label">{{arcLength}}</h3><p class="metric-value"><span id="arc-value">0.00</span> <small>m</small></p><p class="metric-equation">s = r·θ</p></div>
+    <div class="metric vector"><h3 class="metric-label">{{angularVelocity}}</h3><p class="metric-value"><span id="omega-value">0.000</span> <small>rad/s</small></p><p class="metric-equation">ω = Δθ ÷ Δt</p></div>
+    <div class="metric vector"><h3 class="metric-label">{{speed}}</h3><p class="metric-value"><span id="speed-value">0.00</span> <small>m/s</small></p><p class="metric-equation">v = ω·r</p></div>
+  </section>
+  <div class="insight" id="insight"><span class="insight-icon" aria-hidden="true">↗</span><div><strong id="lesson-title">{{predictTitle}}</strong><p id="lesson-copy">{{predictCopy}}</p></div></div>
+  <section class="challenge"><div class="mission-heading"><h2 class="challenge-title">{{missionTitle}}</h2><div class="score-card"><span>{{score}}</span><strong id="mission-score">—</strong></div></div><p class="mission-copy">{{missionCopy}}</p><div class="badges"><span id="right-badge">✓ {{rightBadge}}</span><span id="first-badge">① {{firstBadge}}</span></div></section>
+</div>
+</div>
+<article class="learning-content"><section><h2>{{guideTitle}}</h2><ol><li>{{instruction1}}</li><li>{{instruction2}}</li><li>{{instruction3}}</li><li>{{instruction4}}</li></ol></section><section><h2>{{conceptTitle}}</h2><p>{{conceptCopy}}</p><aside class="worked-example"><h3>{{exampleTitle}}</h3><p>{{exampleCopy}}</p></aside></section><section><h2>{{modelTitle}}</h2><p>{{modelCopy}}</p></section></article>
+<p class="language-note" id="language-note">{{languageNote}}</p>
+</main>
+__FOOTER__
+<p class="sr-only" id="announcement" role="status" aria-live="polite"></p>
+</div>
+<script id="carousel-model">
+class CarouselModel {
+  // Top view of a carousel turning counter-clockwise at constant angular velocity ω. The horse rides at radius r and
+  // starts at θ = 0 (the start mark), so θ = ω·t, the arc length is s = r·θ, and the speed is v = ω·r. One lap is
+  // 2π rad and takes T = 2π ÷ ω = 2π·r ÷ v. The ride stops exactly at the end of its run.
+  static missions = [
+    {r:4,v:2,ask:'period'},
+    {r:3,T:10,ask:'omega'},
+    {r:5,omega:.5,ask:'speed'},
+    {r:4,omega:.8,t:5,ask:'angle'},
+    {r:4,omega:.5,gate:270,ask:'time'}
+  ];
+  static tolerance = .02; // relative
+  // Rides play twice as fast; long rides play faster, by a whole factor shown on the canvas, so they last at most 15 s.
+  static units = {period:'s',omega:'rad/s',speed:'m/s',angle:'°',time:'s'};
+  static limits = {period:600,omega:40,speed:200,angle:1080,time:600};
+  constructor(index = 0){this.setMission(index);}
+  setMission(index){this.index=index;this.config=CarouselModel.missions[index];this.answer=null;this.attempts=0;this.reset();}
+  reset(){this.t=0;this.status='turning';}
+  valid(value){return Number.isFinite(value)&&value>0&&value<=CarouselModel.limits[this.config.ask];}
+  setAnswer(value){if(value!==null&&!this.valid(value))return false;this.answer=value;this.reset();return true;}
+  ready(){return this.answer!==null;}
+  // The answer sets the stop time (period, time), the carousel's ω (omega), the drone's speed (speed), or a flag (angle).
+  omega(){const c=this.config;return c.ask==='period'?c.v/c.r:c.ask==='omega'?this.answer??0:c.omega;}
+  speed(){return this.omega()*this.config.r;}
+  playback(){const T=this.duration();return T/2>15?Math.ceil(T/15):2;}
+  duration(){
+    const c=this.config;
+    if(c.ask==='period'||c.ask==='time')return this.answer??0;
+    if(c.ask==='omega')return c.T;
+    if(c.ask==='speed')return 2*Math.PI/c.omega;
+    return c.t;
+  }
+  clamp(t){return Math.min(Math.max(t,0),this.duration());}
+  angle(t){return this.omega()*this.clamp(t);}
+  // A camera drone flies its own circle of the same radius at the answered speed.
+  droneAngle(t){return (this.answer??0)/this.config.r*this.clamp(t);}
+  // The angle the ride aims for: one lap, the gate, or the learner's flag.
+  mark(){const c=this.config;if(c.ask==='time')return c.gate*Math.PI/180;if(c.ask==='angle')return (this.answer??0)*Math.PI/180;return 2*Math.PI;}
+  now(){return this.status==='stopped'?this.duration():this.t;}
+  laps(t){return Math.floor(this.angle(t)/(2*Math.PI)+1e-9);}
+  advance(dt){
+    if(!Number.isFinite(dt)||dt<0)throw new Error('Invalid timestep');
+    if(this.status==='stopped'||!this.ready())return null;
+    // A ride counts as an attempt as soon as it starts. Completed laps and the stop are found exactly.
+    if(this.t===0)this.attempts++;
+    const T=this.duration(),before=this.laps(this.t);
+    if(this.t+dt>=T*(1-1e-12)){this.t=T;this.status='stopped';const after=this.laps(T);return {t:T,lap:after>before?after:0,done:true};}
+    this.t+=dt;const after=this.laps(this.t);
+    return after>before?{t:this.t,lap:after,done:false}:null;
+  }
+  exact(){
+    const c=this.config;
+    if(c.ask==='period')return 2*Math.PI*c.r/c.v;
+    if(c.ask==='omega')return 2*Math.PI/c.T;
+    if(c.ask==='speed')return c.omega*c.r;
+    if(c.ask==='angle')return c.omega*c.t*180/Math.PI;
+    return c.gate*Math.PI/180/c.omega;
+  }
+  unit(){return CarouselModel.units[this.config.ask];}
+  evaluate(){
+    if(!this.ready())return {ok:false,slip:null,first:false,exact:this.exact()};
+    const c=this.config,a=this.answer,e=this.exact(),P=Math.PI,near=(p,q)=>Math.abs(p-q)<=CarouselModel.tolerance*Math.abs(q)+1e-9;
+    const ok=near(a,e);
+    let slip=null;
+    if(!ok){
+      if(c.ask==='period'){if(near(a,c.r/c.v))slip='radius';else if(near(a,P*c.r/c.v))slip='halfLap';else if(near(a,2*P*c.r))slip='distance';else if(near(a,c.v/(2*P*c.r)))slip='frequency';}
+      else if(c.ask==='omega'){if(near(a,360/c.T))slip='degrees';else if(near(a,1/c.T))slip='frequencyOmega';else if(near(a,60/c.T))slip='rpm';else if(near(a,c.T/(2*P)))slip='inverted';}
+      else if(c.ask==='speed'){if(near(a,c.omega/c.r))slip='divide';else if(near(a,c.r/c.omega))slip='invertedSpeed';else if(near(a,c.omega*180/P*c.r))slip='degreesSpeed';else if(near(a,2*P*c.omega*c.r))slip='circumference';}
+      else if(c.ask==='angle'){if(near(a,c.omega*c.t))slip='radians';else if(near(a,c.omega/c.t))slip='angleDivide';else if(near(a,c.t/c.omega))slip='angleInverted';}
+      else{if(near(a,c.gate/c.omega))slip='timeDegrees';else if(near(a,c.gate*P/180*c.omega))slip='timeTimes';}
+    }
+    return {ok,slip,first:ok&&this.attempts===1,exact:e};
+  }
+  score(){if(this.status!=='stopped')return 0;const e=this.evaluate();return (e.ok?100:0)+(e.first?50:0);}
+  snapshot(){return {index:this.index,answer:this.answer,attempts:this.attempts,t:this.t,status:this.status};}
+  restore(saved){
+    if(!Number.isInteger(saved?.index)||!CarouselModel.missions[saved.index])return false;
+    const probe=new CarouselModel(saved.index);
+    if(!probe.setAnswer(saved.answer??null)||!Number.isInteger(saved.attempts)||saved.attempts<0)return false;
+    if(!['turning','stopped'].includes(saved.status)||!Number.isFinite(saved.t)||saved.t<0||saved.t>probe.duration()*(1+1e-9))return false;
+    if(probe.answer===null&&(saved.t>0||saved.status==='stopped'))return false;
+    if((saved.status==='stopped'||saved.t>0)&&saved.attempts<1)return false;
+    this.setMission(saved.index);this.answer=probe.answer;this.attempts=saved.attempts;
+    this.status=saved.status;this.t=saved.status==='stopped'?this.duration():saved.t;return true;
+  }
+}
+globalThis.CarouselModel=CarouselModel;
+</script>
+<script id="carousel-locale" type="application/json">__LOCALE__</script>
+<script id="carousel-interface">
+(() => {
+  'use strict';
+  const $=id=>document.getElementById(id),locale=JSON.parse($('carousel-locale').textContent);
+  const text=(key,values={})=>locale.strings[key].replace(/\{(\w+)\}/g,(_,name)=>values[name]??'{'+name+'}');
+  const number=(n,d=2)=>Math.abs(n)<.5*10**-d?(0).toLocaleString(locale.lang,{minimumFractionDigits:d,maximumFractionDigits:d}):n.toLocaleString(locale.lang,{minimumFractionDigits:d,maximumFractionDigits:d,useGrouping:false});
+  const plain=n=>n.toLocaleString(locale.lang,{maximumFractionDigits:2,useGrouping:false}).replace('-','−');
+  const model=new CarouselModel();
+  const canvas=$('carousel-canvas'),ctx=canvas.getContext('2d');
+  const H=1/120,TAU=2*Math.PI,transferKey='phisicos-carousel-language-transfer';
+  let running=false,previous=null,accumulator=0,lastUpdate=0,width=800,height=410;
+  const say=message=>{$('announcement').textContent=message;};
+  try{const data=JSON.parse(sessionStorage.getItem(transferKey)||'null');sessionStorage.removeItem(transferKey);if(data)model.restore(data.state);}catch{$('language-note').hidden=true;}
+  const degrees=rad=>rad*180/Math.PI;
+  const amount=v=>plain(Number(v.toFixed(3)))+(model.unit()==='°'?'°':' '+model.unit());
+  const symbols={period:'T =',omega:'ω =',speed:'v =',angle:'θ =',time:'t ='};
+  const slipKey=name=>'slip'+name[0].toUpperCase()+name.slice(1);
+  function setRunning(value){
+    const done=model.status==='stopped',blocked=!model.ready();running=value&&!done&&!blocked;previous=null;accumulator=0;
+    $('play').disabled=running||done||blocked;$('pause').disabled=!running;$('step').disabled=running||done||blocked;
+    $('carousel-status').classList.toggle('running',running);
+    $('carousel-status-text').textContent=text(done?'done':running?'running':model.t?'paused':'ready');
+  }
+  function given(m){
+    const parts=[];
+    if(m.ask!=='angle'&&m.ask!=='time')parts.push('r = '+plain(m.r)+' m');
+    if(m.v)parts.push('v = '+plain(m.v)+' m/s');if(m.T)parts.push('T = '+plain(m.T)+' s');if(m.omega)parts.push('ω = '+plain(m.omega)+' rad/s');
+    if(m.t)parts.push('t = '+plain(m.t)+' s');if(m.gate)parts.push(text('gateGiven',{a:plain(m.gate)}));
+    return parts.join(' · ');
+  }
+  function sync(){
+    const c=model.config;
+    CarouselModel.missions.forEach((m,i)=>{$('mission-'+i).setAttribute('aria-pressed',String(i===model.index));$('given-'+i).textContent=given(m);});
+    $('question').textContent=text('question'+model.index);$('answer-symbol').textContent=symbols[c.ask];$('answer-unit').textContent=model.unit();
+    $('answer').value=model.answer===null?'':String(model.answer);$('mission-label').textContent=text('mission'+model.index);
+  }
+  // The speed stays hidden before the drone mission starts, because it is the answer.
+  function shown(){
+    const c=model.config,ready=model.ready(),started=model.status==='stopped'||model.t>0;
+    const w=ready||c.ask!=='omega'?model.omega():null;
+    return {w,v:w===null||(c.ask==='speed'&&!started)?null:w*c.r};
+  }
+  function update(){
+    const c=model.config,ready=model.ready(),done=model.status==='stopped',t=ready?model.now():0,th=model.angle(t),e=model.evaluate(),{w,v}=shown();
+    $('time-value').textContent=number(t);$('angle-value').textContent=number(th);$('angle-degrees').textContent='= '+number(degrees(th),1)+'°';
+    $('arc-value').textContent=number(c.r*th);$('omega-value').textContent=w===null?'—':number(w,3);$('speed-value').textContent=v===null?'—':number(v);
+    $('carousel-equation').textContent=w===null?'θ = ω·t · s = r·θ':'θ = ω·t = '+number(w,3)+' × '+number(t)+' = '+number(th)+' rad · s = r·θ = '+number(c.r)+' × '+number(th)+' = '+number(c.r*th)+' m';
+    let key,copy;
+    if(done){
+      let base=text('stoppedCopy',{t:number(t),rad:number(th),deg:number(degrees(th),1)});
+      if(c.ask==='speed'){const gap=degrees(model.droneAngle(t)-th);base+=' '+text(Math.abs(gap)<.05?'droneHitCopy':gap<0?'droneBehindCopy':'droneAheadCopy',{d:number(Math.abs(gap),1)});}
+      else{const gap=degrees(th-model.mark());base+=' '+text((c.ask==='angle'?'flag':'gate')+(Math.abs(gap)<.05?'HitCopy':gap<0?'ShortCopy':'PastCopy'),{d:number(Math.abs(gap),1)});}
+      if(e.ok){key='good';copy=base+' '+text('why'+model.index);}
+      else{key='miss';copy=base+' '+text('missCopy',{p:amount(model.answer)})+' '+(e.slip?text(slipKey(e.slip)):text('hint'+model.index));}
+    }
+    else if(!ready){key='predict';copy=text('predictCopy');}
+    else if(model.t>0){key='running';copy=text('runningCopy',{deg:number(degrees(th),1)});}
+    else{key='ready';copy=text('readyCopy');}
+    $('lesson-title').textContent=text(key+'Title',{t:number(t,1),p:ready?amount(model.answer):''});$('lesson-copy').textContent=copy;
+    $('insight').classList.toggle('warning',key==='miss');
+    $('mission-score').textContent=done?String(model.score()):'—';
+    $('right-badge').classList.toggle('earned',done&&e.ok);$('first-badge').classList.toggle('earned',done&&e.first);
+  }
+  function refresh(){setRunning(false);update();draw();}
+  function simulate(dt){
+    const result=model.advance(dt*model.playback());
+    if(result?.lap&&!result.done)say(text('lapAnnouncement',{n:result.lap}));
+    if(result?.done){setRunning(false);update();say(text('doneAnnouncement')+' '+$('lesson-title').textContent);return true;}
+    return false;
+  }
+  $('answer').addEventListener('input',event=>{const raw=String(event.target.value).trim(),value=raw===''?null:Number(raw);if(!model.setAnswer(value))model.setAnswer(null);refresh();});
+  $('play').addEventListener('click',()=>{setRunning(true);update();say(text('startedAnnouncement'));});
+  $('pause').addEventListener('click',()=>{setRunning(false);update();say(text('pausedAnnouncement'));});
+  $('step').addEventListener('click',()=>{for(let i=0;i<12;i++)if(simulate(H))break;setRunning(false);update();draw();});
+  $('reset').addEventListener('click',()=>{model.reset();refresh();say(text('resetAnnouncement'));});
+  CarouselModel.missions.forEach((_,i)=>$('mission-'+i).addEventListener('click',()=>{model.setMission(i);sync();refresh();say(text('missionAnnouncement',{name:text('mission'+i)}));}));
+  for(const id of ['show-vectors','show-angle'])$(id).addEventListener('change',()=>{update();draw();});
+  function suspend(){if(running){setRunning(false);say(text('suspendedAnnouncement'));}update();draw();}
+  window.addEventListener('blur',suspend);document.addEventListener('visibilitychange',()=>{if(document.hidden)suspend();});
+  for(const link of document.querySelectorAll('.language-menu a'))link.addEventListener('click',()=>{setRunning(false);try{sessionStorage.setItem(transferKey,JSON.stringify({state:model.snapshot()}));}catch{}});
+  function resize(){const rect=canvas.getBoundingClientRect();if(rect.width<=0)return;width=rect.width;height=rect.height;const dpr=Math.min(window.devicePixelRatio||1,3);canvas.width=Math.round(width*dpr);canvas.height=Math.round(height*dpr);ctx.setTransform(dpr,0,0,dpr,0,0);draw();}
+  // One fixed view for every ride: the platform is 5.6 m in radius, and the θ–t graph spans 30 s and two laps.
+  const RV=6.4,VEL=20,CAP=90,TMAX=30,THMAX=4*Math.PI;
+  function draw(){
+    if(!ctx)return;
+    const c=model.config,ready=model.ready(),done=model.status==='stopped',t=ready?model.now():0,th=model.angle(t);
+    ctx.clearRect(0,0,width,height);
+    const label=(str,px,py,color='#b8ccdb',align='left',font=12)=>{ctx.fillStyle=color;ctx.textAlign=align;ctx.font=font+'px -apple-system,BlinkMacSystemFont,sans-serif';ctx.fillText(str,px,py);};
+    const line=(points,color,w=1,dash=[])=>{ctx.beginPath();ctx.strokeStyle=color;ctx.lineWidth=w;ctx.setLineDash(dash);points.forEach((p,i)=>i?ctx.lineTo(p.x,p.y):ctx.moveTo(p.x,p.y));ctx.stroke();ctx.setLineDash([]);};
+    const arrow=(from,dx,dy,color,w=2.5)=>{const len=Math.hypot(dx,dy);if(len<4)return;const ux=dx/len,uy=dy/len,to={x:from.x+dx,y:from.y+dy};line([from,to],color,w);line([{x:to.x-ux*9-uy*5,y:to.y-uy*9+ux*5},to,{x:to.x-ux*9+uy*5,y:to.y-uy*9-ux*5}],color,2);};
+    const fit=(str,px,py,color,size,room)=>{ctx.font=size+'px -apple-system,BlinkMacSystemFont,sans-serif';const w=ctx.measureText(str).width;label(str,px,py,color,'left',w>room?Math.max(7,Math.floor(size*room/w)):size);};
+    const wide=width>=560;
+    fit(text('viewTitle'),16,20,'#d1e3ed',12,(wide?width*.56:width)-32);label(text('arrowScale'),16,height-8,'#9fb6c7','left',10);
+    if(ready)label(text('playbackLabel',{k:plain(model.playback())}),width-16,height-8,'#9fb6c7','right',10);
+    const cx=wide?width*.28:width/2,cy=height/2+8,s=Math.min((height-96)/2,wide?width*.25:width/2-28)/RV;
+    const P=(rad,a)=>({x:cx+rad*s*Math.cos(a),y:cy-rad*s*Math.sin(a)});
+    // The ground marks stay fixed; the platform and its spokes turn with the horse.
+    ctx.fillStyle='#173246';ctx.beginPath();ctx.arc(cx,cy,5.6*s,0,TAU);ctx.fill();
+    for(let k=0;k<6;k++)line([P(.5,th+k*Math.PI/3),P(5.6,th+k*Math.PI/3)],'#2b4a60',1.5);
+    ctx.strokeStyle='#5b7488';ctx.lineWidth=1.5;ctx.beginPath();ctx.arc(cx,cy,5.6*s,0,TAU);ctx.stroke();
+    ctx.fillStyle='#5b7488';ctx.beginPath();ctx.arc(cx,cy,.5*s,0,TAU);ctx.fill();
+    // A mark on the ground ring; its label sits beyond the mark, or above it when it would leave the drawing area.
+    const tick=(a,color,str,w=3)=>{
+      line([P(5.75,a),P(6.3,a)],color,w);ctx.font='10px -apple-system,BlinkMacSystemFont,sans-serif';
+      const tw=ctx.measureText(str).width,q=P(6.5,a),x=q.x+Math.cos(a)*(tw/2+2),fx=Math.min(Math.max(x,tw/2+6),(wide?width*.58:width)-tw/2-6);
+      label(str,fx,Math.abs(fx-x)>2?q.y-8:q.y-Math.sin(a)*8+4,color,'center',10);
+    };
+    if(c.ask==='period'||c.ask==='omega')tick(0,'#75efc7',text('startLabel')+' · '+text('gateLabel'));
+    else tick(0,'#8aa3b5',text('startLabel'),2);
+    if(c.ask==='time')tick(model.mark(),'#75efc7',text('gateLabel'));
+    if(ready&&c.ask==='angle')tick(model.mark(),'#efb958',text('yourFlag'));
+    // Path so far (at most one full circle) and the angle guide.
+    if(t>0){const sweep=Math.min(th,TAU),n=Math.max(2,Math.ceil(sweep/.05)),pts=[];for(let k=0;k<=n;k++)pts.push(P(c.r,sweep*k/n));line(pts,'#75efc7',2.5);}
+    if($('show-angle').checked&&t>0){
+      const sweep=Math.min(th,TAU),n=Math.max(2,Math.ceil(sweep/.05)),pts=[];for(let k=0;k<=n;k++)pts.push(P(1.3,sweep*k/n));line(pts,'#9fb6c7',1);
+      const q=P(2.3,sweep/2);label('θ = '+number(degrees(th),1)+'°',q.x,q.y+4,'#d1e3ed','center',11);
+    }
+    const horse=P(c.r,th);line([{x:cx,y:cy},horse],'#8aa3b5',1.5,[4,3]);
+    if(ready&&c.ask==='speed'){
+      const d=P(c.r,model.droneAngle(t));ctx.strokeStyle='#efb958';ctx.lineWidth=2;ctx.beginPath();ctx.arc(d.x,d.y,11,0,TAU);ctx.stroke();
+      line([{x:d.x-7,y:d.y-7},{x:d.x+7,y:d.y+7}],'#efb958',1.5);line([{x:d.x-7,y:d.y+7},{x:d.x+7,y:d.y-7}],'#efb958',1.5);label(text('droneLabel'),d.x,d.y-15,'#efb958','center',10);
+    }
+    ctx.fillStyle='#efe6d0';ctx.beginPath();ctx.arc(horse.x,horse.y,7,0,TAU);ctx.fill();
+    ctx.fillStyle='#102637';ctx.beginPath();ctx.arc(horse.x,horse.y,2.5,0,TAU);ctx.fill();
+    // Velocity is tangent to the circle; its length shows the speed, capped for legibility.
+    if($('show-vectors').checked&&ready&&t>0&&!done){const len=Math.min(model.speed()*VEL,CAP);arrow(horse,-Math.sin(th)*len,-Math.cos(th)*len,'#f2f8fc');}
+    if(done){const e=model.evaluate();label(text(e.ok?'hitBanner':'stopBanner',{deg:number(degrees(th),1)}),16,44,e.ok?'#75efc7':'#efb958','left',width<430?12:14);}
+    if(!wide)return;
+    // θ–t graph: a straight line whose slope is ω, drawn only as far as the ride has gone.
+    const gx0=width*.62,gx1=width-20,gtop=62,gbottom=height-58,gx=u=>gx0+Math.min(u,TMAX)/TMAX*(gx1-gx0),gy=a=>gbottom-Math.min(a,THMAX)/THMAX*(gbottom-gtop);
+    fit(text('graphTitle'),gx0-28,gtop-26,'#d1e3ed',10,gx1-gx0+28);
+    ['0','π','2π','3π','4π'].forEach((str,k)=>{line([{x:gx0,y:gy(k*Math.PI)},{x:gx1,y:gy(k*Math.PI)}],k?'#203d50':'#5b7488',1);label(str,gx0-6,gy(k*Math.PI)+4,'#9fb6c7','right',10);});
+    for(const u of [0,10,20,30]){line([{x:gx(u),y:gtop},{x:gx(u),y:gbottom}],u?'#203d50':'#5b7488',1);label(plain(u),gx(u),gbottom+14,'#9fb6c7','center',10);}
+    label(text('axisT'),gx1,gbottom+28,'#9fb6c7','right',10);label('θ (rad)',gx0-28,gtop-10,'#9fb6c7','left',10);
+    if(c.ask==='period'||c.ask==='omega'||c.ask==='time')line([{x:gx0,y:gy(model.mark())},{x:gx1,y:gy(model.mark())}],'#75efc7',1,[4,3]);
+    if(c.ask==='angle'){line([{x:gx(c.t),y:gtop},{x:gx(c.t),y:gbottom}],'#8aa3b5',1,[4,3]);if(ready)line([{x:gx0,y:gy(model.mark())},{x:gx1,y:gy(model.mark())}],'#efb958',1,[4,3]);}
+    const trace=(w,color)=>{if(t<=0||w<=0)return;const u=Math.min(t,THMAX/w,TMAX);line([{x:gx(0),y:gy(0)},{x:gx(u),y:gy(w*u)}],color,2);};
+    if(ready&&c.ask==='speed')trace(model.answer/c.r,'#efb958');
+    if(ready)trace(model.omega(),'#75efc7');
+  }
+  function frame(now){if(previous===null)previous=now;const elapsed=Math.min(.1,(now-previous)/1000);previous=now;if(running){accumulator+=elapsed;while(accumulator>=H&&running){accumulator-=H;simulate(H);}draw();}if(now-lastUpdate>=80){update();lastUpdate=now;}requestAnimationFrame(frame);}
+  window.addEventListener('resize',resize);if(typeof ResizeObserver!=='undefined')new ResizeObserver(resize).observe(canvas);
+  sync();setRunning(false);update();resize();requestAnimationFrame(frame);
+})();
+</script>
+</body>
+</html>

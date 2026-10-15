@@ -1,0 +1,297 @@
+<!doctype html>
+<html lang="en">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Venturi Pipe · Phisicos</title>
+<style>
+.venturi-page .answer-row .symbol{min-width:44px}.venturi-page .question{font-size:15px;font-weight:600;margin-top:4px}
+.venturi-page .line-key.white{background:#f2f8fc}.venturi-page .line-key.blue{background:#77b9ff}
+</style>
+</head>
+<body>
+<div class="shell module-page venturi-page">
+__HEADER__
+<main id="main-content">
+__BREADCRUMBS__
+
+<div class="masthead"><div><h1>{{title}}</h1><p class="intro">{{subtitle}}</p></div><div class="concept-tags"><span class="tag speed">{{tag1}}</span><span class="tag velocity">{{tag2}}</span></div></div>
+<noscript><p class="no-js">{{noScript}}</p></noscript>
+<div class="layout">
+<aside class="sidebar" aria-label="{{setup}}">
+  <section class="control-section"><h2 class="eyebrow">{{setup}}</h2><div class="mission-list" role="group" aria-label="{{setup}}">
+    <button id="mission-0" aria-pressed="true"><b>1 · {{mission0}}</b><span id="given-0">d</span></button>
+    <button id="mission-1" aria-pressed="false"><b>2 · {{mission1}}</b><span id="given-1">A</span></button>
+    <button id="mission-2" aria-pressed="false"><b>3 · {{mission2}}</b><span id="given-2">A</span></button>
+    <button id="mission-3" aria-pressed="false"><b>4 · {{mission3}}</b><span id="given-3">A</span></button>
+    <button id="mission-4" aria-pressed="false"><b>5 · {{mission4}}</b><span id="given-4">v</span></button>
+  </div><p class="hint">{{setupNote}}</p></section>
+  <section class="control-section"><h2 class="eyebrow">{{answerHeading}}</h2>
+    <p class="question" id="question">{{question0}}</p>
+    <p class="field-label"><label for="answer">{{answerLabel}}</label></p>
+    <div class="answer-row"><span class="symbol" id="answer-symbol">v₂ =</span><input id="answer" type="number" inputmode="decimal" step="any" value=""><span class="unit" id="answer-unit">m/s</span></div>
+    <p class="hint">{{answerHint}}</p>
+  </section>
+  <section class="control-section"><h2 class="eyebrow">{{observe}}</h2><label class="check"><input id="show-labels" type="checkbox" checked>{{labelsToggle}}</label><label class="check"><input id="show-guess" type="checkbox" checked>{{guessToggle}}</label><p class="hint">{{observeHint}}</p></section>
+</aside>
+<div class="workspace">
+  <section class="scene" aria-label="{{sceneTitle}}"><div class="scene-top"><div><h2 class="scene-title">{{sceneTitle}}</h2><p class="scene-subtitle" id="mission-label">{{mission0}}</p></div><span class="status" id="venturi-status"><i class="status-dot" aria-hidden="true"></i><span id="venturi-status-text">{{ready}}</span></span></div>
+    <div class="module-stage"><canvas id="venturi-canvas" role="img" aria-label="{{canvasLabel}}">{{noScript}}</canvas></div>
+    <div class="legend"><span><i class="line-key blue"></i>{{waterLegend}}</span><span><i class="line-key white"></i>{{pipeLegend}}</span><span><i class="line-key orange"></i>{{guessLegend}}</span><span><i class="line-key gray"></i>{{columnLegend}}</span></div>
+    <div class="module-equation"><span id="equation-title">{{equationTitle}}</span><output id="venturi-equation">Δp = ½·ρ·(v₂² − v₁²)</output></div>
+    <div class="transport"><button id="play" class="primary" disabled>{{play}}</button><button id="pause" disabled>{{pause}}</button><button id="step" disabled>{{step}}</button><button id="reset" class="reset">{{reset}}</button></div>
+  </section>
+  <section class="metrics" aria-label="{{observe}}">
+    <div class="metric scalar"><h3 class="metric-label">{{time}}</h3><p class="metric-value"><span id="time-value">0.00</span> <small>s</small></p><p class="metric-equation">t</p></div>
+    <div class="metric vector"><h3 class="metric-label">{{inletMetric}}</h3><p class="metric-value"><span id="inlet-value">—</span> <small>m/s</small></p><p class="metric-equation">v₁</p></div>
+    <div class="metric vector"><h3 class="metric-label">{{outletMetric}}</h3><p class="metric-value"><span id="outlet-value">—</span> <small>m/s</small></p><p class="metric-equation">v₂ = v₁·A₁ ÷ A₂</p></div>
+    <div class="metric scalar"><h3 class="metric-label">{{dropMetric}}</h3><p class="metric-value"><span id="drop-value">—</span> <small>kPa</small></p><p class="metric-equation">Δp = ½·ρ·(v₂² − v₁²)</p></div>
+    <div class="metric scalar"><h3 class="metric-label">{{headMetric}}</h3><p class="metric-value"><span id="head-value">—</span> <small>m</small></p><p class="metric-equation">Δh = Δp ÷ (ρ·g)</p></div>
+  </section>
+  <div class="insight" id="insight"><span class="insight-icon" aria-hidden="true">↗</span><div><strong id="lesson-title">{{predictTitle}}</strong><p id="lesson-copy">{{predictCopy}}</p></div></div>
+  <section class="challenge"><div class="mission-heading"><h2 class="challenge-title">{{missionTitle}}</h2><div class="score-card"><span>{{score}}</span><strong id="mission-score">—</strong></div></div><p class="mission-copy">{{missionCopy}}</p><div class="badges"><span id="right-badge">✓ {{rightBadge}}</span><span id="first-badge">① {{firstBadge}}</span></div></section>
+</div>
+</div>
+<article class="learning-content"><section><h2>{{guideTitle}}</h2><ol><li>{{instruction1}}</li><li>{{instruction2}}</li><li>{{instruction3}}</li><li>{{instruction4}}</li></ol></section><section><h2>{{conceptTitle}}</h2><p>{{conceptCopy}}</p><aside class="worked-example"><h3>{{exampleTitle}}</h3><p>{{exampleCopy}}</p></aside></section><section><h2>{{modelTitle}}</h2><p>{{modelCopy}}</p></section></article>
+<p class="language-note" id="language-note">{{languageNote}}</p>
+</main>
+__FOOTER__
+<p class="sr-only" id="announcement" role="status" aria-live="polite"></p>
+</div>
+<script id="venturi-model">
+class VenturiModel {
+  // Water doesn't compress, so the same volume passes every section each second: A₁·v₁ = A₂·v₂, and a narrower section
+  // means faster water. Along the flow, Bernoulli's principle keeps p + ½·ρ·v² + ρ·g·z the same, so where water speeds up
+  // its pressure drops by ½·ρ·(v₂² − v₁²), and open columns on the pipe stand Δp ÷ (ρ·g) lower there. In the pipes the flow
+  // builds up steadily over 1 s and then stays steady; a fountain's water leaves the nozzle at once and climbs as a thrown
+  // ball would, until ½·ρ·v² of motion has become ρ·g·h of height.
+  static run = 2; // s a run lasts
+  static ramp = 1; // s for the flow to build up
+  static g = 9.8;
+  static rho = 1000;
+  static tolerance = .02;
+  static missions = [
+    {key:'nozzle',ask:'speed',d1:2,d2:.5,v1:1.5},
+    {key:'pressure',ask:'pressure',A1:20,A2:5,v1:1,p1:9.8},
+    {key:'column',ask:'column',A1:12,A2:4,v1:1.2,p1:9.8},
+    {key:'meter',ask:'flow',A1:20,A2:10,dh:.2,p1:9.8},
+    {key:'fountain',ask:'height',v:14}
+  ];
+  static units = {speed:'m/s',pressure:'kPa',column:'m',flow:'L/s',height:'m'};
+  static limits = {speed:1e5,pressure:1e7,column:1e5,flow:1e7,height:1e6};
+  constructor(index = 0){this.setMission(index);}
+  setMission(index){this.index=index;this.config=VenturiModel.missions[index];this.answer=null;this.attempts=0;this.reset();}
+  reset(){this.t=0;this.status='moving';}
+  valid(value){return Number.isFinite(value)&&value>0&&value<=VenturiModel.limits[this.config.ask];}
+  setAnswer(value){if(value!==null&&!this.valid(value))return false;this.answer=value;this.reset();return true;}
+  ready(){return this.answer!==null;}
+  fountain(){return this.config.ask==='height';}
+  // How many times narrower the second section is: the area ratio, from diameters for the hose.
+  ratio(){const c=this.config;return c.d1?(c.d1/c.d2)**2:c.A1/c.A2;}
+  // Steady speeds (m/s): given, or from the column difference for the flow meter.
+  inlet(){const c=this.config,g=VenturiModel.g;if(this.fountain())return 0;return c.v1??Math.sqrt(2*g*c.dh/(this.ratio()**2-1));}
+  outlet(){return this.fountain()?this.config.v:this.inlet()*this.ratio();}
+  build(t){return this.fountain()?1:Math.min(Math.max(t,0)/VenturiModel.ramp,1);}
+  v1(t){return this.inlet()*this.build(t);}
+  v2(t){return this.outlet()*this.build(t);}
+  // The pressure drop (Pa) and the matching column of water (m).
+  drop(t){return VenturiModel.rho/2*(this.v2(t)**2-this.v1(t)**2);}
+  head(t){return this.drop(t)/(VenturiModel.rho*VenturiModel.g);}
+  flow(){const c=this.config;return c.A1?c.A1*1e-4*this.inlet():c.d1?Math.PI*(c.d1/200)**2*this.inlet():0;} // m³/s
+  // The top of the fountain (m): climbing like a thrown ball, then staying at the top.
+  rise(t){const v=this.config.v??0,g=VenturiModel.g,s=Math.min(Math.max(t,0),v/g);return v*s-g*s*s/2;}
+  duration(){return VenturiModel.run;}
+  now(){return this.status==='done'?this.duration():this.t;}
+  advance(dt){
+    if(!Number.isFinite(dt)||dt<0)throw new Error('Invalid timestep');
+    if(this.status==='done'||!this.ready())return null;
+    // A run counts as an attempt as soon as it starts; it ends exactly after 2 s.
+    if(this.t===0)this.attempts++;
+    const T=this.duration();
+    if(this.t+dt>=T*(1-1e-12)){this.t=T;this.status='done';return {t:T,done:true};}
+    this.t+=dt;return null;
+  }
+  exact(){
+    const c=this.config,T=VenturiModel.run;
+    if(c.ask==='speed')return this.outlet();
+    if(c.ask==='pressure')return this.drop(T)/1000;
+    if(c.ask==='column')return this.head(T);
+    if(c.ask==='flow')return this.flow()*1000;
+    return c.v**2/(2*VenturiModel.g);
+  }
+  unit(){return VenturiModel.units[this.config.ask];}
+  evaluate(){
+    if(!this.ready())return {ok:false,slip:null,first:false,exact:this.exact()};
+    const c=this.config,a=this.answer,e=this.exact(),tol=VenturiModel.tolerance,near=(p,q)=>Math.abs(p-q)<=tol*Math.abs(q)+1e-12,rho=VenturiModel.rho,g=VenturiModel.g,v1=this.inlet(),v2=this.outlet();
+    // Every answer is right within 2%.
+    const ok=near(a,e);let slip=null;
+    if(!ok){
+      if(c.ask==='speed'){if(near(a,v1*c.d1/c.d2))slip='notSquared';else if(near(a,v1/this.ratio()))slip='inverted';else if(near(a,v1))slip='same';}
+      else if(c.ask==='pressure'){const s=v1*Math.sqrt(this.ratio());if(near(a,rho/2*(v2-v1)**2/1000))slip='diffSquared';else if(near(a,2*e))slip='noHalf';else if(near(a,rho/2*v2*v2/1000))slip='outletOnly';else if(near(a,rho/2*(s*s-v1*v1)/1000))slip='notSquared';else if(near(a,e*1000))slip='unitsPressure';}
+      else if(c.ask==='column'){if(near(a,this.drop(VenturiModel.run)/1000))slip='pressureNotHeight';else if(near(a,2*e))slip='noHalf';else if(near(a,c.p1*1000/(rho*g)-e))slip='level';else if(near(a,e*100))slip='unitsHeight';}
+      else if(c.ask==='flow'){const r=this.ratio();if(near(a,v1))slip='speedOnly';else if(near(a,c.A1*1e-4*Math.sqrt(g*c.dh/(r*r-1))*1000))slip='noHalf';else if(near(a,c.A1*1e-4*Math.sqrt(2*g*c.dh)*1000))slip='torricelli';else if(near(a,e/1000))slip='unitsFlow';}
+      else{if(near(a,c.v/g)||near(a,c.v/(2*g)))slip='noSquare';else if(near(a,2*e))slip='noHalf';}
+    }
+    return {ok,slip,first:ok&&this.attempts===1,exact:e};
+  }
+  score(){if(this.status!=='done')return 0;const e=this.evaluate();return (e.ok?100:0)+(e.first?50:0);}
+  snapshot(){return {index:this.index,answer:this.answer,attempts:this.attempts,t:this.t,status:this.status};}
+  restore(saved){
+    if(!Number.isInteger(saved?.index)||!VenturiModel.missions[saved.index])return false;
+    const probe=new VenturiModel(saved.index);
+    if(!probe.setAnswer(saved.answer??null)||!Number.isInteger(saved.attempts)||saved.attempts<0)return false;
+    if(!['moving','done'].includes(saved.status)||!Number.isFinite(saved.t)||saved.t<0||saved.t>probe.duration()*(1+1e-9))return false;
+    if(probe.answer===null&&(saved.t>0||saved.status==='done'))return false;
+    if((saved.status==='done'||saved.t>0)&&saved.attempts<1)return false;
+    this.setMission(saved.index);this.answer=probe.answer;this.attempts=saved.attempts;
+    this.status=saved.status;this.t=saved.status==='done'?this.duration():saved.t;return true;
+  }
+}
+globalThis.VenturiModel=VenturiModel;
+</script>
+<script id="venturi-locale" type="application/json">__LOCALE__</script>
+<script id="venturi-interface">
+(() => {
+  'use strict';
+  const $=id=>document.getElementById(id),locale=JSON.parse($('venturi-locale').textContent);
+  const text=(key,values={})=>locale.strings[key].replace(/\{(\w+)\}/g,(_,name)=>values[name]??'{'+name+'}');
+  const number=(n,d=2)=>Math.abs(n)<.5*10**-d?(0).toLocaleString(locale.lang,{minimumFractionDigits:d,maximumFractionDigits:d}):n.toLocaleString(locale.lang,{minimumFractionDigits:d,maximumFractionDigits:d,useGrouping:false});
+  const plain=n=>n.toLocaleString(locale.lang,{maximumFractionDigits:3,useGrouping:false}).replace('-','−');
+  const model=new VenturiModel();
+  const canvas=$('venturi-canvas'),ctx=canvas.getContext('2d');
+  const H=1/120,transferKey='phisicos-venturi-language-transfer';
+  let running=false,previous=null,accumulator=0,lastUpdate=0,width=800,height=410;
+  const say=message=>{$('announcement').textContent=message;};
+  try{const data=JSON.parse(sessionStorage.getItem(transferKey)||'null');sessionStorage.removeItem(transferKey);if(data)model.restore(data.state);}catch{$('language-note').hidden=true;}
+  const amount=v=>plain(Number(v.toPrecision(5)))+' '+model.unit();
+  const symbols={speed:'v₂ =',pressure:'Δp =',column:'Δh =',flow:'Q =',height:'h ='};
+  const slipKey=name=>'slip'+name[0].toUpperCase()+name.slice(1);
+  // Pressures keep two decimals below 100 kPa; heads keep three below 1 m.
+  const kpa=n=>number(n,Math.abs(n)<100?2:1),metres=n=>number(n,Math.abs(n)<1?3:2);
+  function setRunning(value){
+    const done=model.status==='done',blocked=!model.ready();running=value&&!done&&!blocked;previous=null;accumulator=0;
+    $('play').disabled=running||done||blocked;$('pause').disabled=!running;$('step').disabled=running||done||blocked;
+    $('venturi-status').classList.toggle('running',running);
+    $('venturi-status-text').textContent=text(done?'done':running?'running':model.t?'paused':'ready');
+  }
+  // Givens: diameters or areas, the speed in, or the column difference; the fountain's speed.
+  function given(m){
+    if(m.ask==='height')return 'v = '+plain(m.v)+' m/s';
+    if(m.d1)return 'd₁ = '+plain(m.d1)+' cm · v₁ = '+plain(m.v1)+' m/s · d₂ = '+plain(m.d2)+' cm';
+    return 'A₁ = '+plain(m.A1)+' cm² · A₂ = '+plain(m.A2)+' cm² · '+(m.dh?'Δh = '+plain(m.dh)+' m':'v₁ = '+plain(m.v1)+' m/s');
+  }
+  function sync(){
+    const c=model.config;
+    VenturiModel.missions.forEach((m,i)=>{$('mission-'+i).setAttribute('aria-pressed',String(i===model.index));$('given-'+i).textContent=given(m);});
+    $('question').textContent=text('question'+model.index);$('answer-symbol').textContent=symbols[c.ask];$('answer-unit').textContent=model.unit();
+    $('answer').value=model.answer===null?'':String(model.answer);$('mission-label').textContent=text('mission'+model.index);$('equation-title').textContent=text(model.fountain()?'heightTitle':'equationTitle');
+  }
+  // Speeds, the pressure drop, and the head show only once a run starts, because they give the answer away.
+  const started=()=>model.status==='done'||model.t>0;
+  function update(){
+    const c=model.config,ready=model.ready(),done=model.status==='done',t=ready?model.now():0,e=model.evaluate(),begun=started(),D=model.duration(),fountain=model.fountain();
+    $('time-value').textContent=number(t);$('inlet-value').textContent=begun&&!fountain?number(model.v1(t)):'—';$('outlet-value').textContent=begun?number(model.v2(t)):'—';
+    $('drop-value').textContent=begun?kpa(model.drop(t)/1000):'—';$('head-value').textContent=begun?metres(model.head(t)):'—';
+    $('venturi-equation').textContent=!begun?(fountain?'h = v² ÷ (2·g)':'Δp = ½·ρ·(v₂² − v₁²)'):fountain?'h = v² ÷ (2·g) = '+number(c.v)+'² ÷ (2 × '+plain(VenturiModel.g)+') = '+metres(model.head(t))+' m'
+      :'Δp = ½·ρ·(v₂² − v₁²) = ½ × 1000 × ('+number(model.v2(t))+'² − '+number(model.v1(t))+'²) = '+kpa(model.drop(t)/1000)+' kPa';
+    let key,copy;
+    const values={v1:number(model.v1(D)),v2:number(model.v2(D)),p:kpa(model.drop(D)/1000),h:metres(model.head(D)),q:number(model.flow()*1000)};
+    if(done){
+      const base=text('result'+model.index,values);
+      if(e.ok){key='good';copy=base+' '+text('why'+model.index);}
+      else{key='miss';copy=base+' '+text('missCopy',{p:amount(model.answer)})+' '+(e.slip?text(slipKey(e.slip)):text('hint'+model.index));}
+    }
+    else if(!ready){key='predict';copy=text('predictCopy');}
+    else if(model.t>0){key='running';const now={v1:number(model.v1(t)),v2:number(model.v2(t)),p:kpa(model.drop(t)/1000),h:metres(model.rise(t))};copy=text(fountain?'risingCopy':c.d1?'jetCopy':'movingCopy',now);}
+    else{key='ready';copy=text('readyCopy');}
+    $('lesson-title').textContent=text(key+'Title',{t:number(t),p:ready?amount(model.answer):''});$('lesson-copy').textContent=copy;
+    $('insight').classList.toggle('warning',key==='miss');
+    $('mission-score').textContent=done?String(model.score()):'—';
+    $('right-badge').classList.toggle('earned',done&&e.ok);$('first-badge').classList.toggle('earned',done&&e.first);
+  }
+  function refresh(){setRunning(false);update();draw();}
+  function simulate(dt){
+    const result=model.advance(dt);
+    if(result?.done){setRunning(false);update();say(text('doneAnnouncement')+' '+$('lesson-title').textContent);return true;}
+    return false;
+  }
+  $('answer').addEventListener('input',event=>{const raw=String(event.target.value).trim(),value=raw===''?null:Number(raw);if(!model.setAnswer(value))model.setAnswer(null);refresh();});
+  $('play').addEventListener('click',()=>{setRunning(true);update();say(text('startedAnnouncement'));});
+  $('pause').addEventListener('click',()=>{setRunning(false);update();say(text('pausedAnnouncement'));});
+  $('step').addEventListener('click',()=>{for(let i=0;i<12;i++)if(simulate(H))break;setRunning(false);update();draw();});
+  $('reset').addEventListener('click',()=>{model.reset();refresh();say(text('resetAnnouncement'));});
+  VenturiModel.missions.forEach((_,i)=>$('mission-'+i).addEventListener('click',()=>{model.setMission(i);sync();refresh();say(text('missionAnnouncement',{name:text('mission'+i)}));}));
+  for(const id of ['show-labels','show-guess'])$(id).addEventListener('change',()=>{update();draw();});
+  function suspend(){if(running){setRunning(false);say(text('suspendedAnnouncement'));}update();draw();}
+  window.addEventListener('blur',suspend);document.addEventListener('visibilitychange',()=>{if(document.hidden)suspend();});
+  for(const link of document.querySelectorAll('.language-menu a'))link.addEventListener('click',()=>{setRunning(false);try{sessionStorage.setItem(transferKey,JSON.stringify({state:model.snapshot()}));}catch{}});
+  function resize(){const rect=canvas.getBoundingClientRect();if(rect.width<=0)return;width=rect.width;height=rect.height;const dpr=Math.min(window.devicePixelRatio||1,3);canvas.width=Math.round(width*dpr);canvas.height=Math.round(height*dpr);ctx.setTransform(dpr,0,0,dpr,0,0);draw();}
+  function draw(){
+    if(!ctx)return;
+    const c=model.config,ready=model.ready(),done=model.status==='done',t=ready?model.now():0,begun=started(),labels=$('show-labels').checked,guess=$('show-guess').checked&&ready,g=VenturiModel.g;
+    ctx.clearRect(0,0,width,height);
+    const label=(str,px,py,color='#b8ccdb',align='left',font=12)=>{ctx.fillStyle=color;ctx.textAlign=align;ctx.font=font+'px -apple-system,BlinkMacSystemFont,sans-serif';ctx.fillText(str,px,py);};
+    const line=(points,color,w=1,dash=[])=>{ctx.beginPath();ctx.strokeStyle=color;ctx.lineWidth=w;ctx.setLineDash(dash);points.forEach((q,i)=>i?ctx.lineTo(q.x,q.y):ctx.moveTo(q.x,q.y));ctx.stroke();ctx.setLineDash([]);};
+    const fit=(str,px,py,color,size,room,align='left')=>{ctx.font=size+'px -apple-system,BlinkMacSystemFont,sans-serif';const w=ctx.measureText(str).width;label(str,px,py,color,align,w>room?Math.max(7,Math.floor(size*room/w)):size);};
+    const dot=(x,y,r,color)=>{ctx.fillStyle=color;ctx.beginPath();ctx.arc(x,y,r,0,Math.PI*2);ctx.fill();};
+    const wide=width>=560,area=wide?width*.64:width;
+    fit(text('viewTitle'),16,20,'#d1e3ed',12,area-28);
+    if(done){const ev=model.evaluate();fit(text(ev.ok?'rightBanner':'offBanner'),16,40,ev.ok?'#75efc7':'#efb958',width<430?12:14,area-28);}
+    // How far the water has moved, in seconds of full flow: the flow builds up steadily over the first second.
+    const moved=t<VenturiModel.ramp?t*t/(2*VenturiModel.ramp):t-VenturiModel.ramp/2;
+    if(model.fountain()){
+      // The fountain to scale: the nozzle on the ground, the water climbing like a thrown ball.
+      const ground=height-34,k=Math.max(8,(ground-70)/12),cx=area*.45,top=model.rise(t);
+      line([{x:12,y:ground},{x:area-12,y:ground}],'#8aa3b5',2);
+      for(let m=2;m<=12;m+=2){line([{x:24,y:ground-m*k},{x:32,y:ground-m*k}],'#8aa3b5',1);label(plain(m)+' m',36,ground-m*k+4,'#9fb6c7','left',10);}
+      ctx.fillStyle='#c3cfd9';ctx.beginPath();ctx.moveTo(cx-12,ground);ctx.lineTo(cx-4,ground-16);ctx.lineTo(cx+4,ground-16);ctx.lineTo(cx+12,ground);ctx.fill();
+      if(begun&&top>0){ctx.fillStyle='rgba(119,185,255,.75)';ctx.fillRect(cx-3,ground-16-top*k,6,top*k);for(const dx of [-8,0,8])dot(cx+dx,ground-16-top*k-3,2.5,'#77b9ff');if(labels)fit('h = '+metres(top)+' m',cx+68,ground-16-top*k+4,'#d1e3ed',11,area-cx-74);}
+      if(guess){const yy=ground-16-Math.min(model.answer,12.5)*k;line([{x:cx-60,y:yy},{x:cx+60,y:yy}],'#efb958',2,[5,3]);fit(text('guessTag')+(model.answer>12.5?' ↑':''),cx-64,yy+4,'#efb958',9,cx-70,'right');}
+    }
+    else{
+      // The pipe, not to scale: wide, narrowing, narrow, widening, wide (or a hose ending in a nozzle and a jet).
+      const nozzle=!!c.d1,L=16,R=area-16,axis=height*.68,R1=Math.min(26,height*.07),R2=R1/Math.sqrt(model.ratio());
+      const X=f=>L+f*(R-L),rad=x=>{const f=(x-L)/(R-L);if(nozzle)return f<.5?R1:f<.6?R1+(R2-R1)*(f-.5)/.1:R2;return f<.3||f>.7?R1:f<.4?R1+(R2-R1)*(f-.3)/.1:f<=.6?R2:R2+(R1-R2)*(f-.6)/.1;};
+      ctx.fillStyle='rgba(119,185,255,.35)';ctx.beginPath();ctx.moveTo(L,axis-R1);for(let x=L;x<=R;x+=2)ctx.lineTo(x,axis-rad(x));for(let x=R;x>=L;x-=2)ctx.lineTo(x,axis+rad(x));ctx.fill();
+      for(const s of [-1,1]){const pts=[];for(let x=L;x<=(nozzle?X(.6):R);x+=2)pts.push({x,y:axis+s*(rad(x)+1.5)});line(pts,'#f2f8fc',2.5);}
+      // Water particles keep equal spacing in travel time, so they spread out where the water is faster.
+      if(begun){
+        const disp=40,steps=240,tau=[0];for(let i=1;i<=steps;i++){const x=L+(R-L)*i/steps,v=disp*(R1/rad(x))**2;tau.push(tau[i-1]+(R-L)/steps/v);}
+        const total=tau[steps],gap=total/18;
+        for(const lane of [-.55,-.15,.25,.65])for(let j=0;j<18;j++){
+          const want=((moved+j*gap+lane*gap)%total+total)%total;let lo=0,hi=steps;while(hi-lo>1){const mid=(lo+hi)>>1;if(tau[mid]<=want)lo=mid;else hi=mid;}
+          const x=L+(R-L)*lo/steps;dot(x,axis+lane*rad(x)*1.1,1.8,'#d8ecff');
+        }
+      }
+      if(nozzle){if(labels){fit('d₁ = '+plain(c.d1)+' cm',X(.2),axis-R1-10,'#d1e3ed',10,X(.4)-X(0),'center');fit('v₂ = '+(begun?number(model.v2(t)):'?')+' m/s',X(.8),axis-R2-12,'#d1e3ed',11,X(.4)-X(0),'center');}
+        if(guess)fit(text('guessTag')+' · v₂ = '+plain(model.answer)+' m/s',X(.8),axis+R1+22,'#efb958',10,X(.4)-X(0),'center');}
+      else{
+        // Open columns on the wide part and on the narrow part: their water stands p ÷ (ρ·g) high.
+        const kc=Math.max(30,Math.min(110,(axis-R1-64)/1.15)),cols=[[X(.15),R1,c.p1*1000/(1000*g)],[X(.5),R2,c.p1*1000/(1000*g)-model.head(t)]];
+        cols.forEach(([x,r,h],i)=>{const foot=axis-r;line([{x:x-6,y:axis-R1-1.15*kc},{x:x-6,y:foot}],'#c3cfd9',1.5);line([{x:x+6,y:axis-R1-1.15*kc},{x:x+6,y:foot}],'#c3cfd9',1.5);
+          const lvl=axis-R1-Math.max(h,0)*kc+(R1-r);ctx.fillStyle='rgba(119,185,255,.7)';ctx.fillRect(x-5,Math.min(lvl,foot),10,Math.max(0,foot-lvl));
+          if(labels)fit((i?'h₂':'h₁')+' = '+metres(Math.max(h,0))+' m',x+10,Math.min(lvl,foot)+4,'#d1e3ed',10,X(.3)-X(0));});
+        const ref=axis-R1-cols[0][2]*kc;line([{x:X(.15)+8,y:ref},{x:X(.5)+8,y:ref}],'#9fb6c7',1,[3,3]);
+        if(guess&&(c.ask==='pressure'||c.ask==='column')){const dh=c.ask==='pressure'?model.answer*1000/(1000*g):model.answer,yy=Math.min(ref+dh*kc,axis-R2-2);line([{x:X(.5)-16,y:yy},{x:X(.5)+16,y:yy}],'#efb958',2,[5,3]);fit(text('guessTag')+(ref+dh*kc>axis-R2-2?' ↓':''),X(.5)-20,Math.min(yy+4,axis-R1-6),'#efb958',9,X(.5)-X(.2),'right');}
+        if(labels){fit('A₁ = '+plain(c.A1)+' cm²',X(.15),axis+R1+16,'#d1e3ed',10,X(.28)-X(0),'center');fit('A₂ = '+plain(c.A2)+' cm²',X(.5),axis+R1+16,'#d1e3ed',10,X(.28)-X(0),'center');}
+      }
+    }
+    label(text('scaleNote'),16,height-8,'#9fb6c7','left',10);
+    if(!wide)return;
+    // Right panel: Bernoulli's budget at two places, pressure + motion (+ height for the fountain) in kPa, the same total at both.
+    fit(text('budgetTitle'),area+8,44,'#d1e3ed',10,width-area-16);
+    if(!begun){fit(text('panelHint'),area+8,70,'#9fb6c7',10,width-area-16);return;}
+    const rho=1000,f=model.fountain(),ke=v=>rho*v*v/2000,p1=c.p1??0,parts=f?[[[0,'#77b9ff'],[ke(c.v),'#75efc7'],[0,'#c9a96e']],[[0,'#77b9ff'],[ke(Math.max(c.v**2-2*g*model.rise(t),0)**.5),'#75efc7'],[rho*g*model.rise(t)/1000,'#c9a96e']]]
+      :c.d1?[[[model.drop(t)/1000,'#77b9ff'],[ke(model.v1(t)),'#75efc7']],[[0,'#77b9ff'],[ke(model.v2(t)),'#75efc7']]]
+      :[[[p1,'#77b9ff'],[ke(model.v1(t)),'#75efc7']],[[p1-model.drop(t)/1000,'#77b9ff'],[ke(model.v2(t)),'#75efc7']]];
+    const totals=parts.map(p=>p.reduce((s,[v])=>s+v,0)),topV=Math.max(...totals,f?ke(c.v):c.d1?model.drop(VenturiModel.run)/1000+ke(model.inlet()):p1+ke(model.inlet()))*1.15||1;
+    const bx0=area+20,bx1=width-16,btop=86,bbot=height-58,bw=(bx1-bx0)/2-10,BY=v=>bbot-v/topV*(bbot-btop);
+    parts.forEach((stack,i)=>{const x=bx0+i*(bw+20);let base=0;for(const [v,color] of stack){if(v>0){ctx.fillStyle=color;ctx.fillRect(x,BY(base+v),bw,BY(base)-BY(base+v));}base+=v;}fit(kpa(totals[i]),x+bw/2,BY(totals[i])-6,'#f2f8fc',10,bw+16,'center');
+      fit(text(f?(i?'topShort':'nozzleShort'):c.d1?(i?'jetShort':'hoseShort'):(i?'narrowShort':'wideShort')),x+bw/2,bbot+14,'#9fb6c7',9,bw+16,'center');});
+    let lx=area+8;for(const [key,color] of [['pressureKey','#77b9ff'],['motionKey','#75efc7']].concat(f?[['heightKey','#c9a96e']]:[])){fit(text(key),lx,62,color,9,(width-area-16)/3);lx+=(width-area-16)/3;}
+    if(guess&&c.ask==='flow')fit(text('guessTag')+' · Q = '+plain(model.answer)+' L/s',area+8,78,'#efb958',9,width-area-16);
+  }
+  function frame(now){if(previous===null)previous=now;const elapsed=Math.min(.1,(now-previous)/1000);previous=now;if(running){accumulator+=elapsed;while(accumulator>=H&&running){accumulator-=H;simulate(H);}draw();}if(now-lastUpdate>=80){update();lastUpdate=now;}requestAnimationFrame(frame);}
+  window.addEventListener('resize',resize);if(typeof ResizeObserver!=='undefined')new ResizeObserver(resize).observe(canvas);
+  sync();setRunning(false);update();resize();requestAnimationFrame(frame);
+})();
+</script>
+</body>
+</html>

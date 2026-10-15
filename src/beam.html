@@ -1,0 +1,276 @@
+<!doctype html>
+<html lang="en">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Balance Point · Phisicos</title>
+<style>
+.beam-page .answer-row .symbol{min-width:44px}.beam-page .question{font-size:15px;font-weight:600;margin-top:4px}
+.beam-page .line-key.white{background:#f2f8fc}.beam-page .line-key.blue{background:#77b9ff}
+</style>
+</head>
+<body>
+<div class="shell module-page beam-page">
+__HEADER__
+<main id="main-content">
+__BREADCRUMBS__
+
+<div class="masthead"><div><h1>{{title}}</h1><p class="intro">{{subtitle}}</p></div><div class="concept-tags"><span class="tag speed">{{tag1}}</span><span class="tag velocity">{{tag2}}</span></div></div>
+<noscript><p class="no-js">{{noScript}}</p></noscript>
+<div class="layout">
+<aside class="sidebar" aria-label="{{setup}}">
+  <section class="control-section"><h2 class="eyebrow">{{setup}}</h2><div class="mission-list" role="group" aria-label="{{setup}}">
+    <button id="mission-0" aria-pressed="true"><b>1 · {{mission0}}</b><span id="given-0">m</span></button>
+    <button id="mission-1" aria-pressed="false"><b>2 · {{mission1}}</b><span id="given-1">m</span></button>
+    <button id="mission-2" aria-pressed="false"><b>3 · {{mission2}}</b><span id="given-2">m</span></button>
+    <button id="mission-3" aria-pressed="false"><b>4 · {{mission3}}</b><span id="given-3">m</span></button>
+    <button id="mission-4" aria-pressed="false"><b>5 · {{mission4}}</b><span id="given-4">m</span></button>
+  </div><p class="hint">{{setupNote}}</p></section>
+  <section class="control-section"><h2 class="eyebrow">{{answerHeading}}</h2>
+    <p class="question" id="question">{{question0}}</p>
+    <p class="field-label"><label for="answer">{{answerLabel}}</label></p>
+    <div class="answer-row"><span class="symbol" id="answer-symbol">x_s =</span><input id="answer" type="number" inputmode="decimal" step="any" value=""><span class="unit" id="answer-unit">m</span></div>
+    <p class="hint">{{answerHint}}</p>
+  </section>
+  <section class="control-section"><h2 class="eyebrow">{{observe}}</h2><label class="check"><input id="show-vectors" type="checkbox" checked>{{vectors}}</label><label class="check"><input id="show-ruler" type="checkbox" checked>{{ruler}}</label><p class="hint">{{observeHint}}</p></section>
+</aside>
+<div class="workspace">
+  <section class="scene" aria-label="{{sceneTitle}}"><div class="scene-top"><div><h2 class="scene-title">{{sceneTitle}}</h2><p class="scene-subtitle" id="mission-label">{{mission0}}</p></div><span class="status" id="beam-status"><i class="status-dot" aria-hidden="true"></i><span id="beam-status-text">{{ready}}</span></span></div>
+    <div class="module-stage"><canvas id="beam-canvas" role="img" aria-label="{{canvasLabel}}">{{noScript}}</canvas></div>
+    <div class="legend"><span><i class="line-key orange"></i>{{weightLegend}}</span><span><i class="line-key gray"></i>{{supportLegend}}</span><span><i class="line-key mint"></i>{{cmLegend}}</span><span><i class="line-key blue"></i>{{momentLegend}}</span></div>
+    <div class="module-equation"><span>{{equationTitle}}</span><output id="beam-equation">x_cm = Σm·x ÷ Σm</output></div>
+    <div class="transport"><button id="play" class="primary" disabled>{{play}}</button><button id="pause" disabled>{{pause}}</button><button id="step" disabled>{{step}}</button><button id="reset" class="reset">{{reset}}</button></div>
+  </section>
+  <section class="metrics" aria-label="{{observe}}">
+    <div class="metric scalar"><h3 class="metric-label">{{time}}</h3><p class="metric-value"><span id="time-value">0.00</span> <small>s</small></p><p class="metric-equation">t</p></div>
+    <div class="metric scalar"><h3 class="metric-label">{{angle}}</h3><p class="metric-value"><span id="angle-value">0.0</span> <small>°</small></p><p class="metric-equation">θ</p></div>
+    <div class="metric scalar"><h3 class="metric-label">{{massMetric}}</h3><p class="metric-value"><span id="mass-value">—</span> <small>kg</small></p><p class="metric-equation">Σm</p></div>
+    <div class="metric scalar"><h3 class="metric-label">{{sumMetric}}</h3><p class="metric-value"><span id="sum-value">—</span> <small>kg·m</small></p><p class="metric-equation">Σm·x</p></div>
+    <div class="metric vector"><h3 class="metric-label">{{cmMetric}}</h3><p class="metric-value"><span id="cm-value">—</span> <small>m</small></p><p class="metric-equation">x_cm</p></div>
+  </section>
+  <div class="insight" id="insight"><span class="insight-icon" aria-hidden="true">↗</span><div><strong id="lesson-title">{{predictTitle}}</strong><p id="lesson-copy">{{predictCopy}}</p></div></div>
+  <section class="challenge"><div class="mission-heading"><h2 class="challenge-title">{{missionTitle}}</h2><div class="score-card"><span>{{score}}</span><strong id="mission-score">—</strong></div></div><p class="mission-copy">{{missionCopy}}</p><div class="badges"><span id="right-badge">✓ {{rightBadge}}</span><span id="first-badge">① {{firstBadge}}</span></div></section>
+</div>
+</div>
+<article class="learning-content"><section><h2>{{guideTitle}}</h2><ol><li>{{instruction1}}</li><li>{{instruction2}}</li><li>{{instruction3}}</li><li>{{instruction4}}</li></ol></section><section><h2>{{conceptTitle}}</h2><p>{{conceptCopy}}</p><aside class="worked-example"><h3>{{exampleTitle}}</h3><p>{{exampleCopy}}</p></aside></section><section><h2>{{modelTitle}}</h2><p>{{modelCopy}}</p></section></article>
+<p class="language-note" id="language-note">{{languageNote}}</p>
+</main>
+__FOOTER__
+<p class="sr-only" id="announcement" role="status" aria-live="polite"></p>
+</div>
+<script id="beam-model">
+class BeamModel {
+  // A rigid 2 m beam carries point masses at positions x, measured from its left end; a uniform beam's own mass acts at
+  // its middle. Its centre of mass is x_cm = Σm·x ÷ Σm. It rests on a support whose flat top is 2 cm wide, so it stays
+  // level while x_cm is over that top. Otherwise it turns from rest about the support's nearer edge, θ = ½·α·t² with
+  // α = M·g·d ÷ I (d from the edge to x_cm), until its lower end touches the table, found exactly.
+  static g = 9.8; // m/s²
+  static length = 2; // m
+  static flat = .01; // m: half the width of the support's flat top
+  static height = .15; // m from the table to the beam
+  static hold = 2; // s a level beam is watched
+  static maxTilt = 12*Math.PI/180;
+  static missions = [
+    {key:'two',ask:'support',loads:[{m:3,x:0},{m:1,x:2}],beam:0},
+    {key:'three',ask:'support',loads:[{m:1,x:.2},{m:2,x:.8},{m:1,x:2}],beam:0},
+    {key:'plank',ask:'support',loads:[{m:4,x:.25}],beam:2},
+    {key:'place',ask:'place',loads:[{m:3,x:.4},{m:1,x:null}],beam:0,support:.7},
+    {key:'mass',ask:'mass',loads:[{m:1,x:0},{m:null,x:2}],beam:2,support:1.2}
+  ];
+  static units = {support:'m',place:'m',mass:'kg'};
+  constructor(index = 0){this.setMission(index);}
+  setMission(index){this.index=index;this.config=BeamModel.missions[index];this.answer=null;this.attempts=0;this.reset();}
+  reset(){this.t=0;this.status='watching';}
+  valid(value){return Number.isFinite(value)&&(this.config.ask==='mass'?value>0&&value<=50:value>=0&&value<=BeamModel.length);}
+  setAnswer(value){if(value!==null&&!this.valid(value))return false;this.answer=value;this.reset();return true;}
+  ready(){return this.answer!==null;}
+  support(){return this.config.support??this.answer??BeamModel.length/2;}
+  // The loads with the answer filled in: a position for the placed mass, or the unknown mass.
+  loads(){return this.config.loads.map(l=>({m:l.m??this.answer??0,x:l.x??this.answer??0,unknown:l.m===null||l.x===null}));}
+  // Every mass with its position, the beam's own mass at its middle included.
+  parts(){const list=this.loads().map(l=>({m:l.m,x:l.x}));if(this.config.beam)list.push({m:this.config.beam,x:BeamModel.length/2,beam:true});return list;}
+  total(){return this.parts().reduce((s,p)=>s+p.m,0);}
+  moment(){return this.parts().reduce((s,p)=>s+p.m*p.x,0);}
+  cm(){return this.moment()/this.total();}
+  offset(){return this.cm()-this.support();}
+  balanced(){return Math.abs(this.offset())<=BeamModel.flat+1e-9;}
+  // The support edge the beam tips over, and its moment of inertia about that edge.
+  edge(){return this.support()+Math.sign(this.offset())*BeamModel.flat;}
+  inertia(){const e=this.edge(),L=BeamModel.length;return this.parts().reduce((s,p)=>s+p.m*(p.x-e)**2+(p.beam?p.m*L*L/12:0),0)+1e-3;}
+  alpha(){return this.balanced()?0:BeamModel.g*this.total()*Math.abs(this.cm()-this.edge())/this.inertia();}
+  stopAngle(){const e=this.edge(),arm=this.offset()>0?BeamModel.length-e:e,h=BeamModel.height;return arm>h?Math.min(BeamModel.maxTilt,Math.asin(h/arm)):BeamModel.maxTilt;}
+  duration(){return this.balanced()?BeamModel.hold:Math.sqrt(2*this.stopAngle()/this.alpha());}
+  clamp(t){return Math.min(Math.max(t,0),this.duration());}
+  // Tilt, positive when the right end goes down.
+  angle(t){const u=this.clamp(t);return Math.sign(this.offset())*.5*this.alpha()*u*u;}
+  // Moments about the middle of the support, from the masses on each side.
+  sides(){const s=this.support(),g=BeamModel.g;let left=0,right=0;for(const p of this.parts()){const d=p.x-s;if(d<0)left-=p.m*g*d;else right+=p.m*g*d;}return {left,right};}
+  outcome(){return this.balanced()?'level':this.offset()<0?'left':'right';}
+  now(){return this.status==='done'?this.duration():this.t;}
+  advance(dt){
+    if(!Number.isFinite(dt)||dt<0)throw new Error('Invalid timestep');
+    if(this.status==='done'||!this.ready())return null;
+    // A run counts as an attempt as soon as it starts; touching the table is found exactly.
+    if(this.t===0)this.attempts++;
+    const T=this.duration();
+    if(this.t+dt>=T*(1-1e-12)){this.t=T;this.status='done';return {t:T,done:true,outcome:this.outcome()};}
+    this.t+=dt;return null;
+  }
+  exact(){
+    const c=this.config,known=c.loads.filter(l=>l.m!==null&&l.x!==null),M=known.reduce((s,l)=>s+l.m,0)+c.beam,Mx=known.reduce((s,l)=>s+l.m*l.x,0)+c.beam*BeamModel.length/2;
+    if(c.ask==='support')return Mx/M;
+    const u=c.loads.find(l=>l.m===null||l.x===null);
+    if(c.ask==='place')return (c.support*(M+u.m)-Mx)/u.m;
+    return (c.support*M-Mx)/(u.x-c.support);
+  }
+  unit(){return BeamModel.units[this.config.ask];}
+  // Right means the beam stays level: its centre of mass is over the support's flat top.
+  evaluate(){
+    if(!this.ready())return {ok:false,slip:null,first:false,exact:this.exact()};
+    const c=this.config,a=this.answer,near=(p,q)=>c.ask==='mass'?Math.abs(p-q)<=.03*q:Math.abs(p-q)<=.015,ok=this.balanced();
+    let slip=null;
+    if(!ok){
+      if(c.key==='two'){if(near(a,1))slip='midpoint';else if(near(a,1.5))slip='inverted';}
+      else if(c.key==='three'){if(near(a,1))slip='positionsOnly';else if(near(a,.8))slip='heaviest';}
+      else if(c.key==='plank'){if(near(a,.25))slip='noBeam';else if(near(a,.625))slip='positionsOnly';else if(near(a,1))slip='midpoint';}
+      else if(c.key==='place'){if(near(a,1))slip='mirror';}
+      else{if(near(a,1.5))slip='noBeam';}
+    }
+    return {ok,slip,first:ok&&this.attempts===1,exact:this.exact()};
+  }
+  score(){if(this.status!=='done')return 0;const e=this.evaluate();return (e.ok?100:0)+(e.first?50:0);}
+  snapshot(){return {index:this.index,answer:this.answer,attempts:this.attempts,t:this.t,status:this.status};}
+  restore(saved){
+    if(!Number.isInteger(saved?.index)||!BeamModel.missions[saved.index])return false;
+    const probe=new BeamModel(saved.index);
+    if(!probe.setAnswer(saved.answer??null)||!Number.isInteger(saved.attempts)||saved.attempts<0)return false;
+    if(!['watching','done'].includes(saved.status)||!Number.isFinite(saved.t)||saved.t<0||saved.t>probe.duration()*(1+1e-9))return false;
+    if(probe.answer===null&&(saved.t>0||saved.status==='done'))return false;
+    if((saved.status==='done'||saved.t>0)&&saved.attempts<1)return false;
+    this.setMission(saved.index);this.answer=probe.answer;this.attempts=saved.attempts;
+    this.status=saved.status;this.t=saved.status==='done'?this.duration():saved.t;return true;
+  }
+}
+globalThis.BeamModel=BeamModel;
+</script>
+<script id="beam-locale" type="application/json">__LOCALE__</script>
+<script id="beam-interface">
+(() => {
+  'use strict';
+  const $=id=>document.getElementById(id),locale=JSON.parse($('beam-locale').textContent);
+  const text=(key,values={})=>locale.strings[key].replace(/\{(\w+)\}/g,(_,name)=>values[name]??'{'+name+'}');
+  const number=(n,d=2)=>Math.abs(n)<.5*10**-d?(0).toLocaleString(locale.lang,{minimumFractionDigits:d,maximumFractionDigits:d}):n.toLocaleString(locale.lang,{minimumFractionDigits:d,maximumFractionDigits:d,useGrouping:false});
+  const plain=n=>n.toLocaleString(locale.lang,{maximumFractionDigits:2,useGrouping:false}).replace('-','−');
+  const model=new BeamModel();
+  const canvas=$('beam-canvas'),ctx=canvas.getContext('2d');
+  const H=1/120,TAU=2*Math.PI,G=BeamModel.g,L=BeamModel.length,transferKey='phisicos-beam-language-transfer';
+  let running=false,previous=null,accumulator=0,lastUpdate=0,width=800,height=410;
+  const say=message=>{$('announcement').textContent=message;};
+  try{const data=JSON.parse(sessionStorage.getItem(transferKey)||'null');sessionStorage.removeItem(transferKey);if(data)model.restore(data.state);}catch{$('language-note').hidden=true;}
+  const amount=v=>plain(Number(v.toPrecision(5)))+' '+model.unit();
+  const symbols={support:'x_s =',place:'x =',mass:'m ='};
+  const slipKey=name=>'slip'+name[0].toUpperCase()+name.slice(1);
+  function setRunning(value){
+    const done=model.status==='done',blocked=!model.ready();running=value&&!done&&!blocked;previous=null;accumulator=0;
+    $('play').disabled=running||done||blocked;$('pause').disabled=!running;$('step').disabled=running||done||blocked;
+    $('beam-status').classList.toggle('running',running);
+    $('beam-status-text').textContent=text(done?'done':running?'running':model.t?'paused':'ready');
+  }
+  // Givens: each mass at its distance from the left end, the beam's own mass, and the support.
+  function given(m){
+    const parts=m.loads.map(l=>(l.m===null?'m = ?':plain(l.m)+' kg')+' @ '+(l.x===null?'x = ?':plain(l.x)+' m'));
+    if(m.beam)parts.push('m_b = '+plain(m.beam)+' kg');
+    parts.push('x_s = '+(m.support===undefined?'?':plain(m.support)+' m'));
+    return parts.join(' · ');
+  }
+  function sync(){
+    const c=model.config;
+    BeamModel.missions.forEach((m,i)=>{$('mission-'+i).setAttribute('aria-pressed',String(i===model.index));$('given-'+i).textContent=given(m);});
+    $('question').textContent=text('question'+model.index);$('answer-symbol').textContent=symbols[c.ask];$('answer-unit').textContent=model.unit();
+    $('answer').value=model.answer===null?'':String(model.answer);$('mission-label').textContent=text('mission'+model.index);
+  }
+  // Σm·x and the centre of mass show only once a run starts, because they are the answer.
+  const started=()=>model.status==='done'||model.t>0;
+  function update(){
+    const ready=model.ready(),done=model.status==='done',t=ready?model.now():0,e=model.evaluate(),begun=started(),cm=model.cm(),M=model.total(),Mx=model.moment();
+    $('time-value').textContent=number(t);$('angle-value').textContent=number(Math.abs(model.angle(t))*180/Math.PI,1);
+    $('mass-value').textContent=ready||model.config.ask!=='mass'?number(M,2):'—';
+    $('sum-value').textContent=begun?number(Mx,3):'—';$('cm-value').textContent=begun?number(cm,3):'—';
+    $('beam-equation').textContent=begun?'x_cm = Σm·x ÷ Σm = '+number(Mx,3)+' ÷ '+number(M,2)+' = '+number(cm,3)+' m':'x_cm = Σm·x ÷ Σm';
+    let key,copy;
+    const values={cm:number(cm,3),s:number(model.support(),3)};
+    if(done){
+      const base=text(model.outcome()+'Copy',values);
+      if(e.ok){key='good';copy=base+' '+text('why'+model.index);}
+      else{key='miss';copy=base+' '+text('missCopy',{p:amount(model.answer)})+' '+(e.slip?text(slipKey(e.slip)):text('hint'+model.index));}
+    }
+    else if(!ready){key='predict';copy=text('predictCopy');}
+    else if(model.t>0){key='running';copy=text(model.balanced()?'restingCopy':'tippingCopy');}
+    else{key='ready';copy=text('readyCopy');}
+    $('lesson-title').textContent=text(key+'Title',{t:number(t),p:ready?amount(model.answer):''});$('lesson-copy').textContent=copy;
+    $('insight').classList.toggle('warning',key==='miss');
+    $('mission-score').textContent=done?String(model.score()):'—';
+    $('right-badge').classList.toggle('earned',done&&e.ok);$('first-badge').classList.toggle('earned',done&&e.first);
+  }
+  function refresh(){setRunning(false);update();draw();}
+  function simulate(dt){
+    const result=model.advance(dt);
+    if(result?.done){setRunning(false);update();say(text('doneAnnouncement')+' '+$('lesson-title').textContent);return true;}
+    return false;
+  }
+  $('answer').addEventListener('input',event=>{const raw=String(event.target.value).trim(),value=raw===''?null:Number(raw);if(!model.setAnswer(value))model.setAnswer(null);refresh();});
+  $('play').addEventListener('click',()=>{setRunning(true);update();say(text('startedAnnouncement'));});
+  $('pause').addEventListener('click',()=>{setRunning(false);update();say(text('pausedAnnouncement'));});
+  $('step').addEventListener('click',()=>{for(let i=0;i<12;i++)if(simulate(H))break;setRunning(false);update();draw();});
+  $('reset').addEventListener('click',()=>{model.reset();refresh();say(text('resetAnnouncement'));});
+  BeamModel.missions.forEach((_,i)=>$('mission-'+i).addEventListener('click',()=>{model.setMission(i);sync();refresh();say(text('missionAnnouncement',{name:text('mission'+i)}));}));
+  for(const id of ['show-vectors','show-ruler'])$(id).addEventListener('change',()=>{update();draw();});
+  function suspend(){if(running){setRunning(false);say(text('suspendedAnnouncement'));}update();draw();}
+  window.addEventListener('blur',suspend);document.addEventListener('visibilitychange',()=>{if(document.hidden)suspend();});
+  for(const link of document.querySelectorAll('.language-menu a'))link.addEventListener('click',()=>{setRunning(false);try{sessionStorage.setItem(transferKey,JSON.stringify({state:model.snapshot()}));}catch{}});
+  function resize(){const rect=canvas.getBoundingClientRect();if(rect.width<=0)return;width=rect.width;height=rect.height;const dpr=Math.min(window.devicePixelRatio||1,3);canvas.width=Math.round(width*dpr);canvas.height=Math.round(height*dpr);ctx.setTransform(dpr,0,0,dpr,0,0);draw();}
+  // One scale for both axes, fixed for the whole game; weights at 2 px per newton, up to 90 px.
+  const FS=2,CAP=90;
+  function draw(){
+    if(!ctx)return;
+    const c=model.config,ready=model.ready(),done=model.status==='done',t=ready?model.now():0,begun=started(),th=model.angle(t),vectors=$('show-vectors').checked;
+    ctx.clearRect(0,0,width,height);
+    const label=(str,px,py,color='#b8ccdb',align='left',font=12)=>{ctx.fillStyle=color;ctx.textAlign=align;ctx.font=font+'px -apple-system,BlinkMacSystemFont,sans-serif';ctx.fillText(str,px,py);};
+    const line=(points,color,w=1,dash=[])=>{ctx.beginPath();ctx.strokeStyle=color;ctx.lineWidth=w;ctx.setLineDash(dash);points.forEach((q,i)=>i?ctx.lineTo(q.x,q.y):ctx.moveTo(q.x,q.y));ctx.stroke();ctx.setLineDash([]);};
+    const arrow=(from,dx,dy,color,w=2.5)=>{const len=Math.hypot(dx,dy);if(len<4)return;const ux=dx/len,uy=dy/len,to={x:from.x+dx,y:from.y+dy};line([from,to],color,w);line([{x:to.x-ux*9-uy*5,y:to.y-uy*9+ux*5},to,{x:to.x-ux*9+uy*5,y:to.y-uy*9-ux*5}],color,2);};
+    const fit=(str,px,py,color,size,room,align='left')=>{ctx.font=size+'px -apple-system,BlinkMacSystemFont,sans-serif';const w=ctx.measureText(str).width;label(str,px,py,color,align,w>room?Math.max(7,Math.floor(size*room/w)):size);};
+    const wide=width>=560,area=wide?width*.64:width;
+    fit(text('viewTitle'),16,20,'#d1e3ed',12,area-28);label(text('arrowScale'),16,height-8,'#9fb6c7','left',10);
+    const S=Math.min((area-60)/L,(height-170)/.6),x0=(area-L*S)/2,tableY=height-62,beamY=tableY-BeamModel.height*S;
+    // The beam turns about the support edge it tips over (about the support's middle while level).
+    const s=model.support(),pivot=begun&&!model.balanced()?model.edge():s,P=(x,y=0)=>({x:x0+pivot*S+((x-pivot)*Math.cos(th)+y*Math.sin(th))*S,y:beamY+(-y*Math.cos(th)+(x-pivot)*Math.sin(th))*S});
+    ctx.fillStyle='#173246';ctx.fillRect(0,tableY,area,height-tableY-18);line([{x:0,y:tableY},{x:area,y:tableY}],'#5b7488',1.5);
+    // The support: a block with a flat top 2 cm wide, drawn where the answer (or the given) puts it.
+    if(ready||c.support!==undefined){const sx=x0+s*S,top=Math.max(3,BeamModel.flat*S);ctx.fillStyle='#8aa3b5';ctx.beginPath();ctx.moveTo(sx-top,beamY);ctx.lineTo(sx+top,beamY);ctx.lineTo(sx+16,tableY);ctx.lineTo(sx-16,tableY);ctx.closePath();ctx.fill();label(text('supportLabel'),sx,tableY+16,'#9fb6c7','center',10);}
+    line([P(0,.02),P(L,.02)],'#c99a6e',7);
+    if($('show-ruler').checked)for(let i=0;i<=20;i++){const x=i/10,a=P(x,0),b=P(x,i%5?-.025:-.045);line([a,b],'#9fb6c7',1);if(i%5===0){const q=P(x,-.09);label(plain(x)+' m',q.x,q.y+4,'#9fb6c7','center',9);}}
+    // Masses as blocks sized by mass; the unknown one in orange once there is an answer.
+    for(const l of model.loads()){
+      if(l.unknown&&!ready)continue;const w=Math.min(.22,.07+.035*Math.sqrt(l.m)),h=w*.8,q=P(Math.min(L-w/2,Math.max(w/2,l.x)),.04);
+      ctx.save();ctx.translate(q.x,q.y);ctx.rotate(th);ctx.fillStyle=l.unknown?'#efb958':'#efe6d0';ctx.fillRect(-w*S/2,-h*S,w*S,h*S);ctx.restore();
+      const tag=P(l.x,.04+h+.06);label(plain(Number(l.m.toPrecision(4)))+' kg',tag.x,tag.y,l.unknown?'#efb958':'#d1e3ed','center',10);
+      if(vectors)arrow(P(l.x,.02),0,Math.min(l.m*G*FS,CAP),'#efb958');
+    }
+    if(c.beam&&vectors){const q=P(L/2,.02);arrow(q,0,Math.min(c.beam*G*FS,CAP),'#efb958',1.8);const a=P(L/2,.07);label(text('beamLabel'),a.x+14,a.y,'#efb958','left',9);}
+    // The centre of mass and its plumb line show once a run starts.
+    if(begun){const q=P(model.cm(),.02);ctx.strokeStyle='#75efc7';ctx.lineWidth=2;ctx.beginPath();ctx.arc(q.x,q.y,7,0,TAU);ctx.stroke();line([{x:q.x-7,y:q.y},{x:q.x+7,y:q.y}],'#75efc7',1.5);line([q,{x:q.x,y:tableY}],'#75efc7',1,[4,4]);label('x_cm',q.x+10,q.y-10,'#75efc7','left',10);}
+    if(done){const e=model.evaluate();fit((e.ok?text('rightBanner')+' · ':'')+text({level:'levelBanner',left:'leftDownBanner',right:'rightDownBanner'}[model.outcome()]),16,44,e.ok?'#75efc7':'#efb958',width<430?12:14,area-28);}
+    if(!wide)return;
+    // Moment bars about the support: the masses on the left against the masses on the right, once a run starts.
+    const bx0=area+20,bx1=width-16,btop=70,bbot=tableY,bw=(bx1-bx0)/2-10;
+    fit(text('momentTitle'),area+8,44,'#d1e3ed',10,width-area-16);
+    if(!begun){fit(text('momentHint'),area+8,70,'#9fb6c7',10,width-area-16);return;}
+    const {left,right}=model.sides(),top=Math.max(left,right,1e-9)*1.15,BY=v=>bbot-v/top*(bbot-btop);
+    ctx.fillStyle='#77b9ff';ctx.fillRect(bx0,BY(left),bw,bbot-BY(left));ctx.fillStyle='#77b9ff';ctx.fillRect(bx0+bw+20,BY(right),bw,bbot-BY(right));
+    fit(number(left,1),bx0+bw/2,BY(left)-6,'#77b9ff',10,bw+16,'center');fit(number(right,1),bx0+bw*1.5+20,BY(right)-6,'#77b9ff',10,bw+16,'center');
+    fit(text('leftShort'),bx0+bw/2,bbot+14,'#9fb6c7',9,bw+16,'center');fit(text('rightShort'),bx0+bw*1.5+20,bbot+14,'#9fb6c7',9,bw+16,'center');
+  }
+  function frame(now){if(previous===null)previous=now;const elapsed=Math.min(.1,(now-previous)/1000);previous=now;if(running){accumulator+=elapsed;while(accumulator>=H&&running){accumulator-=H;simulate(H);}draw();}if(now-lastUpdate>=80){update();lastUpdate=now;}requestAnimationFrame(frame);}
+  window.addEventListener('resize',resize);if(typeof ResizeObserver!=='undefined')new ResizeObserver(resize).observe(canvas);
+  sync();setRunning(false);update();resize();requestAnimationFrame(frame);
+})();
+</script>
+</body>
+</html>

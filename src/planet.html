@@ -1,0 +1,273 @@
+<!doctype html>
+<html lang="en">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Planet Scale · Phisicos</title>
+<style>
+.planet-page .answer-row .symbol{min-width:44px}.planet-page .question{font-size:15px;font-weight:600;margin-top:4px}
+.planet-page .line-key.white{background:#f2f8fc}.planet-page .line-key.blue{background:#77b9ff}
+</style>
+</head>
+<body>
+<div class="shell module-page planet-page">
+__HEADER__
+<main id="main-content">
+__BREADCRUMBS__
+
+<div class="masthead"><div><h1>{{title}}</h1><p class="intro">{{subtitle}}</p></div><div class="concept-tags"><span class="tag speed">{{tag1}}</span><span class="tag velocity">{{tag2}}</span></div></div>
+<noscript><p class="no-js">{{noScript}}</p></noscript>
+<div class="layout">
+<aside class="sidebar" aria-label="{{setup}}">
+  <section class="control-section"><h2 class="eyebrow">{{setup}}</h2><div class="mission-list" role="group" aria-label="{{setup}}">
+    <button id="mission-0" aria-pressed="true"><b>1 · {{mission0}}</b><span id="given-0">M</span></button>
+    <button id="mission-1" aria-pressed="false"><b>2 · {{mission1}}</b><span id="given-1">M</span></button>
+    <button id="mission-2" aria-pressed="false"><b>3 · {{mission2}}</b><span id="given-2">m</span></button>
+    <button id="mission-3" aria-pressed="false"><b>4 · {{mission3}}</b><span id="given-3">h</span></button>
+    <button id="mission-4" aria-pressed="false"><b>5 · {{mission4}}</b><span id="given-4">M</span></button>
+  </div><p class="hint">{{setupNote}}</p></section>
+  <section class="control-section"><h2 class="eyebrow">{{answerHeading}}</h2>
+    <p class="question" id="question">{{question0}}</p>
+    <p class="field-label"><label for="answer">{{answerLabel}}</label></p>
+    <div class="answer-row"><span class="symbol" id="answer-symbol">g =</span><input id="answer" type="number" inputmode="decimal" step="any" value=""><span class="unit" id="answer-unit">m/s²</span></div>
+    <p class="hint">{{answerHint}}</p>
+  </section>
+  <section class="control-section"><h2 class="eyebrow">{{observe}}</h2><label class="check"><input id="show-vectors" type="checkbox" checked>{{vectors}}</label><label class="check"><input id="show-strobe" type="checkbox" checked>{{strobe}}</label><p class="hint">{{observeHint}}</p></section>
+</aside>
+<div class="workspace">
+  <section class="scene" aria-label="{{sceneTitle}}"><div class="scene-top"><div><h2 class="scene-title">{{sceneTitle}}</h2><p class="scene-subtitle" id="mission-label">{{mission0}}</p></div><span class="status" id="planet-status"><i class="status-dot" aria-hidden="true"></i><span id="planet-status-text">{{ready}}</span></span></div>
+    <div class="module-stage"><canvas id="planet-canvas" role="img" aria-label="{{canvasLabel}}">{{noScript}}</canvas></div>
+    <div class="legend"><span><i class="line-key white"></i>{{velocityLegend}}</span><span><i class="line-key blue"></i>{{gravityLegend}}</span><span><i class="line-key mint"></i>{{worldLegend}}</span><span><i class="line-key orange"></i>{{predictionLegend}}</span><span><i class="line-key gray"></i>{{earthLegend}}</span></div>
+    <div class="module-equation"><span>{{equationTitle}}</span><output id="planet-equation">g = G·M ÷ R²</output></div>
+    <div class="transport"><button id="play" class="primary" disabled>{{play}}</button><button id="pause" disabled>{{pause}}</button><button id="step" disabled>{{step}}</button><button id="reset" class="reset">{{reset}}</button></div>
+  </section>
+  <section class="metrics" aria-label="{{observe}}">
+    <div class="metric scalar"><h3 class="metric-label">{{time}}</h3><p class="metric-value"><span id="time-value">0.00</span> <small>s</small></p><p class="metric-equation">t</p></div>
+    <div class="metric vector"><h3 class="metric-label">{{height}}</h3><p class="metric-value"><span id="y-value">2.00</span> <small>m</small></p><p class="metric-equation">y = h − ½·g·t²</p></div>
+    <div class="metric vector"><h3 class="metric-label">{{speed}}</h3><p class="metric-value"><span id="v-value">0.00</span> <small>m/s</small></p><p class="metric-equation">v = g·t</p></div>
+    <div class="metric vector"><h3 class="metric-label">{{gravity}}</h3><p class="metric-value"><span id="g-value">—</span> <small>m/s²</small></p><p class="metric-equation">g = G·M ÷ R²</p></div>
+    <div class="metric vector"><h3 class="metric-label">{{weight}}</h3><p class="metric-value"><span id="w-value">—</span> <small>N</small></p><p class="metric-equation">W = m·g</p></div>
+  </section>
+  <div class="insight" id="insight"><span class="insight-icon" aria-hidden="true">↗</span><div><strong id="lesson-title">{{predictTitle}}</strong><p id="lesson-copy">{{predictCopy}}</p></div></div>
+  <section class="challenge"><div class="mission-heading"><h2 class="challenge-title">{{missionTitle}}</h2><div class="score-card"><span>{{score}}</span><strong id="mission-score">—</strong></div></div><p class="mission-copy">{{missionCopy}}</p><div class="badges"><span id="right-badge">✓ {{rightBadge}}</span><span id="first-badge">① {{firstBadge}}</span></div></section>
+</div>
+</div>
+<article class="learning-content"><section><h2>{{guideTitle}}</h2><ol><li>{{instruction1}}</li><li>{{instruction2}}</li><li>{{instruction3}}</li><li>{{instruction4}}</li></ol></section><section><h2>{{conceptTitle}}</h2><p>{{conceptCopy}}</p><aside class="worked-example"><h3>{{exampleTitle}}</h3><p>{{exampleCopy}}</p></aside></section><section><h2>{{modelTitle}}</h2><p>{{modelCopy}}</p></section></article>
+<p class="language-note" id="language-note">{{languageNote}}</p>
+</main>
+__FOOTER__
+<p class="sr-only" id="announcement" role="status" aria-live="polite"></p>
+</div>
+<script id="planet-model">
+class PlanetModel {
+  // On the surface of a world of mass M and radius R, universal gravitation gives the acceleration due to gravity
+  // g = G·M ÷ R². A ball is released from rest h = 2 m above the ground, y = h − ½·g·t², and lands exactly at
+  // t = √(2h ÷ g). Beside it a 70 kg astronaut stands on a scale that reads the weight W = m·g. The mass never changes.
+  static G = 6.674e-11; // N·m²/kg²
+  static earth = {M:5.972e24,R:6.371e6};
+  static worlds = {moon:{M:7.342e22,R:1.7374e6},mars:{M:6.417e23,R:3.3895e6},superEarth:{M:8*5.972e24,R:2*6.371e6}};
+  static missions = [
+    {world:'moon',ask:'gravity'},
+    {world:'mars',ask:'weight'},
+    {world:'mars',ask:'mass'},
+    {world:'moon',ask:'time'},
+    {world:'superEarth',ask:'ratio'}
+  ];
+  static h = 2; // m
+  static m = 70; // kg
+  static tolerance = .02; // relative
+  static playback = .25; // the drops last 0.4–1.6 s, so they play in slow motion
+  static strobe = .1; // s between strobe images
+  static units = {gravity:'m/s²',weight:'N',mass:'kg',time:'s',ratio:'m/s²'};
+  constructor(index = 0){this.setMission(index);}
+  setMission(index){this.index=index;this.config=PlanetModel.missions[index];this.answer=null;this.attempts=0;this.reset();}
+  reset(){this.t=0;this.status='falling';}
+  valid(value){return Number.isFinite(value)&&value>0&&value<=1e9;}
+  setAnswer(value){if(value!==null&&!this.valid(value))return false;this.answer=value;this.reset();return true;}
+  ready(){return this.answer!==null;}
+  static surface(w){return PlanetModel.G*w.M/(w.R*w.R);}
+  gravity(){return PlanetModel.surface(PlanetModel.worlds[this.config.world]);}
+  earthGravity(){return PlanetModel.surface(PlanetModel.earth);}
+  weight(){return PlanetModel.m*this.gravity();}
+  landTime(){return Math.sqrt(2*PlanetModel.h/this.gravity());}
+  clamp(t){return Math.min(Math.max(t,0),this.landTime());}
+  y(t){const u=this.clamp(t);return Math.max(0,PlanetModel.h-.5*this.gravity()*u*u);}
+  // Downward speed; just before touchdown it is kept.
+  v(t){return this.gravity()*this.clamp(t);}
+  now(){return this.status==='landed'?this.landTime():this.t;}
+  advance(dt){
+    if(!Number.isFinite(dt)||dt<0)throw new Error('Invalid timestep');
+    if(this.status==='landed'||!this.ready())return null;
+    // A drop counts as an attempt as soon as it starts; touchdown is found exactly.
+    if(this.t===0)this.attempts++;
+    const T=this.landTime();
+    if(this.t+dt>=T*(1-1e-12)){this.t=T;this.status='landed';return {t:T,done:true};}
+    this.t+=dt;return null;
+  }
+  exact(){
+    const a=this.config.ask;
+    if(a==='weight')return this.weight();
+    if(a==='mass')return PlanetModel.m;
+    if(a==='time')return this.landTime();
+    return this.gravity();
+  }
+  unit(){return PlanetModel.units[this.config.ask];}
+  evaluate(){
+    if(!this.ready())return {ok:false,slip:null,first:false,exact:this.exact()};
+    const c=this.config,a=this.answer,e=this.exact(),G=PlanetModel.G,w=PlanetModel.worlds[c.world],g=this.gravity(),gE=this.earthGravity(),m=PlanetModel.m,h=PlanetModel.h;
+    const near=(p,q)=>Math.abs(p-q)<=PlanetModel.tolerance*Math.abs(q)+1e-12,ok=near(a,e);
+    let slip=null;
+    if(!ok){
+      if(c.ask==='gravity'){if(near(a,G*w.M/w.R))slip='noSquare';else if(near(a,G*w.M/(w.R/1000)**2))slip='km';else if(near(a,gE))slip='earth';}
+      else if(c.ask==='weight'){if(near(a,m))slip='mass';else if(near(a,m*gE))slip='earthWeight';else if(near(a,g))slip='gOnly';else if(near(a,m*g/gE))slip='kgf';}
+      else if(c.ask==='mass'){if(near(a,m*g))slip='weight';else if(near(a,m*g/gE))slip='scaled';}
+      else if(c.ask==='time'){if(near(a,2*h/g))slip='noRoot';else if(near(a,Math.sqrt(h/g)))slip='noTwo';else if(near(a,Math.sqrt(2*h/gE)))slip='earthTime';}
+      else{if(near(a,8*gE))slip='massOnly';else if(near(a,gE/4))slip='radiusOnly';else if(near(a,4*gE))slip='linear';else if(near(a,gE))slip='sameAsEarth';}
+    }
+    return {ok,slip,first:ok&&this.attempts===1,exact:e};
+  }
+  score(){if(this.status!=='landed')return 0;const e=this.evaluate();return (e.ok?100:0)+(e.first?50:0);}
+  snapshot(){return {index:this.index,answer:this.answer,attempts:this.attempts,t:this.t,status:this.status};}
+  restore(saved){
+    if(!Number.isInteger(saved?.index)||!PlanetModel.missions[saved.index])return false;
+    const probe=new PlanetModel(saved.index);
+    if(!probe.setAnswer(saved.answer??null)||!Number.isInteger(saved.attempts)||saved.attempts<0)return false;
+    if(!['falling','landed'].includes(saved.status)||!Number.isFinite(saved.t)||saved.t<0||saved.t>probe.landTime()*(1+1e-9))return false;
+    if(probe.answer===null&&(saved.t>0||saved.status==='landed'))return false;
+    if((saved.status==='landed'||saved.t>0)&&saved.attempts<1)return false;
+    this.setMission(saved.index);this.answer=probe.answer;this.attempts=saved.attempts;
+    this.status=saved.status;this.t=saved.status==='landed'?this.landTime():saved.t;return true;
+  }
+}
+globalThis.PlanetModel=PlanetModel;
+</script>
+<script id="planet-locale" type="application/json">__LOCALE__</script>
+<script id="planet-interface">
+(() => {
+  'use strict';
+  const $=id=>document.getElementById(id),locale=JSON.parse($('planet-locale').textContent);
+  const text=(key,values={})=>locale.strings[key].replace(/\{(\w+)\}/g,(_,name)=>values[name]??'{'+name+'}');
+  const number=(n,d=2)=>Math.abs(n)<.5*10**-d?(0).toLocaleString(locale.lang,{minimumFractionDigits:d,maximumFractionDigits:d}):n.toLocaleString(locale.lang,{minimumFractionDigits:d,maximumFractionDigits:d,useGrouping:false});
+  const plain=n=>n.toLocaleString(locale.lang,{maximumFractionDigits:3,useGrouping:false}).replace('-','−');
+  const sup=n=>String(n).replace(/[-0-9]/g,c=>'⁻⁰¹²³⁴⁵⁶⁷⁸⁹'['-0123456789'.indexOf(c)]);
+  const sci=n=>{const e=Math.floor(Math.log10(n));return plain(Number((n/10**e).toFixed(3)))+' × 10'+sup(e);};
+  const model=new PlanetModel();
+  const canvas=$('planet-canvas'),ctx=canvas.getContext('2d');
+  const H=1/120,TAU=2*Math.PI,transferKey='phisicos-planet-language-transfer',names={moon:'moonName',mars:'marsName',superEarth:'superEarthName'},places={moon:'onMoon',mars:'onMars',superEarth:'onSuperEarth'};
+  let running=false,previous=null,accumulator=0,lastUpdate=0,width=800,height=410;
+  const say=message=>{$('announcement').textContent=message;};
+  try{const data=JSON.parse(sessionStorage.getItem(transferKey)||'null');sessionStorage.removeItem(transferKey);if(data)model.restore(data.state);}catch{$('language-note').hidden=true;}
+  const amount=v=>plain(Number(v.toPrecision(6)))+' '+model.unit();
+  const symbols={gravity:'g =',weight:'W =',mass:'m =',time:'t =',ratio:'g ='};
+  const slipKey=name=>'slip'+name[0].toUpperCase()+name.slice(1);
+  function setRunning(value){
+    const done=model.status==='landed',blocked=!model.ready();running=value&&!done&&!blocked;previous=null;accumulator=0;
+    $('play').disabled=running||done||blocked;$('pause').disabled=!running;$('step').disabled=running||done||blocked;
+    $('planet-status').classList.toggle('running',running);
+    $('planet-status-text').textContent=text(done?'done':running?'running':model.t?'paused':'ready');
+  }
+  function given(m){
+    const w=PlanetModel.worlds[m.world],parts=[];
+    if(m.ask==='weight'||m.ask==='mass')parts.push('m = '+plain(PlanetModel.m)+' kg');
+    if(m.ask==='ratio')parts.push('M = 8·M⊕','R = 2·R⊕');
+    else if(m.ask!=='mass')parts.push('M = '+sci(w.M)+' kg','R = '+plain(Math.round(w.R/1000))+' km');
+    if(m.ask==='time')parts.push('h = '+plain(PlanetModel.h)+' m');
+    return parts.join(' · ');
+  }
+  function sync(){
+    const c=model.config;
+    PlanetModel.missions.forEach((m,i)=>{$('mission-'+i).setAttribute('aria-pressed',String(i===model.index));$('given-'+i).textContent=given(m);});
+    $('question').textContent=text('question'+model.index);$('answer-symbol').textContent=symbols[c.ask];$('answer-unit').textContent=model.unit();
+    $('answer').value=model.answer===null?'':String(model.answer);$('mission-label').textContent=text('mission'+model.index);
+  }
+  // g and the scale reading show only once a drop has started, because they are, or give away, the answers.
+  const started=()=>model.status==='landed'||model.t>0;
+  function update(){
+    const ready=model.ready(),done=model.status==='landed',t=ready?model.now():0,e=model.evaluate(),begun=started(),g=model.gravity();
+    $('time-value').textContent=number(t);$('y-value').textContent=number(model.y(t));$('v-value').textContent=number(model.v(t));
+    $('g-value').textContent=begun?number(g):'—';$('w-value').textContent=begun?number(model.weight(),0):'—';
+    $('planet-equation').textContent=begun?'g = G·M ÷ R² = '+number(g)+' m/s² · W = m·g = '+plain(PlanetModel.m)+' × '+number(g)+' = '+number(model.weight(),0)+' N':'g = G·M ÷ R² · W = m·g';
+    let key,copy;
+    if(done){
+      const base=text('resultCopy',{place:text(places[model.config.world]),g:number(g),t:number(t),W:number(model.weight(),0)});
+      if(e.ok){key='good';copy=base+' '+text('why'+model.index);}
+      else{key='miss';copy=base+' '+text('missCopy',{p:amount(model.answer)})+' '+(e.slip?text(slipKey(e.slip)):text('hint'+model.index));}
+    }
+    else if(!ready){key='predict';copy=text('predictCopy');}
+    else if(model.t>0){key='running';copy=text('runningCopy',{g:number(g),v:number(model.v(t))});}
+    else{key='ready';copy=text('readyCopy');}
+    $('lesson-title').textContent=text(key+'Title',{t:number(t),p:ready?amount(model.answer):''});$('lesson-copy').textContent=copy;
+    $('insight').classList.toggle('warning',key==='miss');
+    $('mission-score').textContent=done?String(model.score()):'—';
+    $('right-badge').classList.toggle('earned',done&&e.ok);$('first-badge').classList.toggle('earned',done&&e.first);
+  }
+  function refresh(){setRunning(false);update();draw();}
+  function simulate(dt){
+    const result=model.advance(dt*PlanetModel.playback);
+    if(result?.done){setRunning(false);update();say(text('doneAnnouncement')+' '+$('lesson-title').textContent);return true;}
+    return false;
+  }
+  $('answer').addEventListener('input',event=>{const raw=String(event.target.value).trim(),value=raw===''?null:Number(raw);if(!model.setAnswer(value))model.setAnswer(null);refresh();});
+  $('play').addEventListener('click',()=>{setRunning(true);update();say(text('startedAnnouncement'));});
+  $('pause').addEventListener('click',()=>{setRunning(false);update();say(text('pausedAnnouncement'));});
+  $('step').addEventListener('click',()=>{for(let i=0;i<12;i++)if(simulate(H))break;setRunning(false);update();draw();});
+  $('reset').addEventListener('click',()=>{model.reset();refresh();say(text('resetAnnouncement'));});
+  PlanetModel.missions.forEach((_,i)=>$('mission-'+i).addEventListener('click',()=>{model.setMission(i);sync();refresh();say(text('missionAnnouncement',{name:text('mission'+i)}));}));
+  for(const id of ['show-vectors','show-strobe'])$(id).addEventListener('change',()=>{update();draw();});
+  function suspend(){if(running){setRunning(false);say(text('suspendedAnnouncement'));}update();draw();}
+  window.addEventListener('blur',suspend);document.addEventListener('visibilitychange',()=>{if(document.hidden)suspend();});
+  for(const link of document.querySelectorAll('.language-menu a'))link.addEventListener('click',()=>{setRunning(false);try{sessionStorage.setItem(transferKey,JSON.stringify({state:model.snapshot()}));}catch{}});
+  function resize(){const rect=canvas.getBoundingClientRect();if(rect.width<=0)return;width=rect.width;height=rect.height;const dpr=Math.min(window.devicePixelRatio||1,3);canvas.width=Math.round(width*dpr);canvas.height=Math.round(height*dpr);ctx.setTransform(dpr,0,0,dpr,0,0);draw();}
+  // Fixed scales for every world: the 2 m tower, a 0–1500 N scale dial, a 0–3 s timeline, and a 0–25 m/s² gravity chart.
+  const VEL=8,ACC=4,CAP=80,WMAX=1500,TMAX=3,GMAX=25,ground={moon:'#33414d',mars:'#55392e',superEarth:'#2f4a3b'};
+  function draw(){
+    if(!ctx)return;
+    const c=model.config,ready=model.ready(),done=model.status==='landed',t=ready?model.now():0,begun=started(),g=model.gravity(),ask=c.ask;
+    ctx.clearRect(0,0,width,height);
+    const label=(str,px,py,color='#b8ccdb',align='left',font=12)=>{ctx.fillStyle=color;ctx.textAlign=align;ctx.font=font+'px -apple-system,BlinkMacSystemFont,sans-serif';ctx.fillText(str,px,py);};
+    const line=(points,color,w=1,dash=[])=>{ctx.beginPath();ctx.strokeStyle=color;ctx.lineWidth=w;ctx.setLineDash(dash);points.forEach((p,i)=>i?ctx.lineTo(p.x,p.y):ctx.moveTo(p.x,p.y));ctx.stroke();ctx.setLineDash([]);};
+    const arrow=(from,dx,dy,color,w=2.5)=>{const len=Math.hypot(dx,dy);if(len<4)return;const ux=dx/len,uy=dy/len,to={x:from.x+dx,y:from.y+dy};line([from,to],color,w);line([{x:to.x-ux*9-uy*5,y:to.y-uy*9+ux*5},to,{x:to.x-ux*9+uy*5,y:to.y-uy*9-ux*5}],color,2);};
+    const fit=(str,px,py,color,size,room,align='left')=>{ctx.font=size+'px -apple-system,BlinkMacSystemFont,sans-serif';const w=ctx.measureText(str).width;label(str,px,py,color,align,w>room?Math.max(7,Math.floor(size*room/w)):size);};
+    const wide=width>=560,cols=wide?3:2,colW=width/cols,gy=height-60;
+    fit(text('viewTitle',{world:text(names[c.world])}),16,20,'#d1e3ed',12,width-32);label(text('arrowScale'),16,height-8,'#9fb6c7','left',10);
+    ctx.fillStyle=ground[c.world];ctx.fillRect(0,gy,colW*2,height-gy-18);line([{x:0,y:gy},{x:colW*2,y:gy}],'#5b7488',1.5);
+    // Astronaut on a scale, with the dial reading W = m·g once the drop starts.
+    const ax=colW*.5,dial={x:ax,y:gy-170},rad=Math.min(62,colW*.36);
+    ctx.fillStyle='#5b7488';ctx.fillRect(ax-30,gy-10,60,10);
+    line([{x:ax,y:gy-10},{x:ax,y:gy-46}],'#efe6d0',4);line([{x:ax,y:gy-46},{x:ax-10,y:gy-11}],'#efe6d0',3);line([{x:ax,y:gy-46},{x:ax+10,y:gy-11}],'#efe6d0',3);
+    line([{x:ax,y:gy-74},{x:ax,y:gy-46}],'#efe6d0',6);line([{x:ax-14,y:gy-60},{x:ax+14,y:gy-60}],'#efe6d0',3);
+    ctx.fillStyle='#efe6d0';ctx.beginPath();ctx.arc(ax,gy-84,9,0,TAU);ctx.fill();label('m = '+plain(PlanetModel.m)+' kg',ax,gy-100,'#d1e3ed','center',11);
+    const dialAngle=w=>Math.PI*(1-Math.min(w,WMAX)/WMAX),D=(w,k)=>({x:dial.x+k*Math.cos(dialAngle(w)),y:dial.y-k*Math.sin(dialAngle(w))});
+    ctx.strokeStyle='#5b7488';ctx.lineWidth=2;ctx.beginPath();ctx.arc(dial.x,dial.y,rad,Math.PI,TAU);ctx.stroke();
+    for(let w=0;w<=WMAX;w+=500){line([D(w,rad-6),D(w,rad)],'#9fb6c7',1.5);const q=D(w,rad+12);label(plain(w),q.x,q.y+4,'#9fb6c7','center',10);}
+    label(text('scaleTitle'),dial.x,dial.y+16,'#d1e3ed','center',10);
+    const earthW=PlanetModel.m*model.earthGravity();line([D(earthW,rad-14),D(earthW,rad)],'#8aa3b5',2);
+    if(ready&&ask==='weight')line([D(model.answer,rad-14),D(model.answer,rad+4)],'#efb958',3);
+    if(begun){line([dial,D(model.weight(),rad-8)],'#f2f8fc',2.5);label(number(model.weight(),0)+' N',dial.x,dial.y-rad*.35,'#f2f8fc','center',12);}
+    // The drop tower: a 2 m ruler, the ball, and strobe images every 0.1 s.
+    const tx=colW*1.5,top=60,S=(gy-top)/PlanetModel.h,Y=y=>gy-y*S;
+    line([{x:tx-34,y:Y(PlanetModel.h)},{x:tx-34,y:gy}],'#5b7488',1.5);
+    for(let k=0;k<=4;k++){const y=k*.5;line([{x:tx-40,y:Y(y)},{x:tx-34,y:Y(y)}],'#5b7488',1);label(plain(y)+' m',tx-44,Y(y)+4,'#9fb6c7','right',10);}
+    if($('show-strobe').checked&&t>0)for(let k=1;k*PlanetModel.strobe<t-1e-9;k++){ctx.strokeStyle='#8aa3b5';ctx.lineWidth=1;ctx.beginPath();ctx.arc(tx,Y(model.y(k*PlanetModel.strobe))-7,7,0,TAU);ctx.stroke();}
+    const ball={x:tx,y:Y(model.y(t))-7};ctx.fillStyle='#efe6d0';ctx.beginPath();ctx.arc(ball.x,ball.y,7,0,TAU);ctx.fill();
+    if($('show-vectors').checked&&begun&&!done){arrow(ball,0,Math.min(model.v(t)*VEL,CAP),'#f2f8fc');arrow({x:ball.x+16,y:ball.y},0,Math.min(g*ACC,CAP),'#77b9ff');}
+    // Timeline under the tower: the clock, the predicted time, and the landing time once it is known.
+    const lx0=tx-colW*.38,lx1=tx+colW*.38,ly=gy+22,lx=s=>lx0+Math.min(s,TMAX)/TMAX*(lx1-lx0);
+    line([{x:lx0,y:ly},{x:lx1,y:ly}],'#5b7488',1);for(let s=0;s<=TMAX;s++){line([{x:lx(s),y:ly-3},{x:lx(s),y:ly+3}],'#5b7488',1);label(plain(s)+' s',lx(s),ly+14,'#9fb6c7','center',9);}
+    if(ready&&ask==='time')line([{x:lx(model.answer),y:ly-8},{x:lx(model.answer),y:ly+8}],'#efb958',3);
+    if(t>0){ctx.fillStyle=done?'#75efc7':'#f2f8fc';ctx.beginPath();ctx.arc(lx(t),ly,4,0,TAU);ctx.fill();}
+    if(done){const e=model.evaluate();fit((e.ok?text('rightBanner')+' · ':'')+text('landedBanner',{t:number(t)}),16,44,e.ok?'#75efc7':'#efb958',width<430?12:14,colW*2-24);}
+    if(!wide)return;
+    // Gravity chart: Earth for reference, this world once a drop has finished, and the predicted g.
+    const bx0=colW*2+40,bx1=width-20,btop=70,bbot=gy,BY=v=>bbot-Math.min(v,GMAX)/GMAX*(bbot-btop),bw=(bx1-bx0)/2-14;
+    fit(text('chartTitle'),colW*2+12,48,'#d1e3ed',10,colW-24);
+    for(let v=0;v<=GMAX;v+=5){line([{x:bx0,y:BY(v)},{x:bx1,y:BY(v)}],v?'#203d50':'#5b7488',1);label(plain(v),bx0-6,BY(v)+4,'#9fb6c7','right',10);}
+    const bar=(i,v,color,str)=>{const x=bx0+8+i*(bw+12);ctx.fillStyle=color;ctx.fillRect(x,BY(v),bw,bbot-BY(v));fit(str,x+bw/2,bbot+14,'#9fb6c7',10,bw+10,'center');};
+    bar(0,model.earthGravity(),'#5b7488',text('earthName'));
+    if(done)bar(1,g,'#75efc7',text(names[c.world]));else fit(text(names[c.world])+' ?',bx0+20+bw*1.5,bbot+14,'#9fb6c7',10,bw+10,'center');
+    if(ready&&(ask==='gravity'||ask==='ratio')){const x=bx0+20+bw;line([{x,y:BY(model.answer)},{x:x+bw,y:BY(model.answer)}],'#efb958',3);}
+  }
+  function frame(now){if(previous===null)previous=now;const elapsed=Math.min(.1,(now-previous)/1000);previous=now;if(running){accumulator+=elapsed;while(accumulator>=H&&running){accumulator-=H;simulate(H);}draw();}if(now-lastUpdate>=80){update();lastUpdate=now;}requestAnimationFrame(frame);}
+  window.addEventListener('resize',resize);if(typeof ResizeObserver!=='undefined')new ResizeObserver(resize).observe(canvas);
+  sync();setRunning(false);update();resize();requestAnimationFrame(frame);
+})();
+</script>
+</body>
+</html>

@@ -1,0 +1,280 @@
+<!doctype html>
+<html lang="en">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Two Speakers · Phisicos</title>
+<style>
+.speakers-page .answer-row .symbol{min-width:56px}.speakers-page .question{font-size:15px;font-weight:600;margin-top:4px}
+.speakers-page .line-key.white{background:#f2f8fc}.speakers-page .line-key.blue{background:#77b9ff}.speakers-page .line-key.red{background:#ff7b6b}.speakers-page .line-key.green{background:#75efc7}
+</style>
+</head>
+<body>
+<div class="shell module-page speakers-page">
+__HEADER__
+<main id="main-content">
+__BREADCRUMBS__
+
+<div class="masthead"><div><h1>{{title}}</h1><p class="intro">{{subtitle}}</p></div><div class="concept-tags"><span class="tag speed">{{tag1}}</span><span class="tag velocity">{{tag2}}</span></div></div>
+<noscript><p class="no-js">{{noScript}}</p></noscript>
+<div class="layout">
+<aside class="sidebar" aria-label="{{setup}}">
+  <section class="control-section"><h2 class="eyebrow">{{setup}}</h2><div class="mission-list" role="group" aria-label="{{setup}}">
+    <button id="mission-0" aria-pressed="true"><b>1 · {{mission0}}</b><span id="given-0">·</span></button>
+    <button id="mission-1" aria-pressed="false"><b>2 · {{mission1}}</b><span id="given-1">·</span></button>
+    <button id="mission-2" aria-pressed="false"><b>3 · {{mission2}}</b><span id="given-2">·</span></button>
+    <button id="mission-3" aria-pressed="false"><b>4 · {{mission3}}</b><span id="given-3">·</span></button>
+    <button id="mission-4" aria-pressed="false"><b>5 · {{mission4}}</b><span id="given-4">·</span></button>
+  </div><p class="hint">{{setupNote}}</p></section>
+  <section class="control-section"><h2 class="eyebrow">{{answerHeading}}</h2>
+    <p class="question" id="question">{{question0}}</p>
+    <p class="field-label"><label for="answer">{{answerLabel}}</label></p>
+    <div class="answer-row"><span class="symbol" id="answer-symbol">Δd =</span><input id="answer" type="number" inputmode="decimal" step="any" value=""><span class="unit" id="answer-unit">m</span></div>
+    <p class="hint">{{answerHint}}</p>
+  </section>
+  <section class="control-section"><h2 class="eyebrow">{{observe}}</h2><label class="check"><input id="show-ruler" type="checkbox" checked>{{rulerToggle}}</label><label class="check"><input id="show-guess" type="checkbox" checked>{{guessToggle}}</label><p class="hint">{{observeHint}}</p></section>
+</aside>
+<div class="workspace">
+  <section class="scene" aria-label="{{sceneTitle}}"><div class="scene-top"><div><h2 class="scene-title">{{sceneTitle}}</h2><p class="scene-subtitle" id="mission-label">{{mission0}}</p></div><span class="status" id="speakers-status"><i class="status-dot" aria-hidden="true"></i><span id="speakers-status-text">{{ready}}</span></span></div>
+    <div class="module-stage"><canvas id="speakers-canvas" role="img" aria-label="{{canvasLabel}}">{{noScript}}</canvas></div>
+    <div class="legend"><span><i class="line-key blue"></i>{{fieldLegend}}</span><span><i class="line-key white"></i>{{micLegend}}</span><span><i class="line-key orange"></i>{{guessLegend}}</span><span><i class="line-key gray"></i>{{referenceLegend}}</span></div>
+    <div class="module-equation"><span>{{equationTitle}}</span><output id="speakers-equation">Δd = (n + ½)·λ</output></div>
+    <div class="transport"><button id="play" class="primary" disabled>{{play}}</button><button id="pause" disabled>{{pause}}</button><button id="step" disabled>{{step}}</button><button id="reset" class="reset">{{reset}}</button></div>
+  </section>
+  <section class="metrics" aria-label="{{observe}}">
+    <div class="metric scalar"><h3 class="metric-label">{{time}}</h3><p class="metric-value"><span id="time-value">0.00</span> <small>s</small></p><p class="metric-equation">t</p></div>
+    <div class="metric scalar"><h3 class="metric-label">{{freqMetric}}</h3><p class="metric-value"><span id="freq-value">—</span> <small>Hz</small></p><p class="metric-equation">f</p></div>
+    <div class="metric vector"><h3 class="metric-label">{{lambdaMetric}}</h3><p class="metric-value"><span id="lambda-value">—</span> <small>m</small></p><p class="metric-equation">λ</p></div>
+    <div class="metric vector"><h3 class="metric-label">{{diffMetric}}</h3><p class="metric-value"><span id="diff-value">—</span> <small>m</small></p><p class="metric-equation">Δd</p></div>
+    <div class="metric scalar"><h3 class="metric-label">{{loudMetric}}</h3><p class="metric-value"><span id="loud-value">—</span> <small>%</small></p><p class="metric-equation">A</p></div>
+  </section>
+  <div class="insight" id="insight"><span class="insight-icon" aria-hidden="true">↗</span><div><strong id="lesson-title">{{predictTitle}}</strong><p id="lesson-copy">{{predictCopy}}</p></div></div>
+  <section class="challenge"><div class="mission-heading"><h2 class="challenge-title">{{missionTitle}}</h2><div class="score-card"><span>{{score}}</span><strong id="mission-score">—</strong></div></div><p class="mission-copy">{{missionCopy}}</p><div class="badges"><span id="right-badge">✓ {{rightBadge}}</span><span id="first-badge">① {{firstBadge}}</span></div></section>
+</div>
+</div>
+<article class="learning-content"><section><h2>{{guideTitle}}</h2><ol><li>{{instruction1}}</li><li>{{instruction2}}</li><li>{{instruction3}}</li><li>{{instruction4}}</li></ol></section><section><h2>{{conceptTitle}}</h2><p>{{conceptCopy}}</p><aside class="worked-example"><h3>{{exampleTitle}}</h3><p>{{exampleCopy}}</p></aside></section><section><h2>{{modelTitle}}</h2><p>{{modelCopy}}</p></section></article>
+<p class="language-note" id="language-note">{{languageNote}}</p>
+</main>
+__FOOTER__
+<p class="sr-only" id="announcement" role="status" aria-live="polite"></p>
+</div>
+<script id="speakers-model">
+class SpeakersModel {
+  // Interference of sound. Two speakers play the same note. At a spot one speaker is Δd farther away than the other, so its
+  // sound arrives Δd ÷ λ of a wave later. Where Δd is a whole number of wavelengths the waves add up (loud); where it is a
+  // whole number and a half they cancel (quiet): quiet at Δd = (n + ½)·λ. With one speaker wired backwards, the two swap.
+  // λ = v ÷ f with v = 340 m/s. A microphone walks along a line 4 m from the speakers over a 4 s run; the sound is drawn
+  // slowed down to one vibration a second.
+  static tolerance = .02;
+  static v = 340;
+  static gap = 3; // speakers 3 m apart, at (0, ±1.5)
+  static line = 4; // the microphone walks along x = 4 m
+  static missions = [
+    {key:'quiet',ask:'diff',f:340,max:1,pace:1},
+    {key:'secondQuiet',ask:'diff',f:340,max:1.9,pace:1},
+    {key:'frequency',ask:'freq',f:400,loud:.85,max:1.2,pace:1},
+    {key:'reversed',ask:'diff',f:680,flip:true,max:.6,pace:1},
+    {key:'wavelength',ask:'lambda',f:680,quietAt:.75,max:1,pace:1}
+  ];
+  static units = {diff:'m',freq:'Hz',lambda:'m'};
+  static limits = {diff:100,freq:1e5,lambda:100};
+  constructor(index = 0){this.setMission(index);}
+  setMission(index){this.index=index;this.config=SpeakersModel.missions[index];this.answer=null;this.attempts=0;this.reset();}
+  reset(){this.t=0;this.status='moving';}
+  valid(value){return Number.isFinite(value)&&value>0&&value<=SpeakersModel.limits[this.config.ask];}
+  setAnswer(value){if(value!==null&&!this.valid(value))return false;this.answer=value;this.reset();return true;}
+  ready(){return this.answer!==null;}
+  lambda(){return SpeakersModel.v/this.config.f;}
+  // Path difference (m) at a point, and the y on the microphone's line where it equals d.
+  static diffAt(x,y){const h=SpeakersModel.gap/2;return Math.hypot(x,y+h)-Math.hypot(x,y-h);}
+  static yFor(d){let lo=0,hi=50;for(let i=0;i<60;i++){const m=(lo+hi)/2;if(SpeakersModel.diffAt(SpeakersModel.line,m)<d)lo=m;else hi=m;}return (lo+hi)/2;}
+  yEnd(){return SpeakersModel.yFor(this.config.max);}
+  micY(t){return this.yEnd()*this.clamp(t)/this.duration();}
+  diff(t){return SpeakersModel.diffAt(SpeakersModel.line,this.micY(t));}
+  // Loudness as a share of the loudest (both waves adding): |cos(π·Δd ÷ λ)|, or |sin| when one speaker is reversed.
+  loudness(d){const p=Math.PI*d/this.lambda();return Math.abs(this.config.flip?Math.sin(p):Math.cos(p));}
+  // The drawn field: both waves, slowed to one vibration per second, at a point and time.
+  field(x,y,t){const h=SpeakersModel.gap/2,l=this.lambda(),s=this.clamp(t),a=Math.cos(2*Math.PI*(s-Math.hypot(x,y-h)/l)),b=Math.cos(2*Math.PI*(s-Math.hypot(x,y+h)/l));return (a+(this.config.flip?-b:b))/2;}
+  clamp(t){return Math.min(Math.max(t,0),this.duration());}
+  duration(){return 4;}
+  now(){return this.status==='done'?this.duration():this.t;}
+  advance(dt){
+    if(!Number.isFinite(dt)||dt<0)throw new Error('Invalid timestep');
+    if(this.status==='done'||!this.ready())return null;
+    // A run counts as an attempt as soon as it starts; it ends exactly after 4 s.
+    if(this.t===0)this.attempts++;
+    const T=this.duration();
+    if(this.t+dt>=T*(1-1e-12)){this.t=T;this.status='done';return {t:T,done:true};}
+    this.t+=dt;return null;
+  }
+  exact(){const c=this.config,l=this.lambda();if(c.key==='quiet')return l/2;if(c.key==='secondQuiet')return 1.5*l;if(c.key==='frequency')return SpeakersModel.v/c.loud;if(c.key==='reversed')return l/2;return c.quietAt/1.5;}
+  unit(){return SpeakersModel.units[this.config.ask];}
+  evaluate(){
+    if(!this.ready())return {ok:false,slip:null,first:false,exact:this.exact()};
+    const c=this.config,a=this.answer,e=this.exact(),l=this.lambda(),tol=SpeakersModel.tolerance,near=(p,q)=>Math.abs(p-q)<=tol*Math.abs(q)+1e-12;
+    // Every answer is right within 2%.
+    const ok=near(a,e);let slip=null;
+    if(!ok){
+      if(c.key==='quiet'){if(near(a,l))slip='fullWave';else if(near(a,l/4))slip='quarter';}
+      else if(c.key==='secondQuiet'){if(near(a,l))slip='nextLoud';else if(near(a,2*l))slip='twoWaves';else if(near(a,l/2))slip='firstQuiet';}
+      else if(c.key==='frequency'){if(near(a,SpeakersModel.v/(2*c.loud)))slip='halfWave';else if(near(a,SpeakersModel.v*c.loud))slip='multiplied';else if(near(a,c.loud/SpeakersModel.v))slip='inverted';}
+      else if(c.key==='reversed'){if(near(a,l))slip='inPhaseThinking';else if(near(a,l/4))slip='quarterReversed';}
+      else{if(near(a,c.quietAt))slip='diffOnly';else if(near(a,2*c.quietAt))slip='firstQuietThinking';else if(near(a,c.quietAt/2))slip='halfDiff';}
+    }
+    return {ok,slip,first:ok&&this.attempts===1,exact:e};
+  }
+  score(){if(this.status!=='done')return 0;const e=this.evaluate();return (e.ok?100:0)+(e.first?50:0);}
+  snapshot(){return {index:this.index,answer:this.answer,attempts:this.attempts,t:this.t,status:this.status};}
+  restore(saved){
+    if(!Number.isInteger(saved?.index)||!SpeakersModel.missions[saved.index])return false;
+    const probe=new SpeakersModel(saved.index);
+    if(!probe.setAnswer(saved.answer??null)||!Number.isInteger(saved.attempts)||saved.attempts<0)return false;
+    if(!['moving','done'].includes(saved.status)||!Number.isFinite(saved.t)||saved.t<0||saved.t>probe.duration()*(1+1e-9))return false;
+    if(probe.answer===null&&(saved.t>0||saved.status==='done'))return false;
+    if((saved.status==='done'||saved.t>0)&&saved.attempts<1)return false;
+    this.setMission(saved.index);this.answer=probe.answer;this.attempts=saved.attempts;
+    this.status=saved.status;this.t=saved.status==='done'?this.duration():saved.t;return true;
+  }
+}
+globalThis.SpeakersModel=SpeakersModel;
+</script>
+<script id="speakers-locale" type="application/json">__LOCALE__</script>
+<script id="speakers-interface">
+(() => {
+  'use strict';
+  const $=id=>document.getElementById(id),locale=JSON.parse($('speakers-locale').textContent);
+  const text=(key,values={})=>locale.strings[key].replace(/\{(\w+)\}/g,(_,name)=>values[name]??'{'+name+'}');
+  const number=(n,d=2)=>Math.abs(n)<.5*10**-d?(0).toLocaleString(locale.lang,{minimumFractionDigits:d,maximumFractionDigits:d}):n.toLocaleString(locale.lang,{minimumFractionDigits:d,maximumFractionDigits:d,useGrouping:false});
+  const plain=n=>n.toLocaleString(locale.lang,{maximumFractionDigits:3,useGrouping:false}).replace('-','−');
+  const model=new SpeakersModel();
+  const canvas=$('speakers-canvas'),ctx=canvas.getContext('2d');
+  const H=1/120,transferKey='phisicos-speakers-language-transfer';
+  let running=false,previous=null,accumulator=0,lastUpdate=0,width=800,height=410;
+  const say=message=>{$('announcement').textContent=message;};
+  try{const data=JSON.parse(sessionStorage.getItem(transferKey)||'null');sessionStorage.removeItem(transferKey);if(data)model.restore(data.state);}catch{$('language-note').hidden=true;}
+  const pace=()=>model.config.pace??1;
+  const amount=v=>plain(Number(v.toPrecision(5)))+(model.unit()?' '+model.unit():'');
+  const slipKey=name=>'slip'+name[0].toUpperCase()+name.slice(1);
+  // The readings show only once a run starts, because they give the answer away.
+  const started=()=>model.status==='done'||model.t>0;
+  const symbols={diff:'Δd =',freq:'f =',lambda:'λ ='};
+  // Givens: the note, a loud spot's path difference, the reversed speaker (180°), or the second quiet spot (n = 1).
+  function given(m){
+    if(m.key==='frequency')return 'Δd = '+plain(m.loud)+' m · v = 340 m/s';
+    if(m.key==='reversed')return 'f = '+plain(m.f)+' Hz · 180°';
+    if(m.key==='wavelength')return 'Δd = '+plain(m.quietAt)+' m · n = 1';
+    return 'f = '+plain(m.f)+' Hz · v = 340 m/s';
+  }
+  function equation(){
+    const c=model.config,e=model.exact(),l=model.lambda();
+    if(c.key==='secondQuiet')return 'Δd = (1 + ½)·λ = '+plain(1.5)+' × '+plain(l)+' = '+number(e)+' m';
+    if(c.key==='frequency')return 'f = v ÷ λ = 340 ÷ '+plain(c.loud)+' = '+number(e,0)+' Hz';
+    if(c.key==='wavelength')return 'λ = Δd ÷ 1.5 = '+plain(c.quietAt)+' ÷ '+plain(1.5)+' = '+number(e)+' m';
+    return 'Δd = ½·λ = ½ × '+plain(l)+' = '+number(e)+' m';
+  }
+  function baseEquation(){return model.config.key==='frequency'?'Δd = n·λ':'Δd = (n + ½)·λ';}
+  function metrics(t,begun){
+    const c=model.config;
+    $('freq-value').textContent=begun?number(c.f,0):'—';$('lambda-value').textContent=begun?number(model.lambda()):'—';
+    $('diff-value').textContent=begun?number(model.diff(t)):'—';$('loud-value').textContent=begun?number(model.loudness(model.diff(t))*100,0):'—';
+  }
+  function values(){const c=model.config;return {d:number(model.exact()),f:number(model.exact(),0),l:number(model.lambda())};}
+  function runningCopy(t){const d=model.diff(t);return text('speakersCopy',{d:number(d),p:number(model.loudness(d)*100,0)});}
+  // The path difference (m) your answer points at.
+  function guessDiff(){const c=model.config,a=model.answer;if(c.ask==='diff')return a;if(c.ask==='freq')return SpeakersModel.v/a;return 1.5*a;}
+  function scene(g){
+    const c=g.c,{line,fit,dot,box,label}=g,s=g.ready?g.t:0,y0=-2,y1=4.5,k=Math.min((g.area-40)/8,(height-150)/(y1-y0)),W=Math.min(12,Math.max(8,(g.area-40)/k)),x0=24,top=58,X=x=>x0+x*k,Y=y=>top+(y1-y)*k,h=SpeakersModel.gap/2,L=SpeakersModel.line;
+    // The room from above, stretched to fill the scene: the two waves add where bright or dark, and cancel where grey.
+    box(X(0),Y(y1),W*k,(y1-y0)*k,'#2b3a48');
+    if(g.begun){const cell=Math.min(.125,model.lambda()/6);for(let x=0;x<W;x+=cell)for(let y=y0;y<y1;y+=cell){const v=model.field(x+cell/2,y+cell/2,s),r=Math.round(43+v*70),gg=Math.round(58+v*90),b=Math.round(72+v*110);box(X(x),Y(y+cell),cell*k+.5,cell*k+.5,'rgb('+r+','+gg+','+b+')');}}
+    for(const sy of [h,-h]){box(X(0)-12,Y(sy)-10,16,20,'#d9cfb8');}
+    label(text('speakerTag'),X(0)+6,Y(h)-14,'#d1e3ed','left',9);if(c.flip)label('180°',X(0)+6,Y(-h)+24,'#efb958','left',9);
+    line([{x:X(L),y:Y(0)},{x:X(L),y:Y(model.yEnd())}],'#f2f8fc',1,[3,4]);
+    if(g.option){for(let m=0;m<=W;m++){line([{x:X(m),y:Y(y0)},{x:X(m),y:Y(y0)+5}],'#9fb6c7',1);if(m%2===0)label(plain(m)+' m',X(m),Y(y0)+16,'#9fb6c7','center',8);}}
+    // Your answer: an orange mark where the path difference has your value.
+    if(g.guess){const gd=guessDiff();if(gd<SpeakersModel.gap*.98){const gy=SpeakersModel.yFor(gd);if(gy<=y1){line([{x:X(L)-12,y:Y(gy)},{x:X(L)+12,y:Y(gy)}],'#efb958',3);fit(text('guessTag'),X(L)-16,Y(gy)+4,'#efb958',9,120,'right');}}}
+    const my=g.begun?model.micY(s):0;dot(X(L),Y(my),6,'#f2f8fc');label(text('micTag'),X(L)+10,Y(my)-8,'#f2f8fc','left',9);
+    fit(text('slowTag'),16,height-24,'#9fb6c7',10,g.area*.6);
+    fit('t = '+number(g.t)+' s',g.area-16,44,'#f2f8fc',13,g.area*.3,'right');
+  }
+  function panel(g){
+    const c=g.c,{line,fit,dot,label}=g;
+    fit(text('loudGraph'),g.area+8,44,'#d1e3ed',10,width-g.area-16);
+    if(!g.begun){fit(text('panelHint'),g.area+8,70,'#9fb6c7',10,width-g.area-16);return;}
+    // Loudness against the path difference as the microphone walks: dips where the waves cancel.
+    const M=c.max,px0=g.area+14,px1=width-14,py0=90,py1=height-90,PX=d=>px0+d/M*(px1-px0),PY=a=>py1-a*(py1-py0),dn=model.diff(Math.min(g.t,model.duration()));
+    line([{x:px0,y:py1},{x:px1,y:py1}],'#8aa3b5',1);line([{x:px0,y:py0},{x:px0,y:py1}],'#8aa3b5',1);
+    const step=M>1.5?.5:M>.8?.25:.1;for(let d=0;d<=M+1e-9;d+=step){line([{x:PX(d),y:py1},{x:PX(d),y:py1+4}],'#9fb6c7',1);label(plain(Math.round(d*100)/100),PX(d),py1+14,'#9fb6c7','center',8);}
+    if(g.guess){const gd=guessDiff();if(gd<=M)line([{x:PX(gd),y:py0},{x:PX(gd),y:py1}],'#efb958',1.5,[5,4]);}
+    const pts=[];for(let i=0;i<=300;i++){const d=dn*i/300;pts.push({x:PX(d),y:PY(model.loudness(d))});}line(pts,'#f2f8fc',2);dot(PX(dn),PY(model.loudness(dn)),4,'#f2f8fc');
+    fit(text('diffAxis'),px0,py1+28,'#9fb6c7',9,px1-px0);
+  }
+  function setRunning(value){
+    const done=model.status==='done',blocked=!model.ready();running=value&&!done&&!blocked;previous=null;accumulator=0;
+    $('play').disabled=running||done||blocked;$('pause').disabled=!running;$('step').disabled=running||done||blocked;
+    $('speakers-status').classList.toggle('running',running);
+    $('speakers-status-text').textContent=text(done?'done':running?'running':model.t?'paused':'ready');
+  }
+  function sync(){
+    const c=model.config;
+    SpeakersModel.missions.forEach((m,i)=>{$('mission-'+i).setAttribute('aria-pressed',String(i===model.index));$('given-'+i).textContent=given(m);});
+    $('question').textContent=text('question'+model.index);$('answer-symbol').textContent=symbols[c.ask];$('answer-unit').textContent=model.unit();
+    $('answer').value=model.answer===null?'':String(model.answer);$('mission-label').textContent=text('mission'+model.index);
+  }
+  function update(){
+    const ready=model.ready(),done=model.status==='done',t=ready?model.now():0,e=model.evaluate(),begun=started();
+    $('time-value').textContent=number(t);metrics(t,begun);
+    $('speakers-equation').textContent=begun?equation():baseEquation();
+    let key,copy;
+    if(done){
+      const base=text('result'+model.index,values());
+      if(e.ok){key='good';copy=base+' '+text('why'+model.index);}
+      else{key='miss';copy=base+' '+text('missCopy',{p:amount(model.answer)})+' '+(e.slip?text(slipKey(e.slip)):text('hint'+model.index));}
+    }
+    else if(!ready){key='predict';copy=text('predictCopy');}
+    else if(model.t>0){key='running';copy=runningCopy(t);}
+    else{key='ready';copy=text('readyCopy');}
+    $('lesson-title').textContent=text(key+'Title',{t:number(t),p:ready?amount(model.answer):''});$('lesson-copy').textContent=copy;
+    $('insight').classList.toggle('warning',key==='miss');
+    $('mission-score').textContent=done?String(model.score()):'—';
+    $('right-badge').classList.toggle('earned',done&&e.ok);$('first-badge').classList.toggle('earned',done&&e.first);
+  }
+  function refresh(){setRunning(false);update();draw();}
+  function simulate(dt){
+    const result=model.advance(dt);
+    if(result?.done){setRunning(false);update();say(text('doneAnnouncement')+' '+$('lesson-title').textContent);return true;}
+    return false;
+  }
+  $('answer').addEventListener('input',event=>{const raw=String(event.target.value).trim(),value=raw===''?null:Number(raw);if(!model.setAnswer(value))model.setAnswer(null);refresh();});
+  $('play').addEventListener('click',()=>{setRunning(true);update();say(text('startedAnnouncement'));});
+  $('pause').addEventListener('click',()=>{setRunning(false);update();say(text('pausedAnnouncement'));});
+  $('step').addEventListener('click',()=>{for(let i=0;i<12;i++)if(simulate(H*pace()))break;setRunning(false);update();draw();});
+  $('reset').addEventListener('click',()=>{model.reset();refresh();say(text('resetAnnouncement'));});
+  SpeakersModel.missions.forEach((_,i)=>$('mission-'+i).addEventListener('click',()=>{model.setMission(i);sync();refresh();say(text('missionAnnouncement',{name:text('mission'+i)}));}));
+  for(const id of ['show-ruler','show-guess'])$(id).addEventListener('change',()=>{update();draw();});
+  function suspend(){if(running){setRunning(false);say(text('suspendedAnnouncement'));}update();draw();}
+  window.addEventListener('blur',suspend);document.addEventListener('visibilitychange',()=>{if(document.hidden)suspend();});
+  for(const link of document.querySelectorAll('.language-menu a'))link.addEventListener('click',()=>{setRunning(false);try{sessionStorage.setItem(transferKey,JSON.stringify({state:model.snapshot()}));}catch{}});
+  function resize(){const rect=canvas.getBoundingClientRect();if(rect.width<=0)return;width=rect.width;height=rect.height;const dpr=Math.min(window.devicePixelRatio||1,3);canvas.width=Math.round(width*dpr);canvas.height=Math.round(height*dpr);ctx.setTransform(dpr,0,0,dpr,0,0);draw();}
+  function draw(){
+    if(!ctx)return;
+    const c=model.config,ready=model.ready(),done=model.status==='done',t=ready?model.now():0,begun=started(),option=$('show-ruler').checked,guess=$('show-guess').checked&&ready;
+    ctx.clearRect(0,0,width,height);
+    const label=(str,px,py,color='#b8ccdb',align='left',font=12)=>{ctx.fillStyle=color;ctx.textAlign=align;ctx.font=font+'px -apple-system,BlinkMacSystemFont,sans-serif';ctx.fillText(str,px,py);};
+    const line=(points,color,w=1,dash=[])=>{ctx.beginPath();ctx.strokeStyle=color;ctx.lineWidth=w;ctx.setLineDash(dash);points.forEach((q,i)=>i?ctx.lineTo(q.x,q.y):ctx.moveTo(q.x,q.y));ctx.stroke();ctx.setLineDash([]);};
+    const fit=(str,px,py,color,size,room,align='left')=>{ctx.font=size+'px -apple-system,BlinkMacSystemFont,sans-serif';const w=ctx.measureText(str).width;label(str,px,py,color,align,w>room?Math.max(7,Math.floor(size*room/w)):size);};
+    const dot=(x,y,r,color)=>{ctx.fillStyle=color;ctx.beginPath();ctx.arc(x,y,Math.max(r,.5),0,Math.PI*2);ctx.fill();};
+    const box=(x,y,w,h,color)=>{ctx.fillStyle=color;ctx.fillRect(x,y,w,h);};
+    const wide=width>=560,area=wide?width*.64:width;
+    const env={c,ready,done,t,begun,option,guess,label,line,fit,dot,box,wide,area};
+    fit(text('viewTitle'),16,20,'#d1e3ed',12,area-28);
+    if(done){const ev=model.evaluate();fit(text(ev.ok?'rightBanner':'offBanner'),16,40,ev.ok?'#75efc7':'#efb958',width<430?12:14,area-28);}
+    scene(env);
+    label(text('scaleNote'),16,height-8,'#9fb6c7','left',10);
+    if(!wide)return;
+    panel(env);
+  }
+  function frame(now){if(previous===null)previous=now;const elapsed=Math.min(.1,(now-previous)/1000);previous=now;if(running){accumulator+=elapsed*pace();while(accumulator>=H&&running){accumulator-=H;simulate(H);}draw();}if(now-lastUpdate>=80){update();lastUpdate=now;}requestAnimationFrame(frame);}
+  window.addEventListener('resize',resize);if(typeof ResizeObserver!=='undefined')new ResizeObserver(resize).observe(canvas);
+  sync();setRunning(false);update();resize();requestAnimationFrame(frame);
+})();
+</script>
+</body>
+</html>

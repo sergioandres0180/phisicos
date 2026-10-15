@@ -1,0 +1,278 @@
+<!doctype html>
+<html lang="en">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Paddling Duck · Phisicos</title>
+<style>
+.duck-page .answer-row .symbol{min-width:56px}.duck-page .question{font-size:15px;font-weight:600;margin-top:4px}
+.duck-page .line-key.white{background:#f2f8fc}.duck-page .line-key.blue{background:#77b9ff}.duck-page .line-key.red{background:#ff7b6b}.duck-page .line-key.green{background:#75efc7}
+</style>
+</head>
+<body>
+<div class="shell module-page duck-page">
+__HEADER__
+<main id="main-content">
+__BREADCRUMBS__
+
+<div class="masthead"><div><h1>{{title}}</h1><p class="intro">{{subtitle}}</p></div><div class="concept-tags"><span class="tag speed">{{tag1}}</span><span class="tag velocity">{{tag2}}</span></div></div>
+<noscript><p class="no-js">{{noScript}}</p></noscript>
+<div class="layout">
+<aside class="sidebar" aria-label="{{setup}}">
+  <section class="control-section"><h2 class="eyebrow">{{setup}}</h2><div class="mission-list" role="group" aria-label="{{setup}}">
+    <button id="mission-0" aria-pressed="true"><b>1 · {{mission0}}</b><span id="given-0">·</span></button>
+    <button id="mission-1" aria-pressed="false"><b>2 · {{mission1}}</b><span id="given-1">·</span></button>
+    <button id="mission-2" aria-pressed="false"><b>3 · {{mission2}}</b><span id="given-2">·</span></button>
+    <button id="mission-3" aria-pressed="false"><b>4 · {{mission3}}</b><span id="given-3">·</span></button>
+    <button id="mission-4" aria-pressed="false"><b>5 · {{mission4}}</b><span id="given-4">·</span></button>
+  </div><p class="hint">{{setupNote}}</p></section>
+  <section class="control-section"><h2 class="eyebrow">{{answerHeading}}</h2>
+    <p class="question" id="question">{{question0}}</p>
+    <p class="field-label"><label for="answer">{{answerLabel}}</label></p>
+    <div class="answer-row"><span class="symbol" id="answer-symbol">λ' =</span><input id="answer" type="number" inputmode="decimal" step="any" value=""><span class="unit" id="answer-unit">cm</span></div>
+    <p class="hint">{{answerHint}}</p>
+  </section>
+  <section class="control-section"><h2 class="eyebrow">{{observe}}</h2><label class="check"><input id="show-ruler" type="checkbox" checked>{{rulerToggle}}</label><label class="check"><input id="show-guess" type="checkbox" checked>{{guessToggle}}</label><p class="hint">{{observeHint}}</p></section>
+</aside>
+<div class="workspace">
+  <section class="scene" aria-label="{{sceneTitle}}"><div class="scene-top"><div><h2 class="scene-title">{{sceneTitle}}</h2><p class="scene-subtitle" id="mission-label">{{mission0}}</p></div><span class="status" id="duck-status"><i class="status-dot" aria-hidden="true"></i><span id="duck-status-text">{{ready}}</span></span></div>
+    <div class="module-stage"><canvas id="duck-canvas" role="img" aria-label="{{canvasLabel}}">{{noScript}}</canvas></div>
+    <div class="legend"><span><i class="line-key blue"></i>{{rippleLegend}}</span><span><i class="line-key white"></i>{{duckLegend}}</span><span><i class="line-key orange"></i>{{guessLegend}}</span><span><i class="line-key gray"></i>{{referenceLegend}}</span></div>
+    <div class="module-equation"><span>{{equationTitle}}</span><output id="duck-equation">λ' = (v ∓ v_s) ÷ f</output></div>
+    <div class="transport"><button id="play" class="primary" disabled>{{play}}</button><button id="pause" disabled>{{pause}}</button><button id="step" disabled>{{step}}</button><button id="reset" class="reset">{{reset}}</button></div>
+  </section>
+  <section class="metrics" aria-label="{{observe}}">
+    <div class="metric scalar"><h3 class="metric-label">{{time}}</h3><p class="metric-value"><span id="time-value">0.00</span> <small>s</small></p><p class="metric-equation">t</p></div>
+    <div class="metric scalar"><h3 class="metric-label">{{duckMetric}}</h3><p class="metric-value"><span id="duck-value">—</span> <small>cm/s</small></p><p class="metric-equation">v_s</p></div>
+    <div class="metric scalar"><h3 class="metric-label">{{freqMetric}}</h3><p class="metric-value"><span id="freq-value">—</span> <small>Hz</small></p><p class="metric-equation">f</p></div>
+    <div class="metric scalar"><h3 class="metric-label">{{aheadMetric}}</h3><p class="metric-value"><span id="ahead-value">—</span> <small>cm</small></p><p class="metric-equation">λ'</p></div>
+    <div class="metric scalar"><h3 class="metric-label">{{behindMetric}}</h3><p class="metric-value"><span id="behind-value">—</span> <small>cm</small></p><p class="metric-equation">λ'</p></div>
+  </section>
+  <div class="insight" id="insight"><span class="insight-icon" aria-hidden="true">↗</span><div><strong id="lesson-title">{{predictTitle}}</strong><p id="lesson-copy">{{predictCopy}}</p></div></div>
+  <section class="challenge"><div class="mission-heading"><h2 class="challenge-title">{{missionTitle}}</h2><div class="score-card"><span>{{score}}</span><strong id="mission-score">—</strong></div></div><p class="mission-copy">{{missionCopy}}</p><div class="badges"><span id="right-badge">✓ {{rightBadge}}</span><span id="first-badge">① {{firstBadge}}</span></div></section>
+</div>
+</div>
+<article class="learning-content"><section><h2>{{guideTitle}}</h2><ol><li>{{instruction1}}</li><li>{{instruction2}}</li><li>{{instruction3}}</li><li>{{instruction4}}</li></ol></section><section><h2>{{conceptTitle}}</h2><p>{{conceptCopy}}</p><aside class="worked-example"><h3>{{exampleTitle}}</h3><p>{{exampleCopy}}</p></aside></section><section><h2>{{modelTitle}}</h2><p>{{modelCopy}}</p></section></article>
+<p class="language-note" id="language-note">{{languageNote}}</p>
+</main>
+__FOOTER__
+<p class="sr-only" id="announcement" role="status" aria-live="polite"></p>
+</div>
+<script id="duck-model">
+class DuckModel {
+  // The Doppler effect on water. A duck paddles f times a second while swimming at v_s, and each paddle sends out a circular
+  // ripple at speed v from where the duck is. Ahead the ripples bunch up, λ = (v − v_s) ÷ f; behind they spread out,
+  // λ = (v + v_s) ÷ f. A duck faster than its ripples overtakes them: they pile up into a V-shaped bow wave whose arms make
+  // an angle θ with its path, sin θ = v ÷ v_s. Lengths in cm, times in s; a run lasts 4 s at real speed.
+  static tolerance = .02;
+  static missions = [
+    {key:'ahead',ask:'ahead',v:30,vs:10,f:2,pace:1},
+    {key:'behind',ask:'behind',v:25,vs:15,f:2.5,pace:1},
+    {key:'speed',ask:'speed',v:30,f:3,lambda:6,pace:1},
+    {key:'bow',ask:'angle',v:25,vs:50,f:2,pace:1},
+    {key:'frequency',ask:'freq',v:30,vs:6,lambda:12,pace:1}
+  ];
+  static units = {ahead:'cm',behind:'cm',speed:'cm/s',angle:'°',freq:'Hz'};
+  static limits = {ahead:1e5,behind:1e5,speed:1e5,angle:90,freq:1e4};
+  static start = 30;
+  constructor(index = 0){this.setMission(index);}
+  setMission(index){this.index=index;this.config=DuckModel.missions[index];this.answer=null;this.attempts=0;this.reset();}
+  reset(){this.t=0;this.status='moving';}
+  valid(value){return Number.isFinite(value)&&value>0&&value<=DuckModel.limits[this.config.ask];}
+  setAnswer(value){if(value!==null&&!this.valid(value))return false;this.answer=value;this.reset();return true;}
+  ready(){return this.answer!==null;}
+  // The real duck speed and paddling frequency of each test, and the ripple spacing ahead (null if the duck outruns them).
+  speed(){const c=this.config;return c.vs??c.v-c.lambda*c.f;}
+  freq(){const c=this.config;return c.f??(c.v+c.vs)/c.lambda;}
+  ahead(){const d=this.config.v-this.speed();return d>0?d/this.freq():null;}
+  behind(){return (this.config.v+this.speed())/this.freq();}
+  bowAngle(){const r=this.config.v/this.speed();return r<1?Math.asin(r)*180/Math.PI:null;}
+  // The duck's position along its path (cm), and the ripples so far: where each was sent from and its radius now.
+  position(t){return DuckModel.start+this.speed()*this.clamp(t);}
+  ripples(t){const s=this.clamp(t),f=this.freq(),out=[];for(let n=0;n/f<=s+1e-12;n++){const q=n/f;out.push({x:this.position(q),r:this.config.v*(s-q)});}return out;}
+  clamp(t){return Math.min(Math.max(t,0),this.duration());}
+  duration(){return 4;}
+  now(){return this.status==='done'?this.duration():this.t;}
+  advance(dt){
+    if(!Number.isFinite(dt)||dt<0)throw new Error('Invalid timestep');
+    if(this.status==='done'||!this.ready())return null;
+    // A run counts as an attempt as soon as it starts; it ends exactly after 4 s.
+    if(this.t===0)this.attempts++;
+    const T=this.duration();
+    if(this.t+dt>=T*(1-1e-12)){this.t=T;this.status='done';return {t:T,done:true};}
+    this.t+=dt;return null;
+  }
+  exact(){const a=this.config.ask;if(a==='ahead')return this.ahead();if(a==='behind')return this.behind();if(a==='speed')return this.speed();if(a==='angle')return this.bowAngle();return this.freq();}
+  unit(){return DuckModel.units[this.config.ask];}
+  evaluate(){
+    if(!this.ready())return {ok:false,slip:null,first:false,exact:this.exact()};
+    const c=this.config,a=this.answer,e=this.exact(),tol=DuckModel.tolerance,near=(p,q)=>Math.abs(p-q)<=tol*Math.abs(q)+1e-12;
+    // Every answer is right within 2%.
+    const ok=near(a,e);let slip=null;
+    if(!ok){
+      if(c.key==='ahead'){if(near(a,this.behind()))slip='behindInstead';else if(near(a,c.v/c.f))slip='stillWater';else if(near(a,(c.v-c.vs)*c.f))slip='multipliedF';}
+      else if(c.key==='behind'){if(near(a,this.ahead()))slip='aheadInstead';else if(near(a,c.v/c.f))slip='stillWater';else if(near(a,(c.v+c.vs)*c.f))slip='multipliedF';}
+      else if(c.key==='speed'){if(near(a,c.lambda*c.f))slip='lambdaTimesF';else if(near(a,c.v-c.lambda/c.f))slip='dividedF';else if(near(a,c.v/c.f-c.lambda))slip='spacingDifference';}
+      else if(c.key==='bow'){if(near(a,90-e))slip='complement';else if(near(a,c.v/c.vs))slip='sineOnly';else if(near(a,Math.atan(c.v/c.vs)*180/Math.PI))slip='tangent';}
+      else{if(near(a,c.v/c.lambda))slip='ignoredDuck';else if(near(a,(c.v-c.vs)/c.lambda))slip='wrongSide';else if(near(a,c.lambda*(c.v+c.vs)))slip='multipliedL';}
+    }
+    return {ok,slip,first:ok&&this.attempts===1,exact:e};
+  }
+  score(){if(this.status!=='done')return 0;const e=this.evaluate();return (e.ok?100:0)+(e.first?50:0);}
+  snapshot(){return {index:this.index,answer:this.answer,attempts:this.attempts,t:this.t,status:this.status};}
+  restore(saved){
+    if(!Number.isInteger(saved?.index)||!DuckModel.missions[saved.index])return false;
+    const probe=new DuckModel(saved.index);
+    if(!probe.setAnswer(saved.answer??null)||!Number.isInteger(saved.attempts)||saved.attempts<0)return false;
+    if(!['moving','done'].includes(saved.status)||!Number.isFinite(saved.t)||saved.t<0||saved.t>probe.duration()*(1+1e-9))return false;
+    if(probe.answer===null&&(saved.t>0||saved.status==='done'))return false;
+    if((saved.status==='done'||saved.t>0)&&saved.attempts<1)return false;
+    this.setMission(saved.index);this.answer=probe.answer;this.attempts=saved.attempts;
+    this.status=saved.status;this.t=saved.status==='done'?this.duration():saved.t;return true;
+  }
+}
+globalThis.DuckModel=DuckModel;
+</script>
+<script id="duck-locale" type="application/json">__LOCALE__</script>
+<script id="duck-interface">
+(() => {
+  'use strict';
+  const $=id=>document.getElementById(id),locale=JSON.parse($('duck-locale').textContent);
+  const text=(key,values={})=>locale.strings[key].replace(/\{(\w+)\}/g,(_,name)=>values[name]??'{'+name+'}');
+  const number=(n,d=2)=>Math.abs(n)<.5*10**-d?(0).toLocaleString(locale.lang,{minimumFractionDigits:d,maximumFractionDigits:d}):n.toLocaleString(locale.lang,{minimumFractionDigits:d,maximumFractionDigits:d,useGrouping:false});
+  const plain=n=>n.toLocaleString(locale.lang,{maximumFractionDigits:3,useGrouping:false}).replace('-','−');
+  const model=new DuckModel();
+  const canvas=$('duck-canvas'),ctx=canvas.getContext('2d');
+  const H=1/120,transferKey='phisicos-duck-language-transfer';
+  let running=false,previous=null,accumulator=0,lastUpdate=0,width=800,height=410;
+  const say=message=>{$('announcement').textContent=message;};
+  try{const data=JSON.parse(sessionStorage.getItem(transferKey)||'null');sessionStorage.removeItem(transferKey);if(data)model.restore(data.state);}catch{$('language-note').hidden=true;}
+  const pace=()=>model.config.pace??1;
+  const amount=v=>plain(Number(v.toPrecision(5)))+(model.unit()?' '+model.unit():'');
+  const slipKey=name=>'slip'+name[0].toUpperCase()+name.slice(1);
+  // The readings show only once a run starts, because they give the answer away.
+  const started=()=>model.status==='done'||model.t>0;
+  const symbols={ahead:"λ' =",behind:"λ' =",speed:'v_s =',angle:'θ =',freq:'f ='};
+  // Givens: ripple speed v, duck speed, paddling frequency, or a measured spacing in place of the unknown.
+  function given(m){
+    if(m.key==='speed')return 'v = '+plain(m.v)+" cm/s · f = "+plain(m.f)+" Hz · λ' = "+plain(m.lambda)+' cm';
+    if(m.key==='bow')return 'v = '+plain(m.v)+' cm/s · v_s = '+plain(m.vs)+' cm/s';
+    if(m.key==='frequency')return 'v = '+plain(m.v)+' cm/s · v_s = '+plain(m.vs)+" cm/s · λ' = "+plain(m.lambda)+' cm';
+    return 'v = '+plain(m.v)+' cm/s · v_s = '+plain(m.vs)+' cm/s · f = '+plain(m.f)+' Hz';
+  }
+  function equation(){
+    const c=model.config,e=model.exact();
+    if(c.key==='behind')return "λ' = ("+plain(c.v)+' + '+plain(c.vs)+') ÷ '+plain(c.f)+' = '+number(e,1)+' cm';
+    if(c.key==='speed')return 'v_s = '+plain(c.v)+' − '+plain(c.lambda)+' × '+plain(c.f)+' = '+number(e,1)+' cm/s';
+    if(c.key==='bow')return 'sin θ = '+plain(c.v)+' ÷ '+plain(c.vs)+' → θ = '+number(e,1)+'°';
+    if(c.key==='frequency')return 'f = ('+plain(c.v)+' + '+plain(c.vs)+') ÷ '+plain(c.lambda)+' = '+number(e)+' Hz';
+    return "λ' = ("+plain(c.v)+' − '+plain(c.vs)+') ÷ '+plain(c.f)+' = '+number(e,1)+' cm';
+  }
+  function baseEquation(){return model.config.key==='bow'?'sin θ = v ÷ v_s':"λ' = (v ∓ v_s) ÷ f";}
+  // The asked quantity stays hidden until the run is over; a duck faster than its ripples has none ahead.
+  function metrics(t,begun){
+    const a=model.config.ask,over=model.status==='done',show=(id,v,hide)=>{$(id).textContent=!begun?'—':hide&&!over?'?':v;},ah=model.ahead();
+    show('duck-value',number(model.speed(),1),a==='speed');show('freq-value',number(model.freq()),a==='freq');
+    show('ahead-value',ah===null?'—':number(ah,1),a==='ahead');show('behind-value',number(model.behind(),1),a==='behind');
+  }
+  function values(){const a=model.config.ask;return {e:number(model.exact(),a==='freq'?2:1)};}
+  function runningCopy(t){return text('duckCopy',{n:plain(model.ripples(t).length)});}
+  // What your answer implies: a spacing ahead or behind (cm), or the bow wave's angle.
+  function guessSpacing(){const c=model.config,a=model.answer;if(c.ask==='ahead'||c.ask==='behind')return a;if(c.ask==='speed')return c.lambda;if(c.ask==='freq')return c.lambda;return null;}
+  function scene(g){
+    const c=g.c,{line,fit,dot,box,label}=g,s=g.ready?g.t:0,W=240,Hh=80,k=Math.min((g.area-40)/W,(height-150)/(2*Hh)),x0=24+((g.area-40)-W*k)/2,top=58,X=x=>x0+x*k,Y=y=>top+(Hh-y)*k;
+    // A pond from above: every paddle sends out a ring from where the duck was; the rings crowd ahead and spread behind.
+    box(X(0),Y(Hh),W*k,2*Hh*k,'#1f4152');
+    if(g.begun){ctx.save();ctx.beginPath();ctx.rect(X(0),Y(Hh),W*k,2*Hh*k);ctx.clip();
+      for(const rp of model.ripples(s)){if(rp.r<=0)continue;const pts=[];for(let i=0;i<=64;i++){const a=2*Math.PI*i/64;pts.push({x:X(rp.x+rp.r*Math.cos(a)),y:Y(rp.r*Math.sin(a))});}line(pts,'#8fd0ff',1.4);}
+      ctx.restore();}
+    line([{x:X(0),y:Y(0)},{x:X(W),y:Y(0)}],'#4f7286',1,[4,6]);
+    const dx=model.position(g.begun?s:0);box(X(dx)-9,Y(0)-6,18,12,'#f2f8fc');dot(X(dx)+9,Y(0)-4,4,'#f2f8fc');label(text('duckTag'),X(dx),Y(0)-12,'#f2f8fc','center',9);
+    // Your answer: orange marks a guessed spacing apart, ahead of the duck or behind it, or the guessed bow wave.
+    if(g.guess){const gs=guessSpacing(),side=c.ask==='behind'||c.key==='frequency'?-1:1;
+      if(gs!==null){for(let n=1;n<=4;n++){const gx=dx+side*n*gs;if(gx>=0&&gx<=W)line([{x:X(gx),y:Y(0)-8},{x:X(gx),y:Y(0)+8}],'#efb958',2.5);}fit(text('guessTag'),X(dx+side*gs)+(side>0?4:-4),Y(0)+22,'#efb958',9,110,side>0?'left':'right');}
+      else{const th=model.answer*Math.PI/180;for(const sg of [1,-1])line([{x:X(dx),y:Y(0)},{x:X(dx-120*Math.cos(th)),y:Y(sg*120*Math.sin(th))}],'#efb958',1.5,[6,5]);fit(text('guessTag'),X(dx)-8,Y(0)+22,'#efb958',9,110,'right');}}
+    if(g.option){for(let m=0;m<=W;m+=10){line([{x:X(m),y:Y(-Hh)},{x:X(m),y:Y(-Hh)+(m%50?3:6)}],'#9fb6c7',1);if(m%50===0)label(plain(m)+' cm',X(m),Y(-Hh)+16,'#9fb6c7','center',8);}}
+    fit('t = '+number(g.t)+' s',g.area-16,44,'#f2f8fc',13,g.area*.3,'right');
+  }
+  function panel(g){
+    const {line,fit,dot,label}=g;
+    fit(text('profileGraph'),g.area+8,44,'#d1e3ed',10,width-g.area-16);
+    if(!g.begun){fit(text('panelHint'),g.area+8,70,'#9fb6c7',10,width-g.area-16);return;}
+    // A side view along the duck's path: each ripple crest crossing the path is a peak, close together ahead, wide behind.
+    const s=Math.min(g.t,model.duration()),W=240,px0=g.area+14,px1=width-14,py=(height)/2,PX=x=>px0+x/W*(px1-px0),dx=model.position(s),crests=[];
+    for(const rp of model.ripples(s)){if(rp.r<=0)continue;crests.push(rp.x+rp.r,rp.x-rp.r);}
+    const pts=[];for(let i=0;i<=400;i++){const x=W*i/400;let h=0;for(const cx of crests)h=Math.max(h,Math.exp(-(((x-cx)/2.2)**2)));pts.push({x:PX(x),y:py-h*40});}line(pts,'#8fd0ff',2);
+    line([{x:px0,y:py},{x:px1,y:py}],'#4f7286',1);dot(PX(dx),py-6,5,'#f2f8fc');
+    for(let m=0;m<=W;m+=50){line([{x:PX(m),y:py+50},{x:PX(m),y:py+54}],'#9fb6c7',1);label(plain(m),PX(m),py+64,'#9fb6c7','center',8);}
+    fit(text('pathAxis'),px0,py+80,'#9fb6c7',9,px1-px0);
+  }
+  function setRunning(value){
+    const done=model.status==='done',blocked=!model.ready();running=value&&!done&&!blocked;previous=null;accumulator=0;
+    $('play').disabled=running||done||blocked;$('pause').disabled=!running;$('step').disabled=running||done||blocked;
+    $('duck-status').classList.toggle('running',running);
+    $('duck-status-text').textContent=text(done?'done':running?'running':model.t?'paused':'ready');
+  }
+  function sync(){
+    const c=model.config;
+    DuckModel.missions.forEach((m,i)=>{$('mission-'+i).setAttribute('aria-pressed',String(i===model.index));$('given-'+i).textContent=given(m);});
+    $('question').textContent=text('question'+model.index);$('answer-symbol').textContent=symbols[c.ask];$('answer-unit').textContent=model.unit();
+    $('answer').value=model.answer===null?'':String(model.answer);$('mission-label').textContent=text('mission'+model.index);
+  }
+  function update(){
+    const ready=model.ready(),done=model.status==='done',t=ready?model.now():0,e=model.evaluate(),begun=started();
+    $('time-value').textContent=number(t);metrics(t,begun);
+    $('duck-equation').textContent=begun?equation():baseEquation();
+    let key,copy;
+    if(done){
+      const base=text('result'+model.index,values());
+      if(e.ok){key='good';copy=base+' '+text('why'+model.index);}
+      else{key='miss';copy=base+' '+text('missCopy',{p:amount(model.answer)})+' '+(e.slip?text(slipKey(e.slip)):text('hint'+model.index));}
+    }
+    else if(!ready){key='predict';copy=text('predictCopy');}
+    else if(model.t>0){key='running';copy=runningCopy(t);}
+    else{key='ready';copy=text('readyCopy');}
+    $('lesson-title').textContent=text(key+'Title',{t:number(t),p:ready?amount(model.answer):''});$('lesson-copy').textContent=copy;
+    $('insight').classList.toggle('warning',key==='miss');
+    $('mission-score').textContent=done?String(model.score()):'—';
+    $('right-badge').classList.toggle('earned',done&&e.ok);$('first-badge').classList.toggle('earned',done&&e.first);
+  }
+  function refresh(){setRunning(false);update();draw();}
+  function simulate(dt){
+    const result=model.advance(dt);
+    if(result?.done){setRunning(false);update();say(text('doneAnnouncement')+' '+$('lesson-title').textContent);return true;}
+    return false;
+  }
+  $('answer').addEventListener('input',event=>{const raw=String(event.target.value).trim(),value=raw===''?null:Number(raw);if(!model.setAnswer(value))model.setAnswer(null);refresh();});
+  $('play').addEventListener('click',()=>{setRunning(true);update();say(text('startedAnnouncement'));});
+  $('pause').addEventListener('click',()=>{setRunning(false);update();say(text('pausedAnnouncement'));});
+  $('step').addEventListener('click',()=>{for(let i=0;i<12;i++)if(simulate(H*pace()))break;setRunning(false);update();draw();});
+  $('reset').addEventListener('click',()=>{model.reset();refresh();say(text('resetAnnouncement'));});
+  DuckModel.missions.forEach((_,i)=>$('mission-'+i).addEventListener('click',()=>{model.setMission(i);sync();refresh();say(text('missionAnnouncement',{name:text('mission'+i)}));}));
+  for(const id of ['show-ruler','show-guess'])$(id).addEventListener('change',()=>{update();draw();});
+  function suspend(){if(running){setRunning(false);say(text('suspendedAnnouncement'));}update();draw();}
+  window.addEventListener('blur',suspend);document.addEventListener('visibilitychange',()=>{if(document.hidden)suspend();});
+  for(const link of document.querySelectorAll('.language-menu a'))link.addEventListener('click',()=>{setRunning(false);try{sessionStorage.setItem(transferKey,JSON.stringify({state:model.snapshot()}));}catch{}});
+  function resize(){const rect=canvas.getBoundingClientRect();if(rect.width<=0)return;width=rect.width;height=rect.height;const dpr=Math.min(window.devicePixelRatio||1,3);canvas.width=Math.round(width*dpr);canvas.height=Math.round(height*dpr);ctx.setTransform(dpr,0,0,dpr,0,0);draw();}
+  function draw(){
+    if(!ctx)return;
+    const c=model.config,ready=model.ready(),done=model.status==='done',t=ready?model.now():0,begun=started(),option=$('show-ruler').checked,guess=$('show-guess').checked&&ready;
+    ctx.clearRect(0,0,width,height);
+    const label=(str,px,py,color='#b8ccdb',align='left',font=12)=>{ctx.fillStyle=color;ctx.textAlign=align;ctx.font=font+'px -apple-system,BlinkMacSystemFont,sans-serif';ctx.fillText(str,px,py);};
+    const line=(points,color,w=1,dash=[])=>{ctx.beginPath();ctx.strokeStyle=color;ctx.lineWidth=w;ctx.setLineDash(dash);points.forEach((q,i)=>i?ctx.lineTo(q.x,q.y):ctx.moveTo(q.x,q.y));ctx.stroke();ctx.setLineDash([]);};
+    const fit=(str,px,py,color,size,room,align='left')=>{ctx.font=size+'px -apple-system,BlinkMacSystemFont,sans-serif';const w=ctx.measureText(str).width;label(str,px,py,color,align,w>room?Math.max(7,Math.floor(size*room/w)):size);};
+    const dot=(x,y,r,color)=>{ctx.fillStyle=color;ctx.beginPath();ctx.arc(x,y,Math.max(r,.5),0,Math.PI*2);ctx.fill();};
+    const box=(x,y,w,h,color)=>{ctx.fillStyle=color;ctx.fillRect(x,y,w,h);};
+    const wide=width>=560,area=wide?width*.64:width;
+    const env={c,ready,done,t,begun,option,guess,label,line,fit,dot,box,wide,area};
+    fit(text('viewTitle'),16,20,'#d1e3ed',12,area-28);
+    if(done){const ev=model.evaluate();fit(text(ev.ok?'rightBanner':'offBanner'),16,40,ev.ok?'#75efc7':'#efb958',width<430?12:14,area-28);}
+    scene(env);
+    label(text('scaleNote'),16,height-8,'#9fb6c7','left',10);
+    if(!wide)return;
+    panel(env);
+  }
+  function frame(now){if(previous===null)previous=now;const elapsed=Math.min(.1,(now-previous)/1000);previous=now;if(running){accumulator+=elapsed*pace();while(accumulator>=H&&running){accumulator-=H;simulate(H);}draw();}if(now-lastUpdate>=80){update();lastUpdate=now;}requestAnimationFrame(frame);}
+  window.addEventListener('resize',resize);if(typeof ResizeObserver!=='undefined')new ResizeObserver(resize).observe(canvas);
+  sync();setRunning(false);update();resize();requestAnimationFrame(frame);
+})();
+</script>
+</body>
+</html>

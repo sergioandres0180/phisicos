@@ -1,0 +1,283 @@
+<!doctype html>
+<html lang="en">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Weighed Under Water · Phisicos</title>
+<style>
+.weigh-page .answer-row .symbol{min-width:44px}.weigh-page .question{font-size:15px;font-weight:600;margin-top:4px}
+.weigh-page .line-key.white{background:#f2f8fc}.weigh-page .line-key.blue{background:#77b9ff}
+</style>
+</head>
+<body>
+<div class="shell module-page weigh-page">
+__HEADER__
+<main id="main-content">
+__BREADCRUMBS__
+
+<div class="masthead"><div><h1>{{title}}</h1><p class="intro">{{subtitle}}</p></div><div class="concept-tags"><span class="tag speed">{{tag1}}</span><span class="tag velocity">{{tag2}}</span></div></div>
+<noscript><p class="no-js">{{noScript}}</p></noscript>
+<div class="layout">
+<aside class="sidebar" aria-label="{{setup}}">
+  <section class="control-section"><h2 class="eyebrow">{{setup}}</h2><div class="mission-list" role="group" aria-label="{{setup}}">
+    <button id="mission-0" aria-pressed="true"><b>1 · {{mission0}}</b><span id="given-0">m</span></button>
+    <button id="mission-1" aria-pressed="false"><b>2 · {{mission1}}</b><span id="given-1">R</span></button>
+    <button id="mission-2" aria-pressed="false"><b>3 · {{mission2}}</b><span id="given-2">R</span></button>
+    <button id="mission-3" aria-pressed="false"><b>4 · {{mission3}}</b><span id="given-3">R</span></button>
+    <button id="mission-4" aria-pressed="false"><b>5 · {{mission4}}</b><span id="given-4">m</span></button>
+  </div><p class="hint">{{setupNote}}</p></section>
+  <section class="control-section"><h2 class="eyebrow">{{answerHeading}}</h2>
+    <p class="question" id="question">{{question0}}</p>
+    <p class="field-label"><label for="answer">{{answerLabel}}</label></p>
+    <div class="answer-row"><span class="symbol" id="answer-symbol">R =</span><input id="answer" type="number" inputmode="decimal" step="any" value=""><span class="unit" id="answer-unit">N</span></div>
+    <p class="hint">{{answerHint}}</p>
+  </section>
+  <section class="control-section"><h2 class="eyebrow">{{observe}}</h2><label class="check"><input id="show-arrows" type="checkbox" checked>{{arrowsToggle}}</label><label class="check"><input id="show-guess" type="checkbox" checked>{{guessToggle}}</label><p class="hint">{{observeHint}}</p></section>
+</aside>
+<div class="workspace">
+  <section class="scene" aria-label="{{sceneTitle}}"><div class="scene-top"><div><h2 class="scene-title">{{sceneTitle}}</h2><p class="scene-subtitle" id="mission-label">{{mission0}}</p></div><span class="status" id="weigh-status"><i class="status-dot" aria-hidden="true"></i><span id="weigh-status-text">{{ready}}</span></span></div>
+    <div class="module-stage"><canvas id="weigh-canvas" role="img" aria-label="{{canvasLabel}}">{{noScript}}</canvas></div>
+    <div class="legend"><span><i class="line-key blue"></i>{{liquidLegend}}</span><span><i class="line-key white"></i>{{objectLegend}}</span><span><i class="line-key orange"></i>{{guessLegend}}</span><span><i class="line-key gray"></i>{{targetLegend}}</span></div>
+    <div class="module-equation"><span>{{equationTitle}}</span><output id="weigh-equation">R = W − F_b</output></div>
+    <div class="transport"><button id="play" class="primary" disabled>{{play}}</button><button id="pause" disabled>{{pause}}</button><button id="step" disabled>{{step}}</button><button id="reset" class="reset">{{reset}}</button></div>
+  </section>
+  <section class="metrics" aria-label="{{observe}}">
+    <div class="metric scalar"><h3 class="metric-label">{{time}}</h3><p class="metric-value"><span id="time-value">0.00</span> <small>s</small></p><p class="metric-equation">t</p></div>
+    <div class="metric vector"><h3 class="metric-label">{{depthMetric}}</h3><p class="metric-value"><span id="depth-value">—</span> <small>cm</small></p><p class="metric-equation">s</p></div>
+    <div class="metric scalar"><h3 class="metric-label">{{readingMetric}}</h3><p class="metric-value"><span id="reading-value">—</span> <small>N</small></p><p class="metric-equation">R = W − F_b</p></div>
+    <div class="metric vector"><h3 class="metric-label">{{buoyancyMetric}}</h3><p class="metric-value"><span id="buoyancy-value">—</span> <small>N</small></p><p class="metric-equation">F_b = ρ·g·V</p></div>
+    <div class="metric scalar"><h3 class="metric-label">{{spilledMetric}}</h3><p class="metric-value"><span id="spilled-value">—</span> <small>cm³</small></p><p class="metric-equation">V</p></div>
+  </section>
+  <div class="insight" id="insight"><span class="insight-icon" aria-hidden="true">↗</span><div><strong id="lesson-title">{{predictTitle}}</strong><p id="lesson-copy">{{predictCopy}}</p></div></div>
+  <section class="challenge"><div class="mission-heading"><h2 class="challenge-title">{{missionTitle}}</h2><div class="score-card"><span>{{score}}</span><strong id="mission-score">—</strong></div></div><p class="mission-copy">{{missionCopy}}</p><div class="badges"><span id="right-badge">✓ {{rightBadge}}</span><span id="first-badge">① {{firstBadge}}</span></div></section>
+</div>
+</div>
+<article class="learning-content"><section><h2>{{guideTitle}}</h2><ol><li>{{instruction1}}</li><li>{{instruction2}}</li><li>{{instruction3}}</li><li>{{instruction4}}</li></ol></section><section><h2>{{conceptTitle}}</h2><p>{{conceptCopy}}</p><aside class="worked-example"><h3>{{exampleTitle}}</h3><p>{{exampleCopy}}</p></aside></section><section><h2>{{modelTitle}}</h2><p>{{modelCopy}}</p></section></article>
+<p class="language-note" id="language-note">{{languageNote}}</p>
+</main>
+__FOOTER__
+<p class="sr-only" id="announcement" role="status" aria-live="polite"></p>
+</div>
+<script id="weigh-model">
+class WeighModel {
+  // An object hangs from a spring scale and is lowered steadily into a can filled to its spout. The part under the liquid,
+  // V = A·s, pushes the same volume out into a cup, and the liquid pushes up with the weight of that spilled liquid,
+  // F_b = ρ·g·V (Archimedes' principle). The scale reads R = W − F_b. Some objects are given by their mass and volume,
+  // others only by what the scale reads in air and in water, R_air − R_water being the push of the water.
+  static run = 2; // s to lower the object
+  static g = 9.8;
+  static water = 1000; // kg/m³
+  static tolerance = .02;
+  static start = -3; // cm: the object's bottom starts this far above the surface
+  static clear = 2; // cm the object goes past full submersion, and the deepest it ever goes
+  static missions = [
+    {key:'stone',ask:'reading',m:2,V:800,A:100,rho:1000},
+    {key:'volume',ask:'volume',air:29.4,water:24.5,A:50,rho:1000},
+    {key:'metal',ask:'density',air:27,water:17,A:100,rho:1000},
+    {key:'oil',ask:'oil',air:10,water:6,A:50,rho:800},
+    {key:'depth',ask:'depth',m:1.5,A:50,L:10,rho:1000,target:12.25}
+  ];
+  static units = {reading:'N',volume:'cm³',density:'kg/m³',oil:'N',depth:'cm'};
+  static limits = {reading:1e6,volume:1e9,density:1e6,oil:1e6,depth:1e4};
+  constructor(index = 0){this.setMission(index);}
+  setMission(index){this.index=index;this.config=WeighModel.missions[index];this.answer=null;this.attempts=0;this.reset();}
+  reset(){this.t=0;this.status='moving';}
+  valid(value){return Number.isFinite(value)&&value>0&&value<=WeighModel.limits[this.config.ask];}
+  setAnswer(value){if(value!==null&&!this.valid(value))return false;this.answer=value;this.reset();return true;}
+  ready(){return this.answer!==null;}
+  clamp(t){return Math.min(Math.max(t,0),WeighModel.run);}
+  // The object: its mass (kg), weight (N), volume (cm³), and height (cm) above its base of A cm².
+  mass(){const c=this.config;return c.m??c.air/WeighModel.g;}
+  weight(){return this.mass()*WeighModel.g;}
+  volume(){const c=this.config;return c.V??(c.L?c.A*c.L:(c.air-c.water)/(WeighModel.water*WeighModel.g)*1e6);}
+  length(){return this.config.L??this.volume()/this.config.A;}
+  // How deep the object's bottom goes (cm): your depth when the depth is asked, otherwise just past full submersion.
+  end(){const full=this.length()+WeighModel.clear;return this.config.ask==='depth'?Math.min(this.answer??0,full):full;}
+  bottom(t){return WeighModel.start+(this.end()-WeighModel.start)*this.clamp(t)/WeighModel.run;}
+  under(t){return Math.min(Math.max(this.bottom(t),0),this.length());}
+  displaced(t){return this.config.A*this.under(t);}
+  buoyancy(t){return this.config.rho*WeighModel.g*this.displaced(t)*1e-6;}
+  reading(t){return this.weight()-this.buoyancy(t);}
+  density(){return this.mass()/(this.volume()*1e-6);}
+  duration(){return WeighModel.run;}
+  now(){return this.status==='done'?this.duration():this.t;}
+  advance(dt){
+    if(!Number.isFinite(dt)||dt<0)throw new Error('Invalid timestep');
+    if(this.status==='done'||!this.ready())return null;
+    // A run counts as an attempt as soon as it starts; it ends exactly when the lowering stops.
+    if(this.t===0)this.attempts++;
+    const T=this.duration();
+    if(this.t+dt>=T*(1-1e-12)){this.t=T;this.status='done';return {t:T,done:true};}
+    this.t+=dt;return null;
+  }
+  exact(){
+    const c=this.config,g=WeighModel.g;
+    if(c.ask==='reading'||c.ask==='oil')return this.weight()-c.rho*g*this.volume()*1e-6;
+    if(c.ask==='volume')return this.volume();
+    if(c.ask==='density')return this.density();
+    return (this.weight()-c.target)/(c.rho*g*c.A*1e-4)*100;
+  }
+  unit(){return WeighModel.units[this.config.ask];}
+  evaluate(){
+    if(!this.ready())return {ok:false,slip:null,first:false,exact:this.exact()};
+    const c=this.config,a=this.answer,e=this.exact(),tol=WeighModel.tolerance,near=(p,q)=>Math.abs(p-q)<=tol*Math.abs(q)+1e-12,g=WeighModel.g,w=WeighModel.water;
+    // Every answer is right within 2%.
+    const ok=near(a,e);let slip=null;
+    if(!ok){
+      if(c.ask==='reading'){const V=c.V*1e-6;if(near(a,this.weight()-c.rho*V))slip='noG';else if(near(a,c.rho*g*V))slip='buoyancy';else if(near(a,this.weight()+c.rho*g*V))slip='added';else if(near(a,c.m-c.rho*V))slip='mass';}
+      else if(c.ask==='volume'){if(near(a,(c.air-c.water)/w*1e6))slip='noG';else if(near(a,c.air/(w*g)*1e6)||near(a,c.water/(w*g)*1e6))slip='whole';else if(near(a,e*1e-6)||near(a,e/1000))slip='unitsVolume';}
+      else if(c.ask==='density'){if(near(a,c.water/(c.air-c.water)*w))slip='waterReading';else if(near(a,(c.air-c.water)/c.air*w))slip='invertedDensity';else if(near(a,e/1000))slip='unitsDensity';}
+      else if(c.ask==='oil'){if(near(a,c.water))slip='sameLiquid';else if(near(a,c.air-(c.air-c.water)*w/c.rho))slip='invertedOil';else if(near(a,(c.air-c.water)*c.rho/w))slip='buoyancy';}
+      else{if(near(a,(this.weight()-c.target)/(c.rho*c.A*1e-4)*100))slip='noG';else if(near(a,c.target/(c.rho*g*c.A*1e-4)*100))slip='readingAsPush';else if(near(a,e*c.A))slip='volume';else if(near(a,e/100))slip='unitsDepth';}
+    }
+    return {ok,slip,first:ok&&this.attempts===1,exact:e};
+  }
+  score(){if(this.status!=='done')return 0;const e=this.evaluate();return (e.ok?100:0)+(e.first?50:0);}
+  snapshot(){return {index:this.index,answer:this.answer,attempts:this.attempts,t:this.t,status:this.status};}
+  restore(saved){
+    if(!Number.isInteger(saved?.index)||!WeighModel.missions[saved.index])return false;
+    const probe=new WeighModel(saved.index);
+    if(!probe.setAnswer(saved.answer??null)||!Number.isInteger(saved.attempts)||saved.attempts<0)return false;
+    if(!['moving','done'].includes(saved.status)||!Number.isFinite(saved.t)||saved.t<0||saved.t>probe.duration()*(1+1e-9))return false;
+    if(probe.answer===null&&(saved.t>0||saved.status==='done'))return false;
+    if((saved.status==='done'||saved.t>0)&&saved.attempts<1)return false;
+    this.setMission(saved.index);this.answer=probe.answer;this.attempts=saved.attempts;
+    this.status=saved.status;this.t=saved.status==='done'?this.duration():saved.t;return true;
+  }
+}
+globalThis.WeighModel=WeighModel;
+</script>
+<script id="weigh-locale" type="application/json">__LOCALE__</script>
+<script id="weigh-interface">
+(() => {
+  'use strict';
+  const $=id=>document.getElementById(id),locale=JSON.parse($('weigh-locale').textContent);
+  const text=(key,values={})=>locale.strings[key].replace(/\{(\w+)\}/g,(_,name)=>values[name]??'{'+name+'}');
+  const number=(n,d=2)=>Math.abs(n)<.5*10**-d?(0).toLocaleString(locale.lang,{minimumFractionDigits:d,maximumFractionDigits:d}):n.toLocaleString(locale.lang,{minimumFractionDigits:d,maximumFractionDigits:d,useGrouping:false});
+  const plain=n=>n.toLocaleString(locale.lang,{maximumFractionDigits:3,useGrouping:false}).replace('-','−');
+  const model=new WeighModel();
+  const canvas=$('weigh-canvas'),ctx=canvas.getContext('2d');
+  const H=1/120,transferKey='phisicos-weigh-language-transfer';
+  let running=false,previous=null,accumulator=0,lastUpdate=0,width=800,height=410;
+  const say=message=>{$('announcement').textContent=message;};
+  try{const data=JSON.parse(sessionStorage.getItem(transferKey)||'null');sessionStorage.removeItem(transferKey);if(data)model.restore(data.state);}catch{$('language-note').hidden=true;}
+  const amount=v=>plain(Number(v.toPrecision(5)))+' '+model.unit();
+  const symbols={reading:'R =',volume:'V =',density:'ρ =',oil:'R =',depth:'s ='};
+  const slipKey=name=>'slip'+name[0].toUpperCase()+name.slice(1);
+  function setRunning(value){
+    const done=model.status==='done',blocked=!model.ready();running=value&&!done&&!blocked;previous=null;accumulator=0;
+    $('play').disabled=running||done||blocked;$('pause').disabled=!running;$('step').disabled=running||done||blocked;
+    $('weigh-status').classList.toggle('running',running);
+    $('weigh-status-text').textContent=text(done?'done':running?'running':model.t?'paused':'ready');
+  }
+  // Givens: the mass and volume, or the readings in air and in water; the liquid when it isn't water; the target reading.
+  function given(m){
+    const parts=m.m?['m = '+plain(m.m)+' kg']:['R_air = '+plain(m.air)+' N','R_water = '+plain(m.water)+' N'];
+    if(m.V)parts.push('V = '+plain(m.V)+' cm³');if(m.L)parts.push('A = '+plain(m.A)+' cm²','L = '+plain(m.L)+' cm','R = '+plain(m.target)+' N');
+    if(m.rho!==WeighModel.water)parts.push('ρ_oil = '+plain(m.rho)+' kg/m³');
+    return parts.join(' · ');
+  }
+  function sync(){
+    const c=model.config;
+    WeighModel.missions.forEach((m,i)=>{$('mission-'+i).setAttribute('aria-pressed',String(i===model.index));$('given-'+i).textContent=given(m);});
+    $('question').textContent=text('question'+model.index);$('answer-symbol').textContent=symbols[c.ask];$('answer-unit').textContent=model.unit();
+    $('answer').value=model.answer===null?'':String(model.answer);$('mission-label').textContent=text('mission'+model.index);
+  }
+  // The depth, the reading, the push, and the spilled volume show only once a run starts, because they give the answer away.
+  const started=()=>model.status==='done'||model.t>0;
+  function update(){
+    const ready=model.ready(),done=model.status==='done',t=ready?model.now():0,e=model.evaluate(),begun=started(),D=model.duration();
+    $('time-value').textContent=number(t);$('depth-value').textContent=begun?number(model.under(t),1):'—';
+    $('reading-value').textContent=begun?number(model.reading(t)):'—';$('buoyancy-value').textContent=begun?number(model.buoyancy(t)):'—';
+    $('spilled-value').textContent=begun?number(model.displaced(t),0):'—';
+    $('weigh-equation').textContent=begun?'R = W − F_b = '+number(model.weight())+' N − '+number(model.buoyancy(t))+' N = '+number(model.reading(t))+' N':'R = W − F_b';
+    let key,copy;
+    const values={s:number(model.end(),1),v:number(model.displaced(D),0),b:number(model.buoyancy(D)),w:number(model.weight()),r:number(model.reading(D)),d:number(model.density(),0)};
+    if(done){
+      const base=text('result'+model.index,values);
+      if(e.ok){key='good';copy=base+' '+text('why'+model.index);}
+      else{key='miss';copy=base+' '+text('missCopy',{p:amount(model.answer)})+' '+(e.slip?text(slipKey(e.slip)):text('hint'+model.index));}
+    }
+    else if(!ready){key='predict';copy=text('predictCopy');}
+    else if(model.t>0){key='running';copy=text('movingCopy',{s:number(model.under(t),1),v:number(model.displaced(t),0),r:number(model.reading(t))});}
+    else{key='ready';copy=text('readyCopy');}
+    $('lesson-title').textContent=text(key+'Title',{t:number(t),p:ready?amount(model.answer):''});$('lesson-copy').textContent=copy;
+    $('insight').classList.toggle('warning',key==='miss');
+    $('mission-score').textContent=done?String(model.score()):'—';
+    $('right-badge').classList.toggle('earned',done&&e.ok);$('first-badge').classList.toggle('earned',done&&e.first);
+  }
+  function refresh(){setRunning(false);update();draw();}
+  function simulate(dt){
+    const result=model.advance(dt);
+    if(result?.done){setRunning(false);update();say(text('doneAnnouncement')+' '+$('lesson-title').textContent);return true;}
+    return false;
+  }
+  $('answer').addEventListener('input',event=>{const raw=String(event.target.value).trim(),value=raw===''?null:Number(raw);if(!model.setAnswer(value))model.setAnswer(null);refresh();});
+  $('play').addEventListener('click',()=>{setRunning(true);update();say(text('startedAnnouncement'));});
+  $('pause').addEventListener('click',()=>{setRunning(false);update();say(text('pausedAnnouncement'));});
+  $('step').addEventListener('click',()=>{for(let i=0;i<12;i++)if(simulate(H))break;setRunning(false);update();draw();});
+  $('reset').addEventListener('click',()=>{model.reset();refresh();say(text('resetAnnouncement'));});
+  WeighModel.missions.forEach((_,i)=>$('mission-'+i).addEventListener('click',()=>{model.setMission(i);sync();refresh();say(text('missionAnnouncement',{name:text('mission'+i)}));}));
+  for(const id of ['show-arrows','show-guess'])$(id).addEventListener('change',()=>{update();draw();});
+  function suspend(){if(running){setRunning(false);say(text('suspendedAnnouncement'));}update();draw();}
+  window.addEventListener('blur',suspend);document.addEventListener('visibilitychange',()=>{if(document.hidden)suspend();});
+  for(const link of document.querySelectorAll('.language-menu a'))link.addEventListener('click',()=>{setRunning(false);try{sessionStorage.setItem(transferKey,JSON.stringify({state:model.snapshot()}));}catch{}});
+  function resize(){const rect=canvas.getBoundingClientRect();if(rect.width<=0)return;width=rect.width;height=rect.height;const dpr=Math.min(window.devicePixelRatio||1,3);canvas.width=Math.round(width*dpr);canvas.height=Math.round(height*dpr);ctx.setTransform(dpr,0,0,dpr,0,0);draw();}
+  function draw(){
+    if(!ctx)return;
+    const c=model.config,ready=model.ready(),done=model.status==='done',t=ready?model.now():0,begun=started(),arrows=$('show-arrows').checked,guess=$('show-guess').checked&&ready;
+    ctx.clearRect(0,0,width,height);
+    const label=(str,px,py,color='#b8ccdb',align='left',font=12)=>{ctx.fillStyle=color;ctx.textAlign=align;ctx.font=font+'px -apple-system,BlinkMacSystemFont,sans-serif';ctx.fillText(str,px,py);};
+    const line=(points,color,w=1,dash=[])=>{ctx.beginPath();ctx.strokeStyle=color;ctx.lineWidth=w;ctx.setLineDash(dash);points.forEach((q,i)=>i?ctx.lineTo(q.x,q.y):ctx.moveTo(q.x,q.y));ctx.stroke();ctx.setLineDash([]);};
+    const fit=(str,px,py,color,size,room,align='left')=>{ctx.font=size+'px -apple-system,BlinkMacSystemFont,sans-serif';const w=ctx.measureText(str).width;label(str,px,py,color,align,w>room?Math.max(7,Math.floor(size*room/w)):size);};
+    const arrow=(x0,y0,x1,y1,color,w=2)=>{line([{x:x0,y:y0},{x:x1,y:y1}],color,w);const a=Math.atan2(y1-y0,x1-x0);line([{x:x1-6*Math.cos(a-.5),y:y1-6*Math.sin(a-.5)},{x:x1,y:y1},{x:x1-6*Math.cos(a+.5),y:y1-6*Math.sin(a+.5)}],color,w);};
+    const wide=width>=560,area=wide?width*.64:width;
+    fit(text('viewTitle'),16,20,'#d1e3ed',12,area-28);
+    if(done){const ev=model.evaluate();fit(text(ev.ok?'rightBanner':'offBanner'),16,40,ev.ok?'#75efc7':'#efb958',width<430?12:14,area-28);}
+    // The can, filled to its spout, and the object are to scale (k px per cm); the cup that catches the overflow is not.
+    const k=Math.max(3,Math.min(6.5,(height-160)/34)),base=height-34,depth=20,canTop=base-depth*k-12,surface=canTop+12,L=model.length(),A=c.A,ow=Math.sqrt(A)*k;
+    const cx=area*.36,cw=Math.min(area*.42,ow+12*k),oil=c.rho!==WeighModel.water,liquid=oil?'rgba(232,196,90,.5)':'rgba(119,185,255,.5)',edge=oil?'#e8c45a':'#77b9ff';
+    ctx.fillStyle=liquid;ctx.fillRect(cx-cw/2,surface,cw,base-surface);
+    line([{x:cx-cw/2,y:canTop},{x:cx-cw/2,y:base},{x:cx+cw/2,y:base},{x:cx+cw/2,y:surface-4},{x:cx+cw/2+22,y:surface+4}],'#c3cfd9',2.5);
+    // The object hangs below a spring scale whose spring stretches with the reading.
+    const yb=surface+Math.min(model.bottom(t),depth-1)*k,top=yb-L*k,hb=top-14,ht=hb-56,R=model.reading(t),W=model.weight();
+    line([{x:cx,y:Math.min(52,ht)},{x:cx,y:ht}],'#8aa3b5',2);
+    ctx.fillStyle='#22384a';ctx.fillRect(cx-13,ht,26,56);line([{x:cx-13,y:ht},{x:cx+13,y:ht},{x:cx+13,y:hb},{x:cx-13,y:hb},{x:cx-13,y:ht}],'#f2f8fc',1.5);
+    const py=ht+8+38*Math.max(0,R)/W,coils=8,spring=[];for(let i=0;i<=coils;i++)spring.push({x:cx+(i%2?6:-6)*(i&&i<coils?1:0),y:ht+4+(py-ht-4)*i/coils});line(spring,'#c3cfd9',1.2);
+    line([{x:cx-9,y:py},{x:cx+9,y:py}],'#efb958',2);line([{x:cx,y:py},{x:cx,y:top}],'#f2f8fc',1.2);
+    fit('R = '+(begun?number(R):'?')+' N',cx+20,ht+30,'#f2f8fc',12,area-cx-28);
+    ctx.fillStyle='#8f9daa';ctx.fillRect(cx-ow/2,top,ow,L*k);line([{x:cx-ow/2,y:top},{x:cx+ow/2,y:top},{x:cx+ow/2,y:yb},{x:cx-ow/2,y:yb},{x:cx-ow/2,y:top}],'#f2f8fc',1.5);
+    if(yb>surface){ctx.fillStyle=liquid;ctx.fillRect(cx-ow/2,Math.max(top,surface),ow,yb-Math.max(top,surface));}
+    line([{x:cx-cw/2,y:surface},{x:cx+cw/2,y:surface}],edge,1.5);
+    // The catch cup on the right fills with exactly the volume that went under.
+    const ux=Math.min(cx+cw/2+50,area-30),uw=36,uh=64,cap=1300,V=model.displaced(t),fill=Math.min(V/cap,1)*uh;
+    ctx.fillStyle=liquid;ctx.fillRect(ux-uw/2,base-fill,uw,fill);line([{x:ux-uw/2,y:base-uh},{x:ux-uw/2,y:base},{x:ux+uw/2,y:base},{x:ux+uw/2,y:base-uh}],'#c3cfd9',2);
+    line([{x:ux-uw/2-8,y:base+3},{x:ux+uw/2+8,y:base+3}],'#8aa3b5',3);
+    if(begun&&!done&&model.bottom(t)>0&&model.under(t)<L)line([{x:cx+cw/2+22,y:surface+4},{x:ux-4,y:base-fill}],edge,2);
+    if(begun)fit(number(V,0)+' cm³',ux,base-uh-6,'#d1e3ed',10,area-ux+uw,'center');
+    if(guess&&c.ask==='volume'){const yy=base-Math.min(model.answer/cap,1)*uh;line([{x:ux-uw/2-6,y:yy},{x:ux+uw/2+6,y:yy}],'#efb958',2,[5,3]);fit(text('guessTag')+(model.answer>cap?' ↑':''),ux+uw/2+9,yy+4,'#efb958',9,area-ux-uw/2-12);}
+    if(guess&&c.ask==='depth'){const yy=surface+Math.min(model.answer,depth-1)*k,x0=Math.max(8,cx-cw/2-70);line([{x:x0,y:yy},{x:cx-cw/2-2,y:yy}],'#efb958',2,[5,3]);fit(text('guessTag'),cx-cw/2-4,yy-5,'#efb958',9,cx-cw/2-12,'right');}
+    if(guess&&c.ask==='density')fit(text('guessTag')+' · ρ = '+plain(model.answer)+' kg/m³',16,58,'#efb958',10,cx-cw/2-20);
+    // Forces on the object: its weight down, the liquid's push up from below.
+    if(arrows&&begun){
+      const s=60/W,F=model.buoyancy(t),mid=(top+yb)/2;
+      arrow(cx+ow/2+10,mid,cx+ow/2+10,mid+W*s,'#f2f8fc',2);fit('W',cx+ow/2+16,mid+W*s,'#f2f8fc',11,30);
+      if(F>0){arrow(cx-ow/2-10,yb,cx-ow/2-10,yb-F*s,edge,2);fit('F_b',cx-ow/2-14,yb-F*s+10,edge,11,cx-ow/2-14,'right');}
+    }
+    label(text('scaleNote'),16,height-8,'#9fb6c7','left',10);
+    if(!wide)return;
+    // Right panel: the weight in air, the scale's reading, and the weight of the spilled liquid, which is the missing part.
+    fit(text('forceTitle'),area+8,44,'#d1e3ed',10,width-area-16);
+    if(!begun){fit(text('panelHint'),area+8,70,'#9fb6c7',10,width-area-16);return;}
+    const F=model.buoyancy(t),gv=guess&&['reading','oil'].includes(c.ask)?model.answer:null,target=c.target??null;
+    const topV=Math.max(W,Math.min(gv??0,W*2))*1.15,bx0=area+16,bx1=width-12,btop=72,bbot=height-58,bw=(bx1-bx0-24)/3,BY=v=>bbot-v/topV*(bbot-btop);
+    const bars=[[W,'#c3cfd9','weightShort'],[Math.max(0,R),'#efe6d0','readingShort'],[F,edge,'spilledShort']];
+    bars.forEach(([v,color,key],i)=>{const x=bx0+i*(bw+12);ctx.fillStyle=color;ctx.fillRect(x,BY(v),bw,Math.max(1,bbot-BY(v)));fit(number(v),x+bw/2,BY(v)-6,color,10,bw+10,'center');fit(text(key),x+bw/2,bbot+14,'#9fb6c7',9,bw+10,'center');});
+    const rx=bx0+bw+12;
+    if(target!==null){line([{x:rx-4,y:BY(target)},{x:rx+bw+4,y:BY(target)}],'#9fb6c7',1.5,[5,3]);fit(text('targetTag'),area+8,60,'#9fb6c7',9,width-area-16);}
+    if(gv!==null){const shown=Math.min(gv,topV/1.15),yy=BY(shown);line([{x:rx-4,y:yy},{x:rx+bw+4,y:yy}],'#efb958',2,[5,3]);fit(text('guessTag')+(shown<gv?' ↑':''),rx+bw/2,yy+14,'#efb958',9,bw+10,'center');}
+  }
+  function frame(now){if(previous===null)previous=now;const elapsed=Math.min(.1,(now-previous)/1000);previous=now;if(running){accumulator+=elapsed;while(accumulator>=H&&running){accumulator-=H;simulate(H);}draw();}if(now-lastUpdate>=80){update();lastUpdate=now;}requestAnimationFrame(frame);}
+  window.addEventListener('resize',resize);if(typeof ResizeObserver!=='undefined')new ResizeObserver(resize).observe(canvas);
+  sync();setRunning(false);update();resize();requestAnimationFrame(frame);
+})();
+</script>
+</body>
+</html>

@@ -1,0 +1,304 @@
+<!doctype html>
+<html lang="en">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Harbour Buoy · Phisicos</title>
+<style>
+.buoy-page .answer-row .symbol{min-width:56px}.buoy-page .question{font-size:15px;font-weight:600;margin-top:4px}
+.buoy-page .line-key.white{background:#f2f8fc}.buoy-page .line-key.blue{background:#77b9ff}.buoy-page .line-key.red{background:#ff7b6b}
+</style>
+</head>
+<body>
+<div class="shell module-page buoy-page">
+__HEADER__
+<main id="main-content">
+__BREADCRUMBS__
+
+<div class="masthead"><div><h1>{{title}}</h1><p class="intro">{{subtitle}}</p></div><div class="concept-tags"><span class="tag speed">{{tag1}}</span><span class="tag velocity">{{tag2}}</span></div></div>
+<noscript><p class="no-js">{{noScript}}</p></noscript>
+<div class="layout">
+<aside class="sidebar" aria-label="{{setup}}">
+  <section class="control-section"><h2 class="eyebrow">{{setup}}</h2><div class="mission-list" role="group" aria-label="{{setup}}">
+    <button id="mission-0" aria-pressed="true"><b>1 · {{mission0}}</b><span id="given-0">y</span></button>
+    <button id="mission-1" aria-pressed="false"><b>2 · {{mission1}}</b><span id="given-1">A</span></button>
+    <button id="mission-2" aria-pressed="false"><b>3 · {{mission2}}</b><span id="given-2">A</span></button>
+    <button id="mission-3" aria-pressed="false"><b>4 · {{mission3}}</b><span id="given-3">A</span></button>
+    <button id="mission-4" aria-pressed="false"><b>5 · {{mission4}}</b><span id="given-4">A</span></button>
+  </div><p class="hint">{{setupNote}}</p></section>
+  <section class="control-section"><h2 class="eyebrow">{{answerHeading}}</h2>
+    <p class="question" id="question">{{question0}}</p>
+    <p class="field-label"><label for="answer">{{answerLabel}}</label></p>
+    <div class="answer-row"><span class="symbol" id="answer-symbol">A =</span><input id="answer" type="number" inputmode="decimal" step="any" value=""><span class="unit" id="answer-unit">m</span></div>
+    <p class="hint">{{answerHint}}</p>
+  </section>
+  <section class="control-section"><h2 class="eyebrow">{{observe}}</h2><label class="check"><input id="show-post" type="checkbox" checked>{{postToggle}}</label><label class="check"><input id="show-guess" type="checkbox" checked>{{guessToggle}}</label><p class="hint">{{observeHint}}</p></section>
+</aside>
+<div class="workspace">
+  <section class="scene" aria-label="{{sceneTitle}}"><div class="scene-top"><div><h2 class="scene-title">{{sceneTitle}}</h2><p class="scene-subtitle" id="mission-label">{{mission0}}</p></div><span class="status" id="buoy-status"><i class="status-dot" aria-hidden="true"></i><span id="buoy-status-text">{{ready}}</span></span></div>
+    <div class="module-stage"><canvas id="buoy-canvas" role="img" aria-label="{{canvasLabel}}">{{noScript}}</canvas></div>
+    <div class="legend"><span><i class="line-key blue"></i>{{graphLegend}}</span><span><i class="line-key red"></i>{{buoyLegend}}</span><span><i class="line-key orange"></i>{{guessLegend}}</span><span><i class="line-key gray"></i>{{referenceLegend}}</span></div>
+    <div class="module-equation"><span>{{equationTitle}}</span><output id="buoy-equation">y = A·sin(2π·t ÷ T)</output></div>
+    <div class="transport"><button id="play" class="primary" disabled>{{play}}</button><button id="pause" disabled>{{pause}}</button><button id="step" disabled>{{step}}</button><button id="reset" class="reset">{{reset}}</button></div>
+  </section>
+  <section class="metrics" aria-label="{{observe}}">
+    <div class="metric scalar"><h3 class="metric-label">{{time}}</h3><p class="metric-value"><span id="time-value">0.00</span> <small>s</small></p><p class="metric-equation">t</p></div>
+    <div class="metric scalar"><h3 class="metric-label">{{heightMetric}}</h3><p class="metric-value"><span id="height-value">—</span> <small>m</small></p><p class="metric-equation">h</p></div>
+    <div class="metric vector"><h3 class="metric-label">{{offsetMetric}}</h3><p class="metric-value"><span id="offset-value">—</span> <small>m</small></p><p class="metric-equation">y = A·sin(2π·t ÷ T)</p></div>
+    <div class="metric vector"><h3 class="metric-label">{{speedMetric}}</h3><p class="metric-value"><span id="speed-value">—</span> <small>m/s</small></p><p class="metric-equation">v</p></div>
+    <div class="metric scalar"><h3 class="metric-label">{{pathMetric}}</h3><p class="metric-value"><span id="path-value">—</span> <small>m</small></p><p class="metric-equation">4·A ↔ T</p></div>
+  </section>
+  <div class="insight" id="insight"><span class="insight-icon" aria-hidden="true">↗</span><div><strong id="lesson-title">{{predictTitle}}</strong><p id="lesson-copy">{{predictCopy}}</p></div></div>
+  <section class="challenge"><div class="mission-heading"><h2 class="challenge-title">{{missionTitle}}</h2><div class="score-card"><span>{{score}}</span><strong id="mission-score">—</strong></div></div><p class="mission-copy">{{missionCopy}}</p><div class="badges"><span id="right-badge">✓ {{rightBadge}}</span><span id="first-badge">① {{firstBadge}}</span></div></section>
+</div>
+</div>
+<article class="learning-content"><section><h2>{{guideTitle}}</h2><ol><li>{{instruction1}}</li><li>{{instruction2}}</li><li>{{instruction3}}</li><li>{{instruction4}}</li></ol></section><section><h2>{{conceptTitle}}</h2><p>{{conceptCopy}}</p><aside class="worked-example"><h3>{{exampleTitle}}</h3><p>{{exampleCopy}}</p></aside></section><section><h2>{{modelTitle}}</h2><p>{{modelCopy}}</p></section></article>
+<p class="language-note" id="language-note">{{languageNote}}</p>
+</main>
+__FOOTER__
+<p class="sr-only" id="announcement" role="status" aria-live="polite"></p>
+</div>
+<script id="buoy-model">
+class BuoyModel {
+  // A buoy on a steady swell bobs in simple harmonic motion about the middle level: y = A·sin(2π·t ÷ T). The amplitude A is
+  // the distance from the middle to the top (half of top to bottom); the period T doesn't depend on it. Each period the buoy
+  // travels 4·A up and down, passes the middle fastest at v = 2π·A ÷ T, and a swell's energy per square metre is ½·ρ·g·A².
+  // Long runs play faster than real time (pace) so a minute of bobbing fits a short run.
+  static tolerance = .02;
+  static rho = 1025; // kg/m³, sea water
+  static g = 9.8;
+  static mid = 2.2; // m on the post
+  static missions = [
+    {key:'crest',ask:'amplitude',top:3.4,bottom:1,T:8,run:8,pace:2},
+    {key:'bigger',ask:'period',A0:.5,scale:3,T:8,run:16,pace:4},
+    {key:'minute',ask:'distance',A:1.2,T:8,run:60,pace:6},
+    {key:'speed',ask:'speed',A:1.2,T:8,run:8,pace:2},
+    {key:'energy',ask:'ratio',A0:1,scale:2,T:8,run:8,pace:2}
+  ];
+  static units = {amplitude:'m',period:'s',distance:'m',speed:'m/s',ratio:''};
+  static limits = {amplitude:1e3,period:1e4,distance:1e5,speed:1e3,ratio:1e4};
+  constructor(index = 0){this.setMission(index);}
+  setMission(index){this.index=index;this.config=BuoyModel.missions[index];this.answer=null;this.attempts=0;this.reset();}
+  reset(){this.t=0;this.status='moving';}
+  valid(value){return Number.isFinite(value)&&value>0&&value<=BuoyModel.limits[this.config.ask];}
+  setAnswer(value){if(value!==null&&!this.valid(value))return false;this.answer=value;this.reset();return true;}
+  ready(){return this.answer!==null;}
+  // The swell's amplitude (m): from the top and bottom marks, the smaller swell scaled up, or given.
+  amplitude(){const c=this.config;if(c.top!==undefined)return (c.top-c.bottom)/2;if(c.A0)return c.A0*c.scale;return c.A;}
+  reference(){return this.config.A0??null;}
+  middle(){const c=this.config;return c.top!==undefined?(c.top+c.bottom)/2:BuoyModel.mid;}
+  omega(){return 2*Math.PI/this.config.T;}
+  clamp(t){return Math.min(Math.max(t,0),this.duration());}
+  offset(t,A=this.amplitude()){return A*Math.sin(this.omega()*this.clamp(t));}
+  height(t){return this.middle()+this.offset(t);}
+  velocity(t,A=this.amplitude()){return A*this.omega()*Math.cos(this.omega()*this.clamp(t));}
+  // Distance travelled up and down since the start: A for every quarter period, plus the part of the current quarter.
+  path(t){
+    const A=this.amplitude(),phase=this.omega()*this.clamp(t),q=Math.floor(phase/(Math.PI/2)+1e-12),r=Math.max(0,phase-q*Math.PI/2);
+    return A*q+(q%2===0?A*Math.sin(r):A*(1-Math.cos(r)));
+  }
+  // Energy of the swell per square metre of sea (J/m²).
+  energy(A=this.amplitude()){return BuoyModel.rho*BuoyModel.g*A*A/2;}
+  duration(){return this.config.run;}
+  now(){return this.status==='done'?this.duration():this.t;}
+  advance(dt){
+    if(!Number.isFinite(dt)||dt<0)throw new Error('Invalid timestep');
+    if(this.status==='done'||!this.ready())return null;
+    // A run counts as an attempt as soon as it starts; it ends exactly after its time on the swell.
+    if(this.t===0)this.attempts++;
+    const T=this.duration();
+    if(this.t+dt>=T*(1-1e-12)){this.t=T;this.status='done';return {t:T,done:true};}
+    this.t+=dt;return null;
+  }
+  exact(){
+    const c=this.config,A=this.amplitude();
+    if(c.ask==='amplitude')return A;
+    if(c.ask==='period')return c.T;
+    if(c.ask==='distance')return 4*A*c.run/c.T;
+    if(c.ask==='speed')return 2*Math.PI*A/c.T;
+    return c.scale**2;
+  }
+  unit(){return BuoyModel.units[this.config.ask];}
+  evaluate(){
+    if(!this.ready())return {ok:false,slip:null,first:false,exact:this.exact()};
+    const c=this.config,a=this.answer,e=this.exact(),A=this.amplitude(),tol=BuoyModel.tolerance,near=(p,q)=>Math.abs(p-q)<=tol*Math.abs(q)+1e-12;
+    // Every answer is right within 2%.
+    const ok=near(a,e);let slip=null;
+    if(!ok){
+      if(c.ask==='amplitude'){if(near(a,2*A))slip='peakToPeak';else if(near(a,c.top))slip='crestReading';else if(near(a,this.middle()))slip='middle';}
+      else if(c.ask==='period'){if(near(a,c.T*c.scale))slip='scaled';else if(near(a,c.T/c.scale))slip='shrunk';else if(near(a,c.T*Math.sqrt(c.scale)))slip='rootPeriod';}
+      else if(c.ask==='distance'){if(near(a,e/2))slip='twoA';else if(near(a,e/4))slip='oneA';else if(near(a,4*A*Math.floor(c.run/c.T)))slip='wholePeriods';}
+      else if(c.ask==='speed'){if(near(a,4*A/c.T))slip='average';else if(near(a,A/c.T))slip='noTwoPi';else if(near(a,2*Math.PI/c.T))slip='noAmplitude';}
+      else{if(near(a,c.scale))slip='linear';else if(near(a,c.scale**3))slip='cubed';else if(near(a,Math.sqrt(c.scale)))slip='rootEnergy';}
+    }
+    return {ok,slip,first:ok&&this.attempts===1,exact:e};
+  }
+  score(){if(this.status!=='done')return 0;const e=this.evaluate();return (e.ok?100:0)+(e.first?50:0);}
+  snapshot(){return {index:this.index,answer:this.answer,attempts:this.attempts,t:this.t,status:this.status};}
+  restore(saved){
+    if(!Number.isInteger(saved?.index)||!BuoyModel.missions[saved.index])return false;
+    const probe=new BuoyModel(saved.index);
+    if(!probe.setAnswer(saved.answer??null)||!Number.isInteger(saved.attempts)||saved.attempts<0)return false;
+    if(!['moving','done'].includes(saved.status)||!Number.isFinite(saved.t)||saved.t<0||saved.t>probe.duration()*(1+1e-9))return false;
+    if(probe.answer===null&&(saved.t>0||saved.status==='done'))return false;
+    if((saved.status==='done'||saved.t>0)&&saved.attempts<1)return false;
+    this.setMission(saved.index);this.answer=probe.answer;this.attempts=saved.attempts;
+    this.status=saved.status;this.t=saved.status==='done'?this.duration():saved.t;return true;
+  }
+}
+globalThis.BuoyModel=BuoyModel;
+</script>
+<script id="buoy-locale" type="application/json">__LOCALE__</script>
+<script id="buoy-interface">
+(() => {
+  'use strict';
+  const $=id=>document.getElementById(id),locale=JSON.parse($('buoy-locale').textContent);
+  const text=(key,values={})=>locale.strings[key].replace(/\{(\w+)\}/g,(_,name)=>values[name]??'{'+name+'}');
+  const number=(n,d=2)=>Math.abs(n)<.5*10**-d?(0).toLocaleString(locale.lang,{minimumFractionDigits:d,maximumFractionDigits:d}):n.toLocaleString(locale.lang,{minimumFractionDigits:d,maximumFractionDigits:d,useGrouping:false});
+  const plain=n=>n.toLocaleString(locale.lang,{maximumFractionDigits:3,useGrouping:false}).replace('-','−');
+  const model=new BuoyModel();
+  const canvas=$('buoy-canvas'),ctx=canvas.getContext('2d');
+  const H=1/120,transferKey='phisicos-buoy-language-transfer';
+  let running=false,previous=null,accumulator=0,lastUpdate=0,width=800,height=410;
+  const say=message=>{$('announcement').textContent=message;};
+  try{const data=JSON.parse(sessionStorage.getItem(transferKey)||'null');sessionStorage.removeItem(transferKey);if(data)model.restore(data.state);}catch{$('language-note').hidden=true;}
+  const amount=v=>plain(Number(v.toPrecision(5)))+(model.unit()?' '+model.unit():'');
+  const symbols={amplitude:'A =',period:'T =',distance:'d =',speed:'v_max =',ratio:'E₂ ÷ E₁ ='};
+  const slipKey=name=>'slip'+name[0].toUpperCase()+name.slice(1);
+  const kilo=n=>number(n/1000,1);
+  function setRunning(value){
+    const done=model.status==='done',blocked=!model.ready();running=value&&!done&&!blocked;previous=null;accumulator=0;
+    $('play').disabled=running||done||blocked;$('pause').disabled=!running;$('step').disabled=running||done||blocked;
+    $('buoy-status').classList.toggle('running',running);
+    $('buoy-status-text').textContent=text(done?'done':running?'running':model.t?'paused':'ready');
+  }
+  // Givens: the marks on the post, the smaller swell and how much taller today's is, or the swell itself.
+  function given(m){
+    if(m.top!==undefined)return 'y_max = '+plain(m.top)+' m · y_min = '+plain(m.bottom)+' m';
+    if(m.A0)return 'A = '+plain(m.A0)+' m → ×'+plain(m.scale)+(m.ask==='period'?' · T = '+plain(m.T)+' s':'');
+    return 'A = '+plain(m.A)+' m · T = '+plain(m.T)+' s'+(m.ask==='distance'?' · t = '+plain(m.run)+' s':'');
+  }
+  function sync(){
+    const c=model.config;
+    BuoyModel.missions.forEach((m,i)=>{$('mission-'+i).setAttribute('aria-pressed',String(i===model.index));$('given-'+i).textContent=given(m);});
+    $('question').textContent=text('question'+model.index);$('answer-symbol').textContent=symbols[c.ask];$('answer-unit').textContent=model.unit();
+    $('answer').value=model.answer===null?'':String(model.answer);$('mission-label').textContent=text('mission'+model.index);
+  }
+  // The readings show only once a run starts, because they give the answer away.
+  const started=()=>model.status==='done'||model.t>0;
+  function equation(){
+    const c=model.config,A=model.amplitude();
+    if(c.ask==='amplitude')return 'A = (y_max − y_min) ÷ 2 = ('+plain(c.top)+' − '+plain(c.bottom)+') ÷ 2 = '+number(A)+' m';
+    if(c.ask==='period')return 'A = '+plain(c.A0)+' m → '+plain(A)+' m: T = '+number(c.T)+' s → '+number(c.T)+' s';
+    if(c.ask==='distance')return 'd = (t ÷ T)·4·A = ('+plain(c.run)+' ÷ '+plain(c.T)+') × 4 × '+plain(A)+' = '+number(model.exact(),1)+' m';
+    if(c.ask==='speed')return 'v_max = 2π·A ÷ T = 2π × '+plain(A)+' ÷ '+plain(c.T)+' = '+number(model.exact())+' m/s';
+    return 'E = ½·ρ·g·A² → ('+plain(A)+' ÷ '+plain(c.A0)+')² = '+plain(model.exact());
+  }
+  function update(){
+    const c=model.config,ready=model.ready(),done=model.status==='done',t=ready?model.now():0,e=model.evaluate(),begun=started(),A=model.amplitude();
+    $('time-value').textContent=number(t);$('height-value').textContent=begun?number(model.height(t)):'—';$('offset-value').textContent=begun?number(model.offset(t)):'—';
+    $('speed-value').textContent=begun?number(Math.abs(model.velocity(t))):'—';$('path-value').textContent=begun?number(model.path(t),1):'—';
+    $('buoy-equation').textContent=begun?equation():{amplitude:'A = (y_max − y_min) ÷ 2',period:'y = A·sin(2π·t ÷ T)',distance:'d = (t ÷ T)·4·A',speed:'v_max = 2π·A ÷ T',ratio:'E = ½·ρ·g·A²'}[c.ask];
+    let key,copy;
+    const E1=c.A0?model.energy(c.A0):0,E2=model.energy();
+    const values={top:plain(model.middle()+A),bottom:plain(model.middle()-A),A:number(A),mid:number(model.middle()),T:number(c.T),t:plain(c.run),n:number(c.run/c.T,1),d:number(model.path(c.run),1),v:number(A*model.omega()),E1:kilo(E1),E2:kilo(E2),r:number(E1?E2/E1:0,1)};
+    if(done){
+      const base=text('result'+model.index,values);
+      if(e.ok){key='good';copy=base+' '+text('why'+model.index);}
+      else{key='miss';copy=base+' '+text('missCopy',{p:amount(model.answer)})+' '+(e.slip?text(slipKey(e.slip)):text('hint'+model.index));}
+    }
+    else if(!ready){key='predict';copy=text('predictCopy');}
+    else if(model.t>0){key='running';copy=text('bobbingCopy',{y:number(model.offset(t)),v:number(Math.abs(model.velocity(t))),d:number(model.path(t),1)});}
+    else{key='ready';copy=text('readyCopy');}
+    $('lesson-title').textContent=text(key+'Title',{t:number(t),p:ready?amount(model.answer):''});$('lesson-copy').textContent=copy;
+    $('insight').classList.toggle('warning',key==='miss');
+    $('mission-score').textContent=done?String(model.score()):'—';
+    $('right-badge').classList.toggle('earned',done&&e.ok);$('first-badge').classList.toggle('earned',done&&e.first);
+  }
+  function refresh(){setRunning(false);update();draw();}
+  function simulate(dt){
+    const result=model.advance(dt);
+    if(result?.done){setRunning(false);update();say(text('doneAnnouncement')+' '+$('lesson-title').textContent);return true;}
+    return false;
+  }
+  $('answer').addEventListener('input',event=>{const raw=String(event.target.value).trim(),value=raw===''?null:Number(raw);if(!model.setAnswer(value))model.setAnswer(null);refresh();});
+  $('play').addEventListener('click',()=>{setRunning(true);update();say(text('startedAnnouncement'));});
+  $('pause').addEventListener('click',()=>{setRunning(false);update();say(text('pausedAnnouncement'));});
+  $('step').addEventListener('click',()=>{for(let i=0;i<12;i++)if(simulate(H*model.config.pace))break;setRunning(false);update();draw();});
+  $('reset').addEventListener('click',()=>{model.reset();refresh();say(text('resetAnnouncement'));});
+  BuoyModel.missions.forEach((_,i)=>$('mission-'+i).addEventListener('click',()=>{model.setMission(i);sync();refresh();say(text('missionAnnouncement',{name:text('mission'+i)}));}));
+  for(const id of ['show-post','show-guess'])$(id).addEventListener('change',()=>{update();draw();});
+  function suspend(){if(running){setRunning(false);say(text('suspendedAnnouncement'));}update();draw();}
+  window.addEventListener('blur',suspend);document.addEventListener('visibilitychange',()=>{if(document.hidden)suspend();});
+  for(const link of document.querySelectorAll('.language-menu a'))link.addEventListener('click',()=>{setRunning(false);try{sessionStorage.setItem(transferKey,JSON.stringify({state:model.snapshot()}));}catch{}});
+  function resize(){const rect=canvas.getBoundingClientRect();if(rect.width<=0)return;width=rect.width;height=rect.height;const dpr=Math.min(window.devicePixelRatio||1,3);canvas.width=Math.round(width*dpr);canvas.height=Math.round(height*dpr);ctx.setTransform(dpr,0,0,dpr,0,0);draw();}
+  function draw(){
+    if(!ctx)return;
+    const c=model.config,ready=model.ready(),done=model.status==='done',t=ready?model.now():0,begun=started(),post=$('show-post').checked,guess=$('show-guess').checked&&ready,A=model.amplitude(),mid=model.middle();
+    ctx.clearRect(0,0,width,height);
+    const label=(str,px,py,color='#b8ccdb',align='left',font=12)=>{ctx.fillStyle=color;ctx.textAlign=align;ctx.font=font+'px -apple-system,BlinkMacSystemFont,sans-serif';ctx.fillText(str,px,py);};
+    const line=(points,color,w=1,dash=[])=>{ctx.beginPath();ctx.strokeStyle=color;ctx.lineWidth=w;ctx.setLineDash(dash);points.forEach((q,i)=>i?ctx.lineTo(q.x,q.y):ctx.moveTo(q.x,q.y));ctx.stroke();ctx.setLineDash([]);};
+    const fit=(str,px,py,color,size,room,align='left')=>{ctx.font=size+'px -apple-system,BlinkMacSystemFont,sans-serif';const w=ctx.measureText(str).width;label(str,px,py,color,align,w>room?Math.max(7,Math.floor(size*room/w)):size);};
+    const dot=(x,y,r,color)=>{ctx.fillStyle=color;ctx.beginPath();ctx.arc(x,y,Math.max(r,.5),0,Math.PI*2);ctx.fill();};
+    const wide=width>=560,area=wide?width*.64:width;
+    fit(text('viewTitle'),16,20,'#d1e3ed',12,area-28);
+    if(done){const ev=model.evaluate();fit(text(ev.ok?'rightBanner':'offBanner'),16,40,ev.ok?'#75efc7':'#efb958',width<430?12:14,area-28);}
+    // Side view to scale vertically: k px per metre of height on the post, from the sea bed reading 0 m to 4.6 m.
+    const base=height-30,top=58,k=(base-top)/4.6,Y=h=>base-h*k,bx=area*.5,px=area*.24,w=model.omega(),wave=area*.7,phase=w*model.clamp(t);
+    const xr=bx+area*.22,surface=(x,amp,x0=bx)=>mid+amp*Math.sin(phase-2*Math.PI*(x-x0)/wave);
+    // The reference swell (gray, phased so its ghost buoy at xr bobs in step with yours) and today's (blue), then the post.
+    const sea=(amp,x0)=>{const pts=[];for(let x=0;x<=area;x+=4)pts.push({x,y:Y(surface(x,amp,x0))});return pts;};
+    const now=sea(ready?A:0);ctx.fillStyle='rgba(68,128,186,.28)';ctx.beginPath();ctx.moveTo(0,base);now.forEach(q=>ctx.lineTo(q.x,q.y));ctx.lineTo(area,base);ctx.closePath();ctx.fill();
+    if(c.A0)line(sea(ready?c.A0:0,xr),'#9fb6c7',1.5,[5,4]);
+    line(now,'#77b9ff',2);
+    ctx.fillStyle='#5b4a3a';ctx.fillRect(px-7,Y(4.6),14,base-Y(4.6));
+    if(post){for(let h=0;h<=4.5+1e-9;h+=.5){const y=Y(h);line([{x:px+7,y},{x:px+(h%1?12:16),y}],'#f2f8fc',1);if(h%1===0)label(plain(h)+' m',px-12,y+4,'#d1e3ed','right',10);}}
+    if(c.top!==undefined){for(const [h,key] of [[c.top,'crestTag'],[c.bottom,'troughTag']]){const y=Y(h);line([{x:px-10,y},{x:px+30,y}],'#f2f8fc',2);fit(text(key)+' '+plain(h)+' m',px+34,y+4,'#f2f8fc',10,bx-px-60);}}
+    // Your prediction: a band of ± your amplitude about the middle, or your speed on the bar.
+    if(guess&&c.ask==='amplitude'){for(const h of [mid+model.answer,mid-model.answer]){const y=Y(Math.min(Math.max(h,0),4.6));line([{x:px+8,y},{x:area-10,y}],'#efb958',1.5,[5,4]);}fit(text('guessTag'),area-12,Math.max(Y(Math.min(mid+model.answer,4.6))-5,top+14),'#efb958',9,area*.3,'right');}
+    if(begun||c.ask!=='amplitude')line([{x:px+8,y:Y(mid)},{x:area-10,y:Y(mid)}],'#9fb6c7',1,[2,4]);
+    // The buoy: a float with a mast and light, riding the surface where it is.
+    const hb=ready?model.height(t):mid,yb=Y(hb),r=Math.max(9,.32*k);
+    if(c.A0){const hr=ready?mid+model.offset(t,c.A0):mid,yr=Y(hr);line([{x:xr,y:yr-r*.8},{x:xr,y:yr-r*2.2}],'#9fb6c7',2);ctx.strokeStyle='#9fb6c7';ctx.lineWidth=1.5;ctx.setLineDash([3,3]);ctx.beginPath();ctx.arc(xr,yr,r*.8,0,Math.PI*2);ctx.stroke();ctx.setLineDash([]);fit('A = '+plain(c.A0)+' m',xr,yr+r+14,'#9fb6c7',10,90,'center');}
+    line([{x:bx,y:yb-r},{x:bx,y:yb-r*2.6}],'#d1e3ed',2);dot(bx,yb-r*2.6,3.5,'#efb958');
+    dot(bx,yb,r,'#ff7b6b');ctx.fillStyle='#f2f8fc';ctx.fillRect(bx-r,yb-r*.22,2*r,r*.44);
+    if(begun&&c.A0)fit('A = '+plain(A)+' m',bx,yb+r+14,'#d1e3ed',10,90,'center');
+    if(c.ask==='speed'&&begun){const sx=bx+r+46,sb=Y(.4),scale=(Y(.4)-Y(2.2))/1.5,v=Math.abs(model.velocity(t));ctx.fillStyle='#77b9ff';ctx.fillRect(sx,sb-v*scale,14,v*scale);line([{x:sx,y:sb},{x:sx+14,y:sb}],'#8aa3b5',1);
+      fit('v',sx+7,sb+14,'#9fb6c7',10,20,'center');if(guess){const yy=sb-Math.min(model.answer,1.5)*scale;line([{x:sx-6,y:yy},{x:sx+20,y:yy}],'#efb958',2,[4,3]);fit(text('guessTag'),sx+24,yy+4,'#efb958',9,area-sx-28);}}
+    fit('t = '+number(t)+' s',area-16,top-4,'#f2f8fc',13,area*.3,'right');
+    label(text('scaleNote'),16,height-8,'#9fb6c7','left',10);
+    if(!wide)return;
+    // Right panel: height over time, the distance travelled, or the swell's energy against the smaller one's.
+    const titles={distance:'pathGraph',ratio:'energyGraph'};
+    fit(text(titles[c.ask]||'heightGraph'),area+8,44,'#d1e3ed',10,width-area-16);
+    if(!begun){fit(text('panelHint'),area+8,70,'#9fb6c7',10,width-area-16);return;}
+    const D=model.duration(),px0=area+14,px1=width-14,py0=70,py1=height-62,PX=q=>px0+q/D*(px1-px0);
+    if(c.ask==='ratio'){
+      const E1=model.energy(c.A0),E2=model.energy(),top2=Math.max(E2,guess?model.answer*E1:0)*1.1,bw=(px1-px0)/2-12,BY=v=>py1-Math.min(v,top2)/top2*(py1-py0);
+      ctx.fillStyle='#9fb6c7';ctx.fillRect(px0,BY(E1),bw,py1-BY(E1));ctx.fillStyle='#77b9ff';ctx.fillRect(px0+bw+24,BY(E2),bw,py1-BY(E2));
+      // Values sit inside their bars, clear of your guess line above them.
+      const tag=(v,x)=>{const y=BY(v),inside=py1-y>22;fit(kilo(v)+' kJ/m²',x,inside?y+15:y-6,inside?'#0f2233':'#d1e3ed',10,bw-4,'center');};tag(E1,px0+bw/2);tag(E2,px0+bw*1.5+24);
+      fit('A = '+plain(c.A0)+' m',px0+bw/2,py1+14,'#9fb6c7',9,bw+20,'center');fit('A = '+plain(A)+' m',px0+bw*1.5+24,py1+14,'#9fb6c7',9,bw+20,'center');
+      if(guess){const yy=BY(model.answer*E1);line([{x:px0+bw+18,y:yy},{x:px1+4,y:yy}],'#efb958',2,[5,3]);fit(text('guessTag'),px1,yy-5,'#efb958',9,bw,'right');}
+      return;
+    }
+    line([{x:px0,y:py0},{x:px0,y:py1}],'#8aa3b5',1);
+    const upto=Math.min(t,D),pts=[];
+    if(c.ask==='distance'){
+      const span=Math.max(model.exact(),guess?model.answer:0)*1.1,PY=v=>py1-Math.min(v,span)/span*(py1-py0);
+      line([{x:px0,y:py1},{x:px1,y:py1}],'#8aa3b5',1);for(let i=0;i<=240;i++){const q=upto*i/240;pts.push({x:PX(q),y:PY(model.path(q))});}line(pts,'#77b9ff',2);
+      if(guess){const yy=PY(model.answer);line([{x:px0,y:yy},{x:px1,y:yy}],'#efb958',1.5,[5,3]);fit(text('guessTag'),px1,yy-4,'#efb958',9,px1-px0,'right');}
+    }else{
+      const span=Math.max(A,c.ask==='amplitude'&&guess?Math.min(model.answer,4):0)*1.25,ym=(py0+py1)/2,PY=v=>ym-v/span*(py1-py0)/2;
+      line([{x:px0,y:ym},{x:px1,y:ym}],'#8aa3b5',1);
+      if(c.A0){const ref=[];for(let i=0;i<=200;i++){const q=upto*i/200;ref.push({x:PX(q),y:PY(model.offset(q,c.A0))});}line(ref,'#9fb6c7',1.5,[4,3]);}
+      for(let i=0;i<=200;i++){const q=upto*i/200;pts.push({x:PX(q),y:PY(model.offset(q))});}line(pts,'#77b9ff',2);
+      if(guess&&c.ask==='amplitude')for(const v of [model.answer,-model.answer]){const yy=PY(Math.max(Math.min(v,span),-span));line([{x:px0,y:yy},{x:px1,y:yy}],'#efb958',1.5,[5,3]);}
+      if(guess&&c.ask==='period'&&model.answer>=.2)for(let q=model.answer;q<=D+1e-9;q+=model.answer)line([{x:PX(q),y:py0},{x:PX(q),y:py1}],'#efb958',1.2,[5,4]);
+    }
+    fit(text('timeAxis'),px0,py1+14,'#9fb6c7',9,(px1-px0)/2);
+  }
+  function frame(now){if(previous===null)previous=now;const elapsed=Math.min(.1,(now-previous)/1000);previous=now;if(running){accumulator+=elapsed*model.config.pace;while(accumulator>=H&&running){accumulator-=H;simulate(H);}draw();}if(now-lastUpdate>=80){update();lastUpdate=now;}requestAnimationFrame(frame);}
+  window.addEventListener('resize',resize);if(typeof ResizeObserver!=='undefined')new ResizeObserver(resize).observe(canvas);
+  sync();setRunning(false);update();resize();requestAnimationFrame(frame);
+})();
+</script>
+</body>
+</html>

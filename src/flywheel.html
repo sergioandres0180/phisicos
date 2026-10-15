@@ -1,0 +1,287 @@
+<!doctype html>
+<html lang="en">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Flywheel Race · Phisicos</title>
+<style>
+.flywheel-page .answer-row .symbol{min-width:44px}.flywheel-page .question{font-size:15px;font-weight:600;margin-top:4px}
+.flywheel-page .line-key.white{background:#f2f8fc}.flywheel-page .line-key.blue{background:#77b9ff}
+</style>
+</head>
+<body>
+<div class="shell module-page flywheel-page">
+__HEADER__
+<main id="main-content">
+__BREADCRUMBS__
+
+<div class="masthead"><div><h1>{{title}}</h1><p class="intro">{{subtitle}}</p></div><div class="concept-tags"><span class="tag speed">{{tag1}}</span><span class="tag velocity">{{tag2}}</span></div></div>
+<noscript><p class="no-js">{{noScript}}</p></noscript>
+<div class="layout">
+<aside class="sidebar" aria-label="{{setup}}">
+  <section class="control-section"><h2 class="eyebrow">{{setup}}</h2><div class="mission-list" role="group" aria-label="{{setup}}">
+    <button id="mission-0" aria-pressed="true"><b>1 · {{mission0}}</b><span id="given-0">I</span></button>
+    <button id="mission-1" aria-pressed="false"><b>2 · {{mission1}}</b><span id="given-1">I</span></button>
+    <button id="mission-2" aria-pressed="false"><b>3 · {{mission2}}</b><span id="given-2">I</span></button>
+    <button id="mission-3" aria-pressed="false"><b>4 · {{mission3}}</b><span id="given-3">I</span></button>
+    <button id="mission-4" aria-pressed="false"><b>5 · {{mission4}}</b><span id="given-4">I</span></button>
+  </div><p class="hint">{{setupNote}}</p></section>
+  <section class="control-section"><h2 class="eyebrow">{{answerHeading}}</h2>
+    <p class="question" id="question">{{question0}}</p>
+    <p class="field-label"><label for="answer">{{answerLabel}}</label></p>
+    <div class="answer-row"><span class="symbol" id="answer-symbol">t =</span><input id="answer" type="number" inputmode="decimal" step="any" value=""><span class="unit" id="answer-unit">s</span></div>
+    <p class="hint">{{answerHint}}</p>
+  </section>
+  <section class="control-section"><h2 class="eyebrow">{{observe}}</h2><label class="check"><input id="show-vectors" type="checkbox" checked>{{vectors}}</label><label class="check"><input id="show-pace" type="checkbox" checked>{{paceToggle}}</label><p class="hint">{{observeHint}}</p></section>
+</aside>
+<div class="workspace">
+  <section class="scene" aria-label="{{sceneTitle}}"><div class="scene-top"><div><h2 class="scene-title">{{sceneTitle}}</h2><p class="scene-subtitle" id="mission-label">{{mission0}}</p></div><span class="status" id="flywheel-status"><i class="status-dot" aria-hidden="true"></i><span id="flywheel-status-text">{{ready}}</span></span></div>
+    <div class="module-stage"><canvas id="flywheel-canvas" role="img" aria-label="{{canvasLabel}}">{{noScript}}</canvas></div>
+    <div class="legend"><span><i class="line-key blue"></i>{{forceLegend}}</span><span><i class="line-key mint"></i>{{torqueLegend}}</span><span><i class="line-key orange"></i>{{frictionLegend}}</span><span><i class="line-key white"></i>{{paceLegend}}</span></div>
+    <div class="module-equation"><span>{{equationTitle}}</span><output id="flywheel-equation">τ_net = I·α</output></div>
+    <div class="transport"><button id="play" class="primary" disabled>{{play}}</button><button id="pause" disabled>{{pause}}</button><button id="step" disabled>{{step}}</button><button id="reset" class="reset">{{reset}}</button></div>
+  </section>
+  <section class="metrics" aria-label="{{observe}}">
+    <div class="metric scalar"><h3 class="metric-label">{{time}}</h3><p class="metric-value"><span id="time-value">0.00</span> <small>s</small></p><p class="metric-equation">t</p></div>
+    <div class="metric vector"><h3 class="metric-label">{{omegaMetric}}</h3><p class="metric-value"><span id="omega-value">0.00</span> <small>rad/s</small></p><p class="metric-equation">ω = ω₀ + α·t</p></div>
+    <div class="metric vector"><h3 class="metric-label">{{alphaMetric}}</h3><p class="metric-value"><span id="alpha-value">—</span> <small>rad/s²</small></p><p class="metric-equation">α</p></div>
+    <div class="metric vector"><h3 class="metric-label">{{torqueMetric}}</h3><p class="metric-value"><span id="torque-value">—</span> <small>N·m</small></p><p class="metric-equation">τ_net = F·r − τ_f</p></div>
+    <div class="metric scalar"><h3 class="metric-label">{{inertiaMetric}}</h3><p class="metric-value"><span id="inertia-value">—</span> <small>kg·m²</small></p><p class="metric-equation">I</p></div>
+  </section>
+  <div class="insight" id="insight"><span class="insight-icon" aria-hidden="true">↗</span><div><strong id="lesson-title">{{predictTitle}}</strong><p id="lesson-copy">{{predictCopy}}</p></div></div>
+  <section class="challenge"><div class="mission-heading"><h2 class="challenge-title">{{missionTitle}}</h2><div class="score-card"><span>{{score}}</span><strong id="mission-score">—</strong></div></div><p class="mission-copy">{{missionCopy}}</p><div class="badges"><span id="right-badge">✓ {{rightBadge}}</span><span id="first-badge">① {{firstBadge}}</span></div></section>
+</div>
+</div>
+<article class="learning-content"><section><h2>{{guideTitle}}</h2><ol><li>{{instruction1}}</li><li>{{instruction2}}</li><li>{{instruction3}}</li><li>{{instruction4}}</li></ol></section><section><h2>{{conceptTitle}}</h2><p>{{conceptCopy}}</p><aside class="worked-example"><h3>{{exampleTitle}}</h3><p>{{exampleCopy}}</p></aside></section><section><h2>{{modelTitle}}</h2><p>{{modelCopy}}</p></section></article>
+<p class="language-note" id="language-note">{{languageNote}}</p>
+</main>
+__FOOTER__
+<p class="sr-only" id="announcement" role="status" aria-live="polite"></p>
+</div>
+<script id="flywheel-model">
+class FlywheelModel {
+  // A flywheel turns about a fixed axle. A cord wound on its spool pulls with a constant force F at the spool's radius r, so
+  // the cord's torque is τ = F·r; bearing friction gives a constant torque τ_f against the motion, and a wheel at rest stays
+  // at rest while τ ≤ τ_f. The net torque is constant, so α = (τ − τ_f) ÷ I is constant and ω = ω₀ + α·t, θ = ω₀·t + ½·α·t²
+  // are exact. Point masses on the spokes add m·x² each to the hub's I₀. The target speed is reached exactly at
+  // t = (ω − ω₀) ÷ α; a run ends there or after twice the pace time. A slowing wheel stops exactly at t = ω₀ ÷ |α|.
+  static tolerance = .02;
+  static missions = [
+    {ask:'time',I:.5,F:20,r:.1,friction:0,w0:0,target:12,pace:null},
+    {ask:'force',I:.5,F:null,r:.1,friction:0,w0:0,target:20,pace:4},
+    {ask:'radius',I0:.02,masses:2,mass:1,F:10,r:.1,friction:0,w0:0,target:15,pace:3},
+    {ask:'friction',I:.4,F:null,r:.1,friction:.3,w0:0,target:10,pace:5},
+    {ask:'steady',I:.3,F:null,r:.15,friction:.45,w0:10,target:null,pace:4}
+  ];
+  static units = {time:'s',force:'N',radius:'m',friction:'N',steady:'N'};
+  constructor(index = 0){this.setMission(index);}
+  setMission(index){this.index=index;this.config=FlywheelModel.missions[index];this.answer=null;this.attempts=0;this.reset();}
+  reset(){this.t=0;this.status='spinning';}
+  // A time up to 60 s, a pull up to 500 N (zero is allowed only for the steady wheel), masses 0.05–0.5 m from the axle.
+  valid(value){
+    if(!Number.isFinite(value))return false;const a=this.config.ask;
+    if(a==='time')return value>0&&value<=60;if(a==='radius')return value>=.05&&value<=.5;if(a==='steady')return value>=0&&value<=500;return value>0&&value<=500;
+  }
+  setAnswer(value){if(value!==null&&!this.valid(value))return false;this.answer=value;this.reset();return true;}
+  ready(){return this.answer!==null;}
+  // The pull and the masses' distance with the answer filled in; a time answer is a prediction and changes nothing.
+  force(){return this.config.F??this.answer??0;}
+  x(){return this.config.ask==='radius'?this.answer??0:null;}
+  inertia(){const c=this.config;return c.I??c.I0+c.masses*c.mass*this.x()**2;}
+  tau(){return this.force()*this.config.r;}
+  // A pull that only matches the friction (to rounding, 3 × 0.1 ≠ 0.3 in floating point) gives no net torque.
+  net(){const c=this.config,n=this.tau()-c.friction;if(Math.abs(n)<=1e-12*Math.max(1,c.friction))return 0;return c.w0===0&&n<0?0:n;}
+  alpha(){return this.net()/this.inertia();}
+  hitTime(){const c=this.config,a=this.alpha();return c.target===null?null:a>0?(c.target-c.w0)/a:Infinity;}
+  cap(){const c=this.config;return c.ask==='time'?Infinity:c.ask==='steady'?c.pace:2*c.pace;}
+  duration(){return this.config.ask==='steady'?this.config.pace:Math.min(this.hitTime(),this.cap());}
+  clamp(t){return Math.min(Math.max(t,0),this.duration());}
+  // A slowing wheel stops when ω reaches zero and stays stopped, because the cord's torque is less than the friction.
+  stopTime(){const a=this.alpha();return a<0?this.config.w0/-a:Infinity;}
+  omega(t){const u=Math.min(this.clamp(t),this.stopTime());return this.config.w0+this.alpha()*u;}
+  angle(t){const u=Math.min(this.clamp(t),this.stopTime());return this.config.w0*u+.5*this.alpha()*u*u;}
+  // The pace wheel reaches the target exactly at the pace time, then keeps that speed; the steady pace wheel never changes.
+  paceAlpha(){const c=this.config;return c.pace===null||c.target===null?0:(c.target-c.w0)/c.pace;}
+  paceOmega(t){const c=this.config,u=Math.max(0,t);return c.w0+this.paceAlpha()*Math.min(u,c.pace??0);}
+  paceAngle(t){const c=this.config,u=Math.max(0,t),p=Math.min(u,c.pace??0),a=this.paceAlpha();return c.w0*u+.5*a*p*p+a*p*(u-p);}
+  outcome(){
+    const c=this.config,ok=this.evaluate().ok;
+    if(c.ask==='time')return 'reached';
+    if(c.ask==='steady')return ok?'steady':this.alpha()>0?'faster':'slower';
+    if(this.alpha()<=0)return 'stuck';if(ok)return 'onPace';
+    const hit=this.hitTime();return hit>this.cap()?'slow':hit<c.pace?'fast':'late';
+  }
+  now(){return this.status==='done'?this.duration():this.t;}
+  advance(dt){
+    if(!Number.isFinite(dt)||dt<0)throw new Error('Invalid timestep');
+    if(this.status==='done'||!this.ready())return null;
+    // A run counts as an attempt as soon as it starts; reaching the target is found exactly.
+    if(this.t===0)this.attempts++;
+    const T=this.duration();
+    if(this.t+dt>=T*(1-1e-12)){this.t=T;this.status='done';return {t:T,done:true,outcome:this.outcome()};}
+    this.t+=dt;return null;
+  }
+  exact(){
+    const c=this.config;
+    if(c.ask==='time')return (c.target-c.w0)*c.I/(c.F*c.r);
+    if(c.ask==='radius')return Math.sqrt((c.F*c.r*c.pace/(c.target-c.w0)-c.I0)/(c.masses*c.mass));
+    if(c.ask==='steady')return c.friction/c.r;
+    return (c.I*(c.target-c.w0)/c.pace+c.friction)/c.r;
+  }
+  unit(){return FlywheelModel.units[this.config.ask];}
+  evaluate(){
+    if(!this.ready())return {ok:false,slip:null,first:false,exact:this.exact()};
+    const c=this.config,a=this.answer,e=this.exact(),near=(p,q)=>Math.abs(p-q)<=FlywheelModel.tolerance*Math.abs(q)+1e-9;
+    const ok=near(a,e);
+    let slip=null;
+    if(!ok){
+      if(c.ask==='time'){if(near(a,c.I*c.target/c.F))slip='noRadius';else if(near(a,c.target/(c.F*c.r)))slip='noInertia';else if(near(a,c.target*c.F*c.r/c.I))slip='inverted';}
+      else if(c.ask==='force'){if(near(a,e*c.r))slip='torqueOnly';else if(near(a,c.I*c.target/c.r))slip='noTime';else if(near(a,e*c.r*c.r))slip='multiplied';}
+      else if(c.ask==='radius'){const I=c.F*c.r*c.pace/c.target;if(near(a,Math.sqrt(I/c.masses)))slip='noHub';else if(near(a,Math.sqrt((I-c.I0)/c.mass)))slip='oneMass';else if(near(a,(I-c.I0)/(c.masses*c.mass)))slip='notSquared';}
+      else if(c.ask==='friction'){if(near(a,e-c.friction/c.r))slip='noFriction';else if(near(a,e-2*c.friction/c.r))slip='frictionWrongWay';}
+      else{if(a===0)slip='coast';else if(near(a,c.friction))slip='torqueOnly';else if(near(a,c.friction*c.r))slip='multiplied';}
+    }
+    return {ok,slip,first:ok&&this.attempts===1,exact:e};
+  }
+  score(){if(this.status!=='done')return 0;const e=this.evaluate();return (e.ok?100:0)+(e.first?50:0);}
+  snapshot(){return {index:this.index,answer:this.answer,attempts:this.attempts,t:this.t,status:this.status};}
+  restore(saved){
+    if(!Number.isInteger(saved?.index)||!FlywheelModel.missions[saved.index])return false;
+    const probe=new FlywheelModel(saved.index);
+    if(!probe.setAnswer(saved.answer??null)||!Number.isInteger(saved.attempts)||saved.attempts<0)return false;
+    if(!['spinning','done'].includes(saved.status)||!Number.isFinite(saved.t)||saved.t<0||saved.t>probe.duration()*(1+1e-9))return false;
+    if(probe.answer===null&&(saved.t>0||saved.status==='done'))return false;
+    if((saved.status==='done'||saved.t>0)&&saved.attempts<1)return false;
+    this.setMission(saved.index);this.answer=probe.answer;this.attempts=saved.attempts;
+    this.status=saved.status;this.t=saved.status==='done'?this.duration():saved.t;return true;
+  }
+}
+globalThis.FlywheelModel=FlywheelModel;
+</script>
+<script id="flywheel-locale" type="application/json">__LOCALE__</script>
+<script id="flywheel-interface">
+(() => {
+  'use strict';
+  const $=id=>document.getElementById(id),locale=JSON.parse($('flywheel-locale').textContent);
+  const text=(key,values={})=>locale.strings[key].replace(/\{(\w+)\}/g,(_,name)=>values[name]??'{'+name+'}');
+  const number=(n,d=2)=>Math.abs(n)<.5*10**-d?(0).toLocaleString(locale.lang,{minimumFractionDigits:d,maximumFractionDigits:d}):n.toLocaleString(locale.lang,{minimumFractionDigits:d,maximumFractionDigits:d,useGrouping:false});
+  const plain=n=>n.toLocaleString(locale.lang,{maximumFractionDigits:2,useGrouping:false}).replace('-','−');
+  const model=new FlywheelModel();
+  const canvas=$('flywheel-canvas'),ctx=canvas.getContext('2d');
+  const H=1/120,TAU=2*Math.PI,transferKey='phisicos-flywheel-language-transfer';
+  let running=false,previous=null,accumulator=0,lastUpdate=0,width=800,height=410;
+  const say=message=>{$('announcement').textContent=message;};
+  try{const data=JSON.parse(sessionStorage.getItem(transferKey)||'null');sessionStorage.removeItem(transferKey);if(data)model.restore(data.state);}catch{$('language-note').hidden=true;}
+  const amount=v=>plain(Number(v.toPrecision(5)))+' '+model.unit();
+  const symbols={time:'t =',force:'F =',radius:'x =',friction:'F =',steady:'F ='};
+  const slipKey=name=>'slip'+name[0].toUpperCase()+name.slice(1);
+  function setRunning(value){
+    const done=model.status==='done',blocked=!model.ready();running=value&&!done&&!blocked;previous=null;accumulator=0;
+    $('play').disabled=running||done||blocked;$('pause').disabled=!running;$('step').disabled=running||done||blocked;
+    $('flywheel-status').classList.toggle('running',running);
+    $('flywheel-status-text').textContent=text(done?'done':running?'running':model.t?'paused':'ready');
+  }
+  // Givens: the pull and the spool, the inertia (or the hub and its masses), friction, and the target.
+  function given(m){
+    const parts=[m.F===null?'F = ?':'F = '+plain(m.F)+' N','r = '+plain(m.r)+' m'];
+    parts.push(m.I!==undefined?'I = '+plain(m.I)+' kg·m²':'I₀ = '+plain(m.I0)+' kg·m², '+m.masses+' × '+plain(m.mass)+' kg, x = ?');
+    if(m.friction)parts.push('τ_f = '+plain(m.friction)+' N·m');
+    if(m.target===null)parts.push('ω₀ = '+plain(m.w0)+' rad/s');else parts.push('ω = '+plain(m.target)+' rad/s, t = '+(m.pace===null?'?':plain(m.pace)+' s'));
+    return parts.join(' · ');
+  }
+  function sync(){
+    const c=model.config;
+    FlywheelModel.missions.forEach((m,i)=>{$('mission-'+i).setAttribute('aria-pressed',String(i===model.index));$('given-'+i).textContent=given(m);});
+    $('question').textContent=text('question'+model.index);$('answer-symbol').textContent=symbols[c.ask];$('answer-unit').textContent=model.unit();
+    $('answer').value=model.answer===null?'':String(model.answer);$('mission-label').textContent=text('mission'+model.index);
+  }
+  // α, the net torque, and I show only once a run starts, because they would give the answer away.
+  const started=()=>model.status==='done'||model.t>0;
+  function update(){
+    const c=model.config,ready=model.ready(),done=model.status==='done',t=ready?model.now():0,e=model.evaluate(),begun=started(),a=model.alpha(),I=model.inertia(),tau=model.tau();
+    $('time-value').textContent=number(t);$('omega-value').textContent=number(model.omega(t));
+    $('alpha-value').textContent=begun?number(a):'—';$('torque-value').textContent=begun?number(model.net(),3):'—';$('inertia-value').textContent=begun?number(I,3):'—';
+    $('flywheel-equation').textContent=begun?'α = '+(c.friction?'(τ − τ_f)':'τ')+' ÷ I = '+(c.friction?'('+number(tau,3)+' − '+number(c.friction,3)+')':number(tau,3))+' ÷ '+number(I,3)+' = '+number(a)+' rad/s²':'τ_net = I·α';
+    let key,copy;
+    const hit=model.hitTime(),values={target:plain(c.target??0),th:number(Number.isFinite(hit)?hit:0),tp:number(c.pace??0),w:number(model.omega(model.duration())),tc:number(model.duration()),tau:number(tau,3),tf:number(c.friction,3),a:number(a)};
+    if(done){
+      const base=text(model.outcome()+'Copy',values);
+      if(e.ok){key='good';copy=base+' '+text('why'+model.index);}
+      else{key='miss';copy=base+' '+text('missCopy',{p:amount(model.answer)})+' '+(e.slip?text(slipKey(e.slip)):text('hint'+model.index));}
+    }
+    else if(!ready){key='predict';copy=text('predictCopy');}
+    else if(model.t>0){key='running';copy=text('spinningCopy',{w:number(model.omega(t)),a:number(a)});}
+    else{key='ready';copy=text('readyCopy');}
+    $('lesson-title').textContent=text(key+'Title',{t:number(t),p:ready?amount(model.answer):''});$('lesson-copy').textContent=copy;
+    $('insight').classList.toggle('warning',key==='miss');
+    $('mission-score').textContent=done?String(model.score()):'—';
+    $('right-badge').classList.toggle('earned',done&&e.ok);$('first-badge').classList.toggle('earned',done&&e.first);
+  }
+  function refresh(){setRunning(false);update();draw();}
+  function simulate(dt){
+    const result=model.advance(dt);
+    if(result?.done){setRunning(false);update();say(text('doneAnnouncement')+' '+$('lesson-title').textContent);return true;}
+    return false;
+  }
+  $('answer').addEventListener('input',event=>{const raw=String(event.target.value).trim(),value=raw===''?null:Number(raw);if(!model.setAnswer(value))model.setAnswer(null);refresh();});
+  $('play').addEventListener('click',()=>{setRunning(true);update();say(text('startedAnnouncement'));});
+  $('pause').addEventListener('click',()=>{setRunning(false);update();say(text('pausedAnnouncement'));});
+  $('step').addEventListener('click',()=>{for(let i=0;i<12;i++)if(simulate(H))break;setRunning(false);update();draw();});
+  $('reset').addEventListener('click',()=>{model.reset();refresh();say(text('resetAnnouncement'));});
+  FlywheelModel.missions.forEach((_,i)=>$('mission-'+i).addEventListener('click',()=>{model.setMission(i);sync();refresh();say(text('missionAnnouncement',{name:text('mission'+i)}));}));
+  for(const id of ['show-vectors','show-pace'])$(id).addEventListener('change',()=>{update();draw();});
+  function suspend(){if(running){setRunning(false);say(text('suspendedAnnouncement'));}update();draw();}
+  window.addEventListener('blur',suspend);document.addEventListener('visibilitychange',()=>{if(document.hidden)suspend();});
+  for(const link of document.querySelectorAll('.language-menu a'))link.addEventListener('click',()=>{setRunning(false);try{sessionStorage.setItem(transferKey,JSON.stringify({state:model.snapshot()}));}catch{}});
+  function resize(){const rect=canvas.getBoundingClientRect();if(rect.width<=0)return;width=rect.width;height=rect.height;const dpr=Math.min(window.devicePixelRatio||1,3);canvas.width=Math.round(width*dpr);canvas.height=Math.round(height*dpr);ctx.setTransform(dpr,0,0,dpr,0,0);draw();}
+  // Both wheels use one scale (spokes 0.5 m long); the cord pull uses 2 px per newton, up to 90 px.
+  const FS=2,CAP=90,SPOKE=.5;
+  function draw(){
+    if(!ctx)return;
+    const c=model.config,ready=model.ready(),done=model.status==='done',t=ready?model.now():0,begun=started(),vectors=$('show-vectors').checked,pace=c.pace!==null&&$('show-pace').checked;
+    ctx.clearRect(0,0,width,height);
+    const label=(str,px,py,color='#b8ccdb',align='left',font=12)=>{ctx.fillStyle=color;ctx.textAlign=align;ctx.font=font+'px -apple-system,BlinkMacSystemFont,sans-serif';ctx.fillText(str,px,py);};
+    const line=(points,color,w=1,dash=[])=>{ctx.beginPath();ctx.strokeStyle=color;ctx.lineWidth=w;ctx.setLineDash(dash);points.forEach((q,i)=>i?ctx.lineTo(q.x,q.y):ctx.moveTo(q.x,q.y));ctx.stroke();ctx.setLineDash([]);};
+    const arrow=(from,dx,dy,color,w=2.5)=>{const len=Math.hypot(dx,dy);if(len<4)return;const ux=dx/len,uy=dy/len,to={x:from.x+dx,y:from.y+dy};line([from,to],color,w);line([{x:to.x-ux*9-uy*5,y:to.y-uy*9+ux*5},to,{x:to.x-ux*9+uy*5,y:to.y-uy*9-ux*5}],color,2);};
+    const fit=(str,px,py,color,size,room,align='left')=>{ctx.font=size+'px -apple-system,BlinkMacSystemFont,sans-serif';const w=ctx.measureText(str).width;label(str,px,py,color,align,w>room?Math.max(7,Math.floor(size*room/w)):size);};
+    const curl=(cx,cy,r,from,turn,color)=>{if(Math.abs(turn)<.05)return;const end=from+turn;ctx.strokeStyle=color;ctx.lineWidth=2.5;ctx.beginPath();ctx.arc(cx,cy,r,-from,-end,turn>0);ctx.stroke();const ex=cx+r*Math.cos(end),ey=cy-r*Math.sin(end),s=Math.sign(turn),tx=-Math.sin(end)*s,ty=-Math.cos(end)*s;line([{x:ex-tx*8-ty*5,y:ey-ty*8+tx*5},{x:ex,y:ey},{x:ex-tx*8+ty*5,y:ey-ty*8-tx*5}],color,2);};
+    const wide=width>=560,area=wide?width*.64:width;
+    fit(text('viewTitle'),16,20,'#d1e3ed',12,area-28);label(text('arrowScale'),16,height-8,'#9fb6c7','left',10);
+    // One wheel, or the learner's wheel beside the pace wheel; θ is counter-clockwise, so the screen angle is −θ.
+    const two=c.pace!==null,R=Math.min(two?(area-60)/4.6:(area-60)/2.6,(height-120)/2.3),S=R/SPOKE;
+    const wheel=(cx,cy,theta,omega,name,mine)=>{
+      ctx.strokeStyle=mine?'#c99a6e':'#8aa3b5';ctx.lineWidth=mine?9:6;ctx.beginPath();ctx.arc(cx,cy,R,0,TAU);ctx.stroke();
+      for(let k=0;k<4;k++){const a=theta+k*TAU/4;line([{x:cx,y:cy},{x:cx+R*Math.cos(a),y:cy-R*Math.sin(a)}],'#5b7488',2);}
+      ctx.fillStyle='#d1e3ed';ctx.beginPath();ctx.arc(cx,cy,c.r*S,0,TAU);ctx.fill();ctx.fillStyle='#102637';ctx.beginPath();ctx.arc(cx,cy,4,0,TAU);ctx.fill();
+      // The masses on the spokes, at the answered distance, on opposite spokes; the pace wheel never shows where they belong.
+      if(c.ask==='radius'&&mine&&ready)for(const k of [0,2]){const a=theta+k*TAU/4,x=model.x();ctx.fillStyle='#efb958';ctx.beginPath();ctx.arc(cx+x*S*Math.cos(a),cy-x*S*Math.sin(a),7,0,TAU);ctx.fill();}
+      fit(name,cx,cy+R+22,'#9fb6c7',10,R*2.2,'center');fit('ω = '+number(omega)+' rad/s',cx,cy+R+38,mine?'#75efc7':'#f2f8fc',11,R*2.2,'center');
+    };
+    const cy=46+R,mx=two?16+(area-32)*.27:area/2,px=16+(area-32)*.75;
+    wheel(mx,cy,model.angle(t),model.omega(t),text('yourWheel'),true);
+    // The cord leaves the bottom of the spool to the right, so its pull turns the wheel counter-clockwise.
+    if(ready){
+      const y=cy+c.r*S,end=Math.min(mx+R+30,two?(mx+px)/2-10:area-20);line([{x:mx,y},{x:end,y}],'#efe6d0',1.5);
+      if(vectors){arrow({x:end,y},Math.min(model.force()*FS,CAP),0,'#77b9ff');label('F',end+6,y-8,'#77b9ff','left',11);
+        if(model.tau()>0)curl(mx,cy,c.r*S+16,.6,Math.min(1,model.tau()/2)*1.6,'#75efc7');
+        if(c.friction&&(model.omega(t)>0||model.tau()>0))curl(mx,cy,c.r*S+28,2.6,-Math.min(1,c.friction/2)*1.6,'#efb958');}
+    }
+    if(two&&pace)wheel(px,cy,model.paceAngle(ready?t:0),model.paceOmega(ready?t:0),text('paceWheel'),false);
+    if(done){const e=model.evaluate();fit((e.ok?text('rightBanner')+' · ':'')+text(model.outcome()+'Banner'),16,44,e.ok?'#75efc7':'#efb958',width<430?12:14,area-28);}
+    if(!wide)return;
+    // The ω–t graph: the target line, the pace wheel's line, the learner's wheel, and a predicted time, drawn as far as the run has gone.
+    const gx0=area+34,gx1=width-14,gtop=60,gbot=height-52,top=c.target===null?2*c.w0:1.5*c.target,span=c.ask==='time'?2*model.exact():c.ask==='steady'?c.pace:2*c.pace;
+    const GX=u=>gx0+u/span*(gx1-gx0),GY=w=>gbot-w/top*(gbot-gtop);
+    fit(text('graphTitle'),area+8,44,'#d1e3ed',10,width-area-16);
+    line([{x:gx0,y:gtop},{x:gx0,y:gbot},{x:gx1,y:gbot}],'#5b7488',1);label('0',gx0-6,gbot+12,'#9fb6c7','right',9);label(plain(span)+' s',gx1,gbot+14,'#9fb6c7','right',9);label(plain(top),gx0-6,gtop+4,'#9fb6c7','right',9);
+    if(c.target!==null){line([{x:gx0,y:GY(c.target)},{x:gx1,y:GY(c.target)}],'#efb958',1.2,[5,4]);fit(text('targetLabel'),gx1,GY(c.target)-6,'#efb958',9,gx1-gx0,'right');}
+    if(c.ask==='time'&&ready){const u=Math.min(model.answer,span),x=GX(u);line([{x,y:gtop},{x,y:gbot}],'#efb958',1.5,[3,3]);fit(text('predictionLabel'),Math.min(x+4,gx1-30),gtop+10,'#efb958',9,60);}
+    if(!begun){fit(text('graphHint'),gx0+8,gtop+24,'#9fb6c7',10,gx1-gx0-16);return;}
+    const n=60,trace=(f,color,dash)=>{const pts=[];for(let i=0;i<=n;i++){const u=t*i/n;pts.push({x:GX(u),y:GY(Math.min(top,f(u)))});}line(pts,color,2,dash);};
+    if(pace)trace(u=>model.paceOmega(u),'#f2f8fc',[6,4]);
+    trace(u=>model.omega(u),'#75efc7',[]);
+  }
+  function frame(now){if(previous===null)previous=now;const elapsed=Math.min(.1,(now-previous)/1000);previous=now;if(running){accumulator+=elapsed;while(accumulator>=H&&running){accumulator-=H;simulate(H);}draw();}if(now-lastUpdate>=80){update();lastUpdate=now;}requestAnimationFrame(frame);}
+  window.addEventListener('resize',resize);if(typeof ResizeObserver!=='undefined')new ResizeObserver(resize).observe(canvas);
+  sync();setRunning(false);update();resize();requestAnimationFrame(frame);
+})();
+</script>
+</body>
+</html>

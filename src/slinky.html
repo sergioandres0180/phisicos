@@ -1,0 +1,276 @@
+<!doctype html>
+<html lang="en">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Slinky Lab · Phisicos</title>
+<style>
+.slinky-page .answer-row .symbol{min-width:56px}.slinky-page .question{font-size:15px;font-weight:600;margin-top:4px}
+.slinky-page .line-key.white{background:#f2f8fc}.slinky-page .line-key.blue{background:#77b9ff}.slinky-page .line-key.red{background:#ff7b6b}.slinky-page .line-key.green{background:#75efc7}
+</style>
+</head>
+<body>
+<div class="shell module-page slinky-page">
+__HEADER__
+<main id="main-content">
+__BREADCRUMBS__
+
+<div class="masthead"><div><h1>{{title}}</h1><p class="intro">{{subtitle}}</p></div><div class="concept-tags"><span class="tag speed">{{tag1}}</span><span class="tag velocity">{{tag2}}</span></div></div>
+<noscript><p class="no-js">{{noScript}}</p></noscript>
+<div class="layout">
+<aside class="sidebar" aria-label="{{setup}}">
+  <section class="control-section"><h2 class="eyebrow">{{setup}}</h2><div class="mission-list" role="group" aria-label="{{setup}}">
+    <button id="mission-0" aria-pressed="true"><b>1 · {{mission0}}</b><span id="given-0">·</span></button>
+    <button id="mission-1" aria-pressed="false"><b>2 · {{mission1}}</b><span id="given-1">·</span></button>
+    <button id="mission-2" aria-pressed="false"><b>3 · {{mission2}}</b><span id="given-2">·</span></button>
+    <button id="mission-3" aria-pressed="false"><b>4 · {{mission3}}</b><span id="given-3">·</span></button>
+    <button id="mission-4" aria-pressed="false"><b>5 · {{mission4}}</b><span id="given-4">·</span></button>
+  </div><p class="hint">{{setupNote}}</p></section>
+  <section class="control-section"><h2 class="eyebrow">{{answerHeading}}</h2>
+    <p class="question" id="question">{{question0}}</p>
+    <p class="field-label"><label for="answer">{{answerLabel}}</label></p>
+    <div class="answer-row"><span class="symbol" id="answer-symbol">θ =</span><input id="answer" type="number" inputmode="decimal" step="any" value=""><span class="unit" id="answer-unit">°</span></div>
+    <p class="hint">{{answerHint}}</p>
+  </section>
+  <section class="control-section"><h2 class="eyebrow">{{observe}}</h2><label class="check"><input id="show-ruler" type="checkbox" checked>{{rulerToggle}}</label><label class="check"><input id="show-guess" type="checkbox" checked>{{guessToggle}}</label><p class="hint">{{observeHint}}</p></section>
+</aside>
+<div class="workspace">
+  <section class="scene" aria-label="{{sceneTitle}}"><div class="scene-top"><div><h2 class="scene-title">{{sceneTitle}}</h2><p class="scene-subtitle" id="mission-label">{{mission0}}</p></div><span class="status" id="slinky-status"><i class="status-dot" aria-hidden="true"></i><span id="slinky-status-text">{{ready}}</span></span></div>
+    <div class="module-stage"><canvas id="slinky-canvas" role="img" aria-label="{{canvasLabel}}">{{noScript}}</canvas></div>
+    <div class="legend"><span><i class="line-key blue"></i>{{slinkyLegend}}</span><span><i class="line-key white"></i>{{coilLegend}}</span><span><i class="line-key orange"></i>{{guessLegend}}</span><span><i class="line-key gray"></i>{{referenceLegend}}</span></div>
+    <div class="module-equation"><span>{{equationTitle}}</span><output id="slinky-equation">v = f·λ</output></div>
+    <div class="transport"><button id="play" class="primary" disabled>{{play}}</button><button id="pause" disabled>{{pause}}</button><button id="step" disabled>{{step}}</button><button id="reset" class="reset">{{reset}}</button></div>
+  </section>
+  <section class="metrics" aria-label="{{observe}}">
+    <div class="metric scalar"><h3 class="metric-label">{{time}}</h3><p class="metric-value"><span id="time-value">0.00</span> <small>s</small></p><p class="metric-equation">t</p></div>
+    <div class="metric scalar"><h3 class="metric-label">{{frequencyMetric}}</h3><p class="metric-value"><span id="frequency-value">—</span> <small>Hz</small></p><p class="metric-equation">f</p></div>
+    <div class="metric vector"><h3 class="metric-label">{{speedMetric}}</h3><p class="metric-value"><span id="speed-value">—</span> <small>m/s</small></p><p class="metric-equation">v</p></div>
+    <div class="metric vector"><h3 class="metric-label">{{wavelengthMetric}}</h3><p class="metric-value"><span id="wavelength-value">—</span> <small>m</small></p><p class="metric-equation">λ</p></div>
+    <div class="metric vector"><h3 class="metric-label">{{coilMetric}}</h3><p class="metric-value"><span id="coil-value">—</span> <small>cm</small></p><p class="metric-equation">u</p></div>
+  </section>
+  <div class="insight" id="insight"><span class="insight-icon" aria-hidden="true">↗</span><div><strong id="lesson-title">{{predictTitle}}</strong><p id="lesson-copy">{{predictCopy}}</p></div></div>
+  <section class="challenge"><div class="mission-heading"><h2 class="challenge-title">{{missionTitle}}</h2><div class="score-card"><span>{{score}}</span><strong id="mission-score">—</strong></div></div><p class="mission-copy">{{missionCopy}}</p><div class="badges"><span id="right-badge">✓ {{rightBadge}}</span><span id="first-badge">① {{firstBadge}}</span></div></section>
+</div>
+</div>
+<article class="learning-content"><section><h2>{{guideTitle}}</h2><ol><li>{{instruction1}}</li><li>{{instruction2}}</li><li>{{instruction3}}</li><li>{{instruction4}}</li></ol></section><section><h2>{{conceptTitle}}</h2><p>{{conceptCopy}}</p><aside class="worked-example"><h3>{{exampleTitle}}</h3><p>{{exampleCopy}}</p></aside></section><section><h2>{{modelTitle}}</h2><p>{{modelCopy}}</p></section></article>
+<p class="language-note" id="language-note">{{languageNote}}</p>
+</main>
+__FOOTER__
+<p class="sr-only" id="announcement" role="status" aria-live="polite"></p>
+</div>
+<script id="slinky-model">
+class SlinkyModel {
+  // A slinky lies stretched on a floor. Shaking its end side to side sends a transverse wave: each coil moves across the
+  // slinky. Pushing and pulling the end sends a longitudinal wave: each coil moves back and forth along it, and the coils
+  // bunch into compressions one wavelength apart. Either way the wave runs at v = f·λ from the hand; behind the front each
+  // coil follows u = A·sin(2π·f·(t − x ÷ v)). A run ends as the front reaches the far end; it plays at half speed.
+  static tolerance = .02;
+  static missions = [
+    {key:'across',ask:'angle',mode:'trans',f:2,v:3,L:6,pace:.5},
+    {key:'along',ask:'angle',mode:'long',f:2,v:3,L:6,pace:.5},
+    {key:'spacing',ask:'spacing',mode:'long',f:2,v:3,L:6,pace:.5},
+    {key:'speed',ask:'speed',mode:'long',f:2.5,v:2,L:4,pace:.5},
+    {key:'twoStep',ask:'spacing',mode:'long',f:1.5,v:3,L:6,pace:.5}
+  ];
+  static units = {angle:'°',spacing:'m',speed:'m/s'};
+  static limits = {angle:360,spacing:1e4,speed:1e4};
+  constructor(index = 0){this.setMission(index);}
+  setMission(index){this.index=index;this.config=SlinkyModel.missions[index];this.answer=null;this.attempts=0;this.reset();}
+  reset(){this.t=0;this.status='moving';}
+  // An angle may be 0; every other answer is positive.
+  valid(value){const a=this.config.ask;return Number.isFinite(value)&&(a==='angle'?value>=0:value>0)&&value<=SlinkyModel.limits[a];}
+  setAnswer(value){if(value!==null&&!this.valid(value))return false;this.answer=value;this.reset();return true;}
+  ready(){return this.answer!==null;}
+  wavelength(){return this.config.v/this.config.f;}
+  // Coils move 30 cm across, or along by 8% of a wavelength, which squeezes the coils to about half their spacing.
+  amplitude(){return this.config.mode==='trans'?.3:.08*this.wavelength();}
+  painted(){return this.config.L/3;}
+  clamp(t){return Math.min(Math.max(t,0),this.duration());}
+  // The displacement (m) of the coil that rests at x (m), at time t (s): across for a transverse wave, along for a longitudinal one.
+  shift(x,t){const c=this.config,s=this.clamp(t)-x/c.v;return s>0?this.amplitude()*Math.sin(2*Math.PI*c.f*s):0;}
+  front(t){return this.config.v*this.clamp(t);}
+  duration(){return this.config.L/this.config.v;}
+  now(){return this.status==='done'?this.duration():this.t;}
+  advance(dt){
+    if(!Number.isFinite(dt)||dt<0)throw new Error('Invalid timestep');
+    if(this.status==='done'||!this.ready())return null;
+    // A run counts as an attempt as soon as it starts; it ends exactly as the front reaches the far end.
+    if(this.t===0)this.attempts++;
+    const T=this.duration();
+    if(this.t+dt>=T*(1-1e-12)){this.t=T;this.status='done';return {t:T,done:true};}
+    this.t+=dt;return null;
+  }
+  exact(){const c=this.config;if(c.key==='across')return 90;if(c.key==='along')return 0;if(c.ask==='speed')return c.v;return this.wavelength();}
+  unit(){return SlinkyModel.units[this.config.ask];}
+  evaluate(){
+    if(!this.ready())return {ok:false,slip:null,first:false,exact:this.exact()};
+    const c=this.config,a=this.answer,e=this.exact(),tol=SlinkyModel.tolerance,near=(p,q)=>Math.abs(p-q)<=tol*Math.abs(q)+1e-12,zero=a<=.5;
+    // Every answer is right within 2%. Along the slinky is 0°, and 180° (pointing back) counts too; 0 gets a window of its own.
+    const ok=c.key==='along'?zero||near(a,180):near(a,e);let slip=null;
+    if(!ok){
+      if(c.key==='across'){if(zero||near(a,180))slip='alongInstead';}
+      else if(c.key==='along'){if(near(a,90))slip='acrossInstead';}
+      else if(c.key==='spacing'){if(near(a,c.v*c.f))slip='multiplied';else if(near(a,c.f/c.v))slip='inverted';}
+      else if(c.key==='speed'){const l=this.wavelength();if(near(a,l/c.f))slip='divided';else if(near(a,c.f/l))slip='invertedSpeed';}
+      else{if(near(a,c.v))slip='speedInstead';else if(near(a,c.v*c.f))slip='multipliedTwo';else if(near(a,c.L/c.f))slip='noTime';}
+    }
+    return {ok,slip,first:ok&&this.attempts===1,exact:e};
+  }
+  score(){if(this.status!=='done')return 0;const e=this.evaluate();return (e.ok?100:0)+(e.first?50:0);}
+  snapshot(){return {index:this.index,answer:this.answer,attempts:this.attempts,t:this.t,status:this.status};}
+  restore(saved){
+    if(!Number.isInteger(saved?.index)||!SlinkyModel.missions[saved.index])return false;
+    const probe=new SlinkyModel(saved.index);
+    if(!probe.setAnswer(saved.answer??null)||!Number.isInteger(saved.attempts)||saved.attempts<0)return false;
+    if(!['moving','done'].includes(saved.status)||!Number.isFinite(saved.t)||saved.t<0||saved.t>probe.duration()*(1+1e-9))return false;
+    if(probe.answer===null&&(saved.t>0||saved.status==='done'))return false;
+    if((saved.status==='done'||saved.t>0)&&saved.attempts<1)return false;
+    this.setMission(saved.index);this.answer=probe.answer;this.attempts=saved.attempts;
+    this.status=saved.status;this.t=saved.status==='done'?this.duration():saved.t;return true;
+  }
+}
+globalThis.SlinkyModel=SlinkyModel;
+</script>
+<script id="slinky-locale" type="application/json">__LOCALE__</script>
+<script id="slinky-interface">
+(() => {
+  'use strict';
+  const $=id=>document.getElementById(id),locale=JSON.parse($('slinky-locale').textContent);
+  const text=(key,values={})=>locale.strings[key].replace(/\{(\w+)\}/g,(_,name)=>values[name]??'{'+name+'}');
+  const number=(n,d=2)=>Math.abs(n)<.5*10**-d?(0).toLocaleString(locale.lang,{minimumFractionDigits:d,maximumFractionDigits:d}):n.toLocaleString(locale.lang,{minimumFractionDigits:d,maximumFractionDigits:d,useGrouping:false});
+  const plain=n=>n.toLocaleString(locale.lang,{maximumFractionDigits:3,useGrouping:false}).replace('-','−');
+  const model=new SlinkyModel();
+  const canvas=$('slinky-canvas'),ctx=canvas.getContext('2d');
+  const H=1/120,transferKey='phisicos-slinky-language-transfer';
+  let running=false,previous=null,accumulator=0,lastUpdate=0,width=800,height=410;
+  const say=message=>{$('announcement').textContent=message;};
+  try{const data=JSON.parse(sessionStorage.getItem(transferKey)||'null');sessionStorage.removeItem(transferKey);if(data)model.restore(data.state);}catch{$('language-note').hidden=true;}
+  const pace=()=>model.config.pace??1;
+  const amount=v=>plain(Number(v.toPrecision(5)))+(model.unit()?' '+model.unit():'');
+  const slipKey=name=>'slip'+name[0].toUpperCase()+name.slice(1);
+  // The readings show only once a run starts, because they give the answer away.
+  const started=()=>model.status==='done'||model.t>0;
+  const symbols={angle:'θ =',spacing:'λ =',speed:'v ='};
+  // Givens: ↕ for a sideways shake, ↔ for a push and pull, then the numbers.
+  function given(m){
+    const way=m.mode==='trans'?'↕':'↔';
+    if(m.key==='speed')return way+' · f = '+plain(m.f)+' Hz · λ = '+plain(m.v/m.f)+' m';
+    if(m.key==='twoStep')return way+' · f = '+plain(m.f)+' Hz · '+plain(m.L)+' m · '+plain(m.L/m.v)+' s';
+    if(m.key==='spacing')return way+' · f = '+plain(m.f)+' Hz · v = '+plain(m.v)+' m/s';
+    return way+' · f = '+plain(m.f)+' Hz';
+  }
+  function equation(){
+    const c=model.config,e=model.exact();
+    if(c.key==='across')return 'θ = 90°';
+    if(c.key==='along')return 'θ = 0°';
+    if(c.key==='speed')return 'v = f·λ = '+plain(c.f)+' × '+plain(model.wavelength())+' = '+number(e)+' m/s';
+    if(c.key==='twoStep')return 'λ = (d ÷ t) ÷ f = '+plain(c.v)+' ÷ '+plain(c.f)+' = '+number(e)+' m';
+    return 'λ = v ÷ f = '+plain(c.v)+' ÷ '+plain(c.f)+' = '+number(e)+' m';
+  }
+  function baseEquation(){return model.config.ask==='angle'?'θ = ?':model.config.ask==='speed'?'v = f·λ':'λ = v ÷ f';}
+  function metrics(t,begun){
+    const c=model.config;
+    $('frequency-value').textContent=begun?number(c.f,1):'—';$('speed-value').textContent=begun?number(c.v,1):'—';
+    $('wavelength-value').textContent=begun?number(model.wavelength()):'—';$('coil-value').textContent=begun?number(model.shift(model.painted(),t)*100,0):'—';
+  }
+  function values(){const c=model.config;return {l:plain(model.wavelength()),v:plain(c.v)};}
+  function runningCopy(t){return text(model.config.mode==='trans'?'acrossCopy':'alongCopy',{c:number(Math.abs(model.shift(model.painted(),t))*100,0)});}
+  function scene(g){
+    const c=g.c,{line,fit,dot,box,label}=g,s=g.ready?g.t:0,x0=56,x1=g.area-24,kp=(x1-x0)/c.L,X=x=>x0+x*kp,y0=height*.5,ky=Math.min(110,height*.26)/.3,trans=c.mode==='trans';
+    const at=x=>{const u=g.begun?model.shift(x,s):0;return trans?{x:X(x),y:y0-u*ky}:{x:X(x+u),y:y0};};
+    // The slinky from above: one stroke per coil, 10 cm apart at rest. The hand moves the first coil.
+    const h0=at(0);box(h0.x-34,h0.y-14,28,28,'#c9b79c');
+    const spine=[];for(let i=0;i<=c.L*10+1e-9;i++)spine.push(at(i/10));line(spine,'#3d6f99',1);
+    for(const p of spine)line([{x:p.x,y:p.y-16},{x:p.x,y:p.y+16}],'#77b9ff',1.6);
+    const pc=at(model.painted());line([{x:pc.x,y:pc.y-20},{x:pc.x,y:pc.y+20}],'#f2f8fc',4);
+    if(g.option){const ry=height-58,step=c.L>5?1:.5;line([{x:X(0),y:ry},{x:X(c.L),y:ry}],'#8aa3b5',1);for(let m=0;m<=c.L+1e-9;m+=step){line([{x:X(m),y:ry},{x:X(m),y:ry+6}],'#9fb6c7',1);label(plain(m)+' m',X(m),ry+18,'#9fb6c7','center',9);}}
+    // Your spacing: orange marks a guessed wavelength apart, back from the front; your speed: an orange dot.
+    if(g.guess&&g.begun){const top=y0-(trans?ky*.3:0)-34;
+      if(c.ask==='spacing'){const lg=model.answer,f=model.front(s);if(lg*kp>=6)for(let x=f;x>=-1e-9;x-=lg)line([{x:X(x),y:top},{x:X(x),y:top+10}],'#efb958',2.5);fit(text('guessTag'),X(f)-4,top-6,'#efb958',9,g.area*.4,'right');}
+      if(c.ask==='speed'){const xg=model.answer*model.clamp(s);if(xg<=c.L)dot(X(xg),top+5,5,'#efb958');}}
+    if(g.begun){const f=model.front(s);line([{x:X(f),y:y0+44},{x:X(f),y:y0+56}],'#9fb6c7',1.5);}
+    fit(text('slowTag',{n:plain(1/c.pace)}),16,height-24,'#9fb6c7',10,g.area*.5);
+    fit('t = '+number(g.t)+' s',g.area-16,44,'#f2f8fc',13,g.area*.3,'right');
+  }
+  function panel(g){
+    const c=g.c,{line,fit,dot,label}=g;
+    fit(text('pathGraph'),g.area+8,44,'#d1e3ed',10,width-g.area-16);
+    if(!g.begun){fit(text('panelHint'),g.area+8,70,'#9fb6c7',10,width-g.area-16);return;}
+    // The painted coil's path seen from above: along the slinky is across the page, the way the wave runs.
+    const cx=(g.area+width)/2,cy=(80+height-80)/2,R=Math.min(width-g.area-40,height-200)/2,k=R/(model.amplitude()*1.15),trans=c.mode==='trans',upto=Math.min(g.t,model.duration());
+    line([{x:cx-R,y:cy},{x:cx+R,y:cy}],'#8aa3b5',1);line([{x:cx,y:cy-R},{x:cx,y:cy+R}],'#8aa3b5',1,[3,4]);
+    line([{x:cx+R-12,y:cy-5},{x:cx+R,y:cy},{x:cx+R-12,y:cy+5}],'#8aa3b5',1);
+    if(g.guess&&c.ask==='angle'){const a=model.answer*Math.PI/180;line([{x:cx-R*Math.cos(a),y:cy+R*Math.sin(a)},{x:cx+R*Math.cos(a),y:cy-R*Math.sin(a)}],'#efb958',1.5,[5,4]);}
+    const pts=[];for(let i=0;i<=200;i++){const u=model.shift(model.painted(),upto*i/200)*k;pts.push(trans?{x:cx,y:cy-u}:{x:cx+u,y:cy});}
+    line(pts,'#f2f8fc',3);const u=model.shift(model.painted(),upto)*k;dot(trans?cx:cx+u,trans?cy-u:cy,5,'#f2f8fc');
+    fit(text('alongAxis'),cx-R,cy+R+16,'#9fb6c7',9,2*R);
+  }
+  function setRunning(value){
+    const done=model.status==='done',blocked=!model.ready();running=value&&!done&&!blocked;previous=null;accumulator=0;
+    $('play').disabled=running||done||blocked;$('pause').disabled=!running;$('step').disabled=running||done||blocked;
+    $('slinky-status').classList.toggle('running',running);
+    $('slinky-status-text').textContent=text(done?'done':running?'running':model.t?'paused':'ready');
+  }
+  function sync(){
+    const c=model.config;
+    SlinkyModel.missions.forEach((m,i)=>{$('mission-'+i).setAttribute('aria-pressed',String(i===model.index));$('given-'+i).textContent=given(m);});
+    $('question').textContent=text('question'+model.index);$('answer-symbol').textContent=symbols[c.ask];$('answer-unit').textContent=model.unit();
+    $('answer').value=model.answer===null?'':String(model.answer);$('mission-label').textContent=text('mission'+model.index);
+  }
+  function update(){
+    const ready=model.ready(),done=model.status==='done',t=ready?model.now():0,e=model.evaluate(),begun=started();
+    $('time-value').textContent=number(t);metrics(t,begun);
+    $('slinky-equation').textContent=begun?equation():baseEquation();
+    let key,copy;
+    if(done){
+      const base=text('result'+model.index,values());
+      if(e.ok){key='good';copy=base+' '+text('why'+model.index);}
+      else{key='miss';copy=base+' '+text('missCopy',{p:amount(model.answer)})+' '+(e.slip?text(slipKey(e.slip)):text('hint'+model.index));}
+    }
+    else if(!ready){key='predict';copy=text('predictCopy');}
+    else if(model.t>0){key='running';copy=runningCopy(t);}
+    else{key='ready';copy=text('readyCopy');}
+    $('lesson-title').textContent=text(key+'Title',{t:number(t),p:ready?amount(model.answer):''});$('lesson-copy').textContent=copy;
+    $('insight').classList.toggle('warning',key==='miss');
+    $('mission-score').textContent=done?String(model.score()):'—';
+    $('right-badge').classList.toggle('earned',done&&e.ok);$('first-badge').classList.toggle('earned',done&&e.first);
+  }
+  function refresh(){setRunning(false);update();draw();}
+  function simulate(dt){
+    const result=model.advance(dt);
+    if(result?.done){setRunning(false);update();say(text('doneAnnouncement')+' '+$('lesson-title').textContent);return true;}
+    return false;
+  }
+  $('answer').addEventListener('input',event=>{const raw=String(event.target.value).trim(),value=raw===''?null:Number(raw);if(!model.setAnswer(value))model.setAnswer(null);refresh();});
+  $('play').addEventListener('click',()=>{setRunning(true);update();say(text('startedAnnouncement'));});
+  $('pause').addEventListener('click',()=>{setRunning(false);update();say(text('pausedAnnouncement'));});
+  $('step').addEventListener('click',()=>{for(let i=0;i<12;i++)if(simulate(H*pace()))break;setRunning(false);update();draw();});
+  $('reset').addEventListener('click',()=>{model.reset();refresh();say(text('resetAnnouncement'));});
+  SlinkyModel.missions.forEach((_,i)=>$('mission-'+i).addEventListener('click',()=>{model.setMission(i);sync();refresh();say(text('missionAnnouncement',{name:text('mission'+i)}));}));
+  for(const id of ['show-ruler','show-guess'])$(id).addEventListener('change',()=>{update();draw();});
+  function suspend(){if(running){setRunning(false);say(text('suspendedAnnouncement'));}update();draw();}
+  window.addEventListener('blur',suspend);document.addEventListener('visibilitychange',()=>{if(document.hidden)suspend();});
+  for(const link of document.querySelectorAll('.language-menu a'))link.addEventListener('click',()=>{setRunning(false);try{sessionStorage.setItem(transferKey,JSON.stringify({state:model.snapshot()}));}catch{}});
+  function resize(){const rect=canvas.getBoundingClientRect();if(rect.width<=0)return;width=rect.width;height=rect.height;const dpr=Math.min(window.devicePixelRatio||1,3);canvas.width=Math.round(width*dpr);canvas.height=Math.round(height*dpr);ctx.setTransform(dpr,0,0,dpr,0,0);draw();}
+  function draw(){
+    if(!ctx)return;
+    const c=model.config,ready=model.ready(),done=model.status==='done',t=ready?model.now():0,begun=started(),option=$('show-ruler').checked,guess=$('show-guess').checked&&ready;
+    ctx.clearRect(0,0,width,height);
+    const label=(str,px,py,color='#b8ccdb',align='left',font=12)=>{ctx.fillStyle=color;ctx.textAlign=align;ctx.font=font+'px -apple-system,BlinkMacSystemFont,sans-serif';ctx.fillText(str,px,py);};
+    const line=(points,color,w=1,dash=[])=>{ctx.beginPath();ctx.strokeStyle=color;ctx.lineWidth=w;ctx.setLineDash(dash);points.forEach((q,i)=>i?ctx.lineTo(q.x,q.y):ctx.moveTo(q.x,q.y));ctx.stroke();ctx.setLineDash([]);};
+    const fit=(str,px,py,color,size,room,align='left')=>{ctx.font=size+'px -apple-system,BlinkMacSystemFont,sans-serif';const w=ctx.measureText(str).width;label(str,px,py,color,align,w>room?Math.max(7,Math.floor(size*room/w)):size);};
+    const dot=(x,y,r,color)=>{ctx.fillStyle=color;ctx.beginPath();ctx.arc(x,y,Math.max(r,.5),0,Math.PI*2);ctx.fill();};
+    const box=(x,y,w,h,color)=>{ctx.fillStyle=color;ctx.fillRect(x,y,w,h);};
+    const wide=width>=560,area=wide?width*.64:width;
+    const env={c,ready,done,t,begun,option,guess,label,line,fit,dot,box,wide,area};
+    fit(text('viewTitle'),16,20,'#d1e3ed',12,area-28);
+    if(done){const ev=model.evaluate();fit(text(ev.ok?'rightBanner':'offBanner'),16,40,ev.ok?'#75efc7':'#efb958',width<430?12:14,area-28);}
+    scene(env);
+    label(text('scaleNote'),16,height-8,'#9fb6c7','left',10);
+    if(!wide)return;
+    panel(env);
+  }
+  function frame(now){if(previous===null)previous=now;const elapsed=Math.min(.1,(now-previous)/1000);previous=now;if(running){accumulator+=elapsed*pace();while(accumulator>=H&&running){accumulator-=H;simulate(H);}draw();}if(now-lastUpdate>=80){update();lastUpdate=now;}requestAnimationFrame(frame);}
+  window.addEventListener('resize',resize);if(typeof ResizeObserver!=='undefined')new ResizeObserver(resize).observe(canvas);
+  sync();setRunning(false);update();resize();requestAnimationFrame(frame);
+})();
+</script>
+</body>
+</html>

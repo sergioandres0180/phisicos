@@ -1,0 +1,328 @@
+<!doctype html>
+<html lang="en">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Satellite Launch · Phisicos</title>
+<style>
+.orbit-page .answer-row .symbol{min-width:44px}.orbit-page .question{font-size:15px;font-weight:600;margin-top:4px}
+.orbit-page .line-key.white{background:#f2f8fc}.orbit-page .line-key.blue{background:#77b9ff}
+</style>
+</head>
+<body>
+<div class="shell module-page orbit-page">
+__HEADER__
+<main id="main-content">
+__BREADCRUMBS__
+
+<div class="masthead"><div><h1>{{title}}</h1><p class="intro">{{subtitle}}</p></div><div class="concept-tags"><span class="tag speed">{{tag1}}</span><span class="tag velocity">{{tag2}}</span></div></div>
+<noscript><p class="no-js">{{noScript}}</p></noscript>
+<div class="layout">
+<aside class="sidebar" aria-label="{{setup}}">
+  <section class="control-section"><h2 class="eyebrow">{{setup}}</h2><div class="mission-list" role="group" aria-label="{{setup}}">
+    <button id="mission-0" aria-pressed="true"><b>1 · {{mission0}}</b><span id="given-0">m</span></button>
+    <button id="mission-1" aria-pressed="false"><b>2 · {{mission1}}</b><span id="given-1">m</span></button>
+    <button id="mission-2" aria-pressed="false"><b>3 · {{mission2}}</b><span id="given-2">h</span></button>
+    <button id="mission-3" aria-pressed="false"><b>4 · {{mission3}}</b><span id="given-3">h</span></button>
+    <button id="mission-4" aria-pressed="false"><b>5 · {{mission4}}</b><span id="given-4">T</span></button>
+  </div><p class="hint">{{setupNote}}</p></section>
+  <section class="control-section"><h2 class="eyebrow">{{answerHeading}}</h2>
+    <p class="question" id="question">{{question0}}</p>
+    <p class="field-label"><label for="answer">{{answerLabel}}</label></p>
+    <div class="answer-row"><span class="symbol" id="answer-symbol">F =</span><input id="answer" type="number" inputmode="decimal" step="any" value=""><span class="unit" id="answer-unit">N</span></div>
+    <p class="hint">{{answerHint}}</p>
+  </section>
+  <section class="control-section"><h2 class="eyebrow">{{observe}}</h2><label class="check"><input id="show-vectors" type="checkbox" checked>{{vectors}}</label><label class="check"><input id="show-trace" type="checkbox" checked>{{traceToggle}}</label><p class="hint">{{observeHint}}</p></section>
+</aside>
+<div class="workspace">
+  <section class="scene" aria-label="{{sceneTitle}}"><div class="scene-top"><div><h2 class="scene-title">{{sceneTitle}}</h2><p class="scene-subtitle" id="mission-label">{{mission0}}</p></div><span class="status" id="orbit-status"><i class="status-dot" aria-hidden="true"></i><span id="orbit-status-text">{{ready}}</span></span></div>
+    <div class="module-stage"><canvas id="orbit-canvas" role="img" aria-label="{{canvasLabel}}">{{noScript}}</canvas></div>
+    <div class="legend"><span><i class="line-key white"></i>{{velocityLegend}}</span><span><i class="line-key blue"></i>{{gravityLegend}}</span><span><i class="line-key mint"></i>{{traceLegend}}</span><span><i class="line-key orange"></i>{{predictionLegend}}</span></div>
+    <div class="module-equation"><span>{{equationTitle}}</span><output id="orbit-equation">F = G·M·m ÷ r²</output></div>
+    <div class="transport"><button id="play" class="primary" disabled>{{play}}</button><button id="pause" disabled>{{pause}}</button><button id="step" disabled>{{step}}</button><button id="reset" class="reset">{{reset}}</button></div>
+  </section>
+  <section class="metrics" aria-label="{{observe}}">
+    <div class="metric scalar"><h3 class="metric-label">{{time}}</h3><p class="metric-value"><span id="time-value">0.0</span> <small>min</small></p><p class="metric-equation">t</p></div>
+    <div class="metric scalar"><h3 class="metric-label">{{distance}}</h3><p class="metric-value"><span id="r-value">—</span> <small>km</small></p><p class="metric-equation" id="h-value">r = R + h</p></div>
+    <div class="metric vector"><h3 class="metric-label">{{force}}</h3><p class="metric-value"><span id="force-value">—</span> <small>N</small></p><p class="metric-equation">F = G·M·m ÷ r²</p></div>
+    <div class="metric vector"><h3 class="metric-label">{{gravity}}</h3><p class="metric-value"><span id="g-value">—</span> <small>m/s²</small></p><p class="metric-equation">g = G·M ÷ r²</p></div>
+    <div class="metric vector"><h3 class="metric-label">{{speed}}</h3><p class="metric-value"><span id="speed-value">—</span> <small>m/s</small></p><p class="metric-equation">|v|</p></div>
+  </section>
+  <div class="insight" id="insight"><span class="insight-icon" aria-hidden="true">↗</span><div><strong id="lesson-title">{{predictTitle}}</strong><p id="lesson-copy">{{predictCopy}}</p></div></div>
+  <section class="challenge"><div class="mission-heading"><h2 class="challenge-title">{{missionTitle}}</h2><div class="score-card"><span>{{score}}</span><strong id="mission-score">—</strong></div></div><p class="mission-copy">{{missionCopy}}</p><div class="badges"><span id="right-badge">✓ {{rightBadge}}</span><span id="first-badge">① {{firstBadge}}</span></div></section>
+</div>
+</div>
+<article class="learning-content"><section><h2>{{guideTitle}}</h2><ol><li>{{instruction1}}</li><li>{{instruction2}}</li><li>{{instruction3}}</li><li>{{instruction4}}</li></ol></section><section><h2>{{conceptTitle}}</h2><p>{{conceptCopy}}</p><aside class="worked-example"><h3>{{exampleTitle}}</h3><p>{{exampleCopy}}</p></aside></section><section><h2>{{modelTitle}}</h2><p>{{modelCopy}}</p></section></article>
+<p class="language-note" id="language-note">{{languageNote}}</p>
+</main>
+__FOOTER__
+<p class="sr-only" id="announcement" role="status" aria-live="polite"></p>
+</div>
+<script id="orbit-model">
+class OrbitModel {
+  // Earth (mass M, radius R) is fixed at the centre; a satellite of mass m is launched at distance r₀ from the centre,
+  // on the +x axis, with speed v₀ pointing counter-clockwise. Newton's law of universal gravitation pulls it toward the
+  // centre with F = G·M·m ÷ r², so its acceleration g = G·M ÷ r² does not depend on m. Its path is the exact conic of
+  // that launch (circle, ellipse, or hyperbola), placed in time with Kepler's equation rather than by stepping. A circular
+  // orbit needs v = √(G·M ÷ r); a sideways launch at or above √(2·G·M ÷ r) escapes.
+  static G = 6.674e-11; // N·m²/kg²
+  static M = 5.972e24; // kg
+  static GM = 6.674e-11*5.972e24;
+  static R = 6.371e6; // m
+  static day = 86164; // s, one turn of the Earth (sidereal day)
+  static missions = [
+    {m:1000,h:4e5,ask:'force',view:2},
+    {m:100,h:6.371e6,ask:'twice',view:3},
+    {m:1000,h:1e6,ask:'gravity',view:2},
+    {m:1000,h:4e5,ask:'speed',view:3},
+    {m:1000,ask:'geo',view:8}
+  ];
+  static tolerance = .02; // relative
+  static units = {force:'N',twice:'N',gravity:'m/s²',speed:'m/s',geo:'km'};
+  static limits = {force:[1e-6,1e15],twice:[1e-6,1e15],gravity:[1e-6,1e15],speed:[1,40000],geo:[6500,50000]};
+  constructor(index = 0){this.setMission(index);}
+  setMission(index){this.index=index;this.config=OrbitModel.missions[index];this.answer=null;this.attempts=0;this.reset();}
+  reset(){this.t=0;this.status='flying';}
+  valid(value){const [low,high]=OrbitModel.limits[this.config.ask];return Number.isFinite(value)&&value>=low&&value<=high;}
+  setAnswer(value){if(value!==null&&!this.valid(value))return false;this.answer=value;this.reset();return true;}
+  ready(){return this.answer!==null;}
+  // The answer is a prediction (force, twice, gravity), or it sets the launch speed (speed) or the orbit radius in km (geo).
+  predicts(){return ['force','twice','gravity'].includes(this.config.ask);}
+  r0(){const c=this.config;return c.ask==='geo'?(this.answer??0)*1000:OrbitModel.R+c.h;}
+  v0(){return this.config.ask==='speed'?this.answer??0:Math.sqrt(OrbitModel.GM/this.r0());}
+  gravityAt(r){return OrbitModel.GM/(r*r);}
+  forceAt(r){return this.config.m*this.gravityAt(r);}
+  surfaceForce(){return this.forceAt(OrbitModel.R);}
+  // The conic of the launch. A sideways launch is at periapsis when v₀ is at least the circular speed, else at apoapsis.
+  orbit(){
+    const GM=OrbitModel.GM,r0=this.r0(),v0=this.v0(),p=(r0*v0)**2/GM,q=p/r0-1,peri=q>=0;
+    let e=Math.abs(q);if(Math.abs(e-1)<1e-9)e=1+1e-9; // a parabola is treated as the slightest hyperbola
+    const a=p/(1-e*e);return {r0,v0,p,e,a,n:Math.sqrt(GM/Math.abs(a)**3),peri,nu0:peri?0:Math.PI};
+  }
+  // Time after periapsis at true anomaly ν: ν in [0, 2π) on an ellipse, inside the asymptotes on a hyperbola.
+  sincePeri(o,nu){
+    if(o.e<1){const E=2*Math.atan2(Math.sqrt(1-o.e)*Math.sin(nu/2),Math.sqrt(1+o.e)*Math.cos(nu/2));return (E-o.e*Math.sin(E))/o.n;}
+    const H=2*Math.atanh(Math.sqrt((o.e-1)/(o.e+1))*Math.tan(nu/2));return (o.e*Math.sinh(H)-H)/o.n;
+  }
+  exitRadius(){return .98*this.config.view*OrbitModel.R;}
+  // The run ends at the first of: hitting the ground, leaving the view, one full orbit, or (geostationary) one turn of the Earth.
+  ending(){
+    const o=this.orbit(),R=OrbitModel.R;
+    if(this.config.ask==='geo')return {t:OrbitModel.day,kind:'orbit'};
+    if(!o.peri&&o.p/(1+o.e)<R){const nu=2*Math.PI-Math.acos((o.p/R-1)/o.e);return {t:this.sincePeri(o,nu)-this.sincePeri(o,Math.PI),kind:'crash'};}
+    const rx=this.exitRadius();
+    if(o.peri&&(o.e>=1||o.p/(1-o.e)>rx)){const nu=Math.acos((o.p/rx-1)/o.e);return {t:this.sincePeri(o,nu),kind:o.e>=1?'escape':'away'};}
+    return {t:2*Math.PI/o.n,kind:'orbit'};
+  }
+  duration(){return this.ending().t;}
+  outcome(){return this.ending().kind;}
+  // Orbits play so that a run lasts about 10 s, at a whole multiple of 100 shown on the canvas.
+  playback(){return 100*Math.max(1,Math.ceil(this.duration()/1000));}
+  clamp(t){return Math.min(Math.max(t,0),this.duration());}
+  state(t){
+    const o=this.orbit(),u=this.clamp(t);let nu;
+    if(o.e<1){
+      // Kepler's equation M = E − e·sin E is increasing in E; Newton's method from E = π converges for every e < 1.
+      const M=(o.n*(u+this.sincePeri(o,o.nu0)))%(2*Math.PI);let E=Math.PI;
+      for(let k=0;k<60;k++){const d=(E-o.e*Math.sin(E)-M)/(1-o.e*Math.cos(E));E-=d;if(Math.abs(d)<1e-15)break;}
+      nu=2*Math.atan2(Math.sqrt(1+o.e)*Math.sin(E/2),Math.sqrt(1-o.e)*Math.cos(E/2));
+    }else{
+      const M=o.n*u;let H=Math.asinh(M/o.e);
+      for(let k=0;k<80;k++){const d=(o.e*Math.sinh(H)-H-M)/(o.e*Math.cosh(H)-1);H-=d;if(Math.abs(d)<1e-15)break;}
+      nu=2*Math.atan2(Math.sqrt(o.e+1)*Math.sinh(H/2),Math.sqrt(o.e-1)*Math.cosh(H/2));
+    }
+    const r=o.p/(1+o.e*Math.cos(nu)),phi=nu-o.nu0,k=Math.sqrt(OrbitModel.GM/o.p),vr=k*o.e*Math.sin(nu),vt=k*(1+o.e*Math.cos(nu));
+    return {r,phi,x:r*Math.cos(phi),y:r*Math.sin(phi),vx:vr*Math.cos(phi)-vt*Math.sin(phi),vy:vr*Math.sin(phi)+vt*Math.cos(phi),v:Math.hypot(vr,vt)};
+  }
+  // Geostationary mission: how far the satellite is ahead of the city below it, in degrees (unwrapped).
+  geoGap(t){return (this.orbit().n-2*Math.PI/OrbitModel.day)*this.clamp(t)*180/Math.PI;}
+  range(){const o=this.orbit();return o.peri?[o.r0,o.e<1?o.p/(1-o.e):Infinity]:[o.p/(1+o.e),o.r0];}
+  now(){return this.status==='done'?this.duration():this.t;}
+  advance(dt){
+    if(!Number.isFinite(dt)||dt<0)throw new Error('Invalid timestep');
+    if(this.status==='done'||!this.ready())return null;
+    // A launch counts as an attempt as soon as it starts; the ground, the edge of the view, and the full orbit are exact.
+    if(this.t===0)this.attempts++;
+    const end=this.ending();
+    if(this.t+dt>=end.t*(1-1e-12)){this.t=end.t;this.status='done';return {t:end.t,kind:end.kind,done:true};}
+    this.t+=dt;return null;
+  }
+  exact(){
+    const c=this.config,GM=OrbitModel.GM,R=OrbitModel.R;
+    if(c.ask==='force')return c.m*GM/(R+c.h)**2;
+    if(c.ask==='twice')return c.m*GM/(R+c.h)**2;
+    if(c.ask==='gravity')return GM/(R+c.h)**2;
+    if(c.ask==='speed')return Math.sqrt(GM/(R+c.h));
+    return Math.cbrt(GM*OrbitModel.day**2/(4*Math.PI**2))/1000;
+  }
+  unit(){return OrbitModel.units[this.config.ask];}
+  evaluate(){
+    if(!this.ready())return {ok:false,slip:null,first:false,exact:this.exact()};
+    const c=this.config,a=this.answer,e=this.exact(),GM=OrbitModel.GM,R=OrbitModel.R,near=(p,q)=>Math.abs(p-q)<=OrbitModel.tolerance*Math.abs(q)+1e-12;
+    const ok=near(a,e);
+    let slip=null;
+    if(!ok){
+      const r=R+(c.h??0),m=c.m;
+      if(c.ask==='force'){if(near(a,GM*m/c.h**2))slip='altitude';else if(near(a,GM*m/R**2))slip='surface';else if(near(a,GM*m/r))slip='noSquare';else if(near(a,GM*m/(r/1000)**2))slip='km';else if(near(a,GM/r**2))slip='noMass';}
+      else if(c.ask==='twice'){const F0=this.surfaceForce();if(near(a,F0/2))slip='half';else if(near(a,F0))slip='same';}
+      else if(c.ask==='gravity'){if(near(a,GM/c.h**2))slip='altitudeG';else if(near(a,GM/R**2))slip='surfaceG';else if(near(a,GM/r))slip='noSquareG';else if(near(a,GM/(r/1000)**2))slip='kmG';}
+      else if(c.ask==='speed'){if(near(a,Math.sqrt(GM/c.h)))slip='altitudeV';else if(near(a,Math.sqrt(GM/R)))slip='surfaceV';else if(near(a,Math.sqrt(2*GM/r)))slip='escape';else if(near(a,Math.sqrt(GM/r)/1000))slip='kmUnit';}
+      else if(near(a,e-R/1000))slip='altitudeR';
+    }
+    return {ok,slip,first:ok&&this.attempts===1,exact:e};
+  }
+  score(){if(this.status!=='done')return 0;const e=this.evaluate();return (e.ok?100:0)+(e.first?50:0);}
+  snapshot(){return {index:this.index,answer:this.answer,attempts:this.attempts,t:this.t,status:this.status};}
+  restore(saved){
+    if(!Number.isInteger(saved?.index)||!OrbitModel.missions[saved.index])return false;
+    const probe=new OrbitModel(saved.index);
+    if(!probe.setAnswer(saved.answer??null)||!Number.isInteger(saved.attempts)||saved.attempts<0)return false;
+    if(!['flying','done'].includes(saved.status)||!Number.isFinite(saved.t)||saved.t<0)return false;
+    if(probe.answer===null){if(saved.t>0||saved.status==='done')return false;}
+    else if(saved.t>probe.duration()*(1+1e-9))return false;
+    if((saved.status==='done'||saved.t>0)&&saved.attempts<1)return false;
+    this.setMission(saved.index);this.answer=probe.answer;this.attempts=saved.attempts;
+    this.status=saved.status;this.t=saved.status==='done'?this.duration():saved.t;return true;
+  }
+}
+globalThis.OrbitModel=OrbitModel;
+</script>
+<script id="orbit-locale" type="application/json">__LOCALE__</script>
+<script id="orbit-interface">
+(() => {
+  'use strict';
+  const $=id=>document.getElementById(id),locale=JSON.parse($('orbit-locale').textContent);
+  const text=(key,values={})=>locale.strings[key].replace(/\{(\w+)\}/g,(_,name)=>values[name]??'{'+name+'}');
+  const number=(n,d=2)=>Math.abs(n)<.5*10**-d?(0).toLocaleString(locale.lang,{minimumFractionDigits:d,maximumFractionDigits:d}):n.toLocaleString(locale.lang,{minimumFractionDigits:d,maximumFractionDigits:d,useGrouping:false});
+  const plain=n=>n.toLocaleString(locale.lang,{maximumFractionDigits:2,useGrouping:false}).replace('-','−');
+  const model=new OrbitModel();
+  const canvas=$('orbit-canvas'),ctx=canvas.getContext('2d');
+  const H=1/120,TAU=2*Math.PI,R=OrbitModel.R,transferKey='phisicos-orbit-language-transfer';
+  let running=false,previous=null,accumulator=0,lastUpdate=0,width=800,height=410;
+  const say=message=>{$('announcement').textContent=message;};
+  try{const data=JSON.parse(sessionStorage.getItem(transferKey)||'null');sessionStorage.removeItem(transferKey);if(data)model.restore(data.state);}catch{$('language-note').hidden=true;}
+  const amount=v=>plain(Number(v.toPrecision(6)))+' '+model.unit();
+  const symbols={force:'F =',twice:'F =',gravity:'g =',speed:'v =',geo:'r ='};
+  const slipKey=name=>'slip'+name[0].toUpperCase()+name.slice(1);
+  function setRunning(value){
+    const done=model.status==='done',blocked=!model.ready();running=value&&!done&&!blocked;previous=null;accumulator=0;
+    $('play').disabled=running||done||blocked;$('pause').disabled=!running;$('step').disabled=running||done||blocked;
+    $('orbit-status').classList.toggle('running',running);
+    $('orbit-status-text').textContent=text(done?'done':running?'running':model.t?'paused':'ready');
+  }
+  function given(m){
+    const parts=['m = '+plain(m.m)+' kg'];
+    if(m.ask==='twice')parts.push(text('surfaceGiven',{F:plain(Math.round(m.m*OrbitModel.GM/R**2))}),'r = 2R');
+    else if(m.h)parts.push('h = '+plain(m.h/1000)+' km');
+    else parts.push('T = '+plain(OrbitModel.day/3600)+' h');
+    return parts.join(' · ');
+  }
+  function sync(){
+    const c=model.config;
+    OrbitModel.missions.forEach((m,i)=>{$('mission-'+i).setAttribute('aria-pressed',String(i===model.index));$('given-'+i).textContent=given(m);});
+    $('question').textContent=text('question'+model.index);$('answer-symbol').textContent=symbols[c.ask];$('answer-unit').textContent=model.unit();
+    $('answer').value=model.answer===null?'':String(model.answer);$('mission-label').textContent=text('mission'+model.index);
+  }
+  // Force and gravity show only once a launch has started, so they cannot be read off before an attempt; the speed
+  // shows before launch only when the answer sets it.
+  const started=()=>model.status==='done'||model.t>0;
+  const knownR=()=>model.ready()||model.config.ask!=='geo';
+  function update(){
+    const c=model.config,ready=model.ready(),done=model.status==='done',t=ready?model.now():0,e=model.evaluate(),begun=started();
+    const s=ready?model.state(t):null,r=s?s.r:knownR()?model.r0():null,g=r?model.gravityAt(r):0;
+    $('time-value').textContent=number(t/60,1);$('r-value').textContent=r?number(r/1000,0):'—';$('h-value').textContent=r?'h = '+number((r-R)/1000,0)+' km':'r = R + h';
+    $('force-value').textContent=begun?number(c.m*g,0):'—';$('g-value').textContent=begun?number(g):'—';
+    $('speed-value').textContent=begun||(ready&&!model.predicts())?number(s.v,0):'—';
+    $('orbit-equation').textContent=begun?'F = G·M·m ÷ r² = '+number(c.m*g,0)+' N · g = G·M ÷ r² = '+number(g)+' m/s²':'F = G·M·m ÷ r² · g = G·M ÷ r²';
+    let key,copy;
+    if(done){
+      const kind=model.outcome(),minutes=number(t/60,1);let base;
+      if(kind==='crash')base=text('crashCopy',{t:minutes});
+      else if(kind==='escape')base=text('escapeCopy',{t:minutes});
+      else if(kind==='away')base=text('awayCopy',{t:minutes});
+      else if(c.ask==='geo'){const gap=model.geoGap(t);base=text('geoCopy',{r:number(model.r0()/1000,0)})+' '+text(Math.abs(gap)<.5?'geoHitCopy':gap>0?'geoAheadCopy':'geoBehindCopy',{d:number(Math.abs(gap),1)});}
+      else{
+        base=text('orbitCopy',{t:minutes});
+        if(c.ask==='speed'){const [low,high]=model.range();base+=' '+(high-low<.005*model.r0()?text('circleCopy',{r:number(model.r0()/1000,0)}):text('ellipseCopy',{min:number(low/1000,0),max:number(high/1000,0)}));}
+        else base+=' '+(c.ask==='gravity'?text('measuredGravity',{g:number(g),r:number(r/1000,0)}):text('measuredForce',{F:number(c.m*g,0),r:number(r/1000,0)}));
+      }
+      if(e.ok){key='good';copy=base+' '+text('why'+model.index);}
+      else{key='miss';copy=base+' '+text('missCopy',{p:amount(model.answer)})+' '+(e.slip?text(slipKey(e.slip)):text('hint'+model.index));}
+    }
+    else if(!ready){key='predict';copy=text('predictCopy');}
+    else if(model.t>0){key='running';copy=text('runningCopy',{h:number((r-R)/1000,0),g:number(g)});}
+    else{key='ready';copy=text('readyCopy');}
+    $('lesson-title').textContent=text(key+'Title',{t:number(t/60,1),p:ready?amount(model.answer):''});$('lesson-copy').textContent=copy;
+    $('insight').classList.toggle('warning',key==='miss');
+    $('mission-score').textContent=done?String(model.score()):'—';
+    $('right-badge').classList.toggle('earned',done&&e.ok);$('first-badge').classList.toggle('earned',done&&e.first);
+  }
+  function refresh(){setRunning(false);update();draw();}
+  function simulate(dt){
+    const result=model.advance(dt*model.playback());
+    if(result?.done){setRunning(false);update();say(text('doneAnnouncement')+' '+$('lesson-title').textContent);return true;}
+    return false;
+  }
+  $('answer').addEventListener('input',event=>{const raw=String(event.target.value).trim(),value=raw===''?null:Number(raw);if(!model.setAnswer(value))model.setAnswer(null);refresh();});
+  $('play').addEventListener('click',()=>{setRunning(true);update();say(text('startedAnnouncement'));});
+  $('pause').addEventListener('click',()=>{setRunning(false);update();say(text('pausedAnnouncement'));});
+  $('step').addEventListener('click',()=>{for(let i=0;i<12;i++)if(simulate(H))break;setRunning(false);update();draw();});
+  $('reset').addEventListener('click',()=>{model.reset();refresh();say(text('resetAnnouncement'));});
+  OrbitModel.missions.forEach((_,i)=>$('mission-'+i).addEventListener('click',()=>{model.setMission(i);sync();refresh();say(text('missionAnnouncement',{name:text('mission'+i)}));}));
+  for(const id of ['show-vectors','show-trace'])$(id).addEventListener('change',()=>{update();draw();});
+  function suspend(){if(running){setRunning(false);say(text('suspendedAnnouncement'));}update();draw();}
+  window.addEventListener('blur',suspend);document.addEventListener('visibilitychange',()=>{if(document.hidden)suspend();});
+  for(const link of document.querySelectorAll('.language-menu a'))link.addEventListener('click',()=>{setRunning(false);try{sessionStorage.setItem(transferKey,JSON.stringify({state:model.snapshot()}));}catch{}});
+  function resize(){const rect=canvas.getBoundingClientRect();if(rect.width<=0)return;width=rect.width;height=rect.height;const dpr=Math.min(window.devicePixelRatio||1,3);canvas.width=Math.round(width*dpr);canvas.height=Math.round(height*dpr);ctx.setTransform(dpr,0,0,dpr,0,0);draw();}
+  // Earth and the orbits are drawn to scale in a view fixed per mission; the pull graph spans r = R to 8R.
+  const VEL=.01,ACC=8,CAP=90,XMAX=8;
+  function draw(){
+    if(!ctx)return;
+    const c=model.config,ready=model.ready(),done=model.status==='done',t=ready?model.now():0,begun=started();
+    ctx.clearRect(0,0,width,height);
+    const label=(str,px,py,color='#b8ccdb',align='left',font=12)=>{ctx.fillStyle=color;ctx.textAlign=align;ctx.font=font+'px -apple-system,BlinkMacSystemFont,sans-serif';ctx.fillText(str,px,py);};
+    const line=(points,color,w=1,dash=[])=>{ctx.beginPath();ctx.strokeStyle=color;ctx.lineWidth=w;ctx.setLineDash(dash);points.forEach((p,i)=>i?ctx.lineTo(p.x,p.y):ctx.moveTo(p.x,p.y));ctx.stroke();ctx.setLineDash([]);};
+    const arrow=(from,dx,dy,color,w=2.5)=>{const len=Math.hypot(dx,dy);if(len<4)return;const ux=dx/len,uy=dy/len,to={x:from.x+dx,y:from.y+dy};line([from,to],color,w);line([{x:to.x-ux*9-uy*5,y:to.y-uy*9+ux*5},to,{x:to.x-ux*9+uy*5,y:to.y-uy*9-ux*5}],color,2);};
+    const fit=(str,px,py,color,size,room,align='left')=>{ctx.font=size+'px -apple-system,BlinkMacSystemFont,sans-serif';const w=ctx.measureText(str).width;label(str,px,py,color,align,w>room?Math.max(7,Math.floor(size*room/w)):size);};
+    const wide=width>=560,area=wide?width*.6:width,RV=c.view*R;
+    fit(text('viewTitle'),16,20,'#d1e3ed',12,area-28);label(text('arrowScale'),16,height-8,'#9fb6c7','left',10);
+    if(ready)fit(text('playbackLabel',{k:plain(model.playback())}),area-10,height-24,'#9fb6c7',10,area*.4,'right');
+    const cx=area/2,cy=height/2+8,S=Math.min((height-96)/2,area/2-26)/RV,P=(x,y)=>({x:cx+x*S,y:cy-y*S});
+    // Scale bar.
+    const bar=c.view>4?1e7:1e6;line([{x:16,y:height-26},{x:16+bar*S,y:height-26}],'#9fb6c7',2);label(plain(bar/1000)+' km',20+bar*S,height-22,'#9fb6c7','left',10);
+    // Earth turns only in the geostationary mission, carrying the city with it.
+    const spin=c.ask==='geo'?TAU*t/OrbitModel.day:0;
+    ctx.fillStyle='#1d4a72';ctx.beginPath();ctx.arc(cx,cy,R*S,0,TAU);ctx.fill();
+    for(let k=0;k<6;k++){const a=spin+k*Math.PI/3;line([P(0,0),P(R*Math.cos(a),R*Math.sin(a))],'#2a5f8f',1);}
+    ctx.strokeStyle='#77b9ff';ctx.lineWidth=1;ctx.beginPath();ctx.arc(cx,cy,R*S,0,TAU);ctx.stroke();
+    if(c.ask==='geo'){const q=P(R*Math.cos(spin),R*Math.sin(spin));ctx.fillStyle='#75efc7';ctx.beginPath();ctx.arc(q.x,q.y,4,0,TAU);ctx.fill();const d=R*S+16,lq={x:cx+d*Math.cos(spin),y:cy-d*Math.sin(spin)};label(text('cityLabel'),lq.x,lq.y-(Math.sin(spin)>=0?2:-10),'#75efc7','center',10);}
+    else{const r0=model.r0(),a=P(r0,0);line([{x:a.x+4,y:a.y},{x:a.x+14,y:a.y}],'#8aa3b5',2);label(text('launchLabel'),a.x+18,a.y+4,'#8aa3b5','left',10);}
+    if(ready){
+      const s=model.state(t),sat=P(s.x,s.y);
+      if($('show-trace').checked&&t>0){const n=180,pts=[];for(let k=0;k<=n;k++){const q=model.state(t*k/n);pts.push(P(q.x,q.y));}line(pts,'#75efc7',2);}
+      if(c.ask==='geo'&&t>0)line([P(0,0),sat],'#8aa3b5',1,[4,3]);
+      ctx.fillStyle='#8aa3b5';ctx.fillRect(sat.x-9,sat.y-1.5,18,3);ctx.fillStyle='#f2f8fc';ctx.fillRect(sat.x-3.5,sat.y-3.5,7,7);
+      if($('show-vectors').checked&&t>0&&!done){
+        const k=Math.min(s.v*VEL,CAP)/s.v;arrow(sat,s.vx*k,-s.vy*k,'#f2f8fc');
+        const len=Math.min(model.gravityAt(s.r)*ACC,CAP);arrow(sat,-s.x/s.r*len,s.y/s.r*len,'#77b9ff');
+      }
+      if(done){const e=model.evaluate(),kind=model.outcome();fit((e.ok?text('rightBanner')+' · ':'')+text(kind+'Banner'),16,44,e.ok?'#75efc7':'#efb958',width<430?12:14,area-28);}
+    }
+    if(!wide)return;
+    // Inverse-square graph: the pull as a fraction of the pull at the surface. The curve appears only after a launch ends.
+    const gx0=width*.66,gx1=width-20,gtop=62,gbottom=height-58,gx=u=>gx0+(Math.min(u,XMAX)-1)/(XMAX-1)*(gx1-gx0),gy=f=>gbottom-Math.min(f,1.05)*(gbottom-gtop);
+    fit(text('graphTitle'),gx0-28,gtop-26,'#d1e3ed',10,gx1-gx0+28);
+    [[0,'0'],[.25,'¼'],[.5,'½'],[1,'1']].forEach(([f,str])=>{line([{x:gx0,y:gy(f)},{x:gx1,y:gy(f)}],f?'#203d50':'#5b7488',1);label(str,gx0-6,gy(f)+4,'#9fb6c7','right',10);});
+    for(let u=1;u<=XMAX;u++){line([{x:gx(u),y:gtop},{x:gx(u),y:gbottom}],u>1?'#203d50':'#5b7488',1);label(u===1?'R':u+'R',gx(u),gbottom+14,'#9fb6c7','center',10);}
+    label(text('axisR'),gx1,gbottom+28,'#9fb6c7','right',10);
+    if(ready&&model.predicts()){const scale=c.ask==='gravity'?model.gravityAt(R):model.surfaceForce(),f=model.answer/scale,q={x:gx(model.r0()/R),y:gy(f)};ctx.fillStyle='#efb958';ctx.beginPath();ctx.arc(q.x,q.y,4.5,0,TAU);ctx.fill();if(f>1.05)label('▲',q.x,q.y-6,'#efb958','center',10);}
+    if(done){
+      const pts=[];for(let k=0;k<=70;k++){const u=1+(XMAX-1)*k/70;pts.push({x:gx(u),y:gy(1/(u*u))});}line(pts,'#75efc7',1.5);
+      const r=model.state(t).r;if(r/R<=XMAX){ctx.fillStyle='#f2f8fc';ctx.beginPath();ctx.arc(gx(r/R),gy((R/r)**2),4,0,TAU);ctx.fill();}
+    }
+    else label(text('graphHint'),(gx0+gx1)/2,(gtop+gbottom)/2,'#9fb6c7','center',10);
+  }
+  function frame(now){if(previous===null)previous=now;const elapsed=Math.min(.1,(now-previous)/1000);previous=now;if(running){accumulator+=elapsed;while(accumulator>=H&&running){accumulator-=H;simulate(H);}draw();}if(now-lastUpdate>=80){update();lastUpdate=now;}requestAnimationFrame(frame);}
+  window.addEventListener('resize',resize);if(typeof ResizeObserver!=='undefined')new ResizeObserver(resize).observe(canvas);
+  sync();setRunning(false);update();resize();requestAnimationFrame(frame);
+})();
+</script>
+</body>
+</html>

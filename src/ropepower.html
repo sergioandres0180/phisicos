@@ -1,0 +1,278 @@
+<!doctype html>
+<html lang="en">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Power on a Rope · Phisicos</title>
+<style>
+.ropepower-page .answer-row .symbol{min-width:56px}.ropepower-page .question{font-size:15px;font-weight:600;margin-top:4px}
+.ropepower-page .line-key.white{background:#f2f8fc}.ropepower-page .line-key.blue{background:#77b9ff}.ropepower-page .line-key.red{background:#ff7b6b}.ropepower-page .line-key.green{background:#75efc7}
+</style>
+</head>
+<body>
+<div class="shell module-page ropepower-page">
+__HEADER__
+<main id="main-content">
+__BREADCRUMBS__
+
+<div class="masthead"><div><h1>{{title}}</h1><p class="intro">{{subtitle}}</p></div><div class="concept-tags"><span class="tag speed">{{tag1}}</span><span class="tag velocity">{{tag2}}</span></div></div>
+<noscript><p class="no-js">{{noScript}}</p></noscript>
+<div class="layout">
+<aside class="sidebar" aria-label="{{setup}}">
+  <section class="control-section"><h2 class="eyebrow">{{setup}}</h2><div class="mission-list" role="group" aria-label="{{setup}}">
+    <button id="mission-0" aria-pressed="true"><b>1 · {{mission0}}</b><span id="given-0">·</span></button>
+    <button id="mission-1" aria-pressed="false"><b>2 · {{mission1}}</b><span id="given-1">·</span></button>
+    <button id="mission-2" aria-pressed="false"><b>3 · {{mission2}}</b><span id="given-2">·</span></button>
+    <button id="mission-3" aria-pressed="false"><b>4 · {{mission3}}</b><span id="given-3">·</span></button>
+    <button id="mission-4" aria-pressed="false"><b>5 · {{mission4}}</b><span id="given-4">·</span></button>
+  </div><p class="hint">{{setupNote}}</p></section>
+  <section class="control-section"><h2 class="eyebrow">{{answerHeading}}</h2>
+    <p class="question" id="question">{{question0}}</p>
+    <p class="field-label"><label for="answer">{{answerLabel}}</label></p>
+    <div class="answer-row"><span class="symbol" id="answer-symbol">P₂ ÷ P₁ =</span><input id="answer" type="number" inputmode="decimal" step="any" value=""><span class="unit" id="answer-unit"></span></div>
+    <p class="hint">{{answerHint}}</p>
+  </section>
+  <section class="control-section"><h2 class="eyebrow">{{observe}}</h2><label class="check"><input id="show-reference" type="checkbox" checked>{{referenceToggle}}</label><label class="check"><input id="show-guess" type="checkbox" checked>{{guessToggle}}</label><p class="hint">{{observeHint}}</p></section>
+</aside>
+<div class="workspace">
+  <section class="scene" aria-label="{{sceneTitle}}"><div class="scene-top"><div><h2 class="scene-title">{{sceneTitle}}</h2><p class="scene-subtitle" id="mission-label">{{mission0}}</p></div><span class="status" id="ropepower-status"><i class="status-dot" aria-hidden="true"></i><span id="ropepower-status-text">{{ready}}</span></span></div>
+    <div class="module-stage"><canvas id="ropepower-canvas" role="img" aria-label="{{canvasLabel}}">{{noScript}}</canvas></div>
+    <div class="legend"><span><i class="line-key blue"></i>{{ropeLegend}}</span><span><i class="line-key white"></i>{{absorberLegend}}</span><span><i class="line-key orange"></i>{{guessLegend}}</span><span><i class="line-key gray"></i>{{referenceLegend}}</span></div>
+    <div class="module-equation"><span>{{equationTitle}}</span><output id="ropepower-equation">P = ½·μ·ω²·A²·v</output></div>
+    <div class="transport"><button id="play" class="primary" disabled>{{play}}</button><button id="pause" disabled>{{pause}}</button><button id="step" disabled>{{step}}</button><button id="reset" class="reset">{{reset}}</button></div>
+  </section>
+  <section class="metrics" aria-label="{{observe}}">
+    <div class="metric scalar"><h3 class="metric-label">{{time}}</h3><p class="metric-value"><span id="time-value">0.00</span> <small>s</small></p><p class="metric-equation">t</p></div>
+    <div class="metric vector"><h3 class="metric-label">{{powerMetric}}</h3><p class="metric-value"><span id="power-value">—</span> <small>W</small></p><p class="metric-equation">P</p></div>
+    <div class="metric scalar"><h3 class="metric-label">{{energyMetric}}</h3><p class="metric-value"><span id="energy-value">—</span> <small>J</small></p><p class="metric-equation">E = P·t</p></div>
+    <div class="metric scalar"><h3 class="metric-label">{{frequencyMetric}}</h3><p class="metric-value"><span id="frequency-value">—</span> <small>Hz</small></p><p class="metric-equation">f</p></div>
+    <div class="metric scalar"><h3 class="metric-label">{{speedMetric}}</h3><p class="metric-value"><span id="speed-value">—</span> <small>m/s</small></p><p class="metric-equation">v</p></div>
+  </section>
+  <div class="insight" id="insight"><span class="insight-icon" aria-hidden="true">↗</span><div><strong id="lesson-title">{{predictTitle}}</strong><p id="lesson-copy">{{predictCopy}}</p></div></div>
+  <section class="challenge"><div class="mission-heading"><h2 class="challenge-title">{{missionTitle}}</h2><div class="score-card"><span>{{score}}</span><strong id="mission-score">—</strong></div></div><p class="mission-copy">{{missionCopy}}</p><div class="badges"><span id="right-badge">✓ {{rightBadge}}</span><span id="first-badge">① {{firstBadge}}</span></div></section>
+</div>
+</div>
+<article class="learning-content"><section><h2>{{guideTitle}}</h2><ol><li>{{instruction1}}</li><li>{{instruction2}}</li><li>{{instruction3}}</li><li>{{instruction4}}</li></ol></section><section><h2>{{conceptTitle}}</h2><p>{{conceptCopy}}</p><aside class="worked-example"><h3>{{exampleTitle}}</h3><p>{{exampleCopy}}</p></aside></section><section><h2>{{modelTitle}}</h2><p>{{modelCopy}}</p></section></article>
+<p class="language-note" id="language-note">{{languageNote}}</p>
+</main>
+__FOOTER__
+<p class="sr-only" id="announcement" role="status" aria-live="polite"></p>
+</div>
+<script id="ropepower-model">
+class RopePowerModel {
+  // A motor shakes one end of a rope; the far end runs into an absorber, so nothing comes back. Each bit of rope moves as a small
+  // oscillator with energy ½·(μ·dx)·ω²·A², and the wave carries that energy along at v, so the power reaching the absorber is
+  // P = ½·μ·ω²·A²·v with ω = 2π·f. Power grows as the square of the amplitude and of the frequency. For the same tension a rope
+  // four times as heavy per metre carries waves at half the speed, and twice the power for the same shaking.
+  static tolerance = .02;
+  static L = 6; // m
+  static run = 3; // s
+  static missions = [
+    {key:'amplitude',ask:'ratioA',mu:.2,v:10,f:2,A:.1,ref:{mu:.2,v:10,f:2,A:.05}},
+    {key:'both',ask:'ratioBoth',mu:.2,v:10,f:4,A:.1,ref:{mu:.2,v:10,f:2,A:.05}},
+    {key:'compute',ask:'power',mu:.2,v:10,f:2,A:.1},
+    {key:'faster',ask:'amplitude',mu:.2,v:10,f:4,A:null,ref:{mu:.2,v:10,f:2,A:.1}},
+    {key:'heavier',ask:'ratioRope',mu:.8,v:5,f:2,A:.05,ref:{mu:.2,v:10,f:2,A:.05}}
+  ];
+  static units = {ratioA:'',ratioBoth:'',power:'W',amplitude:'cm',ratioRope:''};
+  static limits = {ratioA:1e4,ratioBoth:1e4,power:1e6,amplitude:1e4,ratioRope:1e4};
+  constructor(index = 0){this.setMission(index);}
+  setMission(index){this.index=index;this.config=RopePowerModel.missions[index];this.answer=null;this.attempts=0;this.reset();}
+  reset(){this.t=0;this.status='moving';}
+  valid(value){return Number.isFinite(value)&&value>0&&value<=RopePowerModel.limits[this.config.ask];}
+  setAnswer(value){if(value!==null&&!this.valid(value))return false;this.answer=value;this.reset();return true;}
+  ready(){return this.answer!==null;}
+  clamp(t){return Math.min(Math.max(t,0),this.duration());}
+  // The shaking in play: when the amplitude is asked, the motor uses yours (in cm).
+  wave(ref=false){const c=this.config;if(ref)return c.ref;return c.A===null?{...c,A:this.answer===null?this.exact()/100:this.answer/100}:c;}
+  power(ref=false){const w=this.wave(ref);return w?.5*w.mu*(2*Math.PI*w.f)**2*w.A**2*w.v:0;}
+  arrival(ref=false){return RopePowerModel.L/this.wave(ref).v;}
+  front(t,ref=false){return Math.min(this.wave(ref).v*this.clamp(t),RopePowerModel.L);}
+  height(x,t,ref=false){const w=this.wave(ref),s=this.clamp(t);return x<=w.v*s?w.A*Math.sin(2*Math.PI*w.f*(s-x/w.v)):0;}
+  // Energy taken in by the absorber so far (J).
+  delivered(t,ref=false){return this.power(ref)*Math.max(0,this.clamp(t)-this.arrival(ref));}
+  duration(){return RopePowerModel.run;}
+  now(){return this.status==='done'?this.duration():this.t;}
+  advance(dt){
+    if(!Number.isFinite(dt)||dt<0)throw new Error('Invalid timestep');
+    if(this.status==='done'||!this.ready())return null;
+    // A run counts as an attempt as soon as it starts; it ends exactly after 3 s.
+    if(this.t===0)this.attempts++;
+    const T=this.duration();
+    if(this.t+dt>=T*(1-1e-12)){this.t=T;this.status='done';return {t:T,done:true};}
+    this.t+=dt;return null;
+  }
+  exact(){
+    const c=this.config,P=w=>.5*w.mu*(2*Math.PI*w.f)**2*w.A**2*w.v;
+    if(c.ask==='power')return P(c);if(c.ask==='amplitude')return c.ref.A*c.ref.f/c.f*100;return P(c)/P(c.ref);
+  }
+  unit(){return RopePowerModel.units[this.config.ask];}
+  evaluate(){
+    if(!this.ready())return {ok:false,slip:null,first:false,exact:this.exact()};
+    const c=this.config,a=this.answer,e=this.exact(),tol=RopePowerModel.tolerance,near=(p,q)=>Math.abs(p-q)<=tol*Math.abs(q)+1e-12;
+    // Every answer is right within 2%.
+    const ok=near(a,e);let slip=null;
+    if(!ok){
+      if(c.ask==='ratioA'){const k=c.A/c.ref.A;if(near(a,k))slip='linear';else if(near(a,1))slip='unchanged';else if(near(a,Math.sqrt(k)))slip='root';else if(near(a,k**3))slip='cubed';}
+      else if(c.ask==='ratioBoth'){const k=c.A/c.ref.A*c.f/c.ref.f;if(near(a,k))slip='bothLinear';else if(near(a,k*c.A/c.ref.A))slip='oneSquared';}
+      else if(c.ask==='power'){if(near(a,2*e))slip='noHalf';else if(near(a,e/(4*Math.PI**2)))slip='frequency';else if(near(a,e/(2*Math.PI*c.f)))slip='omegaNotSquared';else if(near(a,e*1e4))slip='unitsCm';}
+      else if(c.ask==='amplitude'){const A0=c.ref.A*100,k=c.f/c.ref.f;if(near(a,A0/k/k))slip='quarter';else if(near(a,A0/Math.sqrt(k)))slip='rootSwing';else if(near(a,A0))slip='sameSwing';else if(near(a,A0*k))slip='double';}
+      else{if(near(a,c.mu/c.ref.mu))slip='massOnly';else if(near(a,c.v/c.ref.v))slip='speedOnly';else if(near(a,1))slip='sameRope';}
+    }
+    return {ok,slip,first:ok&&this.attempts===1,exact:e};
+  }
+  score(){if(this.status!=='done')return 0;const e=this.evaluate();return (e.ok?100:0)+(e.first?50:0);}
+  snapshot(){return {index:this.index,answer:this.answer,attempts:this.attempts,t:this.t,status:this.status};}
+  restore(saved){
+    if(!Number.isInteger(saved?.index)||!RopePowerModel.missions[saved.index])return false;
+    const probe=new RopePowerModel(saved.index);
+    if(!probe.setAnswer(saved.answer??null)||!Number.isInteger(saved.attempts)||saved.attempts<0)return false;
+    if(!['moving','done'].includes(saved.status)||!Number.isFinite(saved.t)||saved.t<0||saved.t>probe.duration()*(1+1e-9))return false;
+    if(probe.answer===null&&(saved.t>0||saved.status==='done'))return false;
+    if((saved.status==='done'||saved.t>0)&&saved.attempts<1)return false;
+    this.setMission(saved.index);this.answer=probe.answer;this.attempts=saved.attempts;
+    this.status=saved.status;this.t=saved.status==='done'?this.duration():saved.t;return true;
+  }
+}
+globalThis.RopePowerModel=RopePowerModel;
+</script>
+<script id="ropepower-locale" type="application/json">__LOCALE__</script>
+<script id="ropepower-interface">
+(() => {
+  'use strict';
+  const $=id=>document.getElementById(id),locale=JSON.parse($('ropepower-locale').textContent);
+  const text=(key,values={})=>locale.strings[key].replace(/\{(\w+)\}/g,(_,name)=>values[name]??'{'+name+'}');
+  const number=(n,d=2)=>Math.abs(n)<.5*10**-d?(0).toLocaleString(locale.lang,{minimumFractionDigits:d,maximumFractionDigits:d}):n.toLocaleString(locale.lang,{minimumFractionDigits:d,maximumFractionDigits:d,useGrouping:false});
+  const plain=n=>n.toLocaleString(locale.lang,{maximumFractionDigits:3,useGrouping:false}).replace('-','−');
+  const model=new RopePowerModel();
+  const canvas=$('ropepower-canvas'),ctx=canvas.getContext('2d');
+  const H=1/120,transferKey='phisicos-ropepower-language-transfer';
+  let running=false,previous=null,accumulator=0,lastUpdate=0,width=800,height=410;
+  const say=message=>{$('announcement').textContent=message;};
+  try{const data=JSON.parse(sessionStorage.getItem(transferKey)||'null');sessionStorage.removeItem(transferKey);if(data)model.restore(data.state);}catch{$('language-note').hidden=true;}
+  const pace=()=>model.config.pace??1;
+  const amount=v=>plain(Number(v.toPrecision(5)))+(model.unit()?' '+model.unit():'');
+  const slipKey=name=>'slip'+name[0].toUpperCase()+name.slice(1);
+  // The readings show only once a run starts, because they give the answer away.
+  const started=()=>model.status==='done'||model.t>0;
+  const symbols={ratioA:'P₂ ÷ P₁ =',ratioBoth:'P₂ ÷ P₁ =',power:'P =',amplitude:'A₂ =',ratioRope:'P₂ ÷ P₁ ='};
+  const cmOf=m=>plain(m*100);
+  // Givens: what changes between the earlier shaking and the new one, or the rope and the shaking.
+  function given(m){
+    if(m.ask==='power')return 'μ = '+plain(m.mu)+' kg/m · v = '+plain(m.v)+' m/s · f = '+plain(m.f)+' Hz · A = '+cmOf(m.A)+' cm';
+    if(m.ask==='amplitude')return 'f: '+plain(m.ref.f)+' → '+plain(m.f)+' Hz · A₁ = '+cmOf(m.ref.A)+' cm';
+    if(m.ask==='ratioRope')return 'μ ×'+plain(m.mu/m.ref.mu)+' · v: '+plain(m.ref.v)+' → '+plain(m.v)+' m/s';
+    return 'A: '+cmOf(m.ref.A)+' → '+cmOf(m.A)+' cm · f'+(m.f===m.ref.f?' = '+plain(m.f):': '+plain(m.ref.f)+' → '+plain(m.f))+' Hz';
+  }
+  function equation(){
+    const c=model.config,e=model.exact();
+    if(c.ask==='ratioA')return 'P₂ ÷ P₁ = (A₂ ÷ A₁)² = ('+cmOf(c.A)+' ÷ '+cmOf(c.ref.A)+')² = '+number(e);
+    if(c.ask==='ratioBoth')return 'P₂ ÷ P₁ = (A₂ ÷ A₁)²·(f₂ ÷ f₁)² = '+plain(c.A/c.ref.A)+'² × '+plain(c.f/c.ref.f)+'² = '+number(e);
+    if(c.ask==='power')return 'P = ½·μ·(2π·f)²·A²·v = ½ × '+plain(c.mu)+' × (2π × '+plain(c.f)+')² × '+plain(c.A)+'² × '+plain(c.v)+' = '+number(e)+' W';
+    if(c.ask==='amplitude')return 'A₂ = A₁·f₁ ÷ f₂ = '+cmOf(c.ref.A)+' × '+plain(c.ref.f)+' ÷ '+plain(c.f)+' = '+number(e,1)+' cm';
+    return 'P₂ ÷ P₁ = (μ₂·v₂) ÷ (μ₁·v₁) = ('+plain(c.mu)+' × '+plain(c.v)+') ÷ ('+plain(c.ref.mu)+' × '+plain(c.ref.v)+') = '+number(e);
+  }
+  function baseEquation(){return model.config.ask==='amplitude'?'P ∝ f²·A²':'P = ½·μ·ω²·A²·v';}
+  function metrics(t,begun){
+    const w=model.wave();
+    $('power-value').textContent=begun?number(model.power()):'—';$('energy-value').textContent=begun?number(model.delivered(t)):'—';
+    $('frequency-value').textContent=begun?plain(w.f):'—';$('speed-value').textContent=begun?number(w.v):'—';
+  }
+  function values(){const c=model.config,P=w=>.5*w.mu*(2*Math.PI*w.f)**2*w.A**2*w.v,now=c.A===null?{...c,A:c.ref.A*c.ref.f/c.f}:c;return {p:number(P(now)),p0:c.ref?number(P(c.ref)):'',a:number(now.A*100,1)};}
+  function runningCopy(t){return text('shakingCopy',{x:number(model.front(t)),e:number(model.delivered(t))});}
+  function scene(g){
+    const c=g.c,{line,fit,dot,box,label}=g,s=g.ready?g.t:0,L=RopePowerModel.L,x0=58,x1=g.area-78,kp=(x1-x0)/L,X=x=>x0+x*kp,ym=height*.48,ky=Math.min(700,(height*.22)/.1),Y=y=>ym-Math.max(Math.min(y,.3),-.3)*ky;
+    // The motor, the rope (heights enlarged), the earlier shaking for comparison, and the absorber with its lamp.
+    const arm=Y(model.height(0,s));box(x0-46,ym-40,30,80,'#22384a');line([{x:x0-16,y:ym},{x:x0,y:arm}],'#d1e3ed',3);dot(x0,arm,4,'#d1e3ed');
+    if(c.ref&&g.option){const ref=[];for(let i=0;i<=360;i++){const x=L*i/360;ref.push({x:X(x),y:Y(model.height(x,s,true))});}line(ref,'#9fb6c7',1.5,[4,3]);}
+    const pts=[];for(let i=0;i<=480;i++){const x=L*i/480;pts.push({x:X(x),y:Y(model.height(x,s))});}line(pts,'#77b9ff',3);
+    box(x1+2,ym-34,30,68,'#3b5468');line([{x:x1+2,y:ym-34},{x:x1+2,y:ym+34}],'#f2f8fc',2);
+    const lit=g.begun&&s>model.arrival()?1:0,most=Math.max(model.power(),c.ref?model.power(true):0,1e-9),glow=lit*model.power()/most;
+    dot(x1+17,ym-58,9+9*glow,'rgba(246,226,122,'+(.12+.8*glow)+')');dot(x1+17,ym-58,6,glow>0?'#f6e27a':'#5c6b78');
+    if(g.option){line([{x:X(0),y:ym+ky*.16+18},{x:X(L),y:ym+ky*.16+18}],'#8aa3b5',1);for(let m=0;m<=L;m++){const x=X(m);line([{x,y:ym+ky*.16+18},{x,y:ym+ky*.16+26}],'#9fb6c7',1);label(plain(m)+' m',x,ym+ky*.16+38,'#9fb6c7','center',9);}}
+    if(g.guess&&c.ask==='amplitude'){const yy=Y(model.answer/100);line([{x:X(.3),y:yy},{x:X(1.6),y:yy}],'#efb958',2,[5,3]);fit(text('guessTag'),X(.3),yy-6,'#efb958',9,120);}
+    fit('t = '+number(g.t)+' s',g.area-16,44,'#f2f8fc',13,g.area*.3,'right');
+  }
+  function panel(g){
+    const c=g.c,{line,fit}=g;
+    fit(text('energyGraph'),g.area+8,44,'#d1e3ed',10,width-g.area-16);
+    if(!g.begun){fit(text('panelHint'),g.area+8,70,'#9fb6c7',10,width-g.area-16);return;}
+    const D=model.duration(),px0=g.area+14,px1=width-14,py0=70,py1=height-62,PX=q=>px0+q/D*(px1-px0),upto=Math.min(g.t,D);
+    // Your prediction as a power: a multiple of the earlier power, a power in watts, or none when your amplitude drives the motor.
+    const guessP=!g.guess||c.ask==='amplitude'?null:c.ask==='power'?model.answer:model.answer*model.power(true);
+    const top=Math.max(model.delivered(D),c.ref?model.delivered(D,true):0,guessP===null?0:Math.min(guessP,3*model.power())*(D-model.arrival()))*1.15||1,PY=e=>py1-Math.min(e,top)/top*(py1-py0);
+    line([{x:px0,y:py0},{x:px0,y:py1},{x:px1,y:py1}],'#8aa3b5',1);
+    if(c.ref){const ref=[];for(let i=0;i<=200;i++){const q=upto*i/200;ref.push({x:PX(q),y:PY(model.delivered(q,true))});}line(ref,'#9fb6c7',1.5,[4,3]);}
+    const pts=[];for(let i=0;i<=200;i++){const q=upto*i/200;pts.push({x:PX(q),y:PY(model.delivered(q))});}line(pts,'#77b9ff',2);
+    if(guessP!==null){const a=model.arrival();line([{x:PX(a),y:PY(0)},{x:PX(D),y:PY(guessP*(D-a))}],'#efb958',1.5,[5,3]);}
+    fit(text('timeAxis'),px0,py1+14,'#9fb6c7',9,(px1-px0)/2);
+  }
+  function setRunning(value){
+    const done=model.status==='done',blocked=!model.ready();running=value&&!done&&!blocked;previous=null;accumulator=0;
+    $('play').disabled=running||done||blocked;$('pause').disabled=!running;$('step').disabled=running||done||blocked;
+    $('ropepower-status').classList.toggle('running',running);
+    $('ropepower-status-text').textContent=text(done?'done':running?'running':model.t?'paused':'ready');
+  }
+  function sync(){
+    const c=model.config;
+    RopePowerModel.missions.forEach((m,i)=>{$('mission-'+i).setAttribute('aria-pressed',String(i===model.index));$('given-'+i).textContent=given(m);});
+    $('question').textContent=text('question'+model.index);$('answer-symbol').textContent=symbols[c.ask];$('answer-unit').textContent=model.unit();
+    $('answer').value=model.answer===null?'':String(model.answer);$('mission-label').textContent=text('mission'+model.index);
+  }
+  function update(){
+    const ready=model.ready(),done=model.status==='done',t=ready?model.now():0,e=model.evaluate(),begun=started();
+    $('time-value').textContent=number(t);metrics(t,begun);
+    $('ropepower-equation').textContent=begun?equation():baseEquation();
+    let key,copy;
+    if(done){
+      const base=text('result'+model.index,values());
+      if(e.ok){key='good';copy=base+' '+text('why'+model.index);}
+      else{key='miss';copy=base+' '+text('missCopy',{p:amount(model.answer)})+' '+(e.slip?text(slipKey(e.slip)):text('hint'+model.index));}
+    }
+    else if(!ready){key='predict';copy=text('predictCopy');}
+    else if(model.t>0){key='running';copy=runningCopy(t);}
+    else{key='ready';copy=text('readyCopy');}
+    $('lesson-title').textContent=text(key+'Title',{t:number(t),p:ready?amount(model.answer):''});$('lesson-copy').textContent=copy;
+    $('insight').classList.toggle('warning',key==='miss');
+    $('mission-score').textContent=done?String(model.score()):'—';
+    $('right-badge').classList.toggle('earned',done&&e.ok);$('first-badge').classList.toggle('earned',done&&e.first);
+  }
+  function refresh(){setRunning(false);update();draw();}
+  function simulate(dt){
+    const result=model.advance(dt);
+    if(result?.done){setRunning(false);update();say(text('doneAnnouncement')+' '+$('lesson-title').textContent);return true;}
+    return false;
+  }
+  $('answer').addEventListener('input',event=>{const raw=String(event.target.value).trim(),value=raw===''?null:Number(raw);if(!model.setAnswer(value))model.setAnswer(null);refresh();});
+  $('play').addEventListener('click',()=>{setRunning(true);update();say(text('startedAnnouncement'));});
+  $('pause').addEventListener('click',()=>{setRunning(false);update();say(text('pausedAnnouncement'));});
+  $('step').addEventListener('click',()=>{for(let i=0;i<12;i++)if(simulate(H*pace()))break;setRunning(false);update();draw();});
+  $('reset').addEventListener('click',()=>{model.reset();refresh();say(text('resetAnnouncement'));});
+  RopePowerModel.missions.forEach((_,i)=>$('mission-'+i).addEventListener('click',()=>{model.setMission(i);sync();refresh();say(text('missionAnnouncement',{name:text('mission'+i)}));}));
+  for(const id of ['show-reference','show-guess'])$(id).addEventListener('change',()=>{update();draw();});
+  function suspend(){if(running){setRunning(false);say(text('suspendedAnnouncement'));}update();draw();}
+  window.addEventListener('blur',suspend);document.addEventListener('visibilitychange',()=>{if(document.hidden)suspend();});
+  for(const link of document.querySelectorAll('.language-menu a'))link.addEventListener('click',()=>{setRunning(false);try{sessionStorage.setItem(transferKey,JSON.stringify({state:model.snapshot()}));}catch{}});
+  function resize(){const rect=canvas.getBoundingClientRect();if(rect.width<=0)return;width=rect.width;height=rect.height;const dpr=Math.min(window.devicePixelRatio||1,3);canvas.width=Math.round(width*dpr);canvas.height=Math.round(height*dpr);ctx.setTransform(dpr,0,0,dpr,0,0);draw();}
+  function draw(){
+    if(!ctx)return;
+    const c=model.config,ready=model.ready(),done=model.status==='done',t=ready?model.now():0,begun=started(),option=$('show-reference').checked,guess=$('show-guess').checked&&ready;
+    ctx.clearRect(0,0,width,height);
+    const label=(str,px,py,color='#b8ccdb',align='left',font=12)=>{ctx.fillStyle=color;ctx.textAlign=align;ctx.font=font+'px -apple-system,BlinkMacSystemFont,sans-serif';ctx.fillText(str,px,py);};
+    const line=(points,color,w=1,dash=[])=>{ctx.beginPath();ctx.strokeStyle=color;ctx.lineWidth=w;ctx.setLineDash(dash);points.forEach((q,i)=>i?ctx.lineTo(q.x,q.y):ctx.moveTo(q.x,q.y));ctx.stroke();ctx.setLineDash([]);};
+    const fit=(str,px,py,color,size,room,align='left')=>{ctx.font=size+'px -apple-system,BlinkMacSystemFont,sans-serif';const w=ctx.measureText(str).width;label(str,px,py,color,align,w>room?Math.max(7,Math.floor(size*room/w)):size);};
+    const dot=(x,y,r,color)=>{ctx.fillStyle=color;ctx.beginPath();ctx.arc(x,y,Math.max(r,.5),0,Math.PI*2);ctx.fill();};
+    const box=(x,y,w,h,color)=>{ctx.fillStyle=color;ctx.fillRect(x,y,w,h);};
+    const wide=width>=560,area=wide?width*.64:width;
+    const env={c,ready,done,t,begun,option,guess,label,line,fit,dot,box,wide,area};
+    fit(text('viewTitle'),16,20,'#d1e3ed',12,area-28);
+    if(done){const ev=model.evaluate();fit(text(ev.ok?'rightBanner':'offBanner'),16,40,ev.ok?'#75efc7':'#efb958',width<430?12:14,area-28);}
+    scene(env);
+    label(text('scaleNote'),16,height-8,'#9fb6c7','left',10);
+    if(!wide)return;
+    panel(env);
+  }
+  function frame(now){if(previous===null)previous=now;const elapsed=Math.min(.1,(now-previous)/1000);previous=now;if(running){accumulator+=elapsed*pace();while(accumulator>=H&&running){accumulator-=H;simulate(H);}draw();}if(now-lastUpdate>=80){update();lastUpdate=now;}requestAnimationFrame(frame);}
+  window.addEventListener('resize',resize);if(typeof ResizeObserver!=='undefined')new ResizeObserver(resize).observe(canvas);
+  sync();setRunning(false);update();resize();requestAnimationFrame(frame);
+})();
+</script>
+</body>
+</html>

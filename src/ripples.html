@@ -1,0 +1,289 @@
+<!doctype html>
+<html lang="en">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Pebble Ripples · Phisicos</title>
+<style>
+.ripples-page .answer-row .symbol{min-width:56px}.ripples-page .question{font-size:15px;font-weight:600;margin-top:4px}
+.ripples-page .line-key.white{background:#f2f8fc}.ripples-page .line-key.blue{background:#77b9ff}.ripples-page .line-key.red{background:#ff7b6b}.ripples-page .line-key.green{background:#75efc7}
+</style>
+</head>
+<body>
+<div class="shell module-page ripples-page">
+__HEADER__
+<main id="main-content">
+__BREADCRUMBS__
+
+<div class="masthead"><div><h1>{{title}}</h1><p class="intro">{{subtitle}}</p></div><div class="concept-tags"><span class="tag speed">{{tag1}}</span><span class="tag velocity">{{tag2}}</span></div></div>
+<noscript><p class="no-js">{{noScript}}</p></noscript>
+<div class="layout">
+<aside class="sidebar" aria-label="{{setup}}">
+  <section class="control-section"><h2 class="eyebrow">{{setup}}</h2><div class="mission-list" role="group" aria-label="{{setup}}">
+    <button id="mission-0" aria-pressed="true"><b>1 · {{mission0}}</b><span id="given-0">·</span></button>
+    <button id="mission-1" aria-pressed="false"><b>2 · {{mission1}}</b><span id="given-1">·</span></button>
+    <button id="mission-2" aria-pressed="false"><b>3 · {{mission2}}</b><span id="given-2">·</span></button>
+    <button id="mission-3" aria-pressed="false"><b>4 · {{mission3}}</b><span id="given-3">·</span></button>
+    <button id="mission-4" aria-pressed="false"><b>5 · {{mission4}}</b><span id="given-4">·</span></button>
+  </div><p class="hint">{{setupNote}}</p></section>
+  <section class="control-section"><h2 class="eyebrow">{{answerHeading}}</h2>
+    <p class="question" id="question">{{question0}}</p>
+    <p class="field-label"><label for="answer">{{answerLabel}}</label></p>
+    <div class="answer-row"><span class="symbol" id="answer-symbol">A =</span><input id="answer" type="number" inputmode="decimal" step="any" value=""><span class="unit" id="answer-unit">cm</span></div>
+    <p class="hint">{{answerHint}}</p>
+  </section>
+  <section class="control-section"><h2 class="eyebrow">{{observe}}</h2><label class="check"><input id="show-floats" type="checkbox" checked>{{floatsToggle}}</label><label class="check"><input id="show-guess" type="checkbox" checked>{{guessToggle}}</label><p class="hint">{{observeHint}}</p></section>
+</aside>
+<div class="workspace">
+  <section class="scene" aria-label="{{sceneTitle}}"><div class="scene-top"><div><h2 class="scene-title">{{sceneTitle}}</h2><p class="scene-subtitle" id="mission-label">{{mission0}}</p></div><span class="status" id="ripples-status"><i class="status-dot" aria-hidden="true"></i><span id="ripples-status-text">{{ready}}</span></span></div>
+    <div class="module-stage"><canvas id="ripples-canvas" role="img" aria-label="{{canvasLabel}}">{{noScript}}</canvas></div>
+    <div class="legend"><span><i class="line-key blue"></i>{{waterLegend}}</span><span><i class="line-key red"></i>{{floatLegend}}</span><span><i class="line-key orange"></i>{{guessLegend}}</span><span><i class="line-key gray"></i>{{referenceLegend}}</span></div>
+    <div class="module-equation"><span>{{equationTitle}}</span><output id="ripples-equation">A ∝ 1 ÷ √r</output></div>
+    <div class="transport"><button id="play" class="primary" disabled>{{play}}</button><button id="pause" disabled>{{pause}}</button><button id="step" disabled>{{step}}</button><button id="reset" class="reset">{{reset}}</button></div>
+  </section>
+  <section class="metrics" aria-label="{{observe}}">
+    <div class="metric scalar"><h3 class="metric-label">{{time}}</h3><p class="metric-value"><span id="time-value">0.00</span> <small>s</small></p><p class="metric-equation">t</p></div>
+    <div class="metric vector"><h3 class="metric-label">{{radiusMetric}}</h3><p class="metric-value"><span id="radius-value">—</span> <small>m</small></p><p class="metric-equation">r = v·t</p></div>
+    <div class="metric scalar"><h3 class="metric-label">{{heightMetric}}</h3><p class="metric-value"><span id="height-value">—</span> <small>cm</small></p><p class="metric-equation">A</p></div>
+    <div class="metric scalar"><h3 class="metric-label">{{lengthMetric}}</h3><p class="metric-value"><span id="length-value">—</span> <small>m</small></p><p class="metric-equation">2π·r</p></div>
+    <div class="metric scalar"><h3 class="metric-label">{{speedMetric}}</h3><p class="metric-value"><span id="speed-value">—</span> <small>m/s</small></p><p class="metric-equation">v</p></div>
+  </section>
+  <div class="insight" id="insight"><span class="insight-icon" aria-hidden="true">↗</span><div><strong id="lesson-title">{{predictTitle}}</strong><p id="lesson-copy">{{predictCopy}}</p></div></div>
+  <section class="challenge"><div class="mission-heading"><h2 class="challenge-title">{{missionTitle}}</h2><div class="score-card"><span>{{score}}</span><strong id="mission-score">—</strong></div></div><p class="mission-copy">{{missionCopy}}</p><div class="badges"><span id="right-badge">✓ {{rightBadge}}</span><span id="first-badge">① {{firstBadge}}</span></div></section>
+</div>
+</div>
+<article class="learning-content"><section><h2>{{guideTitle}}</h2><ol><li>{{instruction1}}</li><li>{{instruction2}}</li><li>{{instruction3}}</li><li>{{instruction4}}</li></ol></section><section><h2>{{conceptTitle}}</h2><p>{{conceptCopy}}</p><aside class="worked-example"><h3>{{exampleTitle}}</h3><p>{{exampleCopy}}</p></aside></section><section><h2>{{modelTitle}}</h2><p>{{modelCopy}}</p></section></article>
+<p class="language-note" id="language-note">{{languageNote}}</p>
+</main>
+__FOOTER__
+<p class="sr-only" id="announcement" role="status" aria-live="polite"></p>
+</div>
+<script id="ripples-model">
+class RipplesModel {
+  // A pebble sends out a ring that travels at v. Without losses its energy is shared around the whole ring, whose length is 2π·r,
+  // so the energy per metre of ring falls as 1 ÷ r and, since energy grows as A², the height falls as A ∝ 1 ÷ √r. A straight
+  // wave from a long plank doesn't spread: its height stays the same. A pebble with n times the energy gives √n times the height.
+  static tolerance = .02;
+  static v = 1; // m/s
+  static start = .2; // m, the ring's radius when the run starts
+  static half = .2; // m, half-width of the ring's crest
+  static plank = 3; // m, the width of the straight wave
+  static missions = [
+    {key:'farther',ask:'height',A1:.02,r1:1,r2:4,view:4.6},
+    {key:'energy',ask:'energy',A1:.02,r1:1,r2:3,view:3.6},
+    {key:'where',ask:'distance',A1:.03,r1:.5,A2:.01,r2:4.5,view:5},
+    {key:'bigger',ask:'bigHeight',A1:.01,r1:2,r2:2,E:4,view:2.6},
+    {key:'plank',ask:'plankHeight',A1:.02,r1:1,r2:4,line:true,view:4.6}
+  ];
+  static units = {height:'cm',energy:'',distance:'m',bigHeight:'cm',plankHeight:'cm'};
+  static limits = {height:1e4,energy:1e4,distance:1e4,bigHeight:1e4,plankHeight:1e4};
+  constructor(index = 0){this.setMission(index);}
+  setMission(index){this.index=index;this.config=RipplesModel.missions[index];this.answer=null;this.attempts=0;this.reset();}
+  reset(){this.t=0;this.status='moving';}
+  valid(value){return Number.isFinite(value)&&value>0&&value<=RipplesModel.limits[this.config.ask];}
+  setAnswer(value){if(value!==null&&!this.valid(value))return false;this.answer=value;this.reset();return true;}
+  ready(){return this.answer!==null;}
+  clamp(t){return Math.min(Math.max(t,0),this.duration());}
+  front(t){return RipplesModel.start+RipplesModel.v*this.clamp(t);}
+  // The crest's height (m) when the ring has radius r; the reference is the small pebble.
+  amp(r,ref=false){const c=this.config,base=c.A1*(c.line?1:Math.sqrt(c.r1/Math.max(r,RipplesModel.start)));return c.E&&!ref?base*Math.sqrt(c.E):base;}
+  // The water's height (m) at distance x: one smooth crest centred on the ring.
+  height(x,t,ref=false){const w=RipplesModel.half,s=x-this.front(t);return Math.abs(s)<w?this.amp(this.front(t),ref)*(1+Math.cos(Math.PI*s/w))/2:0;}
+  // The wavefront's length (m): a circle, or the plank's width for a straight wave.
+  length(t){return this.config.line?RipplesModel.plank:2*Math.PI*this.front(t);}
+  duration(){return (this.config.view-RipplesModel.start)/RipplesModel.v;}
+  now(){return this.status==='done'?this.duration():this.t;}
+  advance(dt){
+    if(!Number.isFinite(dt)||dt<0)throw new Error('Invalid timestep');
+    if(this.status==='done'||!this.ready())return null;
+    // A run counts as an attempt as soon as it starts; it ends once the ring has passed the farthest float.
+    if(this.t===0)this.attempts++;
+    const T=this.duration();
+    if(this.t+dt>=T*(1-1e-12)){this.t=T;this.status='done';return {t:T,done:true};}
+    this.t+=dt;return null;
+  }
+  exact(){const c=this.config;if(c.ask==='energy')return c.r2/c.r1;if(c.ask==='distance')return c.r1*(c.A1/c.A2)**2;return this.amp(c.r2)*100;}
+  unit(){return RipplesModel.units[this.config.ask];}
+  evaluate(){
+    if(!this.ready())return {ok:false,slip:null,first:false,exact:this.exact()};
+    const c=this.config,a=this.answer,e=this.exact(),tol=RipplesModel.tolerance,near=(p,q)=>Math.abs(p-q)<=tol*Math.abs(q)+1e-12,k=c.r2/c.r1,A=c.A1*100;
+    // Every answer is right within 2%.
+    const ok=near(a,e);let slip=null;
+    if(!ok){
+      if(c.ask==='height'){if(near(a,A/k))slip='inverse';else if(near(a,A/k/k))slip='inverseSquare';else if(near(a,A))slip='same';else if(near(a,A*Math.sqrt(k)))slip='grows';else if(near(a,A*k))slip='times';}
+      else if(c.ask==='energy'){if(near(a,k*k))slip='squared';else if(near(a,Math.sqrt(k)))slip='amplitudeRatio';else if(near(a,1))slip='noChange';}
+      else if(c.ask==='distance'){const q=c.A1/c.A2;if(near(a,c.r1*q))slip='linear';else if(near(a,c.r1*Math.sqrt(q)))slip='root';else if(near(a,c.r1/q/q))slip='inverted';}
+      else if(c.ask==='bigHeight'){if(near(a,A*c.E))slip='energyLinear';else if(near(a,A))slip='unchanged';else if(near(a,A*c.E*c.E))slip='energySquared';}
+      else{if(near(a,A/Math.sqrt(k)))slip='circle';else if(near(a,A/k))slip='plankInverse';}
+    }
+    return {ok,slip,first:ok&&this.attempts===1,exact:e};
+  }
+  score(){if(this.status!=='done')return 0;const e=this.evaluate();return (e.ok?100:0)+(e.first?50:0);}
+  snapshot(){return {index:this.index,answer:this.answer,attempts:this.attempts,t:this.t,status:this.status};}
+  restore(saved){
+    if(!Number.isInteger(saved?.index)||!RipplesModel.missions[saved.index])return false;
+    const probe=new RipplesModel(saved.index);
+    if(!probe.setAnswer(saved.answer??null)||!Number.isInteger(saved.attempts)||saved.attempts<0)return false;
+    if(!['moving','done'].includes(saved.status)||!Number.isFinite(saved.t)||saved.t<0||saved.t>probe.duration()*(1+1e-9))return false;
+    if(probe.answer===null&&(saved.t>0||saved.status==='done'))return false;
+    if((saved.status==='done'||saved.t>0)&&saved.attempts<1)return false;
+    this.setMission(saved.index);this.answer=probe.answer;this.attempts=saved.attempts;
+    this.status=saved.status;this.t=saved.status==='done'?this.duration():saved.t;return true;
+  }
+}
+globalThis.RipplesModel=RipplesModel;
+</script>
+<script id="ripples-locale" type="application/json">__LOCALE__</script>
+<script id="ripples-interface">
+(() => {
+  'use strict';
+  const $=id=>document.getElementById(id),locale=JSON.parse($('ripples-locale').textContent);
+  const text=(key,values={})=>locale.strings[key].replace(/\{(\w+)\}/g,(_,name)=>values[name]??'{'+name+'}');
+  const number=(n,d=2)=>Math.abs(n)<.5*10**-d?(0).toLocaleString(locale.lang,{minimumFractionDigits:d,maximumFractionDigits:d}):n.toLocaleString(locale.lang,{minimumFractionDigits:d,maximumFractionDigits:d,useGrouping:false});
+  const plain=n=>n.toLocaleString(locale.lang,{maximumFractionDigits:3,useGrouping:false}).replace('-','−');
+  const model=new RipplesModel();
+  const canvas=$('ripples-canvas'),ctx=canvas.getContext('2d');
+  const H=1/120,transferKey='phisicos-ripples-language-transfer';
+  let running=false,previous=null,accumulator=0,lastUpdate=0,width=800,height=410;
+  const say=message=>{$('announcement').textContent=message;};
+  try{const data=JSON.parse(sessionStorage.getItem(transferKey)||'null');sessionStorage.removeItem(transferKey);if(data)model.restore(data.state);}catch{$('language-note').hidden=true;}
+  const pace=()=>model.config.pace??1;
+  const amount=v=>plain(Number(v.toPrecision(5)))+(model.unit()?' '+model.unit():'');
+  const slipKey=name=>'slip'+name[0].toUpperCase()+name.slice(1);
+  // The readings show only once a run starts, because they give the answer away.
+  const started=()=>model.status==='done'||model.t>0;
+  const symbols={height:'A =',energy:'E₁ ÷ E₂ =',distance:'r =',bigHeight:'A =',plankHeight:'A ='};
+  const cm=m=>number(m*100,1);
+  // Givens: the measured height and distance, and where the question looks.
+  function given(m){
+    if(m.ask==='energy')return 'r: '+plain(m.r1)+' → '+plain(m.r2)+' m';
+    if(m.ask==='distance')return 'A: '+plain(m.A1*100)+' → '+plain(m.A2*100)+' cm · r₁ = '+plain(m.r1)+' m';
+    if(m.ask==='bigHeight')return 'A₁ = '+plain(m.A1*100)+' cm · r = '+plain(m.r1)+' m · E ×'+plain(m.E);
+    return 'A₁ = '+plain(m.A1*100)+' cm · '+(m.line?'x':'r')+': '+plain(m.r1)+' → '+plain(m.r2)+' m';
+  }
+  function equation(){
+    const c=model.config,e=model.exact();
+    if(c.ask==='height')return 'A₂ = A₁·√(r₁ ÷ r₂) = '+plain(c.A1*100)+' × √('+plain(c.r1)+' ÷ '+plain(c.r2)+') = '+number(e,1)+' cm';
+    if(c.ask==='energy')return 'E₁ ÷ E₂ = r₂ ÷ r₁ = '+plain(c.r2)+' ÷ '+plain(c.r1)+' = '+number(e);
+    if(c.ask==='distance')return 'r₂ = r₁·(A₁ ÷ A₂)² = '+plain(c.r1)+' × ('+plain(c.A1*100)+' ÷ '+plain(c.A2*100)+')² = '+number(e)+' m';
+    if(c.ask==='bigHeight')return 'A = A₁·√(E ÷ E₁) = '+plain(c.A1*100)+' × √'+plain(c.E)+' = '+number(e,1)+' cm';
+    return 'A₂ = A₁ = '+number(e,1)+' cm';
+  }
+  function baseEquation(){const a=model.config.ask;return a==='energy'||a==='bigHeight'?'E ∝ A²':a==='plankHeight'?'A₂ = A₁':'A ∝ 1 ÷ √r';}
+  function metrics(t,begun){
+    $('radius-value').textContent=begun?number(model.front(t)):'—';$('height-value').textContent=begun?cm(model.amp(model.front(t))):'—';
+    $('length-value').textContent=begun?number(model.length(t)):'—';$('speed-value').textContent=begun?number(RipplesModel.v):'—';
+  }
+  function values(){const c=model.config;return {a:cm(model.amp(c.r1,true)),b:cm(model.amp(c.r2)),r:plain(c.r2)};}
+  function runningCopy(t){return text(model.config.line?'straightCopy':'spreadingCopy',{r:number(model.front(t)),a:cm(model.amp(model.front(t))),l:number(model.length(t))});}
+  // Where the floats sit: at the measured distance and at the one asked about.
+  function floats(c){return c.r1===c.r2?[c.r2]:[c.r1,c.r2];}
+  function scene(g){
+    const c=g.c,{line,fit,dot,box,label}=g,s=g.ready?g.t:0,x0=44,x1=g.area-24,kp=(x1-x0)/c.view,X=x=>x0+x*kp;
+    const top=52,bottom=height*.56,yc=(top+bottom)/2,ys=height*.76,ky=Math.min(1100,(height*.16)/.045),Y=y=>ys-y*ky,front=model.front(s);
+    // Top view of the pond: the pebble at the left edge and the ring (or the plank's straight wave) moving out.
+    box(16,top,g.area-32,bottom-top,'#173a50');
+    ctx.save();ctx.beginPath();ctx.rect(16,top,g.area-32,bottom-top);ctx.clip();
+    line([{x:x0,y:yc},{x:x1,y:yc}],'#9fb6c7',1,[3,5]);
+    if(g.begun){
+      const share=Math.min(1,model.amp(front)/Math.max(model.amp(RipplesModel.start),1e-9)),w=1.5+6*share;
+      ctx.strokeStyle='rgba(119,185,255,'+(.35+.65*share)+')';ctx.lineWidth=w;ctx.beginPath();
+      if(c.line){ctx.moveTo(X(front),top);ctx.lineTo(X(front),bottom);}else ctx.arc(x0,yc,front*kp,-Math.PI/2,Math.PI/2);ctx.stroke();
+    }
+    ctx.restore();
+    if(c.line)box(x0-14,top+6,8,bottom-top-12,'#8a6d4f');else dot(x0,yc,6,'#c9b79c');
+    // Side view along the dashed line, heights enlarged: the crest passes under the floats, which bob up and down in place.
+    line([{x:x0,y:ys},{x:x1,y:ys}],'#8aa3b5',1);
+    if(c.E){const ref=[];for(let i=0;i<=400;i++){const x=c.view*i/400;ref.push({x:X(x),y:Y(model.height(x,s,true))});}line(ref,'#9fb6c7',1.5,[4,3]);}
+    const pts=[];for(let i=0;i<=500;i++){const x=c.view*i/500;pts.push({x:X(x),y:Y(model.height(x,s))});}line(pts,'#77b9ff',3);
+    for(const r of floats(c)){const fx=X(r),fy=Y(model.height(r,s));dot(fx,fy-5,5,'#ff7b6b');if(g.option){dot(fx,yc,4,'#ff7b6b');fit((c.line?'x':'r')+' = '+plain(r)+' m',fx,ys+18,'#d1e3ed',10,90,'center');}}
+    if(g.guess){
+      if(c.ask==='distance'){const gx=X(Math.min(model.answer,c.view));line([{x:gx,y:top},{x:gx,y:ys+4}],'#efb958',2,[5,3]);fit(text('guessTag'),gx+4,top+14,'#efb958',9,120);}
+      else{const h=c.ask==='energy'?c.A1/Math.sqrt(model.answer):model.answer/100,yy=Y(Math.min(h,.1));line([{x:X(c.r2)-34,y:yy},{x:X(c.r2)+34,y:yy}],'#efb958',2,[5,3]);fit(text('guessTag'),X(c.r2),yy-6,'#efb958',9,110,'center');}
+    }
+    fit('t = '+number(g.t)+' s',g.area-16,44,'#f2f8fc',13,g.area*.3,'right');
+  }
+  function panel(g){
+    const c=g.c,{line,fit,dot,label}=g;
+    fit(text('heightGraph'),g.area+8,44,'#d1e3ed',10,width-g.area-16);
+    if(!g.begun){fit(text('panelHint'),g.area+8,70,'#9fb6c7',10,width-g.area-16);return;}
+    const px0=g.area+14,px1=width-14,py0=70,py1=height-62,peak=Math.max(model.amp(RipplesModel.start),c.A1*1.2),PX=r=>px0+r/c.view*(px1-px0),PY=a=>py1-Math.min(a,peak)/peak*(py1-py0),reach=Math.min(model.front(g.t),c.view);
+    line([{x:px0,y:py0},{x:px0,y:py1},{x:px1,y:py1}],'#8aa3b5',1);
+    if(c.E){const ref=[];for(let i=0;i<=200;i++){const r=RipplesModel.start+(reach-RipplesModel.start)*i/200;ref.push({x:PX(r),y:PY(model.amp(r,true))});}line(ref,'#9fb6c7',1.5,[4,3]);}
+    const pts=[];for(let i=0;i<=200;i++){const r=RipplesModel.start+(reach-RipplesModel.start)*i/200;pts.push({x:PX(r),y:PY(model.amp(r))});}line(pts,'#77b9ff',2);
+    for(const r of floats(c))if(reach>=r){dot(PX(r),PY(model.amp(r)),4,'#ff7b6b');label(number(model.amp(r)*100,1)+' cm',PX(r)+6,PY(model.amp(r))-6,'#d1e3ed','left',9);}
+    if(g.guess){
+      if(c.ask==='distance'){const gx=PX(Math.min(model.answer,c.view));line([{x:gx,y:py0},{x:gx,y:py1}],'#efb958',1.5,[5,3]);}
+      else{const h=c.ask==='energy'?c.A1/Math.sqrt(model.answer):model.answer/100;dot(PX(c.r2),PY(h),4,'#efb958');}
+    }
+    fit(text('distanceAxis'),px0,py1+14,'#9fb6c7',9,(px1-px0)/2);
+  }
+  function setRunning(value){
+    const done=model.status==='done',blocked=!model.ready();running=value&&!done&&!blocked;previous=null;accumulator=0;
+    $('play').disabled=running||done||blocked;$('pause').disabled=!running;$('step').disabled=running||done||blocked;
+    $('ripples-status').classList.toggle('running',running);
+    $('ripples-status-text').textContent=text(done?'done':running?'running':model.t?'paused':'ready');
+  }
+  function sync(){
+    const c=model.config;
+    RipplesModel.missions.forEach((m,i)=>{$('mission-'+i).setAttribute('aria-pressed',String(i===model.index));$('given-'+i).textContent=given(m);});
+    $('question').textContent=text('question'+model.index);$('answer-symbol').textContent=symbols[c.ask];$('answer-unit').textContent=model.unit();
+    $('answer').value=model.answer===null?'':String(model.answer);$('mission-label').textContent=text('mission'+model.index);
+  }
+  function update(){
+    const ready=model.ready(),done=model.status==='done',t=ready?model.now():0,e=model.evaluate(),begun=started();
+    $('time-value').textContent=number(t);metrics(t,begun);
+    $('ripples-equation').textContent=begun?equation():baseEquation();
+    let key,copy;
+    if(done){
+      const base=text('result'+model.index,values());
+      if(e.ok){key='good';copy=base+' '+text('why'+model.index);}
+      else{key='miss';copy=base+' '+text('missCopy',{p:amount(model.answer)})+' '+(e.slip?text(slipKey(e.slip)):text('hint'+model.index));}
+    }
+    else if(!ready){key='predict';copy=text('predictCopy');}
+    else if(model.t>0){key='running';copy=runningCopy(t);}
+    else{key='ready';copy=text('readyCopy');}
+    $('lesson-title').textContent=text(key+'Title',{t:number(t),p:ready?amount(model.answer):''});$('lesson-copy').textContent=copy;
+    $('insight').classList.toggle('warning',key==='miss');
+    $('mission-score').textContent=done?String(model.score()):'—';
+    $('right-badge').classList.toggle('earned',done&&e.ok);$('first-badge').classList.toggle('earned',done&&e.first);
+  }
+  function refresh(){setRunning(false);update();draw();}
+  function simulate(dt){
+    const result=model.advance(dt);
+    if(result?.done){setRunning(false);update();say(text('doneAnnouncement')+' '+$('lesson-title').textContent);return true;}
+    return false;
+  }
+  $('answer').addEventListener('input',event=>{const raw=String(event.target.value).trim(),value=raw===''?null:Number(raw);if(!model.setAnswer(value))model.setAnswer(null);refresh();});
+  $('play').addEventListener('click',()=>{setRunning(true);update();say(text('startedAnnouncement'));});
+  $('pause').addEventListener('click',()=>{setRunning(false);update();say(text('pausedAnnouncement'));});
+  $('step').addEventListener('click',()=>{for(let i=0;i<12;i++)if(simulate(H*pace()))break;setRunning(false);update();draw();});
+  $('reset').addEventListener('click',()=>{model.reset();refresh();say(text('resetAnnouncement'));});
+  RipplesModel.missions.forEach((_,i)=>$('mission-'+i).addEventListener('click',()=>{model.setMission(i);sync();refresh();say(text('missionAnnouncement',{name:text('mission'+i)}));}));
+  for(const id of ['show-floats','show-guess'])$(id).addEventListener('change',()=>{update();draw();});
+  function suspend(){if(running){setRunning(false);say(text('suspendedAnnouncement'));}update();draw();}
+  window.addEventListener('blur',suspend);document.addEventListener('visibilitychange',()=>{if(document.hidden)suspend();});
+  for(const link of document.querySelectorAll('.language-menu a'))link.addEventListener('click',()=>{setRunning(false);try{sessionStorage.setItem(transferKey,JSON.stringify({state:model.snapshot()}));}catch{}});
+  function resize(){const rect=canvas.getBoundingClientRect();if(rect.width<=0)return;width=rect.width;height=rect.height;const dpr=Math.min(window.devicePixelRatio||1,3);canvas.width=Math.round(width*dpr);canvas.height=Math.round(height*dpr);ctx.setTransform(dpr,0,0,dpr,0,0);draw();}
+  function draw(){
+    if(!ctx)return;
+    const c=model.config,ready=model.ready(),done=model.status==='done',t=ready?model.now():0,begun=started(),option=$('show-floats').checked,guess=$('show-guess').checked&&ready;
+    ctx.clearRect(0,0,width,height);
+    const label=(str,px,py,color='#b8ccdb',align='left',font=12)=>{ctx.fillStyle=color;ctx.textAlign=align;ctx.font=font+'px -apple-system,BlinkMacSystemFont,sans-serif';ctx.fillText(str,px,py);};
+    const line=(points,color,w=1,dash=[])=>{ctx.beginPath();ctx.strokeStyle=color;ctx.lineWidth=w;ctx.setLineDash(dash);points.forEach((q,i)=>i?ctx.lineTo(q.x,q.y):ctx.moveTo(q.x,q.y));ctx.stroke();ctx.setLineDash([]);};
+    const fit=(str,px,py,color,size,room,align='left')=>{ctx.font=size+'px -apple-system,BlinkMacSystemFont,sans-serif';const w=ctx.measureText(str).width;label(str,px,py,color,align,w>room?Math.max(7,Math.floor(size*room/w)):size);};
+    const dot=(x,y,r,color)=>{ctx.fillStyle=color;ctx.beginPath();ctx.arc(x,y,Math.max(r,.5),0,Math.PI*2);ctx.fill();};
+    const box=(x,y,w,h,color)=>{ctx.fillStyle=color;ctx.fillRect(x,y,w,h);};
+    const wide=width>=560,area=wide?width*.64:width;
+    const env={c,ready,done,t,begun,option,guess,label,line,fit,dot,box,wide,area};
+    fit(text('viewTitle'),16,20,'#d1e3ed',12,area-28);
+    if(done){const ev=model.evaluate();fit(text(ev.ok?'rightBanner':'offBanner'),16,40,ev.ok?'#75efc7':'#efb958',width<430?12:14,area-28);}
+    scene(env);
+    label(text('scaleNote'),16,height-8,'#9fb6c7','left',10);
+    if(!wide)return;
+    panel(env);
+  }
+  function frame(now){if(previous===null)previous=now;const elapsed=Math.min(.1,(now-previous)/1000);previous=now;if(running){accumulator+=elapsed*pace();while(accumulator>=H&&running){accumulator-=H;simulate(H);}draw();}if(now-lastUpdate>=80){update();lastUpdate=now;}requestAnimationFrame(frame);}
+  window.addEventListener('resize',resize);if(typeof ResizeObserver!=='undefined')new ResizeObserver(resize).observe(canvas);
+  sync();setRunning(false);update();resize();requestAnimationFrame(frame);
+})();
+</script>
+</body>
+</html>

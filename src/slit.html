@@ -1,0 +1,284 @@
+<!doctype html>
+<html lang="en">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Laser Slit · Phisicos</title>
+<style>
+.slit-page .answer-row .symbol{min-width:56px}.slit-page .question{font-size:15px;font-weight:600;margin-top:4px}
+.slit-page .line-key.white{background:#f2f8fc}.slit-page .line-key.blue{background:#77b9ff}.slit-page .line-key.red{background:#ff7b6b}.slit-page .line-key.green{background:#75efc7}
+</style>
+</head>
+<body>
+<div class="shell module-page slit-page">
+__HEADER__
+<main id="main-content">
+__BREADCRUMBS__
+
+<div class="masthead"><div><h1>{{title}}</h1><p class="intro">{{subtitle}}</p></div><div class="concept-tags"><span class="tag speed">{{tag1}}</span><span class="tag velocity">{{tag2}}</span></div></div>
+<noscript><p class="no-js">{{noScript}}</p></noscript>
+<div class="layout">
+<aside class="sidebar" aria-label="{{setup}}">
+  <section class="control-section"><h2 class="eyebrow">{{setup}}</h2><div class="mission-list" role="group" aria-label="{{setup}}">
+    <button id="mission-0" aria-pressed="true"><b>1 · {{mission0}}</b><span id="given-0">·</span></button>
+    <button id="mission-1" aria-pressed="false"><b>2 · {{mission1}}</b><span id="given-1">·</span></button>
+    <button id="mission-2" aria-pressed="false"><b>3 · {{mission2}}</b><span id="given-2">·</span></button>
+    <button id="mission-3" aria-pressed="false"><b>4 · {{mission3}}</b><span id="given-3">·</span></button>
+    <button id="mission-4" aria-pressed="false"><b>5 · {{mission4}}</b><span id="given-4">·</span></button>
+  </div><p class="hint">{{setupNote}}</p></section>
+  <section class="control-section"><h2 class="eyebrow">{{answerHeading}}</h2>
+    <p class="question" id="question">{{question0}}</p>
+    <p class="field-label"><label for="answer">{{answerLabel}}</label></p>
+    <div class="answer-row"><span class="symbol" id="answer-symbol">y =</span><input id="answer" type="number" inputmode="decimal" step="any" value=""><span class="unit" id="answer-unit">mm</span></div>
+    <p class="hint">{{answerHint}}</p>
+  </section>
+  <section class="control-section"><h2 class="eyebrow">{{observe}}</h2><label class="check"><input id="show-ruler" type="checkbox" checked>{{rulerToggle}}</label><label class="check"><input id="show-guess" type="checkbox" checked>{{guessToggle}}</label><p class="hint">{{observeHint}}</p></section>
+</aside>
+<div class="workspace">
+  <section class="scene" aria-label="{{sceneTitle}}"><div class="scene-top"><div><h2 class="scene-title">{{sceneTitle}}</h2><p class="scene-subtitle" id="mission-label">{{mission0}}</p></div><span class="status" id="slit-status"><i class="status-dot" aria-hidden="true"></i><span id="slit-status-text">{{ready}}</span></span></div>
+    <div class="module-stage"><canvas id="slit-canvas" role="img" aria-label="{{canvasLabel}}">{{noScript}}</canvas></div>
+    <div class="legend"><span><i class="line-key blue"></i>{{lightLegend}}</span><span><i class="line-key white"></i>{{meterLegend}}</span><span><i class="line-key orange"></i>{{guessLegend}}</span><span><i class="line-key gray"></i>{{referenceLegend}}</span></div>
+    <div class="module-equation"><span>{{equationTitle}}</span><output id="slit-equation">y = λ·L ÷ a</output></div>
+    <div class="transport"><button id="play" class="primary" disabled>{{play}}</button><button id="pause" disabled>{{pause}}</button><button id="step" disabled>{{step}}</button><button id="reset" class="reset">{{reset}}</button></div>
+  </section>
+  <section class="metrics" aria-label="{{observe}}">
+    <div class="metric scalar"><h3 class="metric-label">{{time}}</h3><p class="metric-value"><span id="time-value">0.00</span> <small>s</small></p><p class="metric-equation">t</p></div>
+    <div class="metric scalar"><h3 class="metric-label">{{lambdaMetric}}</h3><p class="metric-value"><span id="lambda-value">—</span> <small>nm</small></p><p class="metric-equation">λ</p></div>
+    <div class="metric scalar"><h3 class="metric-label">{{slitMetric}}</h3><p class="metric-value"><span id="slit-value">—</span> <small>mm</small></p><p class="metric-equation">a</p></div>
+    <div class="metric scalar"><h3 class="metric-label">{{distMetric}}</h3><p class="metric-value"><span id="dist-value">—</span> <small>m</small></p><p class="metric-equation">L</p></div>
+    <div class="metric scalar"><h3 class="metric-label">{{meterMetric}}</h3><p class="metric-value"><span id="meter-value">—</span> <small>mm</small></p><p class="metric-equation">y</p></div>
+  </section>
+  <div class="insight" id="insight"><span class="insight-icon" aria-hidden="true">↗</span><div><strong id="lesson-title">{{predictTitle}}</strong><p id="lesson-copy">{{predictCopy}}</p></div></div>
+  <section class="challenge"><div class="mission-heading"><h2 class="challenge-title">{{missionTitle}}</h2><div class="score-card"><span>{{score}}</span><strong id="mission-score">—</strong></div></div><p class="mission-copy">{{missionCopy}}</p><div class="badges"><span id="right-badge">✓ {{rightBadge}}</span><span id="first-badge">① {{firstBadge}}</span></div></section>
+</div>
+</div>
+<article class="learning-content"><section><h2>{{guideTitle}}</h2><ol><li>{{instruction1}}</li><li>{{instruction2}}</li><li>{{instruction3}}</li><li>{{instruction4}}</li></ol></section><section><h2>{{conceptTitle}}</h2><p>{{conceptCopy}}</p><aside class="worked-example"><h3>{{exampleTitle}}</h3><p>{{exampleCopy}}</p></aside></section><section><h2>{{modelTitle}}</h2><p>{{modelCopy}}</p></section></article>
+<p class="language-note" id="language-note">{{languageNote}}</p>
+</main>
+__FOOTER__
+<p class="sr-only" id="announcement" role="status" aria-live="polite"></p>
+</div>
+<script id="slit-model">
+class SlitModel {
+  // Diffraction of light by a single slit. Laser light of wavelength λ passes a slit of width a and lands on a screen L
+  // away. The screen shows a wide bright band in the middle with dark bands either side; the n-th dark band is at
+  // y = n·λ·L ÷ a from the centre (small angles), so the central band is 2·λ·L ÷ a wide. The brightness is
+  // (sin β ÷ β)² with β = π·a·y ÷ (λ·L). Lengths are in mm, wavelengths in nm. A run sends the light to the screen and then
+  // sweeps a light meter from the centre outwards.
+  static tolerance = .02;
+  static missions = [
+    {key:'dark',ask:'y',lambda:650,a:.1,L:2,pace:1},
+    {key:'width',ask:'w',lambda:532,a:.2,L:1.5,pace:1},
+    {key:'slit',ask:'a',lambda:650,L:2,y:20,pace:1},
+    {key:'wavelength',ask:'lambda',a:.15,L:3,y:9,pace:1},
+    {key:'second',ask:'y2',lambda:650,a:.2,L:2.4,pace:1}
+  ];
+  static units = {y:'mm',w:'mm',a:'mm',lambda:'nm',y2:'mm'};
+  static limits = {y:1e6,w:1e6,a:1e6,lambda:1e6,y2:1e6};
+  constructor(index = 0){this.setMission(index);}
+  setMission(index){this.index=index;this.config=SlitModel.missions[index];this.answer=null;this.attempts=0;this.reset();}
+  reset(){this.t=0;this.status='moving';}
+  valid(value){return Number.isFinite(value)&&value>0&&value<=SlitModel.limits[this.config.ask];}
+  setAnswer(value){if(value!==null&&!this.valid(value))return false;this.answer=value;this.reset();return true;}
+  ready(){return this.answer!==null;}
+  // The real wavelength (nm) and slit width (mm) of each test, and the first dark band's distance (mm) from the centre.
+  lambda(){const c=this.config;return c.lambda??c.a*c.y/c.L*1e3;}
+  slit(){const c=this.config;return c.a??c.lambda*c.L/c.y*1e-3;}
+  dark(){return this.lambda()*this.config.L/this.slit()*1e-3;}
+  // Brightness on the screen at y (mm), as a share of the centre.
+  brightness(y){const b=Math.PI*y/this.dark();return Math.abs(b)<1e-9?1:(Math.sin(b)/b)**2;}
+  // The light reaches the slit by 0.8 s and the screen by 2 s; the meter then sweeps out to three dark bands by 4 s.
+  front(t){const s=this.clamp(t);return {laser:Math.min(1,s/.8),spread:Math.min(1,Math.max(0,(s-.8)/1.2))};}
+  meter(t){return 3*this.dark()*Math.min(1,Math.max(0,(this.clamp(t)-2)/2));}
+  clamp(t){return Math.min(Math.max(t,0),this.duration());}
+  duration(){return 4;}
+  now(){return this.status==='done'?this.duration():this.t;}
+  advance(dt){
+    if(!Number.isFinite(dt)||dt<0)throw new Error('Invalid timestep');
+    if(this.status==='done'||!this.ready())return null;
+    // A run counts as an attempt as soon as it starts; it ends exactly after 4 s.
+    if(this.t===0)this.attempts++;
+    const T=this.duration();
+    if(this.t+dt>=T*(1-1e-12)){this.t=T;this.status='done';return {t:T,done:true};}
+    this.t+=dt;return null;
+  }
+  exact(){const c=this.config;if(c.ask==='w')return 2*this.dark();if(c.ask==='a')return this.slit();if(c.ask==='lambda')return this.lambda();if(c.ask==='y2')return 2*this.dark();return this.dark();}
+  unit(){return SlitModel.units[this.config.ask];}
+  evaluate(){
+    if(!this.ready())return {ok:false,slip:null,first:false,exact:this.exact()};
+    const c=this.config,a=this.answer,e=this.exact(),y=this.dark(),tol=SlitModel.tolerance,near=(p,q)=>Math.abs(p-q)<=tol*Math.abs(q)+1e-12;
+    // Every answer is right within 2%.
+    const ok=near(a,e);let slip=null;
+    if(!ok){
+      if(c.key==='dark'){if(near(a,2*y))slip='widthInstead';else if(near(a,y/2))slip='halfDark';else if(near(a,y/1e3))slip='metres';}
+      else if(c.key==='width'){if(near(a,y))slip='halfWidth';else if(near(a,4*y))slip='twiceWidth';else if(near(a,e/1e3))slip='metresWidth';}
+      else if(c.key==='slit'){if(near(a,2*e))slip='widthReading';else if(near(a,c.y/(c.lambda*c.L*1e-3)))slip='invertedSlit';else if(near(a,e/1e3))slip='metresSlit';}
+      else if(c.key==='wavelength'){if(near(a,e/2))slip='secondDark';else if(near(a,2*e))slip='doubled';else if(near(a,e/1e3))slip='micrometres';}
+      else{if(near(a,y))slip='firstOnly';else if(near(a,1.5*y))slip='brightFringe';else if(near(a,4*y))slip='squared';}
+    }
+    return {ok,slip,first:ok&&this.attempts===1,exact:e};
+  }
+  score(){if(this.status!=='done')return 0;const e=this.evaluate();return (e.ok?100:0)+(e.first?50:0);}
+  snapshot(){return {index:this.index,answer:this.answer,attempts:this.attempts,t:this.t,status:this.status};}
+  restore(saved){
+    if(!Number.isInteger(saved?.index)||!SlitModel.missions[saved.index])return false;
+    const probe=new SlitModel(saved.index);
+    if(!probe.setAnswer(saved.answer??null)||!Number.isInteger(saved.attempts)||saved.attempts<0)return false;
+    if(!['moving','done'].includes(saved.status)||!Number.isFinite(saved.t)||saved.t<0||saved.t>probe.duration()*(1+1e-9))return false;
+    if(probe.answer===null&&(saved.t>0||saved.status==='done'))return false;
+    if((saved.status==='done'||saved.t>0)&&saved.attempts<1)return false;
+    this.setMission(saved.index);this.answer=probe.answer;this.attempts=saved.attempts;
+    this.status=saved.status;this.t=saved.status==='done'?this.duration():saved.t;return true;
+  }
+}
+globalThis.SlitModel=SlitModel;
+</script>
+<script id="slit-locale" type="application/json">__LOCALE__</script>
+<script id="slit-interface">
+(() => {
+  'use strict';
+  const $=id=>document.getElementById(id),locale=JSON.parse($('slit-locale').textContent);
+  const text=(key,values={})=>locale.strings[key].replace(/\{(\w+)\}/g,(_,name)=>values[name]??'{'+name+'}');
+  const number=(n,d=2)=>Math.abs(n)<.5*10**-d?(0).toLocaleString(locale.lang,{minimumFractionDigits:d,maximumFractionDigits:d}):n.toLocaleString(locale.lang,{minimumFractionDigits:d,maximumFractionDigits:d,useGrouping:false});
+  const plain=n=>n.toLocaleString(locale.lang,{maximumFractionDigits:3,useGrouping:false}).replace('-','−');
+  const model=new SlitModel();
+  const canvas=$('slit-canvas'),ctx=canvas.getContext('2d');
+  const H=1/120,transferKey='phisicos-slit-language-transfer';
+  let running=false,previous=null,accumulator=0,lastUpdate=0,width=800,height=410;
+  const say=message=>{$('announcement').textContent=message;};
+  try{const data=JSON.parse(sessionStorage.getItem(transferKey)||'null');sessionStorage.removeItem(transferKey);if(data)model.restore(data.state);}catch{$('language-note').hidden=true;}
+  const pace=()=>model.config.pace??1;
+  const amount=v=>plain(Number(v.toPrecision(5)))+(model.unit()?' '+model.unit():'');
+  const slipKey=name=>'slip'+name[0].toUpperCase()+name.slice(1);
+  // The readings show only once a run starts, because they give the answer away.
+  const started=()=>model.status==='done'||model.t>0;
+  const symbols={y:'y =',w:'w =',a:'a =',lambda:'λ =',y2:'y₂ ='};
+  // Givens: the laser's wavelength, the slit, and the screen distance, or a dark band's distance in place of the unknown.
+  function given(m){
+    if(m.key==='slit')return plain(m.lambda)+' nm · L = '+plain(m.L)+' m · y = '+plain(m.y)+' mm';
+    if(m.key==='wavelength')return 'a = '+plain(m.a)+' mm · L = '+plain(m.L)+' m · y = '+plain(m.y)+' mm';
+    return plain(m.lambda)+' nm · a = '+plain(m.a)+' mm · L = '+plain(m.L)+' m';
+  }
+  function equation(){
+    const c=model.config,e=model.exact(),y=model.dark();
+    if(c.key==='width')return 'w = 2·λL ÷ a = 2 × '+number(y)+' = '+number(e)+' mm';
+    if(c.key==='slit')return 'a = '+plain(c.lambda)+' nm × '+plain(c.L)+' m ÷ '+plain(c.y)+' mm = '+number(e,3)+' mm';
+    if(c.key==='wavelength')return 'λ = '+plain(c.a)+' mm × '+plain(c.y)+' mm ÷ '+plain(c.L)+' m = '+number(e,0)+' nm';
+    if(c.key==='second')return 'y₂ = 2·λL ÷ a = 2 × '+number(y,1)+' = '+number(e,1)+' mm';
+    return 'y = '+plain(c.lambda)+' nm × '+plain(c.L)+' m ÷ '+plain(c.a)+' mm = '+number(e,1)+' mm';
+  }
+  function baseEquation(){const k=model.config.key;return k==='width'?'w = 2·λ·L ÷ a':k==='second'?'y_n = n·λ·L ÷ a':'y = λ·L ÷ a';}
+  // The asked quantity stays hidden until the run is over.
+  function metrics(t,begun){
+    const c=model.config,over=model.status==='done',show=(id,v,hide)=>{$(id).textContent=!begun?'—':hide&&!over?'?':v;};
+    show('lambda-value',number(model.lambda(),0),c.ask==='lambda');show('slit-value',number(model.slit(),3),c.ask==='a');show('dist-value',number(c.L,1));
+    show('meter-value',number(model.meter(t),1));
+  }
+  function values(){const c=model.config,e=model.exact();return {e:number(e,c.ask==='a'?3:c.ask==='lambda'?0:c.ask==='w'?2:1)};}
+  function runningCopy(t){const y=model.meter(t);return text('slitCopy',{y:number(y,1),p:number(model.brightness(y)*100,0)});}
+  // Laser colours, and the dark band distance (mm) your answer points at.
+  function rgbOf(nm){return nm<490?[90,125,255]:nm<570?[80,240,110]:nm<600?[255,210,60]:[255,75,60];}
+  function guessDark(){const c=model.config,a=model.answer;if(c.ask==='w')return a/2;if(c.ask==='a')return c.lambda*c.L/a*1e-3;if(c.ask==='lambda')return a*c.L/c.a*1e-3;if(c.ask==='y2')return a/2;return a;}
+  function scene(g){
+    const c=g.c,{line,fit,dot,box,label}=g,s=g.ready?g.t:0,f=model.front(s),[r,gg,b]=rgbOf(model.lambda()),col='rgb('+r+','+gg+','+b+')';
+    // Not to scale: the beam runs left to right over metres, while the pattern across the screen is in millimetres.
+    const xl=40,xs=Math.round(g.area*.36),xc=g.area-70,H=(height-210)/2,mid=80+H,yw=3.2*model.dark(),SY=y=>mid-y/yw*H;
+    box(16,56,g.area-32,height-126,'#16212c');
+    box(xl-26,mid-9,30,18,'#9fb6c7');label(text('laserTag'),xl-26,mid-16,'#d1e3ed','left',9);
+    box(xs-3,mid-H-6,6,H+2,'#d9cfb8');box(xs-3,mid+4,6,H+2,'#d9cfb8');label(text('slitTag'),xs+6,mid-H+4,'#d1e3ed','left',9);
+    box(xc,mid-H-6,10,2*H+12,'#e8edf2');label(text('screenTag'),xc-4,mid-H-4,'#d1e3ed','right',9);
+    // L between slit and screen; the slit is labelled with its width unless that is the question.
+    line([{x:xs,y:mid+H+14},{x:xc,y:mid+H+14}],'#9fb6c7',1);label('L = '+plain(c.L)+' m',(xs+xc)/2,mid+H+28,'#9fb6c7','center',9);
+    label(c.ask==='a'&&!g.done?'a = ?':'a = '+plain(Number(model.slit().toPrecision(3)))+' mm',xs+6,mid+H-2,'#9fb6c7','left',9);
+    if(g.begun){line([{x:xl+4,y:mid},{x:xl+4+(xs-xl-4)*f.laser,y:mid}],col,3);
+      if(f.spread>0){const xf=xs+(xc-xs)*f.spread;for(let i=-6;i<=6;i++){const y=model.dark()*i/6;line([{x:xs,y:mid},{x:xf,y:mid+(SY(y)-mid)*f.spread}],'rgba('+r+','+gg+','+b+','+(.55-Math.abs(i)*.06)+')',1.5);}}
+      if(f.spread>=1){for(let py=-H;py<H;py+=2){const y=-py/H*yw,v=Math.sqrt(model.brightness(y));box(xc,mid+py,10,2,'rgb('+Math.round(232*(1-v)+r*v)+','+Math.round(237*(1-v)+gg*v)+','+Math.round(242*(1-v)+b*v)+')');}}}
+    if(g.option){const st=yw>20?5:yw>8?2:1;for(let y=-Math.floor(yw/st)*st;y<=yw;y+=st){line([{x:xc+10,y:SY(y)},{x:xc+(y%(2*st)===0?18:14),y:SY(y)}],'#9fb6c7',1);if(y%(2*st)===0)label(plain(y),xc+22,SY(y)+3,'#9fb6c7','left',8);}label('mm',xc+22,mid-H-12,'#9fb6c7','left',8);}
+    // Your answer: orange marks on the screen at the dark bands it implies.
+    if(g.guess){const gd=guessDark(),n=c.key==='second'?2:1;for(const sg of [1,-1])for(let k=1;k<=n;k++){const y=sg*k*gd;if(Math.abs(y)<=yw)line([{x:xc-14,y:SY(y)},{x:xc-2,y:SY(y)}],'#efb958',3);}fit(text('guessTag'),xc-16,SY(Math.min(gd,yw*.9))-6,'#efb958',9,110,'right');}
+    if(g.begun&&s>2){const ym=model.meter(s);dot(xc-6,SY(ym),4,'#f2f8fc');}
+    fit(text('scaleTag'),16,height-24,'#9fb6c7',10,g.area*.7);
+    fit('t = '+number(g.t)+' s',g.area-16,44,'#f2f8fc',13,g.area*.3,'right');
+  }
+  function panel(g){
+    const {line,fit,dot,label}=g;
+    fit(text('brightGraph'),g.area+8,44,'#d1e3ed',10,width-g.area-16);
+    if(!g.begun||g.t<2){fit(text('panelHint'),g.area+8,70,'#9fb6c7',10,width-g.area-16);return;}
+    // Brightness against distance from the centre, measured by the meter as it moves out: zero at each dark band.
+    const yw=3*model.dark(),px0=g.area+14,px1=width-14,py0=90,py1=height-90,PX=y=>px0+y/yw*(px1-px0),PY=v=>py1-v*(py1-py0),m=model.meter(Math.min(g.t,model.duration()));
+    line([{x:px0,y:py1},{x:px1,y:py1}],'#8aa3b5',1);line([{x:px0,y:py0},{x:px0,y:py1}],'#8aa3b5',1);
+    for(let k=0;k<=3;k++){line([{x:PX(k*model.dark()),y:py1},{x:PX(k*model.dark()),y:py1+4}],'#9fb6c7',1);}
+    label('0',PX(0),py1+14,'#9fb6c7','center',8);label(plain(Number((yw).toPrecision(3))),PX(yw),py1+14,'#9fb6c7','right',8);
+    if(g.guess){const gd=guessDark();for(let k=1;k<=(model.config.key==='second'?2:1);k++)if(k*gd<=yw)line([{x:PX(k*gd),y:py0},{x:PX(k*gd),y:py1}],'#efb958',1.5,[5,4]);}
+    const pts=[];for(let i=0;i<=300;i++){const y=m*i/300;pts.push({x:PX(y),y:PY(model.brightness(y))});}line(pts,'#f2f8fc',2);dot(PX(m),PY(model.brightness(m)),4,'#f2f8fc');
+    fit(text('distAxis'),px0,py1+28,'#9fb6c7',9,px1-px0);
+  }
+  function setRunning(value){
+    const done=model.status==='done',blocked=!model.ready();running=value&&!done&&!blocked;previous=null;accumulator=0;
+    $('play').disabled=running||done||blocked;$('pause').disabled=!running;$('step').disabled=running||done||blocked;
+    $('slit-status').classList.toggle('running',running);
+    $('slit-status-text').textContent=text(done?'done':running?'running':model.t?'paused':'ready');
+  }
+  function sync(){
+    const c=model.config;
+    SlitModel.missions.forEach((m,i)=>{$('mission-'+i).setAttribute('aria-pressed',String(i===model.index));$('given-'+i).textContent=given(m);});
+    $('question').textContent=text('question'+model.index);$('answer-symbol').textContent=symbols[c.ask];$('answer-unit').textContent=model.unit();
+    $('answer').value=model.answer===null?'':String(model.answer);$('mission-label').textContent=text('mission'+model.index);
+  }
+  function update(){
+    const ready=model.ready(),done=model.status==='done',t=ready?model.now():0,e=model.evaluate(),begun=started();
+    $('time-value').textContent=number(t);metrics(t,begun);
+    $('slit-equation').textContent=begun?equation():baseEquation();
+    let key,copy;
+    if(done){
+      const base=text('result'+model.index,values());
+      if(e.ok){key='good';copy=base+' '+text('why'+model.index);}
+      else{key='miss';copy=base+' '+text('missCopy',{p:amount(model.answer)})+' '+(e.slip?text(slipKey(e.slip)):text('hint'+model.index));}
+    }
+    else if(!ready){key='predict';copy=text('predictCopy');}
+    else if(model.t>0){key='running';copy=runningCopy(t);}
+    else{key='ready';copy=text('readyCopy');}
+    $('lesson-title').textContent=text(key+'Title',{t:number(t),p:ready?amount(model.answer):''});$('lesson-copy').textContent=copy;
+    $('insight').classList.toggle('warning',key==='miss');
+    $('mission-score').textContent=done?String(model.score()):'—';
+    $('right-badge').classList.toggle('earned',done&&e.ok);$('first-badge').classList.toggle('earned',done&&e.first);
+  }
+  function refresh(){setRunning(false);update();draw();}
+  function simulate(dt){
+    const result=model.advance(dt);
+    if(result?.done){setRunning(false);update();say(text('doneAnnouncement')+' '+$('lesson-title').textContent);return true;}
+    return false;
+  }
+  $('answer').addEventListener('input',event=>{const raw=String(event.target.value).trim(),value=raw===''?null:Number(raw);if(!model.setAnswer(value))model.setAnswer(null);refresh();});
+  $('play').addEventListener('click',()=>{setRunning(true);update();say(text('startedAnnouncement'));});
+  $('pause').addEventListener('click',()=>{setRunning(false);update();say(text('pausedAnnouncement'));});
+  $('step').addEventListener('click',()=>{for(let i=0;i<12;i++)if(simulate(H*pace()))break;setRunning(false);update();draw();});
+  $('reset').addEventListener('click',()=>{model.reset();refresh();say(text('resetAnnouncement'));});
+  SlitModel.missions.forEach((_,i)=>$('mission-'+i).addEventListener('click',()=>{model.setMission(i);sync();refresh();say(text('missionAnnouncement',{name:text('mission'+i)}));}));
+  for(const id of ['show-ruler','show-guess'])$(id).addEventListener('change',()=>{update();draw();});
+  function suspend(){if(running){setRunning(false);say(text('suspendedAnnouncement'));}update();draw();}
+  window.addEventListener('blur',suspend);document.addEventListener('visibilitychange',()=>{if(document.hidden)suspend();});
+  for(const link of document.querySelectorAll('.language-menu a'))link.addEventListener('click',()=>{setRunning(false);try{sessionStorage.setItem(transferKey,JSON.stringify({state:model.snapshot()}));}catch{}});
+  function resize(){const rect=canvas.getBoundingClientRect();if(rect.width<=0)return;width=rect.width;height=rect.height;const dpr=Math.min(window.devicePixelRatio||1,3);canvas.width=Math.round(width*dpr);canvas.height=Math.round(height*dpr);ctx.setTransform(dpr,0,0,dpr,0,0);draw();}
+  function draw(){
+    if(!ctx)return;
+    const c=model.config,ready=model.ready(),done=model.status==='done',t=ready?model.now():0,begun=started(),option=$('show-ruler').checked,guess=$('show-guess').checked&&ready;
+    ctx.clearRect(0,0,width,height);
+    const label=(str,px,py,color='#b8ccdb',align='left',font=12)=>{ctx.fillStyle=color;ctx.textAlign=align;ctx.font=font+'px -apple-system,BlinkMacSystemFont,sans-serif';ctx.fillText(str,px,py);};
+    const line=(points,color,w=1,dash=[])=>{ctx.beginPath();ctx.strokeStyle=color;ctx.lineWidth=w;ctx.setLineDash(dash);points.forEach((q,i)=>i?ctx.lineTo(q.x,q.y):ctx.moveTo(q.x,q.y));ctx.stroke();ctx.setLineDash([]);};
+    const fit=(str,px,py,color,size,room,align='left')=>{ctx.font=size+'px -apple-system,BlinkMacSystemFont,sans-serif';const w=ctx.measureText(str).width;label(str,px,py,color,align,w>room?Math.max(7,Math.floor(size*room/w)):size);};
+    const dot=(x,y,r,color)=>{ctx.fillStyle=color;ctx.beginPath();ctx.arc(x,y,Math.max(r,.5),0,Math.PI*2);ctx.fill();};
+    const box=(x,y,w,h,color)=>{ctx.fillStyle=color;ctx.fillRect(x,y,w,h);};
+    const wide=width>=560,area=wide?width*.64:width;
+    const env={c,ready,done,t,begun,option,guess,label,line,fit,dot,box,wide,area};
+    fit(text('viewTitle'),16,20,'#d1e3ed',12,area-28);
+    if(done){const ev=model.evaluate();fit(text(ev.ok?'rightBanner':'offBanner'),16,40,ev.ok?'#75efc7':'#efb958',width<430?12:14,area-28);}
+    scene(env);
+    label(text('scaleNote'),16,height-8,'#9fb6c7','left',10);
+    if(!wide)return;
+    panel(env);
+  }
+  function frame(now){if(previous===null)previous=now;const elapsed=Math.min(.1,(now-previous)/1000);previous=now;if(running){accumulator+=elapsed*pace();while(accumulator>=H&&running){accumulator-=H;simulate(H);}draw();}if(now-lastUpdate>=80){update();lastUpdate=now;}requestAnimationFrame(frame);}
+  window.addEventListener('resize',resize);if(typeof ResizeObserver!=='undefined')new ResizeObserver(resize).observe(canvas);
+  sync();setRunning(false);update();resize();requestAnimationFrame(frame);
+})();
+</script>
+</body>
+</html>

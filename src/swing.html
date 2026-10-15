@@ -1,0 +1,316 @@
+<!doctype html>
+<html lang="en">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Swing and Resonance · Phisicos</title>
+<style>
+.swing-page .answer-row .symbol{min-width:44px}.swing-page .question{font-size:15px;font-weight:600;margin-top:4px}
+.swing-page .line-key.white{background:#f2f8fc}.swing-page .line-key.blue{background:#77b9ff}
+</style>
+</head>
+<body>
+<div class="shell module-page swing-page">
+__HEADER__
+<main id="main-content">
+__BREADCRUMBS__
+
+<div class="masthead"><div><h1>{{title}}</h1><p class="intro">{{subtitle}}</p></div><div class="concept-tags"><span class="tag speed">{{tag1}}</span><span class="tag velocity">{{tag2}}</span></div></div>
+<noscript><p class="no-js">{{noScript}}</p></noscript>
+<div class="layout">
+<aside class="sidebar" aria-label="{{setup}}">
+  <section class="control-section"><h2 class="eyebrow">{{setup}}</h2><div class="mission-list" role="group" aria-label="{{setup}}">
+    <button id="mission-0" aria-pressed="true"><b>1 · {{mission0}}</b><span id="given-0">L</span></button>
+    <button id="mission-1" aria-pressed="false"><b>2 · {{mission1}}</b><span id="given-1">L</span></button>
+    <button id="mission-2" aria-pressed="false"><b>3 · {{mission2}}</b><span id="given-2">k</span></button>
+    <button id="mission-3" aria-pressed="false"><b>4 · {{mission3}}</b><span id="given-3">A</span></button>
+    <button id="mission-4" aria-pressed="false"><b>5 · {{mission4}}</b><span id="given-4">m</span></button>
+  </div><p class="hint">{{setupNote}}</p></section>
+  <section class="control-section"><h2 class="eyebrow">{{answerHeading}}</h2>
+    <p class="question" id="question">{{question0}}</p>
+    <p class="field-label"><label for="answer">{{answerLabel}}</label></p>
+    <div class="answer-row"><span class="symbol" id="answer-symbol">T =</span><input id="answer" type="number" inputmode="decimal" step="any" value=""><span class="unit" id="answer-unit">s</span></div>
+    <p class="hint">{{answerHint}}</p>
+  </section>
+  <section class="control-section"><h2 class="eyebrow">{{observe}}</h2><label class="check"><input id="show-labels" type="checkbox" checked>{{labelsToggle}}</label><label class="check"><input id="show-guess" type="checkbox" checked>{{guessToggle}}</label><p class="hint">{{observeHint}}</p></section>
+</aside>
+<div class="workspace">
+  <section class="scene" aria-label="{{sceneTitle}}"><div class="scene-top"><div><h2 class="scene-title">{{sceneTitle}}</h2><p class="scene-subtitle" id="mission-label">{{mission0}}</p></div><span class="status" id="swing-status"><i class="status-dot" aria-hidden="true"></i><span id="swing-status-text">{{ready}}</span></span></div>
+    <div class="module-stage"><canvas id="swing-canvas" role="img" aria-label="{{canvasLabel}}">{{noScript}}</canvas></div>
+    <div class="legend"><span><i class="line-key blue"></i>{{motionLegend}}</span><span><i class="line-key white"></i>{{storedLegend}}</span><span><i class="line-key orange"></i>{{guessLegend}}</span><span><i class="line-key gray"></i>{{pushLegend}}</span></div>
+    <div class="module-equation"><span id="equation-title">{{equationTitle}}</span><output id="swing-equation">T = 2π·√(L ÷ g)</output></div>
+    <div class="transport"><button id="play" class="primary" disabled>{{play}}</button><button id="pause" disabled>{{pause}}</button><button id="step" disabled>{{step}}</button><button id="reset" class="reset">{{reset}}</button></div>
+  </section>
+  <section class="metrics" aria-label="{{observe}}">
+    <div class="metric scalar"><h3 class="metric-label">{{time}}</h3><p class="metric-value"><span id="time-value">0.00</span> <small>s</small></p><p class="metric-equation">t</p></div>
+    <div class="metric scalar"><h3 class="metric-label">{{naturalMetric}}</h3><p class="metric-value"><span id="natural-value">—</span> <small>s</small></p><p class="metric-equation">T₀</p></div>
+    <div class="metric vector"><h3 class="metric-label">{{speedMetric}}</h3><p class="metric-value"><span id="speed-value">—</span> <small>m/s</small></p><p class="metric-equation">v</p></div>
+    <div class="metric vector"><h3 class="metric-label">{{kineticMetric}}</h3><p class="metric-value"><span id="kinetic-value">—</span> <small>J</small></p><p class="metric-equation">½·m·v²</p></div>
+    <div class="metric scalar"><h3 class="metric-label">{{storedMetric}}</h3><p class="metric-value"><span id="stored-value">—</span> <small>J</small></p><p class="metric-equation">m·g·h  ·  ½·k·x²</p></div>
+  </section>
+  <div class="insight" id="insight"><span class="insight-icon" aria-hidden="true">↗</span><div><strong id="lesson-title">{{predictTitle}}</strong><p id="lesson-copy">{{predictCopy}}</p></div></div>
+  <section class="challenge"><div class="mission-heading"><h2 class="challenge-title">{{missionTitle}}</h2><div class="score-card"><span>{{score}}</span><strong id="mission-score">—</strong></div></div><p class="mission-copy">{{missionCopy}}</p><div class="badges"><span id="right-badge">✓ {{rightBadge}}</span><span id="first-badge">① {{firstBadge}}</span></div></section>
+</div>
+</div>
+<article class="learning-content"><section><h2>{{guideTitle}}</h2><ol><li>{{instruction1}}</li><li>{{instruction2}}</li><li>{{instruction3}}</li><li>{{instruction4}}</li></ol></section><section><h2>{{conceptTitle}}</h2><p>{{conceptCopy}}</p><aside class="worked-example"><h3>{{exampleTitle}}</h3><p>{{exampleCopy}}</p></aside></section><section><h2>{{modelTitle}}</h2><p>{{modelCopy}}</p></section></article>
+<p class="language-note" id="language-note">{{languageNote}}</p>
+</main>
+__FOOTER__
+<p class="sr-only" id="announcement" role="status" aria-live="polite"></p>
+</div>
+<script id="swing-model">
+class SwingModel {
+  // An oscillator trades motion for stored energy and back: a swing (L long, T₀ = 2π·√(L ÷ g)), a block on a spring, a car on
+  // its springs. Without friction its energy stays the same: ½·k·A² for a spring, m·g·h for a swing let go from h. Short
+  // pushes or bumps each add a little speed; added up exactly (the motion is linear), they build a big swing only when they
+  // come once per natural period: resonance. Pushes and bumps play at triple speed so five of them fit a short run.
+  static g = 9.8;
+  static tolerance = .02;
+  static cap = 16; // s of pushes or bumps at most
+  static missions = [
+    {key:'push',ask:'push',L:2.45,mass:25,pushes:5,kick:.07,pace:3},
+    {key:'bottom',ask:'bottom',L:2.45,mass:25,h:.2,pace:1},
+    {key:'energy',ask:'energy',k:200,m:2,A:.1,pace:1},
+    {key:'half',ask:'half',k:200,m:2,A:.1,pace:1},
+    {key:'bumps',ask:'bumps',k:25000,m:1000,v:10,pushes:5,kick:.02,pace:3}
+  ];
+  static units = {push:'s',bottom:'m/s',energy:'J',half:'cm',bumps:'m'};
+  static limits = {push:100,bottom:1e4,energy:1e7,half:1e4,bumps:1e4};
+  constructor(index = 0){this.setMission(index);}
+  setMission(index){this.index=index;this.config=SwingModel.missions[index];this.answer=null;this.attempts=0;this.reset();}
+  reset(){this.t=0;this.status='moving';}
+  valid(value){return Number.isFinite(value)&&value>0&&value<=SwingModel.limits[this.config.ask];}
+  setAnswer(value){if(value!==null&&!this.valid(value))return false;this.answer=value;this.reset();return true;}
+  ready(){return this.answer!==null;}
+  swing(){return !!this.config.L;}
+  driven(){return !!this.config.pushes;}
+  omega(){const c=this.config;return c.L?Math.sqrt(SwingModel.g/c.L):Math.sqrt(c.k/c.m);}
+  natural(){return 2*Math.PI/this.omega();}
+  // The pushes or bumps: every interval (yours, or the spacing ÷ the speed), five at most, within 16 s.
+  interval(){const c=this.config;if(!this.ready())return this.natural();return c.ask==='bumps'?this.answer/c.v:this.answer;}
+  impulses(){if(!this.driven())return [];const out=[],a=this.interval();for(let i=0;i<this.config.pushes&&i*a<=SwingModel.cap+1e-9;i++)out.push(i*a);return out;}
+  // Displacement (rad for the swing, m for the car) and its rate: the impulses' sine waves added up, or a free swing.
+  theta0(){const c=this.config;return c.h?Math.acos(1-c.h/c.L):0;}
+  position(t){
+    const c=this.config,w=this.omega(),s=this.clamp(t);
+    if(this.driven()){const dv=c.kick*w;let x=0;for(const p of this.impulses())if(p<=s)x+=dv/w*Math.sin(w*(s-p));return x;}
+    if(c.h)return this.theta0()*Math.cos(w*s);
+    return c.A*Math.cos(w*s);
+  }
+  rate(t){
+    const c=this.config,w=this.omega(),s=this.clamp(t);
+    if(this.driven()){const dv=c.kick*w;let v=0;for(const p of this.impulses())if(p<=s)v+=dv*Math.cos(w*(s-p));return v;}
+    if(c.h)return -this.theta0()*w*Math.sin(w*s);
+    return -c.A*w*Math.sin(w*s);
+  }
+  // Energies (J): motion and stored, the swing's stored energy measured from the bottom, the spring's from its middle.
+  speed(t){const c=this.config;if(c.h){const th=this.position(t);return Math.sqrt(Math.max(0,2*SwingModel.g*c.L*(Math.cos(th)-Math.cos(this.theta0()))));}return Math.abs(this.rate(t))*(c.L??1);}
+  kinetic(t){const c=this.config;return (c.mass??c.m)*this.speed(t)**2/2;}
+  stored(t){const c=this.config,x=this.position(t);return c.L?(c.mass)*SwingModel.g*c.L*(1-Math.cos(x)):c.k*x*x/2;}
+  // How big the swing or bounce ends up after the last push or bump (rad or m).
+  amplitude(){const c=this.config,w=this.omega(),dv=c.kick*w;let re=0,im=0;for(const p of this.impulses()){re+=Math.cos(w*p);im+=Math.sin(w*p);}return dv/w*Math.hypot(re,im);}
+  clamp(t){return Math.min(Math.max(t,0),this.duration());}
+  duration(){const c=this.config;if(this.driven()){const i=this.impulses();return (i.length?i[i.length-1]:0)+this.natural();}return c.h?this.natural():2;}
+  now(){return this.status==='done'?this.duration():this.t;}
+  advance(dt){
+    if(!Number.isFinite(dt)||dt<0)throw new Error('Invalid timestep');
+    if(this.status==='done'||!this.ready())return null;
+    // A run counts as an attempt as soon as it starts; it ends one natural period after the last push, or after a swing or 2 s.
+    if(this.t===0)this.attempts++;
+    const T=this.duration();
+    if(this.t+dt>=T*(1-1e-12)){this.t=T;this.status='done';return {t:T,done:true};}
+    this.t+=dt;return null;
+  }
+  exact(){
+    const c=this.config;
+    if(c.ask==='push')return this.natural();
+    if(c.ask==='bottom')return Math.sqrt(2*SwingModel.g*c.h);
+    if(c.ask==='energy')return c.k*c.A**2/2;
+    if(c.ask==='half')return c.A/Math.SQRT2*100;
+    return c.v*this.natural();
+  }
+  unit(){return SwingModel.units[this.config.ask];}
+  evaluate(){
+    if(!this.ready())return {ok:false,slip:null,first:false,exact:this.exact()};
+    const c=this.config,a=this.answer,e=this.exact(),tol=SwingModel.tolerance,near=(p,q)=>Math.abs(p-q)<=tol*Math.abs(q)+1e-12,g=SwingModel.g;
+    // Every answer is right within 2%.
+    const ok=near(a,e);let slip=null;
+    if(!ok){
+      if(c.ask==='push'){if(near(a,Math.sqrt(c.L/g)))slip='noTwoPi';else if(near(a,e/2))slip='half';else if(near(a,1/e))slip='frequency';}
+      else if(c.ask==='bottom'){if(near(a,2*g*c.h))slip='noRoot';else if(near(a,Math.sqrt(g*c.h)))slip='noTwo';else if(near(a,Math.sqrt(2*g*c.L)))slip='length';}
+      else if(c.ask==='energy'){if(near(a,2*e))slip='noHalf';else if(near(a,c.k*c.A/2))slip='noSquare';else if(near(a,c.k*(c.A*100)**2/2))slip='unitsCm';}
+      else if(c.ask==='half'){if(near(a,c.A*50))slip='halfway';else if(near(a,e/100))slip='unitsM';}
+      else{if(near(a,this.natural()))slip='time';else if(near(a,c.v/this.omega()))slip='omega';else if(near(a,c.v/this.natural()))slip='multiplied';}
+    }
+    return {ok,slip,first:ok&&this.attempts===1,exact:e};
+  }
+  score(){if(this.status!=='done')return 0;const e=this.evaluate();return (e.ok?100:0)+(e.first?50:0);}
+  snapshot(){return {index:this.index,answer:this.answer,attempts:this.attempts,t:this.t,status:this.status};}
+  restore(saved){
+    if(!Number.isInteger(saved?.index)||!SwingModel.missions[saved.index])return false;
+    const probe=new SwingModel(saved.index);
+    if(!probe.setAnswer(saved.answer??null)||!Number.isInteger(saved.attempts)||saved.attempts<0)return false;
+    if(!['moving','done'].includes(saved.status)||!Number.isFinite(saved.t)||saved.t<0||saved.t>probe.duration()*(1+1e-9))return false;
+    if(probe.answer===null&&(saved.t>0||saved.status==='done'))return false;
+    if((saved.status==='done'||saved.t>0)&&saved.attempts<1)return false;
+    this.setMission(saved.index);this.answer=probe.answer;this.attempts=saved.attempts;
+    this.status=saved.status;this.t=saved.status==='done'?this.duration():saved.t;return true;
+  }
+}
+globalThis.SwingModel=SwingModel;
+</script>
+<script id="swing-locale" type="application/json">__LOCALE__</script>
+<script id="swing-interface">
+(() => {
+  'use strict';
+  const $=id=>document.getElementById(id),locale=JSON.parse($('swing-locale').textContent);
+  const text=(key,values={})=>locale.strings[key].replace(/\{(\w+)\}/g,(_,name)=>values[name]??'{'+name+'}');
+  const number=(n,d=2)=>Math.abs(n)<.5*10**-d?(0).toLocaleString(locale.lang,{minimumFractionDigits:d,maximumFractionDigits:d}):n.toLocaleString(locale.lang,{minimumFractionDigits:d,maximumFractionDigits:d,useGrouping:false});
+  const plain=n=>n.toLocaleString(locale.lang,{maximumFractionDigits:3,useGrouping:false}).replace('-','−');
+  const model=new SwingModel();
+  const canvas=$('swing-canvas'),ctx=canvas.getContext('2d');
+  const H=1/120,transferKey='phisicos-swing-language-transfer';
+  let running=false,previous=null,accumulator=0,lastUpdate=0,width=800,height=410;
+  const say=message=>{$('announcement').textContent=message;};
+  try{const data=JSON.parse(sessionStorage.getItem(transferKey)||'null');sessionStorage.removeItem(transferKey);if(data)model.restore(data.state);}catch{$('language-note').hidden=true;}
+  const amount=v=>plain(Number(v.toPrecision(5)))+' '+model.unit();
+  const symbols={push:'T =',bottom:'v =',energy:'E =',half:'x =',bumps:'d ='};
+  const slipKey=name=>'slip'+name[0].toUpperCase()+name.slice(1);
+  const joules=n=>number(n,Math.abs(n)<10?2:0),deg=r=>r*180/Math.PI;
+  function setRunning(value){
+    const done=model.status==='done',blocked=!model.ready();running=value&&!done&&!blocked;previous=null;accumulator=0;
+    $('play').disabled=running||done||blocked;$('pause').disabled=!running;$('step').disabled=running||done||blocked;
+    $('swing-status').classList.toggle('running',running);
+    $('swing-status-text').textContent=text(done?'done':running?'running':model.t?'paused':'ready');
+  }
+  // Givens: the swing's length and release height, the spring and its pull, or the car, its springs, and its speed.
+  function given(m){
+    if(m.L)return 'L = '+plain(m.L)+' m'+(m.h?' · h = '+plain(m.h)+' m':'');
+    if(m.ask==='bumps')return 'm = '+plain(m.m)+' kg · k = '+plain(m.k)+' N/m · v = '+plain(m.v)+' m/s';
+    return m.ask==='half'?'A = '+plain(m.A*100)+' cm':'k = '+plain(m.k)+' N/m · A = '+plain(m.A)+' m';
+  }
+  function sync(){
+    const c=model.config;
+    SwingModel.missions.forEach((m,i)=>{$('mission-'+i).setAttribute('aria-pressed',String(i===model.index));$('given-'+i).textContent=given(m);});
+    $('question').textContent=text('question'+model.index);$('answer-symbol').textContent=symbols[c.ask];$('answer-unit').textContent=model.unit();
+    $('answer').value=model.answer===null?'':String(model.answer);$('mission-label').textContent=text('mission'+model.index);
+    $('equation-title').textContent=text(c.L?'swingTitle':c.ask==='bumps'?'bumpTitle':'energyTitle');
+  }
+  // The natural period, the speed, and the energies show only once a run starts, because they give the answer away.
+  const started=()=>model.status==='done'||model.t>0;
+  function equation(t){
+    const c=model.config;
+    if(c.ask==='push')return 'T₀ = 2π·√(L ÷ g) = 2π × √('+plain(c.L)+' ÷ 9.8) = '+number(model.natural())+' s';
+    if(c.ask==='bottom')return 'v = √(2·g·h) = √(2 × 9.8 × '+plain(c.h)+') = '+number(model.exact())+' m/s';
+    if(c.ask==='bumps')return 'd = v·T₀ → '+plain(c.v)+' × '+number(model.interval())+' s = '+number(model.answer)+' m';
+    return 'E = ½·k·A² = ½ × '+plain(c.k)+' × '+plain(c.A)+'² = '+joules(c.k*c.A**2/2)+' J';
+  }
+  function update(){
+    const c=model.config,ready=model.ready(),done=model.status==='done',t=ready?model.now():0,e=model.evaluate(),begun=started(),D=model.duration();
+    $('time-value').textContent=number(t);$('natural-value').textContent=begun?number(model.natural()):'—';$('speed-value').textContent=begun?number(model.speed(t)):'—';
+    $('kinetic-value').textContent=begun?joules(model.kinetic(t)):'—';$('stored-value').textContent=begun?joules(model.stored(t)):'—';
+    $('swing-equation').textContent=begun?equation(t).replace(/9\.8/g,plain(9.8)):c.L?(c.h?'v = √(2·g·h)':'T₀ = 2π·√(L ÷ g)'):c.ask==='bumps'?'d = v·T₀':'E = ½·k·A²';
+    let key,copy;
+    const amp=model.amplitude(),x=ready&&c.ask==='half'?model.answer/100:0,pe=c.k?c.k*x*x/2:0,E=c.k?c.k*c.A**2/2:0;
+    const values={a:number(model.interval()),deg:number(deg(amp),1),T:number(model.natural()),v:number(model.speed(model.natural()/4)),E:joules(E),x:number(x*100,2),pe:joules(pe),ke:joules(Math.max(E-pe,0)),d:ready?number(model.answer):'',c:number(amp*100,1)};
+    if(done){
+      const base=text('result'+model.index,values);
+      if(e.ok){key='good';copy=base+' '+text('why'+model.index);}
+      else{key='miss';copy=base+' '+text('missCopy',{p:amount(model.answer)})+' '+(e.slip?text(slipKey(e.slip)):text('hint'+model.index));}
+    }
+    else if(!ready){key='predict';copy=text('predictCopy');}
+    else if(model.t>0){key='running';copy=text('movingCopy',{v:number(model.speed(t)),ke:joules(model.kinetic(t)),pe:joules(model.stored(t))});}
+    else{key='ready';copy=text('readyCopy');}
+    $('lesson-title').textContent=text(key+'Title',{t:number(t),p:ready?amount(model.answer):''});$('lesson-copy').textContent=copy;
+    $('insight').classList.toggle('warning',key==='miss');
+    $('mission-score').textContent=done?String(model.score()):'—';
+    $('right-badge').classList.toggle('earned',done&&e.ok);$('first-badge').classList.toggle('earned',done&&e.first);
+  }
+  function refresh(){setRunning(false);update();draw();}
+  function simulate(dt){
+    const result=model.advance(dt);
+    if(result?.done){setRunning(false);update();say(text('doneAnnouncement')+' '+$('lesson-title').textContent);return true;}
+    return false;
+  }
+  $('answer').addEventListener('input',event=>{const raw=String(event.target.value).trim(),value=raw===''?null:Number(raw);if(!model.setAnswer(value))model.setAnswer(null);refresh();});
+  $('play').addEventListener('click',()=>{setRunning(true);update();say(text('startedAnnouncement'));});
+  $('pause').addEventListener('click',()=>{setRunning(false);update();say(text('pausedAnnouncement'));});
+  $('step').addEventListener('click',()=>{for(let i=0;i<12;i++)if(simulate(H*model.config.pace))break;setRunning(false);update();draw();});
+  $('reset').addEventListener('click',()=>{model.reset();refresh();say(text('resetAnnouncement'));});
+  SwingModel.missions.forEach((_,i)=>$('mission-'+i).addEventListener('click',()=>{model.setMission(i);sync();refresh();say(text('missionAnnouncement',{name:text('mission'+i)}));}));
+  for(const id of ['show-labels','show-guess'])$(id).addEventListener('change',()=>{update();draw();});
+  function suspend(){if(running){setRunning(false);say(text('suspendedAnnouncement'));}update();draw();}
+  window.addEventListener('blur',suspend);document.addEventListener('visibilitychange',()=>{if(document.hidden)suspend();});
+  for(const link of document.querySelectorAll('.language-menu a'))link.addEventListener('click',()=>{setRunning(false);try{sessionStorage.setItem(transferKey,JSON.stringify({state:model.snapshot()}));}catch{}});
+  function resize(){const rect=canvas.getBoundingClientRect();if(rect.width<=0)return;width=rect.width;height=rect.height;const dpr=Math.min(window.devicePixelRatio||1,3);canvas.width=Math.round(width*dpr);canvas.height=Math.round(height*dpr);ctx.setTransform(dpr,0,0,dpr,0,0);draw();}
+  function draw(){
+    if(!ctx)return;
+    const c=model.config,ready=model.ready(),done=model.status==='done',t=ready?model.now():0,begun=started(),labels=$('show-labels').checked,guess=$('show-guess').checked&&ready;
+    ctx.clearRect(0,0,width,height);
+    const label=(str,px,py,color='#b8ccdb',align='left',font=12)=>{ctx.fillStyle=color;ctx.textAlign=align;ctx.font=font+'px -apple-system,BlinkMacSystemFont,sans-serif';ctx.fillText(str,px,py);};
+    const line=(points,color,w=1,dash=[])=>{ctx.beginPath();ctx.strokeStyle=color;ctx.lineWidth=w;ctx.setLineDash(dash);points.forEach((q,i)=>i?ctx.lineTo(q.x,q.y):ctx.moveTo(q.x,q.y));ctx.stroke();ctx.setLineDash([]);};
+    const fit=(str,px,py,color,size,room,align='left')=>{ctx.font=size+'px -apple-system,BlinkMacSystemFont,sans-serif';const w=ctx.measureText(str).width;label(str,px,py,color,align,w>room?Math.max(7,Math.floor(size*room/w)):size);};
+    const arrow=(x0,y0,x1,y1,color,w=2)=>{line([{x:x0,y:y0},{x:x1,y:y1}],color,w);const a=Math.atan2(y1-y0,x1-x0);line([{x:x1-6*Math.cos(a-.5),y:y1-6*Math.sin(a-.5)},{x:x1,y:y1},{x:x1-6*Math.cos(a+.5),y:y1-6*Math.sin(a+.5)}],color,w);};
+    const dot=(x,y,r,color)=>{ctx.fillStyle=color;ctx.beginPath();ctx.arc(x,y,Math.max(r,.5),0,Math.PI*2);ctx.fill();};
+    const wide=width>=560,area=wide?width*.64:width;
+    fit(text('viewTitle'),16,20,'#d1e3ed',12,area-28);
+    if(done){const ev=model.evaluate();fit(text(ev.ok?'rightBanner':'offBanner'),16,40,ev.ok?'#75efc7':'#efb958',width<430?12:14,area-28);}
+    const pushNow=model.impulses().some(p=>t>=p&&t<p+.35*c.pace)&&begun&&!done;
+    if(c.L){
+      // A swing to scale from its frame; a push shows as an arrow behind the seat.
+      const top=56,k=Math.max(40,(height-top-56)/(c.L*1.1)),cx=area*.48,th=ready?model.position(t):(c.h?model.theta0():0),sx=cx+c.L*k*Math.sin(th),sy=top+c.L*k*Math.cos(th);
+      line([{x:cx-90,y:height-34},{x:cx-60,y:top},{x:cx+60,y:top},{x:cx+90,y:height-34}],'#8aa3b5',3);line([{x:12,y:height-34},{x:area-12,y:height-34}],'#8aa3b5',2);
+      line([{x:cx,y:top},{x:sx,y:sy}],'#c3cfd9',2);ctx.fillStyle='#b5773a';ctx.fillRect(sx-16,sy,32,6);dot(sx,sy-14,10,'#efe6d0');
+      if(c.h&&labels){const yl=top+c.L*k-c.h*k;line([{x:cx-120,y:yl},{x:cx+120,y:yl}],'#9fb6c7',1,[4,4]);line([{x:cx-120,y:top+c.L*k+3},{x:cx+120,y:top+c.L*k+3}],'#9fb6c7',1,[4,4]);fit('h = '+plain(c.h)+' m',cx+124,yl+4,'#d1e3ed',10,area-cx-130);}
+      if(pushNow)arrow(sx-56,sy-6,sx-22,sy-6,'#9fb6c7',3);
+      if(labels&&c.ask==='push'&&begun)fit(number(Math.abs(deg(th)),0)+'°',sx+20,sy-10,'#d1e3ed',10,60);
+    }
+    else if(c.ask==='bumps'){
+      // A car on its springs drives over bumps spaced as you said; the road scrolls by at its speed.
+      const ground=height-60,s=area/26,cx=area*.45,y=ready?model.position(t):0,body=ground-60-y*900,sp=ready?model.answer:c.v*model.natural(),off=(c.v*t)%sp;
+      line([{x:12,y:ground},{x:area-12,y:ground}],'#8aa3b5',2);
+      for(let d=-off;d*s<area;d+=sp){const bx=cx+d*s;if(bx>8&&bx<area-8){ctx.fillStyle='#8aa3b5';ctx.beginPath();ctx.arc(bx,ground,8,Math.PI,0);ctx.fill();}}
+      for(const wx of [cx-46,cx+46]){dot(wx,ground-12,12,'#22384a');const pts=[];for(let i=0;i<=8;i++)pts.push({x:wx+(i%2?6:-6)*(i&&i<8?1:0),y:ground-24-(ground-24-(body+22))*i/8});line(pts,'#f2f8fc',1.5);}
+      ctx.fillStyle='#77b9ff';ctx.fillRect(cx-70,body-10,140,32);ctx.fillRect(cx-40,body-32,80,22);
+      if(labels)fit('d = '+(ready?number(model.answer):'?')+' m',cx,ground+20,'#d1e3ed',10,area*.4,'center');
+      if(pushNow)arrow(cx,ground+6,cx,ground-8,'#9fb6c7',3);
+    }
+    else{
+      // A block on a spring on a smooth track, seen from the side; the middle and the ends of the swing are marked.
+      const ground=height*.62,k=Math.min(1400,(area*.32)/c.A),mid=area*.52,x=ready?model.position(t):c.A,bx=mid+x*k,wall=Math.max(16,mid-c.A*k-140);
+      ctx.fillStyle='#8aa3b5';ctx.fillRect(wall-10,ground-80,10,80);line([{x:wall,y:ground},{x:area-12,y:ground}],'#8aa3b5',2);
+      const pts=[{x:wall,y:ground-20}];for(let i=1;i<16;i++)pts.push({x:wall+(bx-30-wall)*i/16,y:ground-20+(i%2?8:-8)});pts.push({x:bx-30,y:ground-20});line(pts,'#f2f8fc',2);
+      ctx.fillStyle='#8f9daa';ctx.fillRect(bx-30,ground-40,60,40);fit(plain(c.m)+' kg',bx,ground-16,'#0f2233',11,56,'center');
+      for(const [px,str] of [[mid,'0'],[mid-c.A*k,'−A'],[mid+c.A*k,'A']]){line([{x:px,y:ground+4},{x:px,y:ground+14}],'#9fb6c7',1.5);if(labels)fit(str,px,ground+28,'#9fb6c7',10,40,'center');}
+      if(guess&&c.ask==='half')for(const sg of [-1,1]){const gx=mid+sg*Math.min(model.answer/100,c.A*1.2)*k;line([{x:gx,y:ground-54},{x:gx,y:ground+4}],'#efb958',2,[5,3]);}
+      if(guess&&c.ask==='half')fit(text('guessTag'),mid+Math.min(model.answer/100,c.A*1.2)*k+6,ground-48,'#efb958',9,area*.3);
+    }
+    label(text('scaleNote'),16,height-8,'#9fb6c7','left',10);
+    if(!wide)return;
+    if(model.driven()){
+      // Right panel: the swing's angle or the car's bounce over the run, with each push or bump marked.
+      fit(text(c.L?'swingGraph':'bounceGraph'),area+8,44,'#d1e3ed',10,width-area-16);
+      if(!begun){fit(text('panelHint'),area+8,70,'#9fb6c7',10,width-area-16);return;}
+      const D=model.duration(),px0=area+14,px1=width-14,py0=70,py1=height-62,mid=(py0+py1)/2,top=Math.max(c.kick*c.pushes,model.amplitude())*1.1,PX=q=>px0+q/D*(px1-px0),PY=v=>mid-v/top*(py1-py0)/2;
+      line([{x:px0,y:mid},{x:px1,y:mid}],'#8aa3b5',1);for(const p of model.impulses())line([{x:PX(p),y:py0},{x:PX(p),y:py1}],'#9fb6c7',1,[3,3]);
+      const pts=[],upto=Math.min(t,D);for(let i=0;i<=240;i++){const q=upto*i/240;pts.push({x:PX(q),y:PY(model.position(q))});}line(pts,'#77b9ff',2);
+      fit(text('timeAxis'),px0,py1+14,'#9fb6c7',9,(px1-px0)/2);
+    }
+    else{
+      // Right panel: motion energy and stored energy, which always add up to the same total.
+      fit(text('energyGraph'),area+8,44,'#d1e3ed',10,width-area-16);
+      if(!begun){fit(text('panelHint'),area+8,70,'#9fb6c7',10,width-area-16);return;}
+      const ke=model.kinetic(t),pe=model.stored(t),tot=Math.max(ke+pe,1e-9)*1.15,bx0=area+20,bx1=width-16,btop=72,bbot=height-58,bw=(bx1-bx0)/2-10,BY=v=>bbot-v/tot*(bbot-btop);
+      ctx.fillStyle='#77b9ff';ctx.fillRect(bx0,BY(ke),bw,Math.max(1,bbot-BY(ke)));ctx.fillStyle='#f2f8fc';ctx.fillRect(bx0+bw+20,BY(pe),bw,Math.max(1,bbot-BY(pe)));
+      line([{x:bx0-4,y:BY(ke+pe)},{x:bx1+4,y:BY(ke+pe)}],'#9fb6c7',1,[4,3]);
+      // A value near the total goes inside its bar, so it never sits on the dashed total line.
+      const tag=(v,x,color)=>{const y=BY(v),inside=y-BY(ke+pe)<16;fit(joules(v),x,inside?y+14:y-6,inside?'#0f2233':color,10,bw+16,'center');};
+      tag(ke,bx0+bw/2,'#77b9ff');tag(pe,bx0+bw*1.5+20,'#f2f8fc');
+      fit(text('motionShort'),bx0+bw/2,bbot+14,'#9fb6c7',9,bw+16,'center');fit(text('storedShort'),bx0+bw*1.5+20,bbot+14,'#9fb6c7',9,bw+16,'center');
+      if(guess&&c.ask==='energy'){const yy=BY(Math.min(model.answer,tot/1.05));line([{x:bx0-4,y:yy},{x:bx1+4,y:yy}],'#efb958',2,[5,3]);fit(text('guessTag'),bx1,yy-4,'#efb958',9,bx1-bx0,'right');}
+    }
+  }
+  function frame(now){if(previous===null)previous=now;const elapsed=Math.min(.1,(now-previous)/1000);previous=now;if(running){accumulator+=elapsed*model.config.pace;while(accumulator>=H&&running){accumulator-=H;simulate(H);}draw();}if(now-lastUpdate>=80){update();lastUpdate=now;}requestAnimationFrame(frame);}
+  window.addEventListener('resize',resize);if(typeof ResizeObserver!=='undefined')new ResizeObserver(resize).observe(canvas);
+  sync();setRunning(false);update();resize();requestAnimationFrame(frame);
+})();
+</script>
+</body>
+</html>

@@ -1,0 +1,277 @@
+<!doctype html>
+<html lang="en">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Spin Station · Phisicos</title>
+<style>
+.station-page .answer-row .symbol{min-width:44px}.station-page .question{font-size:15px;font-weight:600;margin-top:4px}
+.station-page .line-key.white{background:#f2f8fc}.station-page .line-key.blue{background:#77b9ff}
+</style>
+</head>
+<body>
+<div class="shell module-page station-page">
+__HEADER__
+<main id="main-content">
+__BREADCRUMBS__
+
+<div class="masthead"><div><h1>{{title}}</h1><p class="intro">{{subtitle}}</p></div><div class="concept-tags"><span class="tag speed">{{tag1}}</span><span class="tag velocity">{{tag2}}</span></div></div>
+<noscript><p class="no-js">{{noScript}}</p></noscript>
+<div class="layout">
+<aside class="sidebar" aria-label="{{setup}}">
+  <section class="control-section"><h2 class="eyebrow">{{setup}}</h2><div class="mission-list" role="group" aria-label="{{setup}}">
+    <button id="mission-0" aria-pressed="true"><b>1 · {{mission0}}</b><span id="given-0">r</span></button>
+    <button id="mission-1" aria-pressed="false"><b>2 · {{mission1}}</b><span id="given-1">r</span></button>
+    <button id="mission-2" aria-pressed="false"><b>3 · {{mission2}}</b><span id="given-2">r</span></button>
+    <button id="mission-3" aria-pressed="false"><b>4 · {{mission3}}</b><span id="given-3">r</span></button>
+    <button id="mission-4" aria-pressed="false"><b>5 · {{mission4}}</b><span id="given-4">T</span></button>
+  </div><p class="hint">{{setupNote}}</p></section>
+  <section class="control-section"><h2 class="eyebrow">{{answerHeading}}</h2>
+    <p class="question" id="question">{{question0}}</p>
+    <p class="field-label"><label for="answer">{{answerLabel}}</label></p>
+    <div class="answer-row"><span class="symbol" id="answer-symbol">a =</span><input id="answer" type="number" inputmode="decimal" step="any" value=""><span class="unit" id="answer-unit">m/s²</span></div>
+    <p class="hint">{{answerHint}}</p>
+  </section>
+  <section class="control-section"><h2 class="eyebrow">{{observe}}</h2><label class="check"><input id="show-vectors" type="checkbox" checked>{{vectors}}</label><label class="check"><input id="show-trace" type="checkbox" checked>{{traceToggle}}</label><p class="hint">{{observeHint}}</p></section>
+</aside>
+<div class="workspace">
+  <section class="scene" aria-label="{{sceneTitle}}"><div class="scene-top"><div><h2 class="scene-title">{{sceneTitle}}</h2><p class="scene-subtitle" id="mission-label">{{mission0}}</p></div><span class="status" id="station-status"><i class="status-dot" aria-hidden="true"></i><span id="station-status-text">{{ready}}</span></span></div>
+    <div class="module-stage"><canvas id="station-canvas" role="img" aria-label="{{canvasLabel}}">{{noScript}}</canvas></div>
+    <div class="legend"><span><i class="line-key white"></i>{{velocityLegend}}</span><span><i class="line-key blue"></i>{{accelerationLegend}}</span><span><i class="line-key mint"></i>{{targetLegend}}</span><span><i class="line-key orange"></i>{{predictionLegend}}</span></div>
+    <div class="module-equation"><span>{{equationTitle}}</span><output id="station-equation">a = ω²·r</output></div>
+    <div class="transport"><button id="play" class="primary" disabled>{{play}}</button><button id="pause" disabled>{{pause}}</button><button id="step" disabled>{{step}}</button><button id="reset" class="reset">{{reset}}</button></div>
+  </section>
+  <section class="metrics" aria-label="{{observe}}">
+    <div class="metric scalar"><h3 class="metric-label">{{time}}</h3><p class="metric-value"><span id="time-value">0.00</span> <small>s</small></p><p class="metric-equation">t</p></div>
+    <div class="metric scalar"><h3 class="metric-label">{{angularVelocity}}</h3><p class="metric-value"><span id="omega-value">—</span> <small>rad/s</small></p><p class="metric-equation">ω = 2π ÷ T</p></div>
+    <div class="metric vector"><h3 class="metric-label">{{rimSpeed}}</h3><p class="metric-value"><span id="speed-value">—</span> <small>m/s</small></p><p class="metric-equation">v = ω·r</p></div>
+    <div class="metric vector"><h3 class="metric-label">{{acceleration}}</h3><p class="metric-value"><span id="accel-value">—</span> <small>m/s²</small></p><p class="metric-equation">a = v² ÷ r = ω²·r</p></div>
+    <div class="metric scalar"><h3 class="metric-label">{{period}}</h3><p class="metric-value"><span id="period-value">—</span> <small>s</small></p><p class="metric-equation">T = 2π·r ÷ v</p></div>
+  </section>
+  <div class="insight" id="insight"><span class="insight-icon" aria-hidden="true">↗</span><div><strong id="lesson-title">{{predictTitle}}</strong><p id="lesson-copy">{{predictCopy}}</p></div></div>
+  <section class="challenge"><div class="mission-heading"><h2 class="challenge-title">{{missionTitle}}</h2><div class="score-card"><span>{{score}}</span><strong id="mission-score">—</strong></div></div><p class="mission-copy">{{missionCopy}}</p><div class="badges"><span id="right-badge">✓ {{rightBadge}}</span><span id="first-badge">① {{firstBadge}}</span></div></section>
+</div>
+</div>
+<article class="learning-content"><section><h2>{{guideTitle}}</h2><ol><li>{{instruction1}}</li><li>{{instruction2}}</li><li>{{instruction3}}</li><li>{{instruction4}}</li></ol></section><section><h2>{{conceptTitle}}</h2><p>{{conceptCopy}}</p><aside class="worked-example"><h3>{{exampleTitle}}</h3><p>{{exampleCopy}}</p></aside></section><section><h2>{{modelTitle}}</h2><p>{{modelCopy}}</p></section></article>
+<p class="language-note" id="language-note">{{languageNote}}</p>
+</main>
+__FOOTER__
+<p class="sr-only" id="announcement" role="status" aria-live="polite"></p>
+</div>
+<script id="station-model">
+class StationModel {
+  // A ring-shaped space station seen along its axis, turning counter-clockwise at constant ω. An astronaut stands on
+  // the inside of the rim at radius r. The rim moves at v = ω·r, and the floor pushes the astronaut toward the hub
+  // with the centripetal acceleration a = v² ÷ r = ω²·r, which they feel as weight. One turn takes T = 2π ÷ ω.
+  static missions = [
+    {r:50,v:20,ask:'accelSpeed'},
+    {r:100,omega:.25,ask:'accelOmega'},
+    {r:200,target:9.8,ask:'omega'},
+    {r:100,target:9.8,ask:'period'},
+    {T:60,target:1.62,ask:'radius'}
+  ];
+  static g = 9.8; // m/s², Earth's surface gravity, for comparison only
+  static tolerance = .02; // relative
+  static units = {accelSpeed:'m/s²',accelOmega:'m/s²',omega:'rad/s',period:'s',radius:'m'};
+  static limits = {accelSpeed:[0,1e5],accelOmega:[0,1e5],omega:[.02,5],period:[1,300],radius:[5,250]};
+  constructor(index = 0){this.setMission(index);}
+  setMission(index){this.index=index;this.config=StationModel.missions[index];this.answer=null;this.attempts=0;this.reset();}
+  reset(){this.t=0;this.status='spinning';}
+  valid(value){const [low,high]=StationModel.limits[this.config.ask];return Number.isFinite(value)&&value>0&&value>=low&&value<=high;}
+  setAnswer(value){if(value!==null&&!this.valid(value))return false;this.answer=value;this.reset();return true;}
+  ready(){return this.answer!==null;}
+  // The answer is a prediction (accelSpeed, accelOmega) or it sets the spin (omega, period) or the size (radius).
+  answerSetsStation(){return !this.config.ask.startsWith('accel');}
+  omega(){
+    const c=this.config,a=this.answer;
+    if(c.ask==='accelSpeed')return c.v/c.r;
+    if(c.ask==='accelOmega')return c.omega;
+    if(c.ask==='omega')return a??0;
+    if(c.ask==='period')return a?2*Math.PI/a:0;
+    return 2*Math.PI/c.T;
+  }
+  radius(){return this.config.ask==='radius'?this.answer??0:this.config.r;}
+  speed(){return this.omega()*this.radius();}
+  accel(){return this.omega()**2*this.radius();}
+  period(){return 2*Math.PI/this.omega();}
+  // One turn plays in about 4 s per 16 s of station time; longer turns play faster so they last at most 10 s.
+  playback(){const T=this.period();return T/4>10?Math.ceil(T/10):4;}
+  duration(){return this.period();}
+  clamp(t){return Math.min(Math.max(t,0),this.duration());}
+  angle(t){return this.omega()*this.clamp(t);}
+  now(){return this.status==='spun'?this.duration():this.t;}
+  advance(dt){
+    if(!Number.isFinite(dt)||dt<0)throw new Error('Invalid timestep');
+    if(this.status==='spun'||!this.ready())return null;
+    // A spin counts as an attempt as soon as it starts; it ends exactly after one full turn.
+    if(this.t===0)this.attempts++;
+    const T=this.duration();
+    if(this.t+dt>=T*(1-1e-12)){this.t=T;this.status='spun';return {t:T,done:true};}
+    const half=this.t<T/2&&this.t+dt>=T/2;this.t+=dt;return half?{t:this.t,half:true,done:false}:null;
+  }
+  exact(){
+    const c=this.config;
+    if(c.ask==='accelSpeed')return c.v*c.v/c.r;
+    if(c.ask==='accelOmega')return c.omega*c.omega*c.r;
+    if(c.ask==='omega')return Math.sqrt(c.target/c.r);
+    if(c.ask==='period')return 2*Math.PI*Math.sqrt(c.r/c.target);
+    return c.target*c.T*c.T/(4*Math.PI*Math.PI);
+  }
+  unit(){return StationModel.units[this.config.ask];}
+  evaluate(){
+    if(!this.ready())return {ok:false,slip:null,first:false,exact:this.exact()};
+    const c=this.config,a=this.answer,e=this.exact(),near=(p,q)=>Math.abs(p-q)<=StationModel.tolerance*Math.abs(q)+1e-9;
+    const ok=near(a,e);
+    let slip=null;
+    if(!ok){
+      if(c.ask==='accelSpeed'){if(near(a,c.v/c.r))slip='noSquare';else if(near(a,c.v*c.v*c.r))slip='timesR';else if(near(a,c.v*c.v/(2*c.r)))slip='half';}
+      else if(c.ask==='accelOmega'){if(near(a,c.omega*c.r))slip='speedOnly';else if(near(a,(c.omega*c.r)**2))slip='squareAll';else if(near(a,c.omega*c.omega/c.r))slip='divideR';}
+      else if(c.ask==='omega'){if(near(a,c.target/c.r))slip='noRoot';else if(near(a,Math.sqrt(c.r/c.target)))slip='invertedOmega';}
+      else if(c.ask==='period'){if(near(a,Math.sqrt(c.r/c.target)))slip='noTwoPi';else if(near(a,2*Math.PI*c.r/c.target))slip='noRootPeriod';}
+      else if(near(a,c.target*c.T/(2*Math.PI)))slip='speedRadius';
+    }
+    return {ok,slip,first:ok&&this.attempts===1,exact:e};
+  }
+  score(){if(this.status!=='spun')return 0;const e=this.evaluate();return (e.ok?100:0)+(e.first?50:0);}
+  snapshot(){return {index:this.index,answer:this.answer,attempts:this.attempts,t:this.t,status:this.status};}
+  restore(saved){
+    if(!Number.isInteger(saved?.index)||!StationModel.missions[saved.index])return false;
+    const probe=new StationModel(saved.index);
+    if(!probe.setAnswer(saved.answer??null)||!Number.isInteger(saved.attempts)||saved.attempts<0)return false;
+    if(!['spinning','spun'].includes(saved.status)||!Number.isFinite(saved.t)||saved.t<0)return false;
+    if(probe.answer===null){if(saved.t>0||saved.status==='spun')return false;}
+    else if(saved.t>probe.duration()*(1+1e-9))return false;
+    if((saved.status==='spun'||saved.t>0)&&saved.attempts<1)return false;
+    this.setMission(saved.index);this.answer=probe.answer;this.attempts=saved.attempts;
+    this.status=saved.status;this.t=saved.status==='spun'?this.duration():saved.t;return true;
+  }
+}
+globalThis.StationModel=StationModel;
+</script>
+<script id="station-locale" type="application/json">__LOCALE__</script>
+<script id="station-interface">
+(() => {
+  'use strict';
+  const $=id=>document.getElementById(id),locale=JSON.parse($('station-locale').textContent);
+  const text=(key,values={})=>locale.strings[key].replace(/\{(\w+)\}/g,(_,name)=>values[name]??'{'+name+'}');
+  const number=(n,d=2)=>Math.abs(n)<.5*10**-d?(0).toLocaleString(locale.lang,{minimumFractionDigits:d,maximumFractionDigits:d}):n.toLocaleString(locale.lang,{minimumFractionDigits:d,maximumFractionDigits:d,useGrouping:false});
+  const plain=n=>n.toLocaleString(locale.lang,{maximumFractionDigits:2,useGrouping:false}).replace('-','−');
+  const model=new StationModel();
+  const canvas=$('station-canvas'),ctx=canvas.getContext('2d');
+  const H=1/120,TAU=2*Math.PI,G=StationModel.g,transferKey='phisicos-station-language-transfer';
+  let running=false,previous=null,accumulator=0,lastUpdate=0,width=800,height=410;
+  const say=message=>{$('announcement').textContent=message;};
+  try{const data=JSON.parse(sessionStorage.getItem(transferKey)||'null');sessionStorage.removeItem(transferKey);if(data)model.restore(data.state);}catch{$('language-note').hidden=true;}
+  const amount=v=>plain(Number(v.toFixed(4)))+' '+model.unit();
+  const symbols={accelSpeed:'a =',accelOmega:'a =',omega:'ω =',period:'T =',radius:'r ='};
+  const slipKey=name=>'slip'+name[0].toUpperCase()+name.slice(1);
+  function setRunning(value){
+    const done=model.status==='spun',blocked=!model.ready();running=value&&!done&&!blocked;previous=null;accumulator=0;
+    $('play').disabled=running||done||blocked;$('pause').disabled=!running;$('step').disabled=running||done||blocked;
+    $('station-status').classList.toggle('running',running);
+    $('station-status-text').textContent=text(done?'done':running?'running':model.t?'paused':'ready');
+  }
+  function given(m){
+    const parts=[];
+    if(m.r)parts.push('r = '+plain(m.r)+' m');if(m.v)parts.push('v = '+plain(m.v)+' m/s');if(m.omega)parts.push('ω = '+plain(m.omega)+' rad/s');
+    if(m.T)parts.push('T = '+plain(m.T)+' s');if(m.target)parts.push(text('targetGiven',{a:plain(m.target)}));
+    return parts.join(' · ');
+  }
+  function sync(){
+    const c=model.config;
+    StationModel.missions.forEach((m,i)=>{$('mission-'+i).setAttribute('aria-pressed',String(i===model.index));$('given-'+i).textContent=given(m);});
+    $('question').textContent=text('question'+model.index);$('answer-symbol').textContent=symbols[c.ask];$('answer-unit').textContent=model.unit();
+    $('answer').value=model.answer===null?'':String(model.answer);$('mission-label').textContent=text('mission'+model.index);
+  }
+  // The station's spin is known once it is given or answered; the acceleration shows only once a spin has started,
+  // so it cannot be read off before an attempt.
+  const known=()=>model.ready()||!model.answerSetsStation();
+  const started=()=>model.status==='spun'||model.t>0;
+  function update(){
+    const c=model.config,ready=model.ready(),done=model.status==='spun',t=ready?model.now():0,e=model.evaluate(),a=model.accel();
+    $('time-value').textContent=number(t);
+    $('omega-value').textContent=known()?number(model.omega(),4):'—';$('speed-value').textContent=known()?number(model.speed()):'—';$('period-value').textContent=known()?number(model.period()):'—';
+    $('accel-value').textContent=started()?number(a):'—';
+    $('station-equation').textContent=started()?'a = ω²·r = '+number(model.omega(),4)+'² × '+number(model.radius())+' = '+number(a)+' m/s²':'a = ω²·r = v² ÷ r';
+    let key,copy;
+    if(done){
+      let base=text('lapCopy',{T:number(model.period()),a:number(a),pct:plain(Math.round(a/G*100))});
+      if(c.target){const gap=a-c.target;base+=' '+text(Math.abs(gap)<.005?'targetHitCopy':gap<0?'targetLowCopy':'targetHighCopy',{g:plain(c.target),d:number(Math.abs(gap))});}
+      if(e.ok){key='good';copy=base+' '+text('why'+model.index);}
+      else{key='miss';copy=base+' '+text('missCopy',{p:amount(model.answer)})+' '+(e.slip?text(slipKey(e.slip)):text('hint'+model.index));}
+    }
+    else if(!ready){key='predict';copy=text('predictCopy');}
+    else if(model.t>0){key='running';copy=text('runningCopy',{v:number(model.speed()),a:number(a)});}
+    else{key='ready';copy=text('readyCopy');}
+    $('lesson-title').textContent=text(key+'Title',{t:number(t,1),p:ready?amount(model.answer):''});$('lesson-copy').textContent=copy;
+    $('insight').classList.toggle('warning',key==='miss');
+    $('mission-score').textContent=done?String(model.score()):'—';
+    $('right-badge').classList.toggle('earned',done&&e.ok);$('first-badge').classList.toggle('earned',done&&e.first);
+  }
+  function refresh(){setRunning(false);update();draw();}
+  function simulate(dt){
+    const result=model.advance(dt*model.playback());
+    if(result?.half)say(text('halfAnnouncement'));
+    if(result?.done){setRunning(false);update();say(text('doneAnnouncement')+' '+$('lesson-title').textContent);return true;}
+    return false;
+  }
+  $('answer').addEventListener('input',event=>{const raw=String(event.target.value).trim(),value=raw===''?null:Number(raw);if(!model.setAnswer(value))model.setAnswer(null);refresh();});
+  $('play').addEventListener('click',()=>{setRunning(true);update();say(text('startedAnnouncement'));});
+  $('pause').addEventListener('click',()=>{setRunning(false);update();say(text('pausedAnnouncement'));});
+  $('step').addEventListener('click',()=>{for(let i=0;i<12;i++)if(simulate(H))break;setRunning(false);update();draw();});
+  $('reset').addEventListener('click',()=>{model.reset();refresh();say(text('resetAnnouncement'));});
+  StationModel.missions.forEach((_,i)=>$('mission-'+i).addEventListener('click',()=>{model.setMission(i);sync();refresh();say(text('missionAnnouncement',{name:text('mission'+i)}));}));
+  for(const id of ['show-vectors','show-trace'])$(id).addEventListener('change',()=>{update();draw();});
+  function suspend(){if(running){setRunning(false);say(text('suspendedAnnouncement'));}update();draw();}
+  window.addEventListener('blur',suspend);document.addEventListener('visibilitychange',()=>{if(document.hidden)suspend();});
+  for(const link of document.querySelectorAll('.language-menu a'))link.addEventListener('click',()=>{setRunning(false);try{sessionStorage.setItem(transferKey,JSON.stringify({state:model.snapshot()}));}catch{}});
+  function resize(){const rect=canvas.getBoundingClientRect();if(rect.width<=0)return;width=rect.width;height=rect.height;const dpr=Math.min(window.devicePixelRatio||1,3);canvas.width=Math.round(width*dpr);canvas.height=Math.round(height*dpr);ctx.setTransform(dpr,0,0,dpr,0,0);draw();}
+  // The view is fixed per mission (250 m across for the radius mission), so the ring's size never gives the answer.
+  const VEL=2,ACC=6,CAP=95,AMAX=12;
+  function draw(){
+    if(!ctx)return;
+    const c=model.config,ready=model.ready(),done=model.status==='spun',t=ready?model.now():0,r=model.radius(),th=ready?model.angle(t):0,a=model.accel(),begun=started();
+    ctx.clearRect(0,0,width,height);
+    const label=(str,px,py,color='#b8ccdb',align='left',font=12)=>{ctx.fillStyle=color;ctx.textAlign=align;ctx.font=font+'px -apple-system,BlinkMacSystemFont,sans-serif';ctx.fillText(str,px,py);};
+    const line=(points,color,w=1,dash=[])=>{ctx.beginPath();ctx.strokeStyle=color;ctx.lineWidth=w;ctx.setLineDash(dash);points.forEach((p,i)=>i?ctx.lineTo(p.x,p.y):ctx.moveTo(p.x,p.y));ctx.stroke();ctx.setLineDash([]);};
+    const arrow=(from,dx,dy,color,w=2.5)=>{const len=Math.hypot(dx,dy);if(len<4)return;const ux=dx/len,uy=dy/len,to={x:from.x+dx,y:from.y+dy};line([from,to],color,w);line([{x:to.x-ux*9-uy*5,y:to.y-uy*9+ux*5},to,{x:to.x-ux*9+uy*5,y:to.y-uy*9-ux*5}],color,2);};
+    const fit=(str,px,py,color,size,room,align='left')=>{ctx.font=size+'px -apple-system,BlinkMacSystemFont,sans-serif';const w=ctx.measureText(str).width;label(str,px,py,color,align,w>room?Math.max(7,Math.floor(size*room/w)):size);};
+    const gw=width>=560?170:92,area=width-gw,RVIEW=c.ask==='radius'?250:1.25*c.r;
+    fit(text('viewTitle'),16,20,'#d1e3ed',12,area-24);label(text('arrowScale'),16,height-8,'#9fb6c7','left',10);
+    const cx=area/2+4,cy=height/2+6,S=Math.min((height-96)/2,area/2-26)/RVIEW,P=(rad,ang)=>({x:cx+rad*S*Math.cos(ang),y:cy-rad*S*Math.sin(ang)});
+    if(known())fit(text('playbackLabel',{k:plain(model.playback())}),area-8,height-22,'#9fb6c7',10,area*.4,'right');
+    // Scale bar: a round length near a fifth of the view.
+    const bar=[10,20,50,100].find(L=>L>=RVIEW/5)||100;line([{x:16,y:height-26},{x:16+bar*S,y:height-26}],'#9fb6c7',2);label(plain(bar)+' m',20+bar*S,height-22,'#9fb6c7','left',10);
+    ctx.fillStyle='#5b7488';ctx.beginPath();ctx.arc(cx,cy,6,0,TAU);ctx.fill();
+    if(r>0){
+      // The rim floor is at radius r; the hull sits just outside it, and three spokes turn with the station.
+      for(let k=0;k<3;k++)line([P(0,0),P(r,th+k*TAU/3)],'#2b4a60',2);
+      ctx.strokeStyle='#2b4a60';ctx.lineWidth=9;ctx.beginPath();ctx.arc(cx,cy,r*S+5,0,TAU);ctx.stroke();
+      ctx.strokeStyle='#5b7488';ctx.lineWidth=1.5;ctx.beginPath();ctx.arc(cx,cy,r*S,0,TAU);ctx.stroke();
+      line([P(r+.02*RVIEW,0),P(r+.09*RVIEW,0)],'#8aa3b5',2);const st=P(r+.055*RVIEW,0);label(text('startLabel'),st.x,st.y-8,'#8aa3b5','center',10);
+      if($('show-trace').checked&&t>0){const sweep=Math.min(th,TAU),n=Math.max(2,Math.ceil(sweep/.04)),pts=[];for(let k=0;k<=n;k++)pts.push(P(r,sweep*k/n));line(pts,'#75efc7',2.5);}
+      // The astronaut stands on the floor with their head toward the hub.
+      const feet=P(r,th),ux=-Math.cos(th),uy=Math.sin(th);
+      line([feet,{x:feet.x+ux*14,y:feet.y+uy*14}],'#efe6d0',3);ctx.fillStyle='#efe6d0';ctx.beginPath();ctx.arc(feet.x+ux*19,feet.y+uy*19,5,0,TAU);ctx.fill();
+      if($('show-vectors').checked&&t>0&&!done){
+        arrow(feet,-Math.sin(th)*Math.min(model.speed()*VEL,CAP),-Math.cos(th)*Math.min(model.speed()*VEL,CAP),'#f2f8fc');
+        arrow(feet,ux*Math.min(a*ACC,CAP),uy*Math.min(a*ACC,CAP),'#77b9ff');
+      }
+    }
+    if(begun)label(text('feelBanner',{pct:plain(Math.round(a/G*100))}),16,62,'#d1e3ed','left',11);
+    if(done){const e=model.evaluate();label(text(e.ok?'hitBanner':'doneBanner',{a:number(a)}),16,44,e.ok?'#75efc7':'#efb958','left',width<430?12:14);}
+    // Accelerometer: the floor's push per kilogram, a, on a fixed 0–12 m/s² scale.
+    const bx=area+(gw>100?48:30),gtop=56,gbottom=height-52,gy=v=>gbottom-Math.min(v,AMAX)/AMAX*(gbottom-gtop);
+    ctx.fillStyle='rgba(16,38,55,.85)';ctx.fillRect(area,0,gw,height);
+    fit(text('gaugeTitle'),area+6,24,'#d1e3ed',10,gw-10);fit('a (m/s²)',area+6,40,'#9fb6c7',10,gw-10);
+    ctx.fillStyle='#173246';ctx.fillRect(bx,gtop,16,gbottom-gtop);
+    for(let v=0;v<=AMAX;v+=2){line([{x:bx-4,y:gy(v)},{x:bx,y:gy(v)}],'#5b7488',1);label(plain(v),bx-7,gy(v)+4,'#9fb6c7','right',10);}
+    if(begun){ctx.fillStyle='#77b9ff';ctx.fillRect(bx+2,gy(a),12,gbottom-gy(a));if(a>AMAX)label('▲ '+number(a),bx+8,gtop-6,'#77b9ff','center',10);}
+    if(c.target){line([{x:bx-4,y:gy(c.target)},{x:bx+22,y:gy(c.target)}],'#75efc7',2);fit(text(c.target>5?'earthLabel':'moonLabel'),bx+25,gy(c.target)+4,'#75efc7',10,width-bx-28);}
+    if(ready&&!model.answerSetsStation()){const y=gy(model.answer);ctx.fillStyle='#efb958';ctx.beginPath();ctx.moveTo(bx+18,y);ctx.lineTo(bx+27,y-5);ctx.lineTo(bx+27,y+5);ctx.fill();fit(text('yourFlag'),bx+30,y+4,'#efb958',10,width-bx-32);}
+    if(!begun)fit(text('gaugeHint'),area+6,height-14,'#9fb6c7',10,gw-10);
+  }
+  function frame(now){if(previous===null)previous=now;const elapsed=Math.min(.1,(now-previous)/1000);previous=now;if(running){accumulator+=elapsed;while(accumulator>=H&&running){accumulator-=H;simulate(H);}draw();}if(now-lastUpdate>=80){update();lastUpdate=now;}requestAnimationFrame(frame);}
+  window.addEventListener('resize',resize);if(typeof ResizeObserver!=='undefined')new ResizeObserver(resize).observe(canvas);
+  sync();setRunning(false);update();resize();requestAnimationFrame(frame);
+})();
+</script>
+</body>
+</html>

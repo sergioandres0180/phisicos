@@ -1,0 +1,284 @@
+<!doctype html>
+<html lang="en">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Bottle Flute · Phisicos</title>
+<style>
+.bottle-page .answer-row .symbol{min-width:56px}.bottle-page .question{font-size:15px;font-weight:600;margin-top:4px}
+.bottle-page .line-key.white{background:#f2f8fc}.bottle-page .line-key.blue{background:#77b9ff}.bottle-page .line-key.red{background:#ff7b6b}.bottle-page .line-key.green{background:#75efc7}
+</style>
+</head>
+<body>
+<div class="shell module-page bottle-page">
+__HEADER__
+<main id="main-content">
+__BREADCRUMBS__
+
+<div class="masthead"><div><h1>{{title}}</h1><p class="intro">{{subtitle}}</p></div><div class="concept-tags"><span class="tag speed">{{tag1}}</span><span class="tag velocity">{{tag2}}</span></div></div>
+<noscript><p class="no-js">{{noScript}}</p></noscript>
+<div class="layout">
+<aside class="sidebar" aria-label="{{setup}}">
+  <section class="control-section"><h2 class="eyebrow">{{setup}}</h2><div class="mission-list" role="group" aria-label="{{setup}}">
+    <button id="mission-0" aria-pressed="true"><b>1 · {{mission0}}</b><span id="given-0">·</span></button>
+    <button id="mission-1" aria-pressed="false"><b>2 · {{mission1}}</b><span id="given-1">·</span></button>
+    <button id="mission-2" aria-pressed="false"><b>3 · {{mission2}}</b><span id="given-2">·</span></button>
+    <button id="mission-3" aria-pressed="false"><b>4 · {{mission3}}</b><span id="given-3">·</span></button>
+    <button id="mission-4" aria-pressed="false"><b>5 · {{mission4}}</b><span id="given-4">·</span></button>
+  </div><p class="hint">{{setupNote}}</p></section>
+  <section class="control-section"><h2 class="eyebrow">{{answerHeading}}</h2>
+    <p class="question" id="question">{{question0}}</p>
+    <p class="field-label"><label for="answer">{{answerLabel}}</label></p>
+    <div class="answer-row"><span class="symbol" id="answer-symbol">f =</span><input id="answer" type="number" inputmode="decimal" step="any" value=""><span class="unit" id="answer-unit">Hz</span></div>
+    <p class="hint">{{answerHint}}</p>
+  </section>
+  <section class="control-section"><h2 class="eyebrow">{{observe}}</h2><label class="check"><input id="show-ruler" type="checkbox" checked>{{rulerToggle}}</label><label class="check"><input id="show-guess" type="checkbox" checked>{{guessToggle}}</label><p class="hint">{{observeHint}}</p></section>
+</aside>
+<div class="workspace">
+  <section class="scene" aria-label="{{sceneTitle}}"><div class="scene-top"><div><h2 class="scene-title">{{sceneTitle}}</h2><p class="scene-subtitle" id="mission-label">{{mission0}}</p></div><span class="status" id="bottle-status"><i class="status-dot" aria-hidden="true"></i><span id="bottle-status-text">{{ready}}</span></span></div>
+    <div class="module-stage"><canvas id="bottle-canvas" role="img" aria-label="{{canvasLabel}}">{{noScript}}</canvas></div>
+    <div class="legend"><span><i class="line-key blue"></i>{{airLegend}}</span><span><i class="line-key white"></i>{{pitchLegend}}</span><span><i class="line-key orange"></i>{{guessLegend}}</span><span><i class="line-key gray"></i>{{referenceLegend}}</span></div>
+    <div class="module-equation"><span>{{equationTitle}}</span><output id="bottle-equation">f = v ÷ 4L</output></div>
+    <div class="transport"><button id="play" class="primary" disabled>{{play}}</button><button id="pause" disabled>{{pause}}</button><button id="step" disabled>{{step}}</button><button id="reset" class="reset">{{reset}}</button></div>
+  </section>
+  <section class="metrics" aria-label="{{observe}}">
+    <div class="metric scalar"><h3 class="metric-label">{{time}}</h3><p class="metric-value"><span id="time-value">0.00</span> <small>s</small></p><p class="metric-equation">t</p></div>
+    <div class="metric scalar"><h3 class="metric-label">{{pitchMetric}}</h3><p class="metric-value"><span id="pitch-value">—</span> <small>Hz</small></p><p class="metric-equation">f</p></div>
+    <div class="metric scalar"><h3 class="metric-label">{{airMetric}}</h3><p class="metric-value"><span id="air-value">—</span> <small>cm</small></p><p class="metric-equation">L</p></div>
+    <div class="metric scalar"><h3 class="metric-label">{{waterMetric}}</h3><p class="metric-value"><span id="water-value">—</span> <small>cm</small></p><p class="metric-equation">h</p></div>
+    <div class="metric scalar"><h3 class="metric-label">{{lambdaMetric}}</h3><p class="metric-value"><span id="lambda-value">—</span> <small>cm</small></p><p class="metric-equation">λ</p></div>
+  </section>
+  <div class="insight" id="insight"><span class="insight-icon" aria-hidden="true">↗</span><div><strong id="lesson-title">{{predictTitle}}</strong><p id="lesson-copy">{{predictCopy}}</p></div></div>
+  <section class="challenge"><div class="mission-heading"><h2 class="challenge-title">{{missionTitle}}</h2><div class="score-card"><span>{{score}}</span><strong id="mission-score">—</strong></div></div><p class="mission-copy">{{missionCopy}}</p><div class="badges"><span id="right-badge">✓ {{rightBadge}}</span><span id="first-badge">① {{firstBadge}}</span></div></section>
+</div>
+</div>
+<article class="learning-content"><section><h2>{{guideTitle}}</h2><ol><li>{{instruction1}}</li><li>{{instruction2}}</li><li>{{instruction3}}</li><li>{{instruction4}}</li></ol></section><section><h2>{{conceptTitle}}</h2><p>{{conceptCopy}}</p><aside class="worked-example"><h3>{{exampleTitle}}</h3><p>{{exampleCopy}}</p></aside></section><section><h2>{{modelTitle}}</h2><p>{{modelCopy}}</p></section></article>
+<p class="language-note" id="language-note">{{languageNote}}</p>
+</main>
+__FOOTER__
+<p class="sr-only" id="announcement" role="status" aria-live="polite"></p>
+</div>
+<script id="bottle-model">
+class BottleModel {
+  // A bottle as a pipe closed at one end. Blowing across the neck sets the air column ringing with a node at the closed
+  // end (the water surface or the bottom) and an antinode at the open end, so the column holds a quarter wavelength:
+  // λ = 4L and f = v ÷ 4L, with v = 340 m/s. Only odd harmonics fit, so the next note up is 3f. Pouring in water shortens
+  // the air column and raises the pitch. Lengths in cm; a run pours (or blows) for 4 s.
+  static tolerance = .02;
+  static v = 340;
+  static missions = [
+    {key:'pitch',ask:'pitch',depth:20,water:0,pace:1},
+    {key:'water',ask:'pitch',depth:30,water:13,pace:1},
+    {key:'length',ask:'length',f:340,pace:1},
+    {key:'fill',ask:'water',depth:32,f:680,pace:1},
+    {key:'overtone',ask:'pitch',depth:20,water:0,harmonic:3,pace:1}
+  ];
+  static units = {pitch:'Hz',length:'cm',water:'cm'};
+  static limits = {pitch:1e6,length:1e5,water:1e5};
+  constructor(index = 0){this.setMission(index);}
+  setMission(index){this.index=index;this.config=BottleModel.missions[index];this.answer=null;this.attempts=0;this.reset();}
+  reset(){this.t=0;this.status='moving';}
+  valid(value){return Number.isFinite(value)&&value>0&&value<=BottleModel.limits[this.config.ask];}
+  setAnswer(value){if(value!==null&&!this.valid(value))return false;this.answer=value;this.reset();return true;}
+  ready(){return this.answer!==null;}
+  harmonic(){return this.config.harmonic??1;}
+  // The bottle's depth, the water in it at the end, and the water and air column at time t (water pours in over 3.5 s).
+  depth(){const c=this.config;return c.depth??BottleModel.v*100/(4*c.f);}
+  finalWater(){const c=this.config;if(c.key==='fill')return c.depth-BottleModel.v*100/(4*c.f);return c.water??0;}
+  water(t){const c=this.config,w=this.finalWater();return c.key==='water'||c.key==='fill'?w*Math.min(1,this.clamp(t)/3.5):w;}
+  air(t){return this.depth()-this.water(t);}
+  pitch(t){return this.harmonic()*BottleModel.v*100/(4*this.air(t));}
+  wavelength(t){return 4*this.air(t)/this.harmonic();}
+  clamp(t){return Math.min(Math.max(t,0),this.duration());}
+  duration(){return 4;}
+  now(){return this.status==='done'?this.duration():this.t;}
+  advance(dt){
+    if(!Number.isFinite(dt)||dt<0)throw new Error('Invalid timestep');
+    if(this.status==='done'||!this.ready())return null;
+    // A run counts as an attempt as soon as it starts; it ends exactly after 4 s.
+    if(this.t===0)this.attempts++;
+    const T=this.duration();
+    if(this.t+dt>=T*(1-1e-12)){this.t=T;this.status='done';return {t:T,done:true};}
+    this.t+=dt;return null;
+  }
+  exact(){const a=this.config.ask;if(a==='length')return this.depth();if(a==='water')return this.finalWater();return this.pitch(this.duration());}
+  unit(){return BottleModel.units[this.config.ask];}
+  evaluate(){
+    if(!this.ready())return {ok:false,slip:null,first:false,exact:this.exact()};
+    const c=this.config,a=this.answer,e=this.exact(),v=BottleModel.v,L=this.air(this.duration()),tol=BottleModel.tolerance,near=(p,q)=>Math.abs(p-q)<=tol*Math.abs(q)+1e-12;
+    // Every answer is right within 2%.
+    const ok=near(a,e);let slip=null;
+    if(!ok){
+      if(c.key==='pitch'){if(near(a,v*100/(2*L)))slip='openPipe';else if(near(a,v/(4*L)))slip='centimetres';else if(near(a,v*100/L))slip='noFour';}
+      else if(c.key==='water'){if(near(a,v*100/(4*c.depth)))slip='wholeBottle';else if(near(a,v*100/(4*c.water)))slip='waterColumn';else if(near(a,v*100/(2*L)))slip='openPipe';}
+      else if(c.key==='length'){if(near(a,v*100/(2*c.f)))slip='openLength';else if(near(a,v*100/c.f))slip='fullWave';else if(near(a,v/(4*c.f)))slip='metresLength';}
+      else if(c.key==='fill'){if(near(a,L))slip='airInstead';else if(near(a,c.depth-v*100/(2*c.f)))slip='openFill';else if(near(a,c.depth+L))slip='addedLengths';}
+      else{if(near(a,2*v*100/(4*L)))slip='evenHarmonic';else if(near(a,v*100/(4*L)))slip='fundamental';else if(near(a,v*100/(4*L)/3))slip='dividedHarmonic';}
+    }
+    return {ok,slip,first:ok&&this.attempts===1,exact:e};
+  }
+  score(){if(this.status!=='done')return 0;const e=this.evaluate();return (e.ok?100:0)+(e.first?50:0);}
+  snapshot(){return {index:this.index,answer:this.answer,attempts:this.attempts,t:this.t,status:this.status};}
+  restore(saved){
+    if(!Number.isInteger(saved?.index)||!BottleModel.missions[saved.index])return false;
+    const probe=new BottleModel(saved.index);
+    if(!probe.setAnswer(saved.answer??null)||!Number.isInteger(saved.attempts)||saved.attempts<0)return false;
+    if(!['moving','done'].includes(saved.status)||!Number.isFinite(saved.t)||saved.t<0||saved.t>probe.duration()*(1+1e-9))return false;
+    if(probe.answer===null&&(saved.t>0||saved.status==='done'))return false;
+    if((saved.status==='done'||saved.t>0)&&saved.attempts<1)return false;
+    this.setMission(saved.index);this.answer=probe.answer;this.attempts=saved.attempts;
+    this.status=saved.status;this.t=saved.status==='done'?this.duration():saved.t;return true;
+  }
+}
+globalThis.BottleModel=BottleModel;
+</script>
+<script id="bottle-locale" type="application/json">__LOCALE__</script>
+<script id="bottle-interface">
+(() => {
+  'use strict';
+  const $=id=>document.getElementById(id),locale=JSON.parse($('bottle-locale').textContent);
+  const text=(key,values={})=>locale.strings[key].replace(/\{(\w+)\}/g,(_,name)=>values[name]??'{'+name+'}');
+  const number=(n,d=2)=>Math.abs(n)<.5*10**-d?(0).toLocaleString(locale.lang,{minimumFractionDigits:d,maximumFractionDigits:d}):n.toLocaleString(locale.lang,{minimumFractionDigits:d,maximumFractionDigits:d,useGrouping:false});
+  const plain=n=>n.toLocaleString(locale.lang,{maximumFractionDigits:3,useGrouping:false}).replace('-','−');
+  const model=new BottleModel();
+  const canvas=$('bottle-canvas'),ctx=canvas.getContext('2d');
+  const H=1/120,transferKey='phisicos-bottle-language-transfer';
+  let running=false,previous=null,accumulator=0,lastUpdate=0,width=800,height=410;
+  const say=message=>{$('announcement').textContent=message;};
+  try{const data=JSON.parse(sessionStorage.getItem(transferKey)||'null');sessionStorage.removeItem(transferKey);if(data)model.restore(data.state);}catch{$('language-note').hidden=true;}
+  const pace=()=>model.config.pace??1;
+  const amount=v=>plain(Number(v.toPrecision(5)))+(model.unit()?' '+model.unit():'');
+  const slipKey=name=>'slip'+name[0].toUpperCase()+name.slice(1);
+  // The readings show only once a run starts, because they give the answer away.
+  const started=()=>model.status==='done'||model.t>0;
+  const symbols={pitch:'f =',length:'L =',water:'h ='};
+  // Givens: the bottle's depth and water, the note wanted, or the bottle and the note wanted; v = 340 m/s throughout.
+  function given(m){
+    if(m.key==='water')return 'D = '+plain(m.depth)+' cm · h = '+plain(m.water)+' cm';
+    if(m.key==='length')return 'f = '+plain(m.f)+' Hz · v = 340 m/s';
+    if(m.key==='fill')return 'D = '+plain(m.depth)+' cm · f = '+plain(m.f)+' Hz';
+    if(m.key==='overtone')return 'L = '+plain(m.depth)+' cm · n = 3';
+    return 'L = '+plain(m.depth)+' cm · v = 340 m/s';
+  }
+  function equation(){
+    const c=model.config,e=model.exact(),L=model.air(model.duration());
+    if(c.key==='water')return 'f = 340 ÷ (4 × '+plain(L/100)+') = '+number(e,0)+' Hz';
+    if(c.key==='length')return 'L = 340 ÷ (4 × '+plain(c.f)+') = '+number(e/100,2)+' m';
+    if(c.key==='fill')return 'h = D − v ÷ 4f = '+plain(c.depth)+' − '+plain(L)+' = '+number(e,1)+' cm';
+    if(c.key==='overtone')return 'f₃ = 3 × 340 ÷ (4 × '+plain(L/100)+') = '+number(e,0)+' Hz';
+    return 'f = 340 ÷ (4 × '+plain(L/100)+') = '+number(e,0)+' Hz';
+  }
+  function baseEquation(){return model.config.key==='overtone'?'f_n = n·v ÷ 4L, n = 1, 3, 5…':'f = v ÷ 4L';}
+  // The asked quantity stays hidden until the run is over.
+  function metrics(t,begun){
+    const a=model.config.ask,over=model.status==='done',show=(id,v,hide)=>{$(id).textContent=!begun?'—':hide&&!over?'?':v;};
+    show('pitch-value',number(model.pitch(t),0),a==='pitch');show('air-value',number(model.air(t),1),a==='length');
+    show('water-value',number(model.water(t),1),a==='water');show('lambda-value',number(model.wavelength(t),1),a==='length');
+  }
+  function values(){const a=model.config.ask;return {e:number(model.exact(),a==='pitch'?0:1)};}
+  function runningCopy(t){return text('bottleCopy',{f:model.config.ask==='pitch'&&model.status!=='done'?'?':number(model.pitch(t),0)});}
+  // The air column (cm) your answer implies: from a pitch, a length, or a water depth.
+  function guessAir(){const c=model.config,a=model.answer;if(c.ask==='length')return a;if(c.ask==='water')return model.depth()-a;return model.harmonic()*BottleModel.v*100/(4*a);}
+  function scene(g){
+    const c=g.c,{line,fit,dot,box,label}=g,s=g.ready?g.t:0,D=model.depth(),hideLen=c.ask==='length'&&!g.begun,k=(height-170)/36,bx=g.area*.36,bw=56,top=86,Y=d=>top+d*k,bottom=Y(D);
+    // The bottle seen from the side: glass, water at the bottom, and the air column ringing above it with a quarter wave
+    // (a node at the water, the widest swing at the open neck), drawn slowed down.
+    box(16,56,g.area-32,height-126,'#1d2a36');
+    if(!hideLen){const w=model.water(g.begun?s:0),L=D-w,ws=Y(D-w);
+      box(bx,ws,bw,bottom-ws,'#2f6f9b');line([{x:bx,y:ws},{x:bx+bw,y:ws}],'#8fd0ff',1.5);
+      if(g.begun){const n=model.harmonic(),sw=Math.cos(2*Math.PI*s),L2=[],R2=[];for(let i=0;i<=60;i++){const u=i/60,env=Math.sin(n*Math.PI/2*u),y=ws-(ws-top)*u;L2.push({x:bx+bw/2-env*sw*(bw/2-4),y});R2.push({x:bx+bw/2+env*sw*(bw/2-4),y});}line(L2,'#77b9ff',2);line(R2,'#77b9ff',2);}
+      line([{x:bx-4,y:top-18},{x:bx-4,y:bottom},{x:bx+bw+4,y:bottom},{x:bx+bw+4,y:top-18}],'#d1e3ed',3);}
+    else{line([{x:bx-4,y:top-18},{x:bx-4,y:top+40},{x:bx+bw+4,y:top+40},{x:bx+bw+4,y:top-18}],'#d1e3ed',3,[6,5]);label('?',bx+bw/2,top+70,'#efb958','center',16);}
+    label(text('neckTag'),bx+bw+12,top-10,'#d1e3ed','left',9);if(!hideLen&&model.water(g.begun?s:0)>0)label(text('waterTag'),bx+bw+12,bottom-6,'#8fd0ff','left',9);
+    if(g.option&&!hideLen){for(let d=0;d<=D+1e-9;d+=5){line([{x:bx-20,y:Y(d)},{x:bx-10,y:Y(d)}],'#9fb6c7',1);label(plain(d),bx-24,Y(d)+3,'#9fb6c7','right',8);}label('cm',bx-24,top-12,'#9fb6c7','right',8);}
+    // Your answer: the air column it implies, as an orange water line.
+    if(g.guess){const ga=guessAir();if(ga>0&&ga<=Math.max(D,ga)&&top+ga*k<height-80){const gy=top+ga*k;line([{x:bx-10,y:gy},{x:bx+bw+10,y:gy}],'#efb958',2.5,[6,4]);fit(text('guessTag'),bx+bw+14,gy+4,'#efb958',9,120);}}
+    // Blowing across the neck.
+    if(g.begun){for(let i=0;i<3;i++)line([{x:bx-50+i*6,y:top-26-i*5},{x:bx+bw/2,y:top-22}],'rgba(242,248,252,.5)',1);}
+    fit(text('slowTag'),16,height-24,'#9fb6c7',10,g.area*.6);
+    fit('t = '+number(g.t)+' s',g.area-16,44,'#f2f8fc',13,g.area*.3,'right');
+  }
+  function panel(g){
+    const {line,fit,dot,label}=g;
+    fit(text('pitchGraph'),g.area+8,44,'#d1e3ed',10,width-g.area-16);
+    if(!g.begun){fit(text('panelHint'),g.area+8,70,'#9fb6c7',10,width-g.area-16);return;}
+    // Pitch against the air column's length: the shorter the column, the higher the note.
+    const n=model.harmonic(),f=L=>n*BottleModel.v*100/(4*L),Lmin=8,Lmax=36,fmax=f(Lmin),px0=g.area+40,px1=width-14,py0=90,py1=height-90,PX=L=>px0+(L-Lmin)/(Lmax-Lmin)*(px1-px0),PY=q=>py1-q/fmax*(py1-py0);
+    line([{x:px0,y:py1},{x:px1,y:py1}],'#8aa3b5',1);line([{x:px0,y:py0},{x:px0,y:py1}],'#8aa3b5',1);
+    for(let L=10;L<=Lmax;L+=5){line([{x:PX(L),y:py1},{x:PX(L),y:py1+4}],'#9fb6c7',1);label(plain(L),PX(L),py1+14,'#9fb6c7','center',8);}
+    const step=fmax>2000?1000:fmax>800?250:100;for(let q=0;q<=fmax;q+=step){line([{x:px0-4,y:PY(q)},{x:px0,y:PY(q)}],'#9fb6c7',1);label(plain(q),px0-6,PY(q)+3,'#9fb6c7','right',8);}
+    const pts=[];for(let i=0;i<=200;i++){const L=Lmin+(Lmax-Lmin)*i/200;pts.push({x:PX(L),y:PY(f(L))});}line(pts,'#4b6275',1.5);
+    if(g.guess){const ga=guessAir();if(ga>=Lmin&&ga<=Lmax)line([{x:PX(ga),y:py0},{x:PX(ga),y:py1}],'#efb958',1.5,[5,4]);}
+    const t=Math.min(g.t,model.duration()),hist=[];for(let i=0;i<=100;i++){const q=t*i/100,L=model.air(q);if(L>=Lmin&&L<=Lmax)hist.push({x:PX(L),y:PY(model.pitch(q))});}if(hist.length)line(hist,'#f2f8fc',2.5);
+    const L=model.air(t);if(L>=Lmin&&L<=Lmax)dot(PX(L),PY(model.pitch(t)),5,'#f2f8fc');
+    fit(text('airAxis'),px0,py1+28,'#9fb6c7',9,px1-px0);
+  }
+  function setRunning(value){
+    const done=model.status==='done',blocked=!model.ready();running=value&&!done&&!blocked;previous=null;accumulator=0;
+    $('play').disabled=running||done||blocked;$('pause').disabled=!running;$('step').disabled=running||done||blocked;
+    $('bottle-status').classList.toggle('running',running);
+    $('bottle-status-text').textContent=text(done?'done':running?'running':model.t?'paused':'ready');
+  }
+  function sync(){
+    const c=model.config;
+    BottleModel.missions.forEach((m,i)=>{$('mission-'+i).setAttribute('aria-pressed',String(i===model.index));$('given-'+i).textContent=given(m);});
+    $('question').textContent=text('question'+model.index);$('answer-symbol').textContent=symbols[c.ask];$('answer-unit').textContent=model.unit();
+    $('answer').value=model.answer===null?'':String(model.answer);$('mission-label').textContent=text('mission'+model.index);
+  }
+  function update(){
+    const ready=model.ready(),done=model.status==='done',t=ready?model.now():0,e=model.evaluate(),begun=started();
+    $('time-value').textContent=number(t);metrics(t,begun);
+    $('bottle-equation').textContent=begun?equation():baseEquation();
+    let key,copy;
+    if(done){
+      const base=text('result'+model.index,values());
+      if(e.ok){key='good';copy=base+' '+text('why'+model.index);}
+      else{key='miss';copy=base+' '+text('missCopy',{p:amount(model.answer)})+' '+(e.slip?text(slipKey(e.slip)):text('hint'+model.index));}
+    }
+    else if(!ready){key='predict';copy=text('predictCopy');}
+    else if(model.t>0){key='running';copy=runningCopy(t);}
+    else{key='ready';copy=text('readyCopy');}
+    $('lesson-title').textContent=text(key+'Title',{t:number(t),p:ready?amount(model.answer):''});$('lesson-copy').textContent=copy;
+    $('insight').classList.toggle('warning',key==='miss');
+    $('mission-score').textContent=done?String(model.score()):'—';
+    $('right-badge').classList.toggle('earned',done&&e.ok);$('first-badge').classList.toggle('earned',done&&e.first);
+  }
+  function refresh(){setRunning(false);update();draw();}
+  function simulate(dt){
+    const result=model.advance(dt);
+    if(result?.done){setRunning(false);update();say(text('doneAnnouncement')+' '+$('lesson-title').textContent);return true;}
+    return false;
+  }
+  $('answer').addEventListener('input',event=>{const raw=String(event.target.value).trim(),value=raw===''?null:Number(raw);if(!model.setAnswer(value))model.setAnswer(null);refresh();});
+  $('play').addEventListener('click',()=>{setRunning(true);update();say(text('startedAnnouncement'));});
+  $('pause').addEventListener('click',()=>{setRunning(false);update();say(text('pausedAnnouncement'));});
+  $('step').addEventListener('click',()=>{for(let i=0;i<12;i++)if(simulate(H*pace()))break;setRunning(false);update();draw();});
+  $('reset').addEventListener('click',()=>{model.reset();refresh();say(text('resetAnnouncement'));});
+  BottleModel.missions.forEach((_,i)=>$('mission-'+i).addEventListener('click',()=>{model.setMission(i);sync();refresh();say(text('missionAnnouncement',{name:text('mission'+i)}));}));
+  for(const id of ['show-ruler','show-guess'])$(id).addEventListener('change',()=>{update();draw();});
+  function suspend(){if(running){setRunning(false);say(text('suspendedAnnouncement'));}update();draw();}
+  window.addEventListener('blur',suspend);document.addEventListener('visibilitychange',()=>{if(document.hidden)suspend();});
+  for(const link of document.querySelectorAll('.language-menu a'))link.addEventListener('click',()=>{setRunning(false);try{sessionStorage.setItem(transferKey,JSON.stringify({state:model.snapshot()}));}catch{}});
+  function resize(){const rect=canvas.getBoundingClientRect();if(rect.width<=0)return;width=rect.width;height=rect.height;const dpr=Math.min(window.devicePixelRatio||1,3);canvas.width=Math.round(width*dpr);canvas.height=Math.round(height*dpr);ctx.setTransform(dpr,0,0,dpr,0,0);draw();}
+  function draw(){
+    if(!ctx)return;
+    const c=model.config,ready=model.ready(),done=model.status==='done',t=ready?model.now():0,begun=started(),option=$('show-ruler').checked,guess=$('show-guess').checked&&ready;
+    ctx.clearRect(0,0,width,height);
+    const label=(str,px,py,color='#b8ccdb',align='left',font=12)=>{ctx.fillStyle=color;ctx.textAlign=align;ctx.font=font+'px -apple-system,BlinkMacSystemFont,sans-serif';ctx.fillText(str,px,py);};
+    const line=(points,color,w=1,dash=[])=>{ctx.beginPath();ctx.strokeStyle=color;ctx.lineWidth=w;ctx.setLineDash(dash);points.forEach((q,i)=>i?ctx.lineTo(q.x,q.y):ctx.moveTo(q.x,q.y));ctx.stroke();ctx.setLineDash([]);};
+    const fit=(str,px,py,color,size,room,align='left')=>{ctx.font=size+'px -apple-system,BlinkMacSystemFont,sans-serif';const w=ctx.measureText(str).width;label(str,px,py,color,align,w>room?Math.max(7,Math.floor(size*room/w)):size);};
+    const dot=(x,y,r,color)=>{ctx.fillStyle=color;ctx.beginPath();ctx.arc(x,y,Math.max(r,.5),0,Math.PI*2);ctx.fill();};
+    const box=(x,y,w,h,color)=>{ctx.fillStyle=color;ctx.fillRect(x,y,w,h);};
+    const wide=width>=560,area=wide?width*.64:width;
+    const env={c,ready,done,t,begun,option,guess,label,line,fit,dot,box,wide,area};
+    fit(text('viewTitle'),16,20,'#d1e3ed',12,area-28);
+    if(done){const ev=model.evaluate();fit(text(ev.ok?'rightBanner':'offBanner'),16,40,ev.ok?'#75efc7':'#efb958',width<430?12:14,area-28);}
+    scene(env);
+    label(text('scaleNote'),16,height-8,'#9fb6c7','left',10);
+    if(!wide)return;
+    panel(env);
+  }
+  function frame(now){if(previous===null)previous=now;const elapsed=Math.min(.1,(now-previous)/1000);previous=now;if(running){accumulator+=elapsed*pace();while(accumulator>=H&&running){accumulator-=H;simulate(H);}draw();}if(now-lastUpdate>=80){update();lastUpdate=now;}requestAnimationFrame(frame);}
+  window.addEventListener('resize',resize);if(typeof ResizeObserver!=='undefined')new ResizeObserver(resize).observe(canvas);
+  sync();setRunning(false);update();resize();requestAnimationFrame(frame);
+})();
+</script>
+</body>
+</html>

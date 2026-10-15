@@ -1,0 +1,279 @@
+<!doctype html>
+<html lang="en">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Plank Bridge · Phisicos</title>
+<style>
+.bridge-page .answer-row .symbol{min-width:44px}.bridge-page .question{font-size:15px;font-weight:600;margin-top:4px}
+.bridge-page .line-key.white{background:#f2f8fc}.bridge-page .line-key.blue{background:#77b9ff}
+</style>
+</head>
+<body>
+<div class="shell module-page bridge-page">
+__HEADER__
+<main id="main-content">
+__BREADCRUMBS__
+
+<div class="masthead"><div><h1>{{title}}</h1><p class="intro">{{subtitle}}</p></div><div class="concept-tags"><span class="tag speed">{{tag1}}</span><span class="tag velocity">{{tag2}}</span></div></div>
+<noscript><p class="no-js">{{noScript}}</p></noscript>
+<div class="layout">
+<aside class="sidebar" aria-label="{{setup}}">
+  <section class="control-section"><h2 class="eyebrow">{{setup}}</h2><div class="mission-list" role="group" aria-label="{{setup}}">
+    <button id="mission-0" aria-pressed="true"><b>1 · {{mission0}}</b><span id="given-0">L</span></button>
+    <button id="mission-1" aria-pressed="false"><b>2 · {{mission1}}</b><span id="given-1">L</span></button>
+    <button id="mission-2" aria-pressed="false"><b>3 · {{mission2}}</b><span id="given-2">L</span></button>
+    <button id="mission-3" aria-pressed="false"><b>4 · {{mission3}}</b><span id="given-3">L</span></button>
+    <button id="mission-4" aria-pressed="false"><b>5 · {{mission4}}</b><span id="given-4">L</span></button>
+  </div><p class="hint">{{setupNote}}</p></section>
+  <section class="control-section"><h2 class="eyebrow">{{answerHeading}}</h2>
+    <p class="question" id="question">{{question0}}</p>
+    <p class="field-label"><label for="answer">{{answerLabel}}</label></p>
+    <div class="answer-row"><span class="symbol" id="answer-symbol">R_A =</span><input id="answer" type="number" inputmode="decimal" step="any" value=""><span class="unit" id="answer-unit">N</span></div>
+    <p class="hint">{{answerHint}}</p>
+  </section>
+  <section class="control-section"><h2 class="eyebrow">{{observe}}</h2><label class="check"><input id="show-vectors" type="checkbox" checked>{{vectors}}</label><label class="check"><input id="show-ruler" type="checkbox" checked>{{ruler}}</label><p class="hint">{{observeHint}}</p></section>
+</aside>
+<div class="workspace">
+  <section class="scene" aria-label="{{sceneTitle}}"><div class="scene-top"><div><h2 class="scene-title">{{sceneTitle}}</h2><p class="scene-subtitle" id="mission-label">{{mission0}}</p></div><span class="status" id="bridge-status"><i class="status-dot" aria-hidden="true"></i><span id="bridge-status-text">{{ready}}</span></span></div>
+    <div class="module-stage"><canvas id="bridge-canvas" role="img" aria-label="{{canvasLabel}}">{{noScript}}</canvas></div>
+    <div class="legend"><span><i class="line-key orange"></i>{{weightLegend}}</span><span><i class="line-key blue"></i>{{reactionLegend}}</span><span><i class="line-key mint"></i>{{ratingLegend}}</span><span><i class="line-key gray"></i>{{craneLegend}}</span></div>
+    <div class="module-equation"><span>{{equationTitle}}</span><output id="bridge-equation">ΣF = 0 · ΣM = 0</output></div>
+    <div class="transport"><button id="play" class="primary" disabled>{{play}}</button><button id="pause" disabled>{{pause}}</button><button id="step" disabled>{{step}}</button><button id="reset" class="reset">{{reset}}</button></div>
+  </section>
+  <section class="metrics" aria-label="{{observe}}">
+    <div class="metric scalar"><h3 class="metric-label">{{time}}</h3><p class="metric-value"><span id="time-value">0.00</span> <small>s</small></p><p class="metric-equation">t</p></div>
+    <div class="metric vector"><h3 class="metric-label">{{position}}</h3><p class="metric-value"><span id="x-value">0.00</span> <small>m</small></p><p class="metric-equation">x</p></div>
+    <div class="metric vector"><h3 class="metric-label">{{onPlank}}</h3><p class="metric-value"><span id="w-value">0</span> <small>N</small></p><p class="metric-equation">W + w</p></div>
+    <div class="metric vector"><h3 class="metric-label">{{reactionA}}</h3><p class="metric-value"><span id="ra-value">—</span> <small>N</small></p><p class="metric-equation">R_A</p></div>
+    <div class="metric vector"><h3 class="metric-label">{{reactionB}}</h3><p class="metric-value"><span id="rb-value">—</span> <small>N</small></p><p class="metric-equation">R_B</p></div>
+  </section>
+  <div class="insight" id="insight"><span class="insight-icon" aria-hidden="true">↗</span><div><strong id="lesson-title">{{predictTitle}}</strong><p id="lesson-copy">{{predictCopy}}</p></div></div>
+  <section class="challenge"><div class="mission-heading"><h2 class="challenge-title">{{missionTitle}}</h2><div class="score-card"><span>{{score}}</span><strong id="mission-score">—</strong></div></div><p class="mission-copy">{{missionCopy}}</p><div class="badges"><span id="right-badge">✓ {{rightBadge}}</span><span id="first-badge">① {{firstBadge}}</span></div></section>
+</div>
+</div>
+<article class="learning-content"><section><h2>{{guideTitle}}</h2><ol><li>{{instruction1}}</li><li>{{instruction2}}</li><li>{{instruction3}}</li><li>{{instruction4}}</li></ol></section><section><h2>{{conceptTitle}}</h2><p>{{conceptCopy}}</p><aside class="worked-example"><h3>{{exampleTitle}}</h3><p>{{exampleCopy}}</p></aside></section><section><h2>{{modelTitle}}</h2><p>{{modelCopy}}</p></section></article>
+<p class="language-note" id="language-note">{{languageNote}}</p>
+</main>
+__FOOTER__
+<p class="sr-only" id="announcement" role="status" aria-live="polite"></p>
+</div>
+<script id="bridge-model">
+class BridgeModel {
+  // A uniform plank rests on support A at x = 0 and support B at x = s. A load W stands at x, and the plank's own weight w
+  // acts at its centre x_c. Equilibrium needs ΣF = 0 (R_A + R_B = W + w) and ΣM = 0 about A (R_B·s = W·x + w·x_c), so
+  // R_B = (W·x + w·x_c) ÷ s and R_A = W + w − R_B. A crane lowers a crate over 2 s, so its share of W grows steadily; a
+  // truck or a walker moves at 1 m/s. A support cracks exactly when its reaction reaches its rating, and the plank tips
+  // over B exactly when R_A falls to zero.
+  static ramp = 2; // s for the crane to hand over the crate
+  static hold = 1; // s the final state is held
+  static speed = 1; // m/s for the truck and the walker
+  static grace = 5e-4; // within 0.05% counts as holding, so a rounded answer does not crack or tip
+  static tolerance = .02;
+  static missions = [
+    {span:4,plank:{w:0,from:0,to:4},load:{W:800,x:2},ask:'centre'},
+    {span:4,plank:{w:0,from:0,to:4},load:{W:800,x:1},ask:'quarter'},
+    {span:4,plank:{w:200,from:0,to:4},load:{W:800,x:1},ask:'heavy'},
+    {span:6,plank:{w:300,from:0,to:6},load:{W:1200,x:2},rating:1000,ask:'truck'},
+    {span:4,plank:{w:300,from:0,to:6},load:{W:600,x:3},ask:'overhang'}
+  ];
+  static units = {centre:'N',quarter:'N',heavy:'N',truck:'m',overhang:'m'};
+  constructor(index = 0){this.setMission(index);}
+  setMission(index){this.index=index;this.config=BridgeModel.missions[index];this.answer=null;this.attempts=0;this.reset();}
+  reset(){this.t=0;this.status='loading';}
+  moving(){return this.config.ask==='truck'||this.config.ask==='overhang';}
+  valid(value){
+    if(!Number.isFinite(value))return false;const a=this.config.ask;
+    if(a==='truck')return value>=2&&value<=6;if(a==='overhang')return value>=0&&value<=2;return value>0&&value<=1e5;
+  }
+  setAnswer(value){if(value!==null&&!this.valid(value))return false;this.answer=value;this.reset();return true;}
+  ready(){return this.answer!==null;}
+  centre(){const p=this.config.plank;return (p.from+p.to)/2;}
+  // The load's resting or stopping place: the truck stops at the answer, the walker the answer beyond B.
+  stop(){const c=this.config;return c.ask==='truck'?this.answer??c.load.x:c.ask==='overhang'?c.span+(this.answer??0):c.load.x;}
+  reactions(x,f=1){const c=this.config,w=c.plank.w,W=c.load.W*f,B=(W*x+w*this.centre())/c.span;return [w+W-B,B];}
+  // The first failure: a support cracking or the plank tipping, with the time it happens; null when everything holds.
+  failure(){
+    const c=this.config,s=c.span,w=c.plank.w,W=c.load.W,xc=this.centre(),g=BridgeModel.grace;
+    if(!this.moving()){
+      const rating=this.answer??0,A0=w*(s-xc)/s,A1=this.reactions(c.load.x)[0];
+      if(A1<=rating*(1+g))return null;const f=Math.max(0,(rating-A0)/(A1-A0));return {kind:'crack',support:0,t:BridgeModel.ramp*f};
+    }
+    if(c.ask==='truck'){const x=(c.rating*s-w*xc)/W;return this.stop()>x*(1+g)?{kind:'crack',support:1,t:(x-c.load.x)/BridgeModel.speed}:null;}
+    const x=(s*(w+W)-w*xc)/W;return this.stop()-s>(x-s)*(1+g)?{kind:'tip',support:1,t:(x-c.load.x)/BridgeModel.speed}:null;
+  }
+  outcome(){return this.failure()?.kind??'hold';}
+  duration(){const f=this.failure();if(f)return f.t;return (this.moving()?(this.stop()-this.config.load.x)/BridgeModel.speed:BridgeModel.ramp)+BridgeModel.hold;}
+  clamp(t){return Math.min(Math.max(t,0),this.duration());}
+  x(t){const c=this.config;return this.moving()?Math.min(this.stop(),c.load.x+BridgeModel.speed*this.clamp(t)):c.load.x;}
+  share(t){return this.moving()?1:Math.min(1,this.clamp(t)/BridgeModel.ramp);}
+  reactionsAt(t){return this.reactions(this.x(t),this.share(t));}
+  now(){return this.status==='done'?this.duration():this.t;}
+  advance(dt){
+    if(!Number.isFinite(dt)||dt<0)throw new Error('Invalid timestep');
+    if(this.status==='done'||!this.ready())return null;
+    // A run counts as an attempt as soon as it starts; cracking and tipping are found exactly.
+    if(this.t===0)this.attempts++;
+    const T=this.duration();
+    if(this.t+dt>=T*(1-1e-12)){this.t=T;this.status='done';return {t:T,done:true,outcome:this.outcome()};}
+    this.t+=dt;return null;
+  }
+  exact(){
+    const c=this.config,s=c.span,w=c.plank.w,W=c.load.W,xc=this.centre();
+    if(c.ask==='truck')return (c.rating*s-w*xc)/W;
+    if(c.ask==='overhang')return (s*(w+W)-w*xc)/W-s;
+    return this.reactions(c.load.x)[0];
+  }
+  unit(){return BridgeModel.units[this.config.ask];}
+  // Ratings must hold and be at most 2% above the reaction; distances must hold and be at most 2% short of the limit.
+  evaluate(){
+    if(!this.ready())return {ok:false,slip:null,first:false,exact:this.exact()};
+    const c=this.config,a=this.answer,e=this.exact(),g=BridgeModel.grace,t=BridgeModel.tolerance,near=(p,q)=>Math.abs(p-q)<=.02*Math.abs(q)+1e-9;
+    const ok=this.moving()?a>=e*(1-t)&&a<=e*(1+g):a>=e*(1-g)&&a<=e*(1+t);
+    let slip=null;
+    if(!ok){
+      const W=c.load.W,w=c.plank.w,s=c.span;
+      if(c.ask==='centre'){if(near(a,W))slip='whole';}
+      else if(c.ask==='quarter'){if(near(a,W/2))slip='half';else if(near(a,W*c.load.x/s))slip='otherSupport';else if(near(a,W))slip='whole';}
+      else if(c.ask==='heavy'){if(near(a,W*(s-c.load.x)/s))slip='noPlank';else if(near(a,W*(s-c.load.x)/s+w))slip='wholePlank';else if(near(a,(W+w)/2))slip='half';}
+      else if(c.ask==='truck'){if(near(a,c.rating*s/W))slip='noPlankTruck';else if(near(a,6))slip='end';}
+      else{if(near(a,W*(s-this.centre())/w))slip='invertedLever';else if(near(a,w*this.centre()/W))slip='fromEnd';else if(a===0)slip='noPlankTip';}
+      if(!slip&&this.outcome()==='hold')slip=this.moving()?'early':'spare';
+    }
+    return {ok,slip,first:ok&&this.attempts===1,exact:e};
+  }
+  score(){if(this.status!=='done')return 0;const e=this.evaluate();return (e.ok?100:0)+(e.first?50:0);}
+  snapshot(){return {index:this.index,answer:this.answer,attempts:this.attempts,t:this.t,status:this.status};}
+  restore(saved){
+    if(!Number.isInteger(saved?.index)||!BridgeModel.missions[saved.index])return false;
+    const probe=new BridgeModel(saved.index);
+    if(!probe.setAnswer(saved.answer??null)||!Number.isInteger(saved.attempts)||saved.attempts<0)return false;
+    if(!['loading','done'].includes(saved.status)||!Number.isFinite(saved.t)||saved.t<0||saved.t>probe.duration()*(1+1e-9))return false;
+    if(probe.answer===null&&(saved.t>0||saved.status==='done'))return false;
+    if((saved.status==='done'||saved.t>0)&&saved.attempts<1)return false;
+    this.setMission(saved.index);this.answer=probe.answer;this.attempts=saved.attempts;
+    this.status=saved.status;this.t=saved.status==='done'?this.duration():saved.t;return true;
+  }
+}
+globalThis.BridgeModel=BridgeModel;
+</script>
+<script id="bridge-locale" type="application/json">__LOCALE__</script>
+<script id="bridge-interface">
+(() => {
+  'use strict';
+  const $=id=>document.getElementById(id),locale=JSON.parse($('bridge-locale').textContent);
+  const text=(key,values={})=>locale.strings[key].replace(/\{(\w+)\}/g,(_,name)=>values[name]??'{'+name+'}');
+  const number=(n,d=2)=>Math.abs(n)<.5*10**-d?(0).toLocaleString(locale.lang,{minimumFractionDigits:d,maximumFractionDigits:d}):n.toLocaleString(locale.lang,{minimumFractionDigits:d,maximumFractionDigits:d,useGrouping:false});
+  const plain=n=>n.toLocaleString(locale.lang,{maximumFractionDigits:2,useGrouping:false}).replace('-','−');
+  const model=new BridgeModel();
+  const canvas=$('bridge-canvas'),ctx=canvas.getContext('2d');
+  const H=1/120,TAU=2*Math.PI,transferKey='phisicos-bridge-language-transfer';
+  let running=false,previous=null,accumulator=0,lastUpdate=0,width=800,height=410;
+  const say=message=>{$('announcement').textContent=message;};
+  try{const data=JSON.parse(sessionStorage.getItem(transferKey)||'null');sessionStorage.removeItem(transferKey);if(data)model.restore(data.state);}catch{$('language-note').hidden=true;}
+  const amount=v=>plain(Number(v.toPrecision(5)))+' '+model.unit();
+  const symbols={centre:'R_A =',quarter:'R_A =',heavy:'R_A =',truck:'x =',overhang:'d ='};
+  const slipKey=name=>'slip'+name[0].toUpperCase()+name.slice(1);
+  function setRunning(value){
+    const done=model.status==='done',blocked=!model.ready();running=value&&!done&&!blocked;previous=null;accumulator=0;
+    $('play').disabled=running||done||blocked;$('pause').disabled=!running;$('step').disabled=running||done||blocked;
+    $('bridge-status').classList.toggle('running',running);
+    $('bridge-status-text').textContent=text(done?'done':running?'running':model.t?'paused':'ready');
+  }
+  function given(m){
+    const parts=['L_AB = '+plain(m.span)+' m','W = '+plain(m.load.W)+' N'+(m.ask==='truck'||m.ask==='overhang'?'':', x = '+plain(m.load.x)+' m')];
+    if(m.plank.w)parts.push('w = '+plain(m.plank.w)+' N'+(m.plank.to!==m.span?', '+plain(m.plank.to)+' m':''));
+    if(m.rating)parts.push('R_max = '+plain(m.rating)+' N');
+    return parts.join(' · ');
+  }
+  function sync(){
+    const c=model.config;
+    BridgeModel.missions.forEach((m,i)=>{$('mission-'+i).setAttribute('aria-pressed',String(i===model.index));$('given-'+i).textContent=given(m);});
+    $('question').textContent=text('question'+model.index);$('answer-symbol').textContent=symbols[c.ask];$('answer-unit').textContent=model.unit();
+    $('answer').value=model.answer===null?'':String(model.answer);$('mission-label').textContent=text('mission'+model.index);
+  }
+  // The reactions show only once a run starts, because they are, or give away, the answers.
+  const started=()=>model.status==='done'||model.t>0;
+  function update(){
+    const c=model.config,ready=model.ready(),done=model.status==='done',t=ready?model.now():0,e=model.evaluate(),begun=started(),[A,B]=model.reactionsAt(t),f=model.share(t),x=model.x(t);
+    $('time-value').textContent=number(t);$('x-value').textContent=number(x);$('w-value').textContent=number(c.load.W*f+c.plank.w,0);
+    $('ra-value').textContent=begun?number(A,0):'—';$('rb-value').textContent=begun?number(B,0):'—';
+    $('bridge-equation').textContent=begun?'R_A + R_B = '+number(A+B,0)+' N · R_B·L = W·x + w·x_c = '+number(B*c.span,0)+' N·m':'R_A + R_B = W + w · R_B·L = W·x + w·x_c';
+    let key,copy;
+    if(done){
+      const fail=model.failure(),values={A:number(A,0),B:number(B,0),x:number(x),support:fail?.support?'B':'A'};
+      const base=text(fail?fail.kind+'Copy':'holdCopy',values);
+      if(e.ok){key='good';copy=base+' '+text('why'+model.index);}
+      else{key='miss';copy=base+' '+text('missCopy',{p:amount(model.answer)})+' '+(e.slip?text(slipKey(e.slip)):text('hint'+model.index));}
+    }
+    else if(!ready){key='predict';copy=text('predictCopy');}
+    else if(model.t>0){key='running';copy=text(model.moving()?'movingCopy':'loweringCopy',{A:number(A,0),B:number(B,0),x:number(x)});}
+    else{key='ready';copy=text('readyCopy');}
+    $('lesson-title').textContent=text(key+'Title',{t:number(t),p:ready?amount(model.answer):''});$('lesson-copy').textContent=copy;
+    $('insight').classList.toggle('warning',key==='miss');
+    $('mission-score').textContent=done?String(model.score()):'—';
+    $('right-badge').classList.toggle('earned',done&&e.ok);$('first-badge').classList.toggle('earned',done&&e.first);
+  }
+  function refresh(){setRunning(false);update();draw();}
+  function simulate(dt){
+    const result=model.advance(dt);
+    if(result?.done){setRunning(false);update();say(text('doneAnnouncement')+' '+$('lesson-title').textContent);return true;}
+    return false;
+  }
+  $('answer').addEventListener('input',event=>{const raw=String(event.target.value).trim(),value=raw===''?null:Number(raw);if(!model.setAnswer(value))model.setAnswer(null);refresh();});
+  $('play').addEventListener('click',()=>{setRunning(true);update();say(text('startedAnnouncement'));});
+  $('pause').addEventListener('click',()=>{setRunning(false);update();say(text('pausedAnnouncement'));});
+  $('step').addEventListener('click',()=>{for(let i=0;i<12;i++)if(simulate(H))break;setRunning(false);update();draw();});
+  $('reset').addEventListener('click',()=>{model.reset();refresh();say(text('resetAnnouncement'));});
+  BridgeModel.missions.forEach((_,i)=>$('mission-'+i).addEventListener('click',()=>{model.setMission(i);sync();refresh();say(text('missionAnnouncement',{name:text('mission'+i)}));}));
+  for(const id of ['show-vectors','show-ruler'])$(id).addEventListener('change',()=>{update();draw();});
+  function suspend(){if(running){setRunning(false);say(text('suspendedAnnouncement'));}update();draw();}
+  window.addEventListener('blur',suspend);document.addEventListener('visibilitychange',()=>{if(document.hidden)suspend();});
+  for(const link of document.querySelectorAll('.language-menu a'))link.addEventListener('click',()=>{setRunning(false);try{sessionStorage.setItem(transferKey,JSON.stringify({state:model.snapshot()}));}catch{}});
+  function resize(){const rect=canvas.getBoundingClientRect();if(rect.width<=0)return;width=rect.width;height=rect.height;const dpr=Math.min(window.devicePixelRatio||1,3);canvas.width=Math.round(width*dpr);canvas.height=Math.round(height*dpr);ctx.setTransform(dpr,0,0,dpr,0,0);draw();}
+  // One scale for both axes, fixed per mission; forces at 0.08 px per newton, up to 100 px.
+  const FS=.08,CAP=100;
+  function draw(){
+    if(!ctx)return;
+    const c=model.config,ready=model.ready(),done=model.status==='done',t=ready?model.now():0,begun=started(),p=c.plank,fail=done?model.failure():null,[A,B]=model.reactionsAt(t),f=model.share(t),lx=model.x(t);
+    ctx.clearRect(0,0,width,height);
+    const label=(str,px,py,color='#b8ccdb',align='left',font=12)=>{ctx.fillStyle=color;ctx.textAlign=align;ctx.font=font+'px -apple-system,BlinkMacSystemFont,sans-serif';ctx.fillText(str,px,py);};
+    const line=(points,color,w=1,dash=[])=>{ctx.beginPath();ctx.strokeStyle=color;ctx.lineWidth=w;ctx.setLineDash(dash);points.forEach((q,i)=>i?ctx.lineTo(q.x,q.y):ctx.moveTo(q.x,q.y));ctx.stroke();ctx.setLineDash([]);};
+    const arrow=(from,dx,dy,color,w=2.5)=>{const len=Math.hypot(dx,dy);if(len<4)return;const ux=dx/len,uy=dy/len,to={x:from.x+dx,y:from.y+dy};line([from,to],color,w);line([{x:to.x-ux*9-uy*5,y:to.y-uy*9+ux*5},to,{x:to.x-ux*9+uy*5,y:to.y-uy*9-ux*5}],color,2);};
+    const fit=(str,px,py,color,size,room,align='left')=>{ctx.font=size+'px -apple-system,BlinkMacSystemFont,sans-serif';const w=ctx.measureText(str).width;label(str,px,py,color,align,w>room?Math.max(7,Math.floor(size*room/w)):size);};
+    const wide=width>=560,area=wide?width*.64:width;
+    fit(text('viewTitle'),16,20,'#d1e3ed',12,area-28);label(text('arrowScale'),16,height-8,'#9fb6c7','left',10);
+    const xmin=-.8,xmax=Math.max(p.to,c.span)+.8,S=Math.min((area-32)/(xmax-xmin),90),groundY=height-58,deckY=groundY-1.1*S,X=x=>16+(area-32-(xmax-xmin)*S)/2+(x-xmin)*S;
+    // A cracked support lets its end of the plank sag; tipping turns the plank about B.
+    const sag=fail?.kind==='crack'?.12:0,tip=fail?.kind==='tip'?.18:0;
+    const deck=x=>{const sx=fail?.kind==='crack'?(fail.support?x/c.span:1-x/c.span):0,y=deckY+sag*S*sx*3;if(!tip)return {x:X(x),y};const dx=(x-c.span)*S;return {x:X(c.span)+dx*Math.cos(tip),y:deckY+dx*Math.sin(tip)};};
+    ctx.fillStyle='#173246';ctx.fillRect(0,groundY,area,height-groundY-18);line([{x:0,y:groundY},{x:area,y:groundY}],'#5b7488',1.5);
+    [0,c.span].forEach((sx,i)=>{const broken=fail?.kind==='crack'&&fail.support===i,x=X(sx);ctx.fillStyle=broken?'#efb958':'#5b7488';ctx.beginPath();ctx.moveTo(x,deckY+(broken?14:0));ctx.lineTo(x-16,groundY);ctx.lineTo(x+16,groundY);ctx.fill();label(i?'B':'A',x,groundY+16,'#d1e3ed','center',11);});
+    line([deck(p.from),deck(p.to)],'#c99a6e',8);
+    if($('show-ruler').checked)for(let x=0;x<=p.to+1e-9;x+=.5){const q=deck(x);line([{x:q.x,y:q.y+5},{x:q.x,y:q.y+10}],'#9fb6c7',1);}
+    // The load: a crate on the crane's rope, a truck, or a walker.
+    const q=deck(lx),kind=c.ask==='truck'?'truck':c.ask==='overhang'?'walker':'crate';
+    if(kind==='crate'){const top=34,boxH=26;line([{x:q.x,y:top},{x:q.x,y:q.y-boxH-4}],'#8aa3b5',1.5);if(f<1)label(text('craneLabel',{n:number(c.load.W*(1-f),0)}),q.x+8,top+12,'#8aa3b5','left',10);ctx.fillStyle='#efe6d0';ctx.fillRect(q.x-18,q.y-boxH-4,36,boxH);}
+    else if(kind==='truck'){ctx.fillStyle='#efe6d0';ctx.fillRect(q.x-30,q.y-26,44,20);ctx.fillRect(q.x+14,q.y-20,14,14);ctx.fillStyle='#102637';ctx.beginPath();ctx.arc(q.x-18,q.y-6,5,0,TAU);ctx.arc(q.x+18,q.y-6,5,0,TAU);ctx.fill();}
+    else{line([{x:q.x,y:q.y-4},{x:q.x,y:q.y-30}],'#efe6d0',4);ctx.fillStyle='#efe6d0';ctx.beginPath();ctx.arc(q.x,q.y-38,7,0,TAU);ctx.fill();}
+    label(plain(c.load.W)+' N',q.x,kind==='crate'?q.y-36:q.y-50,'#d1e3ed','center',10);
+    if($('show-vectors').checked){
+      arrow({x:q.x,y:q.y},0,Math.min(c.load.W*f*FS,CAP),'#efb958');
+      if(p.w){const m=deck((p.from+p.to)/2);arrow(m,0,Math.min(p.w*FS,CAP),'#efb958',1.8);label('w',m.x+6,m.y+Math.min(p.w*FS,CAP)+16,'#efb958','left',10);}
+      if(begun&&!tip)[A,B].forEach((r,i)=>{const s=deck(i?c.span:0);arrow({x:s.x+(i?10:-10),y:s.y+40},0,-Math.min(Math.max(0,r)*FS,CAP),'#77b9ff');});
+    }
+    // Ruler labels go on top of the arrows, on the scene colour; the supports keep their A and B labels.
+    if($('show-ruler').checked)for(let x=1;x<=p.to+1e-9;x++){if(x===c.span)continue;const q=deck(x),str=plain(x)+' m';ctx.font='9px -apple-system,BlinkMacSystemFont,sans-serif';const w=ctx.measureText(str).width;ctx.fillStyle='#102637';ctx.fillRect(q.x-w/2-2,q.y+12,w+4,13);label(str,q.x,q.y+22,'#9fb6c7','center',9);}
+    if(done){const e=model.evaluate();fit((e.ok?text('rightBanner')+' · ':'')+text((fail?fail.kind:'hold')+'Banner',{support:fail?.support?'B':'A'}),16,44,e.ok?'#75efc7':'#efb958',width<430?12:14,area-28);}
+    if(!wide)return;
+    // Reaction bars against the supports' ratings, shown once a run starts.
+    const bx0=area+20,bx1=width-16,btop=70,bbot=groundY,bw=(bx1-bx0)/2-10,ratings=[c.ask==='truck'?c.rating:c.ask==='overhang'?null:model.answer,c.ask==='truck'?c.rating:null];
+    fit(text('reactionTitle'),area+8,44,'#d1e3ed',10,width-area-16);
+    if(!begun){fit(text('reactionHint'),area+8,70,'#9fb6c7',10,width-area-16);return;}
+    const top=Math.max(c.load.W+p.w,...ratings.filter(Boolean))*1.1,BY=v=>bbot-Math.max(0,v)/top*(bbot-btop);
+    [A,B].forEach((r,i)=>{const x=bx0+i*(bw+20);ctx.fillStyle='#77b9ff';ctx.fillRect(x,BY(r),bw,bbot-BY(r));fit((i?'R_B ':'R_A ')+number(r,0),x+bw/2,BY(r)-6,'#77b9ff',10,bw+16,'center');label(i?'B':'A',x+bw/2,bbot+14,'#9fb6c7','center',10);if(ratings[i])line([{x:x-4,y:BY(ratings[i])},{x:x+bw+4,y:BY(ratings[i])}],'#75efc7',2);});
+  }
+  function frame(now){if(previous===null)previous=now;const elapsed=Math.min(.1,(now-previous)/1000);previous=now;if(running){accumulator+=elapsed;while(accumulator>=H&&running){accumulator-=H;simulate(H);}draw();}if(now-lastUpdate>=80){update();lastUpdate=now;}requestAnimationFrame(frame);}
+  window.addEventListener('resize',resize);if(typeof ResizeObserver!=='undefined')new ResizeObserver(resize).observe(canvas);
+  sync();setRunning(false);update();resize();requestAnimationFrame(frame);
+})();
+</script>
+</body>
+</html>

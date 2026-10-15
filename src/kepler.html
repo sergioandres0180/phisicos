@@ -1,0 +1,277 @@
+<!doctype html>
+<html lang="en">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Kepler's Clock · Phisicos</title>
+<style>
+.kepler-page .answer-row .symbol{min-width:44px}.kepler-page .question{font-size:15px;font-weight:600;margin-top:4px}
+.kepler-page .line-key.white{background:#f2f8fc}.kepler-page .line-key.blue{background:#77b9ff}
+</style>
+</head>
+<body>
+<div class="shell module-page kepler-page">
+__HEADER__
+<main id="main-content">
+__BREADCRUMBS__
+
+<div class="masthead"><div><h1>{{title}}</h1><p class="intro">{{subtitle}}</p></div><div class="concept-tags"><span class="tag speed">{{tag1}}</span><span class="tag velocity">{{tag2}}</span></div></div>
+<noscript><p class="no-js">{{noScript}}</p></noscript>
+<div class="layout">
+<aside class="sidebar" aria-label="{{setup}}">
+  <section class="control-section"><h2 class="eyebrow">{{setup}}</h2><div class="mission-list" role="group" aria-label="{{setup}}">
+    <button id="mission-0" aria-pressed="true"><b>1 · {{mission0}}</b><span id="given-0">r</span></button>
+    <button id="mission-1" aria-pressed="false"><b>2 · {{mission1}}</b><span id="given-1">r</span></button>
+    <button id="mission-2" aria-pressed="false"><b>3 · {{mission2}}</b><span id="given-2">r</span></button>
+    <button id="mission-3" aria-pressed="false"><b>4 · {{mission3}}</b><span id="given-3">r</span></button>
+    <button id="mission-4" aria-pressed="false"><b>5 · {{mission4}}</b><span id="given-4">T</span></button>
+  </div><p class="hint">{{setupNote}}</p></section>
+  <section class="control-section"><h2 class="eyebrow">{{answerHeading}}</h2>
+    <p class="question" id="question">{{question0}}</p>
+    <p class="field-label"><label for="answer">{{answerLabel}}</label></p>
+    <div class="answer-row"><span class="symbol" id="answer-symbol">T =</span><input id="answer" type="number" inputmode="decimal" step="any" value=""><span class="unit" id="answer-unit">d</span></div>
+    <p class="hint">{{answerHint}}</p>
+  </section>
+  <section class="control-section"><h2 class="eyebrow">{{observe}}</h2><label class="check"><input id="show-vectors" type="checkbox" checked>{{vectors}}</label><label class="check"><input id="show-trace" type="checkbox" checked>{{traceToggle}}</label><p class="hint">{{observeHint}}</p></section>
+</aside>
+<div class="workspace">
+  <section class="scene" aria-label="{{sceneTitle}}"><div class="scene-top"><div><h2 class="scene-title">{{sceneTitle}}</h2><p class="scene-subtitle" id="mission-label">{{mission0}}</p></div><span class="status" id="kepler-status"><i class="status-dot" aria-hidden="true"></i><span id="kepler-status-text">{{ready}}</span></span></div>
+    <div class="module-stage"><canvas id="kepler-canvas" role="img" aria-label="{{canvasLabel}}">{{noScript}}</canvas></div>
+    <div class="legend"><span><i class="line-key white"></i>{{velocityLegend}}</span><span><i class="line-key blue"></i>{{gravityLegend}}</span><span><i class="line-key mint"></i>{{traceLegend}}</span><span><i class="line-key orange"></i>{{predictionLegend}}</span><span><i class="line-key gray"></i>{{orbitLegend}}</span></div>
+    <div class="module-equation"><span>{{equationTitle}}</span><output id="kepler-equation">T² = 4π²·r³ ÷ (G·M)</output></div>
+    <div class="transport"><button id="play" class="primary" disabled>{{play}}</button><button id="pause" disabled>{{pause}}</button><button id="step" disabled>{{step}}</button><button id="reset" class="reset">{{reset}}</button></div>
+  </section>
+  <section class="metrics" aria-label="{{observe}}">
+    <div class="metric scalar"><h3 class="metric-label">{{time}}</h3><p class="metric-value"><span id="time-value">0.00</span> <small>d</small></p><p class="metric-equation">t</p></div>
+    <div class="metric scalar"><h3 class="metric-label">{{angle}}</h3><p class="metric-value"><span id="angle-value">0.0</span> <small>°</small></p><p class="metric-equation">θ = ω·t</p></div>
+    <div class="metric scalar"><h3 class="metric-label">{{radius}}</h3><p class="metric-value"><span id="r-value">—</span> <small id="r-unit">km</small></p><p class="metric-equation">r</p></div>
+    <div class="metric vector"><h3 class="metric-label">{{speed}}</h3><p class="metric-value"><span id="v-value">—</span> <small>km/s</small></p><p class="metric-equation">v = √(G·M ÷ r)</p></div>
+    <div class="metric scalar"><h3 class="metric-label">{{period}}</h3><p class="metric-value"><span id="period-value">—</span> <small>d</small></p><p class="metric-equation">T = 2π·√(r³ ÷ G·M)</p></div>
+  </section>
+  <div class="insight" id="insight"><span class="insight-icon" aria-hidden="true">↗</span><div><strong id="lesson-title">{{predictTitle}}</strong><p id="lesson-copy">{{predictCopy}}</p></div></div>
+  <section class="challenge"><div class="mission-heading"><h2 class="challenge-title">{{missionTitle}}</h2><div class="score-card"><span>{{score}}</span><strong id="mission-score">—</strong></div></div><p class="mission-copy">{{missionCopy}}</p><div class="badges"><span id="right-badge">✓ {{rightBadge}}</span><span id="first-badge">① {{firstBadge}}</span></div></section>
+</div>
+</div>
+<article class="learning-content"><section><h2>{{guideTitle}}</h2><ol><li>{{instruction1}}</li><li>{{instruction2}}</li><li>{{instruction3}}</li><li>{{instruction4}}</li></ol></section><section><h2>{{conceptTitle}}</h2><p>{{conceptCopy}}</p><aside class="worked-example"><h3>{{exampleTitle}}</h3><p>{{exampleCopy}}</p></aside></section><section><h2>{{modelTitle}}</h2><p>{{modelCopy}}</p></section></article>
+<p class="language-note" id="language-note">{{languageNote}}</p>
+</main>
+__FOOTER__
+<p class="sr-only" id="announcement" role="status" aria-live="polite"></p>
+</div>
+<script id="kepler-model">
+class KeplerModel {
+  // Circular orbits around a central body of mass M, seen from above and turning counter-clockwise from the start mark.
+  // Gravity supplies the centripetal force, G·M·m ÷ r² = m·ω²·r, so ω = √(G·M ÷ r³) and the period is
+  // T = 2π·√(r³ ÷ G·M): Kepler's third law, T² = (4π² ÷ G·M)·r³, with the same constant for every body around one centre.
+  static G = 6.674e-11; // N·m²/kg²
+  static day = 86400; // s
+  static AU = 1.496e11; // m
+  static centres = {earth:5.972e24,jupiter:1.898e27,sun:1.989e30};
+  static missions = [
+    {centre:'earth',bodies:[{key:'moon',r:3.844e8}],target:0,ask:'period',view:4.6e8},
+    {centre:'jupiter',bodies:[{key:'io',r:4.217e8},{key:'europa',r:6.709e8}],target:1,ask:'ratio',ioT:1.769,view:7.6e8},
+    {centre:'jupiter',bodies:[{key:'io',r:4.217e8}],target:0,ask:'mass',T:1.769,view:4.9e8},
+    {centre:'sun',bodies:[{key:'earth',r:1.496e11},{key:'mercury',r:.387*1.496e11},{key:'venus',r:.723*1.496e11}],target:0,ask:'year',view:1.25*1.496e11},
+    {centre:'sun',bodies:[{key:'earth',r:1.496e11},{key:'mars',r:null},{key:'venus',r:.723*1.496e11}],target:1,ask:'radius',T:687,view:3.8*1.496e11}
+  ];
+  static tolerance = .02; // relative
+  static units = {period:'d',ratio:'d',mass:'kg',year:'d',radius:'AU'};
+  static limits = {period:[.01,10000],ratio:[.01,10000],mass:[1e15,1e40],year:[.01,10000],radius:[.05,3.7]};
+  constructor(index = 0){this.setMission(index);}
+  setMission(index){this.index=index;this.config=KeplerModel.missions[index];this.answer=null;this.attempts=0;this.reset();}
+  reset(){this.t=0;this.status='orbiting';}
+  valid(value){const [low,high]=KeplerModel.limits[this.config.ask];return Number.isFinite(value)&&value>=low&&value<=high;}
+  setAnswer(value){if(value!==null&&!this.valid(value))return false;this.answer=value;this.reset();return true;}
+  ready(){return this.answer!==null;}
+  // The answer is a run time (period, ratio, year), the central mass (mass), or the target's orbit radius in AU (radius).
+  runsForAnswer(){return ['period','ratio','year'].includes(this.config.ask);}
+  mass(){return this.config.ask==='mass'?this.answer??0:KeplerModel.centres[this.config.centre];}
+  radius(i){const b=this.config.bodies[i];return b.r??(this.answer??0)*KeplerModel.AU;}
+  omega(i){const r=this.radius(i),M=this.mass();return r>0&&M>0?Math.sqrt(KeplerModel.G*M/r**3):0;}
+  period(i){return 2*Math.PI/this.omega(i);}
+  speed(i){return this.omega(i)*this.radius(i);}
+  gravityAt(i){const r=this.radius(i);return KeplerModel.G*this.mass()/(r*r);}
+  duration(){const c=this.config;return (this.runsForAnswer()?this.answer??0:c.T)*KeplerModel.day;}
+  clamp(t){return Math.min(Math.max(t,0),this.duration());}
+  angle(i,t){return this.omega(i)*this.clamp(t);}
+  // How far the target is from completing exactly one orbit at the end of the run, in degrees.
+  gap(){return (this.angle(this.config.target,this.duration())-2*Math.PI)*180/Math.PI;}
+  laps(t){return Math.floor(this.angle(this.config.target,t)/(2*Math.PI)+1e-9);}
+  now(){return this.status==='done'?this.duration():this.t;}
+  advance(dt){
+    if(!Number.isFinite(dt)||dt<0)throw new Error('Invalid timestep');
+    if(this.status==='done'||!this.ready())return null;
+    // A run counts as an attempt as soon as it starts; completed orbits and the end are found exactly.
+    if(this.t===0)this.attempts++;
+    const T=this.duration(),before=this.laps(this.t);
+    if(this.t+dt>=T*(1-1e-12)){this.t=T;this.status='done';const after=this.laps(T);return {t:T,lap:after>before?after:0,done:true};}
+    this.t+=dt;const after=this.laps(this.t);return after>before?{t:this.t,lap:after,done:false}:null;
+  }
+  exact(){
+    const c=this.config,G=KeplerModel.G,day=KeplerModel.day,M=KeplerModel.centres[c.centre];
+    if(c.ask==='mass'){const r=c.bodies[0].r,T=c.T*day;return 4*Math.PI**2*r**3/(G*T*T);}
+    if(c.ask==='radius'){const T=c.T*day;return Math.cbrt(G*M*T*T/(4*Math.PI**2))/KeplerModel.AU;}
+    const r=c.bodies[c.target].r;return 2*Math.PI*Math.sqrt(r**3/(G*M))/day;
+  }
+  unit(){return KeplerModel.units[this.config.ask];}
+  evaluate(){
+    if(!this.ready())return {ok:false,slip:null,first:false,exact:this.exact()};
+    const c=this.config,a=this.answer,e=this.exact(),near=(p,q)=>Math.abs(p-q)<=KeplerModel.tolerance*Math.abs(q)+1e-12;
+    const ok=near(a,e);
+    let slip=null;
+    if(!ok){
+      if(c.ask==='period'||c.ask==='year'){if(near(a,e/(2*Math.PI)))slip='noTwoPi';else if(near(a,e*24))slip='hours';}
+      else if(c.ask==='ratio'){const k=c.bodies[1].r/c.bodies[0].r;if(near(a,c.ioT*k))slip='linear';else if(near(a,c.ioT*k*k))slip='squareRatio';else if(near(a,c.ioT/k**1.5))slip='inverse';}
+      else if(c.ask==='mass'){if(near(a,e/(4*Math.PI**2)))slip='noFourPi';else if(near(a,e*KeplerModel.day**2))slip='days';else if(near(a,e/1e9))slip='km';else if(near(a,e*3600**2))slip='hoursM';}
+      else{const year=2*Math.PI*Math.sqrt(KeplerModel.AU**3/(KeplerModel.G*KeplerModel.centres.sun))/KeplerModel.day,k=c.T/year;if(near(a,k))slip='linearR';else if(near(a,k*k))slip='squareR';else if(near(a,Math.sqrt(k)))slip='sqrtR';}
+    }
+    return {ok,slip,first:ok&&this.attempts===1,exact:e};
+  }
+  score(){if(this.status!=='done')return 0;const e=this.evaluate();return (e.ok?100:0)+(e.first?50:0);}
+  snapshot(){return {index:this.index,answer:this.answer,attempts:this.attempts,t:this.t,status:this.status};}
+  restore(saved){
+    if(!Number.isInteger(saved?.index)||!KeplerModel.missions[saved.index])return false;
+    const probe=new KeplerModel(saved.index);
+    if(!probe.setAnswer(saved.answer??null)||!Number.isInteger(saved.attempts)||saved.attempts<0)return false;
+    if(!['orbiting','done'].includes(saved.status)||!Number.isFinite(saved.t)||saved.t<0||saved.t>probe.duration()*(1+1e-9))return false;
+    if(probe.answer===null&&(saved.t>0||saved.status==='done'))return false;
+    if((saved.status==='done'||saved.t>0)&&saved.attempts<1)return false;
+    this.setMission(saved.index);this.answer=probe.answer;this.attempts=saved.attempts;
+    this.status=saved.status;this.t=saved.status==='done'?this.duration():saved.t;return true;
+  }
+}
+globalThis.KeplerModel=KeplerModel;
+</script>
+<script id="kepler-locale" type="application/json">__LOCALE__</script>
+<script id="kepler-interface">
+(() => {
+  'use strict';
+  const $=id=>document.getElementById(id),locale=JSON.parse($('kepler-locale').textContent);
+  const text=(key,values={})=>locale.strings[key].replace(/\{(\w+)\}/g,(_,name)=>values[name]??'{'+name+'}');
+  const number=(n,d=2)=>Math.abs(n)<.5*10**-d?(0).toLocaleString(locale.lang,{minimumFractionDigits:d,maximumFractionDigits:d}):n.toLocaleString(locale.lang,{minimumFractionDigits:d,maximumFractionDigits:d,useGrouping:false});
+  const plain=n=>n.toLocaleString(locale.lang,{maximumFractionDigits:3,useGrouping:false}).replace('-','−');
+  const sup=n=>String(n).replace(/[-0-9]/g,c=>'⁻⁰¹²³⁴⁵⁶⁷⁸⁹'['-0123456789'.indexOf(c)]);
+  const sci=n=>{const e=Math.floor(Math.log10(Math.abs(n)));return plain(Number((n/10**e).toFixed(3)))+' × 10'+sup(e);};
+  const model=new KeplerModel();
+  const canvas=$('kepler-canvas'),ctx=canvas.getContext('2d');
+  const H=1/120,TAU=2*Math.PI,AU=KeplerModel.AU,day=KeplerModel.day,transferKey='phisicos-kepler-language-transfer';
+  let running=false,previous=null,accumulator=0,lastUpdate=0,width=800,height=410;
+  const say=message=>{$('announcement').textContent=message;};
+  try{const data=JSON.parse(sessionStorage.getItem(transferKey)||'null');sessionStorage.removeItem(transferKey);if(data)model.restore(data.state);}catch{$('language-note').hidden=true;}
+  const amount=v=>(model.unit()==='kg'?sci(v):plain(Number(v.toPrecision(5))))+' '+model.unit();
+  const symbols={period:'T =',ratio:'T =',mass:'M =',year:'T =',radius:'r ='};
+  const slipKey=name=>'slip'+name[0].toUpperCase()+name.slice(1);
+  const nameOf=key=>text(key+'Name');
+  // Playback: a whole number of days (or a tenth or fifth of one) per second on screen, so each run lasts about 8 s.
+  const steps=[.1,.2,.5,1,2,5,10,20,50,100,200,500,1000,2000];
+  const playback=()=>steps.find(s=>model.duration()/day/s<=8)||2000;
+  function setRunning(value){
+    const done=model.status==='done',blocked=!model.ready();running=value&&!done&&!blocked;previous=null;accumulator=0;
+    $('play').disabled=running||done||blocked;$('pause').disabled=!running;$('step').disabled=running||done||blocked;
+    $('kepler-status').classList.toggle('running',running);
+    $('kepler-status-text').textContent=text(done?'done':running?'running':model.t?'paused':'ready');
+  }
+  const distance=r=>r>=1e10?plain(Number((r/AU).toFixed(3)))+' AU':plain(Math.round(r/1000))+' km';
+  function given(m){
+    const M=KeplerModel.centres[m.centre],parts=[];
+    if(m.ask!=='mass')parts.push(text(m.centre+'Name')+': M = '+sci(M)+' kg');
+    m.bodies.forEach((b,i)=>{if(i===m.target||m.ask==='ratio'){const bits=[];if(b.r)bits.push('r = '+distance(b.r));if(m.ask==='ratio'&&i===0)bits.push('T = '+plain(m.ioT)+' d');if(m.ask==='mass')bits.push('T = '+plain(m.T)+' d');if(m.ask==='radius')bits.push('T = '+plain(m.T)+' d');parts.push(text(b.key+'Name')+': '+bits.join(', '));}});
+    return parts.join(' · ');
+  }
+  function sync(){
+    const c=model.config;
+    KeplerModel.missions.forEach((m,i)=>{$('mission-'+i).setAttribute('aria-pressed',String(i===model.index));$('given-'+i).textContent=given(m);});
+    $('question').textContent=text('question'+model.index);$('answer-symbol').textContent=symbols[c.ask];$('answer-unit').textContent=model.unit();
+    $('answer').value=model.answer===null?'':String(model.answer);$('mission-label').textContent=text('mission'+model.index);$('r-unit').textContent=c.centre==='sun'?'AU':'km';
+  }
+  // The speed and period show only once a run has started, because either one gives the period away.
+  const started=()=>model.status==='done'||model.t>0;
+  function update(){
+    const c=model.config,ready=model.ready(),done=model.status==='done',t=ready?model.now():0,e=model.evaluate(),begun=started(),i=c.target,r=model.radius(i),deg=model.angle(i,t)*180/Math.PI;
+    $('time-value').textContent=number(t/day);$('angle-value').textContent=number(deg,1);
+    $('r-value').textContent=r>0?(c.centre==='sun'?number(r/AU,3):number(r/1000,0)):'—';
+    $('v-value').textContent=begun?number(model.speed(i)/1000):'—';$('period-value').textContent=begun?number(model.period(i)/day):'—';
+    $('kepler-equation').textContent=begun?'T = 2π·√(r³ ÷ G·M) = '+number(model.period(i)/day)+' d · T² ÷ r³ = '+sci(model.period(i)**2/r**3)+' s²/m³':'T² = 4π²·r³ ÷ (G·M)';
+    let key,copy;
+    if(done){
+      const gap=model.gap();let base=text('doneCopy',{t:number(t/day),deg:number(deg,1)})+' '+text(Math.abs(gap)<.5?'backCopy':gap<0?'shortCopy':'pastCopy',{d:number(Math.abs(gap),1)});
+      if(e.ok){key='good';copy=base+' '+text('why'+model.index);}
+      else{key='miss';copy=base+' '+text('missCopy',{p:amount(model.answer)})+' '+(e.slip?text(slipKey(e.slip)):text('hint'+model.index));}
+    }
+    else if(!ready){key='predict';copy=text('predictCopy');}
+    else if(model.t>0){key='running';copy=text('runningCopy',{v:number(model.speed(i)/1000)});}
+    else{key='ready';copy=text('readyCopy');}
+    $('lesson-title').textContent=text(key+'Title',{t:number(t/day),p:ready?amount(model.answer):''});$('lesson-copy').textContent=copy;
+    $('insight').classList.toggle('warning',key==='miss');
+    $('mission-score').textContent=done?String(model.score()):'—';
+    $('right-badge').classList.toggle('earned',done&&e.ok);$('first-badge').classList.toggle('earned',done&&e.first);
+  }
+  function refresh(){setRunning(false);update();draw();}
+  function simulate(dt){
+    const result=model.advance(dt*playback()*day);
+    if(result?.lap&&!result.done)say(text('lapAnnouncement',{n:result.lap}));
+    if(result?.done){setRunning(false);update();say(text('doneAnnouncement')+' '+$('lesson-title').textContent);return true;}
+    return false;
+  }
+  $('answer').addEventListener('input',event=>{const raw=String(event.target.value).trim(),value=raw===''?null:Number(raw);if(!model.setAnswer(value))model.setAnswer(null);refresh();});
+  $('play').addEventListener('click',()=>{setRunning(true);update();say(text('startedAnnouncement'));});
+  $('pause').addEventListener('click',()=>{setRunning(false);update();say(text('pausedAnnouncement'));});
+  $('step').addEventListener('click',()=>{for(let i=0;i<12;i++)if(simulate(H))break;setRunning(false);update();draw();});
+  $('reset').addEventListener('click',()=>{model.reset();refresh();say(text('resetAnnouncement'));});
+  KeplerModel.missions.forEach((_,i)=>$('mission-'+i).addEventListener('click',()=>{model.setMission(i);sync();refresh();say(text('missionAnnouncement',{name:text('mission'+i)}));}));
+  for(const id of ['show-vectors','show-trace'])$(id).addEventListener('change',()=>{update();draw();});
+  function suspend(){if(running){setRunning(false);say(text('suspendedAnnouncement'));}update();draw();}
+  window.addEventListener('blur',suspend);document.addEventListener('visibilitychange',()=>{if(document.hidden)suspend();});
+  for(const link of document.querySelectorAll('.language-menu a'))link.addEventListener('click',()=>{setRunning(false);try{sessionStorage.setItem(transferKey,JSON.stringify({state:model.snapshot()}));}catch{}});
+  function resize(){const rect=canvas.getBoundingClientRect();if(rect.width<=0)return;width=rect.width;height=rect.height;const dpr=Math.min(window.devicePixelRatio||1,3);canvas.width=Math.round(width*dpr);canvas.height=Math.round(height*dpr);ctx.setTransform(dpr,0,0,dpr,0,0);draw();}
+  // Orbits are to scale in a view fixed per mission; bodies are enlarged dots. Arrow scales come from the first body,
+  // which is always given, so they never reveal an answer.
+  const CAP=90,round1=n=>{const p=10**Math.floor(Math.log10(n));return Math.round(n/p)*p;};
+  function draw(){
+    if(!ctx)return;
+    const c=model.config,ready=model.ready(),done=model.status==='done',t=ready?model.now():0,begun=started();
+    ctx.clearRect(0,0,width,height);
+    const label=(str,px,py,color='#b8ccdb',align='left',font=12)=>{ctx.fillStyle=color;ctx.textAlign=align;ctx.font=font+'px -apple-system,BlinkMacSystemFont,sans-serif';ctx.fillText(str,px,py);};
+    const line=(points,color,w=1,dash=[])=>{ctx.beginPath();ctx.strokeStyle=color;ctx.lineWidth=w;ctx.setLineDash(dash);points.forEach((p,i)=>i?ctx.lineTo(p.x,p.y):ctx.moveTo(p.x,p.y));ctx.stroke();ctx.setLineDash([]);};
+    const arrow=(from,dx,dy,color,w=2.5)=>{const len=Math.hypot(dx,dy);if(len<4)return;const ux=dx/len,uy=dy/len,to={x:from.x+dx,y:from.y+dy};line([from,to],color,w);line([{x:to.x-ux*9-uy*5,y:to.y-uy*9+ux*5},to,{x:to.x-ux*9+uy*5,y:to.y-uy*9-ux*5}],color,2);};
+    const fit=(str,px,py,color,size,room,align='left')=>{ctx.font=size+'px -apple-system,BlinkMacSystemFont,sans-serif';const w=ctx.measureText(str).width;label(str,px,py,color,align,w>room?Math.max(7,Math.floor(size*room/w)):size);};
+    const wide=width>=560,area=wide?width*.6:width,GM=KeplerModel.G*KeplerModel.centres[c.centre],r0=c.bodies[0].r;
+    const vScale=round1(40/(Math.sqrt(GM/r0)/1000)),gScale=round1(30/(GM/r0**2));
+    fit(text('viewTitle'),16,20,'#d1e3ed',12,area-28);fit(text('arrowScale',{v:plain(vScale),g:plain(gScale)}),16,height-8,'#9fb6c7',10,area-28);
+    if(ready)fit(text('playbackLabel',{d:plain(playback())}),area-10,height-24,'#9fb6c7',10,area*.45,'right');
+    const cx=area/2,cy=height/2+6,S=Math.min((height-90)/2,area/2-24)/c.view,P=(r,a)=>({x:cx+r*S*Math.cos(a),y:cy-r*S*Math.sin(a)});
+    // Central body and the start mark.
+    ctx.fillStyle=c.centre==='sun'?'#efb958':c.centre==='jupiter'?'#c99a6e':'#2a6fb0';ctx.beginPath();ctx.arc(cx,cy,c.centre==='earth'?7:9,0,TAU);ctx.fill();
+    label(nameOf(c.centre),cx,cy+24,'#9fb6c7','center',10);
+    const edge=Math.min(area/2-12,(height-90)/2+20);line([{x:cx+12,y:cy},{x:cx+edge,y:cy}],'#5b7488',1,[2,4]);label(text('startLabel'),cx+edge,cy-6,'#8aa3b5','right',10);
+    c.bodies.forEach((b,i)=>{
+      const r=model.radius(i);if(!(r>0))return;const target=i===c.target,a=ready?model.angle(i,t):0,p=P(r,a);
+      ctx.strokeStyle=target?'#5b7488':'#2b4a60';ctx.lineWidth=1;ctx.beginPath();ctx.arc(cx,cy,r*S,0,TAU);ctx.stroke();
+      if(target&&$('show-trace').checked&&t>0){const sweep=Math.min(a,TAU),n=Math.max(2,Math.ceil(sweep/.04)),pts=[];for(let k=0;k<=n;k++)pts.push(P(r,sweep*k/n));line(pts,'#75efc7',2.5);}
+      ctx.fillStyle=target?'#f2f8fc':'#8aa3b5';ctx.beginPath();ctx.arc(p.x,p.y,target?5.5:3.5,0,TAU);ctx.fill();
+      if(target){ctx.strokeStyle='#75efc7';ctx.lineWidth=1.5;ctx.beginPath();ctx.arc(p.x,p.y,9,0,TAU);ctx.stroke();}
+      label(nameOf(b.key),p.x,p.y-12,target?'#d1e3ed':'#8aa3b5','center',10);
+      if(target&&$('show-vectors').checked&&begun&&!done){
+        const v=Math.min(model.speed(i)/1000*vScale,CAP),gl=Math.min(model.gravityAt(i)*gScale,CAP);
+        arrow(p,-Math.sin(a)*v,-Math.cos(a)*v,'#f2f8fc');arrow(p,-Math.cos(a)*gl,Math.sin(a)*gl,'#77b9ff');
+      }
+    });
+    if(done){const e=model.evaluate(),gap=model.gap();fit((e.ok?text('rightBanner')+' · ':'')+text(Math.abs(gap)<.5?'backBanner':gap<0?'shortBanner':'pastBanner',{d:number(Math.abs(gap),1)}),16,44,e.ok?'#75efc7':'#efb958',width<430?12:14,area-28);}
+    if(!wide)return;
+    // Kepler's third law graph: (T ÷ T₁)² against (r ÷ r₁)³ for every body here falls on the line y = x. It appears after a run.
+    const gx0=width*.66,gx1=width-20,gtop=62,gbottom=height-58;
+    fit(text('graphTitle'),gx0-28,gtop-26,'#d1e3ed',10,gx1-gx0+28);
+    const r1=model.radius(0),T1=model.period(0),pts=c.bodies.map((b,i)=>({i,x:(model.radius(i)/r1)**3,y:(model.period(i)/T1)**2})).filter(q=>Number.isFinite(q.x)&&q.x>0);
+    const top=Math.max(1.2,...(done?pts.flatMap(q=>[q.x,q.y]):[1]),ready&&model.runsForAnswer()?(model.answer*day/T1)**2:0)*1.1;
+    const gx=u=>gx0+Math.min(u,top)/top*(gx1-gx0),gy=u=>gbottom-Math.min(u,top)/top*(gbottom-gtop);
+    line([{x:gx0,y:gtop},{x:gx0,y:gbottom},{x:gx1,y:gbottom}],'#5b7488',1);
+    label('0',gx0-6,gbottom+4,'#9fb6c7','right',10);label(plain(Number(top.toPrecision(2))),gx0-6,gtop+4,'#9fb6c7','right',10);label(plain(Number(top.toPrecision(2))),gx1,gbottom+14,'#9fb6c7','center',10);
+    label('(r ÷ r₁)³',gx1,gbottom+28,'#9fb6c7','right',10);label('(T ÷ T₁)²',gx0-28,gtop-10,'#9fb6c7','left',10);
+    if(ready&&model.runsForAnswer()&&model.radius(c.target)>0){const q={x:gx((model.radius(c.target)/r1)**3),y:gy((model.answer*day/T1)**2)};ctx.fillStyle='#efb958';ctx.beginPath();ctx.arc(q.x,q.y,4.5,0,TAU);ctx.fill();}
+    if(done){line([{x:gx(0),y:gy(0)},{x:gx(top),y:gy(top)}],'#75efc7',1.5);for(const q of pts){ctx.fillStyle=q.i===c.target?'#f2f8fc':'#8aa3b5';ctx.beginPath();ctx.arc(gx(q.x),gy(q.y),q.i===c.target?4.5:3.5,0,TAU);ctx.fill();}}
+    else label(text('graphHint'),(gx0+gx1)/2,(gtop+gbottom)/2,'#9fb6c7','center',10);
+  }
+  function frame(now){if(previous===null)previous=now;const elapsed=Math.min(.1,(now-previous)/1000);previous=now;if(running){accumulator+=elapsed;while(accumulator>=H&&running){accumulator-=H;simulate(H);}draw();}if(now-lastUpdate>=80){update();lastUpdate=now;}requestAnimationFrame(frame);}
+  window.addEventListener('resize',resize);if(typeof ResizeObserver!=='undefined')new ResizeObserver(resize).observe(canvas);
+  sync();setRunning(false);update();resize();requestAnimationFrame(frame);
+})();
+</script>
+</body>
+</html>

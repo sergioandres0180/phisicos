@@ -1,0 +1,290 @@
+<!doctype html>
+<html lang="en">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Antenna Workshop · Phisicos</title>
+<style>
+.antenna-page .answer-row .symbol{min-width:56px}.antenna-page .question{font-size:15px;font-weight:600;margin-top:4px}
+.antenna-page .line-key.white{background:#f2f8fc}.antenna-page .line-key.blue{background:#77b9ff}.antenna-page .line-key.red{background:#ff7b6b}.antenna-page .line-key.green{background:#75efc7}
+</style>
+</head>
+<body>
+<div class="shell module-page antenna-page">
+__HEADER__
+<main id="main-content">
+__BREADCRUMBS__
+
+<div class="masthead"><div><h1>{{title}}</h1><p class="intro">{{subtitle}}</p></div><div class="concept-tags"><span class="tag speed">{{tag1}}</span><span class="tag velocity">{{tag2}}</span></div></div>
+<noscript><p class="no-js">{{noScript}}</p></noscript>
+<div class="layout">
+<aside class="sidebar" aria-label="{{setup}}">
+  <section class="control-section"><h2 class="eyebrow">{{setup}}</h2><div class="mission-list" role="group" aria-label="{{setup}}">
+    <button id="mission-0" aria-pressed="true"><b>1 · {{mission0}}</b><span id="given-0">·</span></button>
+    <button id="mission-1" aria-pressed="false"><b>2 · {{mission1}}</b><span id="given-1">·</span></button>
+    <button id="mission-2" aria-pressed="false"><b>3 · {{mission2}}</b><span id="given-2">·</span></button>
+    <button id="mission-3" aria-pressed="false"><b>4 · {{mission3}}</b><span id="given-3">·</span></button>
+    <button id="mission-4" aria-pressed="false"><b>5 · {{mission4}}</b><span id="given-4">·</span></button>
+  </div><p class="hint">{{setupNote}}</p></section>
+  <section class="control-section"><h2 class="eyebrow">{{answerHeading}}</h2>
+    <p class="question" id="question">{{question0}}</p>
+    <p class="field-label"><label for="answer">{{answerLabel}}</label></p>
+    <div class="answer-row"><span class="symbol" id="answer-symbol">λ =</span><input id="answer" type="number" inputmode="decimal" step="any" value=""><span class="unit" id="answer-unit">m</span></div>
+    <p class="hint">{{answerHint}}</p>
+  </section>
+  <section class="control-section"><h2 class="eyebrow">{{observe}}</h2><label class="check"><input id="show-ruler" type="checkbox" checked>{{rulerToggle}}</label><label class="check"><input id="show-guess" type="checkbox" checked>{{guessToggle}}</label><p class="hint">{{observeHint}}</p></section>
+</aside>
+<div class="workspace">
+  <section class="scene" aria-label="{{sceneTitle}}"><div class="scene-top"><div><h2 class="scene-title">{{sceneTitle}}</h2><p class="scene-subtitle" id="mission-label">{{mission0}}</p></div><span class="status" id="antenna-status"><i class="status-dot" aria-hidden="true"></i><span id="antenna-status-text">{{ready}}</span></span></div>
+    <div class="module-stage"><canvas id="antenna-canvas" role="img" aria-label="{{canvasLabel}}">{{noScript}}</canvas></div>
+    <div class="legend"><span><i class="line-key blue"></i>{{waveLegend}}</span><span><i class="line-key white"></i>{{antennaLegend}}</span><span><i class="line-key orange"></i>{{guessLegend}}</span><span><i class="line-key gray"></i>{{referenceLegend}}</span></div>
+    <div class="module-equation"><span>{{equationTitle}}</span><output id="antenna-equation">λ = c ÷ f</output></div>
+    <div class="transport"><button id="play" class="primary" disabled>{{play}}</button><button id="pause" disabled>{{pause}}</button><button id="step" disabled>{{step}}</button><button id="reset" class="reset">{{reset}}</button></div>
+  </section>
+  <section class="metrics" aria-label="{{observe}}">
+    <div class="metric scalar"><h3 class="metric-label">{{time}}</h3><p class="metric-value"><span id="time-value">0.00</span> <small>s</small></p><p class="metric-equation">t</p></div>
+    <div class="metric scalar"><h3 class="metric-label">{{frequencyMetric}}</h3><p class="metric-value"><span id="frequency-value">—</span> <small>MHz</small></p><p class="metric-equation">f</p></div>
+    <div class="metric vector"><h3 class="metric-label">{{wavelengthMetric}}</h3><p class="metric-value"><span id="wavelength-value">—</span> <small>m</small></p><p class="metric-equation">λ = c ÷ f</p></div>
+    <div class="metric scalar"><h3 class="metric-label">{{periodMetric}}</h3><p class="metric-value"><span id="period-value">—</span> <small>ns</small></p><p class="metric-equation">T = 1 ÷ f</p></div>
+    <div class="metric vector"><h3 class="metric-label">{{speedMetric}}</h3><p class="metric-value"><span id="speed-value">—</span> <small>m/s</small></p><p class="metric-equation">c</p></div>
+  </section>
+  <div class="insight" id="insight"><span class="insight-icon" aria-hidden="true">↗</span><div><strong id="lesson-title">{{predictTitle}}</strong><p id="lesson-copy">{{predictCopy}}</p></div></div>
+  <section class="challenge"><div class="mission-heading"><h2 class="challenge-title">{{missionTitle}}</h2><div class="score-card"><span>{{score}}</span><strong id="mission-score">—</strong></div></div><p class="mission-copy">{{missionCopy}}</p><div class="badges"><span id="right-badge">✓ {{rightBadge}}</span><span id="first-badge">① {{firstBadge}}</span></div></section>
+</div>
+</div>
+<article class="learning-content"><section><h2>{{guideTitle}}</h2><ol><li>{{instruction1}}</li><li>{{instruction2}}</li><li>{{instruction3}}</li><li>{{instruction4}}</li></ol></section><section><h2>{{conceptTitle}}</h2><p>{{conceptCopy}}</p><aside class="worked-example"><h3>{{exampleTitle}}</h3><p>{{exampleCopy}}</p></aside></section><section><h2>{{modelTitle}}</h2><p>{{modelCopy}}</p></section></article>
+<p class="language-note" id="language-note">{{languageNote}}</p>
+</main>
+__FOOTER__
+<p class="sr-only" id="announcement" role="status" aria-live="polite"></p>
+</div>
+<script id="antenna-model">
+class AntennaModel {
+  // Radio waves, Wi-Fi, and microwaves are electromagnetic waves: they all travel at c = 3 × 10⁸ m/s, so a frequency f gives
+  // crests λ = c ÷ f apart. A simple antenna works best a quarter of a wavelength long. In a microwave oven the waves bounce
+  // between the walls and form a standing wave whose hot spots are half a wavelength apart. Waves are shown slowed down f times,
+  // so one oscillation lasts one second on screen.
+  static c = 3e8; // m/s
+  static tolerance = .02;
+  static run = 3;
+  static missions = [
+    {key:'fm',ask:'wavelength',f:1e8},
+    {key:'antenna',ask:'antennaLength',f:1e8},
+    {key:'wifi',ask:'wifi',f:2.4e9},
+    {key:'oven',ask:'hotspots',f:2.45e9},
+    {key:'am',ask:'am',f:1e6}
+  ];
+  static units = {wavelength:'m',antennaLength:'m',wifi:'cm',hotspots:'cm',am:'m'};
+  static limits = {wavelength:1e20,antennaLength:1e20,wifi:1e20,hotspots:1e20,am:1e20};
+  constructor(index = 0){this.setMission(index);}
+  setMission(index){this.index=index;this.config=AntennaModel.missions[index];this.answer=null;this.attempts=0;this.reset();}
+  reset(){this.t=0;this.status='moving';}
+  valid(value){return Number.isFinite(value)&&value>0&&value<=AntennaModel.limits[this.config.ask];}
+  setAnswer(value){if(value!==null&&!this.valid(value))return false;this.answer=value;this.reset();return true;}
+  ready(){return this.answer!==null;}
+  wavelength(){return AntennaModel.c/this.config.f;}
+  // Display units: cm for the short waves, m otherwise.
+  scale(){return this.unit()==='cm'?100:1;}
+  oven(){return this.config.ask==='hotspots';}
+  clamp(t){return Math.min(Math.max(t,0),this.duration());}
+  // How far the wave has gone (m) after a displayed time: one wavelength per displayed second.
+  front(t){return this.wavelength()*this.clamp(t);}
+  // The field at x (m) as a share of its largest: a travelling wave, or the oven's standing wave growing in.
+  field(x,t){const l=this.wavelength(),s=this.clamp(t);if(this.oven())return Math.sin(2*Math.PI*x/l)*Math.cos(2*Math.PI*s)*Math.min(1,s);return x<=l*s?Math.sin(2*Math.PI*(s-x/l)):0;}
+  // The oven's hot spots (m from the wall), half a wavelength apart.
+  hotspots(span){const l=this.wavelength(),out=[];for(let x=l/4;x<=span+1e-12;x+=l/2)out.push(x);return out;}
+  duration(){return AntennaModel.run;}
+  now(){return this.status==='done'?this.duration():this.t;}
+  advance(dt){
+    if(!Number.isFinite(dt)||dt<0)throw new Error('Invalid timestep');
+    if(this.status==='done'||!this.ready())return null;
+    // A run counts as an attempt as soon as it starts; it ends exactly after three slowed oscillations.
+    if(this.t===0)this.attempts++;
+    const T=this.duration();
+    if(this.t+dt>=T*(1-1e-12)){this.t=T;this.status='done';return {t:T,done:true};}
+    this.t+=dt;return null;
+  }
+  exact(){const c=this.config,l=this.wavelength();if(c.ask==='antennaLength')return l/4;if(c.ask==='wifi')return l*100;if(c.ask==='hotspots')return l/2*100;return l;}
+  unit(){return AntennaModel.units[this.config.ask];}
+  evaluate(){
+    if(!this.ready())return {ok:false,slip:null,first:false,exact:this.exact()};
+    const c=this.config,a=this.answer,e=this.exact(),C=AntennaModel.c,l=this.wavelength(),tol=AntennaModel.tolerance,near=(p,q)=>Math.abs(p-q)<=tol*Math.abs(q)+1e-12;
+    // Every answer is right within 2%.
+    const ok=near(a,e);let slip=null;
+    if(!ok){
+      if(c.ask==='wavelength'){if(near(a,C*c.f))slip='multiplied';else if(near(a,C/(c.f/1e6)))slip='megahertzAsHz';else if(near(a,c.f/C))slip='inverted';else if(near(a,340/c.f))slip='soundSpeed';}
+      else if(c.ask==='antennaLength'){if(near(a,l))slip='fullWave';else if(near(a,l/2))slip='halfWave';}
+      else if(c.ask==='wifi'){if(near(a,l))slip='metres';else if(near(a,l*1000*100))slip='gigaAsMega';else if(near(a,l*1000))slip='unitsMm';}
+      else if(c.ask==='hotspots'){if(near(a,l*100))slip='fullWavelength';else if(near(a,l*25))slip='quarter';else if(near(a,l/2))slip='metres';}
+      else{if(near(a,l/1000))slip='kilometres';else if(near(a,l*1000))slip='megaAsKilo';}
+    }
+    return {ok,slip,first:ok&&this.attempts===1,exact:e};
+  }
+  score(){if(this.status!=='done')return 0;const e=this.evaluate();return (e.ok?100:0)+(e.first?50:0);}
+  snapshot(){return {index:this.index,answer:this.answer,attempts:this.attempts,t:this.t,status:this.status};}
+  restore(saved){
+    if(!Number.isInteger(saved?.index)||!AntennaModel.missions[saved.index])return false;
+    const probe=new AntennaModel(saved.index);
+    if(!probe.setAnswer(saved.answer??null)||!Number.isInteger(saved.attempts)||saved.attempts<0)return false;
+    if(!['moving','done'].includes(saved.status)||!Number.isFinite(saved.t)||saved.t<0||saved.t>probe.duration()*(1+1e-9))return false;
+    if(probe.answer===null&&(saved.t>0||saved.status==='done'))return false;
+    if((saved.status==='done'||saved.t>0)&&saved.attempts<1)return false;
+    this.setMission(saved.index);this.answer=probe.answer;this.attempts=saved.attempts;
+    this.status=saved.status;this.t=saved.status==='done'?this.duration():saved.t;return true;
+  }
+}
+globalThis.AntennaModel=AntennaModel;
+</script>
+<script id="antenna-locale" type="application/json">__LOCALE__</script>
+<script id="antenna-interface">
+(() => {
+  'use strict';
+  const $=id=>document.getElementById(id),locale=JSON.parse($('antenna-locale').textContent);
+  const text=(key,values={})=>locale.strings[key].replace(/\{(\w+)\}/g,(_,name)=>values[name]??'{'+name+'}');
+  const number=(n,d=2)=>Math.abs(n)<.5*10**-d?(0).toLocaleString(locale.lang,{minimumFractionDigits:d,maximumFractionDigits:d}):n.toLocaleString(locale.lang,{minimumFractionDigits:d,maximumFractionDigits:d,useGrouping:false});
+  const plain=n=>n.toLocaleString(locale.lang,{maximumFractionDigits:3,useGrouping:false}).replace('-','−');
+  const model=new AntennaModel();
+  const canvas=$('antenna-canvas'),ctx=canvas.getContext('2d');
+  const H=1/120,transferKey='phisicos-antenna-language-transfer';
+  let running=false,previous=null,accumulator=0,lastUpdate=0,width=800,height=410;
+  const say=message=>{$('announcement').textContent=message;};
+  try{const data=JSON.parse(sessionStorage.getItem(transferKey)||'null');sessionStorage.removeItem(transferKey);if(data)model.restore(data.state);}catch{$('language-note').hidden=true;}
+  const pace=()=>model.config.pace??1;
+  const amount=v=>plain(Number(v.toPrecision(5)))+(model.unit()?' '+model.unit():'');
+  const slipKey=name=>'slip'+name[0].toUpperCase()+name.slice(1);
+  // The readings show only once a run starts, because they give the answer away.
+  const started=()=>model.status==='done'||model.t>0;
+  const symbols={wavelength:'λ =',antennaLength:'L =',wifi:'λ =',hotspots:'d =',am:'λ ='};
+  const sup=n=>String(n).split('').map(d=>'⁰¹²³⁴⁵⁶⁷⁸⁹'[+d]).join('');
+  // A power of ten written out: 10⁸, or 2.45 × 10⁹.
+  function sci(n){const e=Math.floor(Math.log10(n)+1e-9),m=n/10**e;return (Math.abs(m-1)<1e-9?'':plain(m)+' × ')+'10'+sup(e);}
+  const wrap=s=>s.includes('×')?'('+s+')':s;
+  function freq(f){return f>=1e9?plain(f/1e9)+' GHz':plain(f/1e6)+' MHz';}
+  function given(m){return 'f = '+freq(m.f)+(m.ask==='antennaLength'?' · λ = '+plain(AntennaModel.c/m.f)+' m':'');}
+  function equation(){
+    const c=model.config,e=model.exact(),l=model.wavelength();
+    if(c.ask==='antennaLength')return 'L = λ ÷ 4 = '+plain(l)+' ÷ 4 = '+number(e)+' m';
+    if(c.ask==='hotspots')return 'd = c ÷ (2·f) = 3 × 10⁸ ÷ (2 × '+sci(c.f)+') = '+number(e)+' cm';
+    return 'λ = c ÷ f = 3 × 10⁸ ÷ '+wrap(sci(c.f))+' = '+number(e,c.ask==='am'?0:c.ask==='wifi'?1:2)+' '+model.unit();
+  }
+  function baseEquation(){const a=model.config.ask;return a==='antennaLength'?'L = λ ÷ 4':a==='hotspots'?'d = λ ÷ 2':'λ = c ÷ f';}
+  function metrics(t,begun){
+    const c=model.config,l=model.wavelength(),T=1e9/c.f;
+    $('frequency-value').textContent=begun?plain(c.f/1e6):'—';$('wavelength-value').textContent=begun?number(l,l<1?3:l<10?2:0):'—';
+    $('period-value').textContent=begun?number(T,T<1?3:T<100?1:0):'—';$('speed-value').textContent=begun?'3 × 10⁸':'—';
+  }
+  function values(){
+    const c=model.config,l=model.wavelength();
+    if(c.ask==='antennaLength')return {f:plain(c.f/1e6),l:plain(l),a:number(l/4)};
+    if(c.ask==='wifi')return {g:plain(c.f/1e9),l:number(l*100,1)};
+    if(c.ask==='hotspots')return {a:number(l*50),l:number(l*100,1)};
+    if(c.ask==='am')return {f:plain(c.f/1e6),l:number(l,0),a:number(l/4,0)};
+    return {f:plain(c.f/1e6),l:number(l)};
+  }
+  function runningCopy(t){const k=model.scale(),d=model.oven()?0:model.front(t)*k;return text(model.oven()?'standingCopy':'travellingCopy',{n:number(model.clamp(t),1),d:number(d,d<10?2:d<100?1:0)+' '+model.unit()});}
+  function scene(g){
+    const c=g.c,{line,fit,dot,box,label}=g,s=g.ready?g.t:0,l=model.wavelength(),k=model.scale(),unit=k===100?'cm':'m',view=3.5*l,x0=62,x1=g.area-20,kp=(x1-x0)/view,X=x=>x0+x*kp,ym=height*.47,amp=Math.min(70,height*.16),top=ym-amp-26;
+    if(model.oven()){
+      // The oven: a box with walls at both ends, the standing wave inside, and a chocolate bar that melts at the hot spots.
+      box(x0-8,ym-amp-14,x1-x0+16,2*amp+28,'#22384a');box(x0,ym-amp-6,x1-x0,2*amp+12,'#173a50');
+      const pts=[],env=[];for(let i=0;i<=400;i++){const x=view*i/400;pts.push({x:X(x),y:ym-model.field(x,s)*amp});env.push({x:X(x),y:ym-Math.abs(Math.sin(2*Math.PI*x/l))*amp});}
+      if(g.begun)line(env,'#9fb6c7',1,[3,4]);line(pts,'#77b9ff',3);
+      const cy=ym+amp+30;box(x0,cy,x1-x0,14,'#6b4a33');
+      if(g.begun)for(const x of model.hotspots(view))dot(X(x),cy+7,3+5*Math.min(1,s/2),'#f2c49b');
+    }else{
+      // The mast (or a quarter-wave antenna) and the wave leaving it, slowed down.
+      if(c.ask==='antennaLength'){const h=l/4*kp;line([{x:x0-20,y:ym+amp+18},{x:x0-20,y:ym+amp+18-h}],'#f2f8fc',4);fit('λ ÷ 4',x0-20,ym+amp+32,'#d1e3ed',9,60,'center');
+        if(g.guess){const gh=Math.min(model.answer*kp,ym+amp-40);line([{x:x0-34,y:ym+amp+18},{x:x0-34,y:ym+amp+18-gh}],'#efb958',3);}}
+      else{line([{x:x0-20,y:ym+amp+18},{x:x0-20,y:ym-amp}],'#f2f8fc',4);dot(x0-20,ym-amp,4,'#f2f8fc');}
+      const pts=[];for(let i=0;i<=500;i++){const x=view*i/500;pts.push({x:X(x),y:ym-model.field(x,s)*amp});}line(pts,'#77b9ff',3);
+    }
+    // One wavelength bracketed between two crests once it exists.
+    if(g.begun&&(model.oven()||s>=1.25)){const start=model.oven()?l/4:(s-1.25)*l,yb=top;line([{x:X(start),y:yb},{x:X(start+l),y:yb}],'#f2f8fc',1.5);line([{x:X(start),y:yb-4},{x:X(start),y:yb+4}],'#f2f8fc',1.5);line([{x:X(start+l),y:yb-4},{x:X(start+l),y:yb+4}],'#f2f8fc',1.5);
+      fit('λ = '+number(l*k,l*k<10?2:l*k<100?1:0)+' '+unit,X(start+l/2),yb-6,'#f2f8fc',10,kp*l+40,'center');}
+    if(g.option){const ry=ym+amp+(model.oven()?56:44),step=[.01,.02,.05,.1,.2,.5,1,2,5,10,20,50,100,200,500,1000].find(v=>view*k/v<=8)||1000;line([{x:X(0),y:ry},{x:X(view),y:ry}],'#8aa3b5',1);
+      for(let m=0;m<=view*k+1e-9;m+=step){const x=X(m/k);line([{x,y:ry},{x,y:ry+6}],'#9fb6c7',1);label(plain(m)+' '+unit,x,ry+18,'#9fb6c7','center',9);}}
+    if(g.guess&&c.ask!=='antennaLength'){const step=model.answer/k,start=model.oven()?l/4:0;if(step*kp>=6)for(let x=start;x<=view+1e-9;x+=step)line([{x:X(x),y:top-30},{x:X(x),y:top-22}],'#efb958',2);fit(text('guessTag'),X(start),top-34,'#efb958',9,g.area*.4);}
+    fit(text('slowTag',{n:sci(c.f)}),16,height-24,'#9fb6c7',10,g.area*.6);
+    fit('t = '+number(g.t)+' s',g.area-16,44,'#f2f8fc',13,g.area*.3,'right');
+  }
+  function panel(g){
+    const c=g.c,{line,fit,dot,label}=g;
+    fit(text('spectrumGraph'),g.area+8,44,'#d1e3ed',10,width-g.area-16);
+    // A ladder of lengths in powers of ten, from 1 mm to 10 km, with familiar waves marked.
+    const px=g.area+70,py0=74,py1=height-46,lo=-3,hi=4,PY=m=>py1-(Math.log10(m)-lo)/(hi-lo)*(py1-py0);
+    line([{x:px,y:py0},{x:px,y:py1}],'#8aa3b5',1);
+    ['1 mm','1 cm','10 cm','1 m','10 m','100 m','1 km','10 km'].forEach((t,i)=>{const y=PY(10**(lo+i));line([{x:px-4,y},{x:px+4,y}],'#8aa3b5',1);label(t,px-8,y+3,'#9fb6c7','right',9);});
+    for(const [key,m] of [['amTag',300],['fmTag',3],['microwaveTag',.123]]){const y=PY(m);line([{x:px+6,y},{x:px+16,y}],'#9fb6c7',1);fit(text(key),px+20,y+3,'#9fb6c7',9,width-px-28);}
+    const shown=model.exact()/model.scale();
+    if(g.done||g.begun)dot(px,PY(shown),5,'#77b9ff');
+    if(g.guess){const a=model.answer/model.scale();if(a>=1e-3&&a<=1e4)dot(px,PY(a),4,'#efb958');}
+  }
+  function setRunning(value){
+    const done=model.status==='done',blocked=!model.ready();running=value&&!done&&!blocked;previous=null;accumulator=0;
+    $('play').disabled=running||done||blocked;$('pause').disabled=!running;$('step').disabled=running||done||blocked;
+    $('antenna-status').classList.toggle('running',running);
+    $('antenna-status-text').textContent=text(done?'done':running?'running':model.t?'paused':'ready');
+  }
+  function sync(){
+    const c=model.config;
+    AntennaModel.missions.forEach((m,i)=>{$('mission-'+i).setAttribute('aria-pressed',String(i===model.index));$('given-'+i).textContent=given(m);});
+    $('question').textContent=text('question'+model.index);$('answer-symbol').textContent=symbols[c.ask];$('answer-unit').textContent=model.unit();
+    $('answer').value=model.answer===null?'':String(model.answer);$('mission-label').textContent=text('mission'+model.index);
+  }
+  function update(){
+    const ready=model.ready(),done=model.status==='done',t=ready?model.now():0,e=model.evaluate(),begun=started();
+    $('time-value').textContent=number(t);metrics(t,begun);
+    $('antenna-equation').textContent=begun?equation():baseEquation();
+    let key,copy;
+    if(done){
+      const base=text('result'+model.index,values());
+      if(e.ok){key='good';copy=base+' '+text('why'+model.index);}
+      else{key='miss';copy=base+' '+text('missCopy',{p:amount(model.answer)})+' '+(e.slip?text(slipKey(e.slip)):text('hint'+model.index));}
+    }
+    else if(!ready){key='predict';copy=text('predictCopy');}
+    else if(model.t>0){key='running';copy=runningCopy(t);}
+    else{key='ready';copy=text('readyCopy');}
+    $('lesson-title').textContent=text(key+'Title',{t:number(t),p:ready?amount(model.answer):''});$('lesson-copy').textContent=copy;
+    $('insight').classList.toggle('warning',key==='miss');
+    $('mission-score').textContent=done?String(model.score()):'—';
+    $('right-badge').classList.toggle('earned',done&&e.ok);$('first-badge').classList.toggle('earned',done&&e.first);
+  }
+  function refresh(){setRunning(false);update();draw();}
+  function simulate(dt){
+    const result=model.advance(dt);
+    if(result?.done){setRunning(false);update();say(text('doneAnnouncement')+' '+$('lesson-title').textContent);return true;}
+    return false;
+  }
+  $('answer').addEventListener('input',event=>{const raw=String(event.target.value).trim(),value=raw===''?null:Number(raw);if(!model.setAnswer(value))model.setAnswer(null);refresh();});
+  $('play').addEventListener('click',()=>{setRunning(true);update();say(text('startedAnnouncement'));});
+  $('pause').addEventListener('click',()=>{setRunning(false);update();say(text('pausedAnnouncement'));});
+  $('step').addEventListener('click',()=>{for(let i=0;i<12;i++)if(simulate(H*pace()))break;setRunning(false);update();draw();});
+  $('reset').addEventListener('click',()=>{model.reset();refresh();say(text('resetAnnouncement'));});
+  AntennaModel.missions.forEach((_,i)=>$('mission-'+i).addEventListener('click',()=>{model.setMission(i);sync();refresh();say(text('missionAnnouncement',{name:text('mission'+i)}));}));
+  for(const id of ['show-ruler','show-guess'])$(id).addEventListener('change',()=>{update();draw();});
+  function suspend(){if(running){setRunning(false);say(text('suspendedAnnouncement'));}update();draw();}
+  window.addEventListener('blur',suspend);document.addEventListener('visibilitychange',()=>{if(document.hidden)suspend();});
+  for(const link of document.querySelectorAll('.language-menu a'))link.addEventListener('click',()=>{setRunning(false);try{sessionStorage.setItem(transferKey,JSON.stringify({state:model.snapshot()}));}catch{}});
+  function resize(){const rect=canvas.getBoundingClientRect();if(rect.width<=0)return;width=rect.width;height=rect.height;const dpr=Math.min(window.devicePixelRatio||1,3);canvas.width=Math.round(width*dpr);canvas.height=Math.round(height*dpr);ctx.setTransform(dpr,0,0,dpr,0,0);draw();}
+  function draw(){
+    if(!ctx)return;
+    const c=model.config,ready=model.ready(),done=model.status==='done',t=ready?model.now():0,begun=started(),option=$('show-ruler').checked,guess=$('show-guess').checked&&ready;
+    ctx.clearRect(0,0,width,height);
+    const label=(str,px,py,color='#b8ccdb',align='left',font=12)=>{ctx.fillStyle=color;ctx.textAlign=align;ctx.font=font+'px -apple-system,BlinkMacSystemFont,sans-serif';ctx.fillText(str,px,py);};
+    const line=(points,color,w=1,dash=[])=>{ctx.beginPath();ctx.strokeStyle=color;ctx.lineWidth=w;ctx.setLineDash(dash);points.forEach((q,i)=>i?ctx.lineTo(q.x,q.y):ctx.moveTo(q.x,q.y));ctx.stroke();ctx.setLineDash([]);};
+    const fit=(str,px,py,color,size,room,align='left')=>{ctx.font=size+'px -apple-system,BlinkMacSystemFont,sans-serif';const w=ctx.measureText(str).width;label(str,px,py,color,align,w>room?Math.max(7,Math.floor(size*room/w)):size);};
+    const dot=(x,y,r,color)=>{ctx.fillStyle=color;ctx.beginPath();ctx.arc(x,y,Math.max(r,.5),0,Math.PI*2);ctx.fill();};
+    const box=(x,y,w,h,color)=>{ctx.fillStyle=color;ctx.fillRect(x,y,w,h);};
+    const wide=width>=560,area=wide?width*.64:width;
+    const env={c,ready,done,t,begun,option,guess,label,line,fit,dot,box,wide,area};
+    fit(text('viewTitle'),16,20,'#d1e3ed',12,area-28);
+    if(done){const ev=model.evaluate();fit(text(ev.ok?'rightBanner':'offBanner'),16,40,ev.ok?'#75efc7':'#efb958',width<430?12:14,area-28);}
+    scene(env);
+    label(text('scaleNote'),16,height-8,'#9fb6c7','left',10);
+    if(!wide)return;
+    panel(env);
+  }
+  function frame(now){if(previous===null)previous=now;const elapsed=Math.min(.1,(now-previous)/1000);previous=now;if(running){accumulator+=elapsed*pace();while(accumulator>=H&&running){accumulator-=H;simulate(H);}draw();}if(now-lastUpdate>=80){update();lastUpdate=now;}requestAnimationFrame(frame);}
+  window.addEventListener('resize',resize);if(typeof ResizeObserver!=='undefined')new ResizeObserver(resize).observe(canvas);
+  sync();setRunning(false);update();resize();requestAnimationFrame(frame);
+})();
+</script>
+</body>
+</html>

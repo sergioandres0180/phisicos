@@ -1,0 +1,281 @@
+<!doctype html>
+<html lang="en">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Ambulance Pass-by · Phisicos</title>
+<style>
+.ambulance-page .answer-row .symbol{min-width:56px}.ambulance-page .question{font-size:15px;font-weight:600;margin-top:4px}
+.ambulance-page .line-key.white{background:#f2f8fc}.ambulance-page .line-key.blue{background:#77b9ff}.ambulance-page .line-key.red{background:#ff7b6b}.ambulance-page .line-key.green{background:#75efc7}
+</style>
+</head>
+<body>
+<div class="shell module-page ambulance-page">
+__HEADER__
+<main id="main-content">
+__BREADCRUMBS__
+
+<div class="masthead"><div><h1>{{title}}</h1><p class="intro">{{subtitle}}</p></div><div class="concept-tags"><span class="tag speed">{{tag1}}</span><span class="tag velocity">{{tag2}}</span></div></div>
+<noscript><p class="no-js">{{noScript}}</p></noscript>
+<div class="layout">
+<aside class="sidebar" aria-label="{{setup}}">
+  <section class="control-section"><h2 class="eyebrow">{{setup}}</h2><div class="mission-list" role="group" aria-label="{{setup}}">
+    <button id="mission-0" aria-pressed="true"><b>1 · {{mission0}}</b><span id="given-0">·</span></button>
+    <button id="mission-1" aria-pressed="false"><b>2 · {{mission1}}</b><span id="given-1">·</span></button>
+    <button id="mission-2" aria-pressed="false"><b>3 · {{mission2}}</b><span id="given-2">·</span></button>
+    <button id="mission-3" aria-pressed="false"><b>4 · {{mission3}}</b><span id="given-3">·</span></button>
+    <button id="mission-4" aria-pressed="false"><b>5 · {{mission4}}</b><span id="given-4">·</span></button>
+  </div><p class="hint">{{setupNote}}</p></section>
+  <section class="control-section"><h2 class="eyebrow">{{answerHeading}}</h2>
+    <p class="question" id="question">{{question0}}</p>
+    <p class="field-label"><label for="answer">{{answerLabel}}</label></p>
+    <div class="answer-row"><span class="symbol" id="answer-symbol">f' =</span><input id="answer" type="number" inputmode="decimal" step="any" value=""><span class="unit" id="answer-unit">Hz</span></div>
+    <p class="hint">{{answerHint}}</p>
+  </section>
+  <section class="control-section"><h2 class="eyebrow">{{observe}}</h2><label class="check"><input id="show-ruler" type="checkbox" checked>{{rulerToggle}}</label><label class="check"><input id="show-guess" type="checkbox" checked>{{guessToggle}}</label><p class="hint">{{observeHint}}</p></section>
+</aside>
+<div class="workspace">
+  <section class="scene" aria-label="{{sceneTitle}}"><div class="scene-top"><div><h2 class="scene-title">{{sceneTitle}}</h2><p class="scene-subtitle" id="mission-label">{{mission0}}</p></div><span class="status" id="ambulance-status"><i class="status-dot" aria-hidden="true"></i><span id="ambulance-status-text">{{ready}}</span></span></div>
+    <div class="module-stage"><canvas id="ambulance-canvas" role="img" aria-label="{{canvasLabel}}">{{noScript}}</canvas></div>
+    <div class="legend"><span><i class="line-key blue"></i>{{waveLegend}}</span><span><i class="line-key white"></i>{{pitchLegend}}</span><span><i class="line-key orange"></i>{{guessLegend}}</span><span><i class="line-key gray"></i>{{referenceLegend}}</span></div>
+    <div class="module-equation"><span>{{equationTitle}}</span><output id="ambulance-equation">f' = f·v ÷ (v ∓ v_s)</output></div>
+    <div class="transport"><button id="play" class="primary" disabled>{{play}}</button><button id="pause" disabled>{{pause}}</button><button id="step" disabled>{{step}}</button><button id="reset" class="reset">{{reset}}</button></div>
+  </section>
+  <section class="metrics" aria-label="{{observe}}">
+    <div class="metric scalar"><h3 class="metric-label">{{time}}</h3><p class="metric-value"><span id="time-value">0.00</span> <small>s</small></p><p class="metric-equation">t</p></div>
+    <div class="metric scalar"><h3 class="metric-label">{{sirenMetric}}</h3><p class="metric-value"><span id="siren-value">—</span> <small>Hz</small></p><p class="metric-equation">f</p></div>
+    <div class="metric scalar"><h3 class="metric-label">{{speedMetric}}</h3><p class="metric-value"><span id="speed-value">—</span> <small>m/s</small></p><p class="metric-equation">v_s</p></div>
+    <div class="metric scalar"><h3 class="metric-label">{{aheadMetric}}</h3><p class="metric-value"><span id="ahead-value">—</span> <small>Hz</small></p><p class="metric-equation">f'</p></div>
+    <div class="metric scalar"><h3 class="metric-label">{{behindMetric}}</h3><p class="metric-value"><span id="behind-value">—</span> <small>Hz</small></p><p class="metric-equation">f'</p></div>
+  </section>
+  <div class="insight" id="insight"><span class="insight-icon" aria-hidden="true">↗</span><div><strong id="lesson-title">{{predictTitle}}</strong><p id="lesson-copy">{{predictCopy}}</p></div></div>
+  <section class="challenge"><div class="mission-heading"><h2 class="challenge-title">{{missionTitle}}</h2><div class="score-card"><span>{{score}}</span><strong id="mission-score">—</strong></div></div><p class="mission-copy">{{missionCopy}}</p><div class="badges"><span id="right-badge">✓ {{rightBadge}}</span><span id="first-badge">① {{firstBadge}}</span></div></section>
+</div>
+</div>
+<article class="learning-content"><section><h2>{{guideTitle}}</h2><ol><li>{{instruction1}}</li><li>{{instruction2}}</li><li>{{instruction3}}</li><li>{{instruction4}}</li></ol></section><section><h2>{{conceptTitle}}</h2><p>{{conceptCopy}}</p><aside class="worked-example"><h3>{{exampleTitle}}</h3><p>{{exampleCopy}}</p></aside></section><section><h2>{{modelTitle}}</h2><p>{{modelCopy}}</p></section></article>
+<p class="language-note" id="language-note">{{languageNote}}</p>
+</main>
+__FOOTER__
+<p class="sr-only" id="announcement" role="status" aria-live="polite"></p>
+</div>
+<script id="ambulance-model">
+class AmbulanceModel {
+  // The Doppler effect for a moving source. A siren of frequency f moves at v_s through still air where sound travels at
+  // v = 340 m/s. Each wave crest leaves from where the siren is at that moment, so crests bunch up ahead and spread out
+  // behind: a listener it approaches hears f·v ÷ (v − v_s), one it leaves behind hears f·v ÷ (v + v_s). A run shows the
+  // crests spreading as circles (sound drawn far slower than real, keeping v_s ÷ v) and the pitch heard by someone 10 m
+  // from the road as the ambulance passes, from 2 s before to 2 s after.
+  static tolerance = .02;
+  static v = 340;
+  static missions = [
+    {key:'approach',ask:'ahead',f:700,vs:30,pace:1},
+    {key:'leave',ask:'behind',f:700,vs:30,pace:1},
+    {key:'speed',ask:'speed',f:700,heard:750,pace:1},
+    {key:'source',ask:'siren',heard:680,vs:20,pace:1},
+    {key:'octave',ask:'speed',f:700,factor:2,pace:1}
+  ];
+  static units = {ahead:'Hz',behind:'Hz',speed:'m/s',siren:'Hz'};
+  static limits = {ahead:1e5,behind:1e5,speed:1e4,siren:1e5};
+  static roadside = 10;
+  constructor(index = 0){this.setMission(index);}
+  setMission(index){this.index=index;this.config=AmbulanceModel.missions[index];this.answer=null;this.attempts=0;this.reset();}
+  reset(){this.t=0;this.status='moving';}
+  valid(value){return Number.isFinite(value)&&value>0&&value<=AmbulanceModel.limits[this.config.ask];}
+  setAnswer(value){if(value!==null&&!this.valid(value))return false;this.answer=value;this.reset();return true;}
+  ready(){return this.answer!==null;}
+  // The real siren frequency and speed of each test.
+  siren(){const c=this.config;return c.f??c.heard*(AmbulanceModel.v+c.vs)/AmbulanceModel.v;}
+  speed(){const c=this.config,v=AmbulanceModel.v;if(c.heard&&c.f)return v*(1-c.f/c.heard);if(c.factor)return v*(1-1/c.factor);return c.vs;}
+  ahead(){return this.siren()*AmbulanceModel.v/(AmbulanceModel.v-this.speed());}
+  behind(){return this.siren()*AmbulanceModel.v/(AmbulanceModel.v+this.speed());}
+  // Where the ambulance is (m along the road, 0 when level with the roadside listener), and the pitch that listener hears.
+  position(t){return this.speed()*(this.clamp(t)-2);}
+  heard(t){const x=this.position(t),r=Math.hypot(x,AmbulanceModel.roadside);return this.siren()*AmbulanceModel.v/(AmbulanceModel.v+this.speed()*x/r);}
+  clamp(t){return Math.min(Math.max(t,0),this.duration());}
+  duration(){return 4;}
+  now(){return this.status==='done'?this.duration():this.t;}
+  advance(dt){
+    if(!Number.isFinite(dt)||dt<0)throw new Error('Invalid timestep');
+    if(this.status==='done'||!this.ready())return null;
+    // A run counts as an attempt as soon as it starts; it ends exactly after 4 s.
+    if(this.t===0)this.attempts++;
+    const T=this.duration();
+    if(this.t+dt>=T*(1-1e-12)){this.t=T;this.status='done';return {t:T,done:true};}
+    this.t+=dt;return null;
+  }
+  exact(){const a=this.config.ask;if(a==='ahead')return this.ahead();if(a==='behind')return this.behind();if(a==='siren')return this.siren();return this.speed();}
+  unit(){return AmbulanceModel.units[this.config.ask];}
+  evaluate(){
+    if(!this.ready())return {ok:false,slip:null,first:false,exact:this.exact()};
+    const c=this.config,a=this.answer,e=this.exact(),v=AmbulanceModel.v,f=this.siren(),vs=this.speed(),tol=AmbulanceModel.tolerance,near=(p,q)=>Math.abs(p-q)<=tol*Math.abs(q)+1e-12;
+    // Every answer is right within 2%.
+    const ok=near(a,e);let slip=null;
+    if(!ok){
+      if(c.key==='approach'){if(near(a,this.behind()))slip='leavingFormula';else if(near(a,f+vs))slip='addedSpeed';}
+      else if(c.key==='leave'){if(near(a,this.ahead()))slip='approachingFormula';else if(near(a,f-vs))slip='subtractedSpeed';}
+      else if(c.key==='speed'){if(near(a,c.heard-c.f))slip='pitchDifference';else if(near(a,v*(c.heard-c.f)/c.f))slip='wrongBase';else if(near(a,v*(c.heard-c.f)/(c.heard+c.f)))slip='averageBase';}
+      else if(c.key==='source'){if(near(a,c.heard*(v-c.vs)/v))slip='wrongSign';else if(near(a,c.heard+c.vs))slip='addedHz';}
+      else{if(near(a,v))slip='soundSpeed';else if(near(a,v/3))slip='leavingOctave';else if(near(a,2*v))slip='doubleSound';}
+    }
+    return {ok,slip,first:ok&&this.attempts===1,exact:e};
+  }
+  score(){if(this.status!=='done')return 0;const e=this.evaluate();return (e.ok?100:0)+(e.first?50:0);}
+  snapshot(){return {index:this.index,answer:this.answer,attempts:this.attempts,t:this.t,status:this.status};}
+  restore(saved){
+    if(!Number.isInteger(saved?.index)||!AmbulanceModel.missions[saved.index])return false;
+    const probe=new AmbulanceModel(saved.index);
+    if(!probe.setAnswer(saved.answer??null)||!Number.isInteger(saved.attempts)||saved.attempts<0)return false;
+    if(!['moving','done'].includes(saved.status)||!Number.isFinite(saved.t)||saved.t<0||saved.t>probe.duration()*(1+1e-9))return false;
+    if(probe.answer===null&&(saved.t>0||saved.status==='done'))return false;
+    if((saved.status==='done'||saved.t>0)&&saved.attempts<1)return false;
+    this.setMission(saved.index);this.answer=probe.answer;this.attempts=saved.attempts;
+    this.status=saved.status;this.t=saved.status==='done'?this.duration():saved.t;return true;
+  }
+}
+globalThis.AmbulanceModel=AmbulanceModel;
+</script>
+<script id="ambulance-locale" type="application/json">__LOCALE__</script>
+<script id="ambulance-interface">
+(() => {
+  'use strict';
+  const $=id=>document.getElementById(id),locale=JSON.parse($('ambulance-locale').textContent);
+  const text=(key,values={})=>locale.strings[key].replace(/\{(\w+)\}/g,(_,name)=>values[name]??'{'+name+'}');
+  const number=(n,d=2)=>Math.abs(n)<.5*10**-d?(0).toLocaleString(locale.lang,{minimumFractionDigits:d,maximumFractionDigits:d}):n.toLocaleString(locale.lang,{minimumFractionDigits:d,maximumFractionDigits:d,useGrouping:false});
+  const plain=n=>n.toLocaleString(locale.lang,{maximumFractionDigits:3,useGrouping:false}).replace('-','−');
+  const model=new AmbulanceModel();
+  const canvas=$('ambulance-canvas'),ctx=canvas.getContext('2d');
+  const H=1/120,transferKey='phisicos-ambulance-language-transfer';
+  let running=false,previous=null,accumulator=0,lastUpdate=0,width=800,height=410;
+  const say=message=>{$('announcement').textContent=message;};
+  try{const data=JSON.parse(sessionStorage.getItem(transferKey)||'null');sessionStorage.removeItem(transferKey);if(data)model.restore(data.state);}catch{$('language-note').hidden=true;}
+  const pace=()=>model.config.pace??1;
+  const amount=v=>plain(Number(v.toPrecision(5)))+(model.unit()?' '+model.unit():'');
+  const slipKey=name=>'slip'+name[0].toUpperCase()+name.slice(1);
+  // The readings show only once a run starts, because they give the answer away.
+  const started=()=>model.status==='done'||model.t>0;
+  const symbols={ahead:"f' =",behind:"f' =",speed:'v_s =',siren:'f ='};
+  // Givens: the siren and its speed, the siren and the pitch heard ahead, the pitch heard behind and the speed, or an octave.
+  function given(m){
+    if(m.key==='speed')return 'f = '+plain(m.f)+" Hz · f' = "+plain(m.heard)+' Hz';
+    if(m.key==='source')return "f' = "+plain(m.heard)+' Hz · v_s = '+plain(m.vs)+' m/s';
+    if(m.key==='octave')return 'f = '+plain(m.f)+" Hz · f' = 2·f";
+    return 'f = '+plain(m.f)+' Hz · v_s = '+plain(m.vs)+' m/s';
+  }
+  function equation(){
+    const c=model.config,e=model.exact(),v=AmbulanceModel.v;
+    if(c.key==='leave')return "f' = "+plain(c.f)+' × 340 ÷ (340 + '+plain(c.vs)+') = '+number(e,0)+' Hz';
+    if(c.key==='speed')return 'v_s = 340 × '+plain(c.heard-c.f)+' ÷ '+plain(c.heard)+' = '+number(e,1)+' m/s';
+    if(c.key==='source')return 'f = '+plain(c.heard)+' × (340 + '+plain(c.vs)+') ÷ 340 = '+number(e,0)+' Hz';
+    if(c.key==='octave')return 'v_s = v ÷ 2 = 340 ÷ 2 = '+number(e,0)+' m/s';
+    return "f' = "+plain(c.f)+' × 340 ÷ (340 − '+plain(c.vs)+') = '+number(e,0)+' Hz';
+  }
+  function baseEquation(){return "f' = f·v ÷ (v ∓ v_s)";}
+  // The asked quantity stays hidden until the run is over.
+  function metrics(t,begun){
+    const a=model.config.ask,over=model.status==='done',show=(id,v,hide)=>{$(id).textContent=!begun?'—':hide&&!over?'?':v;};
+    show('siren-value',number(model.siren(),0),a==='siren');show('speed-value',number(model.speed(),1),a==='speed');
+    show('ahead-value',number(model.ahead(),0),a==='ahead');show('behind-value',number(model.behind(),0),a==='behind');
+  }
+  function values(){return {e:number(model.exact(),model.config.ask==='speed'?1:0)};}
+  function runningCopy(t){return text('ambulanceCopy',{p:number(model.heard(t),0)});}
+  // The pitch your answer implies: heard ahead, heard behind, or ahead for a guessed speed (null if at or above v).
+  function guessPitch(){const c=model.config,a=model.answer,v=AmbulanceModel.v;if(c.ask==='ahead'||c.ask==='behind')return a;if(c.ask==='siren')return a*v/(v+c.vs);return a<v?model.siren()*v/(v-a):null;}
+  function scene(g){
+    const c=g.c,{line,fit,dot,box,label}=g,s=g.ready?g.t:0,yH=40,k=Math.min((g.area-40)/100,(height-150)/(2*yH)),xR=Math.min(160,Math.max(100,(g.area-40)/k)),x0=24+((g.area-40)-xR*k)/2,top=58,X=x=>x0+x*k,Y=y=>top+(yH-y)*k;
+    // A street from above, stretched to fill the scene. Sound is drawn far slower than real (25 units a second) but with the true ratio v_s ÷ v; the
+    // siren sends out a crest every third of a second from wherever it is.
+    const cs=25,va=cs*model.speed()/AmbulanceModel.v,xs=35,pos=q=>xs+va*q;
+    box(X(0),Y(yH),xR*k,2*yH*k,'#24313e');box(X(0),Y(5),xR*k,10*k,'#3a4652');line([{x:X(0),y:Y(0)},{x:X(xR),y:Y(0)}],'#9fb6c7',1,[8,8]);
+    if(g.begun){ctx.save();ctx.beginPath();ctx.rect(X(0),Y(yH),xR*k,2*yH*k);ctx.clip();
+      for(let n=0;n/3<=s;n++){const q=n/3,r=cs*(s-q),cx=pos(q),pts=[];if(r<=0)continue;for(let i=0;i<=64;i++){const a=2*Math.PI*i/64;pts.push({x:X(cx+r*Math.cos(a)),y:Y(r*Math.sin(a))});}line(pts,'#77b9ff',1.4);}
+      ctx.restore();}
+    const ax=pos(g.begun?s:0);box(X(ax)-14,Y(0)-7,28,14,'#f2f8fc');box(X(ax)-4,Y(0)-7,8,14,'#e0525a');label(text('ambulanceTag'),X(ax),Y(0)-12,'#f2f8fc','center',9);
+    // Two listeners on the road: one the ambulance drives towards, one it leaves behind.
+    for(const [lx,key] of [[xR-5,'aheadTag'],[5,'behindTag']]){dot(X(lx),Y(0),5,'#efd38a');label(text(key),X(lx),Y(-9),'#efd38a','center',9);}
+    if(g.option){for(let m=0;m<=xR;m+=10)line([{x:X(m),y:Y(-yH)},{x:X(m),y:Y(-yH)-4}],'#9fb6c7',1);label(text('crestTag'),X(2),Y(-yH)-8,'#9fb6c7','left',8);}
+    fit(text('slowTag'),16,height-24,'#9fb6c7',10,g.area*.6);
+    fit('t = '+number(g.t)+' s',g.area-16,44,'#f2f8fc',13,g.area*.3,'right');
+  }
+  function panel(g){
+    const {line,fit,dot,label}=g;
+    fit(text('pitchGraph'),g.area+8,44,'#d1e3ed',10,width-g.area-16);
+    if(!g.begun){fit(text('panelHint'),g.area+8,70,'#9fb6c7',10,width-g.area-16);return;}
+    // The pitch a listener 10 m from the road hears as the ambulance passes: high, a quick glide down, then low.
+    const gp=g.guess?guessPitch():null,hi=Math.max(model.ahead(),gp??0),lo=Math.min(model.behind(),gp??Infinity),pad=(hi-lo)*.12+1,top=hi+pad,bot=lo-pad;
+    const px0=g.area+40,px1=width-14,py0=90,py1=height-90,PX=q=>px0+q/4*(px1-px0),PY=f=>py1-(f-bot)/(top-bot)*(py1-py0),upto=Math.min(g.t,model.duration());
+    line([{x:px0,y:py1},{x:px1,y:py1}],'#8aa3b5',1);line([{x:px0,y:py0},{x:px0,y:py1}],'#8aa3b5',1);
+    for(let q=0;q<=4;q++){line([{x:PX(q),y:py1},{x:PX(q),y:py1+4}],'#9fb6c7',1);label(plain(q),PX(q),py1+14,'#9fb6c7','center',8);}
+    for(const f of [model.ahead(),model.siren(),model.behind()]){line([{x:px0,y:PY(f)},{x:px1,y:PY(f)}],'#4b6275',1,[3,5]);label(plain(Math.round(f)),px0-4,PY(f)+3,'#9fb6c7','right',8);}
+    if(gp!==null)line([{x:px0,y:PY(gp)},{x:px1,y:PY(gp)}],'#efb958',1.5,[5,4]);
+    const pts=[];for(let i=0;i<=300;i++){const q=upto*i/300;pts.push({x:PX(q),y:PY(model.heard(q))});}line(pts,'#f2f8fc',2);dot(PX(upto),PY(model.heard(upto)),4,'#f2f8fc');
+    fit(text('timeAxis'),px0,py1+28,'#9fb6c7',9,px1-px0);
+  }
+  function setRunning(value){
+    const done=model.status==='done',blocked=!model.ready();running=value&&!done&&!blocked;previous=null;accumulator=0;
+    $('play').disabled=running||done||blocked;$('pause').disabled=!running;$('step').disabled=running||done||blocked;
+    $('ambulance-status').classList.toggle('running',running);
+    $('ambulance-status-text').textContent=text(done?'done':running?'running':model.t?'paused':'ready');
+  }
+  function sync(){
+    const c=model.config;
+    AmbulanceModel.missions.forEach((m,i)=>{$('mission-'+i).setAttribute('aria-pressed',String(i===model.index));$('given-'+i).textContent=given(m);});
+    $('question').textContent=text('question'+model.index);$('answer-symbol').textContent=symbols[c.ask];$('answer-unit').textContent=model.unit();
+    $('answer').value=model.answer===null?'':String(model.answer);$('mission-label').textContent=text('mission'+model.index);
+  }
+  function update(){
+    const ready=model.ready(),done=model.status==='done',t=ready?model.now():0,e=model.evaluate(),begun=started();
+    $('time-value').textContent=number(t);metrics(t,begun);
+    $('ambulance-equation').textContent=begun?equation():baseEquation();
+    let key,copy;
+    if(done){
+      const base=text('result'+model.index,values());
+      if(e.ok){key='good';copy=base+' '+text('why'+model.index);}
+      else{key='miss';copy=base+' '+text('missCopy',{p:amount(model.answer)})+' '+(e.slip?text(slipKey(e.slip)):text('hint'+model.index));}
+    }
+    else if(!ready){key='predict';copy=text('predictCopy');}
+    else if(model.t>0){key='running';copy=runningCopy(t);}
+    else{key='ready';copy=text('readyCopy');}
+    $('lesson-title').textContent=text(key+'Title',{t:number(t),p:ready?amount(model.answer):''});$('lesson-copy').textContent=copy;
+    $('insight').classList.toggle('warning',key==='miss');
+    $('mission-score').textContent=done?String(model.score()):'—';
+    $('right-badge').classList.toggle('earned',done&&e.ok);$('first-badge').classList.toggle('earned',done&&e.first);
+  }
+  function refresh(){setRunning(false);update();draw();}
+  function simulate(dt){
+    const result=model.advance(dt);
+    if(result?.done){setRunning(false);update();say(text('doneAnnouncement')+' '+$('lesson-title').textContent);return true;}
+    return false;
+  }
+  $('answer').addEventListener('input',event=>{const raw=String(event.target.value).trim(),value=raw===''?null:Number(raw);if(!model.setAnswer(value))model.setAnswer(null);refresh();});
+  $('play').addEventListener('click',()=>{setRunning(true);update();say(text('startedAnnouncement'));});
+  $('pause').addEventListener('click',()=>{setRunning(false);update();say(text('pausedAnnouncement'));});
+  $('step').addEventListener('click',()=>{for(let i=0;i<12;i++)if(simulate(H*pace()))break;setRunning(false);update();draw();});
+  $('reset').addEventListener('click',()=>{model.reset();refresh();say(text('resetAnnouncement'));});
+  AmbulanceModel.missions.forEach((_,i)=>$('mission-'+i).addEventListener('click',()=>{model.setMission(i);sync();refresh();say(text('missionAnnouncement',{name:text('mission'+i)}));}));
+  for(const id of ['show-ruler','show-guess'])$(id).addEventListener('change',()=>{update();draw();});
+  function suspend(){if(running){setRunning(false);say(text('suspendedAnnouncement'));}update();draw();}
+  window.addEventListener('blur',suspend);document.addEventListener('visibilitychange',()=>{if(document.hidden)suspend();});
+  for(const link of document.querySelectorAll('.language-menu a'))link.addEventListener('click',()=>{setRunning(false);try{sessionStorage.setItem(transferKey,JSON.stringify({state:model.snapshot()}));}catch{}});
+  function resize(){const rect=canvas.getBoundingClientRect();if(rect.width<=0)return;width=rect.width;height=rect.height;const dpr=Math.min(window.devicePixelRatio||1,3);canvas.width=Math.round(width*dpr);canvas.height=Math.round(height*dpr);ctx.setTransform(dpr,0,0,dpr,0,0);draw();}
+  function draw(){
+    if(!ctx)return;
+    const c=model.config,ready=model.ready(),done=model.status==='done',t=ready?model.now():0,begun=started(),option=$('show-ruler').checked,guess=$('show-guess').checked&&ready;
+    ctx.clearRect(0,0,width,height);
+    const label=(str,px,py,color='#b8ccdb',align='left',font=12)=>{ctx.fillStyle=color;ctx.textAlign=align;ctx.font=font+'px -apple-system,BlinkMacSystemFont,sans-serif';ctx.fillText(str,px,py);};
+    const line=(points,color,w=1,dash=[])=>{ctx.beginPath();ctx.strokeStyle=color;ctx.lineWidth=w;ctx.setLineDash(dash);points.forEach((q,i)=>i?ctx.lineTo(q.x,q.y):ctx.moveTo(q.x,q.y));ctx.stroke();ctx.setLineDash([]);};
+    const fit=(str,px,py,color,size,room,align='left')=>{ctx.font=size+'px -apple-system,BlinkMacSystemFont,sans-serif';const w=ctx.measureText(str).width;label(str,px,py,color,align,w>room?Math.max(7,Math.floor(size*room/w)):size);};
+    const dot=(x,y,r,color)=>{ctx.fillStyle=color;ctx.beginPath();ctx.arc(x,y,Math.max(r,.5),0,Math.PI*2);ctx.fill();};
+    const box=(x,y,w,h,color)=>{ctx.fillStyle=color;ctx.fillRect(x,y,w,h);};
+    const wide=width>=560,area=wide?width*.64:width;
+    const env={c,ready,done,t,begun,option,guess,label,line,fit,dot,box,wide,area};
+    fit(text('viewTitle'),16,20,'#d1e3ed',12,area-28);
+    if(done){const ev=model.evaluate();fit(text(ev.ok?'rightBanner':'offBanner'),16,40,ev.ok?'#75efc7':'#efb958',width<430?12:14,area-28);}
+    scene(env);
+    label(text('scaleNote'),16,height-8,'#9fb6c7','left',10);
+    if(!wide)return;
+    panel(env);
+  }
+  function frame(now){if(previous===null)previous=now;const elapsed=Math.min(.1,(now-previous)/1000);previous=now;if(running){accumulator+=elapsed*pace();while(accumulator>=H&&running){accumulator-=H;simulate(H);}draw();}if(now-lastUpdate>=80){update();lastUpdate=now;}requestAnimationFrame(frame);}
+  window.addEventListener('resize',resize);if(typeof ResizeObserver!=='undefined')new ResizeObserver(resize).observe(canvas);
+  sync();setRunning(false);update();resize();requestAnimationFrame(frame);
+})();
+</script>
+</body>
+</html>

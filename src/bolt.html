@@ -1,0 +1,287 @@
+<!doctype html>
+<html lang="en">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Stuck Bolt · Phisicos</title>
+<style>
+.bolt-page .answer-row .symbol{min-width:44px}.bolt-page .question{font-size:15px;font-weight:600;margin-top:4px}
+.bolt-page .line-key.white{background:#f2f8fc}.bolt-page .line-key.blue{background:#77b9ff}
+</style>
+</head>
+<body>
+<div class="shell module-page bolt-page">
+__HEADER__
+<main id="main-content">
+__BREADCRUMBS__
+
+<div class="masthead"><div><h1>{{title}}</h1><p class="intro">{{subtitle}}</p></div><div class="concept-tags"><span class="tag speed">{{tag1}}</span><span class="tag velocity">{{tag2}}</span></div></div>
+<noscript><p class="no-js">{{noScript}}</p></noscript>
+<div class="layout">
+<aside class="sidebar" aria-label="{{setup}}">
+  <section class="control-section"><h2 class="eyebrow">{{setup}}</h2><div class="mission-list" role="group" aria-label="{{setup}}">
+    <button id="mission-0" aria-pressed="true"><b>1 · {{mission0}}</b><span id="given-0">τ</span></button>
+    <button id="mission-1" aria-pressed="false"><b>2 · {{mission1}}</b><span id="given-1">τ</span></button>
+    <button id="mission-2" aria-pressed="false"><b>3 · {{mission2}}</b><span id="given-2">τ</span></button>
+    <button id="mission-3" aria-pressed="false"><b>4 · {{mission3}}</b><span id="given-3">τ</span></button>
+    <button id="mission-4" aria-pressed="false"><b>5 · {{mission4}}</b><span id="given-4">τ</span></button>
+  </div><p class="hint">{{setupNote}}</p></section>
+  <section class="control-section"><h2 class="eyebrow">{{answerHeading}}</h2>
+    <p class="question" id="question">{{question0}}</p>
+    <p class="field-label"><label for="answer">{{answerLabel}}</label></p>
+    <div class="answer-row"><span class="symbol" id="answer-symbol">F =</span><input id="answer" type="number" inputmode="decimal" step="any" value=""><span class="unit" id="answer-unit">N</span></div>
+    <p class="hint">{{answerHint}}</p>
+  </section>
+  <section class="control-section"><h2 class="eyebrow">{{observe}}</h2><label class="check"><input id="show-vectors" type="checkbox" checked>{{vectors}}</label><label class="check"><input id="show-arm" type="checkbox" checked>{{armToggle}}</label><p class="hint">{{observeHint}}</p></section>
+</aside>
+<div class="workspace">
+  <section class="scene" aria-label="{{sceneTitle}}"><div class="scene-top"><div><h2 class="scene-title">{{sceneTitle}}</h2><p class="scene-subtitle" id="mission-label">{{mission0}}</p></div><span class="status" id="bolt-status"><i class="status-dot" aria-hidden="true"></i><span id="bolt-status-text">{{ready}}</span></span></div>
+    <div class="module-stage"><canvas id="bolt-canvas" role="img" aria-label="{{canvasLabel}}">{{noScript}}</canvas></div>
+    <div class="legend"><span><i class="line-key blue"></i>{{forceLegend}}</span><span><i class="line-key white"></i>{{armLegend}}</span><span><i class="line-key mint"></i>{{torqueLegend}}</span><span><i class="line-key orange"></i>{{needLegend}}</span></div>
+    <div class="module-equation"><span>{{equationTitle}}</span><output id="bolt-equation">τ = F·r·sin φ</output></div>
+    <div class="transport"><button id="play" class="primary" disabled>{{play}}</button><button id="pause" disabled>{{pause}}</button><button id="step" disabled>{{step}}</button><button id="reset" class="reset">{{reset}}</button></div>
+  </section>
+  <section class="metrics" aria-label="{{observe}}">
+    <div class="metric scalar"><h3 class="metric-label">{{time}}</h3><p class="metric-value"><span id="time-value">0.00</span> <small>s</small></p><p class="metric-equation">t</p></div>
+    <div class="metric vector"><h3 class="metric-label">{{forceMetric}}</h3><p class="metric-value"><span id="force-value">—</span> <small>N</small></p><p class="metric-equation">F</p></div>
+    <div class="metric scalar"><h3 class="metric-label">{{armMetric}}</h3><p class="metric-value"><span id="arm-value">—</span> <small>m</small></p><p class="metric-equation">d = r·sin φ</p></div>
+    <div class="metric vector"><h3 class="metric-label">{{torqueMetric}}</h3><p class="metric-value"><span id="torque-value">—</span> <small>N·m</small></p><p class="metric-equation">τ = F·d</p></div>
+    <div class="metric scalar"><h3 class="metric-label">{{turnMetric}}</h3><p class="metric-value"><span id="turn-value">0.0</span> <small>°</small></p><p class="metric-equation">θ</p></div>
+  </section>
+  <div class="insight" id="insight"><span class="insight-icon" aria-hidden="true">↗</span><div><strong id="lesson-title">{{predictTitle}}</strong><p id="lesson-copy">{{predictCopy}}</p></div></div>
+  <section class="challenge"><div class="mission-heading"><h2 class="challenge-title">{{missionTitle}}</h2><div class="score-card"><span>{{score}}</span><strong id="mission-score">—</strong></div></div><p class="mission-copy">{{missionCopy}}</p><div class="badges"><span id="right-badge">✓ {{rightBadge}}</span><span id="first-badge">① {{firstBadge}}</span></div></section>
+</div>
+</div>
+<article class="learning-content"><section><h2>{{guideTitle}}</h2><ol><li>{{instruction1}}</li><li>{{instruction2}}</li><li>{{instruction3}}</li><li>{{instruction4}}</li></ol></section><section><h2>{{conceptTitle}}</h2><p>{{conceptCopy}}</p><aside class="worked-example"><h3>{{exampleTitle}}</h3><p>{{exampleCopy}}</p></aside></section><section><h2>{{modelTitle}}</h2><p>{{modelCopy}}</p></section></article>
+<p class="language-note" id="language-note">{{languageNote}}</p>
+</main>
+__FOOTER__
+<p class="sr-only" id="announcement" role="status" aria-live="polite"></p>
+</div>
+<script id="bolt-model">
+class BoltModel {
+  // A wrench turns a rusted bolt about its axis. A hand pushes the handle at a distance r from the bolt, at an angle φ to
+  // the handle, so only the perpendicular part of the push turns it: τ = F·r·sin φ = F·d, with the lever arm d = r·sin φ.
+  // Two hands on a cross wrench push in opposite directions on opposite sides, and their torques add. The push grows
+  // steadily over 2 s; the bolt breaks loose exactly when the torque reaches the torque it needs, then turns a quarter
+  // turn in 1 s while the push is held. A bolt that never gets enough torque stays stuck.
+  static ramp = 2; // s for the push to grow from zero to F
+  static turn = 1; // s for a loose bolt to turn a quarter turn
+  static hold = 1; // s a stuck bolt is watched after the full push
+  static grace = 5e-4; // within 0.05% counts as enough, so a rounded answer does not stay stuck
+  static tolerance = .02;
+  static missions = [
+    {ask:'force',need:60,r:.3,F:null,phi:90,hands:1,handle:.35},
+    {ask:'angled',need:60,r:.3,F:null,phi:30,hands:1,handle:.35},
+    {ask:'bar',need:240,r:null,F:300,phi:90,hands:1,handle:.25},
+    {ask:'angle',need:60,r:.3,F:400,phi:null,hands:1,handle:.35},
+    {ask:'couple',need:110,r:.25,F:null,phi:90,hands:2,handle:.3}
+  ];
+  static units = {force:'N',angled:'N',bar:'m',angle:'°',couple:'N'};
+  static limits = {force:5000,angled:5000,bar:1.5,angle:90,couple:5000};
+  constructor(index = 0){this.setMission(index);}
+  setMission(index){this.index=index;this.config=BoltModel.missions[index];this.answer=null;this.attempts=0;this.reset();}
+  reset(){this.t=0;this.status='pushing';}
+  valid(value){return Number.isFinite(value)&&value>0&&value<=BoltModel.limits[this.config.ask];}
+  setAnswer(value){if(value!==null&&!this.valid(value))return false;this.answer=value;this.reset();return true;}
+  ready(){return this.answer!==null;}
+  // The grip distance, the push, and its angle to the handle, with the answer filled in.
+  r(){return this.config.r??this.answer??0;}
+  F(){return this.config.F??this.answer??0;}
+  phi(){return this.config.phi??this.answer??0;}
+  arm(){return this.r()*Math.sin(this.phi()*Math.PI/180);}
+  peak(){return this.config.hands*this.F()*this.arm();}
+  loose(){return this.ready()&&this.peak()>=this.config.need*(1-BoltModel.grace);}
+  // The moment the torque reaches the need: a share need ÷ peak of the 2 s push (all of it inside the 0.05% grace).
+  breakTime(){return this.loose()?BoltModel.ramp*Math.min(1,this.config.need/this.peak()):null;}
+  duration(){return this.loose()?this.breakTime()+BoltModel.turn:BoltModel.ramp+BoltModel.hold;}
+  clamp(t){return Math.min(Math.max(t,0),this.duration());}
+  // The push grows steadily and is held once the bolt gives.
+  force(t){const u=this.clamp(t),end=this.loose()?this.breakTime():BoltModel.ramp;return this.F()*Math.min(u,end)/BoltModel.ramp;}
+  torque(t){return this.config.hands*this.force(t)*this.arm();}
+  turned(t){if(!this.loose())return 0;const u=this.clamp(t)-this.breakTime();return u>0?Math.PI/2*u/BoltModel.turn:0;}
+  outcome(){return this.loose()?'loose':'stuck';}
+  now(){return this.status==='done'?this.duration():this.t;}
+  advance(dt){
+    if(!Number.isFinite(dt)||dt<0)throw new Error('Invalid timestep');
+    if(this.status==='done'||!this.ready())return null;
+    // A run counts as an attempt as soon as it starts; breaking loose is found exactly.
+    if(this.t===0)this.attempts++;
+    const T=this.duration();
+    if(this.t+dt>=T*(1-1e-12)){this.t=T;this.status='done';return {t:T,done:true,outcome:this.outcome()};}
+    this.t+=dt;return null;
+  }
+  exact(){
+    const c=this.config,s=Math.sin((c.phi??90)*Math.PI/180);
+    if(c.ask==='bar')return c.need/(c.F*s);
+    if(c.ask==='angle')return Math.asin(c.need/(c.F*c.r))*180/Math.PI;
+    return c.need/(c.hands*c.r*s);
+  }
+  unit(){return BoltModel.units[this.config.ask];}
+  // An answer must break the bolt loose (within the 0.05% grace) and be at most 2% above the least that does.
+  evaluate(){
+    if(!this.ready())return {ok:false,slip:null,first:false,exact:this.exact()};
+    const c=this.config,a=this.answer,e=this.exact(),near=(p,q)=>Math.abs(p-q)<=BoltModel.tolerance*Math.abs(q)+1e-9;
+    const ok=a>=e*(1-BoltModel.grace)&&a<=e*(1+BoltModel.tolerance);
+    let slip=null;
+    if(!ok){
+      if(c.ask==='force'){if(near(a,c.need*c.r))slip='multiplied';else if(near(a,c.need))slip='noArm';}
+      else if(c.ask==='angled'){if(near(a,c.need/c.r))slip='noAngle';else if(near(a,c.need/(c.r*Math.cos(c.phi*Math.PI/180))))slip='cosine';else if(near(a,c.need/c.r*Math.sin(c.phi*Math.PI/180)))slip='timesSin';}
+      else if(c.ask==='bar'){if(near(a,c.F/c.need))slip='inverted';else if(near(a,e-c.handle))slip='pipeOnly';}
+      else if(c.ask==='angle'){if(near(a,Math.acos(c.need/(c.F*c.r))*180/Math.PI))slip='cosine';else if(near(a,90))slip='square';}
+      else{if(near(a,2*e))slip='oneHand';else if(near(a,c.need*c.r))slip='multiplied';}
+      if(!slip&&this.loose())slip='spare';
+    }
+    return {ok,slip,first:ok&&this.attempts===1,exact:e};
+  }
+  score(){if(this.status!=='done')return 0;const e=this.evaluate();return (e.ok?100:0)+(e.first?50:0);}
+  snapshot(){return {index:this.index,answer:this.answer,attempts:this.attempts,t:this.t,status:this.status};}
+  restore(saved){
+    if(!Number.isInteger(saved?.index)||!BoltModel.missions[saved.index])return false;
+    const probe=new BoltModel(saved.index);
+    if(!probe.setAnswer(saved.answer??null)||!Number.isInteger(saved.attempts)||saved.attempts<0)return false;
+    if(!['pushing','done'].includes(saved.status)||!Number.isFinite(saved.t)||saved.t<0||saved.t>probe.duration()*(1+1e-9))return false;
+    if(probe.answer===null&&(saved.t>0||saved.status==='done'))return false;
+    if((saved.status==='done'||saved.t>0)&&saved.attempts<1)return false;
+    this.setMission(saved.index);this.answer=probe.answer;this.attempts=saved.attempts;
+    this.status=saved.status;this.t=saved.status==='done'?this.duration():saved.t;return true;
+  }
+}
+globalThis.BoltModel=BoltModel;
+</script>
+<script id="bolt-locale" type="application/json">__LOCALE__</script>
+<script id="bolt-interface">
+(() => {
+  'use strict';
+  const $=id=>document.getElementById(id),locale=JSON.parse($('bolt-locale').textContent);
+  const text=(key,values={})=>locale.strings[key].replace(/\{(\w+)\}/g,(_,name)=>values[name]??'{'+name+'}');
+  const number=(n,d=2)=>Math.abs(n)<.5*10**-d?(0).toLocaleString(locale.lang,{minimumFractionDigits:d,maximumFractionDigits:d}):n.toLocaleString(locale.lang,{minimumFractionDigits:d,maximumFractionDigits:d,useGrouping:false});
+  const plain=n=>n.toLocaleString(locale.lang,{maximumFractionDigits:2,useGrouping:false}).replace('-','−');
+  const model=new BoltModel();
+  const canvas=$('bolt-canvas'),ctx=canvas.getContext('2d');
+  const H=1/120,TAU=2*Math.PI,transferKey='phisicos-bolt-language-transfer',sin=locale.strings.sinName;
+  let running=false,previous=null,accumulator=0,lastUpdate=0,width=800,height=410;
+  const say=message=>{$('announcement').textContent=message;};
+  try{const data=JSON.parse(sessionStorage.getItem(transferKey)||'null');sessionStorage.removeItem(transferKey);if(data)model.restore(data.state);}catch{$('language-note').hidden=true;}
+  const amount=v=>plain(Number(v.toPrecision(5)))+(model.unit()==='°'?'°':' '+model.unit());
+  const symbols={force:'F =',angled:'F =',bar:'r =',angle:'φ =',couple:'F ='};
+  const slipKey=name=>'slip'+name[0].toUpperCase()+name.slice(1);
+  function setRunning(value){
+    const done=model.status==='done',blocked=!model.ready();running=value&&!done&&!blocked;previous=null;accumulator=0;
+    $('play').disabled=running||done||blocked;$('pause').disabled=!running;$('step').disabled=running||done||blocked;
+    $('bolt-status').classList.toggle('running',running);
+    $('bolt-status-text').textContent=text(done?'done':running?'running':model.t?'paused':'ready');
+  }
+  // Givens: the torque the bolt needs, then the grip distance, the push, and its angle to the handle.
+  function given(m){
+    const parts=['τ = '+plain(m.need)+' N·m'];
+    parts.push(m.r===null?'r = ?':'r = '+plain(m.r)+' m');parts.push(m.F===null?'F = ?':'F = '+plain(m.F)+' N');parts.push(m.phi===null?'φ = ?':'φ = '+plain(m.phi)+'°');
+    if(m.hands>1)parts.push(m.hands+' × F');
+    return parts.join(' · ');
+  }
+  function sync(){
+    const c=model.config;
+    BoltModel.missions.forEach((m,i)=>{$('mission-'+i).setAttribute('aria-pressed',String(i===model.index));$('given-'+i).textContent=given(m);});
+    $('question').textContent=text('question'+model.index);$('answer-symbol').textContent=symbols[c.ask];$('answer-unit').textContent=model.unit();
+    $('answer').value=model.answer===null?'':String(model.answer);$('mission-label').textContent=text('mission'+model.index);
+  }
+  // The lever arm and the torque show only once a run starts, because they would let the answer be tuned without a push.
+  const started=()=>model.status==='done'||model.t>0;
+  function update(){
+    const c=model.config,ready=model.ready(),done=model.status==='done',t=ready?model.now():0,e=model.evaluate(),begun=started(),tau=model.torque(t);
+    $('time-value').textContent=number(t);$('turn-value').textContent=number(model.turned(t)*180/Math.PI,1);
+    $('force-value').textContent=ready?number(model.force(t),1):'—';
+    $('arm-value').textContent=begun?number(model.arm(),3):'—';$('torque-value').textContent=begun?number(tau,1):'—';
+    const lead=c.hands>1?c.hands+' × ':'';
+    $('bolt-equation').textContent=begun?'τ = '+lead+'F·r·'+sin+' φ = '+lead+number(model.force(t),1)+' × '+plain(model.r())+' × '+sin+' '+plain(Number(model.phi().toPrecision(5)))+'° = '+number(tau,1)+' N·m':'τ = '+lead+'F·r·'+sin+' φ';
+    let key,copy;
+    const values={tau:number(tau,1),need:plain(c.need),peak:number(model.peak(),1),tb:number(model.breakTime()??0)};
+    if(done){
+      const base=text(model.outcome()+'Copy',values);
+      if(e.ok){key='good';copy=base+' '+text('why'+model.index);}
+      else{key='miss';copy=base+' '+text('missCopy',{p:amount(model.answer)})+' '+(e.slip?text(slipKey(e.slip)):text('hint'+model.index));}
+    }
+    else if(!ready){key='predict';copy=text('predictCopy');}
+    else if(model.t>0){key='running';copy=text(model.turned(t)>0?'turningCopy':'pushingCopy',values);}
+    else{key='ready';copy=text('readyCopy');}
+    $('lesson-title').textContent=text(key+'Title',{t:number(t),p:ready?amount(model.answer):''});$('lesson-copy').textContent=copy;
+    $('insight').classList.toggle('warning',key==='miss');
+    $('mission-score').textContent=done?String(model.score()):'—';
+    $('right-badge').classList.toggle('earned',done&&e.ok);$('first-badge').classList.toggle('earned',done&&e.first);
+  }
+  function refresh(){setRunning(false);update();draw();}
+  function simulate(dt){
+    const result=model.advance(dt);
+    if(result?.done){setRunning(false);update();say(text('doneAnnouncement')+' '+$('lesson-title').textContent);return true;}
+    return false;
+  }
+  $('answer').addEventListener('input',event=>{const raw=String(event.target.value).trim(),value=raw===''?null:Number(raw);if(!model.setAnswer(value))model.setAnswer(null);refresh();});
+  $('play').addEventListener('click',()=>{setRunning(true);update();say(text('startedAnnouncement'));});
+  $('pause').addEventListener('click',()=>{setRunning(false);update();say(text('pausedAnnouncement'));});
+  $('step').addEventListener('click',()=>{for(let i=0;i<12;i++)if(simulate(H))break;setRunning(false);update();draw();});
+  $('reset').addEventListener('click',()=>{model.reset();refresh();say(text('resetAnnouncement'));});
+  BoltModel.missions.forEach((_,i)=>$('mission-'+i).addEventListener('click',()=>{model.setMission(i);sync();refresh();say(text('missionAnnouncement',{name:text('mission'+i)}));}));
+  for(const id of ['show-vectors','show-arm'])$(id).addEventListener('change',()=>{update();draw();});
+  function suspend(){if(running){setRunning(false);say(text('suspendedAnnouncement'));}update();draw();}
+  window.addEventListener('blur',suspend);document.addEventListener('visibilitychange',()=>{if(document.hidden)suspend();});
+  for(const link of document.querySelectorAll('.language-menu a'))link.addEventListener('click',()=>{setRunning(false);try{sessionStorage.setItem(transferKey,JSON.stringify({state:model.snapshot()}));}catch{}});
+  function resize(){const rect=canvas.getBoundingClientRect();if(rect.width<=0)return;width=rect.width;height=rect.height;const dpr=Math.min(window.devicePixelRatio||1,3);canvas.width=Math.round(width*dpr);canvas.height=Math.round(height*dpr);ctx.setTransform(dpr,0,0,dpr,0,0);draw();}
+  // One scale for both axes, fixed per mission (1.5 m for the bar, so the answer is not hinted); forces at 0.25 px per newton, up to 120 px.
+  const FS=.25,CAP=120;
+  function draw(){
+    if(!ctx)return;
+    const c=model.config,ready=model.ready(),done=model.status==='done',t=ready?model.now():0,begun=started(),psi=model.turned(t),vectors=$('show-vectors').checked;
+    ctx.clearRect(0,0,width,height);
+    const label=(str,px,py,color='#b8ccdb',align='left',font=12)=>{ctx.fillStyle=color;ctx.textAlign=align;ctx.font=font+'px -apple-system,BlinkMacSystemFont,sans-serif';ctx.fillText(str,px,py);};
+    const line=(points,color,w=1,dash=[])=>{ctx.beginPath();ctx.strokeStyle=color;ctx.lineWidth=w;ctx.setLineDash(dash);points.forEach((q,i)=>i?ctx.lineTo(q.x,q.y):ctx.moveTo(q.x,q.y));ctx.stroke();ctx.setLineDash([]);};
+    const arrow=(from,dx,dy,color,w=2.5)=>{const len=Math.hypot(dx,dy);if(len<4)return;const ux=dx/len,uy=dy/len,to={x:from.x+dx,y:from.y+dy};line([from,to],color,w);line([{x:to.x-ux*9-uy*5,y:to.y-uy*9+ux*5},to,{x:to.x-ux*9+uy*5,y:to.y-uy*9-ux*5}],color,2);};
+    const fit=(str,px,py,color,size,room,align='left')=>{ctx.font=size+'px -apple-system,BlinkMacSystemFont,sans-serif';const w=ctx.measureText(str).width;label(str,px,py,color,align,w>room?Math.max(7,Math.floor(size*room/w)):size);};
+    const wide=width>=560,area=wide?width*.64:width,couple=c.hands>1,view=c.ask==='bar'?1.5:.45;
+    fit(text('viewTitle'),16,20,'#d1e3ed',12,area-28);label(text('arrowScale'),16,height-8,'#9fb6c7','left',10);
+    // The bolt sits low and to the left (centred for the cross wrench), with room for the handle to turn a quarter turn up.
+    const O={x:couple?area/2:Math.max(70,area*.26),y:height*.62},S=Math.min((area-O.x-34)/view,(O.y-48)/view);
+    // World points: a distance u along the handle and v across it, turned by ψ counter-clockwise; screen y points down.
+    const P=(u,v=0)=>({x:O.x+(u*Math.cos(psi)-v*Math.sin(psi))*S,y:O.y-(u*Math.sin(psi)+v*Math.cos(psi))*S});
+    const from=couple?-c.handle:-.04,reach=c.ask==='bar'?(ready?Math.max(c.handle,model.r()+.06):c.handle):c.handle;
+    line([P(from),P(Math.min(c.handle,reach))],'#8aa3b5',9);
+    if(c.ask==='bar'&&ready)line([P(c.handle-.06),P(reach)],'#c99a6e',7);
+    // Ruler ticks along the handle: every 0.1 m with a label every 0.5 m on the long view, every 0.05 m with a label every 0.1 m otherwise.
+    const tick=view>1?.1:.05,every=view>1?.5:.1;
+    for(let u=couple?-c.handle:0;u<=(c.ask==='bar'?view:c.handle)+1e-9;u+=tick){const a=P(u,-.012*(view/.45)),b=P(u,-.03*(view/.45));line([a,b],'#5b7488',1);if(Math.abs(u/every-Math.round(u/every))<1e-6&&Math.abs(u)>1e-9){const q=P(u,-.06*(view/.45));label(plain(Number(u.toFixed(2)))+' m',q.x,q.y+4,'#9fb6c7','center',9);}}
+    // The bolt head: a hexagon that turns with the wrench, and its ring.
+    ctx.fillStyle='#5b7488';ctx.beginPath();for(let k=0;k<6;k++){const a=psi+k*TAU/6,x=O.x+15*Math.cos(a),y=O.y-15*Math.sin(a);k?ctx.lineTo(x,y):ctx.moveTo(x,y);}ctx.closePath();ctx.fill();
+    ctx.strokeStyle='#d1e3ed';ctx.lineWidth=3;ctx.beginPath();ctx.arc(O.x,O.y,19,0,TAU);ctx.stroke();
+    label(text('boltLabel'),O.x-24,O.y+36,'#9fb6c7','right',10);
+    if(ready){
+      // Each hand pushes at angle φ to the handle; the second hand of the cross wrench pushes the other way on the other side.
+      const phi=model.phi()*Math.PI/180,hands=couple?[1,-1]:[1];
+      for(const side of hands){
+        const G=P(side*model.r()),dir=psi+phi+(side<0?Math.PI:0),ux=Math.cos(dir),uy=-Math.sin(dir);
+        ctx.fillStyle='#efe6d0';ctx.beginPath();ctx.arc(G.x,G.y,7,0,TAU);ctx.fill();
+        if($('show-arm').checked){
+          // The line of action through the hand and the lever arm d from the bolt, perpendicular to it.
+          const gx=(G.x-O.x)/S,gy=-(G.y-O.y)/S,along=gx*Math.cos(dir)+gy*Math.sin(dir),Q={x:O.x+(gx-along*Math.cos(dir))*S,y:O.y-(gy-along*Math.sin(dir))*S};
+          line([{x:G.x+ux*40,y:G.y+uy*40},{x:Q.x-ux*30,y:Q.y-uy*30}],'#5b7488',1,[4,4]);
+          line([O,Q],'#f2f8fc',1.6,[6,4]);if(side>0){const m={x:(O.x+Q.x)/2,y:(O.y+Q.y)/2};label('d',m.x+6,m.y-6,'#f2f8fc','left',12);}
+        }
+        if(vectors)arrow(G,ux*Math.min(model.force(t)*FS,CAP),uy*Math.min(model.force(t)*FS,CAP),'#77b9ff');
+        if(side>0&&model.phi()<89.5){ctx.strokeStyle='#efb958';ctx.lineWidth=1.5;ctx.beginPath();ctx.arc(G.x,G.y,22,-psi-phi,-psi,false);ctx.stroke();label('φ',G.x+26*Math.cos(psi+phi/2),G.y-26*Math.sin(psi+phi/2)+4,'#efb958','left',11);}
+      }
+      if(vectors&&begun){const k=model.torque(t)/Math.max(c.need,model.peak());ctx.strokeStyle='#75efc7';ctx.lineWidth=2.5;ctx.beginPath();ctx.arc(O.x,O.y,30,-.3,-.3-k*1.6*Math.PI/2,true);ctx.stroke();}
+    }
+    if(done){const e=model.evaluate();fit((e.ok?text('rightBanner')+' · ':'')+text(model.loose()?'looseBanner':'stuckBanner'),16,44,e.ok?'#75efc7':'#efb958',width<430?12:14,area-28);}
+    if(!wide)return;
+    // Torque gauge: the torque on the bolt against the torque it needs, shown once a run starts.
+    const gx0=area+24,gx1=width-24,gtop=78,gbot=height-58,gw=Math.min(80,gx1-gx0);
+    fit(text('gaugeTitle'),area+8,44,'#d1e3ed',10,width-area-16);
+    if(!begun){fit(text('gaugeHint'),area+8,70,'#9fb6c7',10,width-area-16);return;}
+    const tau=model.torque(t),top=Math.max(c.need,model.peak())*1.15,GY=v=>gbot-v/top*(gbot-gtop),cx=gx0+(gx1-gx0-gw)/2;
+    ctx.fillStyle='#173246';ctx.fillRect(cx,gtop,gw,gbot-gtop);ctx.fillStyle='#75efc7';ctx.fillRect(cx,GY(tau),gw,gbot-GY(tau));
+    line([{x:cx-10,y:GY(c.need)},{x:cx+gw+10,y:GY(c.need)}],'#efb958',2,[6,4]);
+    fit(text('needLabel')+' '+plain(c.need),cx+gw/2,GY(c.need)-8,'#efb958',10,gx1-gx0+20,'center');
+    fit('τ = '+number(tau,1),cx+gw/2,gbot+16,'#75efc7',10,gx1-gx0+20,'center');
+  }
+  function frame(now){if(previous===null)previous=now;const elapsed=Math.min(.1,(now-previous)/1000);previous=now;if(running){accumulator+=elapsed;while(accumulator>=H&&running){accumulator-=H;simulate(H);}draw();}if(now-lastUpdate>=80){update();lastUpdate=now;}requestAnimationFrame(frame);}
+  window.addEventListener('resize',resize);if(typeof ResizeObserver!=='undefined')new ResizeObserver(resize).observe(canvas);
+  sync();setRunning(false);update();resize();requestAnimationFrame(frame);
+})();
+</script>
+</body>
+</html>

@@ -1,6 +1,6 @@
 # Phisicos — multilingual educational simulation games
 
-A static homepage linked to Train Track, Lift Trips, Dog Walk, the speed and velocity lab, Pac-Man chase, Graph Rider, Galileo's Bells, Stop on the Line, Drop Test, Straight Up, Reaction Ruler, Lunar Lander: Eco-Mission, Unit Pipeline, the Powers-of-Ten Probe, Formula Balance, Undo Machine, Formula Test Drive, River Crossing, Orienteering Walk, Force Table, Loading Ramp, Lighthouse Rescue, Ferris Wheel, Air Drop, Two Shadows, and Range Cannon. The header lists every game in a localized Games menu. The implementation preserves both physics engines and generates searchable HTML in English, Spanish, French, German, Dutch, Finnish, Norwegian Bokmål, Danish, Brazilian Portuguese, Hindi, and Japanese. No runtime dependencies or translation services are required.
+A static homepage linked to Train Track, Lift Trips, Dog Walk, the speed and velocity lab, Pac-Man chase, Graph Rider, Galileo's Bells, Stop on the Line, Drop Test, Straight Up, Reaction Ruler, Lunar Lander: Eco-Mission, Unit Pipeline, the Powers-of-Ten Probe, Formula Balance, Undo Machine, Formula Test Drive, River Crossing, Orienteering Walk, Force Table, Loading Ramp, Lighthouse Rescue, Ferris Wheel, Air Drop, Two Shadows, Range Cannon, Carousel, Spin Station, Curve Ahead, Planet Scale, Satellite Launch, and Kepler's Clock. The header lists every game in a localized Games menu. The implementation preserves both physics engines and generates searchable HTML in English, Spanish, French, German, Dutch, Finnish, Norwegian Bokmål, Danish, Brazilian Portuguese, Hindi, and Japanese. No runtime dependencies or translation services are required.
 
 ## Local preview
 
@@ -38,25 +38,25 @@ English stays at `/`; there is no duplicate `/en/` homepage. Every localized pag
 
 ## Topics
 
-Games are grouped into six topics: Motion (Train Track, Lift Trips, Dog Walk, speed & velocity, Graph Rider, Galileo's Bells, Stop on the Line, Drop Test, Straight Up, Reaction Ruler, Lunar Lander), Measurement (Unit Pipeline, Powers-of-Ten Probe), Formulas (Formula Balance, Undo Machine, Formula Test Drive), Vectors (River Crossing, Orienteering Walk, Force Table), Trigonometry (Loading Ramp, Lighthouse Rescue, Ferris Wheel), and Projectile motion (Air Drop, Two Shadows, Range Cannon). Each game route nests under its topic: `<games index>/<topic>/<game>/`. The games index lists the topics, and each topic page lists its games in the suggested playing order, followed by the other topics. Breadcrumbs (visible and in JSON-LD) follow the URL: Home / Topics / topic / game. The header has a Topics link and a Games menu grouped by topic. The homepage shows the topic tiles first, then every game card under its topic heading.
+Games are grouped into fifteen topics: Motion (Train Track, Lift Trips, Dog Walk, speed & velocity, Graph Rider, Galileo's Bells, Stop on the Line, Drop Test, Straight Up, Reaction Ruler, Lunar Lander), Measurement (Unit Pipeline, Powers-of-Ten Probe), Formulas (Formula Balance, Undo Machine, Formula Test Drive), Vectors (River Crossing, Orienteering Walk, Force Table), Trigonometry (Loading Ramp, Lighthouse Rescue, Ferris Wheel), Projectile motion (Air Drop, Two Shadows, Range Cannon), Circular motion (Carousel, Spin Station, Curve Ahead), Gravitation (Planet Scale, Satellite Launch, Kepler's Clock), Statics (Hanging Sign, Seesaw, Plank Bridge), Torque and rotation (Stuck Bolt, Forklift, Flywheel Race, Lever Lab, Force for Distance), Centre of mass (Balance Point, Hanging Mobile, Block Tower), Fluids (Density Detective, Barge Load, Deep Dive, Weighed Under Water, Balloon Lift, Torricelli's Tube, Magdeburg Hemispheres, Hydraulic Lift, Pascal's Barrel), Fluids in motion (Leaky Tank, Venturi Pipe, Storm and Wing), Oscillations (Metronome Studio, Harbour Buoy, Seismograph, Pendulum Clock, Wrecking Ball, Big and Fading Swings, Spring Bounce, Spring Shop, Spring Launcher, Swing and Resonance), and Waves (Rope Pulse, Pebble Ripples, Power on a Rope, Ripple Tank Ruler, Wave Machine, String Tuner, Strobe Freeze, Surfer's Wait, Tide Clock, Rope Tension Lab, Tsunami Race, Slinky Lab, Earthquake P and S, Echo Sounder, Bank Shot Ripples, Shallow Beach, Spearfishing, Two Speakers, Beat Tuner, Harbour Gap, Laser Slit, Ambulance Pass-by, Paddling Duck, Decibel Meter, Bottle Flute, Antenna Workshop, Sound in Slow Motion). Each game route nests under its topic: `<games index>/<topic>/<game>/`. The games index lists the topics, and each topic page lists its games in the suggested playing order, followed by the other topics. Breadcrumbs (visible and in JSON-LD) follow the URL: Home / Topics / topic / game. The header has a Topics link and a Games menu grouped by topic. The homepage shows the topic tiles first, then every game card under its topic heading.
 
-| Language | Topics index | Motion | Measurement | Formulas | Vectors | Trigonometry | Projectile motion |
-| --- | --- | --- | --- | --- | --- | --- | --- |
-| English | `/games/` | `/games/motion/` | `/games/measurement/` | `/games/formulas/` | `/games/vectors/` | `/games/trigonometry/` | `/games/projectile-motion/` |
-| Español | `/es/juegos/` | `/es/juegos/movimiento/` | `/es/juegos/medicion/` | `/es/juegos/despeje-de-formulas/` | `/es/juegos/vectores/` | `/es/juegos/trigonometria/` | `/es/juegos/movimiento-parabolico/` |
-| Français | `/fr/jeux/` | `/fr/jeux/mouvement/` | `/fr/jeux/mesure/` | `/fr/jeux/formules/` | `/fr/jeux/vecteurs/` | `/fr/jeux/trigonometrie/` | `/fr/jeux/mouvement-parabolique/` |
-| Deutsch | `/de/spiele/` | `/de/spiele/bewegung/` | `/de/spiele/messen/` | `/de/spiele/formeln/` | `/de/spiele/vektoren/` | `/de/spiele/trigonometrie/` | `/de/spiele/wurfbewegung/` |
-| Nederlands | `/nl/spellen/` | `/nl/spellen/beweging/` | `/nl/spellen/meten/` | `/nl/spellen/formules/` | `/nl/spellen/vectoren/` | `/nl/spellen/goniometrie/` | `/nl/spellen/worpen/` |
-| Suomi | `/fi/pelit/` | `/fi/pelit/liike/` | `/fi/pelit/mittaaminen/` | `/fi/pelit/kaavat/` | `/fi/pelit/vektorit/` | `/fi/pelit/trigonometria/` | `/fi/pelit/heittoliike/` |
-| Norsk bokmål | `/nb/spill/` | `/nb/spill/bevegelse/` | `/nb/spill/maling/` | `/nb/spill/formler/` | `/nb/spill/vektorer/` | `/nb/spill/trigonometri/` | `/nb/spill/kastebevegelse/` |
-| Dansk | `/da/spil/` | `/da/spil/bevaegelse/` | `/da/spil/maaling/` | `/da/spil/formler/` | `/da/spil/vektorer/` | `/da/spil/trigonometri/` | `/da/spil/kastebevaegelse/` |
-| Português | `/pt/jogos/` | `/pt/jogos/movimento/` | `/pt/jogos/medicao/` | `/pt/jogos/formulas/` | `/pt/jogos/vetores/` | `/pt/jogos/trigonometria/` | `/pt/jogos/movimento-parabolico/` |
-| हिन्दी | `/hi/khel/` | `/hi/khel/gati/` | `/hi/khel/mapan/` | `/hi/khel/sutra/` | `/hi/khel/sadish/` | `/hi/khel/trikonmiti/` | `/hi/khel/prakshepya-gati/` |
-| 日本語 | `/ja/gemu/` | `/ja/gemu/undo/` | `/ja/gemu/sokutei/` | `/ja/gemu/koshiki/` | `/ja/gemu/bekutoru/` | `/ja/gemu/sankakuhi/` | `/ja/gemu/hoshabutsu-undo/` |
+| Language | Topics index | Motion | Measurement | Formulas | Vectors | Trigonometry | Projectile motion | Circular motion | Gravitation | Statics | Torque and rotation | Centre of mass | Fluids | Fluids in motion | Oscillations | Waves |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| English | `/games/` | `/games/motion/` | `/games/measurement/` | `/games/formulas/` | `/games/vectors/` | `/games/trigonometry/` | `/games/projectile-motion/` | `/games/circular-motion/` | `/games/gravitation/` | `/games/statics/` | `/games/torque-and-rotation/` | `/games/centre-of-mass/` | `/games/fluids/` | `/games/fluids-in-motion/` | `/games/oscillations/` | `/games/waves/` |
+| Español | `/es/juegos/` | `/es/juegos/movimiento/` | `/es/juegos/medicion/` | `/es/juegos/despeje-de-formulas/` | `/es/juegos/vectores/` | `/es/juegos/trigonometria/` | `/es/juegos/movimiento-parabolico/` | `/es/juegos/movimiento-circular/` | `/es/juegos/gravitacion/` | `/es/juegos/estatica/` | `/es/juegos/momento-y-rotacion/` | `/es/juegos/centro-de-masa/` | `/es/juegos/fluidos/` | `/es/juegos/fluidos-en-movimiento/` | `/es/juegos/oscilaciones/` | `/es/juegos/ondas/` |
+| Français | `/fr/jeux/` | `/fr/jeux/mouvement/` | `/fr/jeux/mesure/` | `/fr/jeux/formules/` | `/fr/jeux/vecteurs/` | `/fr/jeux/trigonometrie/` | `/fr/jeux/mouvement-parabolique/` | `/fr/jeux/mouvement-circulaire/` | `/fr/jeux/gravitation/` | `/fr/jeux/statique/` | `/fr/jeux/moment-et-rotation/` | `/fr/jeux/centre-de-masse/` | `/fr/jeux/fluides/` | `/fr/jeux/fluides-en-mouvement/` | `/fr/jeux/oscillations/` | `/fr/jeux/ondes/` |
+| Deutsch | `/de/spiele/` | `/de/spiele/bewegung/` | `/de/spiele/messen/` | `/de/spiele/formeln/` | `/de/spiele/vektoren/` | `/de/spiele/trigonometrie/` | `/de/spiele/wurfbewegung/` | `/de/spiele/kreisbewegung/` | `/de/spiele/gravitation/` | `/de/spiele/statik/` | `/de/spiele/drehmoment-und-rotation/` | `/de/spiele/schwerpunkt/` | `/de/spiele/fluessigkeiten/` | `/de/spiele/stroemungen/` | `/de/spiele/schwingungen/` | `/de/spiele/wellen/` |
+| Nederlands | `/nl/spellen/` | `/nl/spellen/beweging/` | `/nl/spellen/meten/` | `/nl/spellen/formules/` | `/nl/spellen/vectoren/` | `/nl/spellen/goniometrie/` | `/nl/spellen/worpen/` | `/nl/spellen/cirkelbeweging/` | `/nl/spellen/gravitatie/` | `/nl/spellen/statica/` | `/nl/spellen/moment-en-rotatie/` | `/nl/spellen/massamiddelpunt/` | `/nl/spellen/vloeistoffen/` | `/nl/spellen/stromingen/` | `/nl/spellen/trillingen/` | `/nl/spellen/golven/` |
+| Suomi | `/fi/pelit/` | `/fi/pelit/liike/` | `/fi/pelit/mittaaminen/` | `/fi/pelit/kaavat/` | `/fi/pelit/vektorit/` | `/fi/pelit/trigonometria/` | `/fi/pelit/heittoliike/` | `/fi/pelit/ympyraliike/` | `/fi/pelit/gravitaatio/` | `/fi/pelit/statiikka/` | `/fi/pelit/momentti-ja-pyoriminen/` | `/fi/pelit/massakeskipiste/` | `/fi/pelit/nesteet/` | `/fi/pelit/virtaukset/` | `/fi/pelit/varahtelut/` | `/fi/pelit/aallot/` |
+| Norsk bokmål | `/nb/spill/` | `/nb/spill/bevegelse/` | `/nb/spill/maling/` | `/nb/spill/formler/` | `/nb/spill/vektorer/` | `/nb/spill/trigonometri/` | `/nb/spill/kastebevegelse/` | `/nb/spill/sirkelbevegelse/` | `/nb/spill/gravitasjon/` | `/nb/spill/statikk/` | `/nb/spill/dreiemoment-og-rotasjon/` | `/nb/spill/massesenter/` | `/nb/spill/vaesker/` | `/nb/spill/stromninger/` | `/nb/spill/svingninger/` | `/nb/spill/bolger/` |
+| Dansk | `/da/spil/` | `/da/spil/bevaegelse/` | `/da/spil/maaling/` | `/da/spil/formler/` | `/da/spil/vektorer/` | `/da/spil/trigonometri/` | `/da/spil/kastebevaegelse/` | `/da/spil/cirkelbevaegelse/` | `/da/spil/gravitation/` | `/da/spil/statik/` | `/da/spil/kraftmoment-og-rotation/` | `/da/spil/massemidtpunkt/` | `/da/spil/vaesker/` | `/da/spil/stromninger/` | `/da/spil/svingninger/` | `/da/spil/bolger/` |
+| Português | `/pt/jogos/` | `/pt/jogos/movimento/` | `/pt/jogos/medicao/` | `/pt/jogos/formulas/` | `/pt/jogos/vetores/` | `/pt/jogos/trigonometria/` | `/pt/jogos/movimento-parabolico/` | `/pt/jogos/movimento-circular/` | `/pt/jogos/gravitacao/` | `/pt/jogos/estatica/` | `/pt/jogos/torque-e-rotacao/` | `/pt/jogos/centro-de-massa/` | `/pt/jogos/fluidos/` | `/pt/jogos/fluidos-em-movimento/` | `/pt/jogos/oscilacoes/` | `/pt/jogos/ondas/` |
+| हिन्दी | `/hi/khel/` | `/hi/khel/gati/` | `/hi/khel/mapan/` | `/hi/khel/sutra/` | `/hi/khel/sadish/` | `/hi/khel/trikonmiti/` | `/hi/khel/prakshepya-gati/` | `/hi/khel/vrittiya-gati/` | `/hi/khel/gurutvakarshan/` | `/hi/khel/sthitiki/` | `/hi/khel/bal-aghurn-aur-ghurnan/` | `/hi/khel/dravyaman-kendra/` | `/hi/khel/taral/` | `/hi/khel/bahte-taral/` | `/hi/khel/dolan/` | `/hi/khel/tarangen/` |
+| 日本語 | `/ja/gemu/` | `/ja/gemu/undo/` | `/ja/gemu/sokutei/` | `/ja/gemu/koshiki/` | `/ja/gemu/bekutoru/` | `/ja/gemu/sankakuhi/` | `/ja/gemu/hoshabutsu-undo/` | `/ja/gemu/en-undo/` | `/ja/gemu/banyu-inryoku/` | `/ja/gemu/tsuriai/` | `/ja/gemu/moment-to-kaiten/` | `/ja/gemu/juushin/` | `/ja/gemu/ryutai/` | `/ja/gemu/ryutai-no-nagare/` | `/ja/gemu/shindo/` | `/ja/gemu/nami/` |
 
 - `locales/topics.cjs`: topic membership and order, localized slugs, names, page titles, descriptions, and interface words. A game belongs to exactly one topic; the build fails otherwise.
 - `locales/site.cjs`: every page kind on the site, which ones are collections, and each game’s topic. The build and all checks read the page list from here.
-- `locales/tags.cjs`: collections, which group games across topics without moving them. A game keeps its topic route and breadcrumbs, and its page gets an "Also in" link to every collection that lists it. Each collection page lives beside the topic pages (`<games index>/<slug>/`, breadcrumbs Home / Topics / collection) with the key equations, the game cards, and a note on how each game uses the idea. Collection tiles appear on the topics index and on every topic page that shares a game. The build fails if a collection lists an unknown game, misses a note, or reuses a topic slug. The first collection is **uniform linear motion (MRU)**: Train Track, Dog Walk, Lift Trips, Speed & velocity, and the Powers-of-Ten Probe, at `/games/uniform-motion/`, `/es/juegos/movimiento-rectilineo-uniforme/`, `/fr/jeux/mouvement-rectiligne-uniforme/`, `/de/spiele/gleichfoermige-bewegung/`, `/nl/spellen/eenparige-beweging/`, `/fi/pelit/tasainen-liike/`, `/nb/spill/jevn-bevegelse/`, `/da/spil/jaevn-bevaegelse/`, `/pt/jogos/movimento-retilineo-uniforme/`, `/hi/khel/ekasaman-rekhiya-gati/`, and `/ja/gemu/tosoku-chokusen-undo/`.
+- `locales/tags.cjs`: collections, which group games across topics without moving them. A game keeps its topic route and breadcrumbs, and its page gets an "Also in" link to every collection that lists it. Each collection page lives beside the topic pages (`<games index>/<slug>/`, breadcrumbs Home / Topics / collection) with the key equations, the game cards, and a note on how each game uses the idea. Collection tiles appear on the topics index and on every topic page that shares a game. The build fails if a collection lists an unknown game, misses a note, or reuses a topic slug. The first collection is **uniform linear motion (MRU)**: Train Track, Dog Walk, Lift Trips, Speed & velocity, and the Powers-of-Ten Probe, at `/games/uniform-motion/`, `/es/juegos/movimiento-rectilineo-uniforme/`, `/fr/jeux/mouvement-rectiligne-uniforme/`, `/de/spiele/gleichfoermige-bewegung/`, `/nl/spellen/eenparige-beweging/`, `/fi/pelit/tasainen-liike/`, `/nb/spill/jevn-bevegelse/`, `/da/spil/jaevn-bevaegelse/`, `/pt/jogos/movimento-retilineo-uniforme/`, `/hi/khel/ekasaman-rekhiya-gati/`, and `/ja/gemu/tosoku-chokusen-undo/`. The second is **force equilibrium**: Force Table (from Vectors) with Hanging Sign, Seesaw, and Plank Bridge, at `/games/force-equilibrium/`, `/es/juegos/equilibrio-de-fuerzas/`, `/fr/jeux/equilibre-des-forces/`, `/de/spiele/kraeftegleichgewicht/`, `/nl/spellen/krachtenevenwicht/`, `/fi/pelit/voimien-tasapaino/`, `/nb/spill/kraftlikevekt/`, `/da/spil/kraftligevaegt/`, `/pt/jogos/equilibrio-de-forcas/`, `/hi/khel/bal-santulan/`, and `/ja/gemu/chikara-no-tsuriai/`.
 - `locales/legacy-routes.cjs`: game routes before topic browsing (October 2026). The hosting build turns each into a one-hop 301 redirect to the game’s current route (with or without a trailing slash or `index.html`, keeping the query string). Keep this file when adding games; add an entry only if a published route moves again.
 
 To add a game, register it in `locales/games.cjs`, add its kind to one topic in `locales/topics.cjs`, and give its locale routes the form `<games index>/<topic slug>/<game slug>/`.
@@ -65,9 +65,9 @@ To add a game, register it in `locales/games.cjs`, add its kind to one topic in 
 
 The primary keyword across the site is **educational simulation games**. The homepage title, H1, description, collection heading, and navigation label target it directly; each game page targets **educational simulation game** plus its topic (speed and velocity, or gravity for Lunar Lander). Localized equivalents: *juegos de simulación educativos* (es), *jeux de simulation éducatifs* (fr), *Simulationsspiele zum Lernen* (de), *educatieve simulatiespellen* (nl), *opetukselliset simulaatiopelit* (fi), *pedagogiske simuleringsspill* (nb), *pædagogiske simulationsspil* (da), *jogos de simulação educativos* (pt), *शैक्षिक सिमुलेशन गेम* (hi), and *教育用シミュレーションゲーム* (ja). Physics terms stay as secondary keywords. Each page has a unique title and description, one H1, semantic headings and landmarks, crawlable internal links, and localized instructions. The game page includes a worked relative-speed example and questions about average speed, average velocity, and direction. Editorial content is in the initial HTML and does not depend on JavaScript or Canvas rendering.
 
-Metadata includes Open Graph, Twitter large-image cards, a local 1200 × 630 sharing image, site icons, and JSON-LD (`WebSite`, `CollectionPage` or `WebPage` with the localized primary keyword in `keywords`, `BreadcrumbList`, and `VideoGame` on the game page). No invented ratings, reviews, offers, or rich-result promises are included. `sitemap.xml` contains only the 374 canonical pages; the error page and legacy snapshots are excluded. There is no obsolete keywords meta tag.
+Metadata includes Open Graph, Twitter large-image cards, a local 1200 × 630 sharing image, site icons, and JSON-LD (`WebSite`, `CollectionPage` or `WebPage` with the localized primary keyword in `keywords`, `BreadcrumbList`, and `VideoGame` on the game page). No invented ratings, reviews, offers, or rich-result promises are included. `sitemap.xml` contains only the 1210 canonical pages; the error page and legacy snapshots are excluded. There is no obsolete keywords meta tag.
 
-System fonts and shared styles are local. Production pages load Google Tag Manager container `GTM-TZH7L6DT` asynchronously, with the standard noscript fallback immediately after the opening body tag. The build adds it once to all 374 localized pages and the 404 page; preview builds omit tracking. Tags are managed and published in the GTM account. Game code remains small and self-contained. Locale-specific numbers use decimal commas where appropriate, with semicolons between vector components to avoid ambiguity. Long translated labels can wrap on narrow screens. Keyboard controls, native language navigation, canvas descriptions, and screen-reader announcements are preserved and localized.
+System fonts and shared styles are local. Production pages load Google Tag Manager container `GTM-TZH7L6DT` asynchronously, with the standard noscript fallback immediately after the opening body tag. The build adds it once to all 1210 localized pages and the 404 page; preview builds omit tracking. Tags are managed and published in the GTM account. Game code remains small and self-contained. Locale-specific numbers use decimal commas where appropriate, with semicolons between vector components to avoid ambiguity. Long translated labels can wrap on narrow screens. Keyboard controls, native language navigation, canvas descriptions, and screen-reader announcements are preserved and localized.
 
 Reference guidance: [Google SEO Starter Guide](https://developers.google.com/search/docs/fundamentals/seo-starter-guide), [Managing multilingual sites](https://developers.google.com/search/docs/specialty/international/managing-multi-regional-sites), [Localized versions and hreflang](https://developers.google.com/search/docs/specialty/international/localized-versions).
 
@@ -329,3 +329,675 @@ The Projectile motion topic (*movimiento parabólico*) comes last, after Vectors
 **Range Cannon**: range and launch angle, R = v₀²·sin(2θ) ÷ g. Missions ask for a range, the complementary angle that lands in the same spot, the maximum range (45°), the angle that hits a target (either root counts, within 0.5°), and the speed for a 45° shot. An angle or speed answer aims the cannon; a range answer plants a flag. After each landing a small graph draws R(θ) for that speed, with the shot marked. Slips recognized: sin θ instead of sin 2θ, half the range, the maximum at the wrong angle, the same angle again, 45° for the other angle, v₀² ÷ (2g) or 2v₀² ÷ g for the maximum, 2θ instead of θ, an answer in radians, and a factor 2 in the speed.
 
 - `verify-airdrop.cjs`, `verify-shadows.cjs`, `verify-cannon.cjs`: model checks (independent components, exact top and landing events inside long steps, timestep independence, complementary angles and the 45° maximum, slip detection, scoring, input validation, state transfer) and localized interface checks in all eleven languages. All run in `npm test`.
+
+## Circular motion games: Carousel, Spin Station, Curve Ahead
+
+The Circular motion topic (*movimiento circular*) comes after Projectile motion. Its games cover uniform circular motion, angular velocity, centripetal acceleration, centripetal force, and two applications: artificial gravity on a spinning space station and the top speed of a car on a flat curve. They use the same template pipeline as the other module games. In all three, a run counts as an attempt as soon as it starts, because a measurement shown during the run would otherwise give the answer away.
+
+| Language | Carousel | Spin Station | Curve Ahead |
+| --- | --- | --- | --- |
+| English | `/games/circular-motion/carousel/` | `/games/circular-motion/spin-station/` | `/games/circular-motion/curve-ahead/` |
+| Español | `/es/juegos/movimiento-circular/carrusel/` | `/es/juegos/movimiento-circular/estacion-espacial-giratoria/` | `/es/juegos/movimiento-circular/curva-peligrosa/` |
+| Français | `/fr/jeux/mouvement-circulaire/manege/` | `/fr/jeux/mouvement-circulaire/station-spatiale-tournante/` | `/fr/jeux/mouvement-circulaire/virage-serre/` |
+| Deutsch | `/de/spiele/kreisbewegung/karussell/` | `/de/spiele/kreisbewegung/rotierende-raumstation/` | `/de/spiele/kreisbewegung/kurvenfahrt/` |
+| Nederlands | `/nl/spellen/cirkelbeweging/draaimolen/` | `/nl/spellen/cirkelbeweging/draaiend-ruimtestation/` | `/nl/spellen/cirkelbeweging/scherpe-bocht/` |
+| Suomi | `/fi/pelit/ympyraliike/karuselli/` | `/fi/pelit/ympyraliike/pyoriva-avaruusasema/` | `/fi/pelit/ympyraliike/jyrkka-mutka/` |
+| Norsk bokmål | `/nb/spill/sirkelbevegelse/karusell/` | `/nb/spill/sirkelbevegelse/roterende-romstasjon/` | `/nb/spill/sirkelbevegelse/skarp-sving/` |
+| Dansk | `/da/spil/cirkelbevaegelse/karrusel/` | `/da/spil/cirkelbevaegelse/roterende-rumstation/` | `/da/spil/cirkelbevaegelse/skarpt-sving/` |
+| Português | `/pt/jogos/movimento-circular/carrossel/` | `/pt/jogos/movimento-circular/estacao-espacial-giratoria/` | `/pt/jogos/movimento-circular/curva-perigosa/` |
+| हिन्दी | `/hi/khel/vrittiya-gati/merry-go-round/` | `/hi/khel/vrittiya-gati/ghoomta-antariksh-station/` | `/hi/khel/vrittiya-gati/sadak-ka-mod/` |
+| 日本語 | `/ja/gemu/en-undo/merry-go-round/` | `/ja/gemu/en-undo/kaiten-uchu-station/` | `/ja/gemu/en-undo/kabu/` |
+
+**Carousel**: uniform circular motion and angular velocity, θ = ω·t, v = ω·r, T = 2π ÷ ω. Missions ask for the period of one lap, the angular velocity from the period, the speed of a drone that must stay above a horse, the angle turned in degrees, and the time to reach a gate at 270°. A time answer stops the ride, an angular velocity spins it, a speed flies the drone, and an angle plants a flag. A θ–t graph draws a straight line whose slope is ω. Slips recognized: r ÷ v, half a lap, the circumference as a time, the frequency for the period, ω in degrees per second, the frequency or laps per minute for ω, T ÷ 2π, ω ÷ r, r ÷ ω, ω in degrees per second for the speed, an extra 2π, an angle left in radians, ω ÷ t, t ÷ ω, degrees divided by rad/s, and θ·ω for a time.
+
+**Spin Station**: centripetal acceleration, a = v² ÷ r = ω²·r, felt as artificial gravity. Missions ask for the acceleration from the rim speed and from the spin rate, then the spin rate and the period that give Earth gravity, and the radius that gives Moon gravity with a 60 s turn. An acceleration answer marks a dial; a spin rate, period, or radius sets up the station. The dial reads the floor's push per kilogram once a spin starts. Slips recognized: v ÷ r, v²·r, v² ÷ 2r, ω·r, (ω·r)², ω² ÷ r, a ÷ r without the root, √(r ÷ a) for ω, √(r ÷ a) or 2π·r ÷ a for the period, and the rim speed for the radius.
+
+**Curve Ahead**: centripetal force from tyre friction, F = m·v² ÷ r ≤ μ·m·g, so the top speed is v = √(μ·g·r) for any mass. Missions ask for the sideways force, the top speed, the tightest curve, the top speed on a wet road (μ halved), and the top speed of a heavy truck. With too little grip the car follows a wider circle, R = m·v² ÷ (μ·m·g), and either runs wide or slides off the outside of the road. Slips recognized: m·v ÷ r, v² ÷ r, the weight m·g, m·v², a factor ½, v² for v, √(g·r), v² ÷ g, v ÷ (μ·g), μ·v² ÷ g, half the speed or the same speed on a wet road, a heavier truck taking the curve more slowly, and a safe answer that is not the limit.
+
+- `verify-carousel.cjs`, `verify-station.cjs`, `verify-curve.cjs`: model checks (uniform rotation, exact laps, turns, curve entry and road exit inside long steps, timestep independence, the wider circle of a skid, mass cancelling, playback factors, slip detection, scoring, input validation, state transfer) and localized interface checks in all eleven languages. All run in `npm test`.
+
+## Gravitation games: Planet Scale, Satellite Launch, Kepler's Clock
+
+The Gravitation topic (*gravitación*) comes last, after Circular motion, because orbits combine universal gravitation with the centripetal force. Every game applies F = G·M·m ÷ r² with r measured from the centre of the attracting body. As in Circular motion, a run counts as an attempt as soon as it starts.
+
+| Language | Planet Scale | Satellite Launch | Kepler's Clock |
+| --- | --- | --- | --- |
+| English | `/games/gravitation/planet-scale/` | `/games/gravitation/satellite-launch/` | `/games/gravitation/kepler-clock/` |
+| Español | `/es/juegos/gravitacion/bascula-planetaria/` | `/es/juegos/gravitacion/lanza-el-satelite/` | `/es/juegos/gravitacion/reloj-de-kepler/` |
+| Français | `/fr/jeux/gravitation/balance-planetaire/` | `/fr/jeux/gravitation/lancement-de-satellite/` | `/fr/jeux/gravitation/horloge-de-kepler/` |
+| Deutsch | `/de/spiele/gravitation/planetenwaage/` | `/de/spiele/gravitation/satellitenstart/` | `/de/spiele/gravitation/kepler-uhr/` |
+| Nederlands | `/nl/spellen/gravitatie/planetenweegschaal/` | `/nl/spellen/gravitatie/satellietlancering/` | `/nl/spellen/gravitatie/keplerklok/` |
+| Suomi | `/fi/pelit/gravitaatio/planeettavaaka/` | `/fi/pelit/gravitaatio/satelliitin-laukaisu/` | `/fi/pelit/gravitaatio/keplerin-kello/` |
+| Norsk bokmål | `/nb/spill/gravitasjon/planetvekt/` | `/nb/spill/gravitasjon/satellittoppskyting/` | `/nb/spill/gravitasjon/kepler-klokke/` |
+| Dansk | `/da/spil/gravitation/planetvaegt/` | `/da/spil/gravitation/satellitopsendelse/` | `/da/spil/gravitation/kepler-ur/` |
+| Português | `/pt/jogos/gravitacao/balanca-planetaria/` | `/pt/jogos/gravitacao/lancamento-de-satelite/` | `/pt/jogos/gravitacao/relogio-de-kepler/` |
+| हिन्दी | `/hi/khel/gurutvakarshan/grah-taraju/` | `/hi/khel/gurutvakarshan/upgrah-prakshepan/` | `/hi/khel/gurutvakarshan/kepler-ghadi/` |
+| 日本語 | `/ja/gemu/banyu-inryoku/wakusei-no-hakari/` | `/ja/gemu/banyu-inryoku/jinko-eisei/` | `/ja/gemu/banyu-inryoku/kepler-dokei/` |
+
+**Planet Scale**: surface gravity, g = G·M ÷ R², and weight against mass. On the Moon, Mars, and an imagined super-Earth (8 M⊕, 2 R⊕), a ball falls 2 m while a 70 kg astronaut stands on a scale. Missions ask for g on the Moon, the astronaut's weight on Mars, the astronaut's mass on Mars (still 70 kg), the fall time on the Moon, and g on the super-Earth. Slips recognized: R instead of R², R in km, Earth's g, mass given as weight, Earth's weight, g for W, dividing by Earth's g, weight given as mass, a shrunken mass, no square root or no 2 in the fall time, Earth's fall time, and scaling g by the mass or the radius only, or by R instead of R².
+
+**Satellite Launch**: Newton's law of universal gravitation, F = G·M·m ÷ r², with r measured from Earth's centre. Missions ask for the pull on a satellite 400 km up, the pull at twice the distance (a quarter), the acceleration due to gravity 1000 km up, the launch speed for a circular orbit, v = √(G·M ÷ r), and the geostationary radius, r = ∛(G·M·T² ÷ 4π²). Force and gravity answers are checked against the measurement and plotted on an inverse-square graph drawn after the launch; a speed answer launches the satellite, which circles, crashes on an ellipse, flies out on a long ellipse, or escapes; a radius answer places a geostationary orbit over a city on the turning Earth. Paths are exact conics timed with Kepler's equation and drawn to scale. Slips recognized: the height instead of the distance from the centre (for F, g, v, and the geostationary radius), the surface value, r instead of r², kilometres in the formula, g for F, halving instead of quartering, the escape speed, and km/s for m/s.
+
+**Kepler's Clock**: Kepler's third law, T² = 4π²·r³ ÷ (G·M), on circular orbits. Missions ask for the Moon's period, Europa's period from Io's (T² ∝ r³), Jupiter's mass from Io's orbit, Earth's year, and Mars's distance from its 687 d period. A period answer runs the clock; the marked body should return exactly to the start mark. A mass answer sets Jupiter and a distance answer places Mars. After each run, a graph of (T ÷ T₁)² against (r ÷ r₁)³ puts every body on one line. Slips recognized: no 2π, hours for days, a period scaled linearly, squared, or inversely with distance, no 4π², T in days or hours or r in km for the mass, and a distance scaled linearly, as a square, or as a square root of the period.
+
+- `verify-planet.cjs`, `verify-orbit.cjs`, `verify-kepler.cjs`: model checks (inverse square law and unchanged mass, exact touchdowns, crashes, exits, orbits, and returns inside long steps, conserved energy and angular momentum, T² ÷ r³ shared by every body around one centre, the geostationary city, playback, slip detection, scoring, state transfer) and localized interface checks in all eleven languages. All run in `npm test`.
+
+## Statics games: Hanging Sign, Seesaw, Plank Bridge
+
+The Statics topic (*estática*) comes after Gravitation. Every game is about an object at rest: the forces cancel, ΣF = 0, and the moments cancel, ΣM = 0. Loads are applied slowly, so the system is in equilibrium at every moment; tensions, torques, and reactions stay hidden until a run starts, and a run counts as an attempt as soon as it starts. Failures (a cable snapping, a support cracking, a plank tipping) are solved exactly, and a value within 0.05% of a limit counts as holding, so a rounded right answer never fails. Force Table, in Vectors, joins the three in the force equilibrium collection.
+
+| Language | Hanging Sign | Seesaw | Plank Bridge |
+| --- | --- | --- | --- |
+| English | `/games/statics/hanging-sign/` | `/games/statics/seesaw/` | `/games/statics/plank-bridge/` |
+| Español | `/es/juegos/estatica/cartel-colgante/` | `/es/juegos/estatica/balancin/` | `/es/juegos/estatica/puente-de-tablon/` |
+| Français | `/fr/jeux/statique/enseigne-suspendue/` | `/fr/jeux/statique/bascule/` | `/fr/jeux/statique/pont-de-planche/` |
+| Deutsch | `/de/spiele/statik/haengeschild/` | `/de/spiele/statik/wippe/` | `/de/spiele/statik/brettbruecke/` |
+| Nederlands | `/nl/spellen/statica/hangend-uithangbord/` | `/nl/spellen/statica/wip/` | `/nl/spellen/statica/plankbrug/` |
+| Suomi | `/fi/pelit/statiikka/riippuva-kyltti/` | `/fi/pelit/statiikka/keinulauta/` | `/fi/pelit/statiikka/lankkusilta/` |
+| Norsk bokmål | `/nb/spill/statikk/hengende-skilt/` | `/nb/spill/statikk/vippehuske/` | `/nb/spill/statikk/plankebro/` |
+| Dansk | `/da/spil/statik/haengende-skilt/` | `/da/spil/statik/vippe/` | `/da/spil/statik/plankebro/` |
+| Português | `/pt/jogos/estatica/placa-pendurada/` | `/pt/jogos/estatica/gangorra/` | `/pt/jogos/estatica/ponte-de-tabua/` |
+| हिन्दी | `/hi/khel/sthitiki/latakta-board/` | `/hi/khel/sthitiki/see-saw/` | `/hi/khel/sthitiki/takhta-pul/` |
+| 日本語 | `/ja/gemu/tsuriai/tsuri-kanban/` | `/ja/gemu/tsuriai/shiiso/` | `/ja/gemu/tsuriai/ita-no-hashi/` |
+
+**Hanging Sign**: force equilibrium on a ring. A 20 kg sign hangs from one or two cables; the horizontal parts of the tensions cancel and the vertical parts carry the weight, T₁·cos θ₁ = T₂·cos θ₂ and T₁·sin θ₁ + T₂·sin θ₂ = W. Missions ask for the rating of one vertical cable (196 N), of two cables at 30° (196 N each), of two nearly flat cables at 10° (564.4 N), of the steeper cable when the two are at 30° and 60° (169.7 N), and for the shallowest angle 300 N cables allow (19.07°). A crane hands the weight to the cables over 2 s; a cable rated below its tension snaps exactly when the tension reaches the rating. A force triangle, W, T₁, and T₂ head to tail, closes as the forces cancel. Slips recognized: the mass in kg, half the weight on one cable, cos θ for sin θ, a missing factor 2, the whole weight, the other cable's tension, an even split between uneven cables, and a rating or angle that holds with room to spare.
+
+**Seesaw**: torque, M = F·d, and rotational equilibrium, ΣM = 0. Missions ask where a 40 kg child must sit to balance a 30 kg child (1.5 m), what mass balances (30 kg), a third child (36.1 kg), a mass when the plank's own 10 kg acts 1 m from the pivot (12.5 kg), and the lift at a wheelbarrow's handles (147 N). Pivot friction holds the plank while the torques differ by at most 2%; otherwise it turns from rest until its lower end touches the ground. Bars compare the counter-clockwise and clockwise torques. Slips recognized: an inverted ratio, equal distances or equal masses, adding masses instead of torques, a missing child, forgetting the plank or putting it on the wrong side, and lifting the whole load, an inverted lever, or half the load.
+
+**Plank Bridge**: support reactions from ΣF = 0 and ΣM = 0, R_B = (W·x + w·x_c) ÷ L and R_A = W + w − R_B. Missions ask for the rating support A needs under a crate in the middle (400 N), off centre (600 N), and on a 200 N plank (700 N), how far a 1200 N truck can drive before support B cracks (4.25 m), and how far past B a 600 N walker can go before the plank tips (0.5 m). A support cracks exactly at its rating; the plank tips over B exactly when R_A reaches zero. Bars show R_A and R_B against the ratings. Slips recognized: the whole load on one support, an even split for an off-centre load, the other support's share, forgetting the plank or putting all of it on A, ignoring the plank under the truck, driving to the end, an inverted lever or distances from the plank's end at the overhang, and a rating or stop with room to spare.
+
+- `verify-sign.cjs`, `verify-seesaw.cjs`, `verify-bridge.cjs`: model checks (ΣF = 0 on the ring, ΣM = 0 about the pivot and the supports, exact snaps, tipping, cracking, and touchdown inside long steps, timestep independence, friction and rounding margins, slip detection, scoring, input validation, state transfer) and localized interface checks in all eleven languages. All run in `npm test`.
+
+## Torque and rotation games: Stuck Bolt, Forklift, Flywheel Race
+
+The Torque and rotation topic (*momento y rotación*) comes after Statics. Seesaw introduces torque as weight × distance; these three games take it further: the lever arm of a slanted push, moments about the edge a vehicle tips over, and torque as the cause of angular acceleration, τ = I·α. Answers are typed, and a run counts as an attempt as soon as it starts; readings that are, or give away, the answer (torque, lever arm, moments, reactions, α, I) stay hidden until a run starts.
+
+| Language | Stuck Bolt | Forklift | Flywheel Race |
+| --- | --- | --- | --- |
+| English | `/games/torque-and-rotation/stuck-bolt/` | `/games/torque-and-rotation/forklift/` | `/games/torque-and-rotation/flywheel-race/` |
+| Español | `/es/juegos/momento-y-rotacion/perno-atascado/` | `/es/juegos/momento-y-rotacion/carretilla-elevadora/` | `/es/juegos/momento-y-rotacion/carrera-de-volantes/` |
+| Français | `/fr/jeux/moment-et-rotation/boulon-grippe/` | `/fr/jeux/moment-et-rotation/chariot-elevateur/` | `/fr/jeux/moment-et-rotation/course-de-volants/` |
+| Deutsch | `/de/spiele/drehmoment-und-rotation/festgerostete-schraube/` | `/de/spiele/drehmoment-und-rotation/gabelstapler/` | `/de/spiele/drehmoment-und-rotation/schwungrad-rennen/` |
+| Nederlands | `/nl/spellen/moment-en-rotatie/vastgeroeste-bout/` | `/nl/spellen/moment-en-rotatie/heftruck/` | `/nl/spellen/moment-en-rotatie/vliegwielrace/` |
+| Suomi | `/fi/pelit/momentti-ja-pyoriminen/jumittunut-pultti/` | `/fi/pelit/momentti-ja-pyoriminen/trukki/` | `/fi/pelit/momentti-ja-pyoriminen/vauhtipyorakisa/` |
+| Norsk bokmål | `/nb/spill/dreiemoment-og-rotasjon/fastrustet-bolt/` | `/nb/spill/dreiemoment-og-rotasjon/gaffeltruck/` | `/nb/spill/dreiemoment-og-rotasjon/svinghjulslop/` |
+| Dansk | `/da/spil/kraftmoment-og-rotation/fastrustet-bolt/` | `/da/spil/kraftmoment-og-rotation/gaffeltruck/` | `/da/spil/kraftmoment-og-rotation/svinghjulslob/` |
+| Português | `/pt/jogos/torque-e-rotacao/parafuso-emperrado/` | `/pt/jogos/torque-e-rotacao/empilhadeira/` | `/pt/jogos/torque-e-rotacao/corrida-de-volantes/` |
+| हिन्दी | `/hi/khel/bal-aghurn-aur-ghurnan/jaam-bolt/` | `/hi/khel/bal-aghurn-aur-ghurnan/forklift/` | `/hi/khel/bal-aghurn-aur-ghurnan/flywheel-daud/` |
+| 日本語 | `/ja/gemu/moment-to-kaiten/kochaku-boruto/` | `/ja/gemu/moment-to-kaiten/forkurifuto/` | `/ja/gemu/moment-to-kaiten/hazumi-guruma-kyoso/` |
+
+**Stuck Bolt**: torque from a push at a distance and an angle, τ = F·r·sin φ = F·d, with the lever arm d = r·sin φ drawn from the bolt to the line of the push. Missions ask for a square-on push (200 N), a push at 30° to the handle (400 N), the length of a cheater bar (0.8 m), the shallowest push a wall allows (30°), and the push per hand on a cross wrench, whose two torques add (220 N). The push grows steadily over 2 s; the bolt breaks loose exactly when the torque reaches the need, then turns a quarter turn in 1 s. An answer must break the bolt loose and be at most 2% above the least that does. Slips recognized: multiplying instead of dividing by the arm, the torque taken as the force, ignoring the angle, cos for sin, multiplying by sin φ, an inverted ratio, the pipe's overhang alone, a square-on push where a shallower one works, one hand doing all the work, and a push with room to spare.
+
+**Forklift**: moments about the front wheels, the edge the truck tips over. A 3000 kg truck has its centre of mass 0.8 m behind the front wheels and its rear wheels 1.6 m behind them; R_r·1.6 = M·g·0.8 + m_c·g·1.5 − m·g·x. Missions ask for the heaviest pallet 1.2 m out (2000 kg), how far out a 1500 kg crate can sit (1.6 m), the least counterweight 1.5 m back for 2500 kg at 1.2 m (400 kg), the rear wheels' push under 1200 kg at 1 m (7350 N), and a capacity plate read at a closer load centre (3000 kg). The forks take the load over 2 s; the truck tips exactly when R_r falls to zero, and the tipping is then drawn over 0.8 s as an illustration. Slips recognized: masses balanced instead of moments, an inverted ratio, a moment taken as a mass, equal arms, the truck's own moment forgotten, the load's arm used for the counterweight, a multiplied arm, the empty-forks reaction, adding the load's moment, subtracting weights, the plate's mass at any distance, and a limit with room to spare.
+
+**Flywheel Race**: Newton's second law for rotation, τ_net = I·α. A cord wound on a spool pulls with a constant force, τ = F·r; bearing friction is a constant torque against the motion, and a wheel at rest stays at rest while τ ≤ τ_f. Missions ask for the spin-up time to 12 rad/s (3 s), the pull that matches a pace wheel (25 N), where two 1 kg masses sit on the spokes so I = I₀ + 2·m·x² (0.3 m), the pull that beats 0.3 N·m of friction (11 N), and the pull that holds a steady 10 rad/s against friction (3 N, zero net torque). ω = ω₀ + α·t is exact, the target speed is reached exactly at t = (ω − ω₀) ÷ α, and a run ends there or after twice the pace time. A pace wheel spins up exactly on time beside the learner's wheel, and an ω–t graph is drawn as the wheels run. Answers are right within 2%. Slips recognized: the force taken as the torque (or the reverse), forgetting the inertia, an inverted ratio, skipping the time, a multiplied radius, forgetting the hub, one mass instead of two, distance not squared, ignoring friction or subtracting it, and no pull at all for a steady speed.
+
+- `verify-bolt.cjs`, `verify-forklift.cjs`, `verify-flywheel.cjs`: model checks (τ = F·r·sin φ and the couple, moments about the tipping edge and the rear-wheel reaction, τ_net = I·α with masses on the spokes and friction, exact breaking, tipping, arrival, and stopping inside long steps, timestep independence, rounding margins, slip detection, scoring, input validation, state transfer) and localized interface checks in all eleven languages. All run in `npm test`.
+
+## Lever games: Lever Lab, Force for Distance
+
+Two more Torque and rotation games are about levers (*palancas*). Seesaw and Stuck Bolt already use the law of the lever; these two cover all three classes of lever and what a lever trades. Answers are typed, and a run counts as an attempt as soon as it starts; readings that give the answer away (moments, mechanical advantage, distances moved, work) stay hidden until a run starts.
+
+| Language | Lever Lab | Force for Distance |
+| --- | --- | --- |
+| English | `/games/torque-and-rotation/lever-lab/` | `/games/torque-and-rotation/force-for-distance/` |
+| Español | `/es/juegos/momento-y-rotacion/laboratorio-de-palancas/` | `/es/juegos/momento-y-rotacion/fuerza-por-distancia/` |
+| Français | `/fr/jeux/moment-et-rotation/labo-des-leviers/` | `/fr/jeux/moment-et-rotation/force-contre-distance/` |
+| Deutsch | `/de/spiele/drehmoment-und-rotation/hebel-labor/` | `/de/spiele/drehmoment-und-rotation/kraft-gegen-weg/` |
+| Nederlands | `/nl/spellen/moment-en-rotatie/hefboomlab/` | `/nl/spellen/moment-en-rotatie/kracht-tegen-afstand/` |
+| Suomi | `/fi/pelit/momentti-ja-pyoriminen/vipulaboratorio/` | `/fi/pelit/momentti-ja-pyoriminen/voima-vai-matka/` |
+| Norsk bokmål | `/nb/spill/dreiemoment-og-rotasjon/vektstanglab/` | `/nb/spill/dreiemoment-og-rotasjon/kraft-mot-strekning/` |
+| Dansk | `/da/spil/kraftmoment-og-rotation/vaegtstangslab/` | `/da/spil/kraftmoment-og-rotation/kraft-mod-straekning/` |
+| Português | `/pt/jogos/torque-e-rotacao/laboratorio-de-alavancas/` | `/pt/jogos/torque-e-rotacao/forca-por-distancia/` |
+| हिन्दी | `/hi/khel/bal-aghurn-aur-ghurnan/uttolak-prayogshala/` | `/hi/khel/bal-aghurn-aur-ghurnan/bal-aur-doori/` |
+| 日本語 | `/ja/gemu/moment-to-kaiten/teko-no-jikkenshitsu/` | `/ja/gemu/moment-to-kaiten/chikara-to-kyori/` |
+
+**Lever Lab**: the law of the lever, F·d_e = W·d_l, in class 1, 2, and 3 levers, with mechanical advantage MA = d_e ÷ d_l. Missions ask for the push on a crowbar (200 N), the squeeze on a nutcracker (40 N), the biceps pull that holds a 49 N dumbbell in the hand (428.75 N, a class 3 lever with MA below 1), where to put the fulcrum under a 1.5 m bar so 300 N lifts 1200 N (d_l = 0.3 m), and how long an effort arm 400 N needs to lift 2400 N at 0.25 m (1.5 m). The effort grows steadily over 2 s; the load lifts exactly when F·d_e reaches W·d_l (within 0.05%, so a rounded answer still lifts) and then rises through 8° in 1 s, while a load that stays down is watched for 1 s. An answer must lift the load with at most 2% to spare. A moment gauge compares F·d_e with W·d_l once a run starts. Slips recognized: the full load as the effort, an inverted ratio (in class 1 or class 3), the arm measured between the load and the hand, the fulcrum in the middle, an inverted fulcrum split, the whole bar as the arm, and an answer with room to spare.
+
+**Force for Distance**: what a lever trades. Both ends turn through the same angle, so each moves d·sin θ and s_l ÷ s_e = d_l ÷ d_e at every moment; for a slow, frictionless lever the work in, F·s_e, equals the work out, W·s_l. Missions ask for how far your hand pushes a crowbar to raise a rock 4 cm (0.2 m), the work done lifting 600 N by 5 cm (30 J, with 200 N through 0.15 m on the effort side), how fast the hand rises when the biceps shortens at 1 cm/s (0.0875 m/s), how far a fishing rod's tip rises (1.6 m), and the push that raises 900 N by 0.1 m when the hand moves 0.6 m (150 N). One point is moved steadily for 2 s and the run ends exactly at 2 s. Bars compare the two distances, or the work in and out, once the lever moves. Answers are right within 2%. Slips recognized: an inverted ratio, the same distance on both ends (or the same speed), one side's force with the other side's distance, the load's force taken as the work, the full load as the push, and the work not divided by the distance.
+
+- `verify-lever.cjs`, `verify-tradeoff.cjs`: model checks (the law of the lever in all three classes, mechanical advantage, s_l ÷ s_e = d_l ÷ d_e and work in = work out at every moment, exact lifting and run ends inside long steps, timestep independence, rounding margins, slip detection, scoring, input validation, state transfer) and localized interface checks in all eleven languages. All run in `npm test`.
+
+## Centre of mass games: Balance Point, Hanging Mobile, Block Tower
+
+The Centre of mass topic (*centro de masa*) comes after Torque and rotation. All three games use one rule: an object stays put while its centre of mass, x_cm = Σm·x ÷ Σm, is over its support. Answers are typed and a run counts as an attempt as soon as it starts; the centre of mass, Σm·x, and the edge checks stay hidden until a run starts.
+
+| Language | Balance Point | Hanging Mobile | Block Tower |
+| --- | --- | --- | --- |
+| English | `/games/centre-of-mass/balance-point/` | `/games/centre-of-mass/hanging-mobile/` | `/games/centre-of-mass/block-tower/` |
+| Español | `/es/juegos/centro-de-masa/punto-de-equilibrio/` | `/es/juegos/centro-de-masa/movil-colgante/` | `/es/juegos/centro-de-masa/torre-de-bloques/` |
+| Français | `/fr/jeux/centre-de-masse/point-d-equilibre/` | `/fr/jeux/centre-de-masse/mobile-suspendu/` | `/fr/jeux/centre-de-masse/tour-de-blocs/` |
+| Deutsch | `/de/spiele/schwerpunkt/gleichgewichtspunkt/` | `/de/spiele/schwerpunkt/haengendes-mobile/` | `/de/spiele/schwerpunkt/klotzturm/` |
+| Nederlands | `/nl/spellen/massamiddelpunt/evenwichtspunt/` | `/nl/spellen/massamiddelpunt/hangend-mobiel/` | `/nl/spellen/massamiddelpunt/blokkentoren/` |
+| Suomi | `/fi/pelit/massakeskipiste/tasapainopiste/` | `/fi/pelit/massakeskipiste/riippuva-mobile/` | `/fi/pelit/massakeskipiste/palikkatorni/` |
+| Norsk bokmål | `/nb/spill/massesenter/balansepunkt/` | `/nb/spill/massesenter/hengende-uro/` | `/nb/spill/massesenter/klosstarn/` |
+| Dansk | `/da/spil/massemidtpunkt/balancepunkt/` | `/da/spil/massemidtpunkt/haengende-uro/` | `/da/spil/massemidtpunkt/klodstaarn/` |
+| Português | `/pt/jogos/centro-de-massa/ponto-de-equilibrio/` | `/pt/jogos/centro-de-massa/mobile-suspenso/` | `/pt/jogos/centro-de-massa/torre-de-blocos/` |
+| हिन्दी | `/hi/khel/dravyaman-kendra/santulan-bindu/` | `/hi/khel/dravyaman-kendra/latakta-mobile/` | `/hi/khel/dravyaman-kendra/block-minar/` |
+| 日本語 | `/ja/gemu/juushin/tsuriai-no-ten/` | `/ja/gemu/juushin/tsurusu-mobiru/` | `/ja/gemu/juushin/tsumiki-no-to/` |
+
+**Balance Point**: the centre of mass of masses on a 2 m beam, measured from its left end. Missions ask where the support goes under 3 kg and 1 kg at the ends (0.5 m), under three masses (0.95 m), and under a 2 kg beam carrying 4 kg (0.5 m, the beam counted at its middle), where to place 1 kg to balance on a fixed support (1.6 m), and what mass at the end balances a 2 kg beam (2 kg). The support's flat top is 2 cm wide, so the beam stays level while x_cm is within 1 cm of it; otherwise it tips over the nearer edge until its end touches the table, found exactly. Right means the beam stays level. Slips recognized: the middle of the beam, an inverted ratio, averaging positions, the heaviest mass, forgetting the beam, and mirroring a distance.
+
+**Hanging Mobile**: composite objects, worked from the bottom up. A balanced lower mobile acts as one mass, its total, at the point it hangs from. Missions ask where to tie the string on a rod with two ornaments (0.15 m), three ornaments (0.3 m), a rod carrying a two-ornament mobile (0.48 m), what ornament balances a rod tied off-centre (100 g), and where to tie a rod carrying a two-level mobile (0.75 m). The knot holds the top rod level while x_cm is within 0.5 cm of it; otherwise the rod turns about the knot until it has tilted 20°, found exactly. Slips recognized: the middle, an inverted ratio, a missing ornament, part of the lower mobile counted, equal masses, and an inverted mass ratio.
+
+**Block Tower**: toppling. Uniform 0.4 m blocks stack out past a table's edge; at every level, the centre of mass of everything above must lie over the edge below. Missions ask how far one block can stick out (0.2 m), the bottom of two blocks (0.1 m), the bottom of three blocks on the harmonic L/2, L/4 shifts (L/6), the least counterweight on the back end of a block 0.25 m out (0.667 kg), and the bottom of a light block under a heavy one (0.05 m). The part above the lowest failing edge turns about it until it has turned 30°, found exactly; within 0.2 mm counts as over the edge. An overhang is right when it holds and is at most 2% short of the limit; a counterweight when it holds with at most 2% to spare. A list on the canvas checks every edge once a run starts. Slips recognized: the whole block out, a quarter, ignoring the top block, the top block's reach, repeating or halving the shift, equal or inverted masses, and equal blocks.
+
+- `verify-beam.cjs`, `verify-mobile.cjs`, `verify-stack.cjs`: model checks (x_cm = Σm·x ÷ Σm with the beam's own mass, lower mobiles as single masses, the centre of mass over every edge and the harmonic overhang, exact tipping, tilting, and toppling inside long steps, timestep independence, support, knot, and edge margins, slip detection, scoring, input validation, state transfer) and localized interface checks in all eleven languages. All run in `npm test`.
+
+## Fluids games: Density Detective, Barge Load, Deep Dive
+
+The Fluids topic (*fluidos*) comes after Centre of mass. Density comes first, because floating and pressure both build on it: ρ = m ÷ V, buoyancy F_b = ρ·g·V (Archimedes' principle), and pressure in a still liquid p = p₀ + ρ·g·h. Answers are typed, and a run counts as an attempt as soon as it starts; readings that give the answer away (the level, the water pushed aside, the draft, the buoyancy, the pressure) stay hidden until a run starts.
+
+| Language | Density Detective | Barge Load | Deep Dive |
+| --- | --- | --- | --- |
+| English | `/games/fluids/density-detective/` | `/games/fluids/barge-load/` | `/games/fluids/deep-dive/` |
+| Español | `/es/juegos/fluidos/detective-de-la-densidad/` | `/es/juegos/fluidos/carga-de-la-barcaza/` | `/es/juegos/fluidos/inmersion-profunda/` |
+| Français | `/fr/jeux/fluides/detective-masse-volumique/` | `/fr/jeux/fluides/chargement-de-la-peniche/` | `/fr/jeux/fluides/plongee-profonde/` |
+| Deutsch | `/de/spiele/fluessigkeiten/dichte-detektiv/` | `/de/spiele/fluessigkeiten/lastkahn-beladen/` | `/de/spiele/fluessigkeiten/tieftauchgang/` |
+| Nederlands | `/nl/spellen/vloeistoffen/dichtheidsdetective/` | `/nl/spellen/vloeistoffen/duwbak-laden/` | `/nl/spellen/vloeistoffen/diepe-duik/` |
+| Suomi | `/fi/pelit/nesteet/tiheysetsiva/` | `/fi/pelit/nesteet/proomun-lastaus/` | `/fi/pelit/nesteet/syvasukellus/` |
+| Norsk bokmål | `/nb/spill/vaesker/tetthetsdetektiv/` | `/nb/spill/vaesker/lekterlasting/` | `/nb/spill/vaesker/dypdykk/` |
+| Dansk | `/da/spil/vaesker/densitetsdetektiv/` | `/da/spil/vaesker/pramlastning/` | `/da/spil/vaesker/dybdedyk/` |
+| Português | `/pt/jogos/fluidos/detetive-da-densidade/` | `/pt/jogos/fluidos/carga-da-barcaca/` | `/pt/jogos/fluidos/mergulho-profundo/` |
+| हिन्दी | `/hi/khel/taral/ghanatva-jasoos/` | `/hi/khel/taral/bajra-ladai/` | `/hi/khel/taral/gehra-gota/` |
+| 日本語 | `/ja/gemu/ryutai/mitsudo-tantei/` | `/ja/gemu/ryutai/hashike-no-tsumini/` | `/ja/gemu/ryutai/shinkai-daibu/` |
+
+**Density Detective**: density from mass and the water an object pushes aside. Objects hang on a thread and are lowered steadily into a measuring cylinder for 2 s; while a box goes in, its depth below the raised surface is s = (L₀ − y)·A ÷ (A − a), and once under it pushes aside its own volume, 1 mL = 1 cm³. Missions ask for the reading after a 540 g aluminium block goes into 300 mL (500 mL), the density of a 965 g "gold" crown that raises the water from 400 to 460 mL (16.1 g/cm³, not pure gold), the mass of a 2.6 g/cm³ stone that raises it from 350 to 425 mL (195 g), where a 1.2 g/cm³ bead stops in a column of honey, water, and oil (on the honey, 5 cm up), and how far a 1 kg gold bar raises the water in a 20 cm² cylinder (2.59 cm). Bars compare the object's density with the liquids' once a run starts. Answers are right within 2%. Slips recognized: the rise taken as the reading, grams taken as millilitres, an inverted formula, the whole level instead of the rise, assuming the crown is gold, the volume taken as the mass, a bead that floats on top, sinks to the bottom, or stops on the water, and the volume instead of the rise.
+
+**Barge Load**: Archimedes' principle. A box with a flat bottom of area A floats at the draft d = M ÷ (ρ·A), and the buoyancy equals its weight at every moment; the load comes onto the water steadily for 2 s. Missions ask for an empty 24 t barge's draft (0.4 m), the most cargo before the water reaches the 1.5 m deck (66 t; more floods it at the exact moment, and the sinking is drawn for 1 s), the draft in a river after 0.82 m in the sea (0.84 m), the share of an ice block under seawater (89.5%), and a steel boat's average density (250 kg/m³). Draft marks run up the hull, the predicted waterline is drawn on it, and bars compare the weight with the buoyancy. A cargo is right if the barge floats with at most 2% to spare; every other answer within 2%. Slips recognized: an inverted ratio, the volume taken as the depth, forgetting the barge's own mass, a cargo with room to spare, the same draft in fresh water or a higher one, the part above the water, fresh water for seawater, solid steel's density, the density of water, and volume per mass.
+
+**Deep Dive**: pressure in a still liquid, p = p₀ + ρ·g·h with p₀ = 101 kPa. The submarine (or a diver) goes down steadily for 2 s; if the pressure reaches the hull's 1200 kPa first, the alarm stops the dive at exactly that depth. Missions ask for the gauge at 30 m in the sea (402 kPa), the deepest safe dive in the sea (109 m) and in a freshwater lake (112 m), the net force on a 0.5 m² window at 50 m with air inside (251 kN), and the pressure rise from 10 m to 25 m (151 kPa). A gauge marks the hull limit, and a graph plots pressure against depth once a run starts. A dive depth is right if it is safe with at most 2% to spare; every other answer within 2%. Slips recognized: forgetting the air, forgetting g, a dive with room to spare, the seawater answer for a lake, counting the air on a window, a pressure instead of a force, the whole depth instead of the change, and the total pressure instead of the rise.
+
+- `verify-density.cjs`, `verify-barge.cjs`, `verify-dive.cjs`: model checks (ρ = m ÷ V and the level as a box goes in, the bead's resting layer, ρ·A·d = M and buoyancy equal to weight, the exact flooding moment, p = p₀ + ρ·g·h and the exact alarm, timestep independence, rounding margins, slip detection, scoring, input validation, state transfer) and localized interface checks in all eleven languages. All run in `npm test`.
+
+## Air pressure games: Torricelli's Tube, Magdeburg Hemispheres
+
+Two more Fluids games are about the air's own pressure (*presión atmosférica*), about 101.3 kPa at sea level. Deep Dive uses it on the water's surface; these two make it the subject. Answers are typed and a run counts as an attempt as soon as it starts; the column, its pressure, the pull, and the air's hold stay hidden until a run starts.
+
+| Language | Torricelli's Tube | Magdeburg Hemispheres |
+| --- | --- | --- |
+| English | `/games/fluids/torricellis-tube/` | `/games/fluids/magdeburg-hemispheres/` |
+| Español | `/es/juegos/fluidos/tubo-de-torricelli/` | `/es/juegos/fluidos/hemisferios-de-magdeburgo/` |
+| Français | `/fr/jeux/fluides/tube-de-torricelli/` | `/fr/jeux/fluides/hemispheres-de-magdebourg/` |
+| Deutsch | `/de/spiele/fluessigkeiten/torricelli-rohr/` | `/de/spiele/fluessigkeiten/magdeburger-halbkugeln/` |
+| Nederlands | `/nl/spellen/vloeistoffen/buis-van-torricelli/` | `/nl/spellen/vloeistoffen/maagdenburger-halve-bollen/` |
+| Suomi | `/fi/pelit/nesteet/torricellin-putki/` | `/fi/pelit/nesteet/magdeburgin-pallonpuoliskot/` |
+| Norsk bokmål | `/nb/spill/vaesker/torricellis-ror/` | `/nb/spill/vaesker/magdeburg-halvkulene/` |
+| Dansk | `/da/spil/vaesker/torricellis-roer/` | `/da/spil/vaesker/magdeburgske-halvkugler/` |
+| Português | `/pt/jogos/fluidos/tubo-de-torricelli/` | `/pt/jogos/fluidos/hemisferios-de-magdeburgo/` |
+| हिन्दी | `/hi/khel/taral/torricelli-nali/` | `/hi/khel/taral/magdeburg-ardhgole/` |
+| 日本語 | `/ja/gemu/ryutai/torichieri-no-kan/` | `/ja/gemu/ryutai/magudeburuku-no-hankyu/` |
+
+**Torricelli's Tube**: a liquid column held up by the air, ρ·g·h = p, with a vacuum above it. A full tube turned over in a dish falls steadily for 2 s to its balance height. Missions ask for the mercury column at sea level (760 mm), Pascal's water barometer (10.3 m), the air pressure on a mountain where mercury stands 600 mm (80 kPa), the highest a suction pump can sit above a well where the air presses 80 kPa (8.16 m; the pump empties its pipe over 2 s and the water stops where the outside air can push it no higher), and the density of a liquid whose column stands 8.2 m (1261 kg/m³, glycerine). Bars compare the air's pressure with the column's. A pump height is right if the water reaches it with at most 2% to spare; every other answer within 2%. Slips recognized: a water column for mercury (or the reverse), metres for millimetres (or the reverse), forgetting g, sea-level air on a mountain, the sea-level pump limit, a pump with room to spare, and water's density.
+
+**Magdeburg Hemispheres**: the force of air pressure, F = (p_out − p_in)·π·r², on the flat circle where two halves meet. The pull (or a suction cup's load) grows steadily for 2 s; the halves part, or the cup lets go, at the exact moment it reaches the air's hold. Missions ask for the pull that parts 0.25 m hemispheres pumped down to 21.3 kPa (15.7 kN), how many 1.5 kN horses each team needs (11; one team and a tree would do), the pull with half the air out (9.9 kN), the pull on a mountain at 70 kPa (11.8 kN), and the heaviest load a 4 cm suction cup holds (25.6 kg). A pull is right if it parts the halves with at most 2% to spare, a team if it is the fewest horses that do it, and a load if the cup holds it with at most 2% to spare. Slips recognized: the full outside pressure, forgetting the air inside, sea-level air on a mountain, the curved surface or four times the area, a pull with room to spare, teams sharing the force, doubling the teams, rounding down, extra horses, newtons for kilograms, the diameter, and a load with room to spare.
+
+- `verify-barometer.cjs`, `verify-hemispheres.cjs`: model checks (ρ·g·h = p and the falling column, the pump's limit, F = Δp·π·r² and the exact parting and letting-go, timestep independence, rounding margins, slip detection, scoring, input validation, state transfer) and localized interface checks in all eleven languages. All run in `npm test`.
+
+## Archimedes games: Weighed Under Water, Balloon Lift
+
+Two more Fluids games are about Archimedes' principle (*principio de Arquímedes*): a fluid pushes up on anything in it with the weight of the fluid it pushes aside, in liquids and in air alike. Answers are typed and a run counts as an attempt as soon as it starts; readings, forces, volumes, and densities stay hidden until a run starts.
+
+| Language | Weighed Under Water | Balloon Lift |
+| --- | --- | --- |
+| English | `/games/fluids/weighed-under-water/` | `/games/fluids/balloon-lift/` |
+| Español | `/es/juegos/fluidos/pesar-bajo-el-agua/` | `/es/juegos/fluidos/globos-que-suben/` |
+| Français | `/fr/jeux/fluides/peser-sous-l-eau/` | `/fr/jeux/fluides/ballons-qui-montent/` |
+| Deutsch | `/de/spiele/fluessigkeiten/unter-wasser-wiegen/` | `/de/spiele/fluessigkeiten/ballonauftrieb/` |
+| Nederlands | `/nl/spellen/vloeistoffen/wegen-onder-water/` | `/nl/spellen/vloeistoffen/ballonnen-die-stijgen/` |
+| Suomi | `/fi/pelit/nesteet/punnitus-veden-alla/` | `/fi/pelit/nesteet/ilmapallon-noste/` |
+| Norsk bokmål | `/nb/spill/vaesker/veiing-under-vann/` | `/nb/spill/vaesker/ballongloft/` |
+| Dansk | `/da/spil/vaesker/vejning-under-vand/` | `/da/spil/vaesker/ballonloft/` |
+| Português | `/pt/jogos/fluidos/pesar-debaixo-d-agua/` | `/pt/jogos/fluidos/baloes-que-sobem/` |
+| हिन्दी | `/hi/khel/taral/pani-mein-taul/` | `/hi/khel/taral/gubbare-ki-udaan/` |
+| 日本語 | `/ja/gemu/ryutai/suichu-de-hakaru/` | `/ja/gemu/ryutai/fusen-no-furyoku/` |
+
+**Weighed Under Water**: an object hangs from a spring scale and is lowered steadily for 2 s into a can filled to its spout; the part under the liquid, V, pushes the same volume into a cup, the liquid pushes up with F_b = ρ·g·V, and the scale reads R = W − F_b. Missions ask for the reading of a 2 kg, 800 cm³ stone under water (11.76 N), the volume of a stone that reads 29.4 N in air and 24.5 N in water (500 cm³), the density of a block that reads 27 N and 17 N (2700 kg/m³), the reading in oil of 800 kg/m³ of a block that reads 10 N and 6 N (6.8 N), and how deep a 1.5 kg, 50 cm² cylinder must go for the scale to read 12.25 N (5 cm). Answers within 2% are right. Slips caught: leaving out g, giving the push instead of the reading, adding the push, answering in kg, using a reading instead of the loss, the reading in water, the inverted density ratio, the wrong liquid, and wrong units.
+
+**Balloon Lift**: the lift is (ρ_air − ρ_in)·g·V and the balloon lifts off at the exact moment it reaches the weight of everything it carries; party balloons and a helium envelope fill steadily for 2 s, and a hot-air balloon's burner heats its air steadily for 2 s with ρ·T constant in kelvin. Missions ask for the fewest 10 L helium balloons (3 g of rubber each) that lift a 30 g toy (5), the heaviest load for a 2500 m³, 400 kg balloon at 0.95 kg/m³ inside (225 kg), the inside temperature that lifts 400 + 350 kg (≈ 118 °C), the heaviest load from a plateau where air is 1.0 kg/m³ (125 kg), and the helium that lifts 80 kg (78.4 m³). The count must be the fewest that fly; a load, temperature, or volume must lift off with at most 2% to spare. Slips caught: rounding down, forgetting the rubber, the balloon, or the gas's own weight, sea-level air on the plateau, kelvin instead of °C, °C in the gas law, dividing by helium's density, and answers with room to spare.
+
+- `verify-weigh.cjs`, `verify-balloon.cjs`: model checks (the push equal to the weight of the liquid under, the reading as weight minus push, the depth limit, lift against weight, the exact lift-off moment, ρ·T constant in kelvin, timestep independence, rounding margins, slip detection, scoring, input validation, state transfer) and localized interface checks in all eleven languages. All run in `npm test`.
+
+## Pascal's principle games: Hydraulic Lift, Pascal's Barrel
+
+Two more Fluids games are about Pascal's principle (*principio de Pascal*): squeeze a closed liquid and the extra pressure reaches every part of it equally. Answers are typed and a run counts as an attempt as soon as it starts; the push, the pressure, the forces, and the heights stay hidden until a run starts.
+
+| Language | Hydraulic Lift | Pascal's Barrel |
+| --- | --- | --- |
+| English | `/games/fluids/hydraulic-lift/` | `/games/fluids/pascals-barrel/` |
+| Español | `/es/juegos/fluidos/elevador-hidraulico/` | `/es/juegos/fluidos/tonel-de-pascal/` |
+| Français | `/fr/jeux/fluides/elevateur-hydraulique/` | `/fr/jeux/fluides/tonneau-de-pascal/` |
+| Deutsch | `/de/spiele/fluessigkeiten/hydraulische-hebebuehne/` | `/de/spiele/fluessigkeiten/pascals-fass/` |
+| Nederlands | `/nl/spellen/vloeistoffen/hydraulische-lift/` | `/nl/spellen/vloeistoffen/vat-van-pascal/` |
+| Suomi | `/fi/pelit/nesteet/hydraulinen-nostin/` | `/fi/pelit/nesteet/pascalin-tynnyri/` |
+| Norsk bokmål | `/nb/spill/vaesker/hydraulisk-lift/` | `/nb/spill/vaesker/pascals-tonne/` |
+| Dansk | `/da/spil/vaesker/hydraulisk-lift/` | `/da/spil/vaesker/pascals-tonde/` |
+| Português | `/pt/jogos/fluidos/elevador-hidraulico/` | `/pt/jogos/fluidos/barril-de-pascal/` |
+| हिन्दी | `/hi/khel/taral/hydraulic-lift/` | `/hi/khel/taral/pascal-ka-pipa/` |
+| 日本語 | `/ja/gemu/ryutai/yuatsu-rifuto/` | `/ja/gemu/ryutai/pasukaru-no-taru/` |
+
+**Hydraulic Lift**: F₁ ÷ A₁ = F₂ ÷ A₂, and since oil doesn't compress, A₁·d₁ = A₂·d₂. A push that grows steadily for 2 s lifts the load at the exact moment p·A₂ reaches its weight; the small piston then travels 30 cm. Missions ask for the push that lifts a 1200 kg car on pistons of 10 cm² and 1000 cm² (117.6 N), the large piston a 50 N push on 5 cm² needs for 500 kg (490 cm²), the push with pistons 2 cm and 20 cm across (147 N, diameters squared), how far the small piston goes to raise a load 2 cm (80 cm), and the fewest 10 cm strokes of a jack that raise a car 3 cm (8). Bars compare the lift with the weight, or the oil pushed in with the oil under the load. A push or a piston is right if it lifts the load with at most 2% to spare, a stroke within 2%, and a number of strokes if it is the fewest that do the job. Slips recognized: an inverted ratio, the whole weight, forgetting g, diameters not squared, room to spare, the area ratio alone, the same distance on both pistons, rounding down, and extra strokes.
+
+**Pascal's Barrel**: water h up a thin tube on a sealed, full barrel adds Δp = ρ·g·h under the lid, and that pressure reaches every wall; the bottom, H deeper, feels ρ·g·(h + H). Water is poured steadily for 2 s, and a lid pops at the exact moment ρ·g·h·A_lid reaches its strength. Missions ask for the height that pops a 0.5 m², 20 kN lid with a 1 cm² tube (4.08 m) and with a 10 cm² tube (the same 4.08 m), the force on the lid with 6 m of water (29.4 kN), the force on the bottom with 4 m (24.5 kN), and the extra force on a 50 cm² bottle bottom when a 2 cm² cork is pushed with 20 N (500 N). Arrows show the extra pressure pushing out on every wall, and bars compare the tiny force that goes in with the large force out. A height is right if it pops the lid with at most 2% to spare; a force within 2%. Slips recognized: thinking the tube's width matters, the tube's area for the lid's, forgetting g, water to spare, counting the barrel's depth on the lid, leaving the tube or the barrel out of the bottom's pressure, a force passed on unchanged, and an inverted ratio.
+
+- `verify-hydraulic.cjs`, `verify-barrel.cjs`: model checks (equal pressure on both pistons and equal oil volumes, the exact lifting and popping moments, pressure reaching the lid and the bottom, strokes and jack pumps, timestep independence, rounding margins, slip detection, scoring, input validation, state transfer) and localized interface checks in all eleven languages. All run in `npm test`.
+
+## Fluids in motion games: Leaky Tank, Venturi Pipe, Storm and Wing
+
+A new topic, Fluids in motion (*fluidos en movimiento*), is about Bernoulli's principle: along a flow, pressure, motion, and height trade with one another, p + ½·ρ·v² + ρ·g·h = constant, and a fluid that doesn't compress passes the same volume through every section, A·v = constant. Answers are typed and a run counts as an attempt as soon as it starts; speeds, pressures, forces, and distances stay hidden until a run starts.
+
+| Language | Leaky Tank | Venturi Pipe | Storm and Wing |
+| --- | --- | --- | --- |
+| English | `/games/fluids-in-motion/leaky-tank/` | `/games/fluids-in-motion/venturi-pipe/` | `/games/fluids-in-motion/storm-and-wing/` |
+| Español | `/es/juegos/fluidos-en-movimiento/tanque-agujereado/` | `/es/juegos/fluidos-en-movimiento/tubo-de-venturi/` | `/es/juegos/fluidos-en-movimiento/tormenta-y-ala/` |
+| Français | `/fr/jeux/fluides-en-mouvement/reservoir-perce/` | `/fr/jeux/fluides-en-mouvement/tube-de-venturi/` | `/fr/jeux/fluides-en-mouvement/tempete-et-aile/` |
+| Deutsch | `/de/spiele/stroemungen/tank-mit-loch/` | `/de/spiele/stroemungen/venturi-rohr/` | `/de/spiele/stroemungen/sturm-und-fluegel/` |
+| Nederlands | `/nl/spellen/stromingen/lekke-tank/` | `/nl/spellen/stromingen/venturibuis/` | `/nl/spellen/stromingen/storm-en-vleugel/` |
+| Suomi | `/fi/pelit/virtaukset/vuotava-sailio/` | `/fi/pelit/virtaukset/venturiputki/` | `/fi/pelit/virtaukset/myrsky-ja-siipi/` |
+| Norsk bokmål | `/nb/spill/stromninger/lekk-tank/` | `/nb/spill/stromninger/venturiror/` | `/nb/spill/stromninger/storm-og-vinge/` |
+| Dansk | `/da/spil/stromninger/utaet-tank/` | `/da/spil/stromninger/venturiror/` | `/da/spil/stromninger/storm-og-vinge/` |
+| Português | `/pt/jogos/fluidos-em-movimento/tanque-furado/` | `/pt/jogos/fluidos-em-movimento/tubo-de-venturi/` | `/pt/jogos/fluidos-em-movimento/tempestade-e-asa/` |
+| हिन्दी | `/hi/khel/bahte-taral/chhed-wali-tanki/` | `/hi/khel/bahte-taral/venturi-nali/` | `/hi/khel/bahte-taral/aandhi-aur-pankh/` |
+| 日本語 | `/ja/gemu/ryutai-no-nagare/ana-no-aita-tanku/` | `/ja/gemu/ryutai-no-nagare/benchuri-kan/` | `/ja/gemu/ryutai-no-nagare/arashi-to-tsubasa/` |
+
+**Leaky Tank**: a hose keeps the level steady and water h below the surface leaves a hole at v = √(2·g·h) (Torricelli's law), then falls freely from the hole's height y, landing x = v·√(2·y ÷ g) = 2·√(h·y) away. Missions ask for the speed 1.8 m down (5.94 m/s), where that jet lands from 1.25 m up (3 m), the litres a 2 cm² hole lets into a bucket in 4 s (4.75 L), the second hole whose jet lands with one 0.5 m down in 2 m of water (1.5 m), and the hole that shoots farthest (1 m, halfway). Answers within 2% are right. Slips caught: a missing 2 or square root, height for depth, the speed as the distance, falling from the surface, one second's flow, m³ for litres, the same or the middle hole, and holes too high or too low.
+
+**Venturi Pipe**: in a level pipe A₁·v₁ = A₂·v₂, and the narrow part's pressure is lower by ½·ρ·(v₂² − v₁²), so an open column there stands Δp ÷ (ρ·g) lower; the flow builds up over 1 s. Missions ask for the speed out of a 0.5 cm nozzle on a 2 cm hose at 1.5 m/s (24 m/s), the drop from 20 cm² to 5 cm² at 1 m/s (7.5 kPa), the column drop from 12 cm² to 4 cm² at 1.2 m/s (0.588 m), the flow through a 20 → 10 cm² Venturi meter with 0.2 m between columns (2.29 L/s), and a 14 m/s fountain's height (10 m). The right panel stacks pressure, motion, and height in kPa to show the same total at both places. Answers within 2% are right. Slips caught: diameters not squared, an inverted ratio, the same speed, (v₂ − v₁)², a missing ½, forgetting v₁, Pa or cm, the pressure for the column, the column's level, the speed for the flow, √(2·g·Δh), and an unsquared speed.
+
+**Storm and Wing**: faster air over than under leaves a pressure difference ½·ρ·(v_over² − v_under²) on the area, with air at 1.2 kg/m³; the wind, the plane, or the breath speeds up steadily for 2 s and a roof, a plane, or a paper strip lifts at the exact moment the lift reaches its weight (within 0.15%). Missions ask for a 30 m/s storm's pull on a 100 m² roof (54 kN), the wind that tears off a 4000 kg roof (25.6 m/s), a 16 m² wing's lift at 70 and 60 m/s (12.5 kN), the take-off speed of a 1000 kg plane whose wing air is 1.1 times as fast (69.7 m/s), and the breath that lifts a 0.5 g, 20 cm² strip (2.02 m/s). A force must be within 2%; a speed must lift with at most 2% to spare. Slips caught: a missing ½ or square, the pressure for the force, water's density, N for kN, (v_over − v_under)², ignoring the air underneath, m for m·g, 0.1 for 1.1² − 1, km/h, cm² as m², and speed to spare.
+
+- `verify-tank.cjs`, `verify-venturi.cjs`, `verify-wing.cjs`: model checks (Torricelli speed and free fall, symmetric and farthest jets, the bucket's timing, continuity and the pressure drop, the meter and the fountain, lift against weight and the exact lift-off moment, timestep independence, rounding margins, slip detection, scoring, input validation, state transfer) and localized interface checks in all eleven languages. All run in `npm test`.
+
+## Oscillations games: Pendulum Clock, Spring Bounce, Swing and Resonance
+
+A new topic, Oscillations (*oscilaciones*), is about simple harmonic motion: a pendulum or a mass on a spring swings back and forth with its own steady period, whatever the size of the swing, T = 2π·√(L ÷ g) or T = 2π·√(m ÷ k); without friction its energy flows between motion and storage, and pushes in time with that period build a big motion (resonance). Answers are typed and a run counts as an attempt as soon as it starts; lengths, periods, speeds, and energies stay hidden until a run starts.
+
+| Language | Pendulum Clock | Spring Bounce | Swing and Resonance |
+| --- | --- | --- | --- |
+| English | `/games/oscillations/pendulum-clock/` | `/games/oscillations/spring-bounce/` | `/games/oscillations/swing-and-resonance/` |
+| Español | `/es/juegos/oscilaciones/reloj-de-pendulo/` | `/es/juegos/oscilaciones/muelle-que-rebota/` | `/es/juegos/oscilaciones/columpio-y-resonancia/` |
+| Français | `/fr/jeux/oscillations/horloge-a-pendule/` | `/fr/jeux/oscillations/ressort-rebondissant/` | `/fr/jeux/oscillations/balancoire-et-resonance/` |
+| Deutsch | `/de/spiele/schwingungen/pendeluhr/` | `/de/spiele/schwingungen/federschwinger/` | `/de/spiele/schwingungen/schaukel-und-resonanz/` |
+| Nederlands | `/nl/spellen/trillingen/slingeruurwerk/` | `/nl/spellen/trillingen/massa-aan-veer/` | `/nl/spellen/trillingen/schommel-en-resonantie/` |
+| Suomi | `/fi/pelit/varahtelut/heilurikello/` | `/fi/pelit/varahtelut/jousivarahtelija/` | `/fi/pelit/varahtelut/keinu-ja-resonanssi/` |
+| Norsk bokmål | `/nb/spill/svingninger/pendelur/` | `/nb/spill/svingninger/fjaerpendel/` | `/nb/spill/svingninger/huske-og-resonans/` |
+| Dansk | `/da/spil/svingninger/pendulur/` | `/da/spil/svingninger/fjederpendul/` | `/da/spil/svingninger/gynge-og-resonans/` |
+| Português | `/pt/jogos/oscilacoes/relogio-de-pendulo/` | `/pt/jogos/oscilacoes/mola-saltitante/` | `/pt/jogos/oscilacoes/balanco-e-ressonancia/` |
+| हिन्दी | `/hi/khel/dolan/lolak-ghadi/` | `/hi/khel/dolan/spring-ka-uchhal/` | `/hi/khel/dolan/jhoola-aur-anunad/` |
+| 日本語 | `/ja/gemu/shindo/furiko-dokei/` | `/ja/gemu/shindo/bane-no-shindo/` | `/ja/gemu/shindo/buranko-to-kyoshin/` |
+
+**Pendulum Clock**: a bob swings 10° each way, θ = θ₀·cos(2π·t ÷ T), drawn to scale. Missions ask for the length of a seconds pendulum, which takes 2 s per full swing (0.993 m), the period of a 0.5 m pendulum (1.42 s), the length that doubles a 0.36 m pendulum's period (1.44 m, four times as long), the period of a 1 m pendulum on the Moon at g = 1.62 m/s² (4.94 s), and the period after swapping a 0.5 kg bob for a 2 kg one (1.80 s, unchanged). When a length is asked, your pendulum swings for the period wanted, beside the short one in the double test; when a period is asked, an orange ghost swings with your timing. Answers within 2% are right. Slips caught: a missing 2π or square, half a period, a doubled length, √2, an inverted root, no root, Earth's g on the Moon, and a period that changes with the mass.
+
+**Spring Bounce**: a spring pulls back with k·x, so a mass hangs at rest where k·x₀ = m·g; pulled 5 cm below that and let go, it bounces with y = A·cos(ω·t), ω = √(k ÷ m). The mass is lowered gently for the stretch; every run lasts 2 s. Missions ask for the stretch of a 0.5 kg mass on a 98 N/m spring (0.05 m), the period of 0.5 kg on 49 N/m (0.635 s), the spring that makes 0.2 kg bounce every 0.5 s (31.6 N/m), the top speed of 0.5 kg on 50 N/m pulled 5 cm (0.5 m/s), and the period from a 0.25 m stretch alone, T = 2π·√(x₀ ÷ g) (1.00 s). Answers within 2% are right. Slips caught: a missing g, 2π, square, root, or amplitude, an inverted ratio, ω for the period, and cm for m.
+
+**Swing and Resonance**: an oscillator trades motion for stored energy; short pushes or bumps each add the same speed and are added up exactly, so five of them build a big motion only when they come once per natural period T₀. Pushes and bumps play at triple speed. Missions ask how often to push a swing on 2.45 m ropes (π ≈ 3.14 s, ending at 20° each way against about 3–4° off the beat), its speed at the bottom when let go from 0.2 m (1.98 m/s), the energy in a 200 N/m spring pulled 0.1 m (1 J), where a block swinging 10 cm has equal motion and stored energy (7.07 cm, A ÷ √2), and the bump spacing that makes a 1000 kg car on 25000 N/m springs bounce most at 10 m/s (12.6 m, ending at 10 cm against 0.2 cm at 10 m). The right panel shows the motion over time with every push or bump marked, or energy bars that always add up to the same total. Answers within 2% are right. Slips caught: a missing 2π, 2, ½, square, or root, half a period, the frequency, the rope's length for the height, cm for m and m for cm, halfway for half the energy, the time for the spacing, ω, and the speed divided by the period.
+
+- `verify-pendulum.cjs`, `verify-spring.cjs`, `verify-swing.cjs`: model checks (the period from length and g, the seconds and double-period pendulums, the mass not mattering, Hooke's law and the lowered rest position, the bounce and its top speed, energy conservation, resonance from added-up pushes and bumps, timestep independence, rounding margins, slip detection, scoring, input validation, state transfer) and localized interface checks in all eleven languages. All run in `npm test`.
+
+## Amplitude, period, and frequency games: Metronome Studio, Harbour Buoy, Seismograph
+
+Three more Oscillations games come first in the topic's playing order. They name and measure the three numbers that describe any oscillation: the period T (the time for one cycle), the frequency f = 1 ÷ T (cycles per second, in Hz), and the amplitude A (the largest distance from the middle, half of top to bottom). Answers are typed and a run counts as an attempt as soon as it starts; readings stay hidden until a run starts.
+
+| Language | Metronome Studio | Harbour Buoy | Seismograph |
+| --- | --- | --- | --- |
+| English | `/games/oscillations/metronome-studio/` | `/games/oscillations/harbour-buoy/` | `/games/oscillations/seismograph/` |
+| Español | `/es/juegos/oscilaciones/estudio-de-metronomo/` | `/es/juegos/oscilaciones/boya-del-puerto/` | `/es/juegos/oscilaciones/sismografo/` |
+| Français | `/fr/jeux/oscillations/studio-metronome/` | `/fr/jeux/oscillations/bouee-du-port/` | `/fr/jeux/oscillations/sismographe/` |
+| Deutsch | `/de/spiele/schwingungen/metronom-studio/` | `/de/spiele/schwingungen/hafenboje/` | `/de/spiele/schwingungen/seismograph/` |
+| Nederlands | `/nl/spellen/trillingen/metronoomstudio/` | `/nl/spellen/trillingen/havenboei/` | `/nl/spellen/trillingen/seismograaf/` |
+| Suomi | `/fi/pelit/varahtelut/metronomistudio/` | `/fi/pelit/varahtelut/sataman-poiju/` | `/fi/pelit/varahtelut/seismografi/` |
+| Norsk bokmål | `/nb/spill/svingninger/metronomstudio/` | `/nb/spill/svingninger/havneboye/` | `/nb/spill/svingninger/seismograf/` |
+| Dansk | `/da/spil/svingninger/metronomstudie/` | `/da/spil/svingninger/havneboje/` | `/da/spil/svingninger/seismograf/` |
+| Português | `/pt/jogos/oscilacoes/estudio-de-metronomo/` | `/pt/jogos/oscilacoes/boia-do-porto/` | `/pt/jogos/oscilacoes/sismografo/` |
+| हिन्दी | `/hi/khel/dolan/metronome-studio/` | `/hi/khel/dolan/bandargah-ka-plav/` | `/hi/khel/dolan/bhukamplekhi/` |
+| 日本語 | `/ja/gemu/shindo/metoronomu-sutajio/` | `/ja/gemu/shindo/minato-no-bui/` | `/ja/gemu/shindo/jishinkei/` |
+
+**Metronome Studio**: each metronome clicks once per full swing, θ = −θ₀·cos(2π·f·t), so one beat is one period (real metronomes click at both ends; the model text says so). An orange ghost metronome ticks at the rate your answer gives, and a timeline marks every click. Missions ask for the period at 120 bpm (0.5 s), the tempo at 1.5 Hz (90 bpm), the frequency of 24 beats in 10 s (2.4 Hz), the frequency of a 0.8 s swing (1.25 Hz), and when 2 Hz and 3 Hz metronomes next click together (1 s). Answers within 2% are right. Slips caught: the frequency for the period, minutes for seconds, dividing or inverting the 60, the period for the tempo or the frequency, multiplying beats by time, beats per minute for Hz, ω for f, one metronome's period, and multiplying or adding the frequencies.
+
+**Harbour Buoy**: a buoy rides a smooth swell beside a post scaled in metres, y = A·sin(2π·t ÷ T) about a middle level of 2.2 m; runs play 2 to 6 times faster than real time. Missions ask for the amplitude from crests at 3.4 m and troughs at 1.0 m (1.2 m), the period when last week's 0.5 m, 8 s swell is three times as big (still 8 s, with a ghost buoy on the smaller swell bobbing in step), the distance travelled in a minute (4·A per period: 36 m), the speed through the middle (2π·A ÷ T ≈ 0.94 m/s), and how much more energy a swell twice as big carries (E = ½·ρ·g·A²: 4 times). Answers within 2% are right. Slips caught: peak to peak, the crest's reading, the middle level, a period scaled with the swell (up, down, or by a root), 2·A or A per period, whole periods only, the average speed, a missing 2π or amplitude, and energy growing linearly, as the cube, or as the root.
+
+**Seismograph**: the pen magnifies the ground's shaking 1000 times and writes it on paper moving at u mm/s, shown to scale with a 5 mm grid, so peaks one period apart sit d = u·T apart. Your answer places orange peak marks on the trace, and the right panel measures one stretch (d, a, T, f, and the ground's motion). Missions ask for the period from 25 mm at 10 mm/s (2.5 s), the frequency from 40 mm at 20 mm/s (0.5 Hz), the ground's amplitude from a 30 mm swing (0.03 mm), the peak spacing of 2 Hz shaking at 10 mm/s (5 mm), and the paper speed that spaces 4 Hz peaks 5 mm apart (20 mm/s; your speed drives the paper). Answers within 2% are right. Slips caught: multiplying spacing and speed, the frequency for the period and back, the spacing as a time, 1 ÷ d, peak to peak, the swing without the magnification or multiplied by it, u·f, f ÷ u, the period as a spacing, d ÷ f, and f ÷ d.
+
+- `verify-metronome.cjs`, `verify-buoy.cjs`, `verify-seismograph.cjs`: model checks (period and frequency as inverses, tempo, the ghost's rate, counted beats, the meeting time, amplitude from the marks, a period independent of amplitude, 4·A per period, the top speed, energy as A², peak spacing u ÷ f, the magnification, the paper speed you choose, timestep independence, rounding margins, slip detection, scoring, input validation, state transfer) and localized interface checks in all eleven languages. All run in `npm test`.
+
+## Spring and pendulum games: Spring Shop, Spring Launcher, Wrecking Ball, Big and Fading Swings
+
+Four more Oscillations games cover what the first ones leave out: combining springs, the energy a spring stores, a pendulum's energy at any angle, and big and fading swings. In the topic's playing order the pendulum games follow Pendulum Clock and the spring games follow Spring Bounce. Answers are typed and a run counts as an attempt as soon as it starts; readings stay hidden until a run starts.
+
+| Language | Spring Shop | Spring Launcher | Wrecking Ball | Big and Fading Swings |
+| --- | --- | --- | --- | --- |
+| English | `/games/oscillations/spring-shop/` | `/games/oscillations/spring-launcher/` | `/games/oscillations/wrecking-ball/` | `/games/oscillations/big-and-fading-swings/` |
+| Español | `/es/juegos/oscilaciones/taller-de-muelles/` | `/es/juegos/oscilaciones/lanzador-de-muelle/` | `/es/juegos/oscilaciones/bola-de-demolicion/` | `/es/juegos/oscilaciones/oscilaciones-grandes-y-amortiguadas/` |
+| Français | `/fr/jeux/oscillations/atelier-des-ressorts/` | `/fr/jeux/oscillations/lanceur-a-ressort/` | `/fr/jeux/oscillations/boulet-de-demolition/` | `/fr/jeux/oscillations/grandes-oscillations-et-amortissement/` |
+| Deutsch | `/de/spiele/schwingungen/federwerkstatt/` | `/de/spiele/schwingungen/federkatapult/` | `/de/spiele/schwingungen/abrissbirne/` | `/de/spiele/schwingungen/grosse-und-abklingende-schwingungen/` |
+| Nederlands | `/nl/spellen/trillingen/verenwerkplaats/` | `/nl/spellen/trillingen/veerkatapult/` | `/nl/spellen/trillingen/sloopkogel/` | `/nl/spellen/trillingen/grote-en-uitdovende-slingers/` |
+| Suomi | `/fi/pelit/varahtelut/jousipaja/` | `/fi/pelit/varahtelut/jousilinko/` | `/fi/pelit/varahtelut/purkupallo/` | `/fi/pelit/varahtelut/suuret-ja-vaimenevat-heilahdukset/` |
+| Norsk bokmål | `/nb/spill/svingninger/fjaerverksted/` | `/nb/spill/svingninger/fjaerkatapult/` | `/nb/spill/svingninger/rivningskule/` | `/nb/spill/svingninger/store-og-dempede-svingninger/` |
+| Dansk | `/da/spil/svingninger/fjedervaerksted/` | `/da/spil/svingninger/fjederkatapult/` | `/da/spil/svingninger/nedrivningskugle/` | `/da/spil/svingninger/store-og-daempede-svingninger/` |
+| Português | `/pt/jogos/oscilacoes/oficina-de-molas/` | `/pt/jogos/oscilacoes/lancador-de-mola/` | `/pt/jogos/oscilacoes/bola-de-demolicao/` | `/pt/jogos/oscilacoes/oscilacoes-grandes-e-amortecidas/` |
+| हिन्दी | `/hi/khel/dolan/spring-karyashala/` | `/hi/khel/dolan/spring-prakshepak/` | `/hi/khel/dolan/dhwans-gola/` | `/hi/khel/dolan/bade-aur-ghatte-dolan/` |
+| 日本語 | `/ja/gemu/shindo/bane-kobo/` | `/ja/gemu/shindo/bane-hasshadai/` | `/ja/gemu/shindo/tekkyu-no-furiko/` | `/ja/gemu/shindo/ookina-furiko-to-gensui/` |
+
+**Spring Shop**: loads are lowered gently over 2 s onto springs side by side (k = k₁ + k₂), end to end (1/k = 1/k₁ + 1/k₂, each spring stretching by the full load ÷ its own k), or a spring cut in half (twice as stiff, shown beside the whole one), with stretches to scale on a ruler. Missions ask for the stretch of two 100 N/m springs side by side under 2 kg (9.8 cm) and end to end (39.2 cm), half of a 120 N/m spring (240 N/m), 100 and 300 N/m end to end (75 N/m), and the bounce of 0.5 kg on two 50 N/m springs side by side (0.444 s). Answers within 2% are right. Slips caught: one spring carrying it all, the other arrangement, metres for cm, stiffnesses added end to end, one spring's stretch, halving or keeping k when cut, the average, a single spring's period, and a missing 2π.
+
+**Spring Launcher**: a spring stores ½·k·x² and hands it on, with bars for spring, motion, and height energy. Missions ask for a pinball's launch speed from a 400 N/m spring pushed in 5 cm (3.16 m/s), a 50 g rocket's height on 800 N/m pushed in 8 cm (5.22 m), the push that sends a 100 g rocket on 500 N/m to a 2 m platform (8.85 cm, your push drives the rocket), what doubling the push does to the height (4 times), and how far a 2 kg cart at 3 m/s squashes a 200 N/m buffer (30 cm, in slow motion). Answers within 2% are right. Slips caught: a missing root or ½, cm for m and m for cm, an extra 2, an unsquared push, the mass for the weight, a missing 2 in the push, and energy growing linearly, as the cube, or as the root.
+
+**Wrecking Ball**: a 100 kg ball on a 2 m rope swings to scale, worked out exactly for any angle (θ'' = −g ÷ L·sin θ in an RK4 table, so the half-swing from 60° takes 1.523 s, not the small-swing 1.419 s); speeds come from the height lost and the rope pulls m·g·cos θ + m·v² ÷ L. Missions ask for the speed at the bottom from 60° (4.43 m/s), at 30° on the way down (3.79 m/s), the rope's pull at the bottom from 45° (1554 N), how high the ball rises when a peg halfway down catches the rope after a 0.5 m drop (0.5 m, at 60°), and the angle reached from 3 m/s at the bottom (39.6°). Answers within 2% are right. Slips caught: the rope's length as the drop, a missing 2 or root, the drop from 30°, half the speed, the bottom speed, the weight alone, the bending pull alone or subtracted, a halved or doubled rise, the rope's length, radians, a missing 1 −, and the sine.
+
+**Big and Fading Swings**: a real pendulum swings beside a gray ideal one. Big swings are integrated exactly and their period comes from the elliptic integral (AGM); fading swings keep 90% of their size every full swing, θ = θ₀·0.9ⁿ·cos(2π·t ÷ T₀). Missions ask for the period of a 1 m pendulum swinging 60° (2.154 s), how much slower a 30° swing is (1.74%), the size after 5 swings from 20° (11.8°), the swings to halve (6.58), and the energy lost per swing (19%). Answers within 2% are right. Slips caught: the small-swing period, half a swing, a fraction for a percentage, the period in seconds, subtracting the losses, one or four swings, the energy's share, when the energy halves, the size loss as the energy loss, the energy kept, and squaring the loss.
+
+- `verify-springshop.cjs`, `verify-launcher.cjs`, `verify-wrecking.cjs`, `verify-fading.cjs`: model checks (series and parallel stiffness and each spring's stretch, the cut spring, the bounce, stored energy and its conservation, aiming and doubling, the buffer's squash, the exact large-angle swing against the elliptic period, v² + 2·g·h held constant, the rope's pull, Galileo's peg, fading sizes, half-life, timestep independence, rounding margins, slip detection, scoring, input validation, state transfer) and localized interface checks in all eleven languages. All run in `npm test`.
+
+## Waves games: Rope Pulse, Wave Machine, Sound in Slow Motion
+
+A new topic, Waves (*ondas*), covers what a wave is, amplitude, wavelength, frequency, and period. A wave carries energy and a shape from place to place while the material it travels through only moves up and down, or back and forth; frequency, wavelength, and speed are tied together by v = f·λ, with T = 1 ÷ f. Answers are typed and a run counts as an attempt as soon as it starts; readings stay hidden until a run starts.
+
+| Language | Rope Pulse | Wave Machine | Sound in Slow Motion |
+| --- | --- | --- | --- |
+| English | `/games/waves/rope-pulse/` | `/games/waves/wave-machine/` | `/games/waves/sound-in-slow-motion/` |
+| Español | `/es/juegos/ondas/pulso-en-la-cuerda/` | `/es/juegos/ondas/maquina-de-ondas/` | `/es/juegos/ondas/sonido-a-camara-lenta/` |
+| Français | `/fr/jeux/ondes/impulsion-sur-la-corde/` | `/fr/jeux/ondes/machine-a-ondes/` | `/fr/jeux/ondes/le-son-au-ralenti/` |
+| Deutsch | `/de/spiele/wellen/seilpuls/` | `/de/spiele/wellen/wellenmaschine/` | `/de/spiele/wellen/schall-in-zeitlupe/` |
+| Nederlands | `/nl/spellen/golven/puls-op-het-touw/` | `/nl/spellen/golven/golfmachine/` | `/nl/spellen/golven/geluid-in-slow-motion/` |
+| Suomi | `/fi/pelit/aallot/pulssi-koydessa/` | `/fi/pelit/aallot/aaltokone/` | `/fi/pelit/aallot/aani-hidastettuna/` |
+| Norsk bokmål | `/nb/spill/bolger/puls-pa-tauet/` | `/nb/spill/bolger/bolgemaskin/` | `/nb/spill/bolger/lyd-i-sakte-film/` |
+| Dansk | `/da/spil/bolger/puls-pa-rebet/` | `/da/spil/bolger/bolgemaskine/` | `/da/spil/bolger/lyd-i-slowmotion/` |
+| Português | `/pt/jogos/ondas/pulso-na-corda/` | `/pt/jogos/ondas/maquina-de-ondas/` | `/pt/jogos/ondas/som-em-camera-lenta/` |
+| हिन्दी | `/hi/khel/tarangen/rassi-par-spand/` | `/hi/khel/tarangen/tarang-mashin/` | `/hi/khel/tarangen/dhimi-gati-mein-dhvani/` |
+| 日本語 | `/ja/gemu/nami/ropu-no-parusu/` | `/ja/gemu/nami/nami-mashin/` | `/ja/gemu/nami/surou-no-oto/` |
+
+**Rope Pulse**: smooth pulses about 1.2 m wide run along an ideal rope at 4 m/s, y(x, t) = b(x − v·t), with heights drawn 5 times larger; a red ribbon tied 4 m along only bobs in place. Missions ask for the speed of a pulse crossing 8 m in 2 s (4 m/s), how far the ribbon moves along the rope while the pulse crosses (0 cm; this test accepts 0, and anything up to 0.5 cm counts), the amplitude of a full wave that takes the ribbon from 15 cm above the resting line to 15 cm below (15 cm, crest first), the height where a 10 cm and a 6 cm pulse overlap (16 cm, y = y₁ + y₂; both carry on unchanged), and when a pulse is back from a wall 6 m away at 4 m/s (3 s, upside down: the rope at the fixed end never moves). Answers within 2% are right. Slips caught: multiplying or inverting distance and time, the pulse's distance or the ribbon's rise for its movement along the rope, top to bottom, metres for cm, subtracting, keeping the bigger pulse, averaging, one way only, multiplying distance and speed, and speed ÷ distance.
+
+**Wave Machine**: a motor shakes one end of a 6 m rope in a perfect sine, y = A·sin(2π·(f·t − x ÷ λ)) behind a front that moves out at the rope's speed, with nothing reflected; a red bead 3 m along shows one period per up-and-down, and once the waves arrive a bracket marks one wavelength from crest to crest. Every run lasts 3 s. Missions ask for the length of each wave when 4 fill the rope (1.5 m), the speed of 1.5 m waves at 2 Hz (3 m/s), the new wavelength when the same rope is shaken at 4 Hz (0.75 m, beside a gray 2 Hz wave), how long a 2 m wave at 5 m/s takes to pass the bead (0.4 s), and the speed when the motor shakes twice as far (still 3 m/s, beside a gray smaller wave). Answers within 2% are right. Slips caught: dividing by the crests, multiplying, waves per metre, dividing or inverting f and λ, longer or unchanged waves when shaken faster, the frequency for the period, λ·v, and a speed doubled or halved by the amplitude.
+
+**Sound in Slow Motion**: sound is a longitudinal wave at 340 m/s. Notes are slowed down by their own frequency, so one vibration lasts one second on screen: dots of air move back and forth (much enlarged) and bunch into squeezes λ = v ÷ f apart, and the right panel plots the pressure one wavelength from the speaker. Thunder and echoes play in real time on a map to scale, the flash arriving at once. Missions ask how far apart the squeezes of a 340 Hz note are (1 m), how long one vibration of a 440 Hz A lasts (2.27 ms), how far away a storm is when the thunder comes 3 s after the flash (1020 m), how far away a cliff is when the echo comes 2 s after the shout (340 m), and how far apart the squeezes of a 20000 Hz note are (1.7 cm). Answers within 2% are right. Slips caught: multiplying v and f, the period for the wavelength and back, seconds for ms, dividing v by t, a halved one-way trip, kilometres for metres, the round trip, and metres or millimetres for cm.
+
+- `verify-pulse.cjs`, `verify-wavemachine.cjs`, `verify-sound.cjs`: model checks (a pulse moving at v while the ribbon stays put, a full wave reaching ±A, superposition and pulses passing through each other, the fixed end and the inverted echo, λ = v ÷ f from counted waves, the bead's period, shorter waves when shaken faster, an amplitude that changes neither speed nor wavelength, slowed tones, squeezes λ apart, thunder and echo distances, timestep independence, rounding margins, the 0 answer, slip detection, scoring, input validation, state transfer) and localized interface checks in all eleven languages. All run in `npm test`.
+
+## Amplitude games: Pebble Ripples, Power on a Rope
+
+Two more Waves games, the first of a planned 24 (see `WAVES_HANDOFF.md`), cover what amplitude says about energy: the energy a wave carries grows as the square of its amplitude, and a wave that spreads out shares the same energy over a longer front. They follow Rope Pulse in the topic's playing order. Answers are typed and a run counts as an attempt as soon as it starts; readings stay hidden until a run starts.
+
+| Language | Pebble Ripples | Power on a Rope |
+| --- | --- | --- |
+| English | `/games/waves/pebble-ripples/` | `/games/waves/power-on-a-rope/` |
+| Español | `/es/juegos/ondas/ondas-de-una-piedra/` | `/es/juegos/ondas/potencia-en-una-cuerda/` |
+| Français | `/fr/jeux/ondes/ronds-dans-l-eau/` | `/fr/jeux/ondes/puissance-sur-une-corde/` |
+| Deutsch | `/de/spiele/wellen/kreise-im-teich/` | `/de/spiele/wellen/leistung-auf-dem-seil/` |
+| Nederlands | `/nl/spellen/golven/kringen-in-de-vijver/` | `/nl/spellen/golven/vermogen-op-een-touw/` |
+| Suomi | `/fi/pelit/aallot/renkaat-lammessa/` | `/fi/pelit/aallot/teho-koydessa/` |
+| Norsk bokmål | `/nb/spill/bolger/ringer-i-dammen/` | `/nb/spill/bolger/effekt-pa-et-tau/` |
+| Dansk | `/da/spil/bolger/ringe-i-vandet/` | `/da/spil/bolger/effekt-pa-et-reb/` |
+| Português | `/pt/jogos/ondas/ondas-de-uma-pedra/` | `/pt/jogos/ondas/potencia-numa-corda/` |
+| हिन्दी | `/hi/khel/tarangen/kankad-ki-lahren/` | `/hi/khel/tarangen/rassi-par-shakti/` |
+| 日本語 | `/ja/gemu/nami/koishi-no-hamon/` | `/ja/gemu/nami/ropu-no-pawa/` |
+
+**Pebble Ripples**: a pond seen from above, with a side view of the surface along a dashed line (heights enlarged) and red floats at the measured distances. A pebble's ring travels out at 1 m/s as one smooth crest; its energy is shared around 2π·r, so its height follows A = A₁·√(r₁ ÷ r) exactly, with no friction. The right panel draws the crest's height at every distance reached. Missions ask for the height 4 m away of a ripple 2 cm high at 1 m (1 cm), how many times less energy each metre of ring carries at 3 m than at 1 m (3), how far a 3 cm ripple at 0.5 m travels before it is 1 cm high (4.5 m), the height at 2 m of a pebble with 4 times the energy of one whose ripple is 1 cm there (2 cm, beside the small pebble's ripple in gray), and the height 4 m away of a straight wave from a plank, 2 cm at 1 m (still 2 cm). Answers within 2% are right. Slips caught: a height falling as 1 ÷ r or 1 ÷ r², an unchanged, growing, or multiplied height, 1 ÷ r² or √r for the energy, no change, a linear or root distance and the ratio upside down, height growing linearly or as the square of energy, an unchanged height, and the ring's rule for a straight wave.
+
+**Power on a Rope**: a motor shakes a 6 m rope that runs into an absorber with a lamp, so nothing reflects; the earlier shaking runs beside it as a dashed gray wave. P = ½·μ·(2π·f)²·A²·v exactly, and the right panel plots the energy reaching the absorber from the moment the first wave arrives, so its slope is the power. Every run lasts 3 s. Missions ask how many times the power when the amplitude doubles from 5 to 10 cm (4), when the frequency doubles too (16), the watts for 0.2 kg/m, 10 m/s, 2 Hz, and 10 cm (1.58 W), the amplitude that keeps the same power at 4 Hz instead of 2 Hz (5 cm; the motor shakes with your amplitude), and how many times the power on a rope 4 times as heavy per metre at the same tension, where waves travel at 5 m/s instead of 10 m/s (2). Answers within 2% are right. Slips caught: power growing linearly, unchanged, as the root, or as the cube, both changes linear or only one squared, a missing ½, f for ω, ω not squared, the amplitude in cm, a quartered, √2-reduced, unchanged, or doubled amplitude, and the mass, the speed, or neither alone.
+
+- `verify-ripples.cjs`, `verify-ropepower.cjs`: model checks (the ring's energy A²·2π·r held constant, height as 1 ÷ √r, energy per metre as 1 ÷ r, the straight wave's constant height, √E for a bigger pebble, P = ½·μ·ω²·A²·v, power as A² and f², energy delivered only after the first wave arrives, your amplitude driving the motor, the heavier rope, timestep independence, rounding margins, slip detection, scoring, input validation, state transfer) and localized interface checks in all eleven languages. All run in `npm test`.
+
+## Wavelength games: Ripple Tank Ruler, Antenna Workshop
+
+Two more Waves games (plan items 3 and 4 in `WAVES_HANDOFF.md`) are about measuring and using the wavelength: counting gaps between crests, correcting a photo's scale, v = f·λ in water, and λ = c ÷ f for radio waves. In the topic's playing order Ripple Tank Ruler comes before Wave Machine and Antenna Workshop after it. Answers are typed and a run counts as an attempt as soon as it starts; readings stay hidden until a run starts.
+
+| Language | Ripple Tank Ruler | Antenna Workshop |
+| --- | --- | --- |
+| English | `/games/waves/ripple-tank-ruler/` | `/games/waves/antenna-workshop/` |
+| Español | `/es/juegos/ondas/cubeta-de-ondas/` | `/es/juegos/ondas/taller-de-antenas/` |
+| Français | `/fr/jeux/ondes/cuve-a-ondes/` | `/fr/jeux/ondes/atelier-des-antennes/` |
+| Deutsch | `/de/spiele/wellen/wellenwanne/` | `/de/spiele/wellen/antennenwerkstatt/` |
+| Nederlands | `/nl/spellen/golven/golfbak/` | `/nl/spellen/golven/antennewerkplaats/` |
+| Suomi | `/fi/pelit/aallot/aaltoallas/` | `/fi/pelit/aallot/antennipaja/` |
+| Norsk bokmål | `/nb/spill/bolger/bolgekar/` | `/nb/spill/bolger/antenneverksted/` |
+| Dansk | `/da/spil/bolger/bolgekar/` | `/da/spil/bolger/antennevaerksted/` |
+| Português | `/pt/jogos/ondas/cuba-de-ondas/` | `/pt/jogos/ondas/oficina-de-antenas/` |
+| हिन्दी | `/hi/khel/tarangen/lahar-tanki/` | `/hi/khel/tarangen/antenna-karyashala/` |
+| 日本語 | `/ja/gemu/nami/hamon-suiso/` | `/ja/gemu/nami/antena-kobo/` |
+
+**Ripple Tank Ruler**: a 60 cm ripple tank seen from above, lighter where the water is higher, with every crest drawn as a bright line, a ruler in cm, and a side view of the surface and the bottom. A bar dips 8 times a second, so crests sit λ = v ÷ f apart; over the shallow end the ripples slow from 40 to 24 cm/s at the step, with the same frequency. Every run lasts 2.5 s. Missions ask for the spacing when 10 crests span 45 cm (5 cm, bracketed once all ten are in the tank), the real spacing from a half-size photo showing 2.5 cm (5 cm; the photo is drawn under the tank with its own scale), the speed at 8 Hz and 5 cm (40 cm/s), the spacing over the shallow end (3 cm), and how long the first ripple takes to cross the tank (1.5 s). Answers within 2% are right. Slips caught: dividing by the number of crests or by one gap too many, crests per centimetre, the photo's value or shrinking it again, dividing or inverting f and λ, m/s for cm/s, an unchanged or longer wavelength, multiplying speed and frequency, the number of waves for a time, dividing by the frequency, and the period.
+
+**Antenna Workshop**: radio waves leave an antenna at c = 3 × 10⁸ m/s, shown slowed down by their own frequency so one oscillation lasts one second on screen, with a ruler in m or cm and a bracket over one wavelength; the right panel places the length on a ladder of powers of ten from 1 mm to 10 km beside AM radio, FM radio, and Wi-Fi. Every run lasts 3 s. Missions ask for the wavelength of FM radio at 100 MHz (3 m), a quarter-wave car antenna for it (0.75 m, drawn beside your antenna), Wi-Fi at 2.4 GHz in cm (12.5 cm), the hot spots of a 2.45 GHz microwave oven, half a wavelength apart (6.12 cm, a standing wave melting a chocolate bar), and AM radio at 1 MHz (300 m). Answers within 2% are right. Slips caught: multiplying c and f, MHz taken as Hz, f ÷ c, the speed of sound, a full or half wave for the antenna, metres, millimetres, or GHz taken as MHz for Wi-Fi, a whole or quarter wavelength or metres for the hot spots, and kilometres or MHz taken as kHz for AM.
+
+- `verify-rippletank.cjs`, `verify-antenna.cjs`: model checks (crests λ apart and 10 crests spanning 9 gaps, the photo's scale, the same frequency on both sides of the step with shorter waves over the shallow end, the crossing time, λ = c ÷ f, one wavelength per displayed second, hot spots half a wavelength apart with still points at the walls, timestep independence, rounding margins, slip detection, scoring, input validation, state transfer) and localized interface checks in all eleven languages. All run in `npm test`.
+
+## Frequency games: String Tuner, Strobe Freeze
+
+Two more Waves games (plan items 5 and 6 in `WAVES_HANDOFF.md`) are about frequency: the pitch of a string, f = v ÷ (2·L), and measuring a frequency with a strobe, f_seen = f − f_s. They follow Wave Machine in the topic's playing order. Answers are typed and a run counts as an attempt as soon as it starts; readings stay hidden until a run starts.
+
+| Language | String Tuner | Strobe Freeze |
+| --- | --- | --- |
+| English | `/games/waves/string-tuner/` | `/games/waves/strobe-freeze/` |
+| Español | `/es/juegos/ondas/afinador-de-cuerdas/` | `/es/juegos/ondas/congelar-con-estroboscopio/` |
+| Français | `/fr/jeux/ondes/accordeur-de-cordes/` | `/fr/jeux/ondes/figer-au-stroboscope/` |
+| Deutsch | `/de/spiele/wellen/saitenstimmer/` | `/de/spiele/wellen/stroboskop-stopp/` |
+| Nederlands | `/nl/spellen/golven/snarenstemmer/` | `/nl/spellen/golven/stroboscoop-stilzetten/` |
+| Suomi | `/fi/pelit/aallot/kielten-viritin/` | `/fi/pelit/aallot/stroboskooppi/` |
+| Norsk bokmål | `/nb/spill/bolger/strengestemmer/` | `/nb/spill/bolger/stroboskopet/` |
+| Dansk | `/da/spil/bolger/strengestemmer/` | `/da/spil/bolger/stroboskopet/` |
+| Português | `/pt/jogos/ondas/afinador-de-cordas/` | `/pt/jogos/ondas/congelar-com-estroboscopio/` |
+| हिन्दी | `/hi/khel/tarangen/taar-tuner/` | `/hi/khel/tarangen/strobe-se-rokna/` |
+| 日本語 | `/ja/gemu/nami/gen-no-chunaa/` | `/ja/gemu/nami/sutorobo-de-tomeru/` |
+
+**String Tuner**: a guitar neck with frets and a ruler measured from the bridge; the string vibrates in its fundamental (half a wave, λ = 2·L) between the nut or your finger and the bridge, slowed down by its own frequency so one vibration lasts a second on screen. The right panel is a tuner dial from 0 to 1000 Hz with A3, E4, A4, and A5 marked, the string's needle in blue and yours in orange. Every run lasts 3 s. Missions ask for the note of a 65 cm string with 286 m/s waves (220 Hz), half the string (440 Hz), the vibrating length for 330 Hz (43.3 cm; your finger sets it), four times the tension (440 Hz), and one vibration at 220 Hz (4.55 ms). Answers within 2% are right. Slips caught: v ÷ L, v ÷ (4·L), multiplying, halving, keeping, or quadrupling the note, the wavelength for the length, the inverse ratio, metres for cm, a linear or √2 change with tension, no change, seconds for ms, half a period, and the frequency for the period.
+
+**Strobe Freeze**: a dark room where a wave on a rope or an 8-spoke wheel is drawn only at each flash, each image held for 0.1 s and fading, with an optional gray blur of the real motion; the right panel plots one point over the last 0.4 s with a dot at every flash. Runs last 3 s in real time. Missions ask for the highest flash rate that freezes a 25 Hz wave with a single image (25 Hz; your rate drives the lamp, so 50 Hz shows two images), the creep of a 26 Hz wave under 25 flashes a second (1 Hz), the frequency of a wave that creeps 2 cycles a second under 40 flashes (42 Hz), the slowest turning rate that makes the wheel look still under 24 flashes (3 turns a second; your rate drives the wheel, and 1.5 shows 16 spokes), and the speed of a frozen wave with crests 5 cm apart at 25 Hz (125 cm/s). Answers within 2% are right. Slips caught: half or double the rate, the period, adding or dividing the rates, subtracting the creep, the creep or the flash rate alone, the flash rate for the wheel, multiplying by the spokes, half the rate, λ ÷ f, f ÷ λ, and m/s for cm/s.
+
+- `verify-strings.cjs`, `verify-strobe.cjs`: model checks (f = v ÷ (2·L) and the half-wave shape, the octave, √F for tension, your finger's length, frozen images at one flash per cycle, the creep f − f_s, the wheel's still speeds, the images the eye holds, timestep independence, rounding margins, slip detection, scoring, input validation, state transfer) and localized interface checks in all eleven languages. All run in `npm test`.
+
+## Period games: Surfer's Wait, Tide Clock
+
+Two more Waves games (plan items 7 and 8 in `WAVES_HANDOFF.md`) are about the period: the time between crests of an ocean swell, T = λ ÷ v, and the period of the tides, about 12 h 25 min. They follow Strobe Freeze in the topic's playing order. Answers are typed and a run counts as an attempt as soon as it starts; readings stay hidden until a run starts.
+
+| Language | Surfer's Wait | Tide Clock |
+| --- | --- | --- |
+| English | `/games/waves/surfers-wait/` | `/games/waves/tide-clock/` |
+| Español | `/es/juegos/ondas/la-espera-del-surfista/` | `/es/juegos/ondas/reloj-de-mareas/` |
+| Français | `/fr/jeux/ondes/l-attente-du-surfeur/` | `/fr/jeux/ondes/l-horloge-des-marees/` |
+| Deutsch | `/de/spiele/wellen/warten-auf-die-welle/` | `/de/spiele/wellen/gezeitenuhr/` |
+| Nederlands | `/nl/spellen/golven/wachten-op-de-golf/` | `/nl/spellen/golven/getijdenklok/` |
+| Suomi | `/fi/pelit/aallot/surffarin-odotus/` | `/fi/pelit/aallot/vuorovesikello/` |
+| Norsk bokmål | `/nb/spill/bolger/surferens-venting/` | `/nb/spill/bolger/tidevannsklokka/` |
+| Dansk | `/da/spil/bolger/surferens-ventetid/` | `/da/spil/bolger/tidevandsuret/` |
+| Português | `/pt/jogos/ondas/a-espera-do-surfista/` | `/pt/jogos/ondas/relogio-das-mares/` |
+| हिन्दी | `/hi/khel/tarangen/surfer-ka-intezaar/` | `/hi/khel/tarangen/jwar-ghadi/` |
+| 日本語 | `/ja/gemu/nami/safa-no-machijikan/` | `/ja/gemu/nami/shio-no-tokei/` |
+
+**Surfer's Wait**: a side view of a swell rolling towards a beach over 2.5 wavelengths, with a surfer waiting 1.25 wavelengths out and a ruler in metres; heights are enlarged. The right panel plots the surfer's height over time with a white dot at each crest. A run lasts 2.5 periods, sped up so it takes 4 s, and ends as the third crest lifts the surfer. Missions ask for the wait between crests 60 m apart at 10 m/s (6 s), waves per minute for the same swell (10), the swell's speed from a pier with crests 40 m apart every 5 s (8 m/s), the spacing of a 12 s storm swell at 15 m/s (180 m), and the frequency of waves every 8 s (0.125 Hz). Answers within 2% are right. Slips caught: λ·v, v ÷ λ, the period for waves per minute, 60·T, waves per second, λ·T, T ÷ λ, v ÷ T, T ÷ v, the period for the frequency, and waves per minute for hertz.
+
+**Tide Clock**: a harbour wall with a tide gauge from −3 to +3 m, a moored boat, a big clock, and a sky that follows the hour; the tide is h = 2 m · cos(2π·t ÷ T) with T = 12 h 25 min, starting at high tide at 06:10. The right panel plots the water level over the run's hours with a white dot at each high tide. Runs cover 26 or 50 hours in about 4 s (sped up 23 400 or 45 000 times); the clock and day show the harbour time, and the time reading is in hours. Missions ask for the period from four periods in 49 h 40 min (12.42 h), the next low tide after 06:10 (6.21 h), high tides in 24 h (1.93), how much later tomorrow's morning high tide is (50 min), and the tide's wavelength across a 4000 m deep ocean at 200 m/s (8940 km, drawn on a scale to halfway round the Earth). Answers within 2% are right. Slips caught: dividing by the five tides seen, taking away two days, 12 h, a quarter or a whole period, 6 h, two tides, tides per hour, T ÷ 24, hours for minutes, one tide's delay, double the delay, hours for seconds, and metres for km.
+
+- `verify-surf.cjs`, `verify-tide.cjs`: model checks (crests reaching the surfer at T/2, 3T/2, 5T/2, the swell repeating every wavelength and moving one wavelength each period, high and low water, the harbour clock and day, timestep independence, rounding margins, slip detection with no slip inside the 2% window, scoring, input validation, state transfer) and localized interface checks in all eleven languages. All run in `npm test`.
+
+## Wave speed games: Rope Tension Lab, Tsunami Race
+
+Two more Waves games (plan items 9 and 10 in `WAVES_HANDOFF.md`) are about what sets the speed of a wave: the tension and mass per metre of a rope, v = √(F ÷ μ), and the depth of the sea for a tsunami, v = √(g·h). They follow Tide Clock in the topic's playing order. Answers are typed and a run counts as an attempt as soon as it starts; readings stay hidden until a run starts.
+
+| Language | Rope Tension Lab | Tsunami Race |
+| --- | --- | --- |
+| English | `/games/waves/rope-tension-lab/` | `/games/waves/tsunami-race/` |
+| Español | `/es/juegos/ondas/laboratorio-de-tension-de-cuerdas/` | `/es/juegos/ondas/carrera-del-tsunami/` |
+| Français | `/fr/jeux/ondes/labo-de-tension-des-cordes/` | `/fr/jeux/ondes/la-course-du-tsunami/` |
+| Deutsch | `/de/spiele/wellen/seilspannungs-labor/` | `/de/spiele/wellen/tsunami-rennen/` |
+| Nederlands | `/nl/spellen/golven/touwspanningslab/` | `/nl/spellen/golven/tsunamirace/` |
+| Suomi | `/fi/pelit/aallot/koyden-kireys/` | `/fi/pelit/aallot/tsunamikisa/` |
+| Norsk bokmål | `/nb/spill/bolger/taustrammelab/` | `/nb/spill/bolger/tsunamikapplopet/` |
+| Dansk | `/da/spil/bolger/rebspaendingslab/` | `/da/spil/bolger/tsunamikaplobet/` |
+| Português | `/pt/jogos/ondas/laboratorio-de-tensao-em-cordas/` | `/pt/jogos/ondas/corrida-do-tsunami/` |
+| हिन्दी | `/hi/khel/tarangen/rassi-tanav-prayogshala/` | `/hi/khel/tarangen/tsunami-ki-daud/` |
+| 日本語 | `/ja/gemu/nami/rope-no-chouryoku/` | `/ja/gemu/nami/tsunami-no-kyoso/` |
+
+**Rope Tension Lab**: a rope from a hand over a pulley to a hanging weight that sets the tension; a raised-cosine pulse runs along it, heights enlarged, with a ruler in metres. The before-and-after tests draw the old rope above the new one, both pulses starting together. The right panel plots the pulse's position over time, with the old rope's line dotted and your speed dashed in orange. Runs end as the middle of the pulse reaches the pulley and are slowed down so each takes 3 s; the time reading is in milliseconds. Missions ask for the speed on a 0.1 kg/m rope at 40 N (20 m/s), the speed at 160 N (40 m/s, twice, not four times), the speed on a 0.4 kg/m rope at 40 N (10 m/s), the tension for 30 m/s on a 0.05 kg/m rope (45 N), and the time for a pulse to cross a 10 m, 0.5 kg rope at 80 N (0.25 s). Answers within 2% are right. Slips caught: F ÷ μ, √(μ ÷ F), F·μ, four times or no change with tension, a quarter, double, or no change with mass, μ·v, v² ÷ μ, v², the whole mass for μ, v ÷ L, and L ÷ (F ÷ μ).
+
+**Tsunami Race**: a cross-section of the sea, depth enlarged, with a seabed, a beach slope on the right, and a tsunami hump crossing the surface; a km scale runs underneath and the depth is labelled (in the depth test, only once the run starts). The right panel plots distance over time with your speed dashed in orange. Runs end as the middle of the wave reaches the far side and are sped up so each takes 4 s; the time reading is in minutes. Missions ask for the speed over a 4000 m deep ocean (198 m/s), the same in km/h (713 km/h), the time to cross 2000 km (2.81 h), the speed in 10 m of water near the shore (9.9 m/s), and the depth of a sea crossed at 50 m/s (255 m). g = 9.8 m/s². Answers within 2% are right. Slips caught: g·h, √h, √(h ÷ g), m/s for km/h, dividing by 3.6, seconds or minutes for hours, speed ÷ distance, a linear slow-down with depth, v ÷ g, g·v², and v².
+
+- `verify-tension.cjs`, `verify-tsunami.cjs`: model checks (√ of the tension and mass per metre, the before-and-after ratios, the √ of the depth, steady motion to the far end, timestep independence, rounding margins, slip detection, scoring, input validation, state transfer) and localized interface checks in all eleven languages. All run in `npm test`.
+
+## Transverse and longitudinal games: Slinky Lab, Earthquake P and S
+
+Two more Waves games (plan items 11 and 12 in `WAVES_HANDOFF.md`) are about the two kinds of wave: a slinky shaken sideways (transverse) or pushed and pulled (longitudinal), and an earthquake's P (longitudinal) and S (transverse) waves. They follow Tsunami Race in the topic's playing order. Answers are typed; a run counts as an attempt as soon as it starts; readings stay hidden until a run starts. The direction questions take an angle between the material's movement and the way the wave travels: 90° across, 0° along (180° also counts on the slinky, and 0 has its own window).
+
+| Language | Slinky Lab | Earthquake P and S |
+| --- | --- | --- |
+| English | `/games/waves/slinky-lab/` | `/games/waves/earthquake-p-and-s/` |
+| Español | `/es/juegos/ondas/laboratorio-del-muelle/` | `/es/juegos/ondas/terremoto-p-y-s/` |
+| Français | `/fr/jeux/ondes/labo-du-ressort/` | `/fr/jeux/ondes/seisme-p-et-s/` |
+| Deutsch | `/de/spiele/wellen/spiralfeder-labor/` | `/de/spiele/wellen/erdbeben-p-und-s/` |
+| Nederlands | `/nl/spellen/golven/slinkylab/` | `/nl/spellen/golven/aardbeving-p-en-s/` |
+| Suomi | `/fi/pelit/aallot/jousilaboratorio/` | `/fi/pelit/aallot/maanjaristys-p-ja-s/` |
+| Norsk bokmål | `/nb/spill/bolger/fjaerlaben/` | `/nb/spill/bolger/jordskjelv-p-og-s/` |
+| Dansk | `/da/spil/bolger/fjederlab/` | `/da/spil/bolger/jordskaelv-p-og-s/` |
+| Português | `/pt/jogos/ondas/laboratorio-da-mola/` | `/pt/jogos/ondas/terremoto-p-e-s/` |
+| हिन्दी | `/hi/khel/tarangen/spring-prayogshala/` | `/hi/khel/tarangen/bhukamp-p-aur-s/` |
+| 日本語 | `/ja/gemu/nami/bane-no-jikken/` | `/ja/gemu/nami/jishin-no-p-to-s/` |
+
+**Slinky Lab**: a slinky seen from above, one stroke per coil 10 cm apart, a hand at the left end, one coil painted white a third of the way along, and a ruler in metres. ↕ cards shake the end sideways; ↔ cards push and pull it. The right panel draws the painted coil's path from above, with an arrow for the way the wave goes and the guessed angle as an orange dashed line. Runs play at half speed and end as the front reaches the far end (4 s). Missions ask for the angle of a coil's movement for a sideways shake (90°) and a push and pull (0°), the spacing of compressions at 2 Hz and 3 m/s (1.5 m), the speed of compressions 0.8 m apart at 2.5 Hz (2 m/s), and the spacing when the first compression covers 6 m in 2 s at 1.5 Hz (2 m). Answers within 2% are right. Slips caught: along for across, across for along, v·f, f ÷ v, λ ÷ f, f ÷ λ, the speed for the spacing, the speed times f, and the distance ÷ f.
+
+**Earthquake P and S**: a cross-section of the crust with the quake at the left and a station on the surface; the P (blue) and S (white) fronts spread as circles, a row of rock grains is pushed along by P and shaken across by S (enlarged), and a top-left inset shows the ground's path at the station. The right panel is the station's seismogram: a small P burst, then a larger S burst, each 3 s long, with guessed arrival times as dashed orange lines. Runs end 4 s after the S wave arrives, sped up so each takes 5 s. Missions ask for the distance from a 10 s S−P gap with v_P = 6 and v_S = 3.5 km/s (84 km), the P arrival 120 km away (20 s), the gap 210 km away (25 s), the angle of the S wave's shake (90°), and the S speed from arrivals at 20 s and 15 s later, 140 km away (4 km/s). Answers within 2% are right. Slips caught: the gap times v_P, times v_S, or times v_P − v_S, the S arrival for P, d·v, v ÷ d, the S or P arrival for the gap, the sum of the arrivals, 0° or 180° for S, d ÷ the gap, the P speed, and subtracting the gap.
+
+- `verify-slinky.cjs`, `verify-quake.cjs`: model checks (coils still ahead of the front, one wavelength of repeat behind it, the squeeze of about half the spacing, 0° and 180° both along, P along and S across with on-time arrivals, timestep independence, rounding margins, slip detection, scoring, input validation including 0°, state transfer) and localized interface checks in all eleven languages. All run in `npm test`.
+
+## Reflection games: Echo Sounder, Bank Shot Ripples
+
+Two more Waves games (plan items 13 and 14 in `WAVES_HANDOFF.md`) are about reflection: echoes, d = v·t ÷ 2, and how waves bounce, θ_out = θ_in, upside down from a fixed end and upright from a free end. They follow Earthquake P and S in the topic's playing order. Answers are typed; a run counts as an attempt as soon as it starts; readings stay hidden until a run starts.
+
+| Language | Echo Sounder | Bank Shot Ripples |
+| --- | --- | --- |
+| English | `/games/waves/echo-sounder/` | `/games/waves/bank-shot-ripples/` |
+| Español | `/es/juegos/ondas/sonda-de-eco/` | `/es/juegos/ondas/carambola-de-ondas/` |
+| Français | `/fr/jeux/ondes/sondeur-a-echo/` | `/fr/jeux/ondes/rebonds-de-vagues/` |
+| Deutsch | `/de/spiele/wellen/echolot/` | `/de/spiele/wellen/bandenwellen/` |
+| Nederlands | `/nl/spellen/golven/echolood/` | `/nl/spellen/golven/bandstoot-golven/` |
+| Suomi | `/fi/pelit/aallot/kaikuluotain/` | `/fi/pelit/aallot/vallikimmokkeet/` |
+| Norsk bokmål | `/nb/spill/bolger/ekkolodd/` | `/nb/spill/bolger/vantstot-med-bolger/` |
+| Dansk | `/da/spil/bolger/ekkolod/` | `/da/spil/bolger/bandestod-med-bolger/` |
+| Português | `/pt/jogos/ondas/sonda-de-eco/` | `/pt/jogos/ondas/tabela-de-ondas/` |
+| हिन्दी | `/hi/khel/tarangen/goonj-mapi/` | `/hi/khel/tarangen/takkar-se-laherein/` |
+| 日本語 | `/ja/gemu/nami/kodama-sokutei/` | `/ja/gemu/nami/hansha-no-kusshon/` |
+
+**Echo Sounder**: a ship over the sea (with a shoal of fish in one test), a bat and a moth, or a person and a cliff. The ping spreads out as circles and each echo spreads back from what it hit; a scale is shown in metres. The right panel is what the receiver hears: the ping, then a burst for each echo labelled with its time, with guessed echo times dashed in orange. Time is in milliseconds, slowed so each run takes 4 s and ends as the last echo returns. Missions ask for the depth from a 0.4 s echo at 1500 m/s (300 m), a moth from a 0.01 s echo at 340 m/s (1.7 m), the echo time from a cliff 85 m away (0.5 s), the speed of sound from a 0.8 s echo where the sea is 600 m deep (1500 m/s), and how high a shoal swims above the seabed from echoes at 0.1 s and 0.4 s (225 m). Answers within 2% are right. Slips caught: v·t without halving, v ÷ t, the speed of sound in air for sonar, centimetres, the one-way time, v ÷ 2d, one way only for the speed, d·t, v·Δt without halving, and the fish's or the seabed's depth.
+
+**Bank Shot Ripples**: two scenes. A wave tank from above, 8 m by 4 m with the wall along the bottom: a ripple packet runs from A, bounces, and traces its path; the right panel is a close-up of the bounce with both angles. A rope from the side, 6 m from the hand to a clamped end or a ring on a pole, with a marked point 1.5 m along; the right panel plots the marked point's height. Missions ask for the angle out for a ripple arriving at 35° to the wall (35°), where to hit the wall to get from A (2 m out) to B (1 m out, 6 m along) (4 m), the height of a 5 cm pulse back from a fixed end (−5 cm) and from a free end (+5 cm), and the round trip on a 6 m rope at 4 m/s (3 s). Answers within 2% are right; heights take a sign. Slips caught: 90° − θ, 180° − θ, 2θ, halfway, the swapped split, upright from a fixed end, inverted from a free end, double height, one way, L·v, and v ÷ 2L.
+
+- `verify-echo.cjs`, `verify-bank.cjs`: model checks (out-and-back paths, echoes heard on time, equal angles in and out, the bank shot reaching B, the fixed end staying still and returning −5 cm, the free end returning +5 cm, timestep independence, rounding margins, slip detection, scoring, input validation including signed heights, state transfer) and localized interface checks in all eleven languages. All run in `npm test`.
+
+## Refraction games: Shallow Beach, Spearfishing
+
+Two more Waves games (plan items 15 and 16 in `WAVES_HANDOFF.md`) are about refraction: sea waves that slow down and bend over a sandbank, and light that bends at a water surface, sin θ₁ ÷ sin θ₂ = v₁ ÷ v₂ = n₂ ÷ n₁. They follow Bank Shot Ripples in the topic's playing order. Answers are typed; a run counts as an attempt as soon as it starts; readings stay hidden until a run starts. Angles are measured from the normal.
+
+| Language | Shallow Beach | Spearfishing |
+| --- | --- | --- |
+| English | `/games/waves/shallow-beach/` | `/games/waves/spearfishing/` |
+| Español | `/es/juegos/ondas/playa-poco-profunda/` | `/es/juegos/ondas/pesca-con-arpon/` |
+| Français | `/fr/jeux/ondes/plage-peu-profonde/` | `/fr/jeux/ondes/peche-au-harpon/` |
+| Deutsch | `/de/spiele/wellen/flacher-strand/` | `/de/spiele/wellen/speerfischen/` |
+| Nederlands | `/nl/spellen/golven/ondiep-strand/` | `/nl/spellen/golven/speervissen/` |
+| Suomi | `/fi/pelit/aallot/matala-ranta/` | `/fi/pelit/aallot/harppuunakalastus/` |
+| Norsk bokmål | `/nb/spill/bolger/grunn-strand/` | `/nb/spill/bolger/harpunfiske/` |
+| Dansk | `/da/spil/bolger/lavvandet-strand/` | `/da/spil/bolger/harpunfiskeri/` |
+| Português | `/pt/jogos/ondas/praia-rasa/` | `/pt/jogos/ondas/pesca-submarina/` |
+| हिन्दी | `/hi/khel/tarangen/uthla-kinara/` | `/hi/khel/tarangen/bhale-se-machhli/` |
+| 日本語 | `/ja/gemu/nami/asase-no-hama/` | `/ja/gemu/nami/mori-de-sakana/` |
+
+**Shallow Beach**: the sea from above, 40 m by 30 m, deep water on the left and a sandbank beyond a straight edge at 20 m. Crests are drawn where the phase is a whole number, continuous across the edge, so they bunch up and swing round as they cross; the waves' path and the normal are drawn. The right panel is a side view along the path: the water's surface, with crests closer together over the raised seabed. Each run shows three periods (6 s), paced ×1.5. Missions ask for the wavelength over the sandbank for 10 m waves slowing from 5 to 3 m/s (6 m), their frequency there (0.5 Hz), the angle over the sandbank for waves arriving at 30° (17.5°), the speed of 6 m/s waves that bend from 40° to 25° (3.94 m/s), and the depth for 3 m/s shallow-water waves (0.92 m). Answers within 2% are right. Slips caught: the inverted ratio, no change, subtracting speeds, frequency slowed or raised with the speed, scaling the angle itself, bending away from the normal, no bend, the inverted speed, the angles for their sines, v ÷ g, g·v², and v².
+
+**Spearfishing**: a side view of air over water (or a clear liquid). The depth tests show a fish, your eye, and the ray from the fish bending at the surface; once traced, the fish's image is drawn where it seems to be, with a depth scale. The angle tests show a laser ray crossing the surface; the critical test sweeps an underwater lamp's ray from 0° to 80°, refracting out until the critical angle and then reflecting back. The right panel is a close-up of the crossing with both angles. Each run lasts 3 s, paced ×0.75. Missions ask for the real depth of a fish that looks 1 m deep (1.33 m), the angle in water for a ray entering at 45° (32.1°), how far below its image a fish that looks 0.9 m deep really is (0.30 m), the index of a liquid that bends 60° to 35° (1.51), and the critical angle for water (48.8°). Answers within 2% are right. Slips caught: dividing by n, no change, scaling the angle itself, bending away from the normal, no bend, the real depth for the gap, the gap the wrong way, the apparent depth, the ratio of angles, the inverted index, the angle from the surface, and sin θ_c for θ_c.
+
+- `verify-beach.cjs`, `verify-spear.cjs`: model checks (Snell's law, crests continuous across the edge and spaced by the local wavelength, crests counted onto the sandbank, real and apparent depth, the ray escaping until the critical angle and reflecting after it, timestep independence, rounding margins, slip detection, scoring, input validation, state transfer) and localized interface checks in all eleven languages. All run in `npm test`.
+
+## Interference games: Two Speakers, Beat Tuner
+
+Two more Waves games (plan items 17 and 18 in `WAVES_HANDOFF.md`) are about interference: two speakers playing the same note, which add up or cancel depending on the path difference, and two close notes that drift in and out of step in time, which makes beats. They follow Spearfishing in the topic's playing order. Answers are typed; a run counts as an attempt as soon as it starts; readings stay hidden until a run starts.
+
+| Language | Two Speakers | Beat Tuner |
+| --- | --- | --- |
+| English | `/games/waves/two-speakers/` | `/games/waves/beat-tuner/` |
+| Español | `/es/juegos/ondas/dos-altavoces/` | `/es/juegos/ondas/afinador-de-pulsaciones/` |
+| Français | `/fr/jeux/ondes/deux-haut-parleurs/` | `/fr/jeux/ondes/accordeur-a-battements/` |
+| Deutsch | `/de/spiele/wellen/zwei-lautsprecher/` | `/de/spiele/wellen/schwebungs-stimmer/` |
+| Nederlands | `/nl/spellen/golven/twee-luidsprekers/` | `/nl/spellen/golven/zwevingsstemmer/` |
+| Suomi | `/fi/pelit/aallot/kaksi-kaiutinta/` | `/fi/pelit/aallot/huojuntaviritin/` |
+| Norsk bokmål | `/nb/spill/bolger/to-hoyttalere/` | `/nb/spill/bolger/svevningsstemmer/` |
+| Dansk | `/da/spil/bolger/to-hojttalere/` | `/da/spil/bolger/svaevningsstemmer/` |
+| Português | `/pt/jogos/ondas/dois-alto-falantes/` | `/pt/jogos/ondas/afinador-de-batimentos/` |
+| हिन्दी | `/hi/khel/tarangen/do-loudspeaker/` | `/hi/khel/tarangen/vispand-tuner/` |
+| 日本語 | `/ja/gemu/nami/futatsu-no-supika/` | `/ja/gemu/nami/unari-de-chosei/` |
+
+**Two Speakers**: a room seen from above, with two speakers 3 m apart on the left and sound at 340 m/s. The sum of both waves is drawn as a field, slowed to one vibration a second: bright and dark where they add, grey where they cancel. A microphone walks along a line 4 m in front of the speakers, from the middle outwards, over a 4 s run; the right panel graphs the loudness at the microphone, |cos(π·Δd ÷ λ)|, against the path difference, with dips at the quiet spots. One test wires a speaker backwards, which swaps loud and quiet. Missions ask for the path difference at the first quiet spot for 340 Hz (0.5 m) and at the second (1.5 m), the note when the first loud spot beyond the middle is at 0.85 m (400 Hz), the first loud spot with a reversed speaker at 680 Hz (0.25 m), and the wavelength when the second quiet spot is at 0.75 m (0.5 m). Answers within 2% are right. Slips caught: a whole wavelength for quiet, a quarter wave, the loud spot between, two wavelengths, the first quiet spot for the second, half a wave for a loud spot, v·λ, λ ÷ v, the in-phase answer with a reversed speaker, a quarter-wave shift, the path difference for the wavelength, the first quiet spot's factor, and half the path difference.
+
+**Beat Tuner**: two notes and the sound they make together, drawn scrolling over the last 2 s with its fast vibration slowed far down and its loudness envelope at the real beat rate; a loudness bar swells and fades with each beat. The right panel graphs the loudness over the whole run, with your answer as a dashed orange pattern. In the two tuning tests the string is retuned halfway through the run. Runs last 4 s (the counting test 2 s, paced ×0.5). Missions ask for the beats a second of 440 Hz and 444 Hz (4), how far to lower a 444 Hz string to first hear 1 beat a second against 440 Hz (3 Hz), the time between beats of 440 Hz and 442.5 Hz (0.4 s), how far off a string is that beats 3 times a second and 5 after tightening (+3 Hz, sharp), and the pitch gap when 6 beats are counted in 2 s (3 Hz). Answers within 2% are right. Slips caught: adding the notes, their average, half the difference, tuning all the way to 440 Hz, going past it to 439 Hz, the beat rate for the change, the rate for the time, one vibration of the note, half a beat, the wrong side, the beat rate after tightening, the count for the rate, count × time, and time ÷ count.
+
+- `verify-speakers.cjs`, `verify-beats.cjs`: model checks (path differences along the microphone's line, silence at half a wavelength and loudness at whole ones, a reversed speaker swapping them, the drawn field cancelling at a quiet spot, beat rates from the frequency difference, the envelope continuous when a string is retuned, beats counted, timestep independence, rounding margins, slip detection, scoring, input validation, state transfer) and localized interface checks in all eleven languages. All run in `npm test`.
+
+## Diffraction games: Harbour Gap, Laser Slit
+
+Two more Waves games (plan items 19 and 20 in `WAVES_HANDOFF.md`) are about diffraction: sea waves spreading through a gap in a harbour wall, and laser light spreading through a narrow slit. Both use the first dark (calm) direction of a single gap, sin θ = λ ÷ a, which on a distant screen becomes y = λ·L ÷ a. They follow Beat Tuner in the topic's playing order. Answers are typed; a run counts as an attempt as soon as it starts; readings stay hidden until a run starts, and the asked quantity stays hidden (shown as ?) until the run ends.
+
+| Language | Harbour Gap | Laser Slit |
+| --- | --- | --- |
+| English | `/games/waves/harbour-gap/` | `/games/waves/laser-slit/` |
+| Español | `/es/juegos/ondas/bocana-del-puerto/` | `/es/juegos/ondas/rendija-laser/` |
+| Français | `/fr/jeux/ondes/passe-du-port/` | `/fr/jeux/ondes/fente-laser/` |
+| Deutsch | `/de/spiele/wellen/hafeneinfahrt/` | `/de/spiele/wellen/laserspalt/` |
+| Nederlands | `/nl/spellen/golven/haveningang/` | `/nl/spellen/golven/laserspleet/` |
+| Suomi | `/fi/pelit/aallot/sataman-suu/` | `/fi/pelit/aallot/laserrako/` |
+| Norsk bokmål | `/nb/spill/bolger/havneapningen/` | `/nb/spill/bolger/laserspalte/` |
+| Dansk | `/da/spil/bolger/havneabningen/` | `/da/spil/bolger/laserspalte/` |
+| Português | `/pt/jogos/ondas/entrada-do-porto/` | `/pt/jogos/ondas/fenda-laser/` |
+| हिन्दी | `/hi/khel/tarangen/bandargah-ka-muhana/` | `/hi/khel/tarangen/laser-jhiri/` |
+| 日本語 | `/ja/gemu/nami/minato-no-iriguchi/` | `/ja/gemu/nami/reza-to-suritto/` |
+
+**Harbour Gap**: a harbour seen from above, stretched to fill the scene: straight waves come in from the open sea on the left, pass a gap in the wall, and spread out behind it, drawn as the far-field pattern |sin β ÷ β| with β = π·a·sin θ ÷ λ and slowed to one crest a second. Three moored boats at 15°, 30°, and 50° rock with the water where they are. A wave gauge sweeps from straight ahead (0°) to the wall (90°) over a 4 s run, and the right panel graphs wave height against angle. Your answer is drawn as dashed orange calm directions (and orange marks for a gap). Missions ask for the first calm direction for 10 m waves through a 20 m gap (30°), the gap that puts a boat at 30° in it for 6 m waves (12 m), the wavelength when the calm direction behind a 14 m gap is at 35° (8.03 m), the widest gap with no calm direction for 15 m waves (15 m), and the calm direction for waves at 5 m/s every 2 s through a 25 m gap (23.6°). Answers within 2% are right. Slips caught: sin θ for θ, the tangent, the angle from the wall, λ·sin θ, the tangent or cosine for the gap, one wavelength for the gap, a ÷ sin θ, the tangent or cosine for the wavelength, half or twice the wavelength, the speed as the wavelength, and v ÷ T.
+
+**Laser Slit**: a laser, a slit, and a screen from above, not to scale (metres along the beam, millimetres across the screen). The beam reaches the slit by 0.8 s and spreads to the screen by 2 s; the screen then shows the bands in the laser's colour (the square root of (sin β ÷ β)², so the faint bands show), and a light meter moves out to three dark bands by 4 s while the right panel graphs brightness against distance from the centre. Your answer is drawn as orange marks at the dark bands it implies. Missions ask for the first dark band of a 650 nm laser through a 0.1 mm slit 2 m from the screen (13 mm, the plan's example), the central band's width for 532 nm, 0.2 mm, 1.5 m (7.98 mm), the slit when the first dark band of 650 nm light 2 m away is at 20 mm (0.065 mm), the wavelength when a 0.15 mm slit 3 m away puts it at 9 mm (450 nm), and the second dark band for 650 nm, 0.2 mm, 2.4 m (15.6 mm). Answers within 2% are right. Slips caught: the band's width for the dark band, half the distance, metres for mm, half or twice the width, the full width read as y, y ÷ (λ·L), the second band for the first, a doubled wavelength, micrometres for nm, the first band for the second, the first faint bright band, and four times the first.
+
+- `verify-harbour.cjs`, `verify-slit.cjs`: model checks (calm directions at sin θ = λ ÷ a with zero height, height 2 ÷ π halfway in sine, the drawn sea calm along the calm direction and continuous through the gap, evenly spaced dark bands, the faint first bright band, the light's arrival and the meter's sweep, timestep independence, rounding margins, slip detection, scoring, input validation, state transfer) and localized interface checks in all eleven languages, including the hidden asked reading. All run in `npm test`.
+
+## Doppler games: Ambulance Pass-by, Paddling Duck
+
+Two more Waves games (plan items 21 and 22 in `WAVES_HANDOFF.md`) are about the Doppler effect of a moving source: a siren's pitch rising and falling as an ambulance passes, and the ripples of a paddling duck crowding ahead and spreading behind, up to the bow wave of a duck faster than its ripples. They follow Laser Slit in the topic's playing order. Answers are typed; a run counts as an attempt as soon as it starts; readings stay hidden until a run starts, and the asked quantity stays hidden (shown as ?) until the run ends.
+
+| Language | Ambulance Pass-by | Paddling Duck |
+| --- | --- | --- |
+| English | `/games/waves/ambulance-pass-by/` | `/games/waves/paddling-duck/` |
+| Español | `/es/juegos/ondas/paso-de-la-ambulancia/` | `/es/juegos/ondas/pato-nadador/` |
+| Français | `/fr/jeux/ondes/passage-ambulance/` | `/fr/jeux/ondes/canard-nageur/` |
+| Deutsch | `/de/spiele/wellen/krankenwagen/` | `/de/spiele/wellen/paddelnde-ente/` |
+| Nederlands | `/nl/spellen/golven/ambulance/` | `/nl/spellen/golven/peddelende-eend/` |
+| Suomi | `/fi/pelit/aallot/ambulanssi/` | `/fi/pelit/aallot/uiva-sorsa/` |
+| Norsk bokmål | `/nb/spill/bolger/ambulansen/` | `/nb/spill/bolger/padlende-and/` |
+| Dansk | `/da/spil/bolger/ambulancen/` | `/da/spil/bolger/padlende-and/` |
+| Português | `/pt/jogos/ondas/ambulancia-passando/` | `/pt/jogos/ondas/pato-nadador/` |
+| हिन्दी | `/hi/khel/tarangen/ambulance-ki-siren/` | `/hi/khel/tarangen/tairti-battakh/` |
+| 日本語 | `/ja/gemu/nami/kyukyusha-no-sairen/` | `/ja/gemu/nami/ahiru-no-hamon/` |
+
+**Ambulance Pass-by**: a street from above, stretched to fill the scene, with an ambulance driving right and a listener at each end. Each third of a second the siren sends out a circular crest from where it is; sound is drawn far slower than real but with the true ratio v_s ÷ v, so the crests bunch up ahead and spread behind. The right panel graphs the pitch heard by someone 10 m from the road, from 2 s before the ambulance passes to 2 s after, using the speed at which it comes closer (no sound delay), with the pitches ahead and behind and the siren's own note as dashed guides and your answer as a dashed orange line. Missions ask for the pitch of a 700 Hz siren coming at 30 m/s (768 Hz), going away at 30 m/s (643 Hz; the plan said 642, but 700 × 340 ÷ 370 = 643.2), the speed when 700 Hz is heard as 750 Hz (22.7 m/s), the real note of a siren heard at 680 Hz while leaving at 20 m/s (720 Hz), and the speed for an octave higher (170 m/s). Answers within 2% are right. Slips caught: the leaving formula, adding the speed, the approaching formula, subtracting the speed, the pitch difference for the speed, dividing by f or by f + f', the wrong sign, adding Hz, the speed of sound, v ÷ 3 (1.5 times higher), and twice the speed of sound. The moving-listener formulas are too close (under 2%) at these speeds to be told apart, so they are not slips.
+
+**Paddling Duck**: a pond from above, 240 cm by 160 cm, at real speed. The duck paddles f times a second and each paddle sends out a ring at v from where the duck is; the rings crowd ahead and spread behind, and a duck faster than its ripples trails a V. The right panel is a side view along the path, with a peak wherever a ring crosses it. Your answer is drawn as orange marks a guessed spacing apart (ahead or behind) or as a dashed orange V. Missions ask for the spacing ahead of a duck at 10 cm/s paddling at 2 Hz with ripples at 30 cm/s (10 cm), the spacing behind at 15 cm/s, 2.5 Hz, 25 cm/s (16 cm), the duck's speed when ripples ahead are 6 cm apart at 3 Hz (12 cm/s), the bow wave of a 50 cm/s duck with 25 cm/s ripples (30°), and the paddling rate when ripples behind a 6 cm/s duck are 12 cm apart (3 Hz). Answers within 2% are right. Slips caught: the other side's spacing, still water, multiplying by f, λ'·f for the speed, λ' ÷ f, the spacing difference, the complement, sin θ for θ, the tangent, ignoring the duck, the wrong side, and multiplying by the spacing.
+
+- `verify-ambulance.cjs`, `verify-duck.cjs`: model checks (pitch ahead and behind, the roadside glide falling steadily through the siren's own note, the ring spacing ahead and behind measured from the drawn rings, every ring touching the bow wave, timestep independence, rounding margins, slip detection, scoring, input validation, state transfer) and localized interface checks in all eleven languages, including the hidden asked reading. All run in `npm test`.
+
+## Sound games: Decibel Meter, Bottle Flute
+
+The last two Waves games of the plan (items 23 and 24 in `WAVES_HANDOFF.md`) are about sound: levels in decibels, and the notes of a pipe closed at one end. They follow Paddling Duck in the topic's playing order. Answers are typed; a run counts as an attempt as soon as it starts; readings stay hidden until a run starts, and the asked quantity stays hidden (shown as ?) until the run ends.
+
+| Language | Decibel Meter | Bottle Flute |
+| --- | --- | --- |
+| English | `/games/waves/decibel-meter/` | `/games/waves/bottle-flute/` |
+| Español | `/es/juegos/ondas/sonometro/` | `/es/juegos/ondas/flauta-de-botella/` |
+| Français | `/fr/jeux/ondes/sonometre/` | `/fr/jeux/ondes/flute-bouteille/` |
+| Deutsch | `/de/spiele/wellen/schallpegelmesser/` | `/de/spiele/wellen/flaschenfloete/` |
+| Nederlands | `/nl/spellen/golven/decibelmeter/` | `/nl/spellen/golven/flessenfluit/` |
+| Suomi | `/fi/pelit/aallot/desibelimittari/` | `/fi/pelit/aallot/pullohuilu/` |
+| Norsk bokmål | `/nb/spill/bolger/desibelmaler/` | `/nb/spill/bolger/flaskefloyte/` |
+| Dansk | `/da/spil/bolger/decibelmaler/` | `/da/spil/bolger/flaskefloejte/` |
+| Português | `/pt/jogos/ondas/decibelimetro/` | `/pt/jogos/ondas/flauta-de-garrafa/` |
+| हिन्दी | `/hi/khel/tarangen/decibel-meter/` | `/hi/khel/tarangen/botal-ki-bansuri/` |
+| 日本語 | `/ja/gemu/nami/souon-kei/` | `/ja/gemu/nami/bin-no-fue/` |
+
+**Decibel Meter**: speakers on the left sending out rings that brighten with the level, a sound level meter on a distance scale, and a dial from 0 to 120 dB whose number shows ? while the level is the answer. Each run changes one thing over 3.5 s (speakers switching on one by one, the meter carried away, the power or the intensity turned up) and then holds; the right panel graphs the level over the run, with your answer as a dashed orange level (or the time the meter passes your distance). Missions ask for ten 60 dB speakers together (70 dB), a 80 dB mower heard from 4 m instead of 2 m (74.0 dB), how many times more intense 90 dB is than 60 dB (1000), the level of 10⁻⁵ W/m² (70 dB), and how far from a 110 dB concert at 10 m the level is 90 dB (100 m). Answers within 2% are right. Slips caught: multiplying the level, +3 dB for ten times, halving the decibels, 1 ÷ r instead of 1 ÷ r², 10 dB for doubling the distance, the dB difference for the ratio, bels for the ratio, the ratio of levels, bels for decibels, the natural log, leaving out I₀, doubling the distance, the intensity ratio as the distance ratio, and adding dB to metres.
+
+**Bottle Flute**: a bottle from the side with water at the bottom and the air column above it swinging as a quarter wave (three quarters for the next note), drawn slowed down, with breath across the neck; in two tests water pours in over 3.5 s and the note rises. The right panel graphs f = v ÷ 4L against the column length with the bottle's path along it, and your answer as a dashed orange water line. Missions ask for the note of a 20 cm column (425 Hz, the plan's example), a 30 cm bottle with 13 cm of water (500 Hz), the column for 340 Hz (25 cm), the water for 680 Hz in a 32 cm bottle (19.5 cm), and the next note up from a 20 cm column (1275 Hz). Answers within 2% are right. Slips caught: the open pipe, cm for m, a whole wavelength, the whole bottle, the water's depth, open-pipe and full-wave lengths, metres for cm, the air column for the water, the open-pipe fill, adding lengths, the even harmonic, the fundamental, and dividing by 3. The model text says real bottles act partly as Helmholtz resonators and sound lower.
+
+- `verify-decibel.cjs`, `verify-bottle.cjs`: model checks (levels from intensity and distance ratios, the speakers switching on, a quarter wave in the column at every moment, water pouring in, odd harmonics, timestep independence, rounding margins, slip detection, scoring, input validation, state transfer) and localized interface checks in all eleven languages, including the hidden asked reading. All run in `npm test`.

@@ -1,0 +1,259 @@
+<!doctype html>
+<html lang="en">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Pendulum Clock · Phisicos</title>
+<style>
+.pendulum-page .answer-row .symbol{min-width:44px}.pendulum-page .question{font-size:15px;font-weight:600;margin-top:4px}
+.pendulum-page .line-key.white{background:#f2f8fc}.pendulum-page .line-key.blue{background:#77b9ff}
+</style>
+</head>
+<body>
+<div class="shell module-page pendulum-page">
+__HEADER__
+<main id="main-content">
+__BREADCRUMBS__
+
+<div class="masthead"><div><h1>{{title}}</h1><p class="intro">{{subtitle}}</p></div><div class="concept-tags"><span class="tag speed">{{tag1}}</span><span class="tag velocity">{{tag2}}</span></div></div>
+<noscript><p class="no-js">{{noScript}}</p></noscript>
+<div class="layout">
+<aside class="sidebar" aria-label="{{setup}}">
+  <section class="control-section"><h2 class="eyebrow">{{setup}}</h2><div class="mission-list" role="group" aria-label="{{setup}}">
+    <button id="mission-0" aria-pressed="true"><b>1 · {{mission0}}</b><span id="given-0">T</span></button>
+    <button id="mission-1" aria-pressed="false"><b>2 · {{mission1}}</b><span id="given-1">L</span></button>
+    <button id="mission-2" aria-pressed="false"><b>3 · {{mission2}}</b><span id="given-2">L</span></button>
+    <button id="mission-3" aria-pressed="false"><b>4 · {{mission3}}</b><span id="given-3">L</span></button>
+    <button id="mission-4" aria-pressed="false"><b>5 · {{mission4}}</b><span id="given-4">L</span></button>
+  </div><p class="hint">{{setupNote}}</p></section>
+  <section class="control-section"><h2 class="eyebrow">{{answerHeading}}</h2>
+    <p class="question" id="question">{{question0}}</p>
+    <p class="field-label"><label for="answer">{{answerLabel}}</label></p>
+    <div class="answer-row"><span class="symbol" id="answer-symbol">L =</span><input id="answer" type="number" inputmode="decimal" step="any" value=""><span class="unit" id="answer-unit">m</span></div>
+    <p class="hint">{{answerHint}}</p>
+  </section>
+  <section class="control-section"><h2 class="eyebrow">{{observe}}</h2><label class="check"><input id="show-trail" type="checkbox" checked>{{trailToggle}}</label><label class="check"><input id="show-guess" type="checkbox" checked>{{guessToggle}}</label><p class="hint">{{observeHint}}</p></section>
+</aside>
+<div class="workspace">
+  <section class="scene" aria-label="{{sceneTitle}}"><div class="scene-top"><div><h2 class="scene-title">{{sceneTitle}}</h2><p class="scene-subtitle" id="mission-label">{{mission0}}</p></div><span class="status" id="pendulum-status"><i class="status-dot" aria-hidden="true"></i><span id="pendulum-status-text">{{ready}}</span></span></div>
+    <div class="module-stage"><canvas id="pendulum-canvas" role="img" aria-label="{{canvasLabel}}">{{noScript}}</canvas></div>
+    <div class="legend"><span><i class="line-key blue"></i>{{swingLegend}}</span><span><i class="line-key white"></i>{{pendulumLegend}}</span><span><i class="line-key orange"></i>{{guessLegend}}</span><span><i class="line-key gray"></i>{{referenceLegend}}</span></div>
+    <div class="module-equation"><span>{{equationTitle}}</span><output id="pendulum-equation">T = 2π·√(L ÷ g)</output></div>
+    <div class="transport"><button id="play" class="primary" disabled>{{play}}</button><button id="pause" disabled>{{pause}}</button><button id="step" disabled>{{step}}</button><button id="reset" class="reset">{{reset}}</button></div>
+  </section>
+  <section class="metrics" aria-label="{{observe}}">
+    <div class="metric scalar"><h3 class="metric-label">{{time}}</h3><p class="metric-value"><span id="time-value">0.00</span> <small>s</small></p><p class="metric-equation">t</p></div>
+    <div class="metric scalar"><h3 class="metric-label">{{lengthMetric}}</h3><p class="metric-value"><span id="length-value">—</span> <small>m</small></p><p class="metric-equation">L</p></div>
+    <div class="metric vector"><h3 class="metric-label">{{periodMetric}}</h3><p class="metric-value"><span id="period-value">—</span> <small>s</small></p><p class="metric-equation">T = 2π·√(L ÷ g)</p></div>
+    <div class="metric scalar"><h3 class="metric-label">{{swingsMetric}}</h3><p class="metric-value"><span id="swings-value">—</span></p><p class="metric-equation">n = t ÷ T</p></div>
+    <div class="metric vector"><h3 class="metric-label">{{angleMetric}}</h3><p class="metric-value"><span id="angle-value">—</span> <small>°</small></p><p class="metric-equation">θ = θ₀·cos(2π·t ÷ T)</p></div>
+  </section>
+  <div class="insight" id="insight"><span class="insight-icon" aria-hidden="true">↗</span><div><strong id="lesson-title">{{predictTitle}}</strong><p id="lesson-copy">{{predictCopy}}</p></div></div>
+  <section class="challenge"><div class="mission-heading"><h2 class="challenge-title">{{missionTitle}}</h2><div class="score-card"><span>{{score}}</span><strong id="mission-score">—</strong></div></div><p class="mission-copy">{{missionCopy}}</p><div class="badges"><span id="right-badge">✓ {{rightBadge}}</span><span id="first-badge">① {{firstBadge}}</span></div></section>
+</div>
+</div>
+<article class="learning-content"><section><h2>{{guideTitle}}</h2><ol><li>{{instruction1}}</li><li>{{instruction2}}</li><li>{{instruction3}}</li><li>{{instruction4}}</li></ol></section><section><h2>{{conceptTitle}}</h2><p>{{conceptCopy}}</p><aside class="worked-example"><h3>{{exampleTitle}}</h3><p>{{exampleCopy}}</p></aside></section><section><h2>{{modelTitle}}</h2><p>{{modelCopy}}</p></section></article>
+<p class="language-note" id="language-note">{{languageNote}}</p>
+</main>
+__FOOTER__
+<p class="sr-only" id="announcement" role="status" aria-live="polite"></p>
+</div>
+<script id="pendulum-model">
+class PendulumModel {
+  // A pendulum swinging through a small angle is simple harmonic: θ = θ₀·cos(2π·t ÷ T), with T = 2π·√(L ÷ g). The period
+  // depends only on the length and on g, not on the mass or on how wide the swing is. A run lasts one full swing of the
+  // pendulum when its period is asked; when a length is asked, your pendulum swings for the period it should have.
+  static amp = 10; // degrees each way
+  static tolerance = .02;
+  static missions = [
+    {key:'seconds',ask:'length',target:2,g:9.8},
+    {key:'short',ask:'period',L:.5,g:9.8},
+    {key:'double',ask:'double',L1:.36,g:9.8},
+    {key:'moon',ask:'period',L:1,g:1.62},
+    {key:'heavy',ask:'period',L:.8,g:9.8,m1:.5,m2:2}
+  ];
+  static units = {length:'m',period:'s',double:'m'};
+  static limits = {length:1e4,period:1e4,double:1e4};
+  constructor(index = 0){this.setMission(index);}
+  setMission(index){this.index=index;this.config=PendulumModel.missions[index];this.answer=null;this.attempts=0;this.reset();}
+  reset(){this.t=0;this.status='moving';}
+  valid(value){return Number.isFinite(value)&&value>0&&value<=PendulumModel.limits[this.config.ask];}
+  setAnswer(value){if(value!==null&&!this.valid(value))return false;this.answer=value;this.reset();return true;}
+  ready(){return this.answer!==null;}
+  period(L,g=this.config.g){return 2*Math.PI*Math.sqrt(L/g);}
+  // The swinging pendulum: yours when a length is asked, otherwise the given one (1 m stands in before you answer).
+  length(){const c=this.config;return c.ask==='period'?c.L:(this.answer??c.L1??1);}
+  real(){return this.period(this.length());}
+  reference(){const c=this.config;return c.L1?this.period(c.L1):null;}
+  // The period the pendulum should have: 2 s for the clock, twice the short one's, or its own when the period is asked.
+  target(){const c=this.config;return c.ask==='length'?c.target:c.ask==='double'?2*this.reference():this.real();}
+  angle(t){return PendulumModel.amp*Math.cos(2*Math.PI*this.clamp(t)/this.real());}
+  referenceAngle(t){const r=this.reference();return r===null?0:PendulumModel.amp*Math.cos(2*Math.PI*this.clamp(t)/r);}
+  swings(t){return this.clamp(t)/this.real();}
+  clamp(t){return Math.min(Math.max(t,0),this.duration());}
+  duration(){return this.target();}
+  now(){return this.status==='done'?this.duration():this.t;}
+  advance(dt){
+    if(!Number.isFinite(dt)||dt<0)throw new Error('Invalid timestep');
+    if(this.status==='done'||!this.ready())return null;
+    // A run counts as an attempt as soon as it starts; it ends exactly after the period the pendulum should have.
+    if(this.t===0)this.attempts++;
+    const T=this.duration();
+    if(this.t+dt>=T*(1-1e-12)){this.t=T;this.status='done';return {t:T,done:true};}
+    this.t+=dt;return null;
+  }
+  exact(){const c=this.config;if(c.ask==='length')return c.g*(c.target/(2*Math.PI))**2;if(c.ask==='double')return 4*c.L1;return this.period(c.L);}
+  unit(){return PendulumModel.units[this.config.ask];}
+  evaluate(){
+    if(!this.ready())return {ok:false,slip:null,first:false,exact:this.exact()};
+    const c=this.config,a=this.answer,e=this.exact(),tol=PendulumModel.tolerance,near=(p,q)=>Math.abs(p-q)<=tol*Math.abs(q)+1e-12,P=2*Math.PI;
+    // Every answer is right within 2%.
+    const ok=near(a,e);let slip=null;
+    if(!ok){
+      if(c.ask==='length'){if(near(a,c.g*c.target**2))slip='noTwoPi';else if(near(a,c.g*c.target/P))slip='noSquare';else if(near(a,c.g*(c.target/2/P)**2))slip='halfPeriod';}
+      else if(c.ask==='double'){if(near(a,2*c.L1))slip='doubled';else if(near(a,c.L1*Math.SQRT2))slip='root';}
+      else{
+        if(near(a,Math.sqrt(c.L/c.g)))slip='noTwoPi';else if(near(a,P*Math.sqrt(c.g/c.L)))slip='inverted';else if(near(a,P*c.L/c.g))slip='noRoot';
+        else if(c.key==='moon'&&near(a,P*Math.sqrt(c.L/9.8)))slip='earthG';else if(c.m2&&(near(a,2*e)||near(a,e/2)))slip='massMatters';
+      }
+    }
+    return {ok,slip,first:ok&&this.attempts===1,exact:e};
+  }
+  score(){if(this.status!=='done')return 0;const e=this.evaluate();return (e.ok?100:0)+(e.first?50:0);}
+  snapshot(){return {index:this.index,answer:this.answer,attempts:this.attempts,t:this.t,status:this.status};}
+  restore(saved){
+    if(!Number.isInteger(saved?.index)||!PendulumModel.missions[saved.index])return false;
+    const probe=new PendulumModel(saved.index);
+    if(!probe.setAnswer(saved.answer??null)||!Number.isInteger(saved.attempts)||saved.attempts<0)return false;
+    if(!['moving','done'].includes(saved.status)||!Number.isFinite(saved.t)||saved.t<0||saved.t>probe.duration()*(1+1e-9))return false;
+    if(probe.answer===null&&(saved.t>0||saved.status==='done'))return false;
+    if((saved.status==='done'||saved.t>0)&&saved.attempts<1)return false;
+    this.setMission(saved.index);this.answer=probe.answer;this.attempts=saved.attempts;
+    this.status=saved.status;this.t=saved.status==='done'?this.duration():saved.t;return true;
+  }
+}
+globalThis.PendulumModel=PendulumModel;
+</script>
+<script id="pendulum-locale" type="application/json">__LOCALE__</script>
+<script id="pendulum-interface">
+(() => {
+  'use strict';
+  const $=id=>document.getElementById(id),locale=JSON.parse($('pendulum-locale').textContent);
+  const text=(key,values={})=>locale.strings[key].replace(/\{(\w+)\}/g,(_,name)=>values[name]??'{'+name+'}');
+  const number=(n,d=2)=>Math.abs(n)<.5*10**-d?(0).toLocaleString(locale.lang,{minimumFractionDigits:d,maximumFractionDigits:d}):n.toLocaleString(locale.lang,{minimumFractionDigits:d,maximumFractionDigits:d,useGrouping:false});
+  const plain=n=>n.toLocaleString(locale.lang,{maximumFractionDigits:3,useGrouping:false}).replace('-','−');
+  const model=new PendulumModel();
+  const canvas=$('pendulum-canvas'),ctx=canvas.getContext('2d');
+  const H=1/120,transferKey='phisicos-pendulum-language-transfer';
+  let running=false,previous=null,accumulator=0,lastUpdate=0,width=800,height=410;
+  const say=message=>{$('announcement').textContent=message;};
+  try{const data=JSON.parse(sessionStorage.getItem(transferKey)||'null');sessionStorage.removeItem(transferKey);if(data)model.restore(data.state);}catch{$('language-note').hidden=true;}
+  const amount=v=>plain(Number(v.toPrecision(5)))+' '+model.unit();
+  const symbols={length:'L =',period:'T =',double:'L₂ ='};
+  const slipKey=name=>'slip'+name[0].toUpperCase()+name.slice(1);
+  function setRunning(value){
+    const done=model.status==='done',blocked=!model.ready();running=value&&!done&&!blocked;previous=null;accumulator=0;
+    $('play').disabled=running||done||blocked;$('pause').disabled=!running;$('step').disabled=running||done||blocked;
+    $('pendulum-status').classList.toggle('running',running);
+    $('pendulum-status-text').textContent=text(done?'done':running?'running':model.t?'paused':'ready');
+  }
+  // Givens: the period wanted, the length, g away from Earth, and the bob's masses.
+  function given(m){
+    if(m.ask==='length')return 'T = '+plain(m.target)+' s';
+    if(m.ask==='double')return 'L₁ = '+plain(m.L1)+' m · T₂ = 2·T₁';
+    const parts=['L = '+plain(m.L)+' m'];if(m.g!==9.8)parts.push('g = '+plain(m.g)+' m/s²');if(m.m2)parts.push('m = '+plain(m.m1)+' kg → '+plain(m.m2)+' kg');
+    return parts.join(' · ');
+  }
+  function sync(){
+    const c=model.config;
+    PendulumModel.missions.forEach((m,i)=>{$('mission-'+i).setAttribute('aria-pressed',String(i===model.index));$('given-'+i).textContent=given(m);});
+    $('question').textContent=text('question'+model.index);$('answer-symbol').textContent=symbols[c.ask];$('answer-unit').textContent=model.unit();
+    $('answer').value=model.answer===null?'':String(model.answer);$('mission-label').textContent=text('mission'+model.index);
+  }
+  // The length (when asked), the period, the swings, and the angle show only once a run starts.
+  const started=()=>model.status==='done'||model.t>0;
+  function update(){
+    const c=model.config,ready=model.ready(),done=model.status==='done',t=ready?model.now():0,e=model.evaluate(),begun=started(),D=model.duration(),L=model.length(),T=model.real();
+    $('time-value').textContent=number(t);$('length-value').textContent=begun?number(L):'—';$('period-value').textContent=begun?number(T):'—';
+    $('swings-value').textContent=begun?number(model.swings(t)):'—';$('angle-value').textContent=begun?number(model.angle(t),1):'—';
+    $('pendulum-equation').textContent=begun?'T = 2π·√(L ÷ g) = 2π × √('+number(L)+' ÷ '+plain(c.g)+') = '+number(T)+' s':'T = 2π·√(L ÷ g)';
+    let key,copy;
+    const ref=model.reference(),values={L:number(L),T:number(T),h:number(T/2),T1:ref===null?'':number(ref),n:ref===null?'':number(T/ref)};
+    if(done){
+      const base=text('result'+model.index,values);
+      if(e.ok){key='good';copy=base+' '+text('why'+model.index);}
+      else{key='miss';copy=base+' '+text('missCopy',{p:amount(model.answer)})+' '+(e.slip?text(slipKey(e.slip)):text('hint'+model.index));}
+    }
+    else if(!ready){key='predict';copy=text('predictCopy');}
+    else if(model.t>0){key='running';copy=text('swingingCopy',{n:number(model.swings(t)),T:number(T)});}
+    else{key='ready';copy=text('readyCopy');}
+    $('lesson-title').textContent=text(key+'Title',{t:number(t),p:ready?amount(model.answer):''});$('lesson-copy').textContent=copy;
+    $('insight').classList.toggle('warning',key==='miss');
+    $('mission-score').textContent=done?String(model.score()):'—';
+    $('right-badge').classList.toggle('earned',done&&e.ok);$('first-badge').classList.toggle('earned',done&&e.first);
+  }
+  function refresh(){setRunning(false);update();draw();}
+  function simulate(dt){
+    const result=model.advance(dt);
+    if(result?.done){setRunning(false);update();say(text('doneAnnouncement')+' '+$('lesson-title').textContent);return true;}
+    return false;
+  }
+  $('answer').addEventListener('input',event=>{const raw=String(event.target.value).trim(),value=raw===''?null:Number(raw);if(!model.setAnswer(value))model.setAnswer(null);refresh();});
+  $('play').addEventListener('click',()=>{setRunning(true);update();say(text('startedAnnouncement'));});
+  $('pause').addEventListener('click',()=>{setRunning(false);update();say(text('pausedAnnouncement'));});
+  $('step').addEventListener('click',()=>{for(let i=0;i<12;i++)if(simulate(H))break;setRunning(false);update();draw();});
+  $('reset').addEventListener('click',()=>{model.reset();refresh();say(text('resetAnnouncement'));});
+  PendulumModel.missions.forEach((_,i)=>$('mission-'+i).addEventListener('click',()=>{model.setMission(i);sync();refresh();say(text('missionAnnouncement',{name:text('mission'+i)}));}));
+  for(const id of ['show-trail','show-guess'])$(id).addEventListener('change',()=>{update();draw();});
+  function suspend(){if(running){setRunning(false);say(text('suspendedAnnouncement'));}update();draw();}
+  window.addEventListener('blur',suspend);document.addEventListener('visibilitychange',()=>{if(document.hidden)suspend();});
+  for(const link of document.querySelectorAll('.language-menu a'))link.addEventListener('click',()=>{setRunning(false);try{sessionStorage.setItem(transferKey,JSON.stringify({state:model.snapshot()}));}catch{}});
+  function resize(){const rect=canvas.getBoundingClientRect();if(rect.width<=0)return;width=rect.width;height=rect.height;const dpr=Math.min(window.devicePixelRatio||1,3);canvas.width=Math.round(width*dpr);canvas.height=Math.round(height*dpr);ctx.setTransform(dpr,0,0,dpr,0,0);draw();}
+  function draw(){
+    if(!ctx)return;
+    const c=model.config,ready=model.ready(),done=model.status==='done',t=ready?model.now():0,begun=started(),trail=$('show-trail').checked,guess=$('show-guess').checked&&ready;
+    ctx.clearRect(0,0,width,height);
+    const label=(str,px,py,color='#b8ccdb',align='left',font=12)=>{ctx.fillStyle=color;ctx.textAlign=align;ctx.font=font+'px -apple-system,BlinkMacSystemFont,sans-serif';ctx.fillText(str,px,py);};
+    const line=(points,color,w=1,dash=[])=>{ctx.beginPath();ctx.strokeStyle=color;ctx.lineWidth=w;ctx.setLineDash(dash);points.forEach((q,i)=>i?ctx.lineTo(q.x,q.y):ctx.moveTo(q.x,q.y));ctx.stroke();ctx.setLineDash([]);};
+    const fit=(str,px,py,color,size,room,align='left')=>{ctx.font=size+'px -apple-system,BlinkMacSystemFont,sans-serif';const w=ctx.measureText(str).width;label(str,px,py,color,align,w>room?Math.max(7,Math.floor(size*room/w)):size);};
+    const dot=(x,y,r,color)=>{ctx.fillStyle=color;ctx.beginPath();ctx.arc(x,y,Math.max(r,.5),0,Math.PI*2);ctx.fill();};
+    const wide=width>=560,area=wide?width*.64:width;
+    fit(text('viewTitle'),16,20,'#d1e3ed',12,area-28);
+    if(done){const ev=model.evaluate();fit(text(ev.ok?'rightBanner':'offBanner'),16,40,ev.ok?'#75efc7':'#efb958',width<430?12:14,area-28);}
+    // Side view to scale: k px per metre below the beam; lengths beyond the view are drawn at its edge.
+    const top=58,k=Math.max(40,(height-top-46)/1.55),shown=L=>Math.min(L,1.55)*k,rad=d=>d*Math.PI/180;
+    line([{x:area*.18,y:top},{x:area*.82,y:top}],'#8aa3b5',4);
+    const pend=(px,L,deg,color,w,r,dash=[])=>{const len=shown(L),x=px+len*Math.sin(rad(deg)),y=top+len*Math.cos(rad(deg));line([{x:px,y:top},{x,y}],color,w,dash);if(r)dot(x,y,r,color);return {x,y};};
+    const swing=(px,L,color)=>{if(!trail)return;const len=shown(L),pts=[];for(let a=-PendulumModel.amp;a<=PendulumModel.amp;a+=1)pts.push({x:px+len*Math.sin(rad(a)),y:top+len*Math.cos(rad(a))});line(pts,color,1,[3,4]);};
+    const two=c.ask==='double',px=two?area*.62:area*.5,L=model.length(),bob=c.m2?(done||begun?13:8):10;
+    if(two){const r=area*.36;swing(r,c.L1,'#8aa3b5');pend(r,c.L1,model.referenceAngle(t),'#9fb6c7',2,9);fit('L₁ = '+plain(c.L1)+' m',r,top+shown(c.L1)+26,'#9fb6c7',10,area*.24,'center');}
+    if(ready||c.ask==='period'){
+      swing(px,L,'#77b9ff');
+      // When a period is asked, your prediction is a ghost of the same pendulum swinging with your period.
+      if(guess&&c.ask==='period'){const g=PendulumModel.amp*Math.cos(2*Math.PI*model.clamp(t)/model.answer);pend(px,L,g,'#efb958',1.5,7,[5,4]);}
+      const b=pend(px,L,ready?model.angle(t):0,'#f2f8fc',2,bob);
+      if(c.ask==='period'||begun)fit('L = '+(c.ask==='period'||begun?number(L):'?')+' m',px+16,top+shown(L)*.5,'#d1e3ed',10,area-px-24);
+      if(c.m2)fit(plain(begun?c.m2:c.m1)+' kg',b.x,b.y+bob+14,'#d1e3ed',10,80,'center');
+      if(L>1.55)fit('↓',px,top+shown(L)+28,'#d1e3ed',12,20,'center');
+    }
+    else fit('L = ?',px,top+60,'#d1e3ed',12,80,'center');
+    fit('t = '+number(t)+' s',area-16,top+20,'#f2f8fc',13,area*.3,'right');
+    if(c.g!==9.8)fit('g = '+plain(c.g)+' m/s²',area-16,top+38,'#c3cfd9',10,area*.3,'right');
+    label(text('scaleNote'),16,height-8,'#9fb6c7','left',10);
+    if(!wide)return;
+    // Right panel: the angle over the run, with your predicted rhythm or the period the pendulum should have.
+    fit(text('graphTitle'),area+8,44,'#d1e3ed',10,width-area-16);
+    if(!begun){fit(text('panelHint'),area+8,70,'#9fb6c7',10,width-area-16);return;}
+    const D=model.duration(),px0=area+14,px1=width-14,py0=70,py1=height-62,mid=(py0+py1)/2,PX=s=>px0+s/D*(px1-px0),PY=d=>mid-d/PendulumModel.amp*(py1-py0)*.42;
+    line([{x:px0,y:mid},{x:px1,y:mid}],'#8aa3b5',1);line([{x:px0,y:py0},{x:px0,y:py1}],'#8aa3b5',1);
+    const curve=(f,upto,color,w,dash=[])=>{const pts=[];for(let i=0;i<=120;i++){const s=upto*i/120;pts.push({x:PX(s),y:PY(f(s))});}line(pts,color,w,dash);};
+    if(two)curve(s=>model.referenceAngle(s),Math.min(t,D),'#9fb6c7',1.5);
+    if(guess&&c.ask==='period')curve(s=>PendulumModel.amp*Math.cos(2*Math.PI*s/model.answer),D,'#efb958',1.5,[5,4]);
+    curve(s=>model.angle(s),Math.min(t,D),'#77b9ff',2);
+    if(c.ask!=='period'){line([{x:px1,y:py0},{x:px1,y:py1}],'#9fb6c7',1.5,[4,3]);fit(text('targetTag',{T:number(model.target())}),px1,py1+14,'#9fb6c7',9,px1-px0,'right');}
+    fit(text('timeAxis'),px0,py1+14,'#9fb6c7',9,(px1-px0)/2);
+  }
+  function frame(now){if(previous===null)previous=now;const elapsed=Math.min(.1,(now-previous)/1000);previous=now;if(running){accumulator+=elapsed;while(accumulator>=H&&running){accumulator-=H;simulate(H);}draw();}if(now-lastUpdate>=80){update();lastUpdate=now;}requestAnimationFrame(frame);}
+  window.addEventListener('resize',resize);if(typeof ResizeObserver!=='undefined')new ResizeObserver(resize).observe(canvas);
+  sync();setRunning(false);update();resize();requestAnimationFrame(frame);
+})();
+</script>
+</body>
+</html>

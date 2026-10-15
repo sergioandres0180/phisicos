@@ -1,0 +1,278 @@
+<!doctype html>
+<html lang="en">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Metronome Studio · Phisicos</title>
+<style>
+.metronome-page .answer-row .symbol{min-width:56px}.metronome-page .question{font-size:15px;font-weight:600;margin-top:4px}
+.metronome-page .line-key.white{background:#f2f8fc}.metronome-page .line-key.blue{background:#77b9ff}.metronome-page .line-key.green{background:#75efc7}
+</style>
+</head>
+<body>
+<div class="shell module-page metronome-page">
+__HEADER__
+<main id="main-content">
+__BREADCRUMBS__
+
+<div class="masthead"><div><h1>{{title}}</h1><p class="intro">{{subtitle}}</p></div><div class="concept-tags"><span class="tag speed">{{tag1}}</span><span class="tag velocity">{{tag2}}</span></div></div>
+<noscript><p class="no-js">{{noScript}}</p></noscript>
+<div class="layout">
+<aside class="sidebar" aria-label="{{setup}}">
+  <section class="control-section"><h2 class="eyebrow">{{setup}}</h2><div class="mission-list" role="group" aria-label="{{setup}}">
+    <button id="mission-0" aria-pressed="true"><b>1 · {{mission0}}</b><span id="given-0">bpm</span></button>
+    <button id="mission-1" aria-pressed="false"><b>2 · {{mission1}}</b><span id="given-1">f</span></button>
+    <button id="mission-2" aria-pressed="false"><b>3 · {{mission2}}</b><span id="given-2">n</span></button>
+    <button id="mission-3" aria-pressed="false"><b>4 · {{mission3}}</b><span id="given-3">T</span></button>
+    <button id="mission-4" aria-pressed="false"><b>5 · {{mission4}}</b><span id="given-4">f</span></button>
+  </div><p class="hint">{{setupNote}}</p></section>
+  <section class="control-section"><h2 class="eyebrow">{{answerHeading}}</h2>
+    <p class="question" id="question">{{question0}}</p>
+    <p class="field-label"><label for="answer">{{answerLabel}}</label></p>
+    <div class="answer-row"><span class="symbol" id="answer-symbol">T =</span><input id="answer" type="number" inputmode="decimal" step="any" value=""><span class="unit" id="answer-unit">s</span></div>
+    <p class="hint">{{answerHint}}</p>
+  </section>
+  <section class="control-section"><h2 class="eyebrow">{{observe}}</h2><label class="check"><input id="show-flash" type="checkbox" checked>{{flashToggle}}</label><label class="check"><input id="show-guess" type="checkbox" checked>{{guessToggle}}</label><p class="hint">{{observeHint}}</p></section>
+</aside>
+<div class="workspace">
+  <section class="scene" aria-label="{{sceneTitle}}"><div class="scene-top"><div><h2 class="scene-title">{{sceneTitle}}</h2><p class="scene-subtitle" id="mission-label">{{mission0}}</p></div><span class="status" id="metronome-status"><i class="status-dot" aria-hidden="true"></i><span id="metronome-status-text">{{ready}}</span></span></div>
+    <div class="module-stage"><canvas id="metronome-canvas" role="img" aria-label="{{canvasLabel}}">{{noScript}}</canvas></div>
+    <div class="legend"><span><i class="line-key blue"></i>{{beatLegend}}</span><span><i class="line-key white"></i>{{metronomeLegend}}</span><span><i class="line-key orange"></i>{{guessLegend}}</span><span><i class="line-key green"></i>{{togetherLegend}}</span></div>
+    <div class="module-equation"><span>{{equationTitle}}</span><output id="metronome-equation">f = 1 ÷ T</output></div>
+    <div class="transport"><button id="play" class="primary" disabled>{{play}}</button><button id="pause" disabled>{{pause}}</button><button id="step" disabled>{{step}}</button><button id="reset" class="reset">{{reset}}</button></div>
+  </section>
+  <section class="metrics" aria-label="{{observe}}">
+    <div class="metric scalar"><h3 class="metric-label">{{time}}</h3><p class="metric-value"><span id="time-value">0.00</span> <small>s</small></p><p class="metric-equation">t</p></div>
+    <div class="metric scalar"><h3 class="metric-label">{{beatsMetric}}</h3><p class="metric-value"><span id="beats-value">—</span></p><p class="metric-equation">n = f·t</p></div>
+    <div class="metric vector"><h3 class="metric-label">{{periodMetric}}</h3><p class="metric-value"><span id="period-value">—</span> <small>s</small></p><p class="metric-equation">T = 1 ÷ f</p></div>
+    <div class="metric vector"><h3 class="metric-label">{{frequencyMetric}}</h3><p class="metric-value"><span id="frequency-value">—</span> <small>Hz</small></p><p class="metric-equation">f = 1 ÷ T</p></div>
+    <div class="metric scalar"><h3 class="metric-label">{{tempoMetric}}</h3><p class="metric-value"><span id="tempo-value">—</span> <small>bpm</small></p><p class="metric-equation">60·f</p></div>
+  </section>
+  <div class="insight" id="insight"><span class="insight-icon" aria-hidden="true">↗</span><div><strong id="lesson-title">{{predictTitle}}</strong><p id="lesson-copy">{{predictCopy}}</p></div></div>
+  <section class="challenge"><div class="mission-heading"><h2 class="challenge-title">{{missionTitle}}</h2><div class="score-card"><span>{{score}}</span><strong id="mission-score">—</strong></div></div><p class="mission-copy">{{missionCopy}}</p><div class="badges"><span id="right-badge">✓ {{rightBadge}}</span><span id="first-badge">① {{firstBadge}}</span></div></section>
+</div>
+</div>
+<article class="learning-content"><section><h2>{{guideTitle}}</h2><ol><li>{{instruction1}}</li><li>{{instruction2}}</li><li>{{instruction3}}</li><li>{{instruction4}}</li></ol></section><section><h2>{{conceptTitle}}</h2><p>{{conceptCopy}}</p><aside class="worked-example"><h3>{{exampleTitle}}</h3><p>{{exampleCopy}}</p></aside></section><section><h2>{{modelTitle}}</h2><p>{{modelCopy}}</p></section></article>
+<p class="language-note" id="language-note">{{languageNote}}</p>
+</main>
+__FOOTER__
+<p class="sr-only" id="announcement" role="status" aria-live="polite"></p>
+</div>
+<script id="metronome-model">
+class MetronomeModel {
+  // A beat repeats every period T; its frequency f = 1 ÷ T counts beats per second (Hz), and a tempo counts them per minute,
+  // 60·f. This metronome clicks once per full swing, each time its arm is back at the left, so one beat is one period:
+  // θ = −θ₀·cos(2π·f·t). Two metronomes click together again after a whole number of beats of each.
+  static amp = 25; // degrees each way
+  static tolerance = .02;
+  static missions = [
+    {key:'tempo',ask:'period',bpm:120,run:4},
+    {key:'hertz',ask:'bpm',f:1.5,run:4},
+    {key:'count',ask:'frequency',beats:24,span:10,run:10},
+    {key:'swing',ask:'frequency',T:.8,run:4},
+    {key:'together',ask:'together',f1:2,f2:3,run:3}
+  ];
+  static units = {period:'s',bpm:'bpm',frequency:'Hz',together:'s'};
+  static limits = {period:1e3,bpm:1e5,frequency:1e3,together:1e3};
+  constructor(index = 0){this.setMission(index);}
+  setMission(index){this.index=index;this.config=MetronomeModel.missions[index];this.answer=null;this.attempts=0;this.reset();}
+  reset(){this.t=0;this.status='moving';}
+  valid(value){return Number.isFinite(value)&&value>0&&value<=MetronomeModel.limits[this.config.ask];}
+  setAnswer(value){if(value!==null&&!this.valid(value))return false;this.answer=value;this.reset();return true;}
+  ready(){return this.answer!==null;}
+  // The metronome's frequency (Hz): from a tempo, given, from a count, from a period, or the first of two.
+  frequency(){const c=this.config;if(c.bpm)return c.bpm/60;if(c.beats)return c.beats/c.span;if(c.T)return 1/c.T;return c.f??c.f1;}
+  period(){return 1/this.frequency();}
+  second(){return this.config.f2??null;}
+  // Your metronome, ticking at the rate your answer gives (none when the meeting time is asked).
+  guessFrequency(){const c=this.config;if(!this.ready()||c.ask==='together')return null;return c.ask==='period'?1/this.answer:c.ask==='bpm'?this.answer/60:this.answer;}
+  // When the two metronomes click together again: after a whole number of periods of each (1 ÷ gcd of whole frequencies).
+  meeting(){const c=this.config;if(!c.f2)return null;const gcd=(a,b)=>b?gcd(b,a%b):a;return 1/gcd(c.f1,c.f2);}
+  clamp(t){return Math.min(Math.max(t,0),this.duration());}
+  angle(t,f=this.frequency()){return -MetronomeModel.amp*Math.cos(2*Math.PI*f*this.clamp(t));}
+  // Full beats so far: the clicks after the first one at t = 0.
+  beats(t,f=this.frequency()){return Math.floor(f*this.clamp(t)+1e-9);}
+  // Time since the last click, for the flashing light.
+  since(t,f=this.frequency()){const s=this.clamp(t),n=Math.floor(f*s+1e-9);return Math.max(0,s-n/f);}
+  duration(){return this.config.run;}
+  now(){return this.status==='done'?this.duration():this.t;}
+  advance(dt){
+    if(!Number.isFinite(dt)||dt<0)throw new Error('Invalid timestep');
+    if(this.status==='done'||!this.ready())return null;
+    // A run counts as an attempt as soon as it starts; it ends exactly after its time.
+    if(this.t===0)this.attempts++;
+    const T=this.duration();
+    if(this.t+dt>=T*(1-1e-12)){this.t=T;this.status='done';return {t:T,done:true};}
+    this.t+=dt;return null;
+  }
+  exact(){
+    const c=this.config;
+    if(c.ask==='period')return 60/c.bpm;
+    if(c.ask==='bpm')return 60*c.f;
+    if(c.ask==='frequency')return this.frequency();
+    return this.meeting();
+  }
+  unit(){return MetronomeModel.units[this.config.ask];}
+  evaluate(){
+    if(!this.ready())return {ok:false,slip:null,first:false,exact:this.exact()};
+    const c=this.config,a=this.answer,e=this.exact(),tol=MetronomeModel.tolerance,near=(p,q)=>Math.abs(p-q)<=tol*Math.abs(q)+1e-12;
+    // Every answer is right within 2%.
+    const ok=near(a,e);let slip=null;
+    if(!ok){
+      if(c.ask==='period'){if(near(a,c.bpm/60))slip='frequency';else if(near(a,1/c.bpm))slip='perMinute';}
+      else if(c.ask==='bpm'){if(near(a,c.f/60))slip='divided';else if(near(a,60/c.f))slip='inverted';else if(near(a,1/c.f))slip='periodNotTempo';}
+      else if(c.ask==='frequency'&&c.beats){if(near(a,c.span/c.beats))slip='periodNotFrequency';else if(near(a,c.beats*c.span))slip='timesTime';else if(near(a,60*e))slip='bpm';}
+      else if(c.ask==='frequency'){if(near(a,c.T))slip='same';else if(near(a,60*e))slip='bpm';else if(near(a,2*Math.PI/c.T))slip='omega';}
+      else{if(near(a,1/c.f1))slip='firstPeriod';else if(near(a,1/c.f2))slip='secondPeriod';else if(near(a,c.f1*c.f2))slip='product';else if(near(a,1/(c.f1+c.f2)))slip='added';}
+    }
+    return {ok,slip,first:ok&&this.attempts===1,exact:e};
+  }
+  score(){if(this.status!=='done')return 0;const e=this.evaluate();return (e.ok?100:0)+(e.first?50:0);}
+  snapshot(){return {index:this.index,answer:this.answer,attempts:this.attempts,t:this.t,status:this.status};}
+  restore(saved){
+    if(!Number.isInteger(saved?.index)||!MetronomeModel.missions[saved.index])return false;
+    const probe=new MetronomeModel(saved.index);
+    if(!probe.setAnswer(saved.answer??null)||!Number.isInteger(saved.attempts)||saved.attempts<0)return false;
+    if(!['moving','done'].includes(saved.status)||!Number.isFinite(saved.t)||saved.t<0||saved.t>probe.duration()*(1+1e-9))return false;
+    if(probe.answer===null&&(saved.t>0||saved.status==='done'))return false;
+    if((saved.status==='done'||saved.t>0)&&saved.attempts<1)return false;
+    this.setMission(saved.index);this.answer=probe.answer;this.attempts=saved.attempts;
+    this.status=saved.status;this.t=saved.status==='done'?this.duration():saved.t;return true;
+  }
+}
+globalThis.MetronomeModel=MetronomeModel;
+</script>
+<script id="metronome-locale" type="application/json">__LOCALE__</script>
+<script id="metronome-interface">
+(() => {
+  'use strict';
+  const $=id=>document.getElementById(id),locale=JSON.parse($('metronome-locale').textContent);
+  const text=(key,values={})=>locale.strings[key].replace(/\{(\w+)\}/g,(_,name)=>values[name]??'{'+name+'}');
+  const number=(n,d=2)=>Math.abs(n)<.5*10**-d?(0).toLocaleString(locale.lang,{minimumFractionDigits:d,maximumFractionDigits:d}):n.toLocaleString(locale.lang,{minimumFractionDigits:d,maximumFractionDigits:d,useGrouping:false});
+  const plain=n=>n.toLocaleString(locale.lang,{maximumFractionDigits:3,useGrouping:false}).replace('-','−');
+  const model=new MetronomeModel();
+  const canvas=$('metronome-canvas'),ctx=canvas.getContext('2d');
+  const H=1/120,transferKey='phisicos-metronome-language-transfer';
+  let running=false,previous=null,accumulator=0,lastUpdate=0,width=800,height=410;
+  const say=message=>{$('announcement').textContent=message;};
+  try{const data=JSON.parse(sessionStorage.getItem(transferKey)||'null');sessionStorage.removeItem(transferKey);if(data)model.restore(data.state);}catch{$('language-note').hidden=true;}
+  const amount=v=>plain(Number(v.toPrecision(5)))+' '+model.unit();
+  const symbols={period:'T =',bpm:'tempo =',frequency:'f =',together:'t ='};
+  const slipKey=name=>'slip'+name[0].toUpperCase()+name.slice(1);
+  function setRunning(value){
+    const done=model.status==='done',blocked=!model.ready();running=value&&!done&&!blocked;previous=null;accumulator=0;
+    $('play').disabled=running||done||blocked;$('pause').disabled=!running;$('step').disabled=running||done||blocked;
+    $('metronome-status').classList.toggle('running',running);
+    $('metronome-status-text').textContent=text(done?'done':running?'running':model.t?'paused':'ready');
+  }
+  // Givens: a tempo, a frequency, a count of beats in a time, a period, or two frequencies.
+  function given(m){
+    if(m.bpm)return plain(m.bpm)+' bpm';
+    if(m.beats)return 'n = '+plain(m.beats)+' · t = '+plain(m.span)+' s';
+    if(m.T)return 'T = '+plain(m.T)+' s';
+    if(m.f2)return 'f₁ = '+plain(m.f1)+' Hz · f₂ = '+plain(m.f2)+' Hz';
+    return 'f = '+plain(m.f)+' Hz';
+  }
+  function sync(){
+    const c=model.config;
+    MetronomeModel.missions.forEach((m,i)=>{$('mission-'+i).setAttribute('aria-pressed',String(i===model.index));$('given-'+i).textContent=given(m);});
+    $('question').textContent=text('question'+model.index);$('answer-symbol').textContent=symbols[c.ask];$('answer-unit').textContent=model.unit();
+    $('answer').value=model.answer===null?'':String(model.answer);$('mission-label').textContent=text('mission'+model.index);
+  }
+  // The readings show only once a run starts, because they give the answer away.
+  const started=()=>model.status==='done'||model.t>0;
+  function equation(){
+    const c=model.config,f=model.frequency();
+    if(c.ask==='period')return 'T = 60 ÷ tempo = 60 ÷ '+plain(c.bpm)+' = '+number(60/c.bpm)+' s';
+    if(c.ask==='bpm')return 'tempo = 60·f = 60 × '+plain(c.f)+' = '+number(60*c.f,0)+' bpm';
+    if(c.beats)return 'f = n ÷ t = '+plain(c.beats)+' ÷ '+plain(c.span)+' = '+number(f)+' Hz';
+    if(c.T)return 'f = 1 ÷ T = 1 ÷ '+plain(c.T)+' = '+number(f)+' Hz';
+    return 'T₁ = 1 ÷ '+plain(c.f1)+' = '+number(1/c.f1)+' s · T₂ = 1 ÷ '+plain(c.f2)+' = '+number(1/c.f2)+' s → '+number(model.meeting())+' s';
+  }
+  function update(){
+    const c=model.config,ready=model.ready(),done=model.status==='done',t=ready?model.now():0,e=model.evaluate(),begun=started(),f=model.frequency();
+    $('time-value').textContent=number(t);$('beats-value').textContent=begun?String(model.beats(t))+(c.f2?' · '+model.beats(t,c.f2):''):'—';
+    $('period-value').textContent=begun?number(1/f):'—';$('frequency-value').textContent=begun?number(f):'—';$('tempo-value').textContent=begun?number(60*f,0):'—';
+    $('metronome-equation').textContent=begun?equation():c.ask==='bpm'?'tempo = 60·f':'f = 1 ÷ T';
+    let key,copy;
+    const m=model.meeting();
+    const values={bpm:number(60*f,0),T:number(1/f),f:number(f),n:plain(c.beats??0),t:plain(c.span??0),f1:plain(c.f1??0),f2:plain(c.f2??0),c:m===null?'':number(m),n1:m===null?'':plain(m*(c.f1??0)),n2:m===null?'':plain(m*(c.f2??0))};
+    if(done){
+      const base=text('result'+model.index,values);
+      if(e.ok){key='good';copy=base+' '+text('why'+model.index);}
+      else{key='miss';copy=base+' '+text('missCopy',{p:amount(model.answer)})+' '+(e.slip?text(slipKey(e.slip)):text('hint'+model.index));}
+    }
+    else if(!ready){key='predict';copy=text('predictCopy');}
+    else if(model.t>0){key='running';copy=text('tickingCopy',{n:String(model.beats(t)),t:number(t)});}
+    else{key='ready';copy=text('readyCopy');}
+    $('lesson-title').textContent=text(key+'Title',{t:number(t),p:ready?amount(model.answer):''});$('lesson-copy').textContent=copy;
+    $('insight').classList.toggle('warning',key==='miss');
+    $('mission-score').textContent=done?String(model.score()):'—';
+    $('right-badge').classList.toggle('earned',done&&e.ok);$('first-badge').classList.toggle('earned',done&&e.first);
+  }
+  function refresh(){setRunning(false);update();draw();}
+  function simulate(dt){
+    const result=model.advance(dt);
+    if(result?.done){setRunning(false);update();say(text('doneAnnouncement')+' '+$('lesson-title').textContent);return true;}
+    return false;
+  }
+  $('answer').addEventListener('input',event=>{const raw=String(event.target.value).trim(),value=raw===''?null:Number(raw);if(!model.setAnswer(value))model.setAnswer(null);refresh();});
+  $('play').addEventListener('click',()=>{setRunning(true);update();say(text('startedAnnouncement'));});
+  $('pause').addEventListener('click',()=>{setRunning(false);update();say(text('pausedAnnouncement'));});
+  $('step').addEventListener('click',()=>{for(let i=0;i<12;i++)if(simulate(H))break;setRunning(false);update();draw();});
+  $('reset').addEventListener('click',()=>{model.reset();refresh();say(text('resetAnnouncement'));});
+  MetronomeModel.missions.forEach((_,i)=>$('mission-'+i).addEventListener('click',()=>{model.setMission(i);sync();refresh();say(text('missionAnnouncement',{name:text('mission'+i)}));}));
+  for(const id of ['show-flash','show-guess'])$(id).addEventListener('change',()=>{update();draw();});
+  function suspend(){if(running){setRunning(false);say(text('suspendedAnnouncement'));}update();draw();}
+  window.addEventListener('blur',suspend);document.addEventListener('visibilitychange',()=>{if(document.hidden)suspend();});
+  for(const link of document.querySelectorAll('.language-menu a'))link.addEventListener('click',()=>{setRunning(false);try{sessionStorage.setItem(transferKey,JSON.stringify({state:model.snapshot()}));}catch{}});
+  function resize(){const rect=canvas.getBoundingClientRect();if(rect.width<=0)return;width=rect.width;height=rect.height;const dpr=Math.min(window.devicePixelRatio||1,3);canvas.width=Math.round(width*dpr);canvas.height=Math.round(height*dpr);ctx.setTransform(dpr,0,0,dpr,0,0);draw();}
+  function draw(){
+    if(!ctx)return;
+    const c=model.config,ready=model.ready(),done=model.status==='done',t=ready?model.now():0,begun=started(),flash=$('show-flash').checked,guess=$('show-guess').checked&&ready,f=model.frequency(),gf=guess?model.guessFrequency():null;
+    ctx.clearRect(0,0,width,height);
+    const label=(str,px,py,color='#b8ccdb',align='left',font=12)=>{ctx.fillStyle=color;ctx.textAlign=align;ctx.font=font+'px -apple-system,BlinkMacSystemFont,sans-serif';ctx.fillText(str,px,py);};
+    const line=(points,color,w=1,dash=[])=>{ctx.beginPath();ctx.strokeStyle=color;ctx.lineWidth=w;ctx.setLineDash(dash);points.forEach((q,i)=>i?ctx.lineTo(q.x,q.y):ctx.moveTo(q.x,q.y));ctx.stroke();ctx.setLineDash([]);};
+    const fit=(str,px,py,color,size,room,align='left')=>{ctx.font=size+'px -apple-system,BlinkMacSystemFont,sans-serif';const w=ctx.measureText(str).width;label(str,px,py,color,align,w>room?Math.max(7,Math.floor(size*room/w)):size);};
+    const dot=(x,y,r,color)=>{ctx.fillStyle=color;ctx.beginPath();ctx.arc(x,y,Math.max(r,.5),0,Math.PI*2);ctx.fill();};
+    const wide=width>=560,area=wide?width*.64:width;
+    fit(text('viewTitle'),16,20,'#d1e3ed',12,area-28);
+    if(done){const ev=model.evaluate();fit(text(ev.ok?'rightBanner':'offBanner'),16,40,ev.ok?'#75efc7':'#efb958',width<430?12:14,area-28);}
+    // A metronome: body, arm swinging from a pivot near the base, sliding weight, and a light that flashes on each click.
+    const s=ready?t:0,size=Math.min(1,(height-120)/240,area/(c.f2?420:300)),baseY=height-48;
+    const lit=(freq)=>flash&&begun&&model.since(s,freq)<Math.min(.12,.3/freq);
+    const together=c.f2&&begun&&lit(c.f1)&&lit(c.f2);
+    const metronome=(cx,freq,tag,armColor)=>{
+      const bw=110*size,bh=230*size,top=baseY-bh,piv={x:cx,y:baseY-34*size},L=bh*.82;
+      ctx.fillStyle='#3b2a20';ctx.beginPath();ctx.moveTo(cx-bw/2,baseY);ctx.lineTo(cx-bw/5,top);ctx.lineTo(cx+bw/5,top);ctx.lineTo(cx+bw/2,baseY);ctx.closePath();ctx.fill();
+      ctx.fillStyle='#1d2f3e';ctx.beginPath();ctx.moveTo(cx-bw/3,baseY-14*size);ctx.lineTo(cx-bw/7,top+22*size);ctx.lineTo(cx+bw/7,top+22*size);ctx.lineTo(cx+bw/3,baseY-14*size);ctx.closePath();ctx.fill();
+      const arm=(deg,color,w,dash)=>{const r=deg*Math.PI/180,end={x:piv.x+L*Math.sin(r),y:piv.y-L*Math.cos(r)};line([piv,end],color,w,dash);const wy=.55;return {x:piv.x+L*wy*Math.sin(r),y:piv.y-L*wy*Math.cos(r)};};
+      if(gf!==null&&freq===f&&!c.f2){const g=arm(model.angle(s,Math.min(gf,60)),'#efb958',2,[5,4]);ctx.strokeStyle='#efb958';ctx.lineWidth=1.5;ctx.strokeRect(g.x-7*size,g.y-6*size,14*size,12*size);}
+      const wpos=arm(ready?model.angle(s,freq):-MetronomeModel.amp,armColor,3,[]);ctx.fillStyle='#d1e3ed';ctx.fillRect(wpos.x-8*size,wpos.y-7*size,16*size,14*size);
+      dot(piv.x,piv.y,4,'#d1e3ed');
+      dot(cx,top-10*size,7*size,lit(freq)?(together?'#75efc7':'#77b9ff'):'#2a4152');
+      fit(tag,cx,baseY+16,'#d1e3ed',11,bw+40,'center');
+    };
+    line([{x:16,y:baseY},{x:area-16,y:baseY}],'#8aa3b5',2);
+    if(c.f2){metronome(area*.3,c.f1,plain(c.f1)+' Hz','#f2f8fc');metronome(area*.7,c.f2,plain(c.f2)+' Hz','#f2f8fc');}
+    else metronome(area*.5,f,begun?number(f)+' Hz':'f = ?','#f2f8fc');
+    if(gf!==null)fit(text('guessTag')+' · '+number(gf)+' Hz',area-16,62,'#efb958',10,area*.4,'right');
+    fit('t = '+number(t)+' s',area-16,44,'#f2f8fc',13,area*.3,'right');
+    label(text('scaleNote'),16,height-8,'#9fb6c7','left',10);
+    if(!wide)return;
+    // Right panel: a timeline of the clicks over the run, with your beats or your meeting time.
+    fit(text('timelineGraph'),area+8,44,'#d1e3ed',10,width-area-16);
+    if(!begun){fit(text('panelHint'),area+8,70,'#9fb6c7',10,width-area-16);return;}
+    const D=model.duration(),px0=area+14,px1=width-14,py0=70,py1=height-62,PX=q=>px0+q/D*(px1-px0),upto=Math.min(t,D);
+    line([{x:px0,y:py1},{x:px1,y:py1}],'#8aa3b5',1);
+    const row=(freq,y0,y1,color,limit)=>{for(let n=0;n/freq<=limit+1e-9&&n<=400;n++){const x=PX(n/freq);line([{x,y:y0},{x,y:y1}],color,2);}};
+    const rows=c.f2?[[c.f1,'f₁'],[c.f2,'f₂']]:[[f,'f']],h=(py1-py0)/(rows.length+(gf!==null?1:0));
+    rows.forEach(([freq,tag],i)=>{const y0=py0+i*h+8,y1=py0+(i+1)*h-8;row(freq,y0,y1,'#77b9ff',upto);fit(tag,px0-4,(y0+y1)/2+4,'#9fb6c7',9,20,'right');});
+    if(c.f2){const m=model.meeting();for(let q=0;q<=upto+1e-9;q+=m)line([{x:PX(q),y:py0},{x:PX(q),y:py1}],'#75efc7',2.5);if(guess&&model.answer<=D){const x=PX(model.answer);line([{x,y:py0-6},{x,y:py1}],'#efb958',2,[5,3]);fit(text('guessTag'),x,py0-10,'#efb958',9,px1-px0,model.answer>D/2?'right':'left');}}
+    if(gf!==null){const y0=py0+rows.length*h+8,y1=py1-8;row(Math.min(gf,60),y0,y1,'#efb958',D);fit(text('guessTag'),px1,y0-2,'#efb958',9,px1-px0,'right');}
+    fit(text('timeAxis'),px0,py1+14,'#9fb6c7',9,(px1-px0)/2);
+  }
+  function frame(now){if(previous===null)previous=now;const elapsed=Math.min(.1,(now-previous)/1000);previous=now;if(running){accumulator+=elapsed;while(accumulator>=H&&running){accumulator-=H;simulate(H);}draw();}if(now-lastUpdate>=80){update();lastUpdate=now;}requestAnimationFrame(frame);}
+  window.addEventListener('resize',resize);if(typeof ResizeObserver!=='undefined')new ResizeObserver(resize).observe(canvas);
+  sync();setRunning(false);update();resize();requestAnimationFrame(frame);
+})();
+</script>
+</body>
+</html>

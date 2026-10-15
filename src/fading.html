@@ -1,0 +1,305 @@
+<!doctype html>
+<html lang="en">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Big and Fading Swings · Phisicos</title>
+<style>
+.fading-page .answer-row .symbol{min-width:56px}.fading-page .question{font-size:15px;font-weight:600;margin-top:4px}
+.fading-page .line-key.white{background:#f2f8fc}.fading-page .line-key.blue{background:#77b9ff}.fading-page .line-key.red{background:#ff7b6b}.fading-page .line-key.green{background:#75efc7}
+</style>
+</head>
+<body>
+<div class="shell module-page fading-page">
+__HEADER__
+<main id="main-content">
+__BREADCRUMBS__
+
+<div class="masthead"><div><h1>{{title}}</h1><p class="intro">{{subtitle}}</p></div><div class="concept-tags"><span class="tag speed">{{tag1}}</span><span class="tag velocity">{{tag2}}</span></div></div>
+<noscript><p class="no-js">{{noScript}}</p></noscript>
+<div class="layout">
+<aside class="sidebar" aria-label="{{setup}}">
+  <section class="control-section"><h2 class="eyebrow">{{setup}}</h2><div class="mission-list" role="group" aria-label="{{setup}}">
+    <button id="mission-0" aria-pressed="true"><b>1 · {{mission0}}</b><span id="given-0">·</span></button>
+    <button id="mission-1" aria-pressed="false"><b>2 · {{mission1}}</b><span id="given-1">·</span></button>
+    <button id="mission-2" aria-pressed="false"><b>3 · {{mission2}}</b><span id="given-2">·</span></button>
+    <button id="mission-3" aria-pressed="false"><b>4 · {{mission3}}</b><span id="given-3">·</span></button>
+    <button id="mission-4" aria-pressed="false"><b>5 · {{mission4}}</b><span id="given-4">·</span></button>
+  </div><p class="hint">{{setupNote}}</p></section>
+  <section class="control-section"><h2 class="eyebrow">{{answerHeading}}</h2>
+    <p class="question" id="question">{{question0}}</p>
+    <p class="field-label"><label for="answer">{{answerLabel}}</label></p>
+    <div class="answer-row"><span class="symbol" id="answer-symbol">T =</span><input id="answer" type="number" inputmode="decimal" step="any" value=""><span class="unit" id="answer-unit">s</span></div>
+    <p class="hint">{{answerHint}}</p>
+  </section>
+  <section class="control-section"><h2 class="eyebrow">{{observe}}</h2><label class="check"><input id="show-ideal" type="checkbox" checked>{{idealToggle}}</label><label class="check"><input id="show-guess" type="checkbox" checked>{{guessToggle}}</label><p class="hint">{{observeHint}}</p></section>
+</aside>
+<div class="workspace">
+  <section class="scene" aria-label="{{sceneTitle}}"><div class="scene-top"><div><h2 class="scene-title">{{sceneTitle}}</h2><p class="scene-subtitle" id="mission-label">{{mission0}}</p></div><span class="status" id="fading-status"><i class="status-dot" aria-hidden="true"></i><span id="fading-status-text">{{ready}}</span></span></div>
+    <div class="module-stage"><canvas id="fading-canvas" role="img" aria-label="{{canvasLabel}}">{{noScript}}</canvas></div>
+    <div class="legend"><span><i class="line-key blue"></i>{{realLegend}}</span><span><i class="line-key gray"></i>{{idealLegend}}</span><span><i class="line-key orange"></i>{{guessLegend}}</span><span><i class="line-key white"></i>{{envelopeLegend}}</span></div>
+    <div class="module-equation"><span>{{equationTitle}}</span><output id="fading-equation">T₀ = 2π·√(L ÷ g)</output></div>
+    <div class="transport"><button id="play" class="primary" disabled>{{play}}</button><button id="pause" disabled>{{pause}}</button><button id="step" disabled>{{step}}</button><button id="reset" class="reset">{{reset}}</button></div>
+  </section>
+  <section class="metrics" aria-label="{{observe}}">
+    <div class="metric scalar"><h3 class="metric-label">{{time}}</h3><p class="metric-value"><span id="time-value">0.00</span> <small>s</small></p><p class="metric-equation">t</p></div>
+    <div class="metric vector"><h3 class="metric-label">{{angleMetric}}</h3><p class="metric-value"><span id="angle-value">—</span> <small>°</small></p><p class="metric-equation">θ</p></div>
+    <div class="metric scalar"><h3 class="metric-label">{{sizeMetric}}</h3><p class="metric-value"><span id="size-value">—</span> <small>°</small></p><p class="metric-equation">θ_max</p></div>
+    <div class="metric scalar"><h3 class="metric-label">{{periodMetric}}</h3><p class="metric-value"><span id="period-value">—</span> <small>s</small></p><p class="metric-equation">T</p></div>
+    <div class="metric scalar"><h3 class="metric-label">{{swingsMetric}}</h3><p class="metric-value"><span id="swings-value">—</span></p><p class="metric-equation">n = t ÷ T</p></div>
+  </section>
+  <div class="insight" id="insight"><span class="insight-icon" aria-hidden="true">↗</span><div><strong id="lesson-title">{{predictTitle}}</strong><p id="lesson-copy">{{predictCopy}}</p></div></div>
+  <section class="challenge"><div class="mission-heading"><h2 class="challenge-title">{{missionTitle}}</h2><div class="score-card"><span>{{score}}</span><strong id="mission-score">—</strong></div></div><p class="mission-copy">{{missionCopy}}</p><div class="badges"><span id="right-badge">✓ {{rightBadge}}</span><span id="first-badge">① {{firstBadge}}</span></div></section>
+</div>
+</div>
+<article class="learning-content"><section><h2>{{guideTitle}}</h2><ol><li>{{instruction1}}</li><li>{{instruction2}}</li><li>{{instruction3}}</li><li>{{instruction4}}</li></ol></section><section><h2>{{conceptTitle}}</h2><p>{{conceptCopy}}</p><aside class="worked-example"><h3>{{exampleTitle}}</h3><p>{{exampleCopy}}</p></aside></section><section><h2>{{modelTitle}}</h2><p>{{modelCopy}}</p></section></article>
+<p class="language-note" id="language-note">{{languageNote}}</p>
+</main>
+__FOOTER__
+<p class="sr-only" id="announcement" role="status" aria-live="polite"></p>
+</div>
+<script id="fading-model">
+class FadingModel {
+  // The small-swing formula T₀ = 2π·√(L ÷ g) leaves two things out. Big swings take longer: the exact period is
+  // T = 4·√(L ÷ g)·K(sin(θ₀ ÷ 2)), with K the complete elliptic integral (computed with the arithmetic-geometric mean), and
+  // the motion is integrated exactly. Real swings also fade: here each full swing keeps the same share of its size,
+  // θ = θ₀·kⁿ·cos(2π·t ÷ T₀) with n = t ÷ T₀, so the energy, which goes with the size squared, keeps k² each swing.
+  static g = 9.8;
+  static tolerance = .02;
+  static step = 1/2000;
+  static missions = [
+    {key:'big',ask:'period',L:1,start:60,periods:3,pace:1},
+    {key:'clock',ask:'percent',L:1,start:30,periods:4,pace:1},
+    {key:'damp',ask:'angle',L:1,start:20,keep:.9,swings:5,pace:2},
+    {key:'halflife',ask:'swings',L:1,start:20,keep:.9,swings:8,pace:3},
+    {key:'energy',ask:'lost',L:1,start:20,keep:.9,swings:1,pace:1}
+  ];
+  static units = {period:'s',percent:'%',angle:'°',swings:'',lost:'%'};
+  static limits = {period:1e3,percent:1e4,angle:180,swings:1e4,lost:100};
+  constructor(index = 0){this.setMission(index);}
+  setMission(index){this.index=index;this.config=FadingModel.missions[index];this.answer=null;this.attempts=0;this.table=this.damped()?null:this.build();this.reset();}
+  reset(){this.t=0;this.status='moving';}
+  valid(value){return Number.isFinite(value)&&value>0&&value<=FadingModel.limits[this.config.ask];}
+  setAnswer(value){if(value!==null&&!this.valid(value))return false;this.answer=value;this.reset();return true;}
+  ready(){return this.answer!==null;}
+  damped(){return !!this.config.keep;}
+  rad(d){return d*Math.PI/180;}
+  small(){return 2*Math.PI*Math.sqrt(this.config.L/FadingModel.g);}
+  // The exact period for a swing of θ₀ each way: 4·√(L ÷ g)·K(k), K = π ÷ (2·AGM(1, √(1 − k²))), k = sin(θ₀ ÷ 2).
+  big(start=this.config.start){let a=1,b=Math.sqrt(1-Math.sin(this.rad(start)/2)**2);for(let i=0;i<30;i++){[a,b]=[(a+b)/2,Math.sqrt(a*b)];}return 4*Math.sqrt(this.config.L/FadingModel.g)*Math.PI/(2*a);}
+  period(){return this.damped()?this.small():this.big();}
+  // RK4 for θ'' = −(g ÷ L)·sin θ from rest at θ₀, sampled evenly over the run.
+  build(){
+    const c=this.config,g=FadingModel.g,dt=FadingModel.step,n=Math.ceil(c.periods*this.big()/dt)+2,out=new Float64Array(n+1);
+    let th=this.rad(c.start),w=0;const acc=a=>-g/c.L*Math.sin(a);out[0]=th;
+    for(let i=1;i<=n;i++){const k1v=acc(th),k1x=w,k2v=acc(th+dt/2*k1x),k2x=w+dt/2*k1v,k3v=acc(th+dt/2*k2x),k3x=w+dt/2*k2v,k4v=acc(th+dt*k3x),k4x=w+dt*k3v;th+=dt/6*(k1x+2*k2x+2*k3x+k4x);w+=dt/6*(k1v+2*k2v+2*k3v+k4v);out[i]=th;}
+    return out;
+  }
+  duration(){const c=this.config;return c.keep?c.swings*this.small():c.periods*this.big();}
+  clamp(t){return Math.min(Math.max(t,0),this.duration());}
+  // The swing's size each way now (degrees): fading for the damped tests, constant otherwise.
+  size(t){const c=this.config;return c.keep?c.start*c.keep**(this.clamp(t)/this.small()):c.start;}
+  angle(t){
+    const c=this.config,s=this.clamp(t);
+    if(c.keep)return this.size(s)*Math.cos(2*Math.PI*s/this.small());
+    const i=s/FadingModel.step,j=Math.floor(i),f=i-j;return (this.table[j]+(this.table[j+1]-this.table[j])*f)*180/Math.PI;
+  }
+  ideal(t){return this.config.start*Math.cos(2*Math.PI*this.clamp(t)/this.small());}
+  swings(t){return this.clamp(t)/this.period();}
+  now(){return this.status==='done'?this.duration():this.t;}
+  advance(dt){
+    if(!Number.isFinite(dt)||dt<0)throw new Error('Invalid timestep');
+    if(this.status==='done'||!this.ready())return null;
+    // A run counts as an attempt as soon as it starts; it ends exactly after its whole number of swings.
+    if(this.t===0)this.attempts++;
+    const T=this.duration();
+    if(this.t+dt>=T*(1-1e-12)){this.t=T;this.status='done';return {t:T,done:true};}
+    this.t+=dt;return null;
+  }
+  exact(){
+    const c=this.config;
+    if(c.ask==='period')return this.big();
+    if(c.ask==='percent')return (this.big()/this.small()-1)*100;
+    if(c.ask==='angle')return c.start*c.keep**c.swings;
+    if(c.ask==='swings')return Math.log(2)/Math.log(1/c.keep);
+    return (1-c.keep*c.keep)*100;
+  }
+  unit(){return FadingModel.units[this.config.ask];}
+  evaluate(){
+    if(!this.ready())return {ok:false,slip:null,first:false,exact:this.exact()};
+    const c=this.config,a=this.answer,e=this.exact(),tol=FadingModel.tolerance,near=(p,q)=>Math.abs(p-q)<=tol*Math.abs(q)+1e-12;
+    // Every answer is right within 2%.
+    const ok=near(a,e);let slip=null;
+    if(!ok){
+      if(c.ask==='period'){if(near(a,this.small()))slip='smallAngle';else if(near(a,e/2))slip='halfSwing';}
+      else if(c.ask==='percent'){if(near(a,e/100))slip='fraction';else if(near(a,this.big()))slip='seconds';}
+      else if(c.ask==='angle'){const loss=c.start*(1-c.keep);if(near(a,c.start-c.swings*loss))slip='linear';else if(near(a,c.start*c.keep))slip='oneSwing';else if(near(a,c.start*c.keep**(c.swings-1)))slip='fourSwings';else if(near(a,c.start*c.keep**(2*c.swings)))slip='energyKept';}
+      else if(c.ask==='swings'){if(near(a,.5/(1-c.keep)))slip='linear';else if(near(a,e/2))slip='energyHalf';}
+      else{if(near(a,(1-c.keep)*100))slip='amplitudeOnly';else if(near(a,c.keep*c.keep*100))slip='kept';else if(near(a,(1-c.keep)**2*100))slip='squaredLoss';}
+    }
+    return {ok,slip,first:ok&&this.attempts===1,exact:e};
+  }
+  score(){if(this.status!=='done')return 0;const e=this.evaluate();return (e.ok?100:0)+(e.first?50:0);}
+  snapshot(){return {index:this.index,answer:this.answer,attempts:this.attempts,t:this.t,status:this.status};}
+  restore(saved){
+    if(!Number.isInteger(saved?.index)||!FadingModel.missions[saved.index])return false;
+    const probe=new FadingModel(saved.index);
+    if(!probe.setAnswer(saved.answer??null)||!Number.isInteger(saved.attempts)||saved.attempts<0)return false;
+    if(!['moving','done'].includes(saved.status)||!Number.isFinite(saved.t)||saved.t<0||saved.t>probe.duration()*(1+1e-9))return false;
+    if(probe.answer===null&&(saved.t>0||saved.status==='done'))return false;
+    if((saved.status==='done'||saved.t>0)&&saved.attempts<1)return false;
+    this.setMission(saved.index);this.answer=probe.answer;this.attempts=saved.attempts;
+    this.status=saved.status;this.t=saved.status==='done'?this.duration():saved.t;return true;
+  }
+}
+globalThis.FadingModel=FadingModel;
+</script>
+<script id="fading-locale" type="application/json">__LOCALE__</script>
+<script id="fading-interface">
+(() => {
+  'use strict';
+  const $=id=>document.getElementById(id),locale=JSON.parse($('fading-locale').textContent);
+  const text=(key,values={})=>locale.strings[key].replace(/\{(\w+)\}/g,(_,name)=>values[name]??'{'+name+'}');
+  const number=(n,d=2)=>Math.abs(n)<.5*10**-d?(0).toLocaleString(locale.lang,{minimumFractionDigits:d,maximumFractionDigits:d}):n.toLocaleString(locale.lang,{minimumFractionDigits:d,maximumFractionDigits:d,useGrouping:false});
+  const plain=n=>n.toLocaleString(locale.lang,{maximumFractionDigits:3,useGrouping:false}).replace('-','−');
+  const model=new FadingModel();
+  const canvas=$('fading-canvas'),ctx=canvas.getContext('2d');
+  const H=1/120,transferKey='phisicos-fading-language-transfer';
+  let running=false,previous=null,accumulator=0,lastUpdate=0,width=800,height=410;
+  const say=message=>{$('announcement').textContent=message;};
+  try{const data=JSON.parse(sessionStorage.getItem(transferKey)||'null');sessionStorage.removeItem(transferKey);if(data)model.restore(data.state);}catch{$('language-note').hidden=true;}
+  const pace=()=>model.config.pace??1;
+  const amount=v=>plain(Number(v.toPrecision(5)))+(model.unit()?' '+model.unit():'');
+  const slipKey=name=>'slip'+name[0].toUpperCase()+name.slice(1);
+  // The readings show only once a run starts, because they give the answer away.
+  const started=()=>model.status==='done'||model.t>0;
+  const symbols={period:'T =',percent:'ΔT ÷ T₀ =',angle:'θ₅ =',swings:'n =',lost:'ΔE ÷ E ='};
+  // Givens: the pendulum, how far it swings, and the share each swing keeps.
+  function given(m){return 'L = '+plain(m.L)+' m · θ₀ = '+plain(m.start)+'°'+(m.keep?' · '+plain(m.keep*100)+'%':'');}
+  function equation(){
+    const c=model.config,T0=model.small();
+    if(c.ask==='period')return 'T₀ = 2π·√(L ÷ g) = '+number(T0,3)+' s → T('+plain(c.start)+'°) = '+number(model.big()/T0,3)+' × T₀ = '+number(model.big(),3)+' s';
+    if(c.ask==='percent')return 'T('+plain(c.start)+'°) ÷ T₀ = '+number(model.big(),3)+' ÷ '+number(T0,3)+' = '+number(model.big()/T0,4)+' → +'+number(model.exact())+' %';
+    if(c.ask==='angle')return 'θ₅ = '+plain(c.start)+'° × '+plain(c.keep)+'⁵ = '+number(model.exact())+'°';
+    if(c.ask==='swings')return plain(c.keep)+'ⁿ = ½ → n = log ½ ÷ log '+plain(c.keep)+' = '+number(model.exact())+'';
+    return 'E ∝ θ² → '+plain(c.keep)+'² = '+plain(c.keep*c.keep)+' → '+number(model.exact(),0)+' %';
+  }
+  function baseEquation(){return model.damped()?(model.config.ask==='lost'?'E ∝ θ²':'θₙ = θ₀ × kⁿ'):'T₀ = 2π·√(L ÷ g)';}
+  function metrics(t,begun){
+    $('angle-value').textContent=begun?number(model.angle(t),1):'—';$('size-value').textContent=begun?number(model.size(t),1):'—';
+    $('period-value').textContent=begun?number(model.period(),3):'—';$('swings-value').textContent=begun?number(model.swings(t)):'—';
+  }
+  function values(){
+    const c=model.config;
+    return {T:number(model.big(),3),T0:number(model.small(),3),p:number(c.keep?0:model.exact()),a:number(c.keep?c.start*c.keep**c.swings:0,1),n:number(c.keep?Math.log(2)/Math.log(1/c.keep):0,1),k:number(c.keep?c.keep*c.keep*100:0,0),e:number(c.keep?(1-c.keep*c.keep)*100:0,0)};
+  }
+  function runningCopy(t){return text('swingingCopy',{n:number(model.swings(t)),a:number(model.size(t),1)});}
+  function scene(g){
+    const c=g.c,{line,fit,dot,box}=g,s=g.ready?g.t:0,top=60;
+    const kp=Math.max(60,Math.min((height-top-60)/(c.L+.1),(g.area-80)/(2*c.L*Math.sin(Math.PI/3)+.3))),px=g.area*.5,P=d=>{const r=d*Math.PI/180;return {x:px+c.L*kp*Math.sin(r),y:top+c.L*kp*Math.cos(r)};};
+    box(px-60,top-10,120,10,'#22384a');line([{x:px-60,y:top},{x:px+60,y:top}],'#8aa3b5',2);
+    const arc=[];for(let d=-c.start;d<=c.start;d+=1)arc.push(P(d));line(arc,'#8aa3b5',1,[2,4]);
+    for(const d of [-c.start,c.start]){const q=P(d);line([{x:px,y:top},q],'#8aa3b5',1,[2,5]);}
+    fit(plain(c.start)+'°',P(c.start).x+8,P(c.start).y,'#9fb6c7',10,60);
+    if(model.damped()&&g.begun){const z=model.size(s);for(const d of [-z,z]){const q=P(d);line([{x:q.x-6,y:q.y+6},{x:q.x+6,y:q.y-6}],'#f2f8fc',2);}}
+    if(g.guess&&c.ask==='angle'){for(const d of [-model.answer,model.answer]){const q=P(Math.max(Math.min(d,80),-80));line([{x:px,y:top},q],'#efb958',1.5,[5,3]);}fit(text('guessTag'),P(Math.min(model.answer,80)).x+8,P(Math.min(model.answer,80)).y+14,'#efb958',9,g.area*.3);}
+    if(g.option){const q=P(g.ready?model.ideal(s):c.start);line([{x:px,y:top},q],'#9fb6c7',1.5,[5,4]);ctx.strokeStyle='#9fb6c7';ctx.lineWidth=1.5;ctx.setLineDash([3,3]);ctx.beginPath();ctx.arc(q.x,q.y,11,0,Math.PI*2);ctx.stroke();ctx.setLineDash([]);}
+    const b=P(g.ready?model.angle(s):c.start);line([{x:px,y:top},b],'#d1e3ed',2);dot(b.x,b.y,11,'#77b9ff');
+    fit('t = '+number(g.t)+' s',g.area-16,44,'#f2f8fc',13,g.area*.3,'right');
+  }
+  function panel(g){
+    const c=g.c,{line,fit,box}=g;
+    if(c.ask==='lost'){
+      fit(text('energyGraph'),g.area+8,44,'#d1e3ed',10,width-g.area-16);
+      if(!g.begun){fit(text('panelHint'),g.area+8,70,'#9fb6c7',10,width-g.area-16);return;}
+      const px0=g.area+16,px1=width-14,py0=76,py1=height-62,bw=(px1-px0)/2-12,now=(model.size(g.t)/c.start)**2*100,BY=v=>py1-v/110*(py1-py0);
+      box(px0,BY(100),bw,py1-BY(100),'#9fb6c7');box(px0+bw+24,BY(now),bw,py1-BY(now),'#77b9ff');
+      fit('100 %',px0+bw/2,BY(100)+15,'#0f2233',10,bw-4,'center');fit(number(now,0)+' %',px0+bw*1.5+24,py1-BY(now)>22?BY(now)+15:BY(now)-6,py1-BY(now)>22?'#0f2233':'#d1e3ed',10,bw-4,'center');
+      fit('t = 0',px0+bw/2,py1+14,'#9fb6c7',9,bw+20,'center');fit('t = '+number(g.t)+' s',px0+bw*1.5+24,py1+14,'#9fb6c7',9,bw+20,'center');
+      if(g.guess){const yy=BY(100-model.answer);line([{x:px0+bw+18,y:yy},{x:px1+4,y:yy}],'#efb958',2,[5,3]);fit(text('guessTag'),px1,yy-5,'#efb958',9,bw,'right');}
+      return;
+    }
+    fit(text('graphTitle'),g.area+8,44,'#d1e3ed',10,width-g.area-16);
+    if(!g.begun){fit(text('panelHint'),g.area+8,70,'#9fb6c7',10,width-g.area-16);return;}
+    const D=model.duration(),px0=g.area+14,px1=width-14,py0=70,py1=height-62,ym=(py0+py1)/2,span=c.start*1.15,PX=q=>px0+q/D*(px1-px0),PY=v=>ym-v/span*(py1-py0)/2,upto=Math.min(g.t,D);
+    line([{x:px0,y:ym},{x:px1,y:ym}],'#8aa3b5',1);line([{x:px0,y:py0},{x:px0,y:py1}],'#8aa3b5',1);
+    const curve=(f,to,color,w,dash=[])=>{const pts=[];for(let i=0;i<=240;i++){const q=to*i/240;pts.push({x:PX(q),y:PY(f(q))});}line(pts,color,w,dash);};
+    if(g.option)curve(q=>model.ideal(q),upto,'#9fb6c7',1.5,[4,3]);
+    if(model.damped()){curve(q=>model.size(q),upto,'#f2f8fc',1,[2,3]);curve(q=>-model.size(q),upto,'#f2f8fc',1,[2,3]);}
+    curve(q=>model.angle(q),upto,'#77b9ff',2);
+    if(g.guess){
+      if(c.ask==='period'||c.ask==='percent'){const T=c.ask==='period'?model.answer:model.small()*(1+model.answer/100);if(T>=.2)for(let q=T;q<=D+1e-9;q+=T)line([{x:PX(q),y:py0},{x:PX(q),y:py1}],'#efb958',1.2,[5,4]);}
+      if(c.ask==='angle')for(const v of [model.answer,-model.answer]){const yy=PY(Math.max(Math.min(v,span),-span));line([{x:PX(D*.8),y:yy},{x:px1,y:yy}],'#efb958',1.5,[5,3]);}
+      if(c.ask==='swings'){const x=PX(Math.min(model.answer*model.small(),D));line([{x,y:py0},{x,y:py1}],'#efb958',1.5,[5,3]);for(const v of [c.start/2,-c.start/2])line([{x:px0,y:PY(v)},{x:px1,y:PY(v)}],'#9fb6c7',1,[2,4]);}
+    }
+    fit(text('timeAxis'),px0,py1+14,'#9fb6c7',9,(px1-px0)/2);
+  }
+  function setRunning(value){
+    const done=model.status==='done',blocked=!model.ready();running=value&&!done&&!blocked;previous=null;accumulator=0;
+    $('play').disabled=running||done||blocked;$('pause').disabled=!running;$('step').disabled=running||done||blocked;
+    $('fading-status').classList.toggle('running',running);
+    $('fading-status-text').textContent=text(done?'done':running?'running':model.t?'paused':'ready');
+  }
+  function sync(){
+    const c=model.config;
+    FadingModel.missions.forEach((m,i)=>{$('mission-'+i).setAttribute('aria-pressed',String(i===model.index));$('given-'+i).textContent=given(m);});
+    $('question').textContent=text('question'+model.index);$('answer-symbol').textContent=symbols[c.ask];$('answer-unit').textContent=model.unit();
+    $('answer').value=model.answer===null?'':String(model.answer);$('mission-label').textContent=text('mission'+model.index);
+  }
+  function update(){
+    const ready=model.ready(),done=model.status==='done',t=ready?model.now():0,e=model.evaluate(),begun=started();
+    $('time-value').textContent=number(t);metrics(t,begun);
+    $('fading-equation').textContent=begun?equation():baseEquation();
+    let key,copy;
+    if(done){
+      const base=text('result'+model.index,values());
+      if(e.ok){key='good';copy=base+' '+text('why'+model.index);}
+      else{key='miss';copy=base+' '+text('missCopy',{p:amount(model.answer)})+' '+(e.slip?text(slipKey(e.slip)):text('hint'+model.index));}
+    }
+    else if(!ready){key='predict';copy=text('predictCopy');}
+    else if(model.t>0){key='running';copy=runningCopy(t);}
+    else{key='ready';copy=text('readyCopy');}
+    $('lesson-title').textContent=text(key+'Title',{t:number(t),p:ready?amount(model.answer):''});$('lesson-copy').textContent=copy;
+    $('insight').classList.toggle('warning',key==='miss');
+    $('mission-score').textContent=done?String(model.score()):'—';
+    $('right-badge').classList.toggle('earned',done&&e.ok);$('first-badge').classList.toggle('earned',done&&e.first);
+  }
+  function refresh(){setRunning(false);update();draw();}
+  function simulate(dt){
+    const result=model.advance(dt);
+    if(result?.done){setRunning(false);update();say(text('doneAnnouncement')+' '+$('lesson-title').textContent);return true;}
+    return false;
+  }
+  $('answer').addEventListener('input',event=>{const raw=String(event.target.value).trim(),value=raw===''?null:Number(raw);if(!model.setAnswer(value))model.setAnswer(null);refresh();});
+  $('play').addEventListener('click',()=>{setRunning(true);update();say(text('startedAnnouncement'));});
+  $('pause').addEventListener('click',()=>{setRunning(false);update();say(text('pausedAnnouncement'));});
+  $('step').addEventListener('click',()=>{for(let i=0;i<12;i++)if(simulate(H*pace()))break;setRunning(false);update();draw();});
+  $('reset').addEventListener('click',()=>{model.reset();refresh();say(text('resetAnnouncement'));});
+  FadingModel.missions.forEach((_,i)=>$('mission-'+i).addEventListener('click',()=>{model.setMission(i);sync();refresh();say(text('missionAnnouncement',{name:text('mission'+i)}));}));
+  for(const id of ['show-ideal','show-guess'])$(id).addEventListener('change',()=>{update();draw();});
+  function suspend(){if(running){setRunning(false);say(text('suspendedAnnouncement'));}update();draw();}
+  window.addEventListener('blur',suspend);document.addEventListener('visibilitychange',()=>{if(document.hidden)suspend();});
+  for(const link of document.querySelectorAll('.language-menu a'))link.addEventListener('click',()=>{setRunning(false);try{sessionStorage.setItem(transferKey,JSON.stringify({state:model.snapshot()}));}catch{}});
+  function resize(){const rect=canvas.getBoundingClientRect();if(rect.width<=0)return;width=rect.width;height=rect.height;const dpr=Math.min(window.devicePixelRatio||1,3);canvas.width=Math.round(width*dpr);canvas.height=Math.round(height*dpr);ctx.setTransform(dpr,0,0,dpr,0,0);draw();}
+  function draw(){
+    if(!ctx)return;
+    const c=model.config,ready=model.ready(),done=model.status==='done',t=ready?model.now():0,begun=started(),option=$('show-ideal').checked,guess=$('show-guess').checked&&ready;
+    ctx.clearRect(0,0,width,height);
+    const label=(str,px,py,color='#b8ccdb',align='left',font=12)=>{ctx.fillStyle=color;ctx.textAlign=align;ctx.font=font+'px -apple-system,BlinkMacSystemFont,sans-serif';ctx.fillText(str,px,py);};
+    const line=(points,color,w=1,dash=[])=>{ctx.beginPath();ctx.strokeStyle=color;ctx.lineWidth=w;ctx.setLineDash(dash);points.forEach((q,i)=>i?ctx.lineTo(q.x,q.y):ctx.moveTo(q.x,q.y));ctx.stroke();ctx.setLineDash([]);};
+    const fit=(str,px,py,color,size,room,align='left')=>{ctx.font=size+'px -apple-system,BlinkMacSystemFont,sans-serif';const w=ctx.measureText(str).width;label(str,px,py,color,align,w>room?Math.max(7,Math.floor(size*room/w)):size);};
+    const dot=(x,y,r,color)=>{ctx.fillStyle=color;ctx.beginPath();ctx.arc(x,y,Math.max(r,.5),0,Math.PI*2);ctx.fill();};
+    const box=(x,y,w,h,color)=>{ctx.fillStyle=color;ctx.fillRect(x,y,w,h);};
+    const wide=width>=560,area=wide?width*.64:width;
+    const env={c,ready,done,t,begun,option,guess,label,line,fit,dot,box,wide,area};
+    fit(text('viewTitle'),16,20,'#d1e3ed',12,area-28);
+    if(done){const ev=model.evaluate();fit(text(ev.ok?'rightBanner':'offBanner'),16,40,ev.ok?'#75efc7':'#efb958',width<430?12:14,area-28);}
+    scene(env);
+    label(text('scaleNote'),16,height-8,'#9fb6c7','left',10);
+    if(!wide)return;
+    panel(env);
+  }
+  function frame(now){if(previous===null)previous=now;const elapsed=Math.min(.1,(now-previous)/1000);previous=now;if(running){accumulator+=elapsed*pace();while(accumulator>=H&&running){accumulator-=H;simulate(H);}draw();}if(now-lastUpdate>=80){update();lastUpdate=now;}requestAnimationFrame(frame);}
+  window.addEventListener('resize',resize);if(typeof ResizeObserver!=='undefined')new ResizeObserver(resize).observe(canvas);
+  sync();setRunning(false);update();resize();requestAnimationFrame(frame);
+})();
+</script>
+</body>
+</html>

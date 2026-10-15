@@ -1,0 +1,268 @@
+<!doctype html>
+<html lang="en">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Force for Distance · Phisicos</title>
+<style>
+.tradeoff-page .answer-row .symbol{min-width:44px}.tradeoff-page .question{font-size:15px;font-weight:600;margin-top:4px}
+.tradeoff-page .line-key.white{background:#f2f8fc}.tradeoff-page .line-key.blue{background:#77b9ff}
+</style>
+</head>
+<body>
+<div class="shell module-page tradeoff-page">
+__HEADER__
+<main id="main-content">
+__BREADCRUMBS__
+
+<div class="masthead"><div><h1>{{title}}</h1><p class="intro">{{subtitle}}</p></div><div class="concept-tags"><span class="tag speed">{{tag1}}</span><span class="tag velocity">{{tag2}}</span></div></div>
+<noscript><p class="no-js">{{noScript}}</p></noscript>
+<div class="layout">
+<aside class="sidebar" aria-label="{{setup}}">
+  <section class="control-section"><h2 class="eyebrow">{{setup}}</h2><div class="mission-list" role="group" aria-label="{{setup}}">
+    <button id="mission-0" aria-pressed="true"><b>1 · {{mission0}}</b><span id="given-0">d</span></button>
+    <button id="mission-1" aria-pressed="false"><b>2 · {{mission1}}</b><span id="given-1">d</span></button>
+    <button id="mission-2" aria-pressed="false"><b>3 · {{mission2}}</b><span id="given-2">d</span></button>
+    <button id="mission-3" aria-pressed="false"><b>4 · {{mission3}}</b><span id="given-3">d</span></button>
+    <button id="mission-4" aria-pressed="false"><b>5 · {{mission4}}</b><span id="given-4">d</span></button>
+  </div><p class="hint">{{setupNote}}</p></section>
+  <section class="control-section"><h2 class="eyebrow">{{answerHeading}}</h2>
+    <p class="question" id="question">{{question0}}</p>
+    <p class="field-label"><label for="answer">{{answerLabel}}</label></p>
+    <div class="answer-row"><span class="symbol" id="answer-symbol">s_e =</span><input id="answer" type="number" inputmode="decimal" step="any" value=""><span class="unit" id="answer-unit">m</span></div>
+    <p class="hint">{{answerHint}}</p>
+  </section>
+  <section class="control-section"><h2 class="eyebrow">{{observe}}</h2><label class="check"><input id="show-traces" type="checkbox" checked>{{traces}}</label><label class="check"><input id="show-guess" type="checkbox" checked>{{guessToggle}}</label><p class="hint">{{observeHint}}</p></section>
+</aside>
+<div class="workspace">
+  <section class="scene" aria-label="{{sceneTitle}}"><div class="scene-top"><div><h2 class="scene-title">{{sceneTitle}}</h2><p class="scene-subtitle" id="mission-label">{{mission0}}</p></div><span class="status" id="tradeoff-status"><i class="status-dot" aria-hidden="true"></i><span id="tradeoff-status-text">{{ready}}</span></span></div>
+    <div class="module-stage"><canvas id="tradeoff-canvas" role="img" aria-label="{{canvasLabel}}">{{noScript}}</canvas></div>
+    <div class="legend"><span><i class="line-key blue"></i>{{effortLegend}}</span><span><i class="line-key mint"></i>{{loadLegend}}</span><span><i class="line-key orange"></i>{{guessLegend}}</span><span><i class="line-key gray"></i>{{fulcrumLegend}}</span></div>
+    <div class="module-equation"><span>{{equationTitle}}</span><output id="tradeoff-equation">s_l ÷ s_e = d_l ÷ d_e</output></div>
+    <div class="transport"><button id="play" class="primary" disabled>{{play}}</button><button id="pause" disabled>{{pause}}</button><button id="step" disabled>{{step}}</button><button id="reset" class="reset">{{reset}}</button></div>
+  </section>
+  <section class="metrics" aria-label="{{observe}}">
+    <div class="metric scalar"><h3 class="metric-label">{{time}}</h3><p class="metric-value"><span id="time-value">0.00</span> <small>s</small></p><p class="metric-equation">t</p></div>
+    <div class="metric vector"><h3 class="metric-label">{{effortMetric}}</h3><p class="metric-value"><span id="effort-value">—</span> <small>m</small></p><p class="metric-equation">s_e</p></div>
+    <div class="metric vector"><h3 class="metric-label">{{loadMetric}}</h3><p class="metric-value"><span id="load-value">—</span> <small>m</small></p><p class="metric-equation">s_l</p></div>
+    <div class="metric scalar"><h3 class="metric-label">{{ratioMetric}}</h3><p class="metric-value"><span id="ratio-value">—</span> <small>×</small></p><p class="metric-equation">s_l ÷ s_e</p></div>
+    <div class="metric scalar"><h3 class="metric-label">{{workMetric}}</h3><p class="metric-value"><span id="work-value">—</span> <small>J</small></p><p class="metric-equation">W·s_l</p></div>
+  </section>
+  <div class="insight" id="insight"><span class="insight-icon" aria-hidden="true">↗</span><div><strong id="lesson-title">{{predictTitle}}</strong><p id="lesson-copy">{{predictCopy}}</p></div></div>
+  <section class="challenge"><div class="mission-heading"><h2 class="challenge-title">{{missionTitle}}</h2><div class="score-card"><span>{{score}}</span><strong id="mission-score">—</strong></div></div><p class="mission-copy">{{missionCopy}}</p><div class="badges"><span id="right-badge">✓ {{rightBadge}}</span><span id="first-badge">① {{firstBadge}}</span></div></section>
+</div>
+</div>
+<article class="learning-content"><section><h2>{{guideTitle}}</h2><ol><li>{{instruction1}}</li><li>{{instruction2}}</li><li>{{instruction3}}</li><li>{{instruction4}}</li></ol></section><section><h2>{{conceptTitle}}</h2><p>{{conceptCopy}}</p><aside class="worked-example"><h3>{{exampleTitle}}</h3><p>{{exampleCopy}}</p></aside></section><section><h2>{{modelTitle}}</h2><p>{{modelCopy}}</p></section></article>
+<p class="language-note" id="language-note">{{languageNote}}</p>
+</main>
+__FOOTER__
+<p class="sr-only" id="announcement" role="status" aria-live="polite"></p>
+</div>
+<script id="tradeoff-model">
+class TradeoffModel {
+  // A light, rigid lever turns about its fulcrum, with the effort at d_e and the load at d_l from it. As it turns by θ, the
+  // effort point moves s_e = d_e·sin θ and the load point s_l = d_l·sin θ at right angles to the bar's starting line, so
+  // s_l ÷ s_e = d_l ÷ d_e at every moment, and their speeds keep the same ratio. One point (the driver) is moved steadily
+  // over 2 s; for a slow, frictionless lever the work in, F·s_e, equals the work out, W·s_l.
+  static run = 2; // s for the driver to move steadily
+  static tolerance = .02;
+  static missions = [
+    {key:'crowbar',cls:1,ask:'effortDistance',de:1,dl:.2,driver:'load',D:.04,W:null},
+    {key:'work',cls:1,ask:'work',de:.9,dl:.3,driver:'load',D:.05,W:600},
+    {key:'curl',cls:3,ask:'speed',de:.04,dl:.35,driver:'effort',D:.02,W:null},
+    {key:'rod',cls:3,ask:'tipDistance',de:.3,dl:2.4,driver:'effort',D:.2,W:null},
+    {key:'force',cls:1,ask:'force',de:1.2,dl:.2,driver:'load',D:.1,W:900}
+  ];
+  static units = {effortDistance:'m',work:'J',speed:'m/s',tipDistance:'m',force:'N'};
+  static limits = {effortDistance:5,work:1e5,speed:10,tipDistance:10,force:1e5};
+  constructor(index = 0){this.setMission(index);}
+  setMission(index){this.index=index;this.config=TradeoffModel.missions[index];this.answer=null;this.attempts=0;this.reset();}
+  reset(){this.t=0;this.status='moving';}
+  valid(value){return Number.isFinite(value)&&value>0&&value<=TradeoffModel.limits[this.config.ask];}
+  setAnswer(value){if(value!==null&&!this.valid(value))return false;this.answer=value;this.reset();return true;}
+  ready(){return this.answer!==null;}
+  clamp(t){return Math.min(Math.max(t,0),TradeoffModel.run);}
+  // The driver moves steadily, so sin θ grows in proportion to time.
+  sin(t){const c=this.config;return c.D*this.clamp(t)/TradeoffModel.run/(c.driver==='load'?c.dl:c.de);}
+  angle(t){return Math.asin(this.sin(t));}
+  effortMove(t){return this.config.de*this.sin(t);}
+  loadMove(t){return this.config.dl*this.sin(t);}
+  ratio(){return this.config.dl/this.config.de;}
+  // For a lever with a load: the effort that balances it, and the work done on each side.
+  effortForce(){const c=this.config;return c.W===null?null:c.W*c.dl/c.de;}
+  workOut(t){const c=this.config;return c.W===null?null:c.W*this.loadMove(t);}
+  workIn(t){const f=this.effortForce();return f===null?null:f*this.effortMove(t);}
+  speed(t){const c=this.config;return c.D/TradeoffModel.run*(c.driver==='effort'?c.dl/c.de:c.de/c.dl);}
+  duration(){return TradeoffModel.run;}
+  now(){return this.status==='done'?this.duration():this.t;}
+  advance(dt){
+    if(!Number.isFinite(dt)||dt<0)throw new Error('Invalid timestep');
+    if(this.status==='done'||!this.ready())return null;
+    // A run counts as an attempt as soon as it starts; the end of the stroke is found exactly.
+    if(this.t===0)this.attempts++;
+    const T=this.duration();
+    if(this.t+dt>=T*(1-1e-12)){this.t=T;this.status='done';return {t:T,done:true};}
+    this.t+=dt;return null;
+  }
+  exact(){
+    const c=this.config,T=TradeoffModel.run;
+    if(c.ask==='effortDistance')return this.effortMove(T);
+    if(c.ask==='work')return this.workOut(T);
+    if(c.ask==='speed')return c.D/T*c.dl/c.de;
+    if(c.ask==='tipDistance')return this.loadMove(T);
+    return c.W*this.loadMove(T)/this.effortMove(T);
+  }
+  unit(){return TradeoffModel.units[this.config.ask];}
+  evaluate(){
+    if(!this.ready())return {ok:false,slip:null,first:false,exact:this.exact()};
+    const c=this.config,a=this.answer,e=this.exact(),near=(p,q)=>Math.abs(p-q)<=TradeoffModel.tolerance*Math.abs(q)+1e-12,ok=near(a,e);
+    let slip=null;
+    if(!ok){
+      if(c.key==='crowbar'){if(near(a,c.D*c.dl/c.de))slip='inverted';else if(near(a,c.D))slip='same';}
+      else if(c.key==='work'){if(near(a,e*c.dl/c.de)||near(a,e*c.de/c.dl))slip='mixed';else if(near(a,c.W))slip='forceOnly';}
+      else if(c.key==='curl'){if(near(a,c.D/TradeoffModel.run))slip='same';else if(near(a,c.D/TradeoffModel.run*c.de/c.dl))slip='inverted';}
+      else if(c.key==='rod'){if(near(a,c.D))slip='same';else if(near(a,c.D*c.de/c.dl))slip='inverted';}
+      else{if(near(a,c.W))slip='fullLoad';else if(near(a,c.W*c.de/c.dl))slip='inverted';else if(near(a,c.W*c.D))slip='noDivide';}
+    }
+    return {ok,slip,first:ok&&this.attempts===1,exact:e};
+  }
+  score(){if(this.status!=='done')return 0;const e=this.evaluate();return (e.ok?100:0)+(e.first?50:0);}
+  snapshot(){return {index:this.index,answer:this.answer,attempts:this.attempts,t:this.t,status:this.status};}
+  restore(saved){
+    if(!Number.isInteger(saved?.index)||!TradeoffModel.missions[saved.index])return false;
+    const probe=new TradeoffModel(saved.index);
+    if(!probe.setAnswer(saved.answer??null)||!Number.isInteger(saved.attempts)||saved.attempts<0)return false;
+    if(!['moving','done'].includes(saved.status)||!Number.isFinite(saved.t)||saved.t<0||saved.t>probe.duration()*(1+1e-9))return false;
+    if(probe.answer===null&&(saved.t>0||saved.status==='done'))return false;
+    if((saved.status==='done'||saved.t>0)&&saved.attempts<1)return false;
+    this.setMission(saved.index);this.answer=probe.answer;this.attempts=saved.attempts;
+    this.status=saved.status;this.t=saved.status==='done'?this.duration():saved.t;return true;
+  }
+}
+globalThis.TradeoffModel=TradeoffModel;
+</script>
+<script id="tradeoff-locale" type="application/json">__LOCALE__</script>
+<script id="tradeoff-interface">
+(() => {
+  'use strict';
+  const $=id=>document.getElementById(id),locale=JSON.parse($('tradeoff-locale').textContent);
+  const text=(key,values={})=>locale.strings[key].replace(/\{(\w+)\}/g,(_,name)=>values[name]??'{'+name+'}');
+  const number=(n,d=2)=>Math.abs(n)<.5*10**-d?(0).toLocaleString(locale.lang,{minimumFractionDigits:d,maximumFractionDigits:d}):n.toLocaleString(locale.lang,{minimumFractionDigits:d,maximumFractionDigits:d,useGrouping:false});
+  const plain=n=>n.toLocaleString(locale.lang,{maximumFractionDigits:3,useGrouping:false}).replace('-','−');
+  const model=new TradeoffModel();
+  const canvas=$('tradeoff-canvas'),ctx=canvas.getContext('2d');
+  const H=1/120,TAU=2*Math.PI,T=TradeoffModel.run,transferKey='phisicos-tradeoff-language-transfer';
+  let running=false,previous=null,accumulator=0,lastUpdate=0,width=800,height=410;
+  const say=message=>{$('announcement').textContent=message;};
+  try{const data=JSON.parse(sessionStorage.getItem(transferKey)||'null');sessionStorage.removeItem(transferKey);if(data)model.restore(data.state);}catch{$('language-note').hidden=true;}
+  const amount=v=>plain(Number(v.toPrecision(5)))+' '+model.unit();
+  const symbols={effortDistance:'s_e =',work:'W_out =',speed:'v =',tipDistance:'s_l =',force:'F ='};
+  const slipKey=name=>'slip'+name[0].toUpperCase()+name.slice(1);
+  function setRunning(value){
+    const done=model.status==='done',blocked=!model.ready();running=value&&!done&&!blocked;previous=null;accumulator=0;
+    $('play').disabled=running||done||blocked;$('pause').disabled=!running;$('step').disabled=running||done||blocked;
+    $('tradeoff-status').classList.toggle('running',running);
+    $('tradeoff-status-text').textContent=text(done?'done':running?'running':model.t?'paused':'ready');
+  }
+  // Givens: the class, both arms, the load when there is one, and how far (or how fast) the driven point moves in 2 s.
+  function given(m){
+    const parts=['#'+m.cls,'d_e = '+plain(m.de)+' m','d_l = '+plain(m.dl)+' m'];if(m.W)parts.push('W = '+plain(m.W)+' N');
+    parts.push((m.driver==='load'?'s_l':'s_e')+' = '+plain(m.D)+' m');if(m.ask==='force')parts.push('s_e = '+plain(m.D*m.de/m.dl)+' m');
+    return parts.join(' · ');
+  }
+  function sync(){
+    const c=model.config;
+    TradeoffModel.missions.forEach((m,i)=>{$('mission-'+i).setAttribute('aria-pressed',String(i===model.index));$('given-'+i).textContent=given(m);});
+    $('question').textContent=text('question'+model.index);$('answer-symbol').textContent=symbols[c.ask];$('answer-unit').textContent=model.unit();
+    $('answer').value=model.answer===null?'':String(model.answer);$('mission-label').textContent=text('mission'+model.index);
+  }
+  // Distances, their ratio, and the work show only once a run starts, because they give the answer away.
+  const started=()=>model.status==='done'||model.t>0;
+  function update(){
+    const c=model.config,ready=model.ready(),done=model.status==='done',t=ready?model.now():0,e=model.evaluate(),begun=started(),se=model.effortMove(t),sl=model.loadMove(t);
+    $('time-value').textContent=number(t);$('effort-value').textContent=begun?number(se,3):'—';$('load-value').textContent=begun?number(sl,3):'—';
+    $('ratio-value').textContent=begun?number(model.ratio(),2):'—';$('work-value').textContent=begun&&c.W?number(model.workOut(t),2):'—';
+    $('tradeoff-equation').textContent=begun?'s_l ÷ s_e = '+number(sl,3)+' ÷ '+number(se,3)+' = d_l ÷ d_e = '+number(model.ratio(),2):'s_l ÷ s_e = d_l ÷ d_e';
+    let key,copy;
+    const values={se:number(model.effortMove(T),3),sl:number(model.loadMove(T),3),v:number(model.speed(),4),win:number(model.workIn(T)??0,2),wout:number(model.workOut(T)??0,2),f:number(model.effortForce()??0,1)};
+    if(done){
+      const base=text('result'+model.index,values);
+      if(e.ok){key='good';copy=base+' '+text('why'+model.index);}
+      else{key='miss';copy=base+' '+text('missCopy',{p:amount(model.answer)})+' '+(e.slip?text(slipKey(e.slip)):text('hint'+model.index));}
+    }
+    else if(!ready){key='predict';copy=text('predictCopy');}
+    else if(model.t>0){key='running';copy=text('movingCopy',{se:number(se,3),sl:number(sl,3)});}
+    else{key='ready';copy=text('readyCopy');}
+    $('lesson-title').textContent=text(key+'Title',{t:number(t),p:ready?amount(model.answer):''});$('lesson-copy').textContent=copy;
+    $('insight').classList.toggle('warning',key==='miss');
+    $('mission-score').textContent=done?String(model.score()):'—';
+    $('right-badge').classList.toggle('earned',done&&e.ok);$('first-badge').classList.toggle('earned',done&&e.first);
+  }
+  function refresh(){setRunning(false);update();draw();}
+  function simulate(dt){
+    const result=model.advance(dt);
+    if(result?.done){setRunning(false);update();say(text('doneAnnouncement')+' '+$('lesson-title').textContent);return true;}
+    return false;
+  }
+  $('answer').addEventListener('input',event=>{const raw=String(event.target.value).trim(),value=raw===''?null:Number(raw);if(!model.setAnswer(value))model.setAnswer(null);refresh();});
+  $('play').addEventListener('click',()=>{setRunning(true);update();say(text('startedAnnouncement'));});
+  $('pause').addEventListener('click',()=>{setRunning(false);update();say(text('pausedAnnouncement'));});
+  $('step').addEventListener('click',()=>{for(let i=0;i<12;i++)if(simulate(H))break;setRunning(false);update();draw();});
+  $('reset').addEventListener('click',()=>{model.reset();refresh();say(text('resetAnnouncement'));});
+  TradeoffModel.missions.forEach((_,i)=>$('mission-'+i).addEventListener('click',()=>{model.setMission(i);sync();refresh();say(text('missionAnnouncement',{name:text('mission'+i)}));}));
+  for(const id of ['show-traces','show-guess'])$(id).addEventListener('change',()=>{update();draw();});
+  function suspend(){if(running){setRunning(false);say(text('suspendedAnnouncement'));}update();draw();}
+  window.addEventListener('blur',suspend);document.addEventListener('visibilitychange',()=>{if(document.hidden)suspend();});
+  for(const link of document.querySelectorAll('.language-menu a'))link.addEventListener('click',()=>{setRunning(false);try{sessionStorage.setItem(transferKey,JSON.stringify({state:model.snapshot()}));}catch{}});
+  function resize(){const rect=canvas.getBoundingClientRect();if(rect.width<=0)return;width=rect.width;height=rect.height;const dpr=Math.min(window.devicePixelRatio||1,3);canvas.width=Math.round(width*dpr);canvas.height=Math.round(height*dpr);ctx.setTransform(dpr,0,0,dpr,0,0);draw();}
+  function draw(){
+    if(!ctx)return;
+    const c=model.config,ready=model.ready(),done=model.status==='done',t=ready?model.now():0,begun=started(),traces=$('show-traces').checked,guess=$('show-guess').checked&&ready;
+    ctx.clearRect(0,0,width,height);
+    const label=(str,px,py,color='#b8ccdb',align='left',font=12)=>{ctx.fillStyle=color;ctx.textAlign=align;ctx.font=font+'px -apple-system,BlinkMacSystemFont,sans-serif';ctx.fillText(str,px,py);};
+    const line=(points,color,w=1,dash=[])=>{ctx.beginPath();ctx.strokeStyle=color;ctx.lineWidth=w;ctx.setLineDash(dash);points.forEach((q,i)=>i?ctx.lineTo(q.x,q.y):ctx.moveTo(q.x,q.y));ctx.stroke();ctx.setLineDash([]);};
+    const fit=(str,px,py,color,size,room,align='left')=>{ctx.font=size+'px -apple-system,BlinkMacSystemFont,sans-serif';const w=ctx.measureText(str).width;label(str,px,py,color,align,w>room?Math.max(7,Math.floor(size*room/w)):size);};
+    const wide=width>=560,area=wide?width*.64:width;
+    fit(text('viewTitle'),16,20,'#d1e3ed',12,area-28);fit(text('class'+c.cls),16,40,'#efb958',12,area-28);
+    // One scale for both axes, fixed per mission so the whole stroke fits; class 1 has the load on the left of the fulcrum,
+    // class 3 hinges at the left end with the effort between the fulcrum and the load.
+    const cls1=c.cls===1,sEnd=model.sin(T),up=c.dl*sEnd,down=cls1?c.de*sEnd:0,Lb=cls1?c.dl+c.de:Math.max(c.dl,c.de);
+    const S=Math.min((area-110)/(Lb*1.08),(height-180)/Math.max(up+down,.05)),Xf=55+(cls1?c.dl*S:0),Y0=105+up*S;
+    const th=(cls1?-1:1)*model.angle(t),P=x=>({x:Xf+x*Math.cos(th)*S,y:Y0-x*Math.sin(th)*S});
+    const xL=cls1?-c.dl:c.dl,xE=c.de,start=x=>({x:Xf+x*S,y:Y0});
+    ctx.fillStyle='#8aa3b5';ctx.beginPath();ctx.moveTo(Xf,Y0+4);ctx.lineTo(Xf-12,Y0+28);ctx.lineTo(Xf+12,Y0+28);ctx.closePath();ctx.fill();label(text('fulcrumLabel'),Xf,Y0+42,'#9fb6c7','center',10);
+    if(traces){line([start(Math.min(xL,0)-.02*Lb),start(Math.max(xE,xL)+.02*Lb)],'#5b7488',1,[4,4]);}
+    line([P(Math.min(xL,0)-.02*Lb),P(Math.max(xE,xL)+.02*Lb)],'#c99a6e',6);
+    // The two points and how far each has moved at right angles to the starting line.
+    const e=P(xE),l=P(xL),e0=start(xE),l0=start(xL);
+    if(traces&&begun){line([e0,{x:e0.x,y:e.y}],'#77b9ff',2);line([l0,{x:l0.x,y:l.y}],'#75efc7',2);label('s_e',e0.x+8,(e0.y+e.y)/2+4,'#77b9ff','left',11);label('s_l',l0.x+8,(l0.y+l.y)/2+4,'#75efc7','left',11);}
+    ctx.fillStyle='#77b9ff';ctx.beginPath();ctx.arc(e.x,e.y,6,0,TAU);ctx.fill();ctx.fillStyle='#75efc7';ctx.fillRect(l.x-9,l.y-18,18,16);
+    label(text('effortTag'),e.x,e.y+(cls1?24:-12),'#77b9ff','center',10);label(text('loadTag'),l.x,l.y-24,'#75efc7','center',10);
+    // The prediction: a mark where you said the point would get to, or a ghost moving at your speed.
+    if(guess){
+      const a=model.answer,mark=(p0,dy)=>{line([{x:p0.x-16,y:p0.y+dy*S},{x:p0.x+16,y:p0.y+dy*S}],'#efb958',2,[5,3]);label(text('guessTag'),p0.x+20,p0.y+dy*S+4,'#efb958','left',10);};
+      if(c.ask==='effortDistance')mark(e0,cls1?a:-a);
+      else if(c.ask==='tipDistance')mark(l0,-a);
+      else if(c.ask==='speed'){const g={x:l0.x+22,y:l0.y-Math.min(a*t,up*1.5)*S};ctx.strokeStyle='#efb958';ctx.lineWidth=2;ctx.beginPath();ctx.arc(g.x,g.y,7,0,TAU);ctx.stroke();label(text('guessTag'),g.x+10,g.y+4,'#efb958','left',10);}
+    }
+    if(done){const ev=model.evaluate();fit(text(ev.ok?'rightBanner':'offBanner'),16,62,ev.ok?'#75efc7':'#efb958',width<430?12:14,area-28);}
+    label(text('scaleNote'),16,height-8,'#9fb6c7','left',10);
+    if(!wide)return;
+    // Right panel: the two distances side by side, or the work in and out for a lever with a load.
+    const bx0=area+20,bx1=width-16,btop=72,bbot=height-58,bw=(bx1-bx0)/2-10,work=c.W!==null;
+    fit(text(work?'workTitle':'distanceTitle'),area+8,44,'#d1e3ed',10,width-area-16);
+    if(!begun){fit(text('panelHint'),area+8,70,'#9fb6c7',10,width-area-16);return;}
+    // Your prediction sits on the bar it predicts: the effort side for s_e and F (as F·s_e), the load side for W_out and s_l.
+    const first=work?model.workIn(t):model.effortMove(t),second=work?model.workOut(t):model.loadMove(t),guessValue=!guess?null:c.ask==='work'?model.answer:c.ask==='force'?model.answer*model.effortMove(T):c.ask==='effortDistance'?model.answer:c.ask==='tipDistance'?model.answer:null;
+    // A far-off prediction is capped at 2.5 times the real end value and marked ↑, so the real bars stay readable.
+    const real=work?model.workOut(T):Math.max(model.effortMove(T),model.loadMove(T)),shown=guessValue===null?null:Math.min(guessValue,2.5*real);
+    const top=Math.max(first,second,shown??0,real)*1.15||1,BY=v=>bbot-v/top*(bbot-btop);
+    ctx.fillStyle='#77b9ff';ctx.fillRect(bx0,BY(first),bw,bbot-BY(first));ctx.fillStyle='#75efc7';ctx.fillRect(bx0+bw+20,BY(second),bw,bbot-BY(second));
+    const d=work?2:3;fit(number(first,d),bx0+bw/2,BY(first)-6,'#77b9ff',10,bw+16,'center');fit(number(second,d),bx0+bw*1.5+20,BY(second)-6,'#75efc7',10,bw+16,'center');
+    fit(text(work?'workInShort':'effortShort'),bx0+bw/2,bbot+14,'#9fb6c7',9,bw+16,'center');fit(text(work?'workOutShort':'loadShort'),bx0+bw*1.5+20,bbot+14,'#9fb6c7',9,bw+16,'center');
+    if(guessValue!==null){const gx=c.ask==='work'||c.ask==='tipDistance'?bx0+bw+20:bx0;line([{x:gx-6,y:BY(shown)},{x:gx+bw+6,y:BY(shown)}],'#efb958',2,[5,3]);fit(text('guessTag')+(shown<guessValue?' ↑':''),gx+bw/2,BY(shown)+14,'#efb958',9,bw+16,'center');}
+  }
+  function frame(now){if(previous===null)previous=now;const elapsed=Math.min(.1,(now-previous)/1000);previous=now;if(running){accumulator+=elapsed;while(accumulator>=H&&running){accumulator-=H;simulate(H);}draw();}if(now-lastUpdate>=80){update();lastUpdate=now;}requestAnimationFrame(frame);}
+  window.addEventListener('resize',resize);if(typeof ResizeObserver!=='undefined')new ResizeObserver(resize).observe(canvas);
+  sync();setRunning(false);update();resize();requestAnimationFrame(frame);
+})();
+</script>
+</body>
+</html>

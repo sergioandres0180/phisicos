@@ -1,0 +1,290 @@
+<!doctype html>
+<html lang="en">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Hanging Sign · Phisicos</title>
+<style>
+.sign-page .answer-row .symbol{min-width:44px}.sign-page .question{font-size:15px;font-weight:600;margin-top:4px}
+.sign-page .line-key.white{background:#f2f8fc}.sign-page .line-key.blue{background:#77b9ff}
+</style>
+</head>
+<body>
+<div class="shell module-page sign-page">
+__HEADER__
+<main id="main-content">
+__BREADCRUMBS__
+
+<div class="masthead"><div><h1>{{title}}</h1><p class="intro">{{subtitle}}</p></div><div class="concept-tags"><span class="tag speed">{{tag1}}</span><span class="tag velocity">{{tag2}}</span></div></div>
+<noscript><p class="no-js">{{noScript}}</p></noscript>
+<div class="layout">
+<aside class="sidebar" aria-label="{{setup}}">
+  <section class="control-section"><h2 class="eyebrow">{{setup}}</h2><div class="mission-list" role="group" aria-label="{{setup}}">
+    <button id="mission-0" aria-pressed="true"><b>1 · {{mission0}}</b><span id="given-0">m</span></button>
+    <button id="mission-1" aria-pressed="false"><b>2 · {{mission1}}</b><span id="given-1">m</span></button>
+    <button id="mission-2" aria-pressed="false"><b>3 · {{mission2}}</b><span id="given-2">m</span></button>
+    <button id="mission-3" aria-pressed="false"><b>4 · {{mission3}}</b><span id="given-3">m</span></button>
+    <button id="mission-4" aria-pressed="false"><b>5 · {{mission4}}</b><span id="given-4">m</span></button>
+  </div><p class="hint">{{setupNote}}</p></section>
+  <section class="control-section"><h2 class="eyebrow">{{answerHeading}}</h2>
+    <p class="question" id="question">{{question0}}</p>
+    <p class="field-label"><label for="answer">{{answerLabel}}</label></p>
+    <div class="answer-row"><span class="symbol" id="answer-symbol">T =</span><input id="answer" type="number" inputmode="decimal" step="any" value=""><span class="unit" id="answer-unit">N</span></div>
+    <p class="hint">{{answerHint}}</p>
+  </section>
+  <section class="control-section"><h2 class="eyebrow">{{observe}}</h2><label class="check"><input id="show-vectors" type="checkbox" checked>{{vectors}}</label><label class="check"><input id="show-polygon" type="checkbox" checked>{{polygon}}</label><p class="hint">{{observeHint}}</p></section>
+</aside>
+<div class="workspace">
+  <section class="scene" aria-label="{{sceneTitle}}"><div class="scene-top"><div><h2 class="scene-title">{{sceneTitle}}</h2><p class="scene-subtitle" id="mission-label">{{mission0}}</p></div><span class="status" id="sign-status"><i class="status-dot" aria-hidden="true"></i><span id="sign-status-text">{{ready}}</span></span></div>
+    <div class="module-stage"><canvas id="sign-canvas" role="img" aria-label="{{canvasLabel}}">{{noScript}}</canvas></div>
+    <div class="legend"><span><i class="line-key blue"></i>{{tensionLegend}}</span><span><i class="line-key orange"></i>{{weightLegend}}</span><span><i class="line-key mint"></i>{{ratingLegend}}</span><span><i class="line-key gray"></i>{{cableLegend}}</span></div>
+    <div class="module-equation"><span>{{equationTitle}}</span><output id="sign-equation">ΣF = 0</output></div>
+    <div class="transport"><button id="play" class="primary" disabled>{{play}}</button><button id="pause" disabled>{{pause}}</button><button id="step" disabled>{{step}}</button><button id="reset" class="reset">{{reset}}</button></div>
+  </section>
+  <section class="metrics" aria-label="{{observe}}">
+    <div class="metric scalar"><h3 class="metric-label">{{time}}</h3><p class="metric-value"><span id="time-value">0.00</span> <small>s</small></p><p class="metric-equation">t</p></div>
+    <div class="metric vector"><h3 class="metric-label">{{load}}</h3><p class="metric-value"><span id="load-value">0</span> <small>N</small></p><p class="metric-equation">W = m·g</p></div>
+    <div class="metric vector"><h3 class="metric-label">{{tensionLeft}}</h3><p class="metric-value"><span id="t1-value">—</span> <small>N</small></p><p class="metric-equation">T₁</p></div>
+    <div class="metric vector"><h3 class="metric-label">{{tensionRight}}</h3><p class="metric-value"><span id="t2-value">—</span> <small>N</small></p><p class="metric-equation">T₂</p></div>
+    <div class="metric vector"><h3 class="metric-label">{{netForce}}</h3><p class="metric-value"><span id="net-value">0.00</span> <small>N</small></p><p class="metric-equation">ΣF = T₁ + T₂ + W</p></div>
+  </section>
+  <div class="insight" id="insight"><span class="insight-icon" aria-hidden="true">↗</span><div><strong id="lesson-title">{{predictTitle}}</strong><p id="lesson-copy">{{predictCopy}}</p></div></div>
+  <section class="challenge"><div class="mission-heading"><h2 class="challenge-title">{{missionTitle}}</h2><div class="score-card"><span>{{score}}</span><strong id="mission-score">—</strong></div></div><p class="mission-copy">{{missionCopy}}</p><div class="badges"><span id="right-badge">✓ {{rightBadge}}</span><span id="first-badge">① {{firstBadge}}</span></div></section>
+</div>
+</div>
+<article class="learning-content"><section><h2>{{guideTitle}}</h2><ol><li>{{instruction1}}</li><li>{{instruction2}}</li><li>{{instruction3}}</li><li>{{instruction4}}</li></ol></section><section><h2>{{conceptTitle}}</h2><p>{{conceptCopy}}</p><aside class="worked-example"><h3>{{exampleTitle}}</h3><p>{{exampleCopy}}</p></aside></section><section><h2>{{modelTitle}}</h2><p>{{modelCopy}}</p></section></article>
+<p class="language-note" id="language-note">{{languageNote}}</p>
+</main>
+__FOOTER__
+<p class="sr-only" id="announcement" role="status" aria-live="polite"></p>
+</div>
+<script id="sign-model">
+class SignModel {
+  // A sign of mass m hangs from a ring held by cables to a ceiling beam. Each cable pulls the ring along itself, at an
+  // angle θ above the horizontal. At rest the forces on the ring cancel: T₁·cos θ₁ = T₂·cos θ₂ across and
+  // T₁·sin θ₁ + T₂·sin θ₂ = W up, so T₁ = W·cos θ₂ ÷ sin(θ₁ + θ₂) and T₂ = W·cos θ₁ ÷ sin(θ₁ + θ₂). A crane lowers the sign
+  // over 2 s, so the load the cables carry grows steadily from 0 to W and every tension grows with it. A cable whose
+  // rating is below its full tension snaps exactly when its tension reaches the rating.
+  static g = 9.8; // m/s²
+  static ramp = 2; // s to hand the whole weight to the cables
+  static hold = 1; // s the full load is held before a run ends
+  static grace = 5e-4; // a rating within 0.05% of the tension holds, so a rounded answer does not snap
+  static tolerance = .02; // a rating may exceed the tension by up to 2%
+  static missions = [
+    {m:20,cables:[90],target:0,ask:'single'},
+    {m:20,cables:[30,30],target:0,ask:'symmetric'},
+    {m:20,cables:[10,10],target:0,ask:'shallow'},
+    {m:20,cables:[30,60],target:1,ask:'steep'},
+    {m:20,cables:[null,null],rating:300,ask:'angle'}
+  ];
+  static units = {single:'N',symmetric:'N',shallow:'N',steep:'N',angle:'°'};
+  constructor(index = 0){this.setMission(index);}
+  setMission(index){this.index=index;this.config=SignModel.missions[index];this.answer=null;this.attempts=0;this.reset();}
+  reset(){this.t=0;this.status='loading';}
+  valid(value){return Number.isFinite(value)&&(this.config.ask==='angle'?value>=1&&value<=75:value>0&&value<=1e5);}
+  setAnswer(value){if(value!==null&&!this.valid(value))return false;this.answer=value;this.reset();return true;}
+  ready(){return this.answer!==null;}
+  weight(){return this.config.m*SignModel.g;}
+  // Cable angles above the horizontal, in degrees; the angle answer sets both cables of the last mission.
+  angles(){const c=this.config;return c.ask==='angle'?[this.answer??45,this.answer??45]:c.cables;}
+  // Tensions under the full weight.
+  tensions(){
+    const W=this.weight(),a=this.angles().map(d=>d*Math.PI/180);
+    if(a.length===1)return [W];
+    const s=Math.sin(a[0]+a[1]);return [W*Math.cos(a[1])/s,W*Math.cos(a[0])/s];
+  }
+  // A cable's rating: the answer for the asked cable, 300 N for both in the angle mission, otherwise far above its load.
+  ratings(){const c=this.config;return c.cables.map((_,i)=>c.ask==='angle'?c.rating:i===c.target?this.answer??0:Infinity);}
+  // The first cable to snap and the share of the weight it carries then; null when every cable holds.
+  snap(){
+    const T=this.tensions(),R=this.ratings();let first=null;
+    T.forEach((tension,i)=>{if(tension>R[i]*(1+SignModel.grace)){const f=R[i]/tension;if(!first||f<first.f)first={cable:i,f};}});
+    return first;
+  }
+  outcome(){return this.snap()?'snap':'hold';}
+  duration(){const s=this.snap();return s?SignModel.ramp*s.f:SignModel.ramp+SignModel.hold;}
+  clamp(t){return Math.min(Math.max(t,0),this.duration());}
+  load(t){return Math.min(1,this.clamp(t)/SignModel.ramp);}
+  tension(i,t){return this.load(t)*this.tensions()[i];}
+  now(){return this.status==='done'?this.duration():this.t;}
+  advance(dt){
+    if(!Number.isFinite(dt)||dt<0)throw new Error('Invalid timestep');
+    if(this.status==='done'||!this.ready())return null;
+    // A run counts as an attempt as soon as it starts; the snap and the end are found exactly.
+    if(this.t===0)this.attempts++;
+    const T=this.duration(),full=this.t<SignModel.ramp&&this.t+dt>=SignModel.ramp&&T>SignModel.ramp;
+    if(this.t+dt>=T*(1-1e-12)){this.t=T;this.status='done';return {t:T,done:true,outcome:this.outcome()};}
+    this.t+=dt;return full?{t:this.t,full:true,done:false}:null;
+  }
+  exact(){
+    const c=this.config,W=this.weight();
+    if(c.ask==='angle')return Math.asin(W/(2*c.rating))*180/Math.PI;
+    const a=c.cables.map(d=>d*Math.PI/180);if(a.length===1)return W;
+    const s=Math.sin(a[0]+a[1]);return c.target===0?W*Math.cos(a[1])/s:W*Math.cos(a[0])/s;
+  }
+  unit(){return SignModel.units[this.config.ask];}
+  // Right means the cable holds (allowing rounding) and is at most 2% stronger, or the angle is at most 2% steeper.
+  evaluate(){
+    if(!this.ready())return {ok:false,slip:null,first:false,exact:this.exact()};
+    const c=this.config,a=this.answer,e=this.exact(),W=this.weight(),r=d=>d*Math.PI/180,near=(p,q)=>Math.abs(p-q)<=.02*Math.abs(q)+1e-9;
+    const ok=a>=e*(1-SignModel.grace)&&a<=e*(1+SignModel.tolerance);
+    let slip=null;
+    if(!ok){
+      if(c.ask==='single'){if(near(a,c.m))slip='mass';else if(near(a,W/2))slip='half';}
+      else if(c.ask==='symmetric'||c.ask==='shallow'){const k=r(c.cables[0]);if(near(a,W/(2*Math.cos(k))))slip='cos';else if(near(a,W/Math.sin(k)))slip='noTwo';else if(near(a,W/2))slip='half';else if(near(a,W))slip='weight';}
+      else if(c.ask==='steep'){if(near(a,W*Math.cos(r(60))))slip='swap';else if(near(a,W))slip='weight';else if(near(a,W/(2*Math.sin(r(60)))))slip='evenSplit';}
+      else{if(near(a,Math.acos(W/(2*c.rating))*180/Math.PI))slip='cosAngle';else if(near(a,Math.asin(W/c.rating)*180/Math.PI))slip='noTwoAngle';}
+      if(!slip&&this.outcome()==='hold')slip='spare';
+    }
+    return {ok,slip,first:ok&&this.attempts===1,exact:e};
+  }
+  score(){if(this.status!=='done')return 0;const e=this.evaluate();return (e.ok?100:0)+(e.first?50:0);}
+  snapshot(){return {index:this.index,answer:this.answer,attempts:this.attempts,t:this.t,status:this.status};}
+  restore(saved){
+    if(!Number.isInteger(saved?.index)||!SignModel.missions[saved.index])return false;
+    const probe=new SignModel(saved.index);
+    if(!probe.setAnswer(saved.answer??null)||!Number.isInteger(saved.attempts)||saved.attempts<0)return false;
+    if(!['loading','done'].includes(saved.status)||!Number.isFinite(saved.t)||saved.t<0||saved.t>probe.duration()*(1+1e-9))return false;
+    if(probe.answer===null&&(saved.t>0||saved.status==='done'))return false;
+    if((saved.status==='done'||saved.t>0)&&saved.attempts<1)return false;
+    this.setMission(saved.index);this.answer=probe.answer;this.attempts=saved.attempts;
+    this.status=saved.status;this.t=saved.status==='done'?this.duration():saved.t;return true;
+  }
+}
+globalThis.SignModel=SignModel;
+</script>
+<script id="sign-locale" type="application/json">__LOCALE__</script>
+<script id="sign-interface">
+(() => {
+  'use strict';
+  const $=id=>document.getElementById(id),locale=JSON.parse($('sign-locale').textContent);
+  const text=(key,values={})=>locale.strings[key].replace(/\{(\w+)\}/g,(_,name)=>values[name]??'{'+name+'}');
+  const number=(n,d=2)=>Math.abs(n)<.5*10**-d?(0).toLocaleString(locale.lang,{minimumFractionDigits:d,maximumFractionDigits:d}):n.toLocaleString(locale.lang,{minimumFractionDigits:d,maximumFractionDigits:d,useGrouping:false});
+  const plain=n=>n.toLocaleString(locale.lang,{maximumFractionDigits:2,useGrouping:false}).replace('-','−');
+  const model=new SignModel();
+  const canvas=$('sign-canvas'),ctx=canvas.getContext('2d');
+  const H=1/120,TAU=2*Math.PI,transferKey='phisicos-sign-language-transfer';
+  let running=false,previous=null,accumulator=0,lastUpdate=0,width=800,height=410;
+  const say=message=>{$('announcement').textContent=message;};
+  try{const data=JSON.parse(sessionStorage.getItem(transferKey)||'null');sessionStorage.removeItem(transferKey);if(data)model.restore(data.state);}catch{$('language-note').hidden=true;}
+  const amount=v=>plain(Number(v.toPrecision(5)))+(model.unit()==='°'?'°':' '+model.unit());
+  const slipKey=name=>'slip'+name[0].toUpperCase()+name.slice(1);
+  function setRunning(value){
+    const done=model.status==='done',blocked=!model.ready();running=value&&!done&&!blocked;previous=null;accumulator=0;
+    $('play').disabled=running||done||blocked;$('pause').disabled=!running;$('step').disabled=running||done||blocked;
+    $('sign-status').classList.toggle('running',running);
+    $('sign-status-text').textContent=text(done?'done':running?'running':model.t?'paused':'ready');
+  }
+  function given(m){
+    const parts=['m = '+plain(m.m)+' kg'];
+    if(m.ask==='angle')parts.push('T_max = '+plain(m.rating)+' N');else parts.push((m.cables.length>1?'θ₁ = '+plain(m.cables[0])+'°, θ₂ = ':'θ = ')+plain(m.cables[m.cables.length-1])+'°');
+    return parts.join(' · ');
+  }
+  function sync(){
+    const c=model.config;
+    SignModel.missions.forEach((m,i)=>{$('mission-'+i).setAttribute('aria-pressed',String(i===model.index));$('given-'+i).textContent=given(m);});
+    $('question').textContent=text('question'+model.index);$('answer-symbol').textContent=c.ask==='angle'?'θ =':c.ask==='steep'?'T₂ =':'T =';$('answer-unit').textContent=model.unit();
+    $('answer').value=model.answer===null?'':String(model.answer);$('mission-label').textContent=text('mission'+model.index);
+  }
+  // Tensions show only once the crane starts lowering the sign, because they are the answers.
+  const started=()=>model.status==='done'||model.t>0;
+  function update(){
+    const c=model.config,ready=model.ready(),done=model.status==='done',t=ready?model.now():0,e=model.evaluate(),begun=started(),f=model.load(t),T=model.tensions(),W=model.weight();
+    $('time-value').textContent=number(t);$('load-value').textContent=number(f*W,0);
+    $('t1-value').textContent=begun?number(f*T[0],0):'—';$('t2-value').textContent=begun&&T.length>1?number(f*T[1],0):'—';$('net-value').textContent=number(0);
+    const a=model.angles();
+    $('sign-equation').textContent=begun?(T.length>1?'T₁·cos θ₁ = T₂·cos θ₂ = '+number(f*T[0]*Math.cos(a[0]*Math.PI/180),0)+' N · T₁·'+text('sinName')+' θ₁ + T₂·'+text('sinName')+' θ₂ = W = '+number(f*W,0)+' N':'T = W = '+number(f*W,0)+' N'):'ΣFₓ = 0 · ΣF_y = 0';
+    let key,copy;
+    if(done){
+      const snap=model.snap(),tensions=T.length>1?text('tensionsTwo',{t1:number(T[0],0),t2:number(T[1],0)}):text('tensionsOne',{t1:number(T[0],0)});
+      const base=snap?text('snapCopy',{pct:plain(Math.round(snap.f*100)),side:text(T.length>1?(snap.cable?'rightCable':'leftCable'):'theCable')})+' '+text('neededCopy')+' '+tensions:text('holdCopy',{W:number(W,0)})+' '+tensions;
+      if(e.ok){key='good';copy=base+' '+text('why'+model.index);}
+      else{key='miss';copy=base+' '+text('missCopy',{p:amount(model.answer)})+' '+(e.slip?text(slipKey(e.slip)):text('hint'+model.index));}
+    }
+    else if(!ready){key='predict';copy=text('predictCopy');}
+    else if(model.t>0){key='running';copy=text('runningCopy',{load:number(f*W,0)});}
+    else{key='ready';copy=text('readyCopy');}
+    $('lesson-title').textContent=text(key+'Title',{t:number(t),p:ready?amount(model.answer):''});$('lesson-copy').textContent=copy;
+    $('insight').classList.toggle('warning',key==='miss');
+    $('mission-score').textContent=done?String(model.score()):'—';
+    $('right-badge').classList.toggle('earned',done&&e.ok);$('first-badge').classList.toggle('earned',done&&e.first);
+  }
+  function refresh(){setRunning(false);update();draw();}
+  function simulate(dt){
+    const result=model.advance(dt);
+    if(result?.full)say(text('fullAnnouncement'));
+    if(result?.done){setRunning(false);update();say(text('doneAnnouncement')+' '+$('lesson-title').textContent);return true;}
+    return false;
+  }
+  $('answer').addEventListener('input',event=>{const raw=String(event.target.value).trim(),value=raw===''?null:Number(raw);if(!model.setAnswer(value))model.setAnswer(null);refresh();});
+  $('play').addEventListener('click',()=>{setRunning(true);update();say(text('startedAnnouncement'));});
+  $('pause').addEventListener('click',()=>{setRunning(false);update();say(text('pausedAnnouncement'));});
+  $('step').addEventListener('click',()=>{for(let i=0;i<12;i++)if(simulate(H))break;setRunning(false);update();draw();});
+  $('reset').addEventListener('click',()=>{model.reset();refresh();say(text('resetAnnouncement'));});
+  SignModel.missions.forEach((_,i)=>$('mission-'+i).addEventListener('click',()=>{model.setMission(i);sync();refresh();say(text('missionAnnouncement',{name:text('mission'+i)}));}));
+  for(const id of ['show-vectors','show-polygon'])$(id).addEventListener('change',()=>{update();draw();});
+  function suspend(){if(running){setRunning(false);say(text('suspendedAnnouncement'));}update();draw();}
+  window.addEventListener('blur',suspend);document.addEventListener('visibilitychange',()=>{if(document.hidden)suspend();});
+  for(const link of document.querySelectorAll('.language-menu a'))link.addEventListener('click',()=>{setRunning(false);try{sessionStorage.setItem(transferKey,JSON.stringify({state:model.snapshot()}));}catch{}});
+  function resize(){const rect=canvas.getBoundingClientRect();if(rect.width<=0)return;width=rect.width;height=rect.height;const dpr=Math.min(window.devicePixelRatio||1,3);canvas.width=Math.round(width*dpr);canvas.height=Math.round(height*dpr);ctx.setTransform(dpr,0,0,dpr,0,0);draw();}
+  // The ring hangs 1 m below the beam for the 30°/60° cables and 1.5 m to the side for symmetric ones; forces are drawn
+  // at 0.25 px per newton, up to 120 px, both on the ring and in the force triangle.
+  const FS=.25,CAP=120;
+  function draw(){
+    if(!ctx)return;
+    const c=model.config,ready=model.ready(),done=model.status==='done',t=ready?model.now():0,begun=started(),f=model.load(t),T=model.tensions(),W=model.weight(),snap=done?model.snap():null;
+    ctx.clearRect(0,0,width,height);
+    const label=(str,px,py,color='#b8ccdb',align='left',font=12)=>{ctx.fillStyle=color;ctx.textAlign=align;ctx.font=font+'px -apple-system,BlinkMacSystemFont,sans-serif';ctx.fillText(str,px,py);};
+    const line=(points,color,w=1,dash=[])=>{ctx.beginPath();ctx.strokeStyle=color;ctx.lineWidth=w;ctx.setLineDash(dash);points.forEach((p,i)=>i?ctx.lineTo(p.x,p.y):ctx.moveTo(p.x,p.y));ctx.stroke();ctx.setLineDash([]);};
+    const arrow=(from,dx,dy,color,w=2.5)=>{const len=Math.hypot(dx,dy);if(len<4)return;const ux=dx/len,uy=dy/len,to={x:from.x+dx,y:from.y+dy};line([from,to],color,w);line([{x:to.x-ux*9-uy*5,y:to.y-uy*9+ux*5},to,{x:to.x-ux*9+uy*5,y:to.y-uy*9-ux*5}],color,2);};
+    const fit=(str,px,py,color,size,room,align='left')=>{ctx.font=size+'px -apple-system,BlinkMacSystemFont,sans-serif';const w=ctx.measureText(str).width;label(str,px,py,color,align,w>room?Math.max(7,Math.floor(size*room/w)):size);};
+    const wide=width>=560,area=wide?width*.6:width,a=model.angles().map(d=>d*Math.PI/180);
+    fit(text('viewTitle'),16,20,'#d1e3ed',12,area-28);label(text('arrowScale'),16,height-8,'#9fb6c7','left',10);
+    // Geometry in metres: the ring at (0, −d), anchors on the beam at y = 0.
+    const d=a.length===1?1.2:c.ask==='steep'?1:Math.min(1.5*Math.tan(a[0]),3),reach=a.length===1?[0]:a.map(k=>d/Math.tan(k));
+    const span=Math.max(1.6,...reach)*2+.6,S=Math.min((area-40)/span,(height-120)/(d+1.4)),beamY=48,cx=area/2,P=(x,y)=>({x:cx+x*S,y:beamY-y*S});
+    const ring=P(0,-d),anchors=a.length===1?[P(0,0)]:[P(-reach[0],0),P(reach[1],0)];
+    ctx.fillStyle='#5b7488';ctx.fillRect(16,beamY-10,area-32,10);
+    // The sign hangs below the ring on a short hook; after a snap it hangs crooked. It is drawn first so the cables and
+    // their labels stay on top.
+    const tilt=snap?(a.length>1?(snap.cable?.35:-.35):0):0,signTop=snap&&a.length===1?{x:ring.x,y:ring.y+40}:{x:ring.x,y:ring.y+18};
+    line([ring,signTop],'#8aa3b5',1.5);
+    ctx.save();ctx.translate(signTop.x,signTop.y);ctx.rotate(tilt);ctx.fillStyle='#efe6d0';ctx.fillRect(-46,0,92,34);ctx.fillStyle='#102637';ctx.fillRect(-36,10,72,4);ctx.fillRect(-28,20,56,4);ctx.restore();
+    label(plain(c.m)+' kg',ring.x+54,signTop.y+22,'#d1e3ed','left',11);
+    // Cables: a snapped cable is drawn as two loose ends.
+    anchors.forEach((p,i)=>{
+      const broken=snap&&snap.cable===i,col=broken?'#efb958':'#8aa3b5';
+      if(broken){line([p,{x:p.x+(ring.x-p.x)*.35,y:p.y+(ring.y-p.y)*.35+10}],col,2);line([ring,{x:ring.x+(p.x-ring.x)*.3,y:ring.y+(p.y-ring.y)*.3+14}],col,2);}
+      else line([p,ring],col,2);
+      ctx.fillStyle='#5b7488';ctx.beginPath();ctx.arc(p.x,p.y,4,0,TAU);ctx.fill();
+      const mid={x:(p.x+ring.x)/2,y:(p.y+ring.y)/2},R=model.ratings()[i];
+      // Angle arcs above the horizontal: the left cable leaves the ring up and to the left, the right one up and to the right.
+      if(a.length>1){ctx.strokeStyle='#9fb6c7';ctx.lineWidth=1;ctx.beginPath();if(i)ctx.arc(ring.x,ring.y,26,-a[1],0);else ctx.arc(ring.x,ring.y,26,Math.PI,Math.PI+a[0]);ctx.stroke();label((i?'θ₂':'θ₁')+' = '+plain(Math.round(a[i]*180/Math.PI*100)/100)+'°',ring.x+(i?32:-32),ring.y+14,'#9fb6c7',i?'left':'right',10);}
+      if(Number.isFinite(R)&&R>0)label(text('ratedLabel',{r:plain(Number(R.toPrecision(5)))}),mid.x+(i?10:-10),mid.y+26,'#75efc7',i||a.length===1?'left':'right',10);
+      if(begun)label(number(f*T[i],0)+' N',mid.x+(i?10:-10),mid.y+12,'#77b9ff',i||a.length===1?'left':'right',11);
+    });
+    ctx.strokeStyle='#d1e3ed';ctx.lineWidth=2;ctx.beginPath();ctx.arc(ring.x,ring.y,5,0,TAU);ctx.stroke();
+    if($('show-vectors').checked&&begun&&!snap){
+      T.forEach((tension,i)=>{const k=a.length===1?Math.PI/2:i?a[1]:Math.PI-a[0],len=Math.min(f*tension*FS,CAP);arrow(ring,Math.cos(k)*len,-Math.sin(k)*len,'#77b9ff');});
+      arrow(ring,0,Math.min(f*W*FS,CAP),'#efb958');
+    }
+    if(done){const e=model.evaluate();fit((e.ok?text('rightBanner')+' · ':'')+(snap?text('snapBanner',{pct:plain(Math.round(snap.f*100))}):text('holdBanner')),16,height-26,e.ok?'#75efc7':'#efb958',width<430?12:14,area-28);}
+    if(!wide)return;
+    // Force triangle: W, then T₁, then T₂ head to tail; they close when the forces balance. Its scale is fixed per mission
+    // from the full-load triangle, so it fills the panel.
+    const px0=width*.64,px1=width-16;fit(text('polygonTitle'),px0,40,'#d1e3ed',10,px1-px0);
+    if(!$('show-polygon').checked)return;
+    if(!begun){fit(text('polygonHint'),px0,70,'#9fb6c7',10,px1-px0);return;}
+    const k=Math.min((height-150)/W,(px1-px0-40)/Math.max(a.length>1?Math.cos(a[0])*T[0]:0,1)),o={x:(px0+px1)/2+(a.length>1?Math.cos(a[0])*T[0]*k/2:0),y:70},wEnd={x:o.x,y:o.y+f*W*k};
+    arrow(o,0,f*W*k,'#efb958');label('W',o.x+8,(o.y+wEnd.y)/2,'#efb958','left',11);
+    if(a.length===1){arrow(wEnd,0,-f*T[0]*k,'#77b9ff',1.8);label('T',wEnd.x-8,(o.y+wEnd.y)/2,'#77b9ff','right',11);}
+    else{
+      const t1={x:wEnd.x-Math.cos(a[0])*f*T[0]*k,y:wEnd.y-Math.sin(a[0])*f*T[0]*k};arrow(wEnd,t1.x-wEnd.x,t1.y-wEnd.y,'#77b9ff');label('T₁',(wEnd.x+t1.x)/2-6,(wEnd.y+t1.y)/2+10,'#77b9ff','right',11);
+      arrow(t1,Math.cos(a[1])*f*T[1]*k,-Math.sin(a[1])*f*T[1]*k,'#77b9ff');label('T₂',(t1.x+o.x)/2-8,(t1.y+o.y)/2,'#77b9ff','right',11);
+    }
+    fit(text('polygonClosed'),px0,height-40,'#75efc7',10,px1-px0);
+  }
+  function frame(now){if(previous===null)previous=now;const elapsed=Math.min(.1,(now-previous)/1000);previous=now;if(running){accumulator+=elapsed;while(accumulator>=H&&running){accumulator-=H;simulate(H);}draw();}if(now-lastUpdate>=80){update();lastUpdate=now;}requestAnimationFrame(frame);}
+  window.addEventListener('resize',resize);if(typeof ResizeObserver!=='undefined')new ResizeObserver(resize).observe(canvas);
+  sync();setRunning(false);update();resize();requestAnimationFrame(frame);
+})();
+</script>
+</body>
+</html>

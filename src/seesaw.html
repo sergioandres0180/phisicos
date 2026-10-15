@@ -1,0 +1,290 @@
+<!doctype html>
+<html lang="en">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Seesaw · Phisicos</title>
+<style>
+.seesaw-page .answer-row .symbol{min-width:44px}.seesaw-page .question{font-size:15px;font-weight:600;margin-top:4px}
+.seesaw-page .line-key.white{background:#f2f8fc}.seesaw-page .line-key.blue{background:#77b9ff}
+</style>
+</head>
+<body>
+<div class="shell module-page seesaw-page">
+__HEADER__
+<main id="main-content">
+__BREADCRUMBS__
+
+<div class="masthead"><div><h1>{{title}}</h1><p class="intro">{{subtitle}}</p></div><div class="concept-tags"><span class="tag speed">{{tag1}}</span><span class="tag velocity">{{tag2}}</span></div></div>
+<noscript><p class="no-js">{{noScript}}</p></noscript>
+<div class="layout">
+<aside class="sidebar" aria-label="{{setup}}">
+  <section class="control-section"><h2 class="eyebrow">{{setup}}</h2><div class="mission-list" role="group" aria-label="{{setup}}">
+    <button id="mission-0" aria-pressed="true"><b>1 · {{mission0}}</b><span id="given-0">m</span></button>
+    <button id="mission-1" aria-pressed="false"><b>2 · {{mission1}}</b><span id="given-1">m</span></button>
+    <button id="mission-2" aria-pressed="false"><b>3 · {{mission2}}</b><span id="given-2">m</span></button>
+    <button id="mission-3" aria-pressed="false"><b>4 · {{mission3}}</b><span id="given-3">m</span></button>
+    <button id="mission-4" aria-pressed="false"><b>5 · {{mission4}}</b><span id="given-4">m</span></button>
+  </div><p class="hint">{{setupNote}}</p></section>
+  <section class="control-section"><h2 class="eyebrow">{{answerHeading}}</h2>
+    <p class="question" id="question">{{question0}}</p>
+    <p class="field-label"><label for="answer">{{answerLabel}}</label></p>
+    <div class="answer-row"><span class="symbol" id="answer-symbol">d =</span><input id="answer" type="number" inputmode="decimal" step="any" value=""><span class="unit" id="answer-unit">m</span></div>
+    <p class="hint">{{answerHint}}</p>
+  </section>
+  <section class="control-section"><h2 class="eyebrow">{{observe}}</h2><label class="check"><input id="show-vectors" type="checkbox" checked>{{vectors}}</label><label class="check"><input id="show-ruler" type="checkbox" checked>{{ruler}}</label><p class="hint">{{observeHint}}</p></section>
+</aside>
+<div class="workspace">
+  <section class="scene" aria-label="{{sceneTitle}}"><div class="scene-top"><div><h2 class="scene-title">{{sceneTitle}}</h2><p class="scene-subtitle" id="mission-label">{{mission0}}</p></div><span class="status" id="seesaw-status"><i class="status-dot" aria-hidden="true"></i><span id="seesaw-status-text">{{ready}}</span></span></div>
+    <div class="module-stage"><canvas id="seesaw-canvas" role="img" aria-label="{{canvasLabel}}">{{noScript}}</canvas></div>
+    <div class="legend"><span><i class="line-key orange"></i>{{weightLegend}}</span><span><i class="line-key blue"></i>{{forceLegend}}</span><span><i class="line-key gray"></i>{{supportLegend}}</span><span><i class="line-key mint"></i>{{torqueLegend}}</span></div>
+    <div class="module-equation"><span>{{equationTitle}}</span><output id="seesaw-equation">ΣM = 0</output></div>
+    <div class="transport"><button id="play" class="primary" disabled>{{play}}</button><button id="pause" disabled>{{pause}}</button><button id="step" disabled>{{step}}</button><button id="reset" class="reset">{{reset}}</button></div>
+  </section>
+  <section class="metrics" aria-label="{{observe}}">
+    <div class="metric scalar"><h3 class="metric-label">{{time}}</h3><p class="metric-value"><span id="time-value">0.00</span> <small>s</small></p><p class="metric-equation">t</p></div>
+    <div class="metric scalar"><h3 class="metric-label">{{angle}}</h3><p class="metric-value"><span id="angle-value">0.0</span> <small>°</small></p><p class="metric-equation">θ</p></div>
+    <div class="metric vector"><h3 class="metric-label">{{ccw}}</h3><p class="metric-value"><span id="ccw-value">—</span> <small>N·m</small></p><p class="metric-equation">Σ m·g·d</p></div>
+    <div class="metric vector"><h3 class="metric-label">{{cw}}</h3><p class="metric-value"><span id="cw-value">—</span> <small>N·m</small></p><p class="metric-equation">Σ m·g·d</p></div>
+    <div class="metric vector"><h3 class="metric-label">{{net}}</h3><p class="metric-value"><span id="net-value">—</span> <small>N·m</small></p><p class="metric-equation">ΣM</p></div>
+  </section>
+  <div class="insight" id="insight"><span class="insight-icon" aria-hidden="true">↗</span><div><strong id="lesson-title">{{predictTitle}}</strong><p id="lesson-copy">{{predictCopy}}</p></div></div>
+  <section class="challenge"><div class="mission-heading"><h2 class="challenge-title">{{missionTitle}}</h2><div class="score-card"><span>{{score}}</span><strong id="mission-score">—</strong></div></div><p class="mission-copy">{{missionCopy}}</p><div class="badges"><span id="right-badge">✓ {{rightBadge}}</span><span id="first-badge">① {{firstBadge}}</span></div></section>
+</div>
+</div>
+<article class="learning-content"><section><h2>{{guideTitle}}</h2><ol><li>{{instruction1}}</li><li>{{instruction2}}</li><li>{{instruction3}}</li><li>{{instruction4}}</li></ol></section><section><h2>{{conceptTitle}}</h2><p>{{conceptCopy}}</p><aside class="worked-example"><h3>{{exampleTitle}}</h3><p>{{exampleCopy}}</p></aside></section><section><h2>{{modelTitle}}</h2><p>{{modelCopy}}</p></section></article>
+<p class="language-note" id="language-note">{{languageNote}}</p>
+</main>
+__FOOTER__
+<p class="sr-only" id="announcement" role="status" aria-live="polite"></p>
+</div>
+<script id="seesaw-model">
+class SeesawModel {
+  // A rigid plank turns about a pivot. Each load presses down with its weight m·g at a signed distance x from the pivot
+  // (x > 0 to the right), the plank's own weight acts at its centre, and a lifting force F may push up. Torques about the
+  // pivot, counter-clockwise positive: τ = −m·g·x for a weight and +F·x for the lift. The pivot's friction holds the
+  // plank level while the net torque is at most 2% of the larger side's torque; otherwise the plank turns from rest with
+  // α = ΣM ÷ I, θ = ½·α·t², until its lower end touches the ground, found exactly.
+  static g = 9.8; // m/s²
+  static grip = .02; // pivot friction, as a share of the larger side's torque
+  static hold = 3; // s a balanced plank is watched
+  static height = .7; // m from the ground to the pivot (0.3 m for the wheelbarrow axle)
+  static maxTilt = 12*Math.PI/180;
+  static tolerance = .02;
+  static missions = [
+    {ask:'distance',loads:[{m:30,x:-2},{m:40,x:null}],plank:{m:0,from:-3,to:3}},
+    {ask:'mass',loads:[{m:50,x:-1.5},{m:null,x:2.5}],plank:{m:0,from:-3,to:3}},
+    {ask:'third',loads:[{m:20,x:-2},{m:25,x:-1},{m:null,x:1.8}],plank:{m:0,from:-3,to:3}},
+    {ask:'plank',loads:[{m:30,x:-2},{m:null,x:4}],plank:{m:10,from:-2,to:4}},
+    {ask:'force',loads:[{m:60,x:.5}],plank:{m:0,from:0,to:2.2},lift:2,barrow:true}
+  ];
+  static units = {distance:'m',mass:'kg',third:'kg',plank:'kg',force:'N'};
+  static limits = {distance:3,mass:500,third:500,plank:500,force:5000};
+  constructor(index = 0){this.setMission(index);}
+  setMission(index){this.index=index;this.config=SeesawModel.missions[index];this.answer=null;this.attempts=0;this.reset();}
+  reset(){this.t=0;this.status='watching';}
+  valid(value){return Number.isFinite(value)&&value>0&&value<=SeesawModel.limits[this.config.ask];}
+  setAnswer(value){if(value!==null&&!this.valid(value))return false;this.answer=value;this.reset();return true;}
+  ready(){return this.answer!==null;}
+  // The loads with the answer filled in: a distance for the unknown child, or the unknown mass.
+  loads(){return this.config.loads.map(l=>({m:l.m??this.answer??0,x:l.x??this.answer??0,unknown:l.m===null||l.x===null}));}
+  lift(){return this.config.ask==='force'?this.answer??0:0;}
+  plankCentre(){const p=this.config.plank;return (p.from+p.to)/2;}
+  // Every torque about the pivot, signed counter-clockwise positive.
+  parts(){
+    const g=SeesawModel.g,c=this.config,list=this.loads().map(l=>-l.m*g*l.x);
+    if(c.plank.m)list.push(-c.plank.m*g*this.plankCentre());
+    if(c.lift)list.push(this.lift()*c.lift);
+    return list;
+  }
+  ccw(){return this.parts().filter(v=>v>0).reduce((a,b)=>a+b,0);}
+  cw(){return -this.parts().filter(v=>v<0).reduce((a,b)=>a+b,0);}
+  net(){return this.ccw()-this.cw();}
+  inertia(){const p=this.config.plank,L=p.to-p.from,xc=this.plankCentre();return this.loads().reduce((s,l)=>s+l.m*l.x*l.x,0)+p.m*(L*L/12+xc*xc)+1;}
+  balanced(){return Math.abs(this.net())<=SeesawModel.grip*Math.max(this.ccw(),this.cw())+1e-9;}
+  // The tilt at which the lower end touches the ground: the left end goes down when the net torque is counter-clockwise.
+  stopAngle(){
+    const p=this.config.plank,h=this.config.barrow?.3:SeesawModel.height,arm=this.net()>0?-p.from:p.to;
+    return arm>h?Math.min(SeesawModel.maxTilt,Math.asin(h/arm)):SeesawModel.maxTilt;
+  }
+  alpha(){return this.balanced()?0:this.net()/this.inertia();}
+  duration(){return this.balanced()?SeesawModel.hold:Math.sqrt(2*this.stopAngle()/Math.abs(this.alpha()));}
+  clamp(t){return Math.min(Math.max(t,0),this.duration());}
+  angle(t){const u=this.clamp(t);return .5*this.alpha()*u*u;}
+  outcome(){if(this.balanced())return 'balanced';if(this.config.barrow)return this.net()>0?'up':'down';return this.net()>0?'left':'right';}
+  now(){return this.status==='done'?this.duration():this.t;}
+  advance(dt){
+    if(!Number.isFinite(dt)||dt<0)throw new Error('Invalid timestep');
+    if(this.status==='done'||!this.ready())return null;
+    // A run counts as an attempt as soon as it starts; touching the ground is found exactly.
+    if(this.t===0)this.attempts++;
+    const T=this.duration();
+    if(this.t+dt>=T*(1-1e-12)){this.t=T;this.status='done';return {t:T,done:true,outcome:this.outcome()};}
+    this.t+=dt;return null;
+  }
+  exact(){
+    const c=this.config,g=SeesawModel.g;
+    if(c.ask==='distance')return 30*2/40;
+    if(c.ask==='mass')return 50*1.5/2.5;
+    if(c.ask==='third')return (20*2+25*1)/1.8;
+    if(c.ask==='plank')return (30*2-c.plank.m*this.plankCentre())/4;
+    return 60*g*.5/c.lift;
+  }
+  unit(){return SeesawModel.units[this.config.ask];}
+  evaluate(){
+    if(!this.ready())return {ok:false,slip:null,first:false,exact:this.exact()};
+    const c=this.config,a=this.answer,e=this.exact(),g=SeesawModel.g,near=(p,q)=>Math.abs(p-q)<=SeesawModel.tolerance*Math.abs(q)+1e-9;
+    const ok=near(a,e);
+    let slip=null;
+    if(!ok){
+      if(c.ask==='distance'){if(near(a,40*2/30))slip='inverted';else if(near(a,2))slip='sameDistance';}
+      else if(c.ask==='mass'){if(near(a,50*2.5/1.5))slip='inverted';else if(near(a,50))slip='sameMass';}
+      else if(c.ask==='third'){if(near(a,45))slip='massesOnly';else if(near(a,40/1.8)||near(a,25/1.8))slip='missingChild';}
+      else if(c.ask==='plank'){if(near(a,15))slip='noPlank';else if(near(a,(60+c.plank.m*this.plankCentre())/4))slip='plankWrongSide';}
+      else{if(near(a,60*g))slip='fullWeight';else if(near(a,60*g*c.lift/.5))slip='invertedLever';else if(near(a,60*g/2))slip='halfWeight';}
+    }
+    return {ok,slip,first:ok&&this.attempts===1,exact:e};
+  }
+  score(){if(this.status!=='done')return 0;const e=this.evaluate();return (e.ok?100:0)+(e.first?50:0);}
+  snapshot(){return {index:this.index,answer:this.answer,attempts:this.attempts,t:this.t,status:this.status};}
+  restore(saved){
+    if(!Number.isInteger(saved?.index)||!SeesawModel.missions[saved.index])return false;
+    const probe=new SeesawModel(saved.index);
+    if(!probe.setAnswer(saved.answer??null)||!Number.isInteger(saved.attempts)||saved.attempts<0)return false;
+    if(!['watching','done'].includes(saved.status)||!Number.isFinite(saved.t)||saved.t<0||saved.t>probe.duration()*(1+1e-9))return false;
+    if(probe.answer===null&&(saved.t>0||saved.status==='done'))return false;
+    if((saved.status==='done'||saved.t>0)&&saved.attempts<1)return false;
+    this.setMission(saved.index);this.answer=probe.answer;this.attempts=saved.attempts;
+    this.status=saved.status;this.t=saved.status==='done'?this.duration():saved.t;return true;
+  }
+}
+globalThis.SeesawModel=SeesawModel;
+</script>
+<script id="seesaw-locale" type="application/json">__LOCALE__</script>
+<script id="seesaw-interface">
+(() => {
+  'use strict';
+  const $=id=>document.getElementById(id),locale=JSON.parse($('seesaw-locale').textContent);
+  const text=(key,values={})=>locale.strings[key].replace(/\{(\w+)\}/g,(_,name)=>values[name]??'{'+name+'}');
+  const number=(n,d=2)=>Math.abs(n)<.5*10**-d?(0).toLocaleString(locale.lang,{minimumFractionDigits:d,maximumFractionDigits:d}):n.toLocaleString(locale.lang,{minimumFractionDigits:d,maximumFractionDigits:d,useGrouping:false});
+  const plain=n=>n.toLocaleString(locale.lang,{maximumFractionDigits:2,useGrouping:false}).replace('-','−');
+  const model=new SeesawModel();
+  const canvas=$('seesaw-canvas'),ctx=canvas.getContext('2d');
+  const H=1/120,TAU=2*Math.PI,G=SeesawModel.g,transferKey='phisicos-seesaw-language-transfer';
+  let running=false,previous=null,accumulator=0,lastUpdate=0,width=800,height=410;
+  const say=message=>{$('announcement').textContent=message;};
+  try{const data=JSON.parse(sessionStorage.getItem(transferKey)||'null');sessionStorage.removeItem(transferKey);if(data)model.restore(data.state);}catch{$('language-note').hidden=true;}
+  const amount=v=>plain(Number(v.toPrecision(5)))+' '+model.unit();
+  const symbols={distance:'d =',mass:'m =',third:'m =',plank:'m =',force:'F ='};
+  const slipKey=name=>'slip'+name[0].toUpperCase()+name.slice(1);
+  function setRunning(value){
+    const done=model.status==='done',blocked=!model.ready();running=value&&!done&&!blocked;previous=null;accumulator=0;
+    $('play').disabled=running||done||blocked;$('pause').disabled=!running;$('step').disabled=running||done||blocked;
+    $('seesaw-status').classList.toggle('running',running);
+    $('seesaw-status-text').textContent=text(done?'done':running?'running':model.t?'paused':'ready');
+  }
+  // Givens use signed distances from the pivot: x < 0 is to the left.
+  function given(m){
+    const parts=m.loads.map(l=>(l.m===null?'m = ?':'m = '+plain(l.m)+' kg')+', '+(l.x===null?'x = ?':'x = '+plain(l.x)+' m'));
+    if(m.plank.m)parts.push('m_p = '+plain(m.plank.m)+' kg, x_p = '+plain((m.plank.from+m.plank.to)/2)+' m');
+    if(m.lift)parts.push('F: x = '+plain(m.lift)+' m');
+    return parts.join(' · ');
+  }
+  function sync(){
+    const c=model.config;
+    SeesawModel.missions.forEach((m,i)=>{$('mission-'+i).setAttribute('aria-pressed',String(i===model.index));$('given-'+i).textContent=given(m);});
+    $('question').textContent=text('question'+model.index);$('answer-symbol').textContent=symbols[c.ask];$('answer-unit').textContent=model.unit();
+    $('answer').value=model.answer===null?'':String(model.answer);$('mission-label').textContent=text('mission'+model.index);
+  }
+  // Torques show only once a run starts, because comparing them gives the answer away.
+  const started=()=>model.status==='done'||model.t>0;
+  function update(){
+    const ready=model.ready(),done=model.status==='done',t=ready?model.now():0,e=model.evaluate(),begun=started(),ccw=model.ccw(),cw=model.cw();
+    $('time-value').textContent=number(t);$('angle-value').textContent=number(model.angle(t)*180/Math.PI,1);
+    $('ccw-value').textContent=begun?number(ccw,1):'—';$('cw-value').textContent=begun?number(cw,1):'—';$('net-value').textContent=begun?number(ccw-cw,1):'—';
+    $('seesaw-equation').textContent=begun?'ΣM = '+number(ccw,1)+' − '+number(cw,1)+' = '+number(ccw-cw,1).replace('-','−')+' N·m':'ΣM = Σ m·g·d (↺) − Σ m·g·d (↻)';
+    let key,copy;
+    const values={ccw:number(ccw,1),cw:number(cw,1),net:number(Math.abs(ccw-cw),1)};
+    if(done){
+      const base=text(model.outcome()+'Copy',values);
+      if(e.ok){key='good';copy=base+' '+text('why'+model.index);}
+      else{key='miss';copy=base+' '+text('missCopy',{p:amount(model.answer)})+' '+(e.slip?text(slipKey(e.slip)):text('hint'+model.index));}
+    }
+    else if(!ready){key='predict';copy=text('predictCopy');}
+    else if(model.t>0){key='running';copy=text(model.balanced()?'levelCopy':'turningCopy',values);}
+    else{key='ready';copy=text('readyCopy');}
+    $('lesson-title').textContent=text(key+'Title',{t:number(t),p:ready?amount(model.answer):''});$('lesson-copy').textContent=copy;
+    $('insight').classList.toggle('warning',key==='miss');
+    $('mission-score').textContent=done?String(model.score()):'—';
+    $('right-badge').classList.toggle('earned',done&&e.ok);$('first-badge').classList.toggle('earned',done&&e.first);
+  }
+  function refresh(){setRunning(false);update();draw();}
+  function simulate(dt){
+    const result=model.advance(dt);
+    if(result?.done){setRunning(false);update();say(text('doneAnnouncement')+' '+$('lesson-title').textContent);return true;}
+    return false;
+  }
+  $('answer').addEventListener('input',event=>{const raw=String(event.target.value).trim(),value=raw===''?null:Number(raw);if(!model.setAnswer(value))model.setAnswer(null);refresh();});
+  $('play').addEventListener('click',()=>{setRunning(true);update();say(text('startedAnnouncement'));});
+  $('pause').addEventListener('click',()=>{setRunning(false);update();say(text('pausedAnnouncement'));});
+  $('step').addEventListener('click',()=>{for(let i=0;i<12;i++)if(simulate(H))break;setRunning(false);update();draw();});
+  $('reset').addEventListener('click',()=>{model.reset();refresh();say(text('resetAnnouncement'));});
+  SeesawModel.missions.forEach((_,i)=>$('mission-'+i).addEventListener('click',()=>{model.setMission(i);sync();refresh();say(text('missionAnnouncement',{name:text('mission'+i)}));}));
+  for(const id of ['show-vectors','show-ruler'])$(id).addEventListener('change',()=>{update();draw();});
+  function suspend(){if(running){setRunning(false);say(text('suspendedAnnouncement'));}update();draw();}
+  window.addEventListener('blur',suspend);document.addEventListener('visibilitychange',()=>{if(document.hidden)suspend();});
+  for(const link of document.querySelectorAll('.language-menu a'))link.addEventListener('click',()=>{setRunning(false);try{sessionStorage.setItem(transferKey,JSON.stringify({state:model.snapshot()}));}catch{}});
+  function resize(){const rect=canvas.getBoundingClientRect();if(rect.width<=0)return;width=rect.width;height=rect.height;const dpr=Math.min(window.devicePixelRatio||1,3);canvas.width=Math.round(width*dpr);canvas.height=Math.round(height*dpr);ctx.setTransform(dpr,0,0,dpr,0,0);draw();}
+  // One scale for both axes, fixed per mission; forces at 0.12 px per newton, up to 90 px.
+  const FS=.12,CAP=90;
+  function draw(){
+    if(!ctx)return;
+    const c=model.config,ready=model.ready(),done=model.status==='done',t=ready?model.now():0,begun=started(),th=model.angle(t),p=c.plank;
+    ctx.clearRect(0,0,width,height);
+    const label=(str,px,py,color='#b8ccdb',align='left',font=12)=>{ctx.fillStyle=color;ctx.textAlign=align;ctx.font=font+'px -apple-system,BlinkMacSystemFont,sans-serif';ctx.fillText(str,px,py);};
+    const line=(points,color,w=1,dash=[])=>{ctx.beginPath();ctx.strokeStyle=color;ctx.lineWidth=w;ctx.setLineDash(dash);points.forEach((q,i)=>i?ctx.lineTo(q.x,q.y):ctx.moveTo(q.x,q.y));ctx.stroke();ctx.setLineDash([]);};
+    const arrow=(from,dx,dy,color,w=2.5)=>{const len=Math.hypot(dx,dy);if(len<4)return;const ux=dx/len,uy=dy/len,to={x:from.x+dx,y:from.y+dy};line([from,to],color,w);line([{x:to.x-ux*9-uy*5,y:to.y-uy*9+ux*5},to,{x:to.x-ux*9+uy*5,y:to.y-uy*9-ux*5}],color,2);};
+    const fit=(str,px,py,color,size,room,align='left')=>{ctx.font=size+'px -apple-system,BlinkMacSystemFont,sans-serif';const w=ctx.measureText(str).width;label(str,px,py,color,align,w>room?Math.max(7,Math.floor(size*room/w)):size);};
+    const wide=width>=560,area=wide?width*.64:width,h=c.barrow?.3:SeesawModel.height;
+    fit(text('viewTitle'),16,20,'#d1e3ed',12,area-28);label(text('arrowScale'),16,height-8,'#9fb6c7','left',10);
+    const xmin=Math.min(p.from,-.6)-.4,xmax=p.to+.4,S=Math.min((area-40)/(xmax-xmin),(height-150)/1.6),groundY=height-58,pivot={x:16+(area-32-(xmax-xmin)*S)/2+(-xmin)*S,y:groundY-h*S};
+    // Points along the plank: distance x from the pivot and height y above the plank, turned by θ (counter-clockwise).
+    const P=(x,y=0)=>({x:pivot.x+(x*Math.cos(th)-y*Math.sin(th))*S,y:pivot.y-(x*Math.sin(th)+y*Math.cos(th))*S});
+    line([{x:0,y:groundY},{x:area,y:groundY}],'#5b7488',1.5);ctx.fillStyle='#173246';ctx.fillRect(0,groundY,area,height-groundY-18);
+    if(c.barrow){ctx.strokeStyle='#8aa3b5';ctx.lineWidth=3;ctx.beginPath();ctx.arc(pivot.x,pivot.y,h*S,0,TAU);ctx.stroke();}
+    else{ctx.fillStyle='#5b7488';ctx.beginPath();ctx.moveTo(pivot.x,pivot.y);ctx.lineTo(pivot.x-16,groundY);ctx.lineTo(pivot.x+16,groundY);ctx.fill();}
+    line([P(p.from),P(p.to)],'#c99a6e',7);
+    if($('show-ruler').checked){
+      for(let x=Math.ceil(p.from*2)/2;x<=p.to+1e-9;x+=.5){const a=P(x,-.06),b=P(x,-.14);line([a,b],'#9fb6c7',1);if(Math.abs(x-Math.round(x))<1e-9){}}
+    }
+    // Loads: children as circles sized by mass (or the wheelbarrow's load), the unknown one in orange once answered.
+    const loads=model.loads();
+    loads.forEach((l,i)=>{
+      const unknown=c.loads[i].m===null||c.loads[i].x===null;if(unknown&&!ready)return;
+      const r=Math.max(7,Math.min(16,Math.sqrt(l.m)*1.9)),q=P(l.x,r/S+.04);
+      if(c.barrow){ctx.fillStyle='#8aa3b5';const b=P(l.x,.18);ctx.save();ctx.translate(b.x,b.y);ctx.rotate(-th);ctx.fillRect(-20,-14,40,28);ctx.restore();}
+      else{ctx.fillStyle=unknown?'#efb958':'#efe6d0';ctx.beginPath();ctx.arc(q.x,q.y,r,0,TAU);ctx.fill();}
+      const tag=P(l.x,c.barrow?.5:2*r/S+.15);label(plain(Number(l.m.toPrecision(4)))+' kg',tag.x,tag.y,unknown?'#efb958':'#d1e3ed','center',10);
+      if($('show-vectors').checked)arrow(P(l.x),0,Math.min(l.m*G*FS,CAP),'#efb958');
+    });
+    if(p.m&&$('show-vectors').checked){const q=P(model.plankCentre());arrow(q,0,Math.min(p.m*G*FS,CAP),'#efb958',1.8);const above=P(model.plankCentre(),.14);label(text('plankLabel'),above.x,above.y,'#efb958','center',9);}
+    if(c.lift&&ready){const q=P(c.lift);line([P(c.lift-.2),P(c.lift)],'#d1e3ed',4);if($('show-vectors').checked)arrow(q,0,-Math.min(model.lift()*FS,CAP),'#77b9ff');label('F',q.x+8,q.y-20,'#77b9ff','left',11);}
+    if($('show-vectors').checked&&ready){const support=loads.reduce((s,l)=>s+l.m*G,0)+p.m*G-model.lift();arrow({x:pivot.x,y:groundY+2},0,-Math.min(Math.max(0,support)*FS*.5,CAP),'#8aa3b5',1.8);}
+    // Ruler labels go on top of the arrows, on the scene colour; the pivot is x = 0 and keeps its own label.
+    if($('show-ruler').checked)for(let x=Math.ceil(p.from);x<=p.to+1e-9;x++){if(!x)continue;const q=P(x,-.3),str=plain(x)+' m';ctx.font='9px -apple-system,BlinkMacSystemFont,sans-serif';const w=ctx.measureText(str).width;ctx.fillStyle=q.y-6>=groundY?'#173246':'#102637';ctx.fillRect(q.x-w/2-2,q.y-6,w+4,12);label(str,q.x,q.y+4,'#9fb6c7','center',9);}
+    label(text('pivotLabel'),pivot.x,groundY+16,'#9fb6c7','center',10);
+    if(done){const e=model.evaluate();fit((e.ok?text('rightBanner')+' · ':'')+text({balanced:'balancedBanner',left:'leftBanner',right:'rightSideBanner',up:'upBanner',down:'downBanner'}[model.outcome()]),16,44,e.ok?'#75efc7':'#efb958',width<430?12:14,area-28);}
+    if(!wide)return;
+    // Torque bars: counter-clockwise against clockwise, shown once a run starts.
+    const bx0=area+20,bx1=width-16,btop=70,bbot=groundY,bw=(bx1-bx0)/2-10;
+    fit(text('torqueTitle'),area+8,44,'#d1e3ed',10,width-area-16);
+    if(!begun){fit(text('torqueHint'),area+8,70,'#9fb6c7',10,width-area-16);return;}
+    const ccw=model.ccw(),cw=model.cw(),top=Math.max(ccw,cw)*1.15,BY=v=>bbot-v/top*(bbot-btop);
+    ctx.fillStyle='#75efc7';ctx.fillRect(bx0,BY(ccw),bw,bbot-BY(ccw));ctx.fillStyle='#77b9ff';ctx.fillRect(bx0+bw+20,BY(cw),bw,bbot-BY(cw));
+    fit('↺ '+number(ccw,0),bx0+bw/2,BY(ccw)-6,'#75efc7',10,bw+16,'center');fit('↻ '+number(cw,0),bx0+bw*1.5+20,BY(cw)-6,'#77b9ff',10,bw+16,'center');
+    fit(text('ccwShort'),bx0+bw/2,bbot+14,'#9fb6c7',9,bw+16,'center');fit(text('cwShort'),bx0+bw*1.5+20,bbot+14,'#9fb6c7',9,bw+16,'center');
+  }
+  function frame(now){if(previous===null)previous=now;const elapsed=Math.min(.1,(now-previous)/1000);previous=now;if(running){accumulator+=elapsed;while(accumulator>=H&&running){accumulator-=H;simulate(H);}draw();}if(now-lastUpdate>=80){update();lastUpdate=now;}requestAnimationFrame(frame);}
+  window.addEventListener('resize',resize);if(typeof ResizeObserver!=='undefined')new ResizeObserver(resize).observe(canvas);
+  sync();setRunning(false);update();resize();requestAnimationFrame(frame);
+})();
+</script>
+</body>
+</html>

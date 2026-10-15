@@ -1,0 +1,292 @@
+<!doctype html>
+<html lang="en">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Hydraulic Lift · Phisicos</title>
+<style>
+.hydraulic-page .answer-row .symbol{min-width:44px}.hydraulic-page .question{font-size:15px;font-weight:600;margin-top:4px}
+.hydraulic-page .line-key.white{background:#f2f8fc}.hydraulic-page .line-key.blue{background:#77b9ff}
+</style>
+</head>
+<body>
+<div class="shell module-page hydraulic-page">
+__HEADER__
+<main id="main-content">
+__BREADCRUMBS__
+
+<div class="masthead"><div><h1>{{title}}</h1><p class="intro">{{subtitle}}</p></div><div class="concept-tags"><span class="tag speed">{{tag1}}</span><span class="tag velocity">{{tag2}}</span></div></div>
+<noscript><p class="no-js">{{noScript}}</p></noscript>
+<div class="layout">
+<aside class="sidebar" aria-label="{{setup}}">
+  <section class="control-section"><h2 class="eyebrow">{{setup}}</h2><div class="mission-list" role="group" aria-label="{{setup}}">
+    <button id="mission-0" aria-pressed="true"><b>1 · {{mission0}}</b><span id="given-0">d</span></button>
+    <button id="mission-1" aria-pressed="false"><b>2 · {{mission1}}</b><span id="given-1">d</span></button>
+    <button id="mission-2" aria-pressed="false"><b>3 · {{mission2}}</b><span id="given-2">d</span></button>
+    <button id="mission-3" aria-pressed="false"><b>4 · {{mission3}}</b><span id="given-3">d</span></button>
+    <button id="mission-4" aria-pressed="false"><b>5 · {{mission4}}</b><span id="given-4">d</span></button>
+  </div><p class="hint">{{setupNote}}</p></section>
+  <section class="control-section"><h2 class="eyebrow">{{answerHeading}}</h2>
+    <p class="question" id="question">{{question0}}</p>
+    <p class="field-label"><label for="answer">{{answerLabel}}</label></p>
+    <div class="answer-row"><span class="symbol" id="answer-symbol">F₁ =</span><input id="answer" type="number" inputmode="decimal" step="any" value=""><span class="unit" id="answer-unit">N</span></div>
+    <p class="hint">{{answerHint}}</p>
+  </section>
+  <section class="control-section"><h2 class="eyebrow">{{observe}}</h2><label class="check"><input id="show-arrows" type="checkbox" checked>{{arrowsToggle}}</label><label class="check"><input id="show-guess" type="checkbox" checked>{{guessToggle}}</label><p class="hint">{{observeHint}}</p></section>
+</aside>
+<div class="workspace">
+  <section class="scene" aria-label="{{sceneTitle}}"><div class="scene-top"><div><h2 class="scene-title">{{sceneTitle}}</h2><p class="scene-subtitle" id="mission-label">{{mission0}}</p></div><span class="status" id="hydraulic-status"><i class="status-dot" aria-hidden="true"></i><span id="hydraulic-status-text">{{ready}}</span></span></div>
+    <div class="module-stage"><canvas id="hydraulic-canvas" role="img" aria-label="{{canvasLabel}}">{{noScript}}</canvas></div>
+    <div class="legend"><span><i class="line-key blue"></i>{{oilLegend}}</span><span><i class="line-key white"></i>{{pistonLegend}}</span><span><i class="line-key orange"></i>{{guessLegend}}</span><span><i class="line-key gray"></i>{{targetLegend}}</span></div>
+    <div class="module-equation"><span>{{equationTitle}}</span><output id="hydraulic-equation">F₁ ÷ A₁ = F₂ ÷ A₂</output></div>
+    <div class="transport"><button id="play" class="primary" disabled>{{play}}</button><button id="pause" disabled>{{pause}}</button><button id="step" disabled>{{step}}</button><button id="reset" class="reset">{{reset}}</button></div>
+  </section>
+  <section class="metrics" aria-label="{{observe}}">
+    <div class="metric scalar"><h3 class="metric-label">{{time}}</h3><p class="metric-value"><span id="time-value">0.00</span> <small>s</small></p><p class="metric-equation">t</p></div>
+    <div class="metric vector"><h3 class="metric-label">{{pushMetric}}</h3><p class="metric-value"><span id="push-value">—</span> <small>N</small></p><p class="metric-equation">F₁</p></div>
+    <div class="metric scalar"><h3 class="metric-label">{{pressureMetric}}</h3><p class="metric-value"><span id="pressure-value">—</span> <small>kPa</small></p><p class="metric-equation">p = F₁ ÷ A₁</p></div>
+    <div class="metric vector"><h3 class="metric-label">{{liftMetric}}</h3><p class="metric-value"><span id="lift-value">—</span> <small>kN</small></p><p class="metric-equation">F₂ = p·A₂</p></div>
+    <div class="metric vector"><h3 class="metric-label">{{riseMetric}}</h3><p class="metric-value"><span id="rise-value">—</span> <small>cm</small></p><p class="metric-equation">h₂</p></div>
+  </section>
+  <div class="insight" id="insight"><span class="insight-icon" aria-hidden="true">↗</span><div><strong id="lesson-title">{{predictTitle}}</strong><p id="lesson-copy">{{predictCopy}}</p></div></div>
+  <section class="challenge"><div class="mission-heading"><h2 class="challenge-title">{{missionTitle}}</h2><div class="score-card"><span>{{score}}</span><strong id="mission-score">—</strong></div></div><p class="mission-copy">{{missionCopy}}</p><div class="badges"><span id="right-badge">✓ {{rightBadge}}</span><span id="first-badge">① {{firstBadge}}</span></div></section>
+</div>
+</div>
+<article class="learning-content"><section><h2>{{guideTitle}}</h2><ol><li>{{instruction1}}</li><li>{{instruction2}}</li><li>{{instruction3}}</li><li>{{instruction4}}</li></ol></section><section><h2>{{conceptTitle}}</h2><p>{{conceptCopy}}</p><aside class="worked-example"><h3>{{exampleTitle}}</h3><p>{{exampleCopy}}</p></aside></section><section><h2>{{modelTitle}}</h2><p>{{modelCopy}}</p></section></article>
+<p class="language-note" id="language-note">{{languageNote}}</p>
+</main>
+__FOOTER__
+<p class="sr-only" id="announcement" role="status" aria-live="polite"></p>
+</div>
+<script id="hydraulic-model">
+class HydraulicModel {
+  // Oil passes pressure on undiminished (Pascal's principle): a push F₁ on a small piston of area A₁ makes p = F₁ ÷ A₁ in all
+  // the oil, and the large piston feels F₂ = p·A₂. The oil doesn't compress, so the volume pushed in equals the volume under
+  // the large piston: A₁·d₁ = A₂·d₂. A push that grows steadily for 2 s lifts the load the moment p·A₂ reaches its weight;
+  // the small piston then travels 30 cm in 1 s. A stroke, or a number of jack pumps, is carried out steadily over 2 s.
+  static ramp = 2; // s for the push to grow, or for the strokes to be made
+  static lift = 1; // s the lifted load is drawn rising
+  static stroke = 30; // cm the small piston travels once the load lifts
+  static g = 9.8;
+  static tolerance = .02;
+  static grace = 5e-4; // within 0.05% still lifts, so a rounded answer works
+  static missions = [
+    {key:'car',ask:'force',m:1200,A1:10,A2:1000,d1:null,d2:null,push:null},
+    {key:'area',ask:'area',m:500,A1:5,A2:null,d1:null,d2:null,push:50},
+    {key:'diameters',ask:'force',m:1500,A1:null,A2:null,d1:2,d2:20,push:null},
+    {key:'stroke',ask:'stroke',m:800,A1:5,A2:200,d1:null,d2:null,push:null,rise:2},
+    {key:'jack',ask:'pumps',m:1000,A1:2,A2:50,d1:null,d2:null,push:null,rise:3,pump:10}
+  ];
+  static units = {force:'N',area:'cm²',stroke:'cm',pumps:''};
+  static limits = {force:1e7,area:1e6,stroke:1e5,pumps:100};
+  static views = [30,30,30,100,10]; // cm of small-piston travel the drawing makes room for
+  constructor(index = 0){this.setMission(index);}
+  setMission(index){this.index=index;this.config=HydraulicModel.missions[index];this.answer=null;this.attempts=0;this.reset();}
+  reset(){this.t=0;this.status='moving';}
+  valid(value){const c=this.config;return Number.isFinite(value)&&value>0&&value<=HydraulicModel.limits[c.ask]&&(c.ask!=='pumps'||Number.isInteger(value));}
+  setAnswer(value){if(value!==null&&!this.valid(value))return false;this.answer=value;this.reset();return true;}
+  ready(){return this.answer!==null;}
+  clamp(t){return Math.min(Math.max(t,0),HydraulicModel.ramp);}
+  pushed(){return ['force','area'].includes(this.config.ask);}
+  // Areas in cm²: given, from a diameter, or (for the area mission) your answer.
+  a1(){const c=this.config;return c.A1??Math.PI*(c.d1/2)**2;}
+  a2(){const c=this.config;return c.A2??(c.d2?Math.PI*(c.d2/2)**2:(this.answer??Infinity));}
+  weight(){return this.config.m*HydraulicModel.g;}
+  // The push that just balances the load: F₁ = m·g·A₁ ÷ A₂.
+  need(){return this.weight()*this.a1()/this.a2();}
+  target(){const c=this.config;return c.ask==='force'?(this.answer??0):c.ask==='area'?c.push:this.need();}
+  lifts(){return this.pushed()?this.target()>=this.need()*(1-HydraulicModel.grace):true;}
+  liftTime(){return this.pushed()&&this.lifts()?HydraulicModel.ramp*Math.min(1,this.need()/this.target()):null;}
+  applied(t){
+    if(!this.pushed())return t>0?this.need():0;
+    const l=this.liftTime(),s=l===null?this.clamp(t):Math.min(this.clamp(t),l);return this.target()*s/HydraulicModel.ramp;
+  }
+  pressure(t){return this.applied(t)/(this.a1()*1e-4);} // Pa
+  liftForce(t){return this.pressure(t)*this.a2()*1e-4;} // N
+  strokes(t){return (this.answer??0)*this.clamp(t)/HydraulicModel.ramp;}
+  // How far the small piston has gone down in all, and how far the load has risen, in cm.
+  travel(t){
+    const c=this.config;
+    if(this.pushed()){const l=this.liftTime();return l===null?0:HydraulicModel.stroke*Math.min(Math.max((t-l)/HydraulicModel.lift,0),1);}
+    if(c.ask==='stroke')return (this.answer??0)*this.clamp(t)/HydraulicModel.ramp;
+    return c.pump*this.strokes(t);
+  }
+  rise(t){return this.travel(t)*this.a1()/this.a2();}
+  // The small piston's position: a jack's piston goes down and comes back up on every stroke.
+  drop(t){const c=this.config;if(c.ask!=='pumps')return this.travel(t);const s=this.strokes(t);return c.pump*(s-Math.floor(s));}
+  duration(){const l=this.liftTime();return l===null?HydraulicModel.ramp:l+HydraulicModel.lift;}
+  now(){return this.status==='done'?this.duration():this.t;}
+  advance(dt){
+    if(!Number.isFinite(dt)||dt<0)throw new Error('Invalid timestep');
+    if(this.status==='done'||!this.ready())return null;
+    // A run counts as an attempt as soon as it starts; it ends exactly at full push, or once the lift is drawn.
+    if(this.t===0)this.attempts++;
+    const T=this.duration();
+    if(this.t+dt>=T*(1-1e-12)){this.t=T;this.status='done';return {t:T,done:true};}
+    this.t+=dt;return null;
+  }
+  exact(){
+    const c=this.config;
+    if(c.ask==='force')return this.need();
+    if(c.ask==='area')return this.weight()*this.a1()/c.push;
+    if(c.ask==='stroke')return c.rise*c.A2/c.A1;
+    return Math.ceil(c.rise/(c.pump*c.A1/c.A2)-1e-9);
+  }
+  unit(){return HydraulicModel.units[this.config.ask];}
+  evaluate(){
+    if(!this.ready())return {ok:false,slip:null,first:false,exact:this.exact()};
+    const c=this.config,a=this.answer,e=this.exact(),tol=HydraulicModel.tolerance,near=(p,q)=>Math.abs(p-q)<=tol*Math.abs(q)+1e-12,W=this.weight(),r1=this.a1();
+    let ok,slip=null;
+    // A push (or a large piston) is right when it lifts the load with at most 2% to spare; a stroke within 2%; a number of
+    // pumps when it is the fewest that raise the car far enough.
+    if(c.ask==='force'){
+      ok=this.lifts()&&a<=e*(1+tol);
+      if(!ok){
+        const ratio=c.key==='car'?c.A2/c.A1:(c.d2/c.d1)**2;
+        if(near(a,W*ratio))slip='inverted';else if(near(a,W))slip='weight';else if(near(a,c.m/ratio))slip='noG';else if(c.d1&&near(a,W*c.d1/c.d2))slip='notSquared';else if(this.lifts())slip='spare';
+      }
+    }
+    else if(c.ask==='area'){
+      ok=this.lifts()&&a<=e*(1+tol);
+      if(!ok){if(near(a,c.push*r1/W))slip='inverted';else if(near(a,c.m*r1/c.push))slip='noG';else if(near(a,W/c.push))slip='ratioOnly';else if(this.lifts())slip='spare';}
+    }
+    else if(c.ask==='stroke'){ok=near(a,e);if(!ok){if(near(a,c.rise))slip='same';else if(near(a,c.rise*c.A1/c.A2))slip='inverted';else if(near(a,c.A2/c.A1))slip='ratioStroke';}}
+    else{ok=a===e;if(!ok){if(a===Math.floor(c.rise/(c.pump*c.A1/c.A2)))slip='roundDown';else if(a===Math.ceil(c.rise/c.pump))slip='samePump';else if(a>e)slip='morePumps';}}
+    return {ok,slip,first:ok&&this.attempts===1,exact:e};
+  }
+  score(){if(this.status!=='done')return 0;const e=this.evaluate();return (e.ok?100:0)+(e.first?50:0);}
+  snapshot(){return {index:this.index,answer:this.answer,attempts:this.attempts,t:this.t,status:this.status};}
+  restore(saved){
+    if(!Number.isInteger(saved?.index)||!HydraulicModel.missions[saved.index])return false;
+    const probe=new HydraulicModel(saved.index);
+    if(!probe.setAnswer(saved.answer??null)||!Number.isInteger(saved.attempts)||saved.attempts<0)return false;
+    if(!['moving','done'].includes(saved.status)||!Number.isFinite(saved.t)||saved.t<0||saved.t>probe.duration()*(1+1e-9))return false;
+    if(probe.answer===null&&(saved.t>0||saved.status==='done'))return false;
+    if((saved.status==='done'||saved.t>0)&&saved.attempts<1)return false;
+    this.setMission(saved.index);this.answer=probe.answer;this.attempts=saved.attempts;
+    this.status=saved.status;this.t=saved.status==='done'?this.duration():saved.t;return true;
+  }
+}
+globalThis.HydraulicModel=HydraulicModel;
+</script>
+<script id="hydraulic-locale" type="application/json">__LOCALE__</script>
+<script id="hydraulic-interface">
+(() => {
+  'use strict';
+  const $=id=>document.getElementById(id),locale=JSON.parse($('hydraulic-locale').textContent);
+  const text=(key,values={})=>locale.strings[key].replace(/\{(\w+)\}/g,(_,name)=>values[name]??'{'+name+'}');
+  const number=(n,d=2)=>Math.abs(n)<.5*10**-d?(0).toLocaleString(locale.lang,{minimumFractionDigits:d,maximumFractionDigits:d}):n.toLocaleString(locale.lang,{minimumFractionDigits:d,maximumFractionDigits:d,useGrouping:false});
+  const plain=n=>n.toLocaleString(locale.lang,{maximumFractionDigits:3,useGrouping:false}).replace('-','−');
+  const model=new HydraulicModel();
+  const canvas=$('hydraulic-canvas'),ctx=canvas.getContext('2d');
+  const H=1/120,T=HydraulicModel.ramp,transferKey='phisicos-hydraulic-language-transfer';
+  let running=false,previous=null,accumulator=0,lastUpdate=0,width=800,height=410;
+  const say=message=>{$('announcement').textContent=message;};
+  try{const data=JSON.parse(sessionStorage.getItem(transferKey)||'null');sessionStorage.removeItem(transferKey);if(data)model.restore(data.state);}catch{$('language-note').hidden=true;}
+  const unit=()=>model.unit()||text('pumpsUnit');
+  const amount=v=>plain(Number(v.toPrecision(5)))+' '+unit();
+  const symbols={force:'F₁ =',area:'A₂ =',stroke:'d₁ =',pumps:'n ='};
+  const slipKey=name=>'slip'+name[0].toUpperCase()+name.slice(1);
+  function setRunning(value){
+    const done=model.status==='done',blocked=!model.ready();running=value&&!done&&!blocked;previous=null;accumulator=0;
+    $('play').disabled=running||done||blocked;$('pause').disabled=!running;$('step').disabled=running||done||blocked;
+    $('hydraulic-status').classList.toggle('running',running);
+    $('hydraulic-status-text').textContent=text(done?'done':running?'running':model.t?'paused':'ready');
+  }
+  // Givens: the load, the two pistons, and the push or the rise; the unknown is left out.
+  function given(m){
+    const parts=['m = '+plain(m.m)+' kg'];
+    if(m.d1)parts.push('d₁ = '+plain(m.d1)+' cm','d₂ = '+plain(m.d2)+' cm');else{parts.push('A₁ = '+plain(m.A1)+' cm²');if(m.A2)parts.push('A₂ = '+plain(m.A2)+' cm²');}
+    if(m.push)parts.push('F₁ = '+plain(m.push)+' N');if(m.rise)parts.push('h₂ = '+plain(m.rise)+' cm');if(m.pump)parts.push('1 × '+plain(m.pump)+' cm');
+    return parts.join(' · ');
+  }
+  function sync(){
+    const c=model.config;
+    HydraulicModel.missions.forEach((m,i)=>{$('mission-'+i).setAttribute('aria-pressed',String(i===model.index));$('given-'+i).textContent=given(m);});
+    $('question').textContent=text('question'+model.index);$('answer-symbol').textContent=symbols[c.ask];$('answer-unit').textContent=unit();
+    $('answer').value=model.answer===null?'':String(model.answer);$('mission-label').textContent=text('mission'+model.index);
+  }
+  // The push, the pressure, the lift, and the rise show only once a run starts, because they give the answer away.
+  const started=()=>model.status==='done'||model.t>0;
+  function update(){
+    const c=model.config,ready=model.ready(),done=model.status==='done',t=ready?model.now():0,e=model.evaluate(),begun=started(),D=model.duration();
+    $('time-value').textContent=number(t);$('push-value').textContent=begun?number(model.applied(t),1):'—';$('pressure-value').textContent=begun?number(model.pressure(t)/1000,1):'—';
+    $('lift-value').textContent=begun?number(model.liftForce(t)/1000,2):'—';$('rise-value').textContent=begun?number(model.rise(t),2):'—';
+    $('hydraulic-equation').textContent=begun?'F₁ ÷ A₁ = '+number(model.applied(t),1)+' N ÷ '+number(model.a1(),2)+' cm² = '+number(model.pressure(t)/1000,1)+' kPa':'F₁ ÷ A₁ = F₂ ÷ A₂';
+    let key,copy;
+    const values={need:number(model.need(),1),p:number(model.pressure(D)/1000,1),w:number(model.weight()/1000,2),rise:number(model.rise(D),2),travel:number(model.travel(D),1),
+      f:number(model.target(),1),n:ready?plain(model.answer):'',a2:number(model.a2(),1)};
+    if(done){
+      const base=text(model.pushed()&&!model.lifts()?'stuckCopy':'result'+model.index,values);
+      if(e.ok){key='good';copy=base+' '+text('why'+model.index);}
+      else{key='miss';copy=base+' '+text('missCopy',{p:amount(model.answer)})+' '+(e.slip?text(slipKey(e.slip)):text('hint'+model.index));}
+    }
+    else if(!ready){key='predict';copy=text('predictCopy');}
+    else if(model.t>0){key='running';copy=text('movingCopy',{f:number(model.applied(t),1),p:number(model.pressure(t)/1000,1),rise:number(model.rise(t),2)});}
+    else{key='ready';copy=text('readyCopy');}
+    $('lesson-title').textContent=text(key+'Title',{t:number(t),p:ready?amount(model.answer):''});$('lesson-copy').textContent=copy;
+    $('insight').classList.toggle('warning',key==='miss');
+    $('mission-score').textContent=done?String(model.score()):'—';
+    $('right-badge').classList.toggle('earned',done&&e.ok);$('first-badge').classList.toggle('earned',done&&e.first);
+  }
+  function refresh(){setRunning(false);update();draw();}
+  function simulate(dt){
+    const result=model.advance(dt);
+    if(result?.done){setRunning(false);update();say(text('doneAnnouncement')+' '+$('lesson-title').textContent);return true;}
+    return false;
+  }
+  $('answer').addEventListener('input',event=>{const raw=String(event.target.value).trim(),value=raw===''?null:Number(raw);if(!model.setAnswer(value))model.setAnswer(null);refresh();});
+  $('play').addEventListener('click',()=>{setRunning(true);update();say(text('startedAnnouncement'));});
+  $('pause').addEventListener('click',()=>{setRunning(false);update();say(text('pausedAnnouncement'));});
+  $('step').addEventListener('click',()=>{for(let i=0;i<12;i++)if(simulate(H))break;setRunning(false);update();draw();});
+  $('reset').addEventListener('click',()=>{model.reset();refresh();say(text('resetAnnouncement'));});
+  HydraulicModel.missions.forEach((_,i)=>$('mission-'+i).addEventListener('click',()=>{model.setMission(i);sync();refresh();say(text('missionAnnouncement',{name:text('mission'+i)}));}));
+  for(const id of ['show-arrows','show-guess'])$(id).addEventListener('change',()=>{update();draw();});
+  function suspend(){if(running){setRunning(false);say(text('suspendedAnnouncement'));}update();draw();}
+  window.addEventListener('blur',suspend);document.addEventListener('visibilitychange',()=>{if(document.hidden)suspend();});
+  for(const link of document.querySelectorAll('.language-menu a'))link.addEventListener('click',()=>{setRunning(false);try{sessionStorage.setItem(transferKey,JSON.stringify({state:model.snapshot()}));}catch{}});
+  function resize(){const rect=canvas.getBoundingClientRect();if(rect.width<=0)return;width=rect.width;height=rect.height;const dpr=Math.min(window.devicePixelRatio||1,3);canvas.width=Math.round(width*dpr);canvas.height=Math.round(height*dpr);ctx.setTransform(dpr,0,0,dpr,0,0);draw();}
+  function draw(){
+    if(!ctx)return;
+    const c=model.config,ready=model.ready(),done=model.status==='done',t=ready?model.now():0,begun=started(),arrows=$('show-arrows').checked,guess=$('show-guess').checked&&ready;
+    ctx.clearRect(0,0,width,height);
+    const label=(str,px,py,color='#b8ccdb',align='left',font=12)=>{ctx.fillStyle=color;ctx.textAlign=align;ctx.font=font+'px -apple-system,BlinkMacSystemFont,sans-serif';ctx.fillText(str,px,py);};
+    const line=(points,color,w=1,dash=[])=>{ctx.beginPath();ctx.strokeStyle=color;ctx.lineWidth=w;ctx.setLineDash(dash);points.forEach((q,i)=>i?ctx.lineTo(q.x,q.y):ctx.moveTo(q.x,q.y));ctx.stroke();ctx.setLineDash([]);};
+    const fit=(str,px,py,color,size,room,align='left')=>{ctx.font=size+'px -apple-system,BlinkMacSystemFont,sans-serif';const w=ctx.measureText(str).width;label(str,px,py,color,align,w>room?Math.max(7,Math.floor(size*room/w)):size);};
+    const arrow=(x,y0,y1,color)=>{line([{x,y:y0},{x,y:y1}],color,2.5);const s=y1>y0?1:-1;line([{x:x-5,y:y1-6*s},{x,y:y1},{x:x+5,y:y1-6*s}],color,2.5);};
+    const wide=width>=560,area=wide?width*.64:width;
+    fit(text('viewTitle'),16,20,'#d1e3ed',12,area-28);
+    if(done){const ev=model.evaluate();fit(text(ev.ok?'rightBanner':'offBanner')+(model.pushed()?' · '+text(model.lifts()?'liftedBanner':'stuckBanner'):''),16,40,ev.ok?'#75efc7':'#efb958',width<430?12:14,area-28);}
+    // Two cylinders joined at the bottom. Widths grow with the square root of the area (not to scale); the pistons' moves
+    // are to scale, with a fixed view per mission so the drawing never hints at the answer.
+    const k=110/HydraulicModel.views[model.index],base=height-46,top=Math.max(height*.43,168),x1=area*.24,x2=area*.62;
+    const w1=Math.min(40,8*Math.sqrt(model.a1())),a2=Number.isFinite(model.a2())?model.a2():400,w2=Math.min(area*.32,Math.max(w1+12,8*Math.sqrt(a2)));
+    const y1=top+model.drop(t)*k,y2=top-model.rise(t)*k;
+    ctx.fillStyle='rgba(119,185,255,.45)';ctx.fillRect(x1-w1/2,y1,w1,base-y1);ctx.fillRect(x2-w2/2,y2,w2,base-y2);ctx.fillRect(x1,base-22,x2-x1,22);
+    for(const [x,w] of [[x1,w1],[x2,w2]])line([{x:x-w/2-2,y:top-96},{x:x-w/2-2,y:base+2},{x:x+w/2+2,y:base+2},{x:x+w/2+2,y:top-96}],'#8aa3b5',2);
+    ctx.fillStyle='#c3cfd9';ctx.fillRect(x1-w1/2,y1-8,w1,8);ctx.fillRect(x2-w2/2,y2-8,w2,8);
+    // The load on the large piston, and the push on the small one.
+    ctx.fillStyle='#7c8b99';ctx.fillRect(x2-w2*.4,y2-50,w2*.8,42);fit('m = '+plain(c.m)+' kg',x2,y2-24,'#f2f8fc',11,w2*.8-6,'center');
+    if(arrows&&begun){const len=Math.min(70,14+56*model.applied(t)/Math.max(model.need(),1e-9)*.8);arrow(x1,y1-14-len,y1-12,'#efe6d0');}
+    fit('F₁ = '+(begun?number(model.applied(t),1):'?')+' N',x1,top-104,'#d1e3ed',11,area*.4,'center');
+    if(begun)fit('p = '+number(model.pressure(t)/1000,1)+' kPa',(x1+x2)/2,base-6,'#0f2233',11,x2-x1-20,'center');
+    // The target rise (for strokes and pumps) and how far each piston has moved.
+    if(!model.pushed()){const yy=top-c.rise*k;line([{x:x2-w2/2-14,y:yy},{x:x2+w2/2+14,y:yy}],'#9fb6c7',1.5,[6,4]);fit(text('targetTag')+' · '+plain(c.rise)+' cm',x2+w2/2+18,yy+4,'#9fb6c7',10,area-x2-w2/2-22);}
+    if(begun){fit('d₁ = '+number(model.travel(t),1)+' cm',x1+w1/2+10,top+20,'#c3cfd9',10,x2-w2/2-x1-w1/2-16);fit('h₂ = '+number(model.rise(t),2)+' cm',x2+w2/2+10,y2+16,'#c3cfd9',10,area-x2-w2/2-14);}
+    label(text('scaleNote'),16,height-8,'#9fb6c7','left',10);
+    if(!wide)return;
+    // Right panel: the lift against the load's weight, or the oil pushed in against the oil under the load.
+    const pushed=model.pushed(),D=model.duration();
+    fit(text(pushed?'forceTitle':'volumeTitle'),area+8,44,'#d1e3ed',10,width-area-16);
+    if(!begun){fit(text('panelHint'),area+8,70,'#9fb6c7',10,width-area-16);return;}
+    const left=pushed?model.liftForce(t)/1000:model.a1()*model.travel(t),right=pushed?model.weight()/1000:model.a2()*model.rise(t),gv=guess&&c.ask==='force'?model.answer*model.a2()/model.a1()/1000:null;
+    const top2=Math.max(left,right,Math.min(gv??0,right*2.5),pushed?0:model.a1()*model.travel(D))*1.15||1,bx0=area+20,bx1=width-16,btop=72,bbot=height-58,bw=(bx1-bx0)/2-10,BY=v=>bbot-v/top2*(bbot-btop),d=pushed?2:1;
+    ctx.fillStyle='#77b9ff';ctx.fillRect(bx0,BY(left),bw,bbot-BY(left));ctx.fillStyle='#c3cfd9';ctx.fillRect(bx0+bw+20,BY(right),bw,bbot-BY(right));
+    fit(number(left,d),bx0+bw/2,BY(left)-6,'#77b9ff',10,bw+16,'center');fit(number(right,d),bx0+bw*1.5+20,BY(right)-6,'#c3cfd9',10,bw+16,'center');
+    fit(text(pushed?'liftShort':'inShort'),bx0+bw/2,bbot+14,'#9fb6c7',9,bw+16,'center');fit(text(pushed?'weightShort':'outShort'),bx0+bw*1.5+20,bbot+14,'#9fb6c7',9,bw+16,'center');
+    if(gv!==null){const shown=Math.min(gv,right*2.5),yy=BY(shown);line([{x:bx0-6,y:yy},{x:bx0+bw+6,y:yy}],'#efb958',2,[5,3]);fit(text('guessTag')+(shown<gv?' ↑':''),bx0+bw/2,yy+14,'#efb958',9,bw+16,'center');}
+  }
+  function frame(now){if(previous===null)previous=now;const elapsed=Math.min(.1,(now-previous)/1000);previous=now;if(running){accumulator+=elapsed;while(accumulator>=H&&running){accumulator-=H;simulate(H);}draw();}if(now-lastUpdate>=80){update();lastUpdate=now;}requestAnimationFrame(frame);}
+  window.addEventListener('resize',resize);if(typeof ResizeObserver!=='undefined')new ResizeObserver(resize).observe(canvas);
+  sync();setRunning(false);update();resize();requestAnimationFrame(frame);
+})();
+</script>
+</body>
+</html>

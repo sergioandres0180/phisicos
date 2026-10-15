@@ -1,0 +1,303 @@
+<!doctype html>
+<html lang="en">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Curve Ahead · Phisicos</title>
+<style>
+.curve-page .answer-row .symbol{min-width:44px}.curve-page .question{font-size:15px;font-weight:600;margin-top:4px}
+.curve-page .line-key.white{background:#f2f8fc}.curve-page .line-key.blue{background:#77b9ff}
+</style>
+</head>
+<body>
+<div class="shell module-page curve-page">
+__HEADER__
+<main id="main-content">
+__BREADCRUMBS__
+
+<div class="masthead"><div><h1>{{title}}</h1><p class="intro">{{subtitle}}</p></div><div class="concept-tags"><span class="tag speed">{{tag1}}</span><span class="tag velocity">{{tag2}}</span></div></div>
+<noscript><p class="no-js">{{noScript}}</p></noscript>
+<div class="layout">
+<aside class="sidebar" aria-label="{{setup}}">
+  <section class="control-section"><h2 class="eyebrow">{{setup}}</h2><div class="mission-list" role="group" aria-label="{{setup}}">
+    <button id="mission-0" aria-pressed="true"><b>1 · {{mission0}}</b><span id="given-0">m</span></button>
+    <button id="mission-1" aria-pressed="false"><b>2 · {{mission1}}</b><span id="given-1">μ</span></button>
+    <button id="mission-2" aria-pressed="false"><b>3 · {{mission2}}</b><span id="given-2">μ</span></button>
+    <button id="mission-3" aria-pressed="false"><b>4 · {{mission3}}</b><span id="given-3">μ</span></button>
+    <button id="mission-4" aria-pressed="false"><b>5 · {{mission4}}</b><span id="given-4">m</span></button>
+  </div><p class="hint">{{setupNote}}</p></section>
+  <section class="control-section"><h2 class="eyebrow">{{answerHeading}}</h2>
+    <p class="question" id="question">{{question0}}</p>
+    <p class="field-label"><label for="answer">{{answerLabel}}</label></p>
+    <div class="answer-row"><span class="symbol" id="answer-symbol">F =</span><input id="answer" type="number" inputmode="decimal" step="any" value=""><span class="unit" id="answer-unit">N</span></div>
+    <p class="hint">{{answerHint}}</p>
+  </section>
+  <section class="control-section"><h2 class="eyebrow">{{observe}}</h2><label class="check"><input id="show-vectors" type="checkbox" checked>{{vectors}}</label><label class="check"><input id="show-centre" type="checkbox" checked>{{centreToggle}}</label><p class="hint">{{observeHint}}</p></section>
+</aside>
+<div class="workspace">
+  <section class="scene" aria-label="{{sceneTitle}}"><div class="scene-top"><div><h2 class="scene-title">{{sceneTitle}}</h2><p class="scene-subtitle" id="mission-label">{{mission0}}</p></div><span class="status" id="curve-status"><i class="status-dot" aria-hidden="true"></i><span id="curve-status-text">{{ready}}</span></span></div>
+    <div class="module-stage"><canvas id="curve-canvas" role="img" aria-label="{{canvasLabel}}">{{noScript}}</canvas></div>
+    <div class="legend"><span><i class="line-key white"></i>{{velocityLegend}}</span><span><i class="line-key blue"></i>{{accelerationLegend}}</span><span><i class="line-key orange"></i>{{neededLegend}}</span><span><i class="line-key mint"></i>{{traceLegend}}</span><span><i class="line-key gray"></i>{{centreLegend}}</span></div>
+    <div class="module-equation"><span>{{equationTitle}}</span><output id="curve-equation">F = m·v² ÷ r</output></div>
+    <div class="transport"><button id="play" class="primary" disabled>{{play}}</button><button id="pause" disabled>{{pause}}</button><button id="step" disabled>{{step}}</button><button id="reset" class="reset">{{reset}}</button></div>
+  </section>
+  <section class="metrics" aria-label="{{observe}}">
+    <div class="metric scalar"><h3 class="metric-label">{{time}}</h3><p class="metric-value"><span id="time-value">0.00</span> <small>s</small></p><p class="metric-equation">t</p></div>
+    <div class="metric vector"><h3 class="metric-label">{{speed}}</h3><p class="metric-value"><span id="speed-value">—</span> <small>m/s</small></p><p class="metric-equation">|v|</p></div>
+    <div class="metric scalar"><h3 class="metric-label">{{pathRadius}}</h3><p class="metric-value"><span id="radius-value">—</span> <small>m</small></p><p class="metric-equation">R</p></div>
+    <div class="metric vector"><h3 class="metric-label">{{acceleration}}</h3><p class="metric-value"><span id="accel-value">0.00</span> <small>m/s²</small></p><p class="metric-equation">a = v² ÷ R</p></div>
+    <div class="metric vector"><h3 class="metric-label">{{friction}}</h3><p class="metric-value"><span id="force-value">0</span> <small>N</small></p><p class="metric-equation">F = m·a ≤ μ·m·g</p></div>
+  </section>
+  <div class="insight" id="insight"><span class="insight-icon" aria-hidden="true">↗</span><div><strong id="lesson-title">{{predictTitle}}</strong><p id="lesson-copy">{{predictCopy}}</p></div></div>
+  <section class="challenge"><div class="mission-heading"><h2 class="challenge-title">{{missionTitle}}</h2><div class="score-card"><span>{{score}}</span><strong id="mission-score">—</strong></div></div><p class="mission-copy">{{missionCopy}}</p><div class="badges"><span id="right-badge">✓ {{rightBadge}}</span><span id="first-badge">① {{firstBadge}}</span></div></section>
+</div>
+</div>
+<article class="learning-content"><section><h2>{{guideTitle}}</h2><ol><li>{{instruction1}}</li><li>{{instruction2}}</li><li>{{instruction3}}</li><li>{{instruction4}}</li></ol></section><section><h2>{{conceptTitle}}</h2><p>{{conceptCopy}}</p><aside class="worked-example"><h3>{{exampleTitle}}</h3><p>{{exampleCopy}}</p></aside></section><section><h2>{{modelTitle}}</h2><p>{{modelCopy}}</p></section></article>
+<p class="language-note" id="language-note">{{languageNote}}</p>
+</main>
+__FOOTER__
+<p class="sr-only" id="announcement" role="status" aria-live="polite"></p>
+</div>
+<script id="curve-model">
+class CurveModel {
+  // Top view of a flat road: a 20 m straight heading +y, then a 90° left-hand curve whose lane centre has radius r about
+  // O = (−r, 0). The car keeps a constant speed v. In the curve it needs the centripetal force m·v² ÷ r, which only
+  // sideways tyre friction can supply, up to μ·m·g. With enough grip it follows the lane (uniform circular motion).
+  // Without it, friction stays at its limit and the car follows a wider circle, R = m·v² ÷ grip, tangent to the lane
+  // where the curve starts. It leaves the road when it passes the outer edge, 4 m beyond the lane centre.
+  static missions = [
+    {m:1200,v:15,r:50,ask:'force'},
+    {m:1200,mu:.8,r:40,ask:'speed'},
+    {m:1200,mu:.5,v:20,ask:'radius'},
+    {m:1200,mu:.4,dry:.8,r:50,ask:'wet'},
+    {m:12000,mu:.7,r:30,ask:'truck'}
+  ];
+  static g = 9.8; // m/s²
+  static approach = 20; // m of straight road before the curve
+  static edge = 4; // m from the lane centre to the outer edge of the road
+  static tolerance = .02; // relative
+  static units = {force:'N',speed:'m/s',radius:'m',wet:'m/s',truck:'m/s'};
+  static limits = {force:[1,1e6],speed:[1,400],radius:[1,200],wet:[1,400],truck:[1,400]};
+  constructor(index = 0){this.setMission(index);}
+  setMission(index){this.index=index;this.config=CurveModel.missions[index];this.answer=null;this.attempts=0;this.reset();}
+  reset(){this.t=0;this.status='driving';}
+  valid(value){const [low,high]=CurveModel.limits[this.config.ask];return Number.isFinite(value)&&value>=low&&value<=high;}
+  setAnswer(value){if(value!==null&&!this.valid(value))return false;this.answer=value;this.reset();return true;}
+  ready(){return this.answer!==null;}
+  // The answer sets the tyres' grip (force), the speed (speed, wet, truck), or the curve's radius (radius).
+  speed(){return this.config.v??this.answer??0;}
+  radius(){return this.config.r??this.answer??0;}
+  grip(){const c=this.config;return c.ask==='force'?this.answer??0:c.mu*c.m*CurveModel.g;}
+  needed(){const r=this.radius();return r>0?this.config.m*this.speed()**2/r:0;}
+  // Grip within 0.05% of the need counts as enough: a typed answer rounded to its last digit must not turn the exact
+  // limit into a skid of a few millimetres, far below what the drawing or the rounded readings can show.
+  static gripTolerance = 5e-4;
+  pathRadius(){const need=this.needed(),grip=this.grip();return need<=grip*(1+CurveModel.gripTolerance)?this.radius():this.config.m*this.speed()**2/grip;}
+  entryTime(){return CurveModel.approach/this.speed();}
+  // Distance from O on the wider circle: |Q − O|² = (R − r)² + R² − 2·(R − r)·R·cos φ, which grows with φ.
+  offAngle(){
+    const R=this.pathRadius(),r=this.radius(),out=r+CurveModel.edge;if(R<=r)return Infinity;
+    const d=R-r,cos=(d*d+R*R-out*out)/(2*d*R);return cos<=-1?Infinity:Math.acos(Math.min(1,cos));
+  }
+  turn(){return Math.min(Math.PI/2,this.offAngle());}
+  outcome(){if(this.pathRadius()<=this.radius())return 'made';return this.offAngle()>=Math.PI/2?'drift':'off';}
+  duration(){return this.entryTime()+this.pathRadius()*this.turn()/this.speed();}
+  // Runs longer than 8 s play faster, by a whole factor that is shown on the canvas.
+  playback(){const T=this.duration();return T>8?Math.ceil(T/8):1;}
+  clamp(t){return Math.min(Math.max(t,0),this.duration());}
+  inCurve(t){return this.clamp(t)>=this.entryTime();}
+  phi(t){const u=this.clamp(t)-this.entryTime();return u<=0?0:Math.min(this.turn(),this.speed()*u/this.pathRadius());}
+  position(t){
+    const u=this.clamp(t);if(u<this.entryTime())return {x:0,y:-CurveModel.approach+this.speed()*u};
+    const R=this.pathRadius(),p=this.phi(u);return {x:-R+R*Math.cos(p),y:R*Math.sin(p)};
+  }
+  velocity(t){const v=this.speed(),p=this.phi(t);return {x:-v*Math.sin(p),y:v*Math.cos(p)};}
+  accel(t){return this.inCurve(t)?this.speed()**2/this.pathRadius():0;}
+  force(t){return this.config.m*this.accel(t);}
+  // How far outside the lane centre the car is in the curve.
+  wide(t){const p=this.position(t);return Math.hypot(p.x+this.radius(),p.y)-this.radius();}
+  now(){return this.status==='finished'?this.duration():this.t;}
+  advance(dt){
+    if(!Number.isFinite(dt)||dt<0)throw new Error('Invalid timestep');
+    if(this.status==='finished'||!this.ready())return null;
+    // A drive counts as an attempt as soon as it starts. Entering the curve, finishing the turn, and leaving the road
+    // are all found exactly; the velocity just before leaving the road is kept.
+    if(this.t===0)this.attempts++;
+    const T=this.duration(),T0=this.entryTime(),entered=this.t<T0&&this.t+dt>=T0;
+    if(this.t+dt>=T*(1-1e-12)){this.t=T;this.status='finished';return {t:T,entered,done:true,outcome:this.outcome()};}
+    this.t+=dt;return entered?{t:this.t,entered:true,done:false}:null;
+  }
+  exact(){
+    const c=this.config,g=CurveModel.g;
+    if(c.ask==='force')return c.m*c.v*c.v/c.r;
+    if(c.ask==='radius')return c.v*c.v/(c.mu*g);
+    return Math.sqrt(c.mu*g*c.r);
+  }
+  unit(){return CurveModel.units[this.config.ask];}
+  evaluate(){
+    if(!this.ready())return {ok:false,slip:null,first:false,exact:this.exact()};
+    const c=this.config,a=this.answer,e=this.exact(),g=CurveModel.g,near=(p,q)=>Math.abs(p-q)<=CurveModel.tolerance*Math.abs(q)+1e-9;
+    const ok=near(a,e);
+    let slip=null;
+    if(!ok){
+      if(c.ask==='force'){if(near(a,c.m*c.v/c.r))slip='noSquare';else if(near(a,c.v*c.v/c.r))slip='acceleration';else if(near(a,c.m*g))slip='weight';else if(near(a,c.m*c.v*c.v))slip='noRadius';else if(near(a,c.m*c.v*c.v/(2*c.r)))slip='half';}
+      else if(c.ask==='radius'){if(near(a,c.v*c.v/g))slip='radiusNoFriction';else if(near(a,c.v/(c.mu*g)))slip='radiusNoSquare';else if(near(a,c.mu*c.v*c.v/g))slip='radiusTimes';}
+      else{
+        if(near(a,c.mu*g*c.r))slip='noRoot';else if(near(a,Math.sqrt(g*c.r)))slip='noFriction';
+        else if(c.ask==='wet'&&near(a,Math.sqrt(c.dry*g*c.r)/2))slip='halfSpeed';else if(c.ask==='wet'&&near(a,Math.sqrt(c.dry*g*c.r)))slip='sameSpeed';
+        else if(c.ask==='truck'&&near(a,Math.sqrt(c.mu*g*c.r*1200/c.m)))slip='heavier';
+      }
+      if(!slip&&this.outcome()==='made')slip='spare';
+    }
+    return {ok,slip,first:ok&&this.attempts===1,exact:e};
+  }
+  score(){if(this.status!=='finished')return 0;const e=this.evaluate();return (e.ok?100:0)+(e.first?50:0);}
+  snapshot(){return {index:this.index,answer:this.answer,attempts:this.attempts,t:this.t,status:this.status};}
+  restore(saved){
+    if(!Number.isInteger(saved?.index)||!CurveModel.missions[saved.index])return false;
+    const probe=new CurveModel(saved.index);
+    if(!probe.setAnswer(saved.answer??null)||!Number.isInteger(saved.attempts)||saved.attempts<0)return false;
+    if(!['driving','finished'].includes(saved.status)||!Number.isFinite(saved.t)||saved.t<0)return false;
+    if(probe.answer===null){if(saved.t>0||saved.status==='finished')return false;}
+    else if(saved.t>probe.duration()*(1+1e-9))return false;
+    if((saved.status==='finished'||saved.t>0)&&saved.attempts<1)return false;
+    this.setMission(saved.index);this.answer=probe.answer;this.attempts=saved.attempts;
+    this.status=saved.status;this.t=saved.status==='finished'?this.duration():saved.t;return true;
+  }
+}
+globalThis.CurveModel=CurveModel;
+</script>
+<script id="curve-locale" type="application/json">__LOCALE__</script>
+<script id="curve-interface">
+(() => {
+  'use strict';
+  const $=id=>document.getElementById(id),locale=JSON.parse($('curve-locale').textContent);
+  const text=(key,values={})=>locale.strings[key].replace(/\{(\w+)\}/g,(_,name)=>values[name]??'{'+name+'}');
+  const number=(n,d=2)=>Math.abs(n)<.5*10**-d?(0).toLocaleString(locale.lang,{minimumFractionDigits:d,maximumFractionDigits:d}):n.toLocaleString(locale.lang,{minimumFractionDigits:d,maximumFractionDigits:d,useGrouping:false});
+  const plain=n=>n.toLocaleString(locale.lang,{maximumFractionDigits:2,useGrouping:false}).replace('-','−');
+  const model=new CurveModel();
+  const canvas=$('curve-canvas'),ctx=canvas.getContext('2d');
+  const H=1/120,transferKey='phisicos-curve-language-transfer';
+  let running=false,previous=null,accumulator=0,lastUpdate=0,width=800,height=410;
+  const say=message=>{$('announcement').textContent=message;};
+  try{const data=JSON.parse(sessionStorage.getItem(transferKey)||'null');sessionStorage.removeItem(transferKey);if(data)model.restore(data.state);}catch{$('language-note').hidden=true;}
+  const amount=v=>plain(Number(v.toFixed(3)))+' '+model.unit();
+  const symbols={force:'F =',speed:'v =',radius:'r =',wet:'v =',truck:'v ='};
+  const slipKey=name=>'slip'+name[0].toUpperCase()+name.slice(1);
+  function setRunning(value){
+    const done=model.status==='finished',blocked=!model.ready();running=value&&!done&&!blocked;previous=null;accumulator=0;
+    $('play').disabled=running||done||blocked;$('pause').disabled=!running;$('step').disabled=running||done||blocked;
+    $('curve-status').classList.toggle('running',running);
+    $('curve-status-text').textContent=text(done?'done':running?'running':model.t?'paused':'ready');
+  }
+  function given(m){
+    const parts=[];
+    if(m.ask==='force'||m.ask==='truck')parts.push('m = '+plain(m.m)+' kg');
+    if(m.mu)parts.push('μ = '+(m.dry?plain(m.dry)+' → ':'')+plain(m.mu));if(m.v)parts.push('v = '+plain(m.v)+' m/s');if(m.r)parts.push('r = '+plain(m.r)+' m');
+    return parts.join(' · ');
+  }
+  function sync(){
+    const c=model.config;
+    CurveModel.missions.forEach((m,i)=>{$('mission-'+i).setAttribute('aria-pressed',String(i===model.index));$('given-'+i).textContent=given(m);});
+    $('question').textContent=text('question'+model.index);$('answer-symbol').textContent=symbols[c.ask];$('answer-unit').textContent=model.unit();
+    $('answer').value=model.answer===null?'':String(model.answer);$('mission-label').textContent=text('mission'+model.index);
+  }
+  const started=()=>model.status==='finished'||model.t>0;
+  const forces=()=>({need:number(model.needed(),0),grip:number(model.grip(),0)});
+  function update(){
+    const c=model.config,ready=model.ready(),done=model.status==='finished',t=ready?model.now():0,e=model.evaluate(),curve=ready&&model.inCurve(t)&&started();
+    $('time-value').textContent=number(t);$('speed-value').textContent=ready||c.v?number(model.speed()):'—';
+    $('radius-value').textContent=curve?number(model.pathRadius()):'—';
+    $('accel-value').textContent=number(curve?model.accel(t):0);$('force-value').textContent=number(curve?model.force(t):0,0);
+    $('curve-equation').textContent=curve?'F = m·v² ÷ R = '+plain(c.m)+' × '+number(model.speed())+'² ÷ '+number(model.pathRadius())+' = '+number(model.force(t),0)+' N':'F = m·a = 0 N';
+    let key,copy;
+    if(done){
+      const out=model.outcome(),values={...forces(),v:number(model.speed()),d:number(model.wide(t),1),t:number(t)};
+      const base=text(out+'Copy',values);
+      if(e.ok){key='good';copy=base+' '+text('why'+model.index);}
+      else{key='miss';copy=base+' '+text('missCopy',{p:amount(model.answer)})+' '+(e.slip?text(slipKey(e.slip)):text('hint'+model.index));}
+    }
+    else if(!ready){key='predict';copy=text('predictCopy');}
+    else if(model.t>0){key='running';copy=!curve?text('straightCopy'):model.outcome()==='made'?text('curveCopy',{F:number(model.force(t),0)}):text('skidCopy',{...forces(),R:number(model.pathRadius())});}
+    else{key='ready';copy=text('readyCopy');}
+    $('lesson-title').textContent=text(key+'Title',{t:number(t,1),p:ready?amount(model.answer):''});$('lesson-copy').textContent=copy;
+    $('insight').classList.toggle('warning',key==='miss');
+    $('mission-score').textContent=done?String(model.score()):'—';
+    $('right-badge').classList.toggle('earned',done&&e.ok);$('first-badge').classList.toggle('earned',done&&e.first);
+  }
+  function refresh(){setRunning(false);update();draw();}
+  function simulate(dt){
+    const result=model.advance(dt*model.playback());
+    if(result?.entered&&!result.done)say(text('curveAnnouncement'));
+    if(result?.done){setRunning(false);update();say(text('doneAnnouncement')+' '+$('lesson-title').textContent);return true;}
+    return false;
+  }
+  $('answer').addEventListener('input',event=>{const raw=String(event.target.value).trim(),value=raw===''?null:Number(raw);if(!model.setAnswer(value))model.setAnswer(null);refresh();});
+  $('play').addEventListener('click',()=>{setRunning(true);update();say(text('startedAnnouncement'));});
+  $('pause').addEventListener('click',()=>{setRunning(false);update();say(text('pausedAnnouncement'));});
+  $('step').addEventListener('click',()=>{for(let i=0;i<12;i++)if(simulate(H))break;setRunning(false);update();draw();});
+  $('reset').addEventListener('click',()=>{model.reset();refresh();say(text('resetAnnouncement'));});
+  CurveModel.missions.forEach((_,i)=>$('mission-'+i).addEventListener('click',()=>{model.setMission(i);sync();refresh();say(text('missionAnnouncement',{name:text('mission'+i)}));}));
+  for(const id of ['show-vectors','show-centre'])$(id).addEventListener('change',()=>{update();draw();});
+  function suspend(){if(running){setRunning(false);say(text('suspendedAnnouncement'));}update();draw();}
+  window.addEventListener('blur',suspend);document.addEventListener('visibilitychange',()=>{if(document.hidden)suspend();});
+  for(const link of document.querySelectorAll('.language-menu a'))link.addEventListener('click',()=>{setRunning(false);try{sessionStorage.setItem(transferKey,JSON.stringify({state:model.snapshot()}));}catch{}});
+  function resize(){const rect=canvas.getBoundingClientRect();if(rect.width<=0)return;width=rect.width;height=rect.height;const dpr=Math.min(window.devicePixelRatio||1,3);canvas.width=Math.round(width*dpr);canvas.height=Math.round(height*dpr);ctx.setTransform(dpr,0,0,dpr,0,0);draw();}
+  // The view is fixed per mission (the radius mission always shows room for a 200 m curve), with one scale for both axes.
+  const VEL=3,ACC=8,CAP=90,E=CurveModel.edge,A=CurveModel.approach;
+  function draw(){
+    if(!ctx)return;
+    const c=model.config,ready=model.ready(),done=model.status==='finished',t=ready?model.now():0,r=model.radius(),begun=started();
+    ctx.clearRect(0,0,width,height);
+    const label=(str,px,py,color='#b8ccdb',align='left',font=12)=>{ctx.fillStyle=color;ctx.textAlign=align;ctx.font=font+'px -apple-system,BlinkMacSystemFont,sans-serif';ctx.fillText(str,px,py);};
+    const line=(points,color,w=1,dash=[])=>{ctx.beginPath();ctx.strokeStyle=color;ctx.lineWidth=w;ctx.setLineDash(dash);points.forEach((p,i)=>i?ctx.lineTo(p.x,p.y):ctx.moveTo(p.x,p.y));ctx.stroke();ctx.setLineDash([]);};
+    const arrow=(from,dx,dy,color,w=2.5,dash=[])=>{const len=Math.hypot(dx,dy);if(len<4)return;const ux=dx/len,uy=dy/len,to={x:from.x+dx,y:from.y+dy};line([from,to],color,w,dash);line([{x:to.x-ux*9-uy*5,y:to.y-uy*9+ux*5},to,{x:to.x-ux*9+uy*5,y:to.y-uy*9-ux*5}],color,2);};
+    const fit=(str,px,py,color,size,room,align='left')=>{ctx.font=size+'px -apple-system,BlinkMacSystemFont,sans-serif';const w=ctx.measureText(str).width;label(str,px,py,color,align,w>room?Math.max(7,Math.floor(size*room/w)):size);};
+    const gw=width>=560?190:0,area=width-gw,RV=c.r??200;
+    fit(text('viewTitle'),16,20,'#d1e3ed',12,area-24);label(text('arrowScale'),16,height-8,'#9fb6c7','left',10);
+    if(ready&&model.playback()>1)fit(text('playbackLabel',{k:plain(model.playback())}),area-10,20,'#9fb6c7',10,area*.3,'right');
+    const xmin=-RV-E-8,xmax=E+8,ymin=-A-4,ymax=RV+E+8,S=Math.min((area-32)/(xmax-xmin),(height-78)/(ymax-ymin));
+    const ox=(area-(xmax-xmin)*S)/2,oy=height-26,X=x=>ox+(x-xmin)*S,Y=y=>oy-(y-ymin)*S,Q=p=>({x:X(p.x),y:Y(p.y)});
+    if(r>0){
+      // Road: the straight approach, the 90° curve about O = (−r, 0), and the straight exit to the left.
+      const lane=(off,n=48)=>{const pts=[{x:off,y:ymin},{x:off,y:0}];for(let k=0;k<=n;k++){const p=Math.PI/2*k/n;pts.push({x:-r+(r-off)*Math.cos(p),y:(r-off)*Math.sin(p)});}pts.push({x:xmin,y:r-off});return pts.map(Q);};
+      line(lane(0),'#2a4559',Math.max(2*E*S,4));
+      line(lane(E),'#5b7488',1.5);if(r>E)line(lane(-E),'#5b7488',1.5);line(lane(0),'#8aa3b5',1,[6,6]);
+      line([Q({x:-E,y:0}),Q({x:E,y:0})],'#5b7488',1,[2,3]);
+      if($('show-centre').checked){const o=Q({x:-r,y:0});line([{x:o.x-6,y:o.y},{x:o.x+6,y:o.y}],'#8aa3b5',1.5);line([{x:o.x,y:o.y-6},{x:o.x,y:o.y+6}],'#8aa3b5',1.5);label(text('centreLabel'),o.x+8,o.y+14,'#8aa3b5','left',10);}
+    }
+    if(ready){
+      const p=model.position(t),car=Q(p),v=model.velocity(t),inCurve=model.inCurve(t)&&begun;
+      if(t>0){const n=60,pts=[];for(let k=0;k<=n;k++)pts.push(Q(model.position(t*k/n)));line(pts,'#75efc7',2.5);}
+      if($('show-centre').checked&&inCurve){const o=Q({x:-r,y:0});line([o,car],'#8aa3b5',1,[4,3]);}
+      // The car is drawn along its velocity; a truck is longer.
+      const L=c.m>5000?26:17,Wd=c.m>5000?10:9;
+      ctx.save();ctx.translate(car.x,car.y);ctx.rotate(Math.atan2(-v.y,v.x));ctx.fillStyle='#efe6d0';ctx.fillRect(-L/2,-Wd/2,L,Wd);ctx.fillStyle='#102637';ctx.fillRect(L/2-6,-Wd/2+1.5,3,Wd-3);ctx.restore();
+      if($('show-vectors').checked&&t>0&&!done){
+        const speed=model.speed(),k=Math.min(speed*VEL,CAP)/speed;arrow(car,v.x*k,-v.y*k,'#f2f8fc');
+        if(inCurve){
+          // Friction points to the centre of the circle the car is actually on; when it skids, the dashed arrow is the
+          // acceleration the lane would need.
+          const R=model.pathRadius(),cx=-R-p.x,cy=-p.y,d=Math.hypot(cx,cy),len=Math.min(model.accel(t)*ACC,CAP);arrow(car,cx/d*len,-cy/d*len,'#77b9ff');
+          if(model.outcome()!=='made'){const ox2=-r-p.x,oy2=-p.y,d2=Math.hypot(ox2,oy2),len2=Math.min(speed*speed/r*ACC,CAP);arrow(car,ox2/d2*len2,-oy2/d2*len2,'#efb958',1.5,[5,3]);}
+        }
+      }
+      if(done){
+        const e=model.evaluate(),out=model.outcome(),banner=(e.ok?text('rightBanner')+' · ':'')+text(out+'Banner',{d:number(model.wide(t),1)});
+        fit(banner,16,44,e.ok?'#75efc7':'#efb958',width<430?12:14,area-24);
+      }
+    }
+    if(!gw)return;
+    // Sideways force panel: the force the lane needs against the most the tyres can give. Hidden until a drive starts.
+    const px=area+10,pw=gw-24;ctx.fillStyle='rgba(16,38,55,.85)';ctx.fillRect(area,0,gw,height);
+    fit(text('gripTitle'),px,28,'#d1e3ed',11,pw);
+    if(!begun){fit(text('gripHint'),px,58,'#9fb6c7',10,pw);return;}
+    const need=model.needed(),grip=model.grip(),top=Math.max(need,grip)*1.1,barW=v=>Math.max(2,v/top*pw);
+    fit(text('neededLabel'),px,62,'#efb958',10,pw);ctx.fillStyle='#efb958';ctx.fillRect(px,70,barW(need),14);label(number(need,0)+' N',px,100,'#efb958','left',11);
+    fit(text('gripLabel'),px,128,'#75efc7',10,pw);ctx.fillStyle='#75efc7';ctx.fillRect(px,136,barW(grip),14);label(number(grip,0)+' N',px,166,'#75efc7','left',11);
+    const enough=model.outcome()==='made';fit(text(enough?'gripEnough':'gripShort'),px,196,enough?'#75efc7':'#efb958',10,pw);
+  }
+  function frame(now){if(previous===null)previous=now;const elapsed=Math.min(.1,(now-previous)/1000);previous=now;if(running){accumulator+=elapsed;while(accumulator>=H&&running){accumulator-=H;simulate(H);}draw();}if(now-lastUpdate>=80){update();lastUpdate=now;}requestAnimationFrame(frame);}
+  window.addEventListener('resize',resize);if(typeof ResizeObserver!=='undefined')new ResizeObserver(resize).observe(canvas);
+  sync();setRunning(false);update();resize();requestAnimationFrame(frame);
+})();
+</script>
+</body>
+</html>

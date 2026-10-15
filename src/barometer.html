@@ -1,0 +1,279 @@
+<!doctype html>
+<html lang="en">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Torricelli's Tube · Phisicos</title>
+<style>
+.barometer-page .answer-row .symbol{min-width:44px}.barometer-page .question{font-size:15px;font-weight:600;margin-top:4px}
+.barometer-page .line-key.white{background:#f2f8fc}.barometer-page .line-key.blue{background:#77b9ff}
+</style>
+</head>
+<body>
+<div class="shell module-page barometer-page">
+__HEADER__
+<main id="main-content">
+__BREADCRUMBS__
+
+<div class="masthead"><div><h1>{{title}}</h1><p class="intro">{{subtitle}}</p></div><div class="concept-tags"><span class="tag speed">{{tag1}}</span><span class="tag velocity">{{tag2}}</span></div></div>
+<noscript><p class="no-js">{{noScript}}</p></noscript>
+<div class="layout">
+<aside class="sidebar" aria-label="{{setup}}">
+  <section class="control-section"><h2 class="eyebrow">{{setup}}</h2><div class="mission-list" role="group" aria-label="{{setup}}">
+    <button id="mission-0" aria-pressed="true"><b>1 · {{mission0}}</b><span id="given-0">d</span></button>
+    <button id="mission-1" aria-pressed="false"><b>2 · {{mission1}}</b><span id="given-1">d</span></button>
+    <button id="mission-2" aria-pressed="false"><b>3 · {{mission2}}</b><span id="given-2">d</span></button>
+    <button id="mission-3" aria-pressed="false"><b>4 · {{mission3}}</b><span id="given-3">d</span></button>
+    <button id="mission-4" aria-pressed="false"><b>5 · {{mission4}}</b><span id="given-4">d</span></button>
+  </div><p class="hint">{{setupNote}}</p></section>
+  <section class="control-section"><h2 class="eyebrow">{{answerHeading}}</h2>
+    <p class="question" id="question">{{question0}}</p>
+    <p class="field-label"><label for="answer">{{answerLabel}}</label></p>
+    <div class="answer-row"><span class="symbol" id="answer-symbol">h =</span><input id="answer" type="number" inputmode="decimal" step="any" value=""><span class="unit" id="answer-unit">mm</span></div>
+    <p class="hint">{{answerHint}}</p>
+  </section>
+  <section class="control-section"><h2 class="eyebrow">{{observe}}</h2><label class="check"><input id="show-scale" type="checkbox" checked>{{scaleToggle}}</label><label class="check"><input id="show-guess" type="checkbox" checked>{{guessToggle}}</label><p class="hint">{{observeHint}}</p></section>
+</aside>
+<div class="workspace">
+  <section class="scene" aria-label="{{sceneTitle}}"><div class="scene-top"><div><h2 class="scene-title">{{sceneTitle}}</h2><p class="scene-subtitle" id="mission-label">{{mission0}}</p></div><span class="status" id="barometer-status"><i class="status-dot" aria-hidden="true"></i><span id="barometer-status-text">{{ready}}</span></span></div>
+    <div class="module-stage"><canvas id="barometer-canvas" role="img" aria-label="{{canvasLabel}}">{{noScript}}</canvas></div>
+    <div class="legend"><span><i class="line-key white"></i>{{liquidLegend}}</span><span><i class="line-key blue"></i>{{airLegend}}</span><span><i class="line-key orange"></i>{{guessLegend}}</span><span><i class="line-key gray"></i>{{scaleLegend}}</span></div>
+    <div class="module-equation"><span>{{equationTitle}}</span><output id="barometer-equation">p = ρ·g·h</output></div>
+    <div class="transport"><button id="play" class="primary" disabled>{{play}}</button><button id="pause" disabled>{{pause}}</button><button id="step" disabled>{{step}}</button><button id="reset" class="reset">{{reset}}</button></div>
+  </section>
+  <section class="metrics" aria-label="{{observe}}">
+    <div class="metric scalar"><h3 class="metric-label">{{time}}</h3><p class="metric-value"><span id="time-value">0.00</span> <small>s</small></p><p class="metric-equation">t</p></div>
+    <div class="metric vector"><h3 class="metric-label">{{heightMetric}}</h3><p class="metric-value"><span id="height-value">—</span> <small>m</small></p><p class="metric-equation">h</p></div>
+    <div class="metric scalar"><h3 class="metric-label">{{columnMetric}}</h3><p class="metric-value"><span id="column-value">—</span> <small>kPa</small></p><p class="metric-equation">ρ·g·h</p></div>
+    <div class="metric vector"><h3 class="metric-label">{{gapMetric}}</h3><p class="metric-value"><span id="gap-value">—</span> <small>m</small></p><p class="metric-equation">L − h</p></div>
+    <div class="metric scalar"><h3 class="metric-label">{{airMetric}}</h3><p class="metric-value"><span id="air-value">—</span> <small>kPa</small></p><p class="metric-equation">p</p></div>
+  </section>
+  <div class="insight" id="insight"><span class="insight-icon" aria-hidden="true">↗</span><div><strong id="lesson-title">{{predictTitle}}</strong><p id="lesson-copy">{{predictCopy}}</p></div></div>
+  <section class="challenge"><div class="mission-heading"><h2 class="challenge-title">{{missionTitle}}</h2><div class="score-card"><span>{{score}}</span><strong id="mission-score">—</strong></div></div><p class="mission-copy">{{missionCopy}}</p><div class="badges"><span id="right-badge">✓ {{rightBadge}}</span><span id="first-badge">① {{firstBadge}}</span></div></section>
+</div>
+</div>
+<article class="learning-content"><section><h2>{{guideTitle}}</h2><ol><li>{{instruction1}}</li><li>{{instruction2}}</li><li>{{instruction3}}</li><li>{{instruction4}}</li></ol></section><section><h2>{{conceptTitle}}</h2><p>{{conceptCopy}}</p><aside class="worked-example"><h3>{{exampleTitle}}</h3><p>{{exampleCopy}}</p></aside></section><section><h2>{{modelTitle}}</h2><p>{{modelCopy}}</p></section></article>
+<p class="language-note" id="language-note">{{languageNote}}</p>
+</main>
+__FOOTER__
+<p class="sr-only" id="announcement" role="status" aria-live="polite"></p>
+</div>
+<script id="barometer-model">
+class BarometerModel {
+  // A tube full of liquid is turned upside down in a dish. Above the column there is nothing (a vacuum; vapour is ignored),
+  // so the column falls until the pressure at its foot, ρ·g·h, matches the air pushing on the dish: h = p ÷ (ρ·g). A suction
+  // pump works the same way from the other side: as it removes the air above the water in its pipe, the outside air pushes
+  // the water up, never higher than p ÷ (ρ·g).
+  static run = 2; // s for the column to settle, or for the pump to empty the pipe
+  static g = 9.8;
+  static sea = 101.3; // kPa, the air at sea level
+  static tolerance = .02;
+  static grace = 5e-4; // a well within 0.05% of the limit still fills, so a rounded answer works
+  static missions = [
+    {key:'mercury',ask:'height',rho:13600,p:101.3,h:null,L:1,unit:'mm'},
+    {key:'water',ask:'height',rho:1000,p:101.3,h:null,L:12,unit:'m'},
+    {key:'mountain',ask:'pressure',rho:13600,p:null,h:.6,L:1,unit:'kPa'},
+    {key:'pump',ask:'well',rho:1000,p:80,h:null,L:12,unit:'m'},
+    {key:'glycerine',ask:'density',rho:null,p:101.3,h:8.2,L:10,unit:'kg/m³'}
+  ];
+  static limits = {height:1e5,pressure:1e6,well:1000,density:1e6};
+  constructor(index = 0){this.setMission(index);}
+  setMission(index){this.index=index;this.config=BarometerModel.missions[index];this.answer=null;this.attempts=0;this.reset();}
+  reset(){this.t=0;this.status='moving';}
+  valid(value){return Number.isFinite(value)&&value>0&&value<=BarometerModel.limits[this.config.ask];}
+  setAnswer(value){if(value!==null&&!this.valid(value))return false;this.answer=value;this.reset();return true;}
+  ready(){return this.answer!==null;}
+  clamp(t){return Math.min(Math.max(t,0),BarometerModel.run);}
+  // Two of p, ρ, and h are given; the third follows from p = ρ·g·h (p in kPa).
+  pressure(){const c=this.config;return c.p??c.rho*BarometerModel.g*c.h/1000;}
+  density(){const c=this.config;return c.rho??c.p*1000/(BarometerModel.g*c.h);}
+  height(){const c=this.config;return c.h??c.p*1000/(c.rho*BarometerModel.g);}
+  columnPressure(h){return this.density()*BarometerModel.g*h/1000;}
+  pump(){return this.config.ask==='well';}
+  // The column falls steadily from the full tube to its balance height.
+  column(t){const c=this.config;return c.L-(c.L-this.height())*this.clamp(t)/BarometerModel.run;}
+  // The pump sits at your answer above the well; the water reaches it only if the air can push that high.
+  depth(){return this.answer??0;}
+  lifts(){return this.depth()<=this.height()*(1+BarometerModel.grace);}
+  push(){return this.lifts()?Math.max(this.pressure(),this.columnPressure(this.depth())):this.pressure();}
+  rise(t){return Math.min(this.push()*1000/(this.density()*BarometerModel.g)*this.clamp(t)/BarometerModel.run,this.depth());}
+  level(t){return this.pump()?this.rise(t):this.column(t);}
+  duration(){return BarometerModel.run;}
+  now(){return this.status==='done'?this.duration():this.t;}
+  advance(dt){
+    if(!Number.isFinite(dt)||dt<0)throw new Error('Invalid timestep');
+    if(this.status==='done'||!this.ready())return null;
+    // A run counts as an attempt as soon as it starts; the column settles exactly at the end of the run.
+    if(this.t===0)this.attempts++;
+    const T=this.duration();
+    if(this.t+dt>=T*(1-1e-12)){this.t=T;this.status='done';return {t:T,done:true};}
+    this.t+=dt;return null;
+  }
+  exact(){
+    const c=this.config;
+    if(c.ask==='height')return c.unit==='mm'?this.height()*1000:this.height();
+    if(c.ask==='pressure')return this.pressure();
+    if(c.ask==='well')return this.height();
+    return this.density();
+  }
+  unit(){return this.config.unit;}
+  evaluate(){
+    if(!this.ready())return {ok:false,slip:null,first:false,exact:this.exact()};
+    const c=this.config,a=this.answer,e=this.exact(),g=BarometerModel.g,near=(p,q)=>Math.abs(p-q)<=BarometerModel.tolerance*Math.abs(q)+1e-12;
+    let ok,slip=null;
+    // A well is right when the water reaches the pump with at most 2% to spare; every other answer within 2%.
+    if(c.ask==='well'){ok=this.lifts()&&a>=e*(1-BarometerModel.tolerance);if(!ok)slip=this.lifts()?'spare':(near(a,BarometerModel.sea*1000/(c.rho*g))?'seaPump':null);}
+    else{
+      ok=near(a,e);
+      if(!ok){
+        if(c.key==='mercury'){if(near(a,c.p*1e6/(1000*g)))slip='water';else if(near(a,e/1000))slip='meters';else if(near(a,c.p*1e6/c.rho))slip='noG';}
+        else if(c.key==='water'){if(near(a,c.p*1000/(13600*g)))slip='mercury';else if(near(a,e*1000))slip='millimetres';else if(near(a,c.p*1000/c.rho))slip='noG';}
+        else if(c.key==='mountain'){if(near(a,BarometerModel.sea))slip='sea';else if(near(a,c.rho*c.h/1000))slip='noG';else if(near(a,e*1000))slip='mm';}
+        else{if(near(a,c.p*1000/c.h))slip='noG';else if(near(a,1000))slip='waterDensity';}
+      }
+    }
+    return {ok,slip,first:ok&&this.attempts===1,exact:e};
+  }
+  score(){if(this.status!=='done')return 0;const e=this.evaluate();return (e.ok?100:0)+(e.first?50:0);}
+  snapshot(){return {index:this.index,answer:this.answer,attempts:this.attempts,t:this.t,status:this.status};}
+  restore(saved){
+    if(!Number.isInteger(saved?.index)||!BarometerModel.missions[saved.index])return false;
+    const probe=new BarometerModel(saved.index);
+    if(!probe.setAnswer(saved.answer??null)||!Number.isInteger(saved.attempts)||saved.attempts<0)return false;
+    if(!['moving','done'].includes(saved.status)||!Number.isFinite(saved.t)||saved.t<0||saved.t>probe.duration()*(1+1e-9))return false;
+    if(probe.answer===null&&(saved.t>0||saved.status==='done'))return false;
+    if((saved.status==='done'||saved.t>0)&&saved.attempts<1)return false;
+    this.setMission(saved.index);this.answer=probe.answer;this.attempts=saved.attempts;
+    this.status=saved.status;this.t=saved.status==='done'?this.duration():saved.t;return true;
+  }
+}
+globalThis.BarometerModel=BarometerModel;
+</script>
+<script id="barometer-locale" type="application/json">__LOCALE__</script>
+<script id="barometer-interface">
+(() => {
+  'use strict';
+  const $=id=>document.getElementById(id),locale=JSON.parse($('barometer-locale').textContent);
+  const text=(key,values={})=>locale.strings[key].replace(/\{(\w+)\}/g,(_,name)=>values[name]??'{'+name+'}');
+  const number=(n,d=2)=>Math.abs(n)<.5*10**-d?(0).toLocaleString(locale.lang,{minimumFractionDigits:d,maximumFractionDigits:d}):n.toLocaleString(locale.lang,{minimumFractionDigits:d,maximumFractionDigits:d,useGrouping:false});
+  const plain=n=>n.toLocaleString(locale.lang,{maximumFractionDigits:3,useGrouping:false}).replace('-','−');
+  const model=new BarometerModel();
+  const canvas=$('barometer-canvas'),ctx=canvas.getContext('2d');
+  const H=1/120,T=BarometerModel.run,G=BarometerModel.g,transferKey='phisicos-barometer-language-transfer';
+  let running=false,previous=null,accumulator=0,lastUpdate=0,width=800,height=410;
+  const say=message=>{$('announcement').textContent=message;};
+  try{const data=JSON.parse(sessionStorage.getItem(transferKey)||'null');sessionStorage.removeItem(transferKey);if(data)model.restore(data.state);}catch{$('language-note').hidden=true;}
+  const amount=v=>plain(Number(v.toPrecision(5)))+' '+model.unit();
+  const symbols={height:'h =',pressure:'p =',well:'h_max =',density:'ρ ='};
+  const slipKey=name=>'slip'+name[0].toUpperCase()+name.slice(1);
+  function setRunning(value){
+    const done=model.status==='done',blocked=!model.ready();running=value&&!done&&!blocked;previous=null;accumulator=0;
+    $('play').disabled=running||done||blocked;$('pause').disabled=!running;$('step').disabled=running||done||blocked;
+    $('barometer-status').classList.toggle('running',running);
+    $('barometer-status-text').textContent=text(done?'done':running?'running':model.t?'paused':'ready');
+  }
+  // Givens: two of p, ρ, and h, and the tube's length; the unknown is left out.
+  function given(m){
+    const parts=[];if(m.rho)parts.push('ρ = '+plain(m.rho)+' kg/m³');if(m.p)parts.push('p = '+plain(m.p)+' kPa');if(m.h)parts.push('h = '+plain(m.h*(m.rho===13600?1000:1))+(m.rho===13600?' mm':' m'));
+    parts.push(m.ask==='well'?'g = '+plain(G)+' m/s²':'L = '+plain(m.L)+' m');return parts.join(' · ');
+  }
+  function sync(){
+    const c=model.config;
+    BarometerModel.missions.forEach((m,i)=>{$('mission-'+i).setAttribute('aria-pressed',String(i===model.index));$('given-'+i).textContent=given(m);});
+    $('question').textContent=text('question'+model.index);$('answer-symbol').textContent=symbols[c.ask];$('answer-unit').textContent=model.unit();
+    $('answer').value=model.answer===null?'':String(model.answer);$('mission-label').textContent=text('mission'+model.index);
+  }
+  // The column, its pressure, and the empty space above show only once a run starts, because they give the answer away.
+  const started=()=>model.status==='done'||model.t>0;
+  function update(){
+    const c=model.config,ready=model.ready(),done=model.status==='done',t=ready?model.now():0,e=model.evaluate(),begun=started(),pump=model.pump(),h=model.level(t),pc=model.columnPressure(h);
+    $('time-value').textContent=number(t);$('height-value').textContent=begun?number(h,3):'—';$('column-value').textContent=begun?number(pc,1):'—';
+    $('gap-value').textContent=begun?number((pump?model.depth():c.L)-h,3):'—';$('air-value').textContent=begun&&(c.ask!=='pressure'||done)?number(model.pressure(),1):'—';
+    $('barometer-equation').textContent=begun?'ρ·g·h = '+plain(Math.round(model.density()))+' × '+plain(G)+' × '+number(h,3)+' = '+number(pc,1)+' kPa':'p = ρ·g·h';
+    let key,copy;
+    const hT=model.level(T),values={hmm:number(hT*1000,0),hm:number(hT,3),gap:number(c.L-hT,3),p:number(model.pressure(),1),rho:number(model.density(),0),max:number(model.height(),2),short:number(model.depth()-hT,2)};
+    if(done){
+      const base=text(pump&&!model.lifts()?'stuckCopy':'result'+model.index,values);
+      if(e.ok){key='good';copy=base+' '+text('why'+model.index);}
+      else{key='miss';copy=base+' '+text('missCopy',{p:amount(model.answer)})+' '+(e.slip?text(slipKey(e.slip)):text('hint'+model.index));}
+    }
+    else if(!ready){key='predict';copy=text('predictCopy');}
+    else if(model.t>0){key='running';copy=pump?text('pumpingCopy',{h:number(h,2),pin:number(model.pressure()*(1-model.clamp(t)/T),1)}):text('movingCopy',{h:number(h,3),pc:number(pc,1)});}
+    else{key='ready';copy=text('readyCopy');}
+    $('lesson-title').textContent=text(key+'Title',{t:number(t),p:ready?amount(model.answer):''});$('lesson-copy').textContent=copy;
+    $('insight').classList.toggle('warning',key==='miss');
+    $('mission-score').textContent=done?String(model.score()):'—';
+    $('right-badge').classList.toggle('earned',done&&e.ok);$('first-badge').classList.toggle('earned',done&&e.first);
+  }
+  function refresh(){setRunning(false);update();draw();}
+  function simulate(dt){
+    const result=model.advance(dt);
+    if(result?.done){setRunning(false);update();say(text('doneAnnouncement')+' '+$('lesson-title').textContent);return true;}
+    return false;
+  }
+  $('answer').addEventListener('input',event=>{const raw=String(event.target.value).trim(),value=raw===''?null:Number(raw);if(!model.setAnswer(value))model.setAnswer(null);refresh();});
+  $('play').addEventListener('click',()=>{setRunning(true);update();say(text('startedAnnouncement'));});
+  $('pause').addEventListener('click',()=>{setRunning(false);update();say(text('pausedAnnouncement'));});
+  $('step').addEventListener('click',()=>{for(let i=0;i<12;i++)if(simulate(H))break;setRunning(false);update();draw();});
+  $('reset').addEventListener('click',()=>{model.reset();refresh();say(text('resetAnnouncement'));});
+  BarometerModel.missions.forEach((_,i)=>$('mission-'+i).addEventListener('click',()=>{model.setMission(i);sync();refresh();say(text('missionAnnouncement',{name:text('mission'+i)}));}));
+  for(const id of ['show-scale','show-guess'])$(id).addEventListener('change',()=>{update();draw();});
+  function suspend(){if(running){setRunning(false);say(text('suspendedAnnouncement'));}update();draw();}
+  window.addEventListener('blur',suspend);document.addEventListener('visibilitychange',()=>{if(document.hidden)suspend();});
+  for(const link of document.querySelectorAll('.language-menu a'))link.addEventListener('click',()=>{setRunning(false);try{sessionStorage.setItem(transferKey,JSON.stringify({state:model.snapshot()}));}catch{}});
+  function resize(){const rect=canvas.getBoundingClientRect();if(rect.width<=0)return;width=rect.width;height=rect.height;const dpr=Math.min(window.devicePixelRatio||1,3);canvas.width=Math.round(width*dpr);canvas.height=Math.round(height*dpr);ctx.setTransform(dpr,0,0,dpr,0,0);draw();}
+  const colors={13600:'#c3cbd3',1000:'#4a8fd1'};
+  function draw(){
+    if(!ctx)return;
+    const c=model.config,ready=model.ready(),done=model.status==='done',t=ready?model.now():0,begun=started(),scale=$('show-scale').checked,guess=$('show-guess').checked&&ready,pump=model.pump(),mercury=c.rho===13600;
+    ctx.clearRect(0,0,width,height);
+    const label=(str,px,py,color='#b8ccdb',align='left',font=12)=>{ctx.fillStyle=color;ctx.textAlign=align;ctx.font=font+'px -apple-system,BlinkMacSystemFont,sans-serif';ctx.fillText(str,px,py);};
+    const line=(points,color,w=1,dash=[])=>{ctx.beginPath();ctx.strokeStyle=color;ctx.lineWidth=w;ctx.setLineDash(dash);points.forEach((q,i)=>i?ctx.lineTo(q.x,q.y):ctx.moveTo(q.x,q.y));ctx.stroke();ctx.setLineDash([]);};
+    const fit=(str,px,py,color,size,room,align='left')=>{ctx.font=size+'px -apple-system,BlinkMacSystemFont,sans-serif';const w=ctx.measureText(str).width;label(str,px,py,color,align,w>room?Math.max(7,Math.floor(size*room/w)):size);};
+    const wide=width>=560,area=wide?width*.64:width;
+    fit(text('viewTitle'),16,20,'#d1e3ed',12,area-28);
+    if(done){const ev=model.evaluate();fit(text(ev.ok?'rightBanner':'offBanner')+(pump?' · '+text(model.lifts()?'liftedBanner':'stuckBanner'):''),16,40,ev.ok?'#75efc7':'#efb958',width<430?12:14,area-28);}
+    // Heights are to scale, with a fixed view per mission (the tube's length) so it never hints at the answer.
+    const L=c.L,yD=height-46,S=(yD-74)/(L*1.1),Y=h=>yD-h*S,cx=area*.46,liquid=colors[c.rho]??'#d8c78a',h=model.level(t);
+    if(scale){
+      const step=L<=1?.1:1,every=L<=1?2:2;
+      for(let k=0;k*step<=L*1.1+1e-9;k++){const yy=Y(k*step),big=k%every===0;line([{x:cx-46,y:yy},{x:cx-46+(big?12:6),y:yy}],'#8aa3b5',1);if(big&&k)label(mercury?plain(Math.round(k*step*1000))+' mm':plain(k*step)+' m',cx-52,yy+4,'#9fb6c7','right',10);}
+      line([{x:cx-46,y:Y(0)},{x:cx-46,y:Y(L*1.1)}],'#5b7488',1);
+    }
+    // The dish (or the well) and the air pressing down on it.
+    ctx.fillStyle=liquid;ctx.globalAlpha=.75;ctx.fillRect(cx-110,yD,220,20);ctx.globalAlpha=1;line([{x:cx-110,y:yD},{x:cx-110,y:yD+20},{x:cx+110,y:yD+20},{x:cx+110,y:yD}],'#8aa3b5',2);
+    const arrow=x=>{const len=10+18*model.pressure()/BarometerModel.sea;line([{x,y:yD-6-len},{x,y:yD-6}],'#77b9ff',2);line([{x:x-4,y:yD-11},{x,y:yD-5},{x:x+4,y:yD-11}],'#77b9ff',2);};
+    for(const dx of [-92,-66,66,92])arrow(cx+dx);
+    fit(text('airLabel')+' · p = '+(c.ask==='pressure'&&!done?'?':plain(Number(model.pressure().toFixed(1))))+' kPa',cx+118,yD-10,'#77b9ff',11,area-cx-124);
+    if(pump){
+      const top=ready?Y(model.depth()):Y(L);
+      ctx.fillStyle=liquid;ctx.fillRect(cx-7,Y(h),14,yD+12-Y(h));line([{x:cx-9,y:yD+12},{x:cx-9,y:top}],'#c3cfd9',2);line([{x:cx+9,y:yD+12},{x:cx+9,y:top}],'#c3cfd9',2);
+      if(ready){ctx.fillStyle='#7c8b99';ctx.fillRect(cx-30,top-24,60,24);label(text('pumpLabel'),cx,top-8,'#f2f8fc','center',10);}
+      else label('?',cx,top-8,'#9fb6c7','center',14);
+    }
+    else{
+      ctx.fillStyle=liquid;ctx.fillRect(cx-12,Y(h),24,yD+12-Y(h));
+      line([{x:cx-14,y:yD+12},{x:cx-14,y:Y(L)},{x:cx+14,y:Y(L)},{x:cx+14,y:yD+12}],'#c3cfd9',2);
+      if((L-h)*S>26)label(text('vacuumLabel'),cx+20,(Y(L)+Y(h))/2+4,'#9fb6c7','left',10);
+    }
+    // Your prediction: the column height it gives, as a dashed line.
+    if(guess&&c.ask!=='pressure'&&!pump){
+      const a=model.answer,gh=c.ask==='height'?(mercury?a/1000:a):model.pressure()*1000/(a*G),yy=Y(Math.min(gh,L*1.08));
+      line([{x:cx-30,y:yy},{x:cx+30,y:yy}],'#efb958',2,[6,4]);label(text('guessTag'),cx+34,yy+4,'#efb958','left',10);
+    }
+    label(text('scaleNote'),16,height-8,'#9fb6c7','left',10);
+    if(!wide)return;
+    // Right panel: the air's push against the column's, which match once the column settles.
+    fit(text('balanceTitle'),area+8,44,'#d1e3ed',10,width-area-16);
+    if(!begun){fit(text('panelHint'),area+8,70,'#9fb6c7',10,width-area-16);return;}
+    const air=model.pressure(),col=model.columnPressure(h),gv=guess&&c.ask==='pressure'?model.answer:null,top=Math.max(air,col,model.columnPressure(pump?model.depth():L),gv??0)*1.12;
+    const bx0=area+20,bx1=width-16,btop=72,bbot=height-58,bw=(bx1-bx0)/2-10,BY=v=>bbot-v/top*(bbot-btop);
+    ctx.fillStyle='#77b9ff';ctx.fillRect(bx0,BY(air),bw,bbot-BY(air));ctx.fillStyle='#f2f8fc';ctx.fillRect(bx0+bw+20,BY(col),bw,bbot-BY(col));
+    fit(c.ask==='pressure'&&!done?'?':number(air,1),bx0+bw/2,BY(air)-6,'#77b9ff',10,bw+16,'center');fit(number(col,1),bx0+bw*1.5+20,BY(col)-6,'#f2f8fc',10,bw+16,'center');
+    fit(text('airShort'),bx0+bw/2,bbot+14,'#9fb6c7',9,bw+16,'center');fit(text('columnShort'),bx0+bw*1.5+20,bbot+14,'#9fb6c7',9,bw+16,'center');
+    if(gv!==null){const yy=BY(Math.min(gv,top));line([{x:bx0-6,y:yy},{x:bx0+bw+6,y:yy}],'#efb958',2,[5,3]);fit(text('guessTag'),bx0+bw/2,yy+14,'#efb958',9,bw+16,'center');}
+  }
+  function frame(now){if(previous===null)previous=now;const elapsed=Math.min(.1,(now-previous)/1000);previous=now;if(running){accumulator+=elapsed;while(accumulator>=H&&running){accumulator-=H;simulate(H);}draw();}if(now-lastUpdate>=80){update();lastUpdate=now;}requestAnimationFrame(frame);}
+  window.addEventListener('resize',resize);if(typeof ResizeObserver!=='undefined')new ResizeObserver(resize).observe(canvas);
+  sync();setRunning(false);update();resize();requestAnimationFrame(frame);
+})();
+</script>
+</body>
+</html>

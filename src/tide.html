@@ -1,0 +1,275 @@
+<!doctype html>
+<html lang="en">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Tide Clock · Phisicos</title>
+<style>
+.tide-page .answer-row .symbol{min-width:56px}.tide-page .question{font-size:15px;font-weight:600;margin-top:4px}
+.tide-page .line-key.white{background:#f2f8fc}.tide-page .line-key.blue{background:#77b9ff}.tide-page .line-key.red{background:#ff7b6b}.tide-page .line-key.green{background:#75efc7}
+</style>
+</head>
+<body>
+<div class="shell module-page tide-page">
+__HEADER__
+<main id="main-content">
+__BREADCRUMBS__
+
+<div class="masthead"><div><h1>{{title}}</h1><p class="intro">{{subtitle}}</p></div><div class="concept-tags"><span class="tag speed">{{tag1}}</span><span class="tag velocity">{{tag2}}</span></div></div>
+<noscript><p class="no-js">{{noScript}}</p></noscript>
+<div class="layout">
+<aside class="sidebar" aria-label="{{setup}}">
+  <section class="control-section"><h2 class="eyebrow">{{setup}}</h2><div class="mission-list" role="group" aria-label="{{setup}}">
+    <button id="mission-0" aria-pressed="true"><b>1 · {{mission0}}</b><span id="given-0">·</span></button>
+    <button id="mission-1" aria-pressed="false"><b>2 · {{mission1}}</b><span id="given-1">·</span></button>
+    <button id="mission-2" aria-pressed="false"><b>3 · {{mission2}}</b><span id="given-2">·</span></button>
+    <button id="mission-3" aria-pressed="false"><b>4 · {{mission3}}</b><span id="given-3">·</span></button>
+    <button id="mission-4" aria-pressed="false"><b>5 · {{mission4}}</b><span id="given-4">·</span></button>
+  </div><p class="hint">{{setupNote}}</p></section>
+  <section class="control-section"><h2 class="eyebrow">{{answerHeading}}</h2>
+    <p class="question" id="question">{{question0}}</p>
+    <p class="field-label"><label for="answer">{{answerLabel}}</label></p>
+    <div class="answer-row"><span class="symbol" id="answer-symbol">T =</span><input id="answer" type="number" inputmode="decimal" step="any" value=""><span class="unit" id="answer-unit">h</span></div>
+    <p class="hint">{{answerHint}}</p>
+  </section>
+  <section class="control-section"><h2 class="eyebrow">{{observe}}</h2><label class="check"><input id="show-gauge" type="checkbox" checked>{{gaugeToggle}}</label><label class="check"><input id="show-guess" type="checkbox" checked>{{guessToggle}}</label><p class="hint">{{observeHint}}</p></section>
+</aside>
+<div class="workspace">
+  <section class="scene" aria-label="{{sceneTitle}}"><div class="scene-top"><div><h2 class="scene-title">{{sceneTitle}}</h2><p class="scene-subtitle" id="mission-label">{{mission0}}</p></div><span class="status" id="tide-status"><i class="status-dot" aria-hidden="true"></i><span id="tide-status-text">{{ready}}</span></span></div>
+    <div class="module-stage"><canvas id="tide-canvas" role="img" aria-label="{{canvasLabel}}">{{noScript}}</canvas></div>
+    <div class="legend"><span><i class="line-key blue"></i>{{seaLegend}}</span><span><i class="line-key white"></i>{{highLegend}}</span><span><i class="line-key orange"></i>{{guessLegend}}</span><span><i class="line-key gray"></i>{{referenceLegend}}</span></div>
+    <div class="module-equation"><span>{{equationTitle}}</span><output id="tide-equation">h = A·cos(2π·t ÷ T)</output></div>
+    <div class="transport"><button id="play" class="primary" disabled>{{play}}</button><button id="pause" disabled>{{pause}}</button><button id="step" disabled>{{step}}</button><button id="reset" class="reset">{{reset}}</button></div>
+  </section>
+  <section class="metrics" aria-label="{{observe}}">
+    <div class="metric scalar"><h3 class="metric-label">{{time}}</h3><p class="metric-value"><span id="time-value">0.00</span> <small>h</small></p><p class="metric-equation">t</p></div>
+    <div class="metric scalar"><h3 class="metric-label">{{clockMetric}}</h3><p class="metric-value"><span id="clock-value">—</span></p><p class="metric-equation">t</p></div>
+    <div class="metric vector"><h3 class="metric-label">{{levelMetric}}</h3><p class="metric-value"><span id="level-value">—</span> <small>m</small></p><p class="metric-equation">h</p></div>
+    <div class="metric scalar"><h3 class="metric-label">{{highMetric}}</h3><p class="metric-value"><span id="high-value">—</span></p><p class="metric-equation">n</p></div>
+    <div class="metric scalar"><h3 class="metric-label">{{periodMetric}}</h3><p class="metric-value"><span id="period-value">—</span> <small>h</small></p><p class="metric-equation">T</p></div>
+  </section>
+  <div class="insight" id="insight"><span class="insight-icon" aria-hidden="true">↗</span><div><strong id="lesson-title">{{predictTitle}}</strong><p id="lesson-copy">{{predictCopy}}</p></div></div>
+  <section class="challenge"><div class="mission-heading"><h2 class="challenge-title">{{missionTitle}}</h2><div class="score-card"><span>{{score}}</span><strong id="mission-score">—</strong></div></div><p class="mission-copy">{{missionCopy}}</p><div class="badges"><span id="right-badge">✓ {{rightBadge}}</span><span id="first-badge">① {{firstBadge}}</span></div></section>
+</div>
+</div>
+<article class="learning-content"><section><h2>{{guideTitle}}</h2><ol><li>{{instruction1}}</li><li>{{instruction2}}</li><li>{{instruction3}}</li><li>{{instruction4}}</li></ol></section><section><h2>{{conceptTitle}}</h2><p>{{conceptCopy}}</p><aside class="worked-example"><h3>{{exampleTitle}}</h3><p>{{exampleCopy}}</p></aside></section><section><h2>{{modelTitle}}</h2><p>{{modelCopy}}</p></section></article>
+<p class="language-note" id="language-note">{{languageNote}}</p>
+</main>
+__FOOTER__
+<p class="sr-only" id="announcement" role="status" aria-live="polite"></p>
+</div>
+<script id="tide-model">
+class TideModel {
+  // The tide is a very long wave: the sea rises and falls about twice a day as the Moon's pull sweeps round the Earth. Here a
+  // high tide comes every period T = 12 h 25 min, and the water's height follows h = A·cos(2π·t ÷ T) about its middle level,
+  // starting at a high tide at 06:10. Time is in hours and runs fast: a day passes in about 4 s.
+  static tolerance = .02;
+  static T = 12+25/60; // h
+  static A = 2; // m
+  static start = 6+10/60; // clock hours of the first high tide
+  static missions = [
+    {key:'period',ask:'period',run:50,pace:12.5},
+    {key:'low',ask:'low',run:26,pace:6.5},
+    {key:'perDay',ask:'perDay',run:26,pace:6.5},
+    {key:'later',ask:'later',run:50,pace:12.5},
+    {key:'length',ask:'length',run:26,pace:6.5,v:200}
+  ];
+  static units = {period:'h',low:'h',perDay:'',later:'min',length:'km'};
+  static limits = {period:1e4,low:1e4,perDay:1e4,later:1e5,length:1e9};
+  constructor(index = 0){this.setMission(index);}
+  setMission(index){this.index=index;this.config=TideModel.missions[index];this.answer=null;this.attempts=0;this.reset();}
+  reset(){this.t=0;this.status='moving';}
+  valid(value){return Number.isFinite(value)&&value>0&&value<=TideModel.limits[this.config.ask];}
+  setAnswer(value){if(value!==null&&!this.valid(value))return false;this.answer=value;this.reset();return true;}
+  ready(){return this.answer!==null;}
+  clamp(t){return Math.min(Math.max(t,0),this.duration());}
+  level(t){return TideModel.A*Math.cos(2*Math.PI*this.clamp(t)/TideModel.T);}
+  highs(){const out=[];for(let k=0;k*TideModel.T<=this.duration()+1e-9;k++)out.push(k*TideModel.T);return out;}
+  highCount(t){return this.highs().filter(q=>q<=this.clamp(t)+1e-9).length;}
+  // Clock time (minutes since midnight, 0 to 1439) and the day number, 1 on the first day.
+  minutes(t){return Math.round((TideModel.start+this.clamp(t))*60)%1440;}
+  day(t){return Math.floor((TideModel.start+this.clamp(t))/24+1e-9)+1;}
+  duration(){return this.config.run;}
+  now(){return this.status==='done'?this.duration():this.t;}
+  advance(dt){
+    if(!Number.isFinite(dt)||dt<0)throw new Error('Invalid timestep');
+    if(this.status==='done'||!this.ready())return null;
+    // A run counts as an attempt as soon as it starts; it ends after 26 or 50 hours.
+    if(this.t===0)this.attempts++;
+    const T=this.duration();
+    if(this.t+dt>=T*(1-1e-12)){this.t=T;this.status='done';return {t:T,done:true};}
+    this.t+=dt;return null;
+  }
+  exact(){const c=this.config,T=TideModel.T;if(c.ask==='period')return T;if(c.ask==='low')return T/2;if(c.ask==='perDay')return 24/T;if(c.ask==='later')return (2*T-24)*60;return c.v*T*3600/1000;}
+  unit(){return TideModel.units[this.config.ask];}
+  evaluate(){
+    if(!this.ready())return {ok:false,slip:null,first:false,exact:this.exact()};
+    const c=this.config,a=this.answer,e=this.exact(),T=TideModel.T,tol=TideModel.tolerance,near=(p,q)=>Math.abs(p-q)<=tol*Math.abs(q)+1e-12;
+    // Every answer is right within 2%.
+    const ok=near(a,e);let slip=null;
+    if(!ok){
+      if(c.ask==='period'){const span=4*T;if(near(a,span/5))slip='extraTide';else if(near(a,span-48))slip='clockOnly';else if(near(a,12))slip='twelve';}
+      else if(c.ask==='low'){if(near(a,T/4))slip='quarter';else if(near(a,T))slip='fullPeriod';else if(near(a,6))slip='sixHours';}
+      else if(c.ask==='perDay'){if(near(a,2))slip='two';else if(near(a,1/T))slip='perHour';else if(near(a,T/24))slip='invertedDay';}
+      else if(c.ask==='later'){if(near(a,e/60))slip='hours';else if(near(a,e/2))slip='oneTide';else if(near(a,2*e))slip='doubled';}
+      else{if(near(a,c.v*T/1000))slip='hoursNotSeconds';else if(near(a,e*1000))slip='metres';}
+    }
+    return {ok,slip,first:ok&&this.attempts===1,exact:e};
+  }
+  score(){if(this.status!=='done')return 0;const e=this.evaluate();return (e.ok?100:0)+(e.first?50:0);}
+  snapshot(){return {index:this.index,answer:this.answer,attempts:this.attempts,t:this.t,status:this.status};}
+  restore(saved){
+    if(!Number.isInteger(saved?.index)||!TideModel.missions[saved.index])return false;
+    const probe=new TideModel(saved.index);
+    if(!probe.setAnswer(saved.answer??null)||!Number.isInteger(saved.attempts)||saved.attempts<0)return false;
+    if(!['moving','done'].includes(saved.status)||!Number.isFinite(saved.t)||saved.t<0||saved.t>probe.duration()*(1+1e-9))return false;
+    if(probe.answer===null&&(saved.t>0||saved.status==='done'))return false;
+    if((saved.status==='done'||saved.t>0)&&saved.attempts<1)return false;
+    this.setMission(saved.index);this.answer=probe.answer;this.attempts=saved.attempts;
+    this.status=saved.status;this.t=saved.status==='done'?this.duration():saved.t;return true;
+  }
+}
+globalThis.TideModel=TideModel;
+</script>
+<script id="tide-locale" type="application/json">__LOCALE__</script>
+<script id="tide-interface">
+(() => {
+  'use strict';
+  const $=id=>document.getElementById(id),locale=JSON.parse($('tide-locale').textContent);
+  const text=(key,values={})=>locale.strings[key].replace(/\{(\w+)\}/g,(_,name)=>values[name]??'{'+name+'}');
+  const number=(n,d=2)=>Math.abs(n)<.5*10**-d?(0).toLocaleString(locale.lang,{minimumFractionDigits:d,maximumFractionDigits:d}):n.toLocaleString(locale.lang,{minimumFractionDigits:d,maximumFractionDigits:d,useGrouping:false});
+  const plain=n=>n.toLocaleString(locale.lang,{maximumFractionDigits:3,useGrouping:false}).replace('-','−');
+  const model=new TideModel();
+  const canvas=$('tide-canvas'),ctx=canvas.getContext('2d');
+  const H=1/120,transferKey='phisicos-tide-language-transfer';
+  let running=false,previous=null,accumulator=0,lastUpdate=0,width=800,height=410;
+  const say=message=>{$('announcement').textContent=message;};
+  try{const data=JSON.parse(sessionStorage.getItem(transferKey)||'null');sessionStorage.removeItem(transferKey);if(data)model.restore(data.state);}catch{$('language-note').hidden=true;}
+  const pace=()=>model.config.pace??1;
+  const amount=v=>plain(Number(v.toPrecision(5)))+(model.unit()?' '+model.unit():'');
+  const slipKey=name=>'slip'+name[0].toUpperCase()+name.slice(1);
+  // The readings show only once a run starts, because they give the answer away.
+  const started=()=>model.status==='done'||model.t>0;
+  const symbols={period:'T =',low:'t =',perDay:'n =',later:'Δt =',length:'λ ='};
+  const hhmm=m=>String(Math.floor(m/60)).padStart(2,'0')+':'+String(m%60).padStart(2,'0');
+  // Givens: two high tides, or the period with the first high tide, or the period and the wave's speed.
+  function given(m){
+    if(m.ask==='period')return 'Δt = 49 h 40 min · 4 T';
+    if(m.ask==='low')return '06:10 · T = 12 h 25 min';
+    if(m.ask==='length')return 'v = '+plain(m.v)+' m/s · T = 12 h 25 min';
+    return 'T = 12 h 25 min';
+  }
+  function equation(){
+    const c=model.config,e=model.exact(),T=TideModel.T;
+    if(c.ask==='period')return 'T = Δt ÷ 4 = '+number(4*T)+' ÷ 4 = '+number(e)+' h';
+    if(c.ask==='low')return 't = T ÷ 2 = '+number(T)+' ÷ 2 = '+number(e)+' h';
+    if(c.ask==='perDay')return 'n = 24 h ÷ T = 24 ÷ '+number(T)+' = '+number(e);
+    if(c.ask==='later')return 'Δt = 2·T − 24 h = '+number(2*T)+' − 24 = '+number(e,0)+' min';
+    return 'λ = v·T = '+plain(c.v)+' × '+plain(T*3600)+' s = '+number(e,0)+' km';
+  }
+  function baseEquation(){return model.config.ask==='length'?'λ = v·T':'h = A·cos(2π·t ÷ T)';}
+  function metrics(t,begun){
+    $('clock-value').textContent=begun?hhmm(model.minutes(t)):'—';$('level-value').textContent=begun?number(model.level(t)):'—';
+    $('high-value').textContent=begun?plain(model.highCount(t)):'—';$('period-value').textContent=begun?number(TideModel.T):'—';
+  }
+  function values(){const T=TideModel.T,c=model.config;return {c:hhmm(Math.round((TideModel.start+T)*60)%1440),l:hhmm(Math.round((TideModel.start+T/2)*60)%1440),T:number(T),t:number(T/2),n:number(24/T),m:plain(Math.round((2*T-24)*60)),k:number(c.v?c.v*T*3.6:0,0)};}
+  function runningCopy(t){return text('tideCopy',{c:hhmm(model.minutes(t)),h:number(model.level(t))});}
+  // The time (h after 06:10) the guess points to, when it is a time or a rate.
+  function guessTimes(){const c=model.config,a=model.answer,T=TideModel.T;if(c.ask==='low')return [a];if(c.ask==='period'){const out=[];for(let q=a;q<=c.run+1e-9&&out.length<60;q+=a)out.push(q);return out;}if(c.ask==='perDay'){const out=[];for(let q=0;q<=c.run+1e-9;q+=24/a)out.push(q);return out.length<60?out:[];}if(c.ask==='later')return [24+a/60];return [];}
+  function scene(g){
+    const c=g.c,{line,fit,dot,box,label}=g,s=g.ready?g.t:0,x0=16,x1=g.area-16,ym=height*.5,ky=Math.min(34,height*.075),Y=h=>ym-h*ky,hour=(TideModel.start+s)%24,dayLight=Math.max(0,Math.sin(Math.PI*(hour-6)/12));
+    // Sky by the time of day, the sea against a harbour wall with a tide gauge, a moored boat, and a big clock.
+    const mix=(a,b,k)=>'rgb('+a.map((v,i)=>Math.round(v+(b[i]-v)*k)).join(',')+')';
+    box(x0,56,x1-x0,height-126,mix([12,22,36],[70,120,160],dayLight));
+    const lvl=g.begun?model.level(s):TideModel.A,wall=x1-90;
+    box(x0,Y(lvl),wall-x0,height-70-Y(lvl),'#173a50');line([{x:x0,y:Y(lvl)},{x:wall,y:Y(lvl)}],'#77b9ff',3);
+    box(wall,Y(3.2),90,height-70-Y(3.2),'#5c6b78');
+    if(g.option){const gx=wall-6;line([{x:gx,y:Y(-3)},{x:gx,y:Y(3)}],'#f2f8fc',2);for(let m=-3;m<=3;m++){line([{x:gx-8,y:Y(m)},{x:gx,y:Y(m)}],'#f2f8fc',1.5);label((m>0?'+':m<0?'−':'')+plain(Math.abs(m))+' m',gx-12,Y(m)+3,'#d1e3ed','right',9);}line([{x:x0,y:Y(0)},{x:wall,y:Y(0)}],'#9fb6c7',1,[4,4]);}
+    const bx=x0+(wall-x0)*.4;box(bx-30,Y(lvl)-10,60,10,'#d9cfb8');line([{x:bx,y:Y(lvl)-10},{x:bx,y:Y(lvl)-42}],'#d9cfb8',2);line([{x:bx,y:Y(lvl)-5},{x:wall,y:Y(1.5)}],'#9fb6c7',1);
+    fit(hhmm(model.minutes(s)),x0+12,96,'#f2f8fc',30,160);
+    if(model.day(s)>1)fit(text('dayTag',{n:plain(model.day(s))}),x0+14,116,'#d1e3ed',11,160);
+    // The tide's wavelength on a scale up to half way round the Earth.
+    if(c.ask==='length'){const sx0=x0+20,sx1=wall-36,sy=height-84,K=km=>sx0+Math.min(km,20000)/20000*(sx1-sx0);line([{x:sx0,y:sy},{x:sx1,y:sy}],'#8aa3b5',1);for(let k=0;k<=20000;k+=5000){line([{x:K(k),y:sy-4},{x:K(k),y:sy+4}],'#9fb6c7',1);label(plain(k)+' km',K(k),sy+16,'#9fb6c7','center',9);}fit(text('earthTag'),sx1,sy-8,'#d1e3ed',9,180,'right');
+      if(g.begun)line([{x:sx0,y:sy-12},{x:K(model.exact()),y:sy-12}],'#77b9ff',4);if(g.guess)line([{x:sx0,y:sy-20},{x:K(model.answer),y:sy-20}],'#efb958',3);}
+    fit(text('fastTag',{n:plain(c.pace*3600)}),16,height-24,'#9fb6c7',10,g.area*.6);
+  }
+  function panel(g){
+    const c=g.c,{line,fit,dot,label}=g,D=model.duration();
+    fit(text('tideGraph'),g.area+8,44,'#d1e3ed',10,width-g.area-16);
+    if(!g.begun){fit(text('panelHint'),g.area+8,70,'#9fb6c7',10,width-g.area-16);return;}
+    const px0=g.area+14,px1=width-14,py0=80,py1=height-80,ym=(py0+py1)/2,PX=q=>px0+q/D*(px1-px0),PY=h=>ym-h/TideModel.A*(py1-py0)*.42,upto=Math.min(g.t,D);
+    line([{x:px0,y:ym},{x:px1,y:ym}],'#8aa3b5',1);for(let q=0;q<=D;q+=6){line([{x:PX(q),y:py1},{x:PX(q),y:py1+4}],'#9fb6c7',1);label(plain(q),PX(q),py1+14,'#9fb6c7','center',8);}
+    const pts=[];for(let i=0;i<=300;i++){const q=upto*i/300;pts.push({x:PX(q),y:PY(model.level(q))});}line(pts,'#77b9ff',2);
+    for(const q of model.highs())if(q<=upto+1e-9)dot(PX(q),PY(TideModel.A),4,'#f2f8fc');
+    if(g.guess)for(const q of guessTimes())if(q<=D+1e-9)line([{x:PX(q),y:py0},{x:PX(q),y:py1}],'#efb958',1.5,[5,4]);
+    fit(text('hoursAxis'),px0,py1+28,'#9fb6c7',9,px1-px0);
+  }
+  function setRunning(value){
+    const done=model.status==='done',blocked=!model.ready();running=value&&!done&&!blocked;previous=null;accumulator=0;
+    $('play').disabled=running||done||blocked;$('pause').disabled=!running;$('step').disabled=running||done||blocked;
+    $('tide-status').classList.toggle('running',running);
+    $('tide-status-text').textContent=text(done?'done':running?'running':model.t?'paused':'ready');
+  }
+  function sync(){
+    const c=model.config;
+    TideModel.missions.forEach((m,i)=>{$('mission-'+i).setAttribute('aria-pressed',String(i===model.index));$('given-'+i).textContent=given(m);});
+    $('question').textContent=text('question'+model.index);$('answer-symbol').textContent=symbols[c.ask];$('answer-unit').textContent=model.unit();
+    $('answer').value=model.answer===null?'':String(model.answer);$('mission-label').textContent=text('mission'+model.index);
+  }
+  function update(){
+    const ready=model.ready(),done=model.status==='done',t=ready?model.now():0,e=model.evaluate(),begun=started();
+    $('time-value').textContent=number(t);metrics(t,begun);
+    $('tide-equation').textContent=begun?equation():baseEquation();
+    let key,copy;
+    if(done){
+      const base=text('result'+model.index,values());
+      if(e.ok){key='good';copy=base+' '+text('why'+model.index);}
+      else{key='miss';copy=base+' '+text('missCopy',{p:amount(model.answer)})+' '+(e.slip?text(slipKey(e.slip)):text('hint'+model.index));}
+    }
+    else if(!ready){key='predict';copy=text('predictCopy');}
+    else if(model.t>0){key='running';copy=runningCopy(t);}
+    else{key='ready';copy=text('readyCopy');}
+    $('lesson-title').textContent=text(key+'Title',{t:number(t),p:ready?amount(model.answer):''});$('lesson-copy').textContent=copy;
+    $('insight').classList.toggle('warning',key==='miss');
+    $('mission-score').textContent=done?String(model.score()):'—';
+    $('right-badge').classList.toggle('earned',done&&e.ok);$('first-badge').classList.toggle('earned',done&&e.first);
+  }
+  function refresh(){setRunning(false);update();draw();}
+  function simulate(dt){
+    const result=model.advance(dt);
+    if(result?.done){setRunning(false);update();say(text('doneAnnouncement')+' '+$('lesson-title').textContent);return true;}
+    return false;
+  }
+  $('answer').addEventListener('input',event=>{const raw=String(event.target.value).trim(),value=raw===''?null:Number(raw);if(!model.setAnswer(value))model.setAnswer(null);refresh();});
+  $('play').addEventListener('click',()=>{setRunning(true);update();say(text('startedAnnouncement'));});
+  $('pause').addEventListener('click',()=>{setRunning(false);update();say(text('pausedAnnouncement'));});
+  $('step').addEventListener('click',()=>{for(let i=0;i<12;i++)if(simulate(H*pace()))break;setRunning(false);update();draw();});
+  $('reset').addEventListener('click',()=>{model.reset();refresh();say(text('resetAnnouncement'));});
+  TideModel.missions.forEach((_,i)=>$('mission-'+i).addEventListener('click',()=>{model.setMission(i);sync();refresh();say(text('missionAnnouncement',{name:text('mission'+i)}));}));
+  for(const id of ['show-gauge','show-guess'])$(id).addEventListener('change',()=>{update();draw();});
+  function suspend(){if(running){setRunning(false);say(text('suspendedAnnouncement'));}update();draw();}
+  window.addEventListener('blur',suspend);document.addEventListener('visibilitychange',()=>{if(document.hidden)suspend();});
+  for(const link of document.querySelectorAll('.language-menu a'))link.addEventListener('click',()=>{setRunning(false);try{sessionStorage.setItem(transferKey,JSON.stringify({state:model.snapshot()}));}catch{}});
+  function resize(){const rect=canvas.getBoundingClientRect();if(rect.width<=0)return;width=rect.width;height=rect.height;const dpr=Math.min(window.devicePixelRatio||1,3);canvas.width=Math.round(width*dpr);canvas.height=Math.round(height*dpr);ctx.setTransform(dpr,0,0,dpr,0,0);draw();}
+  function draw(){
+    if(!ctx)return;
+    const c=model.config,ready=model.ready(),done=model.status==='done',t=ready?model.now():0,begun=started(),option=$('show-gauge').checked,guess=$('show-guess').checked&&ready;
+    ctx.clearRect(0,0,width,height);
+    const label=(str,px,py,color='#b8ccdb',align='left',font=12)=>{ctx.fillStyle=color;ctx.textAlign=align;ctx.font=font+'px -apple-system,BlinkMacSystemFont,sans-serif';ctx.fillText(str,px,py);};
+    const line=(points,color,w=1,dash=[])=>{ctx.beginPath();ctx.strokeStyle=color;ctx.lineWidth=w;ctx.setLineDash(dash);points.forEach((q,i)=>i?ctx.lineTo(q.x,q.y):ctx.moveTo(q.x,q.y));ctx.stroke();ctx.setLineDash([]);};
+    const fit=(str,px,py,color,size,room,align='left')=>{ctx.font=size+'px -apple-system,BlinkMacSystemFont,sans-serif';const w=ctx.measureText(str).width;label(str,px,py,color,align,w>room?Math.max(7,Math.floor(size*room/w)):size);};
+    const dot=(x,y,r,color)=>{ctx.fillStyle=color;ctx.beginPath();ctx.arc(x,y,Math.max(r,.5),0,Math.PI*2);ctx.fill();};
+    const box=(x,y,w,h,color)=>{ctx.fillStyle=color;ctx.fillRect(x,y,w,h);};
+    const wide=width>=560,area=wide?width*.64:width;
+    const env={c,ready,done,t,begun,option,guess,label,line,fit,dot,box,wide,area};
+    fit(text('viewTitle'),16,20,'#d1e3ed',12,area-28);
+    if(done){const ev=model.evaluate();fit(text(ev.ok?'rightBanner':'offBanner'),16,40,ev.ok?'#75efc7':'#efb958',width<430?12:14,area-28);}
+    scene(env);
+    label(text('scaleNote'),16,height-8,'#9fb6c7','left',10);
+    if(!wide)return;
+    panel(env);
+  }
+  function frame(now){if(previous===null)previous=now;const elapsed=Math.min(.1,(now-previous)/1000);previous=now;if(running){accumulator+=elapsed*pace();while(accumulator>=H&&running){accumulator-=H;simulate(H);}draw();}if(now-lastUpdate>=80){update();lastUpdate=now;}requestAnimationFrame(frame);}
+  window.addEventListener('resize',resize);if(typeof ResizeObserver!=='undefined')new ResizeObserver(resize).observe(canvas);
+  sync();setRunning(false);update();resize();requestAnimationFrame(frame);
+})();
+</script>
+</body>
+</html>

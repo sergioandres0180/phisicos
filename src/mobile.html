@@ -1,0 +1,286 @@
+<!doctype html>
+<html lang="en">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Hanging Mobile · Phisicos</title>
+<style>
+.mobile-page .answer-row .symbol{min-width:44px}.mobile-page .question{font-size:15px;font-weight:600;margin-top:4px}
+.mobile-page .line-key.white{background:#f2f8fc}.mobile-page .line-key.blue{background:#77b9ff}
+</style>
+</head>
+<body>
+<div class="shell module-page mobile-page">
+__HEADER__
+<main id="main-content">
+__BREADCRUMBS__
+
+<div class="masthead"><div><h1>{{title}}</h1><p class="intro">{{subtitle}}</p></div><div class="concept-tags"><span class="tag speed">{{tag1}}</span><span class="tag velocity">{{tag2}}</span></div></div>
+<noscript><p class="no-js">{{noScript}}</p></noscript>
+<div class="layout">
+<aside class="sidebar" aria-label="{{setup}}">
+  <section class="control-section"><h2 class="eyebrow">{{setup}}</h2><div class="mission-list" role="group" aria-label="{{setup}}">
+    <button id="mission-0" aria-pressed="true"><b>1 · {{mission0}}</b><span id="given-0">m</span></button>
+    <button id="mission-1" aria-pressed="false"><b>2 · {{mission1}}</b><span id="given-1">m</span></button>
+    <button id="mission-2" aria-pressed="false"><b>3 · {{mission2}}</b><span id="given-2">m</span></button>
+    <button id="mission-3" aria-pressed="false"><b>4 · {{mission3}}</b><span id="given-3">m</span></button>
+    <button id="mission-4" aria-pressed="false"><b>5 · {{mission4}}</b><span id="given-4">m</span></button>
+  </div><p class="hint">{{setupNote}}</p></section>
+  <section class="control-section"><h2 class="eyebrow">{{answerHeading}}</h2>
+    <p class="question" id="question">{{question0}}</p>
+    <p class="field-label"><label for="answer">{{answerLabel}}</label></p>
+    <div class="answer-row"><span class="symbol" id="answer-symbol">x_k =</span><input id="answer" type="number" inputmode="decimal" step="any" value=""><span class="unit" id="answer-unit">m</span></div>
+    <p class="hint">{{answerHint}}</p>
+  </section>
+  <section class="control-section"><h2 class="eyebrow">{{observe}}</h2><label class="check"><input id="show-vectors" type="checkbox" checked>{{vectors}}</label><label class="check"><input id="show-ruler" type="checkbox" checked>{{ruler}}</label><p class="hint">{{observeHint}}</p></section>
+</aside>
+<div class="workspace">
+  <section class="scene" aria-label="{{sceneTitle}}"><div class="scene-top"><div><h2 class="scene-title">{{sceneTitle}}</h2><p class="scene-subtitle" id="mission-label">{{mission0}}</p></div><span class="status" id="mobile-status"><i class="status-dot" aria-hidden="true"></i><span id="mobile-status-text">{{ready}}</span></span></div>
+    <div class="module-stage"><canvas id="mobile-canvas" role="img" aria-label="{{canvasLabel}}">{{noScript}}</canvas></div>
+    <div class="legend"><span><i class="line-key orange"></i>{{weightLegend}}</span><span><i class="line-key gray"></i>{{supportLegend}}</span><span><i class="line-key mint"></i>{{cmLegend}}</span><span><i class="line-key blue"></i>{{momentLegend}}</span></div>
+    <div class="module-equation"><span>{{equationTitle}}</span><output id="mobile-equation">x_cm = Σm·x ÷ Σm</output></div>
+    <div class="transport"><button id="play" class="primary" disabled>{{play}}</button><button id="pause" disabled>{{pause}}</button><button id="step" disabled>{{step}}</button><button id="reset" class="reset">{{reset}}</button></div>
+  </section>
+  <section class="metrics" aria-label="{{observe}}">
+    <div class="metric scalar"><h3 class="metric-label">{{time}}</h3><p class="metric-value"><span id="time-value">0.00</span> <small>s</small></p><p class="metric-equation">t</p></div>
+    <div class="metric scalar"><h3 class="metric-label">{{angle}}</h3><p class="metric-value"><span id="angle-value">0.0</span> <small>°</small></p><p class="metric-equation">θ</p></div>
+    <div class="metric scalar"><h3 class="metric-label">{{massMetric}}</h3><p class="metric-value"><span id="mass-value">—</span> <small>g</small></p><p class="metric-equation">Σm</p></div>
+    <div class="metric scalar"><h3 class="metric-label">{{sumMetric}}</h3><p class="metric-value"><span id="sum-value">—</span> <small>g·m</small></p><p class="metric-equation">Σm·x</p></div>
+    <div class="metric vector"><h3 class="metric-label">{{cmMetric}}</h3><p class="metric-value"><span id="cm-value">—</span> <small>m</small></p><p class="metric-equation">x_cm</p></div>
+  </section>
+  <div class="insight" id="insight"><span class="insight-icon" aria-hidden="true">↗</span><div><strong id="lesson-title">{{predictTitle}}</strong><p id="lesson-copy">{{predictCopy}}</p></div></div>
+  <section class="challenge"><div class="mission-heading"><h2 class="challenge-title">{{missionTitle}}</h2><div class="score-card"><span>{{score}}</span><strong id="mission-score">—</strong></div></div><p class="mission-copy">{{missionCopy}}</p><div class="badges"><span id="right-badge">✓ {{rightBadge}}</span><span id="first-badge">① {{firstBadge}}</span></div></section>
+</div>
+</div>
+<article class="learning-content"><section><h2>{{guideTitle}}</h2><ol><li>{{instruction1}}</li><li>{{instruction2}}</li><li>{{instruction3}}</li><li>{{instruction4}}</li></ol></section><section><h2>{{conceptTitle}}</h2><p>{{conceptCopy}}</p><aside class="worked-example"><h3>{{exampleTitle}}</h3><p>{{exampleCopy}}</p></aside></section><section><h2>{{modelTitle}}</h2><p>{{modelCopy}}</p></section></article>
+<p class="language-note" id="language-note">{{languageNote}}</p>
+</main>
+__FOOTER__
+<p class="sr-only" id="announcement" role="status" aria-live="polite"></p>
+</div>
+<script id="mobile-model">
+class MobileModel {
+  // A mobile is a set of light rods, each hanging from a string tied at its knot. Ornaments are point masses tied at
+  // positions x along a rod, measured from its left end; a balanced lower mobile pulls on the rod above as one mass, its
+  // total, at the point it hangs from. The top rod's centre of mass is x_cm = Σm·x ÷ Σm; the knot holds it level while
+  // x_cm is within 0.5 cm of the knot. Otherwise the rod turns from rest about the knot, θ = ½·α·t² with
+  // α = M·g·d ÷ I, and is drawn until it has tilted 20°, found exactly. Lower rods are always tied at their own centre of mass.
+  static g = 9.8; // m/s²
+  static knot = .005; // m the knot's grip allows
+  static hold = 2; // s a level mobile is watched
+  static maxTilt = 20*Math.PI/180;
+  static missions = [
+    {key:'pair',ask:'knot',rods:[{L:.6,knot:null,items:[{x:0,m:.3},{x:.6,m:.1}]}]},
+    {key:'three',ask:'knot',rods:[{L:.8,knot:null,items:[{x:0,m:.2},{x:.4,m:.1},{x:.8,m:.1}]}]},
+    {key:'two',ask:'knot',rods:[{L:.8,knot:null,items:[{x:0,m:.2},{x:.8,rod:1}]},{L:.4,knot:'auto',items:[{x:0,m:.1},{x:.4,m:.2}]}]},
+    {key:'mass',ask:'mass',rods:[{L:.6,knot:.2,items:[{x:0,m:.2},{x:.6,m:null}]}]},
+    {key:'deep',ask:'knot',rods:[{L:1,knot:null,items:[{x:0,m:.1},{x:1,rod:1}]},{L:.6,knot:'auto',items:[{x:0,m:.1},{x:.6,rod:2}]},{L:.4,knot:'auto',items:[{x:0,m:.1},{x:.4,m:.1}]}]}
+  ];
+  static units = {knot:'m',mass:'g'};
+  constructor(index = 0){this.setMission(index);}
+  setMission(index){this.index=index;this.config=MobileModel.missions[index];this.answer=null;this.attempts=0;this.reset();}
+  reset(){this.t=0;this.status='watching';}
+  // A knot anywhere along the top rod, or an ornament up to 5000 g.
+  valid(value){return Number.isFinite(value)&&(this.config.ask==='mass'?value>0&&value<=5000:value>=0&&value<=this.config.rods[0].L);}
+  setAnswer(value){if(value!==null&&!this.valid(value))return false;this.answer=value;this.reset();return true;}
+  ready(){return this.answer!==null;}
+  // Masses in kg: an ornament, the unknown ornament (answered in grams), or everything hanging from a lower rod.
+  itemMass(item){return item.rod!==undefined?this.rodMass(item.rod):item.m??(this.answer??0)/1000;}
+  rodMass(i){return this.config.rods[i].items.reduce((s,it)=>s+this.itemMass(it),0);}
+  rodMoment(i){return this.config.rods[i].items.reduce((s,it)=>s+this.itemMass(it)*it.x,0);}
+  rodCm(i){return this.rodMoment(i)/this.rodMass(i);}
+  knotOf(i){const k=this.config.rods[i].knot;return k==='auto'?this.rodCm(i):k??(this.config.ask==='knot'?this.answer:null)??this.config.rods[i].L/2;}
+  total(){return this.rodMass(0);}
+  moment(){return this.rodMoment(0);}
+  cm(){return this.rodCm(0);}
+  offset(){return this.cm()-this.knotOf(0);}
+  balanced(){return Math.abs(this.offset())<=MobileModel.knot+1e-9;}
+  inertia(){const k=this.knotOf(0);return this.config.rods[0].items.reduce((s,it)=>s+this.itemMass(it)*(it.x-k)**2,0)+1e-4;}
+  alpha(){return this.balanced()?0:MobileModel.g*this.total()*Math.abs(this.offset())/this.inertia();}
+  duration(){return this.balanced()?MobileModel.hold:Math.sqrt(2*MobileModel.maxTilt/this.alpha());}
+  clamp(t){return Math.min(Math.max(t,0),this.duration());}
+  // Tilt of the top rod, positive when its right end dips.
+  angle(t){const u=this.clamp(t);return Math.sign(this.offset())*.5*this.alpha()*u*u;}
+  sides(){const k=this.knotOf(0),g=MobileModel.g;let left=0,right=0;for(const it of this.config.rods[0].items){const d=it.x-k,m=this.itemMass(it);if(d<0)left-=m*g*d;else right+=m*g*d;}return {left,right};}
+  outcome(){return this.balanced()?'level':this.offset()<0?'left':'right';}
+  now(){return this.status==='done'?this.duration():this.t;}
+  advance(dt){
+    if(!Number.isFinite(dt)||dt<0)throw new Error('Invalid timestep');
+    if(this.status==='done'||!this.ready())return null;
+    // A run counts as an attempt as soon as it starts; the 20° tilt is found exactly.
+    if(this.t===0)this.attempts++;
+    const T=this.duration();
+    if(this.t+dt>=T*(1-1e-12)){this.t=T;this.status='done';return {t:T,done:true,outcome:this.outcome()};}
+    this.t+=dt;return null;
+  }
+  exact(){
+    const c=this.config,top=c.rods[0];
+    if(c.ask==='knot')return this.rodCm(0);
+    const known=top.items.filter(it=>it.m!==null),M=known.reduce((s,it)=>s+this.itemMass(it),0),Mx=known.reduce((s,it)=>s+this.itemMass(it)*it.x,0),u=top.items.find(it=>it.m===null);
+    return (top.knot*M-Mx)/(u.x-top.knot)*1000;
+  }
+  unit(){return MobileModel.units[this.config.ask];}
+  // Right means the top rod hangs level: its centre of mass is at the knot.
+  evaluate(){
+    if(!this.ready())return {ok:false,slip:null,first:false,exact:this.exact()};
+    const c=this.config,a=this.answer,near=(p,q)=>c.ask==='mass'?Math.abs(p-q)<=.03*q:Math.abs(p-q)<=.008,ok=this.balanced();
+    let slip=null;
+    if(!ok){
+      if(c.key==='pair'){if(near(a,.45))slip='inverted';else if(near(a,.3))slip='midpoint';}
+      else if(c.key==='three'){if(near(a,.4))slip='midpoint';else if(near(a,.08/.3))slip='missingMiddle';}
+      else if(c.key==='two'){if(near(a,.8*.1/.3)||near(a,.4))slip='lowerAsOne';}
+      else if(c.key==='mass'){if(near(a,200))slip='sameMass';else if(near(a,400))slip='invertedMass';}
+      else{if(near(a,.2/.3)||near(a,.5))slip='lowerAsOne';}
+    }
+    return {ok,slip,first:ok&&this.attempts===1,exact:this.exact()};
+  }
+  score(){if(this.status!=='done')return 0;const e=this.evaluate();return (e.ok?100:0)+(e.first?50:0);}
+  snapshot(){return {index:this.index,answer:this.answer,attempts:this.attempts,t:this.t,status:this.status};}
+  restore(saved){
+    if(!Number.isInteger(saved?.index)||!MobileModel.missions[saved.index])return false;
+    const probe=new MobileModel(saved.index);
+    if(!probe.setAnswer(saved.answer??null)||!Number.isInteger(saved.attempts)||saved.attempts<0)return false;
+    if(!['watching','done'].includes(saved.status)||!Number.isFinite(saved.t)||saved.t<0||saved.t>probe.duration()*(1+1e-9))return false;
+    if(probe.answer===null&&(saved.t>0||saved.status==='done'))return false;
+    if((saved.status==='done'||saved.t>0)&&saved.attempts<1)return false;
+    this.setMission(saved.index);this.answer=probe.answer;this.attempts=saved.attempts;
+    this.status=saved.status;this.t=saved.status==='done'?this.duration():saved.t;return true;
+  }
+}
+globalThis.MobileModel=MobileModel;
+</script>
+<script id="mobile-locale" type="application/json">__LOCALE__</script>
+<script id="mobile-interface">
+(() => {
+  'use strict';
+  const $=id=>document.getElementById(id),locale=JSON.parse($('mobile-locale').textContent);
+  const text=(key,values={})=>locale.strings[key].replace(/\{(\w+)\}/g,(_,name)=>values[name]??'{'+name+'}');
+  const number=(n,d=2)=>Math.abs(n)<.5*10**-d?(0).toLocaleString(locale.lang,{minimumFractionDigits:d,maximumFractionDigits:d}):n.toLocaleString(locale.lang,{minimumFractionDigits:d,maximumFractionDigits:d,useGrouping:false});
+  const plain=n=>n.toLocaleString(locale.lang,{maximumFractionDigits:2,useGrouping:false}).replace('-','−');
+  const model=new MobileModel();
+  const canvas=$('mobile-canvas'),ctx=canvas.getContext('2d');
+  const H=1/120,TAU=2*Math.PI,G=MobileModel.g,transferKey='phisicos-mobile-language-transfer';
+  let running=false,previous=null,accumulator=0,lastUpdate=0,width=800,height=410;
+  const say=message=>{$('announcement').textContent=message;};
+  try{const data=JSON.parse(sessionStorage.getItem(transferKey)||'null');sessionStorage.removeItem(transferKey);if(data)model.restore(data.state);}catch{$('language-note').hidden=true;}
+  const amount=v=>plain(Number(v.toPrecision(5)))+' '+model.unit();
+  const symbols={knot:'x_k =',mass:'m ='};
+  const grams=m=>plain(Math.round(m*1e4)/10)+' g';
+  const slipKey=name=>'slip'+name[0].toUpperCase()+name.slice(1);
+  function setRunning(value){
+    const done=model.status==='done',blocked=!model.ready();running=value&&!done&&!blocked;previous=null;accumulator=0;
+    $('play').disabled=running||done||blocked;$('pause').disabled=!running;$('step').disabled=running||done||blocked;
+    $('mobile-status').classList.toggle('running',running);
+    $('mobile-status-text').textContent=text(done?'done':running?'running':model.t?'paused':'ready');
+  }
+  // Givens: the top rod's length and its ornaments; a lower mobile is listed by its own ornaments in brackets.
+  function given(m){
+    const describe=i=>m.rods[i].items.map(it=>(it.rod!==undefined?'['+describe(it.rod)+']':it.m===null?'m = ?':grams(it.m))+' @ '+plain(it.x)+' m').join(', ');
+    return 'L = '+plain(m.rods[0].L)+' m · '+describe(0)+' · x_k = '+(m.rods[0].knot===null?'?':plain(m.rods[0].knot)+' m');
+  }
+  function sync(){
+    const c=model.config;
+    MobileModel.missions.forEach((m,i)=>{$('mission-'+i).setAttribute('aria-pressed',String(i===model.index));$('given-'+i).textContent=given(m);});
+    $('question').textContent=text('question'+model.index);$('answer-symbol').textContent=symbols[c.ask];$('answer-unit').textContent=model.unit();
+    $('answer').value=model.answer===null?'':String(model.answer);$('mission-label').textContent=text('mission'+model.index);
+  }
+  // The total hanging mass, Σm·x, and the centre of mass show only once a run starts, because they give the answer away.
+  const started=()=>model.status==='done'||model.t>0;
+  function update(){
+    const ready=model.ready(),done=model.status==='done',t=ready?model.now():0,e=model.evaluate(),begun=started(),cm=model.cm(),M=model.total()*1000,Mx=model.moment()*1000;
+    $('time-value').textContent=number(t);$('angle-value').textContent=number(Math.abs(model.angle(t))*180/Math.PI,1);
+    $('mass-value').textContent=begun?number(M,0):'—';$('sum-value').textContent=begun?number(Mx,1):'—';$('cm-value').textContent=begun?number(cm,3):'—';
+    $('mobile-equation').textContent=begun?'x_cm = Σm·x ÷ Σm = '+number(Mx,1)+' ÷ '+number(M,0)+' = '+number(cm,3)+' m':'x_cm = Σm·x ÷ Σm';
+    let key,copy;
+    const values={cm:number(cm,3),h:number(model.knotOf(0),3)};
+    if(done){
+      const base=text(model.outcome()+'Copy',values);
+      if(e.ok){key='good';copy=base+' '+text('why'+model.index);}
+      else{key='miss';copy=base+' '+text('missCopy',{p:amount(model.answer)})+' '+(e.slip?text(slipKey(e.slip)):text('hint'+model.index));}
+    }
+    else if(!ready){key='predict';copy=text('predictCopy');}
+    else if(model.t>0){key='running';copy=text(model.balanced()?'restingCopy':'tippingCopy');}
+    else{key='ready';copy=text('readyCopy');}
+    $('lesson-title').textContent=text(key+'Title',{t:number(t),p:ready?amount(model.answer):''});$('lesson-copy').textContent=copy;
+    $('insight').classList.toggle('warning',key==='miss');
+    $('mission-score').textContent=done?String(model.score()):'—';
+    $('right-badge').classList.toggle('earned',done&&e.ok);$('first-badge').classList.toggle('earned',done&&e.first);
+  }
+  function refresh(){setRunning(false);update();draw();}
+  function simulate(dt){
+    const result=model.advance(dt);
+    if(result?.done){setRunning(false);update();say(text('doneAnnouncement')+' '+$('lesson-title').textContent);return true;}
+    return false;
+  }
+  $('answer').addEventListener('input',event=>{const raw=String(event.target.value).trim(),value=raw===''?null:Number(raw);if(!model.setAnswer(value))model.setAnswer(null);refresh();});
+  $('play').addEventListener('click',()=>{setRunning(true);update();say(text('startedAnnouncement'));});
+  $('pause').addEventListener('click',()=>{setRunning(false);update();say(text('pausedAnnouncement'));});
+  $('step').addEventListener('click',()=>{for(let i=0;i<12;i++)if(simulate(H))break;setRunning(false);update();draw();});
+  $('reset').addEventListener('click',()=>{model.reset();refresh();say(text('resetAnnouncement'));});
+  MobileModel.missions.forEach((_,i)=>$('mission-'+i).addEventListener('click',()=>{model.setMission(i);sync();refresh();say(text('missionAnnouncement',{name:text('mission'+i)}));}));
+  for(const id of ['show-vectors','show-ruler'])$(id).addEventListener('change',()=>{update();draw();});
+  function suspend(){if(running){setRunning(false);say(text('suspendedAnnouncement'));}update();draw();}
+  window.addEventListener('blur',suspend);document.addEventListener('visibilitychange',()=>{if(document.hidden)suspend();});
+  for(const link of document.querySelectorAll('.language-menu a'))link.addEventListener('click',()=>{setRunning(false);try{sessionStorage.setItem(transferKey,JSON.stringify({state:model.snapshot()}));}catch{}});
+  function resize(){const rect=canvas.getBoundingClientRect();if(rect.width<=0)return;width=rect.width;height=rect.height;const dpr=Math.min(window.devicePixelRatio||1,3);canvas.width=Math.round(width*dpr);canvas.height=Math.round(height*dpr);ctx.setTransform(dpr,0,0,dpr,0,0);draw();}
+  // World layout in metres, x right and y down from the ceiling: the top rod's knot hangs 0.25 m below the ceiling,
+  // ornaments 0.12 m below their tie points, and each lower rod 0.3 m below the rod it hangs from.
+  const DROP=.12,LEVEL=.3,TOP=.25;
+  function layout(th){
+    const c=model.config,rods=[],objects=[],strings=[];
+    const place=(i,kx,ky,turn)=>{
+      const r=c.rods[i],k=model.knotOf(i),P=x=>({x:kx+(x-k)*Math.cos(turn),y:ky+(x-k)*Math.sin(turn)});
+      rods.push({i,a:P(0),b:P(r.L),P,k});
+      for(const it of r.items){const q=P(it.x);if(it.rod!==undefined){strings.push([q,{x:q.x,y:q.y+LEVEL}]);place(it.rod,q.x,q.y+LEVEL,0);}else{strings.push([q,{x:q.x,y:q.y+DROP}]);objects.push({x:q.x,y:q.y+DROP,m:model.itemMass(it),unknown:it.m===null});}}
+    };
+    place(0,0,TOP,th);return {rods,objects,strings};
+  }
+  // Weights at 20 px per newton, up to 80 px.
+  const FS=20,CAP=80;
+  function draw(){
+    if(!ctx)return;
+    const c=model.config,ready=model.ready(),done=model.status==='done',t=ready?model.now():0,begun=started(),th=model.angle(t),vectors=$('show-vectors').checked;
+    ctx.clearRect(0,0,width,height);
+    const label=(str,px,py,color='#b8ccdb',align='left',font=12)=>{ctx.fillStyle=color;ctx.textAlign=align;ctx.font=font+'px -apple-system,BlinkMacSystemFont,sans-serif';ctx.fillText(str,px,py);};
+    const line=(points,color,w=1,dash=[])=>{ctx.beginPath();ctx.strokeStyle=color;ctx.lineWidth=w;ctx.setLineDash(dash);points.forEach((q,i)=>i?ctx.lineTo(q.x,q.y):ctx.moveTo(q.x,q.y));ctx.stroke();ctx.setLineDash([]);};
+    const arrow=(from,dx,dy,color,w=2.5)=>{const len=Math.hypot(dx,dy);if(len<4)return;const ux=dx/len,uy=dy/len,to={x:from.x+dx,y:from.y+dy};line([from,to],color,w);line([{x:to.x-ux*9-uy*5,y:to.y-uy*9+ux*5},to,{x:to.x-ux*9+uy*5,y:to.y-uy*9-ux*5}],color,2);};
+    const fit=(str,px,py,color,size,room,align='left')=>{ctx.font=size+'px -apple-system,BlinkMacSystemFont,sans-serif';const w=ctx.measureText(str).width;label(str,px,py,color,align,w>room?Math.max(7,Math.floor(size*room/w)):size);};
+    const wide=width>=560,area=wide?width*.64:width;
+    fit(text('viewTitle'),16,20,'#d1e3ed',12,area-28);label(text('arrowScale'),16,height-8,'#9fb6c7','left',10);
+    // The scale fits the level mobile in the scene; the top rod's knot hangs from the middle of the ceiling.
+    const flat=layout(0),xs=[...flat.rods.flatMap(r=>[r.a.x,r.b.x]),...flat.objects.map(o=>o.x)],ys=flat.objects.map(o=>o.y);
+    const minX=Math.min(...xs)-.08,maxX=Math.max(...xs)+.08,depth=Math.max(...ys)+.12,S=Math.min((area-40)/(maxX-minX),(height-110)/depth,520);
+    const cx=16+(area-32)/2-(minX+maxX)/2*S,top=34,W=q=>({x:cx+q.x*S,y:top+q.y*S});
+    line([{x:16,y:top},{x:area-16,y:top}],'#5b7488',3);
+    const lay=layout(th),known=ready||c.ask!=='knot';
+    line([W({x:0,y:0}),W({x:0,y:TOP})],'#8aa3b5',1.5,known?[]:[4,4]);
+    if(!known)label('?',W({x:0,y:TOP}).x+8,W({x:0,y:TOP}).y-6,'#efb958','left',14);
+    for(const s of lay.strings)line([W(s[0]),W(s[1])],'#8aa3b5',1.2);
+    for(const r of lay.rods)line([W(r.a),W(r.b)],'#c99a6e',5);
+    // Ruler along the top rod: ticks every 5 cm, labels every 10 cm from its left end.
+    const r0=lay.rods[0];
+    if($('show-ruler').checked)for(let i=0;i<=Math.round(c.rods[0].L*20);i++){const x=i/20,q=W(r0.P(x)),n=Math.sin(th),m=Math.cos(th),d=i%2?6:10;line([q,{x:q.x-n*d,y:q.y+m*d}],'#9fb6c7',1);if(i%2===0&&i%4===0||c.rods[0].L<=.6&&i%2===0)label(plain(x)+' m',q.x-n*20,q.y+m*20+3,'#9fb6c7','center',9);}
+    for(const o of lay.objects){
+      const q=W(o),rad=6+10*Math.sqrt(o.m/.3);if(o.unknown&&!ready)continue;
+      ctx.fillStyle=o.unknown?'#efb958':'#efe6d0';ctx.beginPath();ctx.arc(q.x,q.y+rad,rad,0,TAU);ctx.fill();
+      label(grams(o.m),q.x,q.y+2*rad+13,o.unknown?'#efb958':'#d1e3ed','center',10);
+      if(vectors)arrow({x:q.x,y:q.y+rad},0,Math.min(o.m*G*FS,CAP),'#efb958',1.8);
+    }
+    // The top rod's centre of mass and the knot.
+    const kq=W(r0.P(r0.k));if(known){ctx.fillStyle='#d1e3ed';ctx.beginPath();ctx.arc(kq.x,kq.y,4,0,TAU);ctx.fill();label(text('knotLabel'),kq.x+8,kq.y-8,'#9fb6c7','left',10);}
+    if(begun){const q=W(r0.P(model.cm()));ctx.strokeStyle='#75efc7';ctx.lineWidth=2;ctx.beginPath();ctx.arc(q.x,q.y,7,0,TAU);ctx.stroke();line([{x:q.x-7,y:q.y},{x:q.x+7,y:q.y}],'#75efc7',1.5);line([q,{x:q.x,y:height-30}],'#75efc7',1,[4,4]);label('x_cm',q.x+10,q.y+18,'#75efc7','left',10);}
+    if(done){const e=model.evaluate();fit((e.ok?text('rightBanner')+' · ':'')+text({level:'levelBanner',left:'leftDownBanner',right:'rightDownBanner'}[model.outcome()]),16,height-26,e.ok?'#75efc7':'#efb958',width<430?12:14,area-28);}
+    if(!wide)return;
+    // Moment bars about the knot: the masses on the left against the masses on the right, once a run starts.
+    const bx0=area+20,bx1=width-16,btop=70,bbot=height-58,bw=(bx1-bx0)/2-10;
+    fit(text('momentTitle'),area+8,44,'#d1e3ed',10,width-area-16);
+    if(!begun){fit(text('momentHint'),area+8,70,'#9fb6c7',10,width-area-16);return;}
+    const {left,right}=model.sides(),topV=Math.max(left,right,1e-9)*1.15,BY=v=>bbot-v/topV*(bbot-btop);
+    ctx.fillStyle='#77b9ff';ctx.fillRect(bx0,BY(left),bw,bbot-BY(left));ctx.fillRect(bx0+bw+20,BY(right),bw,bbot-BY(right));
+    fit(number(left,3),bx0+bw/2,BY(left)-6,'#77b9ff',10,bw+16,'center');fit(number(right,3),bx0+bw*1.5+20,BY(right)-6,'#77b9ff',10,bw+16,'center');
+    fit(text('leftShort'),bx0+bw/2,bbot+14,'#9fb6c7',9,bw+16,'center');fit(text('rightShort'),bx0+bw*1.5+20,bbot+14,'#9fb6c7',9,bw+16,'center');
+  }
+  function frame(now){if(previous===null)previous=now;const elapsed=Math.min(.1,(now-previous)/1000);previous=now;if(running){accumulator+=elapsed;while(accumulator>=H&&running){accumulator-=H;simulate(H);}draw();}if(now-lastUpdate>=80){update();lastUpdate=now;}requestAnimationFrame(frame);}
+  window.addEventListener('resize',resize);if(typeof ResizeObserver!=='undefined')new ResizeObserver(resize).observe(canvas);
+  sync();setRunning(false);update();resize();requestAnimationFrame(frame);
+})();
+</script>
+</body>
+</html>

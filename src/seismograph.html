@@ -1,0 +1,273 @@
+<!doctype html>
+<html lang="en">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Seismograph · Phisicos</title>
+<style>
+.seismograph-page .answer-row .symbol{min-width:56px}.seismograph-page .question{font-size:15px;font-weight:600;margin-top:4px}
+.seismograph-page .line-key.white{background:#f2f8fc}.seismograph-page .line-key.blue{background:#77b9ff}.seismograph-page .line-key.red{background:#ff7b6b}
+</style>
+</head>
+<body>
+<div class="shell module-page seismograph-page">
+__HEADER__
+<main id="main-content">
+__BREADCRUMBS__
+
+<div class="masthead"><div><h1>{{title}}</h1><p class="intro">{{subtitle}}</p></div><div class="concept-tags"><span class="tag speed">{{tag1}}</span><span class="tag velocity">{{tag2}}</span></div></div>
+<noscript><p class="no-js">{{noScript}}</p></noscript>
+<div class="layout">
+<aside class="sidebar" aria-label="{{setup}}">
+  <section class="control-section"><h2 class="eyebrow">{{setup}}</h2><div class="mission-list" role="group" aria-label="{{setup}}">
+    <button id="mission-0" aria-pressed="true"><b>1 · {{mission0}}</b><span id="given-0">u</span></button>
+    <button id="mission-1" aria-pressed="false"><b>2 · {{mission1}}</b><span id="given-1">u</span></button>
+    <button id="mission-2" aria-pressed="false"><b>3 · {{mission2}}</b><span id="given-2">a</span></button>
+    <button id="mission-3" aria-pressed="false"><b>4 · {{mission3}}</b><span id="given-3">f</span></button>
+    <button id="mission-4" aria-pressed="false"><b>5 · {{mission4}}</b><span id="given-4">f</span></button>
+  </div><p class="hint">{{setupNote}}</p></section>
+  <section class="control-section"><h2 class="eyebrow">{{answerHeading}}</h2>
+    <p class="question" id="question">{{question0}}</p>
+    <p class="field-label"><label for="answer">{{answerLabel}}</label></p>
+    <div class="answer-row"><span class="symbol" id="answer-symbol">T =</span><input id="answer" type="number" inputmode="decimal" step="any" value=""><span class="unit" id="answer-unit">s</span></div>
+    <p class="hint">{{answerHint}}</p>
+  </section>
+  <section class="control-section"><h2 class="eyebrow">{{observe}}</h2><label class="check"><input id="show-grid" type="checkbox" checked>{{gridToggle}}</label><label class="check"><input id="show-guess" type="checkbox" checked>{{guessToggle}}</label><p class="hint">{{observeHint}}</p></section>
+</aside>
+<div class="workspace">
+  <section class="scene" aria-label="{{sceneTitle}}"><div class="scene-top"><div><h2 class="scene-title">{{sceneTitle}}</h2><p class="scene-subtitle" id="mission-label">{{mission0}}</p></div><span class="status" id="seismograph-status"><i class="status-dot" aria-hidden="true"></i><span id="seismograph-status-text">{{ready}}</span></span></div>
+    <div class="module-stage"><canvas id="seismograph-canvas" role="img" aria-label="{{canvasLabel}}">{{noScript}}</canvas></div>
+    <div class="legend"><span><i class="line-key blue"></i>{{traceLegend}}</span><span><i class="line-key red"></i>{{penLegend}}</span><span><i class="line-key orange"></i>{{guessLegend}}</span><span><i class="line-key gray"></i>{{gridLegend}}</span></div>
+    <div class="module-equation"><span>{{equationTitle}}</span><output id="seismograph-equation">T = d ÷ u</output></div>
+    <div class="transport"><button id="play" class="primary" disabled>{{play}}</button><button id="pause" disabled>{{pause}}</button><button id="step" disabled>{{step}}</button><button id="reset" class="reset">{{reset}}</button></div>
+  </section>
+  <section class="metrics" aria-label="{{observe}}">
+    <div class="metric scalar"><h3 class="metric-label">{{time}}</h3><p class="metric-value"><span id="time-value">0.00</span> <small>s</small></p><p class="metric-equation">t</p></div>
+    <div class="metric vector"><h3 class="metric-label">{{penMetric}}</h3><p class="metric-value"><span id="pen-value">—</span> <small>mm</small></p><p class="metric-equation">y = a·sin(2π·f·t)</p></div>
+    <div class="metric vector"><h3 class="metric-label">{{groundMetric}}</h3><p class="metric-value"><span id="ground-value">—</span> <small>mm</small></p><p class="metric-equation">x = y ÷ M</p></div>
+    <div class="metric scalar"><h3 class="metric-label">{{periodMetric}}</h3><p class="metric-value"><span id="period-value">—</span> <small>s</small></p><p class="metric-equation">T = d ÷ u</p></div>
+    <div class="metric scalar"><h3 class="metric-label">{{frequencyMetric}}</h3><p class="metric-value"><span id="frequency-value">—</span> <small>Hz</small></p><p class="metric-equation">f = 1 ÷ T</p></div>
+  </section>
+  <div class="insight" id="insight"><span class="insight-icon" aria-hidden="true">↗</span><div><strong id="lesson-title">{{predictTitle}}</strong><p id="lesson-copy">{{predictCopy}}</p></div></div>
+  <section class="challenge"><div class="mission-heading"><h2 class="challenge-title">{{missionTitle}}</h2><div class="score-card"><span>{{score}}</span><strong id="mission-score">—</strong></div></div><p class="mission-copy">{{missionCopy}}</p><div class="badges"><span id="right-badge">✓ {{rightBadge}}</span><span id="first-badge">① {{firstBadge}}</span></div></section>
+</div>
+</div>
+<article class="learning-content"><section><h2>{{guideTitle}}</h2><ol><li>{{instruction1}}</li><li>{{instruction2}}</li><li>{{instruction3}}</li><li>{{instruction4}}</li></ol></section><section><h2>{{conceptTitle}}</h2><p>{{conceptCopy}}</p><aside class="worked-example"><h3>{{exampleTitle}}</h3><p>{{exampleCopy}}</p></aside></section><section><h2>{{modelTitle}}</h2><p>{{modelCopy}}</p></section></article>
+<p class="language-note" id="language-note">{{languageNote}}</p>
+</main>
+__FOOTER__
+<p class="sr-only" id="announcement" role="status" aria-live="polite"></p>
+</div>
+<script id="seismograph-model">
+class SeismographModel {
+  // The ground shakes as x = (a ÷ M)·sin(2π·f·t); the pen magnifies it M times and writes y = a·sin(2π·f·t) on paper moving
+  // at u mm/s. A point written t seconds ago is u·t to the left of the pen, so peaks one period apart sit d = u·T = u ÷ f
+  // apart on the paper: T = d ÷ u and f = u ÷ d. The swing of the trace each way, a, is the amplitude, magnified.
+  static tolerance = .02;
+  static missions = [
+    {key:'spacing',ask:'period',u:10,d:25,a:30,M:1000,run:10},
+    {key:'frequency',ask:'frequency',u:20,d:40,a:30,M:1000,run:8},
+    {key:'ground',ask:'ground',u:10,d:20,a:30,M:1000,run:6},
+    {key:'faster',ask:'spacing',u:10,f:2,a:15,M:1000,run:3},
+    {key:'paper',ask:'paper',f:4,d:5,a:15,M:1000,run:2}
+  ];
+  static units = {period:'s',frequency:'Hz',ground:'mm',spacing:'mm',paper:'mm/s'};
+  static limits = {period:1e3,frequency:1e3,ground:1e5,spacing:1e4,paper:1e3};
+  constructor(index = 0){this.setMission(index);}
+  setMission(index){this.index=index;this.config=SeismographModel.missions[index];this.answer=null;this.attempts=0;this.reset();}
+  reset(){this.t=0;this.status='moving';}
+  valid(value){return Number.isFinite(value)&&value>0&&value<=SeismographModel.limits[this.config.ask];}
+  setAnswer(value){if(value!==null&&!this.valid(value))return false;this.answer=value;this.reset();return true;}
+  ready(){return this.answer!==null;}
+  frequency(){const c=this.config;return c.f??c.u/c.d;}
+  period(){return 1/this.frequency();}
+  // The paper's speed (mm/s): yours when it is asked (the right one stands in before you answer), otherwise the given one.
+  speed(){const c=this.config;return c.ask==='paper'?(this.answer??c.f*c.d):c.u;}
+  spacing(){return this.speed()/this.frequency();}
+  clamp(t){return Math.min(Math.max(t,0),this.duration());}
+  pen(t){return this.config.a*Math.sin(2*Math.PI*this.frequency()*this.clamp(t));}
+  ground(t){return this.pen(t)/this.config.M;}
+  // Peaks written so far: at a quarter period, then once every period.
+  peaks(t){const f=this.frequency(),out=[];for(let k=0;(k+.25)/f<=this.clamp(t)+1e-9&&k<1000;k++)out.push((k+.25)/f);return out;}
+  duration(){return this.config.run;}
+  now(){return this.status==='done'?this.duration():this.t;}
+  advance(dt){
+    if(!Number.isFinite(dt)||dt<0)throw new Error('Invalid timestep');
+    if(this.status==='done'||!this.ready())return null;
+    // A run counts as an attempt as soon as it starts; it ends exactly after its time.
+    if(this.t===0)this.attempts++;
+    const T=this.duration();
+    if(this.t+dt>=T*(1-1e-12)){this.t=T;this.status='done';return {t:T,done:true};}
+    this.t+=dt;return null;
+  }
+  exact(){
+    const c=this.config;
+    if(c.ask==='period')return c.d/c.u;
+    if(c.ask==='frequency')return c.u/c.d;
+    if(c.ask==='ground')return c.a/c.M;
+    if(c.ask==='spacing')return c.u/c.f;
+    return c.f*c.d;
+  }
+  unit(){return SeismographModel.units[this.config.ask];}
+  evaluate(){
+    if(!this.ready())return {ok:false,slip:null,first:false,exact:this.exact()};
+    const c=this.config,a=this.answer,e=this.exact(),tol=SeismographModel.tolerance,near=(p,q)=>Math.abs(p-q)<=tol*Math.abs(q)+1e-12;
+    // Every answer is right within 2%.
+    const ok=near(a,e);let slip=null;
+    if(!ok){
+      if(c.ask==='period'){if(near(a,c.u*c.d))slip='multiplied';else if(near(a,c.u/c.d))slip='frequency';else if(near(a,c.d))slip='distance';}
+      else if(c.ask==='frequency'){if(near(a,c.d/c.u))slip='period';else if(near(a,c.u*c.d))slip='productFrequency';else if(near(a,1/c.d))slip='noSpeed';}
+      else if(c.ask==='ground'){if(near(a,2*e))slip='peakToPeak';else if(near(a,c.a))slip='noMagnification';else if(near(a,c.a*c.M))slip='magnified';}
+      else if(c.ask==='spacing'){if(near(a,c.u*c.f))slip='timesFrequency';else if(near(a,c.f/c.u))slip='inverted';else if(near(a,1/c.f))slip='periodOnly';}
+      else{if(near(a,c.d/c.f))slip='divided';else if(near(a,c.f/c.d))slip='invertedPaper';}
+    }
+    return {ok,slip,first:ok&&this.attempts===1,exact:e};
+  }
+  score(){if(this.status!=='done')return 0;const e=this.evaluate();return (e.ok?100:0)+(e.first?50:0);}
+  snapshot(){return {index:this.index,answer:this.answer,attempts:this.attempts,t:this.t,status:this.status};}
+  restore(saved){
+    if(!Number.isInteger(saved?.index)||!SeismographModel.missions[saved.index])return false;
+    const probe=new SeismographModel(saved.index);
+    if(!probe.setAnswer(saved.answer??null)||!Number.isInteger(saved.attempts)||saved.attempts<0)return false;
+    if(!['moving','done'].includes(saved.status)||!Number.isFinite(saved.t)||saved.t<0||saved.t>probe.duration()*(1+1e-9))return false;
+    if(probe.answer===null&&(saved.t>0||saved.status==='done'))return false;
+    if((saved.status==='done'||saved.t>0)&&saved.attempts<1)return false;
+    this.setMission(saved.index);this.answer=probe.answer;this.attempts=saved.attempts;
+    this.status=saved.status;this.t=saved.status==='done'?this.duration():saved.t;return true;
+  }
+}
+globalThis.SeismographModel=SeismographModel;
+</script>
+<script id="seismograph-locale" type="application/json">__LOCALE__</script>
+<script id="seismograph-interface">
+(() => {
+  'use strict';
+  const $=id=>document.getElementById(id),locale=JSON.parse($('seismograph-locale').textContent);
+  const text=(key,values={})=>locale.strings[key].replace(/\{(\w+)\}/g,(_,name)=>values[name]??'{'+name+'}');
+  const number=(n,d=2)=>Math.abs(n)<.5*10**-d?(0).toLocaleString(locale.lang,{minimumFractionDigits:d,maximumFractionDigits:d}):n.toLocaleString(locale.lang,{minimumFractionDigits:d,maximumFractionDigits:d,useGrouping:false});
+  const plain=n=>n.toLocaleString(locale.lang,{maximumFractionDigits:3,useGrouping:false}).replace('-','−');
+  const model=new SeismographModel();
+  const canvas=$('seismograph-canvas'),ctx=canvas.getContext('2d');
+  const H=1/120,transferKey='phisicos-seismograph-language-transfer';
+  let running=false,previous=null,accumulator=0,lastUpdate=0,width=800,height=410;
+  const say=message=>{$('announcement').textContent=message;};
+  try{const data=JSON.parse(sessionStorage.getItem(transferKey)||'null');sessionStorage.removeItem(transferKey);if(data)model.restore(data.state);}catch{$('language-note').hidden=true;}
+  const amount=v=>plain(Number(v.toPrecision(5)))+' '+model.unit();
+  const symbols={period:'T =',frequency:'f =',ground:'x =',spacing:'d =',paper:'u ='};
+  const slipKey=name=>'slip'+name[0].toUpperCase()+name.slice(1);
+  const VIEW=120; // mm of paper in view
+  function setRunning(value){
+    const done=model.status==='done',blocked=!model.ready();running=value&&!done&&!blocked;previous=null;accumulator=0;
+    $('play').disabled=running||done||blocked;$('pause').disabled=!running;$('step').disabled=running||done||blocked;
+    $('seismograph-status').classList.toggle('running',running);
+    $('seismograph-status-text').textContent=text(done?'done':running?'running':model.t?'paused':'ready');
+  }
+  // Givens: the paper speed and the peak spacing, the trace's swing and the magnification, or the shaking's frequency.
+  function given(m){
+    if(m.ask==='ground')return 'a = '+plain(m.a)+' mm · M = '+plain(m.M)+'×';
+    if(m.ask==='spacing')return 'f = '+plain(m.f)+' Hz · u = '+plain(m.u)+' mm/s';
+    if(m.ask==='paper')return 'f = '+plain(m.f)+' Hz · d = '+plain(m.d)+' mm';
+    return 'u = '+plain(m.u)+' mm/s · d = '+plain(m.d)+' mm';
+  }
+  function sync(){
+    const c=model.config;
+    SeismographModel.missions.forEach((m,i)=>{$('mission-'+i).setAttribute('aria-pressed',String(i===model.index));$('given-'+i).textContent=given(m);});
+    $('question').textContent=text('question'+model.index);$('answer-symbol').textContent=symbols[c.ask];$('answer-unit').textContent=model.unit();
+    $('answer').value=model.answer===null?'':String(model.answer);$('mission-label').textContent=text('mission'+model.index);
+  }
+  // The readings show only once a run starts, because they give the answer away.
+  const started=()=>model.status==='done'||model.t>0;
+  function equation(){
+    const c=model.config;
+    if(c.ask==='period')return 'T = d ÷ u = '+plain(c.d)+' ÷ '+plain(c.u)+' = '+number(model.exact())+' s';
+    if(c.ask==='frequency')return 'f = u ÷ d = '+plain(c.u)+' ÷ '+plain(c.d)+' = '+number(model.exact())+' Hz';
+    if(c.ask==='ground')return 'x = a ÷ M = '+plain(c.a)+' ÷ '+plain(c.M)+' = '+number(model.exact(),3)+' mm';
+    return 'd = u ÷ f = '+plain(model.speed())+' ÷ '+plain(c.f)+' = '+number(model.spacing(),1)+' mm';
+  }
+  const bases={period:'T = d ÷ u',frequency:'f = u ÷ d',ground:'x = a ÷ M',spacing:'d = u ÷ f',paper:'u = f·d'};
+  function update(){
+    const c=model.config,ready=model.ready(),done=model.status==='done',t=ready?model.now():0,e=model.evaluate(),begun=started();
+    $('time-value').textContent=number(t);$('pen-value').textContent=begun?number(model.pen(t),1):'—';$('ground-value').textContent=begun?number(model.ground(t),3):'—';
+    $('period-value').textContent=begun?number(model.period()):'—';$('frequency-value').textContent=begun?number(model.frequency()):'—';
+    $('seismograph-equation').textContent=begun?equation():bases[c.ask];
+    let key,copy;
+    const values={u:plain(Number(model.speed().toPrecision(5))),d:number(model.spacing(),1),T:number(model.period()),f:number(model.frequency()),a:plain(c.a),M:plain(c.M),x:number(c.a/c.M,3)};
+    if(done){
+      const base=text('result'+model.index,values);
+      if(e.ok){key='good';copy=base+' '+text('why'+model.index);}
+      else{key='miss';copy=base+' '+text('missCopy',{p:amount(model.answer)})+' '+(e.slip?text(slipKey(e.slip)):text('hint'+model.index));}
+    }
+    else if(!ready){key='predict';copy=text('predictCopy');}
+    else if(model.t>0){key='running';copy=text('drawingCopy',{n:String(model.peaks(t).length),y:number(model.pen(t),1),x:number(model.ground(t),3)});}
+    else{key='ready';copy=text('readyCopy');}
+    $('lesson-title').textContent=text(key+'Title',{t:number(t),p:ready?amount(model.answer):''});$('lesson-copy').textContent=copy;
+    $('insight').classList.toggle('warning',key==='miss');
+    $('mission-score').textContent=done?String(model.score()):'—';
+    $('right-badge').classList.toggle('earned',done&&e.ok);$('first-badge').classList.toggle('earned',done&&e.first);
+  }
+  function refresh(){setRunning(false);update();draw();}
+  function simulate(dt){
+    const result=model.advance(dt);
+    if(result?.done){setRunning(false);update();say(text('doneAnnouncement')+' '+$('lesson-title').textContent);return true;}
+    return false;
+  }
+  $('answer').addEventListener('input',event=>{const raw=String(event.target.value).trim(),value=raw===''?null:Number(raw);if(!model.setAnswer(value))model.setAnswer(null);refresh();});
+  $('play').addEventListener('click',()=>{setRunning(true);update();say(text('startedAnnouncement'));});
+  $('pause').addEventListener('click',()=>{setRunning(false);update();say(text('pausedAnnouncement'));});
+  $('step').addEventListener('click',()=>{for(let i=0;i<12;i++)if(simulate(H))break;setRunning(false);update();draw();});
+  $('reset').addEventListener('click',()=>{model.reset();refresh();say(text('resetAnnouncement'));});
+  SeismographModel.missions.forEach((_,i)=>$('mission-'+i).addEventListener('click',()=>{model.setMission(i);sync();refresh();say(text('missionAnnouncement',{name:text('mission'+i)}));}));
+  for(const id of ['show-grid','show-guess'])$(id).addEventListener('change',()=>{update();draw();});
+  function suspend(){if(running){setRunning(false);say(text('suspendedAnnouncement'));}update();draw();}
+  window.addEventListener('blur',suspend);document.addEventListener('visibilitychange',()=>{if(document.hidden)suspend();});
+  for(const link of document.querySelectorAll('.language-menu a'))link.addEventListener('click',()=>{setRunning(false);try{sessionStorage.setItem(transferKey,JSON.stringify({state:model.snapshot()}));}catch{}});
+  function resize(){const rect=canvas.getBoundingClientRect();if(rect.width<=0)return;width=rect.width;height=rect.height;const dpr=Math.min(window.devicePixelRatio||1,3);canvas.width=Math.round(width*dpr);canvas.height=Math.round(height*dpr);ctx.setTransform(dpr,0,0,dpr,0,0);draw();}
+  function draw(){
+    if(!ctx)return;
+    const c=model.config,ready=model.ready(),done=model.status==='done',t=ready?model.now():0,begun=started(),grid=$('show-grid').checked,guess=$('show-guess').checked&&ready;
+    ctx.clearRect(0,0,width,height);
+    const label=(str,px,py,color='#b8ccdb',align='left',font=12)=>{ctx.fillStyle=color;ctx.textAlign=align;ctx.font=font+'px -apple-system,BlinkMacSystemFont,sans-serif';ctx.fillText(str,px,py);};
+    const line=(points,color,w=1,dash=[])=>{ctx.beginPath();ctx.strokeStyle=color;ctx.lineWidth=w;ctx.setLineDash(dash);points.forEach((q,i)=>i?ctx.lineTo(q.x,q.y):ctx.moveTo(q.x,q.y));ctx.stroke();ctx.setLineDash([]);};
+    const fit=(str,px,py,color,size,room,align='left')=>{ctx.font=size+'px -apple-system,BlinkMacSystemFont,sans-serif';const w=ctx.measureText(str).width;label(str,px,py,color,align,w>room?Math.max(7,Math.floor(size*room/w)):size);};
+    const dot=(x,y,r,color)=>{ctx.fillStyle=color;ctx.beginPath();ctx.arc(x,y,Math.max(r,.5),0,Math.PI*2);ctx.fill();};
+    const wide=width>=560,area=wide?width*.64:width;
+    fit(text('viewTitle'),16,20,'#d1e3ed',12,area-28);
+    if(done){const ev=model.evaluate();fit(text(ev.ok?'rightBanner':'offBanner'),16,40,ev.ok?'#75efc7':'#efb958',width<430?12:14,area-28);}
+    // The paper strip, true to scale in mm (s px per mm, the same both ways), scrolling left under the pen.
+    const xPen=area*.78,x0=16,s=(xPen-x0)/VIEW,ym=(52+height-70)/2+6,half=Math.min(45,(height-150)/(2*s)),u=model.speed(),now=ready?t:0;
+    ctx.fillStyle='#f4efe3';ctx.fillRect(x0,ym-half*s,xPen-x0+24,2*half*s);
+    if(grid){const shift=(u*now)%5;for(let mm=-shift;mm<=VIEW+24/s;mm+=5){const x=xPen-mm*s;if(x<x0)continue;const major=Math.abs(Math.round((mm+u*now)/5))%2===0;line([{x,y:ym-half*s},{x,y:ym+half*s}],major?'#c8bfae':'#e2dacb',1);}
+      for(let mm=-Math.floor(half/5)*5;mm<=half;mm+=5)line([{x:x0,y:ym-mm*s},{x:xPen+24,y:ym-mm*s}],mm===0?'#b4a993':'#e2dacb',1);}
+    // The trace written so far: a point written at time τ sits u·(t − τ) to the left of the pen.
+    if(begun){const pts=[],from=Math.max(0,now-(VIEW+2)/u);for(let i=0;i<=600;i++){const q=from+(now-from)*i/600;pts.push({x:xPen-u*(now-q)*s,y:ym-model.pen(q)*s});}line(pts,'#2c6fb8',1.8);}
+    // Your prediction: peak marks at your spacing from the first peak, or lines at your ground motion times M.
+    if(guess&&begun&&c.ask!=='ground'){
+      const g={period:model.answer*c.u,frequency:c.u/model.answer,spacing:model.answer,paper:u/c.f}[c.ask],first=u*(now-.25/model.frequency());
+      if(Number.isFinite(g)&&g>=.5&&first>=0)for(let k=0;k<400;k++){const dist=first-k*g;if(dist<0)break;if(dist>VIEW)continue;const x=xPen-dist*s;line([{x,y:ym-half*s},{x,y:ym-c.a*s-6}],'#d98a1c',1.6,[4,3]);}
+      fit(text('guessTag'),x0+4,ym-half*s-6,'#efb958',9,xPen-x0);
+    }
+    if(guess&&c.ask==='ground'){for(const v of [1,-1]){const y=ym-v*Math.min(model.answer*c.M,half)*s;line([{x:x0,y},{x:xPen+24,y}],'#d98a1c',1.6,[5,3]);}fit(text('guessTag')+(model.answer*c.M>half?' ↕':''),x0+4,ym-half*s-6,'#efb958',9,xPen-x0);}
+    // The pen and its arm, pivoting on the frame to the right, and the arrow showing which way the paper moves.
+    const yp=ym-(ready?model.pen(now):0)*s;
+    ctx.fillStyle='#22384a';ctx.fillRect(xPen+30,ym-70,16,140);line([{x:xPen+38,y:ym},{x:xPen,y:yp}],'#d1e3ed',3);dot(xPen,yp,4.5,'#ff7b6b');dot(xPen+38,ym,4,'#d1e3ed');
+    line([{x:xPen+20,y:height-36},{x:area-16,y:height-36}],'#8aa3b5',2);fit(text('groundTag')+' ×'+plain(c.M),area-16,height-42,'#9fb6c7',9,area-xPen-30,'right');
+    fit('← '+plain(Number(u.toPrecision(4)))+' mm/s',x0+4,ym+half*s+14,'#d1e3ed',10,xPen-x0);
+    fit('t = '+number(t)+' s',area-16,44,'#f2f8fc',13,area*.3,'right');
+    label(text('scaleNote'),16,height-8,'#9fb6c7','left',10);
+    if(!wide)return;
+    // Right panel: one stretch of the trace measured, with the peak spacing and the swing marked.
+    fit(text('readingGraph'),area+8,44,'#d1e3ed',10,width-area-16);
+    if(!begun){fit(text('panelHint'),area+8,70,'#9fb6c7',10,width-area-16);return;}
+    const px0=area+14,px1=width-14,py0=84,py1=height-110,mid=(py0+py1)/2,d=model.spacing(),sx=(px1-px0)/(1.6*d),sy=Math.min((py1-py0)/2/c.a*.85,sx*2);
+    ctx.fillStyle='#f4efe3';ctx.fillRect(px0,py0,px1-px0,py1-py0);line([{x:px0,y:mid},{x:px1,y:mid}],'#b4a993',1);
+    const pts=[];for(let i=0;i<=160;i++){const mm=1.6*d*i/160,phase=2*Math.PI*(mm/d-.05);pts.push({x:px0+mm*sx,y:mid-c.a*Math.sin(phase+Math.PI/2)*sy});}line(pts,'#2c6fb8',1.8);
+    const p1=px0+.05*d*sx,p2=p1+d*sx,ya=py0-6;line([{x:p1,y:ya},{x:p2,y:ya}],'#d1e3ed',1.5);line([{x:p1,y:ya-4},{x:p1,y:ya+4}],'#d1e3ed',1.5);line([{x:p2,y:ya-4},{x:p2,y:ya+4}],'#d1e3ed',1.5);
+    fit('d = '+number(d,1)+' mm',(p1+p2)/2,ya-6,'#d1e3ed',10,p2-p1+40,'center');
+    const xa=p1+d*sx/2;line([{x:xa,y:mid},{x:xa,y:mid+c.a*sy}],'#ff7b6b',1.5);fit('a = '+plain(c.a)+' mm',xa+6,mid+c.a*sy/2+4,'#7a2d22',10,px1-xa-10);
+    fit('T = d ÷ u = '+number(model.period())+' s',px0,py1+20,'#d1e3ed',10,px1-px0);fit('f = 1 ÷ T = '+number(model.frequency())+' Hz',px0,py1+36,'#d1e3ed',10,px1-px0);
+    fit('x = a ÷ M = '+number(c.a/c.M,3)+' mm',px0,py1+52,'#d1e3ed',10,px1-px0);
+  }
+  function frame(now){if(previous===null)previous=now;const elapsed=Math.min(.1,(now-previous)/1000);previous=now;if(running){accumulator+=elapsed;while(accumulator>=H&&running){accumulator-=H;simulate(H);}draw();}if(now-lastUpdate>=80){update();lastUpdate=now;}requestAnimationFrame(frame);}
+  window.addEventListener('resize',resize);if(typeof ResizeObserver!=='undefined')new ResizeObserver(resize).observe(canvas);
+  sync();setRunning(false);update();resize();requestAnimationFrame(frame);
+})();
+</script>
+</body>
+</html>

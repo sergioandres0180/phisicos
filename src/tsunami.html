@@ -1,0 +1,267 @@
+<!doctype html>
+<html lang="en">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Tsunami Race · Phisicos</title>
+<style>
+.tsunami-page .answer-row .symbol{min-width:56px}.tsunami-page .question{font-size:15px;font-weight:600;margin-top:4px}
+.tsunami-page .line-key.white{background:#f2f8fc}.tsunami-page .line-key.blue{background:#77b9ff}.tsunami-page .line-key.red{background:#ff7b6b}.tsunami-page .line-key.green{background:#75efc7}
+</style>
+</head>
+<body>
+<div class="shell module-page tsunami-page">
+__HEADER__
+<main id="main-content">
+__BREADCRUMBS__
+
+<div class="masthead"><div><h1>{{title}}</h1><p class="intro">{{subtitle}}</p></div><div class="concept-tags"><span class="tag speed">{{tag1}}</span><span class="tag velocity">{{tag2}}</span></div></div>
+<noscript><p class="no-js">{{noScript}}</p></noscript>
+<div class="layout">
+<aside class="sidebar" aria-label="{{setup}}">
+  <section class="control-section"><h2 class="eyebrow">{{setup}}</h2><div class="mission-list" role="group" aria-label="{{setup}}">
+    <button id="mission-0" aria-pressed="true"><b>1 · {{mission0}}</b><span id="given-0">·</span></button>
+    <button id="mission-1" aria-pressed="false"><b>2 · {{mission1}}</b><span id="given-1">·</span></button>
+    <button id="mission-2" aria-pressed="false"><b>3 · {{mission2}}</b><span id="given-2">·</span></button>
+    <button id="mission-3" aria-pressed="false"><b>4 · {{mission3}}</b><span id="given-3">·</span></button>
+    <button id="mission-4" aria-pressed="false"><b>5 · {{mission4}}</b><span id="given-4">·</span></button>
+  </div><p class="hint">{{setupNote}}</p></section>
+  <section class="control-section"><h2 class="eyebrow">{{answerHeading}}</h2>
+    <p class="question" id="question">{{question0}}</p>
+    <p class="field-label"><label for="answer">{{answerLabel}}</label></p>
+    <div class="answer-row"><span class="symbol" id="answer-symbol">v =</span><input id="answer" type="number" inputmode="decimal" step="any" value=""><span class="unit" id="answer-unit">m/s</span></div>
+    <p class="hint">{{answerHint}}</p>
+  </section>
+  <section class="control-section"><h2 class="eyebrow">{{observe}}</h2><label class="check"><input id="show-ruler" type="checkbox" checked>{{rulerToggle}}</label><label class="check"><input id="show-guess" type="checkbox" checked>{{guessToggle}}</label><p class="hint">{{observeHint}}</p></section>
+</aside>
+<div class="workspace">
+  <section class="scene" aria-label="{{sceneTitle}}"><div class="scene-top"><div><h2 class="scene-title">{{sceneTitle}}</h2><p class="scene-subtitle" id="mission-label">{{mission0}}</p></div><span class="status" id="tsunami-status"><i class="status-dot" aria-hidden="true"></i><span id="tsunami-status-text">{{ready}}</span></span></div>
+    <div class="module-stage"><canvas id="tsunami-canvas" role="img" aria-label="{{canvasLabel}}">{{noScript}}</canvas></div>
+    <div class="legend"><span><i class="line-key blue"></i>{{seaLegend}}</span><span><i class="line-key white"></i>{{waveLegend}}</span><span><i class="line-key orange"></i>{{guessLegend}}</span><span><i class="line-key gray"></i>{{referenceLegend}}</span></div>
+    <div class="module-equation"><span>{{equationTitle}}</span><output id="tsunami-equation">v = √(g·h)</output></div>
+    <div class="transport"><button id="play" class="primary" disabled>{{play}}</button><button id="pause" disabled>{{pause}}</button><button id="step" disabled>{{step}}</button><button id="reset" class="reset">{{reset}}</button></div>
+  </section>
+  <section class="metrics" aria-label="{{observe}}">
+    <div class="metric scalar"><h3 class="metric-label">{{time}}</h3><p class="metric-value"><span id="time-value">0.00</span> <small>min</small></p><p class="metric-equation">t</p></div>
+    <div class="metric scalar"><h3 class="metric-label">{{depthMetric}}</h3><p class="metric-value"><span id="depth-value">—</span> <small>m</small></p><p class="metric-equation">h</p></div>
+    <div class="metric vector"><h3 class="metric-label">{{speedMetric}}</h3><p class="metric-value"><span id="speed-value">—</span> <small>m/s</small></p><p class="metric-equation">v</p></div>
+    <div class="metric vector"><h3 class="metric-label">{{kmhMetric}}</h3><p class="metric-value"><span id="kmh-value">—</span> <small>km/h</small></p><p class="metric-equation">v</p></div>
+    <div class="metric vector"><h3 class="metric-label">{{distanceMetric}}</h3><p class="metric-value"><span id="distance-value">—</span> <small>km</small></p><p class="metric-equation">d</p></div>
+  </section>
+  <div class="insight" id="insight"><span class="insight-icon" aria-hidden="true">↗</span><div><strong id="lesson-title">{{predictTitle}}</strong><p id="lesson-copy">{{predictCopy}}</p></div></div>
+  <section class="challenge"><div class="mission-heading"><h2 class="challenge-title">{{missionTitle}}</h2><div class="score-card"><span>{{score}}</span><strong id="mission-score">—</strong></div></div><p class="mission-copy">{{missionCopy}}</p><div class="badges"><span id="right-badge">✓ {{rightBadge}}</span><span id="first-badge">① {{firstBadge}}</span></div></section>
+</div>
+</div>
+<article class="learning-content"><section><h2>{{guideTitle}}</h2><ol><li>{{instruction1}}</li><li>{{instruction2}}</li><li>{{instruction3}}</li><li>{{instruction4}}</li></ol></section><section><h2>{{conceptTitle}}</h2><p>{{conceptCopy}}</p><aside class="worked-example"><h3>{{exampleTitle}}</h3><p>{{exampleCopy}}</p></aside></section><section><h2>{{modelTitle}}</h2><p>{{modelCopy}}</p></section></article>
+<p class="language-note" id="language-note">{{languageNote}}</p>
+</main>
+__FOOTER__
+<p class="sr-only" id="announcement" role="status" aria-live="polite"></p>
+</div>
+<script id="tsunami-model">
+class TsunamiModel {
+  // A tsunami is a wave far longer than the sea is deep, so it moves as a shallow-water wave: v = √(g·h), set only by the
+  // depth h. A run follows the wave across a stretch of sea of length d. Time is in minutes and sped up so each run takes 4 s.
+  static tolerance = .02;
+  static g = 9.8;
+  static missions = [
+    {key:'speed',ask:'speed',h:4000,d:2e6},
+    {key:'kmh',ask:'kmh',h:4000,d:2e6},
+    {key:'cross',ask:'cross',h:4000,d:2e6},
+    {key:'shallow',ask:'shallow',h:10,d:2000},
+    {key:'depth',ask:'depth',h:2500/9.8,d:1e4}
+  ].map(m=>({...m,pace:m.d/Math.sqrt(9.8*m.h)/60/4}));
+  static units = {speed:'m/s',kmh:'km/h',cross:'h',shallow:'m/s',depth:'m'};
+  static limits = {speed:1e6,kmh:1e7,cross:1e5,shallow:1e6,depth:1e7};
+  constructor(index = 0){this.setMission(index);}
+  setMission(index){this.index=index;this.config=TsunamiModel.missions[index];this.answer=null;this.attempts=0;this.reset();}
+  reset(){this.t=0;this.status='moving';}
+  valid(value){return Number.isFinite(value)&&value>0&&value<=TsunamiModel.limits[this.config.ask];}
+  setAnswer(value){if(value!==null&&!this.valid(value))return false;this.answer=value;this.reset();return true;}
+  ready(){return this.answer!==null;}
+  speed(){return Math.sqrt(TsunamiModel.g*this.config.h);}
+  clamp(t){return Math.min(Math.max(t,0),this.duration());}
+  // The wave's distance (m) from the left edge at time t (min).
+  position(t){return this.speed()*this.clamp(t)*60;}
+  duration(){return this.config.d/this.speed()/60;}
+  now(){return this.status==='done'?this.duration():this.t;}
+  advance(dt){
+    if(!Number.isFinite(dt)||dt<0)throw new Error('Invalid timestep');
+    if(this.status==='done'||!this.ready())return null;
+    // A run counts as an attempt as soon as it starts; it ends exactly as the wave reaches the far side.
+    if(this.t===0)this.attempts++;
+    const T=this.duration();
+    if(this.t+dt>=T*(1-1e-12)){this.t=T;this.status='done';return {t:T,done:true};}
+    this.t+=dt;return null;
+  }
+  exact(){const c=this.config,v=this.speed();if(c.ask==='kmh')return 3.6*v;if(c.ask==='cross')return c.d/v/3600;if(c.ask==='depth')return c.h;return v;}
+  unit(){return TsunamiModel.units[this.config.ask];}
+  evaluate(){
+    if(!this.ready())return {ok:false,slip:null,first:false,exact:this.exact()};
+    const c=this.config,a=this.answer,e=this.exact(),v=this.speed(),g=TsunamiModel.g,tol=TsunamiModel.tolerance,near=(p,q)=>Math.abs(p-q)<=tol*Math.abs(q)+1e-12;
+    // Every answer is right within 2%.
+    const ok=near(a,e);let slip=null;
+    if(!ok){
+      if(c.ask==='speed'){if(near(a,g*c.h))slip='noRoot';else if(near(a,Math.sqrt(c.h)))slip='noGravity';else if(near(a,Math.sqrt(c.h/g)))slip='divided';}
+      else if(c.ask==='kmh'){if(near(a,v))slip='metresPerSecond';else if(near(a,v/3.6))slip='dividedBy36';}
+      else if(c.ask==='cross'){if(near(a,c.d/v))slip='seconds';else if(near(a,c.d/v/60))slip='minutes';else if(near(a,3.6*v/(c.d/1000)))slip='invertedTime';}
+      else if(c.ask==='shallow'){if(near(a,g*c.h))slip='noRootShallow';else if(near(a,Math.sqrt(c.h)))slip='noGravityShallow';else if(near(a,Math.sqrt(g*4000)*c.h/4000))slip='linear';}
+      else{if(near(a,v/g))slip='notSquared';else if(near(a,g*v*v))slip='multiplied';else if(near(a,v*v))slip='squareOnly';}
+    }
+    return {ok,slip,first:ok&&this.attempts===1,exact:e};
+  }
+  score(){if(this.status!=='done')return 0;const e=this.evaluate();return (e.ok?100:0)+(e.first?50:0);}
+  snapshot(){return {index:this.index,answer:this.answer,attempts:this.attempts,t:this.t,status:this.status};}
+  restore(saved){
+    if(!Number.isInteger(saved?.index)||!TsunamiModel.missions[saved.index])return false;
+    const probe=new TsunamiModel(saved.index);
+    if(!probe.setAnswer(saved.answer??null)||!Number.isInteger(saved.attempts)||saved.attempts<0)return false;
+    if(!['moving','done'].includes(saved.status)||!Number.isFinite(saved.t)||saved.t<0||saved.t>probe.duration()*(1+1e-9))return false;
+    if(probe.answer===null&&(saved.t>0||saved.status==='done'))return false;
+    if((saved.status==='done'||saved.t>0)&&saved.attempts<1)return false;
+    this.setMission(saved.index);this.answer=probe.answer;this.attempts=saved.attempts;
+    this.status=saved.status;this.t=saved.status==='done'?this.duration():saved.t;return true;
+  }
+}
+globalThis.TsunamiModel=TsunamiModel;
+</script>
+<script id="tsunami-locale" type="application/json">__LOCALE__</script>
+<script id="tsunami-interface">
+(() => {
+  'use strict';
+  const $=id=>document.getElementById(id),locale=JSON.parse($('tsunami-locale').textContent);
+  const text=(key,values={})=>locale.strings[key].replace(/\{(\w+)\}/g,(_,name)=>values[name]??'{'+name+'}');
+  const number=(n,d=2)=>Math.abs(n)<.5*10**-d?(0).toLocaleString(locale.lang,{minimumFractionDigits:d,maximumFractionDigits:d}):n.toLocaleString(locale.lang,{minimumFractionDigits:d,maximumFractionDigits:d,useGrouping:false});
+  const plain=n=>n.toLocaleString(locale.lang,{maximumFractionDigits:3,useGrouping:false}).replace('-','−');
+  const model=new TsunamiModel();
+  const canvas=$('tsunami-canvas'),ctx=canvas.getContext('2d');
+  const H=1/120,transferKey='phisicos-tsunami-language-transfer';
+  let running=false,previous=null,accumulator=0,lastUpdate=0,width=800,height=410;
+  const say=message=>{$('announcement').textContent=message;};
+  try{const data=JSON.parse(sessionStorage.getItem(transferKey)||'null');sessionStorage.removeItem(transferKey);if(data)model.restore(data.state);}catch{$('language-note').hidden=true;}
+  const pace=()=>model.config.pace??1;
+  const amount=v=>plain(Number(v.toPrecision(5)))+(model.unit()?' '+model.unit():'');
+  const slipKey=name=>'slip'+name[0].toUpperCase()+name.slice(1);
+  // The readings show only once a run starts, because they give the answer away.
+  const started=()=>model.status==='done'||model.t>0;
+  const symbols={speed:'v =',kmh:'v =',cross:'t =',shallow:'v =',depth:'h ='};
+  // Givens: the ocean's depth, the distance to cross, the shallow shelf, or a measured speed.
+  function given(m){
+    if(m.ask==='speed')return 'h = '+plain(m.h)+' m · g = '+plain(9.8)+' m/s²';
+    if(m.ask==='cross')return 'd = '+plain(m.d/1000)+' km · h = '+plain(m.h)+' m';
+    if(m.ask==='shallow')return 'h: 4000 → '+plain(m.h)+' m';
+    if(m.ask==='depth')return 'v = '+plain(Math.sqrt(9.8*m.h))+' m/s';
+    return 'h = '+plain(m.h)+' m';
+  }
+  function equation(){
+    const c=model.config,e=model.exact(),v=model.speed();
+    if(c.ask==='kmh')return 'v = '+number(v,1)+' m/s × '+plain(3.6)+' = '+number(e,0)+' km/h';
+    if(c.ask==='cross')return 't = d ÷ v = '+plain(c.d/1000)+' km ÷ '+number(3.6*v,0)+' km/h = '+number(e)+' h';
+    if(c.ask==='depth')return 'h = v² ÷ g = '+plain(v)+'² ÷ '+plain(9.8)+' = '+number(e,0)+' m';
+    return 'v = √(g·h) = √('+plain(9.8)+' × '+plain(c.h)+') = '+number(e,1)+' m/s';
+  }
+  function baseEquation(){return model.config.ask==='depth'?'h = v² ÷ g':model.config.ask==='cross'?'t = d ÷ v':'v = √(g·h)';}
+  function metrics(t,begun){
+    const c=model.config,v=model.speed();
+    $('depth-value').textContent=begun?number(c.h,0):'—';$('speed-value').textContent=begun?number(v,1):'—';
+    $('kmh-value').textContent=begun?number(3.6*v,0):'—';$('distance-value').textContent=begun?number(model.position(t)/1000,c.d>=1e5?0:2):'—';
+  }
+  function values(){const g=TsunamiModel.g,deep=Math.sqrt(g*4000),tc=2e6/deep;return {v:number(deep,0),k:number(3.6*deep,0),t:number(tc/3600),m:number(tc/60,0),s:number(Math.sqrt(g*10),1),h:number(2500/g,0)};}
+  function runningCopy(t){const c=model.config;return text('tsunamiCopy',{d:number(model.position(t)/1000,c.d>=1e5?0:2)});}
+  // The speed (m/s) your answer stands for.
+  function guessSpeed(){const c=model.config,a=model.answer;if(c.ask==='kmh')return a/3.6;if(c.ask==='cross')return c.d/(a*3600);if(c.ask==='depth')return Math.sqrt(TsunamiModel.g*a);return a;}
+  function scene(g){
+    const c=g.c,{line,fit,dot,box,label}=g,s=g.ready?g.t:0,x0=16,x1=g.area-76,kp=(x1-x0)/c.d,X=x=>x0+x*kp,ys=height*.36,yb=height-96,amp=Math.min(28,height*.065),W=.14*c.d;
+    const bump=u=>Math.abs(u)<W/2?.5*(1+Math.cos(2*Math.PI*u/W)):0;
+    // A cross-section of the sea, depth enlarged, with the coast on the right; the tsunami's hump runs over the surface.
+    box(x0,56,g.area-32,ys-56,'#1d3b52');
+    const pos=model.position(s),pts=[];for(let i=0;i<=360;i++){const x=c.d*i/360;pts.push({x:X(x),y:ys-amp*(g.begun?bump(x-pos):0)});}
+    ctx.fillStyle='#173a50';ctx.beginPath();ctx.moveTo(X(0),yb);pts.forEach(p=>ctx.lineTo(p.x,p.y));ctx.lineTo(X(c.d),yb);ctx.closePath();ctx.fill();line(pts,'#77b9ff',3);
+    box(X(c.d),ys,g.area-16-X(c.d),yb-ys,'#173a50');box(x0,yb,X(c.d)-x0,8,'#5c4f40');
+    ctx.fillStyle='#c9b79c';ctx.beginPath();ctx.moveTo(X(c.d),yb+8);ctx.lineTo(X(c.d),yb);ctx.lineTo(g.area-16,ys-22);ctx.lineTo(g.area-16,yb+8);ctx.closePath();ctx.fill();
+    if(c.ask!=='depth'||g.begun){line([{x:x0+10,y:ys+4},{x:x0+10,y:yb-2}],'#d1e3ed',1.5);fit('h = '+plain(Math.round(c.h))+' m',x0+16,(ys+yb)/2,'#d1e3ed',11,160);}
+    if(g.option){const ry=height-58,dk=c.d/1000,step=[.5,1,2,5,10,20,50,100,200,500,1000].find(v=>dk/v<=5);line([{x:X(0),y:ry},{x:X(c.d),y:ry}],'#8aa3b5',1);for(let k=0;k<=dk+1e-9;k+=step){line([{x:X(k*1000),y:ry},{x:X(k*1000),y:ry+6}],'#9fb6c7',1);label(plain(k)+' km',X(k*1000),ry+18,'#9fb6c7','center',9);}}
+    // Your speed: an orange dot running above the surface.
+    if(g.guess&&g.begun){const xg=guessSpeed()*model.clamp(s)*60;if(xg<=c.d)dot(X(xg),ys-amp-16,5,'#efb958');}
+    fit(text('fastTag',{n:plain(Math.round(c.pace*60))}),16,height-24,'#9fb6c7',10,g.area*.5);
+    fit('t = '+number(g.t,1)+' min',g.area-16,44,'#f2f8fc',13,g.area*.3,'right');
+  }
+  function panel(g){
+    const c=g.c,{line,fit,dot,label}=g;
+    fit(text('distanceGraph'),g.area+8,44,'#d1e3ed',10,width-g.area-16);
+    if(!g.begun){fit(text('panelHint'),g.area+8,70,'#9fb6c7',10,width-g.area-16);return;}
+    const D=model.duration(),px0=g.area+14,px1=width-14,py0=80,py1=height-80,PX=q=>px0+q/D*(px1-px0),PY=x=>py1-x/c.d*(py1-py0),upto=Math.min(g.t,D);
+    line([{x:px0,y:py1},{x:px1,y:py1}],'#8aa3b5',1);line([{x:px0,y:py0},{x:px0,y:py1}],'#8aa3b5',1);line([{x:px0,y:py0},{x:px1,y:py0}],'#8aa3b5',1,[3,4]);label(plain(c.d/1000)+' km',px0+4,py0-6,'#9fb6c7','left',9);
+    if(g.guess){const v=guessSpeed(),end=Math.min(D,c.d/v/60);line([{x:PX(0),y:PY(0)},{x:PX(end),y:PY(v*end*60)}],'#efb958',1.5,[5,4]);}
+    line([{x:PX(0),y:PY(0)},{x:PX(upto),y:PY(model.position(upto))}],'#77b9ff',2.5);dot(PX(upto),PY(model.position(upto)),4,'#f2f8fc');
+    fit(text('timeAxis'),px0,py1+14,'#9fb6c7',9,(px1-px0)/2);
+  }
+  function setRunning(value){
+    const done=model.status==='done',blocked=!model.ready();running=value&&!done&&!blocked;previous=null;accumulator=0;
+    $('play').disabled=running||done||blocked;$('pause').disabled=!running;$('step').disabled=running||done||blocked;
+    $('tsunami-status').classList.toggle('running',running);
+    $('tsunami-status-text').textContent=text(done?'done':running?'running':model.t?'paused':'ready');
+  }
+  function sync(){
+    const c=model.config;
+    TsunamiModel.missions.forEach((m,i)=>{$('mission-'+i).setAttribute('aria-pressed',String(i===model.index));$('given-'+i).textContent=given(m);});
+    $('question').textContent=text('question'+model.index);$('answer-symbol').textContent=symbols[c.ask];$('answer-unit').textContent=model.unit();
+    $('answer').value=model.answer===null?'':String(model.answer);$('mission-label').textContent=text('mission'+model.index);
+  }
+  function update(){
+    const ready=model.ready(),done=model.status==='done',t=ready?model.now():0,e=model.evaluate(),begun=started();
+    $('time-value').textContent=number(t);metrics(t,begun);
+    $('tsunami-equation').textContent=begun?equation():baseEquation();
+    let key,copy;
+    if(done){
+      const base=text('result'+model.index,values());
+      if(e.ok){key='good';copy=base+' '+text('why'+model.index);}
+      else{key='miss';copy=base+' '+text('missCopy',{p:amount(model.answer)})+' '+(e.slip?text(slipKey(e.slip)):text('hint'+model.index));}
+    }
+    else if(!ready){key='predict';copy=text('predictCopy');}
+    else if(model.t>0){key='running';copy=runningCopy(t);}
+    else{key='ready';copy=text('readyCopy');}
+    $('lesson-title').textContent=text(key+'Title',{t:number(t),p:ready?amount(model.answer):''});$('lesson-copy').textContent=copy;
+    $('insight').classList.toggle('warning',key==='miss');
+    $('mission-score').textContent=done?String(model.score()):'—';
+    $('right-badge').classList.toggle('earned',done&&e.ok);$('first-badge').classList.toggle('earned',done&&e.first);
+  }
+  function refresh(){setRunning(false);update();draw();}
+  function simulate(dt){
+    const result=model.advance(dt);
+    if(result?.done){setRunning(false);update();say(text('doneAnnouncement')+' '+$('lesson-title').textContent);return true;}
+    return false;
+  }
+  $('answer').addEventListener('input',event=>{const raw=String(event.target.value).trim(),value=raw===''?null:Number(raw);if(!model.setAnswer(value))model.setAnswer(null);refresh();});
+  $('play').addEventListener('click',()=>{setRunning(true);update();say(text('startedAnnouncement'));});
+  $('pause').addEventListener('click',()=>{setRunning(false);update();say(text('pausedAnnouncement'));});
+  $('step').addEventListener('click',()=>{for(let i=0;i<12;i++)if(simulate(H*pace()))break;setRunning(false);update();draw();});
+  $('reset').addEventListener('click',()=>{model.reset();refresh();say(text('resetAnnouncement'));});
+  TsunamiModel.missions.forEach((_,i)=>$('mission-'+i).addEventListener('click',()=>{model.setMission(i);sync();refresh();say(text('missionAnnouncement',{name:text('mission'+i)}));}));
+  for(const id of ['show-ruler','show-guess'])$(id).addEventListener('change',()=>{update();draw();});
+  function suspend(){if(running){setRunning(false);say(text('suspendedAnnouncement'));}update();draw();}
+  window.addEventListener('blur',suspend);document.addEventListener('visibilitychange',()=>{if(document.hidden)suspend();});
+  for(const link of document.querySelectorAll('.language-menu a'))link.addEventListener('click',()=>{setRunning(false);try{sessionStorage.setItem(transferKey,JSON.stringify({state:model.snapshot()}));}catch{}});
+  function resize(){const rect=canvas.getBoundingClientRect();if(rect.width<=0)return;width=rect.width;height=rect.height;const dpr=Math.min(window.devicePixelRatio||1,3);canvas.width=Math.round(width*dpr);canvas.height=Math.round(height*dpr);ctx.setTransform(dpr,0,0,dpr,0,0);draw();}
+  function draw(){
+    if(!ctx)return;
+    const c=model.config,ready=model.ready(),done=model.status==='done',t=ready?model.now():0,begun=started(),option=$('show-ruler').checked,guess=$('show-guess').checked&&ready;
+    ctx.clearRect(0,0,width,height);
+    const label=(str,px,py,color='#b8ccdb',align='left',font=12)=>{ctx.fillStyle=color;ctx.textAlign=align;ctx.font=font+'px -apple-system,BlinkMacSystemFont,sans-serif';ctx.fillText(str,px,py);};
+    const line=(points,color,w=1,dash=[])=>{ctx.beginPath();ctx.strokeStyle=color;ctx.lineWidth=w;ctx.setLineDash(dash);points.forEach((q,i)=>i?ctx.lineTo(q.x,q.y):ctx.moveTo(q.x,q.y));ctx.stroke();ctx.setLineDash([]);};
+    const fit=(str,px,py,color,size,room,align='left')=>{ctx.font=size+'px -apple-system,BlinkMacSystemFont,sans-serif';const w=ctx.measureText(str).width;label(str,px,py,color,align,w>room?Math.max(7,Math.floor(size*room/w)):size);};
+    const dot=(x,y,r,color)=>{ctx.fillStyle=color;ctx.beginPath();ctx.arc(x,y,Math.max(r,.5),0,Math.PI*2);ctx.fill();};
+    const box=(x,y,w,h,color)=>{ctx.fillStyle=color;ctx.fillRect(x,y,w,h);};
+    const wide=width>=560,area=wide?width*.64:width;
+    const env={c,ready,done,t,begun,option,guess,label,line,fit,dot,box,wide,area};
+    fit(text('viewTitle'),16,20,'#d1e3ed',12,area-28);
+    if(done){const ev=model.evaluate();fit(text(ev.ok?'rightBanner':'offBanner'),16,40,ev.ok?'#75efc7':'#efb958',width<430?12:14,area-28);}
+    scene(env);
+    label(text('scaleNote'),16,height-8,'#9fb6c7','left',10);
+    if(!wide)return;
+    panel(env);
+  }
+  function frame(now){if(previous===null)previous=now;const elapsed=Math.min(.1,(now-previous)/1000);previous=now;if(running){accumulator+=elapsed*pace();while(accumulator>=H&&running){accumulator-=H;simulate(H);}draw();}if(now-lastUpdate>=80){update();lastUpdate=now;}requestAnimationFrame(frame);}
+  window.addEventListener('resize',resize);if(typeof ResizeObserver!=='undefined')new ResizeObserver(resize).observe(canvas);
+  sync();setRunning(false);update();resize();requestAnimationFrame(frame);
+})();
+</script>
+</body>
+</html>

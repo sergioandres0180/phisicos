@@ -1,0 +1,282 @@
+<!doctype html>
+<html lang="en">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Leaky Tank · Phisicos</title>
+<style>
+.tank-page .answer-row .symbol{min-width:44px}.tank-page .question{font-size:15px;font-weight:600;margin-top:4px}
+.tank-page .line-key.white{background:#f2f8fc}.tank-page .line-key.blue{background:#77b9ff}
+</style>
+</head>
+<body>
+<div class="shell module-page tank-page">
+__HEADER__
+<main id="main-content">
+__BREADCRUMBS__
+
+<div class="masthead"><div><h1>{{title}}</h1><p class="intro">{{subtitle}}</p></div><div class="concept-tags"><span class="tag speed">{{tag1}}</span><span class="tag velocity">{{tag2}}</span></div></div>
+<noscript><p class="no-js">{{noScript}}</p></noscript>
+<div class="layout">
+<aside class="sidebar" aria-label="{{setup}}">
+  <section class="control-section"><h2 class="eyebrow">{{setup}}</h2><div class="mission-list" role="group" aria-label="{{setup}}">
+    <button id="mission-0" aria-pressed="true"><b>1 · {{mission0}}</b><span id="given-0">h</span></button>
+    <button id="mission-1" aria-pressed="false"><b>2 · {{mission1}}</b><span id="given-1">h</span></button>
+    <button id="mission-2" aria-pressed="false"><b>3 · {{mission2}}</b><span id="given-2">h</span></button>
+    <button id="mission-3" aria-pressed="false"><b>4 · {{mission3}}</b><span id="given-3">H</span></button>
+    <button id="mission-4" aria-pressed="false"><b>5 · {{mission4}}</b><span id="given-4">H</span></button>
+  </div><p class="hint">{{setupNote}}</p></section>
+  <section class="control-section"><h2 class="eyebrow">{{answerHeading}}</h2>
+    <p class="question" id="question">{{question0}}</p>
+    <p class="field-label"><label for="answer">{{answerLabel}}</label></p>
+    <div class="answer-row"><span class="symbol" id="answer-symbol">v =</span><input id="answer" type="number" inputmode="decimal" step="any" value=""><span class="unit" id="answer-unit">m/s</span></div>
+    <p class="hint">{{answerHint}}</p>
+  </section>
+  <section class="control-section"><h2 class="eyebrow">{{observe}}</h2><label class="check"><input id="show-labels" type="checkbox" checked>{{labelsToggle}}</label><label class="check"><input id="show-guess" type="checkbox" checked>{{guessToggle}}</label><p class="hint">{{observeHint}}</p></section>
+</aside>
+<div class="workspace">
+  <section class="scene" aria-label="{{sceneTitle}}"><div class="scene-top"><div><h2 class="scene-title">{{sceneTitle}}</h2><p class="scene-subtitle" id="mission-label">{{mission0}}</p></div><span class="status" id="tank-status"><i class="status-dot" aria-hidden="true"></i><span id="tank-status-text">{{ready}}</span></span></div>
+    <div class="module-stage"><canvas id="tank-canvas" role="img" aria-label="{{canvasLabel}}">{{noScript}}</canvas></div>
+    <div class="legend"><span><i class="line-key blue"></i>{{waterLegend}}</span><span><i class="line-key white"></i>{{tankLegend}}</span><span><i class="line-key orange"></i>{{guessLegend}}</span><span><i class="line-key gray"></i>{{floorLegend}}</span></div>
+    <div class="module-equation"><span>{{equationTitle}}</span><output id="tank-equation">v = √(2·g·h)</output></div>
+    <div class="transport"><button id="play" class="primary" disabled>{{play}}</button><button id="pause" disabled>{{pause}}</button><button id="step" disabled>{{step}}</button><button id="reset" class="reset">{{reset}}</button></div>
+  </section>
+  <section class="metrics" aria-label="{{observe}}">
+    <div class="metric scalar"><h3 class="metric-label">{{time}}</h3><p class="metric-value"><span id="time-value">0.00</span> <small>s</small></p><p class="metric-equation">t</p></div>
+    <div class="metric scalar"><h3 class="metric-label">{{pressureMetric}}</h3><p class="metric-value"><span id="pressure-value">—</span> <small>kPa</small></p><p class="metric-equation">p = ρ·g·h</p></div>
+    <div class="metric vector"><h3 class="metric-label">{{speedMetric}}</h3><p class="metric-value"><span id="speed-value">—</span> <small>m/s</small></p><p class="metric-equation">v = √(2·g·h)</p></div>
+    <div class="metric vector"><h3 class="metric-label">{{distanceMetric}}</h3><p class="metric-value"><span id="distance-value">—</span> <small>m</small></p><p class="metric-equation">x = v·√(2·y ÷ g)</p></div>
+    <div class="metric scalar"><h3 class="metric-label">{{caughtMetric}}</h3><p class="metric-value"><span id="caught-value">—</span> <small>L</small></p><p class="metric-equation">V = A·v·t</p></div>
+  </section>
+  <div class="insight" id="insight"><span class="insight-icon" aria-hidden="true">↗</span><div><strong id="lesson-title">{{predictTitle}}</strong><p id="lesson-copy">{{predictCopy}}</p></div></div>
+  <section class="challenge"><div class="mission-heading"><h2 class="challenge-title">{{missionTitle}}</h2><div class="score-card"><span>{{score}}</span><strong id="mission-score">—</strong></div></div><p class="mission-copy">{{missionCopy}}</p><div class="badges"><span id="right-badge">✓ {{rightBadge}}</span><span id="first-badge">① {{firstBadge}}</span></div></section>
+</div>
+</div>
+<article class="learning-content"><section><h2>{{guideTitle}}</h2><ol><li>{{instruction1}}</li><li>{{instruction2}}</li><li>{{instruction3}}</li><li>{{instruction4}}</li></ol></section><section><h2>{{conceptTitle}}</h2><p>{{conceptCopy}}</p><aside class="worked-example"><h3>{{exampleTitle}}</h3><p>{{exampleCopy}}</p></aside></section><section><h2>{{modelTitle}}</h2><p>{{modelCopy}}</p></section></article>
+<p class="language-note" id="language-note">{{languageNote}}</p>
+</main>
+__FOOTER__
+<p class="sr-only" id="announcement" role="status" aria-live="polite"></p>
+</div>
+<script id="tank-model">
+class TankModel {
+  // A tank whose water level a hose keeps steady has holes in its side. Bernoulli's principle along the water from the
+  // still surface to the hole turns the pressure ρ·g·h into motion, ½·ρ·v², so water h below the surface leaves at
+  // v = √(2·g·h) (Torricelli's law), as fast as a stone dropped from the surface. The jet leaves horizontally and falls
+  // freely from the hole's height y above the floor, landing x = v·√(2·y ÷ g) away. A hole of area A lets out Q = A·v.
+  static run = 2; // s a run lasts
+  static open = 4; // s the bucket's hole stays open before it is plugged
+  static g = 9.8;
+  static tolerance = .02;
+  static missions = [
+    {key:'speed',ask:'speed',h:1.8,y:1.25},
+    {key:'range',ask:'range',h:1.8,y:1.25},
+    {key:'bucket',ask:'bucket',h:1.8,y:1.25,A:2},
+    {key:'twin',ask:'twin',H:2,h1:.5},
+    {key:'farthest',ask:'farthest',H:2}
+  ];
+  static units = {speed:'m/s',range:'m',bucket:'L',twin:'m',farthest:'m'};
+  static limits = {speed:1e4,range:1e4,bucket:1e6,twin:2,farthest:2};
+  constructor(index = 0){this.setMission(index);}
+  setMission(index){this.index=index;this.config=TankModel.missions[index];this.answer=null;this.attempts=0;this.reset();}
+  reset(){this.t=0;this.status='moving';}
+  valid(value){return Number.isFinite(value)&&value>0&&value<=TankModel.limits[this.config.ask];}
+  setAnswer(value){if(value!==null&&!this.valid(value))return false;this.answer=value;this.reset();return true;}
+  ready(){return this.answer!==null;}
+  // The water surface above the floor (m): on a stand for one hole, on the floor for the tank with your hole.
+  surface(){const c=this.config;return c.H??c.h+c.y;}
+  // The holes as {h, y}: depth below the surface and height above the floor (m). Yours is the last one when you choose it.
+  holes(){
+    const c=this.config,S=this.surface();
+    if(c.ask==='twin')return this.answer===null?[{h:c.h1,y:S-c.h1}]:[{h:c.h1,y:S-c.h1},{h:this.answer,y:S-this.answer}];
+    if(c.ask==='farthest')return this.answer===null?[]:[{h:this.answer,y:S-this.answer}];
+    return [{h:c.h,y:c.y}];
+  }
+  main(){const all=this.holes();return all[all.length-1]??null;}
+  speed(h){return Math.sqrt(2*TankModel.g*h);}
+  fall(y){return Math.sqrt(2*Math.max(y,0)/TankModel.g);}
+  range(h,y){return this.speed(h)*this.fall(y);}
+  flow(){const c=this.config;return c.A?c.A*1e-4*this.speed(c.h):0;} // m³/s
+  // Litres in the bucket: water that left the hole while it was open and has since fallen into the bucket.
+  caught(t){const c=this.config;if(c.ask!=='bucket')return 0;const f=this.fall(c.y);return this.flow()*Math.min(Math.max(t-f,0),TankModel.open)*1000;}
+  duration(){const c=this.config;return c.ask==='bucket'?TankModel.open+this.fall(c.y):TankModel.run;}
+  now(){return this.status==='done'?this.duration():this.t;}
+  advance(dt){
+    if(!Number.isFinite(dt)||dt<0)throw new Error('Invalid timestep');
+    if(this.status==='done'||!this.ready())return null;
+    // A run counts as an attempt as soon as it starts; it ends exactly after 2 s, or once the last water is in the bucket.
+    if(this.t===0)this.attempts++;
+    const T=this.duration();
+    if(this.t+dt>=T*(1-1e-12)){this.t=T;this.status='done';return {t:T,done:true};}
+    this.t+=dt;return null;
+  }
+  exact(){
+    const c=this.config;
+    if(c.ask==='speed')return this.speed(c.h);
+    if(c.ask==='range')return this.range(c.h,c.y);
+    if(c.ask==='bucket')return this.flow()*TankModel.open*1000;
+    if(c.ask==='twin')return c.H-c.h1;
+    return c.H/2;
+  }
+  unit(){return TankModel.units[this.config.ask];}
+  evaluate(){
+    if(!this.ready())return {ok:false,slip:null,first:false,exact:this.exact()};
+    const c=this.config,a=this.answer,e=this.exact(),tol=TankModel.tolerance,near=(p,q)=>Math.abs(p-q)<=tol*Math.abs(q)+1e-12,g=TankModel.g;
+    // Every answer is right within 2%.
+    const ok=near(a,e);let slip=null;
+    if(!ok){
+      if(c.ask==='speed'){if(near(a,Math.sqrt(g*c.h)))slip='noTwo';else if(near(a,2*g*c.h))slip='noRoot';else if(near(a,this.speed(c.y)))slip='height';}
+      else if(c.ask==='range'){const v=this.speed(c.h);if(near(a,v))slip='speedOnly';else if(near(a,v*Math.sqrt(c.y/g)))slip='noTwo';else if(near(a,v*this.fall(c.h+c.y)))slip='fromSurface';}
+      else if(c.ask==='bucket'){if(near(a,e/TankModel.open))slip='perSecond';else if(near(a,e/Math.SQRT2))slip='noTwo';else if(near(a,e/1000))slip='units';}
+      else if(c.ask==='twin'){if(near(a,c.h1))slip='same';else if(near(a,c.H/2))slip='middle';else if(near(a,this.range(c.h1,c.H-c.h1)))slip='rangeNotDepth';}
+      else{if(near(a,c.H))slip='bottom';else if(a<e)slip='high';else slip='low';}
+    }
+    return {ok,slip,first:ok&&this.attempts===1,exact:e};
+  }
+  score(){if(this.status!=='done')return 0;const e=this.evaluate();return (e.ok?100:0)+(e.first?50:0);}
+  snapshot(){return {index:this.index,answer:this.answer,attempts:this.attempts,t:this.t,status:this.status};}
+  restore(saved){
+    if(!Number.isInteger(saved?.index)||!TankModel.missions[saved.index])return false;
+    const probe=new TankModel(saved.index);
+    if(!probe.setAnswer(saved.answer??null)||!Number.isInteger(saved.attempts)||saved.attempts<0)return false;
+    if(!['moving','done'].includes(saved.status)||!Number.isFinite(saved.t)||saved.t<0||saved.t>probe.duration()*(1+1e-9))return false;
+    if(probe.answer===null&&(saved.t>0||saved.status==='done'))return false;
+    if((saved.status==='done'||saved.t>0)&&saved.attempts<1)return false;
+    this.setMission(saved.index);this.answer=probe.answer;this.attempts=saved.attempts;
+    this.status=saved.status;this.t=saved.status==='done'?this.duration():saved.t;return true;
+  }
+}
+globalThis.TankModel=TankModel;
+</script>
+<script id="tank-locale" type="application/json">__LOCALE__</script>
+<script id="tank-interface">
+(() => {
+  'use strict';
+  const $=id=>document.getElementById(id),locale=JSON.parse($('tank-locale').textContent);
+  const text=(key,values={})=>locale.strings[key].replace(/\{(\w+)\}/g,(_,name)=>values[name]??'{'+name+'}');
+  const number=(n,d=2)=>Math.abs(n)<.5*10**-d?(0).toLocaleString(locale.lang,{minimumFractionDigits:d,maximumFractionDigits:d}):n.toLocaleString(locale.lang,{minimumFractionDigits:d,maximumFractionDigits:d,useGrouping:false});
+  const plain=n=>n.toLocaleString(locale.lang,{maximumFractionDigits:3,useGrouping:false}).replace('-','−');
+  const model=new TankModel();
+  const canvas=$('tank-canvas'),ctx=canvas.getContext('2d');
+  const H=1/120,transferKey='phisicos-tank-language-transfer';
+  let running=false,previous=null,accumulator=0,lastUpdate=0,width=800,height=410;
+  const say=message=>{$('announcement').textContent=message;};
+  try{const data=JSON.parse(sessionStorage.getItem(transferKey)||'null');sessionStorage.removeItem(transferKey);if(data)model.restore(data.state);}catch{$('language-note').hidden=true;}
+  const amount=v=>plain(Number(v.toPrecision(5)))+' '+model.unit();
+  const symbols={speed:'v =',range:'x =',bucket:'V =',twin:'h₂ =',farthest:'h ='};
+  const slipKey=name=>'slip'+name[0].toUpperCase()+name.slice(1);
+  function setRunning(value){
+    const done=model.status==='done',blocked=!model.ready();running=value&&!done&&!blocked;previous=null;accumulator=0;
+    $('play').disabled=running||done||blocked;$('pause').disabled=!running;$('step').disabled=running||done||blocked;
+    $('tank-status').classList.toggle('running',running);
+    $('tank-status-text').textContent=text(done?'done':running?'running':model.t?'paused':'ready');
+  }
+  // Givens: the hole's depth and height, the hole's area and how long it is open, or the water's depth and the first hole.
+  function given(m){
+    if(m.H)return 'H = '+plain(m.H)+' m'+(m.h1?' · h₁ = '+plain(m.h1)+' m':'');
+    const parts=['h = '+plain(m.h)+' m'];if(m.ask!=='speed')parts.push('y = '+plain(m.y)+' m');if(m.A)parts.push('A = '+plain(m.A)+' cm²','t = '+plain(TankModel.open)+' s');
+    return parts.join(' · ');
+  }
+  function sync(){
+    const c=model.config;
+    TankModel.missions.forEach((m,i)=>{$('mission-'+i).setAttribute('aria-pressed',String(i===model.index));$('given-'+i).textContent=given(m);});
+    $('question').textContent=text('question'+model.index);$('answer-symbol').textContent=symbols[c.ask];$('answer-unit').textContent=model.unit();
+    $('answer').value=model.answer===null?'':String(model.answer);$('mission-label').textContent=text('mission'+model.index);
+  }
+  // The pressure, the speed, the distance, and the water caught show only once a run starts, because they give the answer away.
+  const started=()=>model.status==='done'||model.t>0;
+  function update(){
+    const c=model.config,ready=model.ready(),done=model.status==='done',t=ready?model.now():0,e=model.evaluate(),begun=started(),D=model.duration(),hole=model.main(),bucket=c.ask==='bucket';
+    $('time-value').textContent=number(t);
+    $('pressure-value').textContent=begun&&hole?number(1000*TankModel.g*hole.h/1000,1):'—';$('speed-value').textContent=begun&&hole?number(model.speed(hole.h)):'—';
+    $('distance-value').textContent=begun&&hole?number(model.range(hole.h,hole.y)):'—';$('caught-value').textContent=begun&&bucket?number(model.caught(t)):'—';
+    $('tank-equation').textContent=begun&&hole?'v = √(2·g·h) = √(2 × '+plain(TankModel.g)+' × '+number(hole.h)+') = '+number(model.speed(hole.h))+' m/s':'v = √(2·g·h)';
+    let key,copy;
+    const first=c.h1?model.holes()[0]:null,values=hole?{v:number(model.speed(hole.h)),x:number(model.range(hole.h,hole.y)),f:number(model.fall(hole.y)),p:number(9.8*hole.h,1),h:number(hole.h),
+      c:number(model.caught(D)),q:number(model.flow()*1000,3),x1:first?number(model.range(first.h,first.y)):''}:{};
+    if(done){
+      const base=text('result'+model.index,values);
+      if(e.ok){key='good';copy=base+' '+text('why'+model.index);}
+      else{key='miss';copy=base+' '+text('missCopy',{p:amount(model.answer)})+' '+(e.slip?text(slipKey(e.slip)):text('hint'+model.index));}
+    }
+    else if(!ready){key='predict';copy=text('predictCopy');}
+    else if(model.t>0){key='running';copy=bucket?text('fillingCopy',{c:number(model.caught(t))}):text('flowingCopy',{v:values.v});}
+    else{key='ready';copy=text('readyCopy');}
+    $('lesson-title').textContent=text(key+'Title',{t:number(t),p:ready?amount(model.answer):''});$('lesson-copy').textContent=copy;
+    $('insight').classList.toggle('warning',key==='miss');
+    $('mission-score').textContent=done?String(model.score()):'—';
+    $('right-badge').classList.toggle('earned',done&&e.ok);$('first-badge').classList.toggle('earned',done&&e.first);
+  }
+  function refresh(){setRunning(false);update();draw();}
+  function simulate(dt){
+    const result=model.advance(dt);
+    if(result?.done){setRunning(false);update();say(text('doneAnnouncement')+' '+$('lesson-title').textContent);return true;}
+    return false;
+  }
+  $('answer').addEventListener('input',event=>{const raw=String(event.target.value).trim(),value=raw===''?null:Number(raw);if(!model.setAnswer(value))model.setAnswer(null);refresh();});
+  $('play').addEventListener('click',()=>{setRunning(true);update();say(text('startedAnnouncement'));});
+  $('pause').addEventListener('click',()=>{setRunning(false);update();say(text('pausedAnnouncement'));});
+  $('step').addEventListener('click',()=>{for(let i=0;i<12;i++)if(simulate(H))break;setRunning(false);update();draw();});
+  $('reset').addEventListener('click',()=>{model.reset();refresh();say(text('resetAnnouncement'));});
+  TankModel.missions.forEach((_,i)=>$('mission-'+i).addEventListener('click',()=>{model.setMission(i);sync();refresh();say(text('missionAnnouncement',{name:text('mission'+i)}));}));
+  for(const id of ['show-labels','show-guess'])$(id).addEventListener('change',()=>{update();draw();});
+  function suspend(){if(running){setRunning(false);say(text('suspendedAnnouncement'));}update();draw();}
+  window.addEventListener('blur',suspend);document.addEventListener('visibilitychange',()=>{if(document.hidden)suspend();});
+  for(const link of document.querySelectorAll('.language-menu a'))link.addEventListener('click',()=>{setRunning(false);try{sessionStorage.setItem(transferKey,JSON.stringify({state:model.snapshot()}));}catch{}});
+  function resize(){const rect=canvas.getBoundingClientRect();if(rect.width<=0)return;width=rect.width;height=rect.height;const dpr=Math.min(window.devicePixelRatio||1,3);canvas.width=Math.round(width*dpr);canvas.height=Math.round(height*dpr);ctx.setTransform(dpr,0,0,dpr,0,0);draw();}
+  function draw(){
+    if(!ctx)return;
+    const c=model.config,ready=model.ready(),done=model.status==='done',t=ready?model.now():0,begun=started(),labels=$('show-labels').checked,guess=$('show-guess').checked&&ready,g=TankModel.g;
+    ctx.clearRect(0,0,width,height);
+    const label=(str,px,py,color='#b8ccdb',align='left',font=12)=>{ctx.fillStyle=color;ctx.textAlign=align;ctx.font=font+'px -apple-system,BlinkMacSystemFont,sans-serif';ctx.fillText(str,px,py);};
+    const line=(points,color,w=1,dash=[])=>{ctx.beginPath();ctx.strokeStyle=color;ctx.lineWidth=w;ctx.setLineDash(dash);points.forEach((q,i)=>i?ctx.lineTo(q.x,q.y):ctx.moveTo(q.x,q.y));ctx.stroke();ctx.setLineDash([]);};
+    const fit=(str,px,py,color,size,room,align='left')=>{ctx.font=size+'px -apple-system,BlinkMacSystemFont,sans-serif';const w=ctx.measureText(str).width;label(str,px,py,color,align,w>room?Math.max(7,Math.floor(size*room/w)):size);};
+    const wide=width>=560,area=wide?width*.64:width;
+    fit(text('viewTitle'),16,20,'#d1e3ed',12,area-28);
+    if(done){const ev=model.evaluate();fit(text(ev.ok?'rightBanner':'offBanner'),16,40,ev.ok?'#75efc7':'#efb958',width<430?12:14,area-28);}
+    // Side view to scale: k px per metre, the floor at y = 0, the tank's right wall at x = 0.
+    const k=Math.max(30,Math.min((area-40)/4.6,(height-96)/3.4)),floor=height-34,X=m=>28+.7*k+m*k,Y=m=>floor-m*k,S=model.surface(),base=c.H?0:1,top=S+.2;
+    line([{x:12,y:floor},{x:area-12,y:floor}],'#8aa3b5',2);
+    if(base>0)for(const dx of [-.62,-.08])line([{x:X(dx),y:Y(base)},{x:X(dx),y:floor}],'#8aa3b5',3);
+    ctx.fillStyle='rgba(119,185,255,.45)';ctx.fillRect(X(-.7),Y(S),.7*k,(S-base)*k);
+    line([{x:X(-.7),y:Y(top)},{x:X(-.7),y:Y(base)},{x:X(0),y:Y(base)},{x:X(0),y:Y(top)}],'#f2f8fc',2.5);line([{x:X(-.7),y:Y(S)},{x:X(0),y:Y(S)}],'#77b9ff',1.5);
+    // A hose keeps the level steady.
+    line([{x:X(-.9),y:Y(top+.15)},{x:X(-.45),y:Y(top+.15)},{x:X(-.45),y:Y(top-.02)}],'#9fb6c7',4);if(begun&&!done)line([{x:X(-.45),y:Y(top-.02)},{x:X(-.45),y:Y(S)}],'#77b9ff',2);
+    // The jets: each runs along its parabola from the hole, its front advancing as the water falls; the bucket's hole is plugged after 4 s.
+    const holes=model.holes(),tail=c.ask==='bucket'?Math.max(0,t-TankModel.open):0;
+    holes.forEach((hole,i)=>{
+      const v=model.speed(hole.h),f=model.fall(hole.y),yours=(c.ask==='twin'&&i===1)||c.ask==='farthest',color=yours?'#9fd0ff':'#77b9ff';
+      ctx.fillStyle='#0f2233';ctx.beginPath();ctx.arc(X(0),Y(hole.y),3.5,0,Math.PI*2);ctx.fill();
+      if(begun&&t>tail){const front=Math.min(t,f),pts=[];for(let s=0;s<=24;s++){const tau=tail+(front-tail)*s/24;if(tau>f)break;pts.push({x:X(v*tau),y:Y(hole.y-g*tau*tau/2)});}line(pts,color,3);}
+      if(begun&&t>=f){const x=model.range(hole.h,hole.y);line([{x:X(x)-6,y:floor-2},{x:X(x)+6,y:floor-2}],color,4);if(labels)fit('x = '+number(x)+' m',X(x),floor+14,'#d1e3ed',10,90,'center');}
+      if(labels)fit((holes.length>1?(i?'h₂':'h₁'):'h')+' = '+number(hole.h)+' m',X(0)+8,Y(hole.y)-8,'#d1e3ed',10,X(1.4)-X(0));
+    });
+    if(c.ask==='bucket'){
+      const hole=holes[0],bx=X(model.range(hole.h,hole.y)),bw=.4*k,bh=.35*k,full=Math.min(model.caught(t)/10,1);
+      ctx.fillStyle='rgba(119,185,255,.6)';ctx.fillRect(bx-bw/2,floor-bh*full,bw,bh*full);line([{x:bx-bw/2,y:floor-bh},{x:bx-bw/2,y:floor},{x:bx+bw/2,y:floor},{x:bx+bw/2,y:floor-bh}],'#c3cfd9',2);
+      if(begun)fit(number(model.caught(t))+' L',bx,floor-bh-6,'#d1e3ed',10,bw+40,'center');
+      if(guess){const yy=floor-bh*Math.min(model.answer/10,1);line([{x:bx-bw/2-6,y:yy},{x:bx+bw/2+6,y:yy}],'#efb958',2,[5,3]);fit(text('guessTag')+(model.answer>10?' ↑':''),bx+bw/2+9,yy+4,'#efb958',9,area-bx-bw/2-12);}
+    }
+    if(guess&&c.ask==='speed'){const hole=holes[0],f=model.fall(hole.y),pts=[];for(let s=0;s<=24;s++){const tau=f*s/24;pts.push({x:Math.min(X(model.answer*tau),area-8),y:Y(hole.y-g*tau*tau/2)});}line(pts,'#efb958',2,[5,4]);fit(text('guessTag'),pts[24].x,floor-8,'#efb958',9,80,'center');}
+    if(guess&&c.ask==='range'){const gx=Math.min(X(model.answer),area-10);line([{x:gx,y:floor-14},{x:gx,y:floor+4}],'#efb958',2,[4,3]);fit(text('guessTag'),gx,floor-18,'#efb958',9,80,'center');}
+    if(labels){fit('H = '+number(S-base)+' m',X(.08),Y(S)-6,'#9fb6c7',10,80);}
+    label(text('scaleNote'),16,height-8,'#9fb6c7','left',10);
+    if(!wide)return;
+    // Right panel: how the jet's speed or landing distance depends on the hole's depth, or the bucket filling over time.
+    const px0=area+30,px1=width-14,py0=70,py1=height-62,bucket=c.ask==='bucket';
+    fit(text(c.ask==='speed'?'speedTitle':bucket?'bucketTitle':'rangeTitle'),area+8,44,'#d1e3ed',10,width-area-16);
+    if(!begun){fit(text('panelHint'),area+8,70,'#9fb6c7',10,width-area-16);return;}
+    const xmax=bucket?model.duration():S,curve=s=>bucket?model.caught(s):c.ask==='speed'?model.speed(s):2*Math.sqrt(s*Math.max(S-s,0));
+    let ymax=0;for(let i=0;i<=60;i++)ymax=Math.max(ymax,curve(xmax*i/60));ymax=Math.max(ymax,bucket||c.ask==='speed'?Math.min(model.answer,ymax*1.6):0)*1.15||1;
+    const PX=v=>px0+v/xmax*(px1-px0),PY=v=>py1-v/ymax*(py1-py0);
+    line([{x:px0,y:py0},{x:px0,y:py1},{x:px1,y:py1}],'#8aa3b5',1.5);
+    const pts=[];for(let i=0;i<=60;i++){const s=xmax*i/60;pts.push({x:PX(s),y:PY(curve(s))});}line(pts,'#77b9ff',2);
+    fit(text(bucket?'timeAxis':'depthAxis'),(px0+px1)/2,py1+16,'#9fb6c7',9,px1-px0,'center');
+    if(bucket){const now=Math.min(t,xmax);ctx.fillStyle='#f2f8fc';ctx.beginPath();ctx.arc(PX(now),PY(model.caught(now)),4,0,Math.PI*2);ctx.fill();}
+    else for(const hole of holes){const v=c.ask==='speed'?model.speed(hole.h):model.range(hole.h,hole.y);ctx.fillStyle='#f2f8fc';ctx.beginPath();ctx.arc(PX(hole.h),PY(v),4,0,Math.PI*2);ctx.fill();fit(number(v),PX(hole.h),PY(v)-8,'#f2f8fc',9,60,'center');}
+    if(guess&&(bucket||c.ask==='speed')){const gy=PY(Math.min(model.answer,ymax/1.05));line([{x:px0,y:gy},{x:px1,y:gy}],'#efb958',1.5,[5,3]);fit(text('guessTag'),px1,gy-4,'#efb958',9,px1-px0,'right');}
+  }
+  function frame(now){if(previous===null)previous=now;const elapsed=Math.min(.1,(now-previous)/1000);previous=now;if(running){accumulator+=elapsed;while(accumulator>=H&&running){accumulator-=H;simulate(H);}draw();}if(now-lastUpdate>=80){update();lastUpdate=now;}requestAnimationFrame(frame);}
+  window.addEventListener('resize',resize);if(typeof ResizeObserver!=='undefined')new ResizeObserver(resize).observe(canvas);
+  sync();setRunning(false);update();resize();requestAnimationFrame(frame);
+})();
+</script>
+</body>
+</html>

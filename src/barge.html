@@ -1,0 +1,289 @@
+<!doctype html>
+<html lang="en">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Barge Load · Phisicos</title>
+<style>
+.barge-page .answer-row .symbol{min-width:44px}.barge-page .question{font-size:15px;font-weight:600;margin-top:4px}
+.barge-page .line-key.white{background:#f2f8fc}.barge-page .line-key.blue{background:#77b9ff}
+</style>
+</head>
+<body>
+<div class="shell module-page barge-page">
+__HEADER__
+<main id="main-content">
+__BREADCRUMBS__
+
+<div class="masthead"><div><h1>{{title}}</h1><p class="intro">{{subtitle}}</p></div><div class="concept-tags"><span class="tag speed">{{tag1}}</span><span class="tag velocity">{{tag2}}</span></div></div>
+<noscript><p class="no-js">{{noScript}}</p></noscript>
+<div class="layout">
+<aside class="sidebar" aria-label="{{setup}}">
+  <section class="control-section"><h2 class="eyebrow">{{setup}}</h2><div class="mission-list" role="group" aria-label="{{setup}}">
+    <button id="mission-0" aria-pressed="true"><b>1 · {{mission0}}</b><span id="given-0">d</span></button>
+    <button id="mission-1" aria-pressed="false"><b>2 · {{mission1}}</b><span id="given-1">d</span></button>
+    <button id="mission-2" aria-pressed="false"><b>3 · {{mission2}}</b><span id="given-2">d</span></button>
+    <button id="mission-3" aria-pressed="false"><b>4 · {{mission3}}</b><span id="given-3">d</span></button>
+    <button id="mission-4" aria-pressed="false"><b>5 · {{mission4}}</b><span id="given-4">d</span></button>
+  </div><p class="hint">{{setupNote}}</p></section>
+  <section class="control-section"><h2 class="eyebrow">{{answerHeading}}</h2>
+    <p class="question" id="question">{{question0}}</p>
+    <p class="field-label"><label for="answer">{{answerLabel}}</label></p>
+    <div class="answer-row"><span class="symbol" id="answer-symbol">d =</span><input id="answer" type="number" inputmode="decimal" step="any" value=""><span class="unit" id="answer-unit">m</span></div>
+    <p class="hint">{{answerHint}}</p>
+  </section>
+  <section class="control-section"><h2 class="eyebrow">{{observe}}</h2><label class="check"><input id="show-marks" type="checkbox" checked>{{marksToggle}}</label><label class="check"><input id="show-guess" type="checkbox" checked>{{guessToggle}}</label><p class="hint">{{observeHint}}</p></section>
+</aside>
+<div class="workspace">
+  <section class="scene" aria-label="{{sceneTitle}}"><div class="scene-top"><div><h2 class="scene-title">{{sceneTitle}}</h2><p class="scene-subtitle" id="mission-label">{{mission0}}</p></div><span class="status" id="barge-status"><i class="status-dot" aria-hidden="true"></i><span id="barge-status-text">{{ready}}</span></span></div>
+    <div class="module-stage"><canvas id="barge-canvas" role="img" aria-label="{{canvasLabel}}">{{noScript}}</canvas></div>
+    <div class="legend"><span><i class="line-key blue"></i>{{waterLegend}}</span><span><i class="line-key white"></i>{{bodyLegend}}</span><span><i class="line-key orange"></i>{{guessLegend}}</span><span><i class="line-key gray"></i>{{marksLegend}}</span></div>
+    <div class="module-equation"><span>{{equationTitle}}</span><output id="barge-equation">F_b = ρ·g·V</output></div>
+    <div class="transport"><button id="play" class="primary" disabled>{{play}}</button><button id="pause" disabled>{{pause}}</button><button id="step" disabled>{{step}}</button><button id="reset" class="reset">{{reset}}</button></div>
+  </section>
+  <section class="metrics" aria-label="{{observe}}">
+    <div class="metric scalar"><h3 class="metric-label">{{time}}</h3><p class="metric-value"><span id="time-value">0.00</span> <small>s</small></p><p class="metric-equation">t</p></div>
+    <div class="metric vector"><h3 class="metric-label">{{draftMetric}}</h3><p class="metric-value"><span id="draft-value">—</span> <small>m</small></p><p class="metric-equation">d</p></div>
+    <div class="metric vector"><h3 class="metric-label">{{displacedMetric}}</h3><p class="metric-value"><span id="displaced-value">—</span> <small>m³</small></p><p class="metric-equation">V = A·d</p></div>
+    <div class="metric scalar"><h3 class="metric-label">{{buoyancyMetric}}</h3><p class="metric-value"><span id="buoyancy-value">—</span> <small>kN</small></p><p class="metric-equation">F_b = ρ·g·V</p></div>
+    <div class="metric scalar"><h3 class="metric-label">{{waterMetric}}</h3><p class="metric-value"><span id="water-value">—</span> <small>kg/m³</small></p><p class="metric-equation">ρ</p></div>
+  </section>
+  <div class="insight" id="insight"><span class="insight-icon" aria-hidden="true">↗</span><div><strong id="lesson-title">{{predictTitle}}</strong><p id="lesson-copy">{{predictCopy}}</p></div></div>
+  <section class="challenge"><div class="mission-heading"><h2 class="challenge-title">{{missionTitle}}</h2><div class="score-card"><span>{{score}}</span><strong id="mission-score">—</strong></div></div><p class="mission-copy">{{missionCopy}}</p><div class="badges"><span id="right-badge">✓ {{rightBadge}}</span><span id="first-badge">① {{firstBadge}}</span></div></section>
+</div>
+</div>
+<article class="learning-content"><section><h2>{{guideTitle}}</h2><ol><li>{{instruction1}}</li><li>{{instruction2}}</li><li>{{instruction3}}</li><li>{{instruction4}}</li></ol></section><section><h2>{{conceptTitle}}</h2><p>{{conceptCopy}}</p><aside class="worked-example"><h3>{{exampleTitle}}</h3><p>{{exampleCopy}}</p></aside></section><section><h2>{{modelTitle}}</h2><p>{{modelCopy}}</p></section></article>
+<p class="language-note" id="language-note">{{languageNote}}</p>
+</main>
+__FOOTER__
+<p class="sr-only" id="announcement" role="status" aria-live="polite"></p>
+</div>
+<script id="barge-model">
+class BargeModel {
+  // A floating body sinks until the water it pushes aside has the same mass as everything it carries (Archimedes): a box
+  // with a flat bottom of area A floats at the draft d = M ÷ (ρ·A), and the buoyancy ρ·g·A·d equals its weight. The load
+  // comes onto the water steadily for 2 s: a crane lowers the barge or block until it floats free, cargo is loaded onto a
+  // floating barge, or the water changes from sea to river. If the draft reaches the deck height H, the water pours over
+  // the side, the loading stops, and the barge sinks.
+  static run = 2; // s for the load to come onto the water
+  static sink = 1; // s a flooded barge is drawn sinking
+  static tolerance = .02;
+  static grace = 5e-4; // within 0.05% of the deck still floats, so a rounded answer holds
+  static g = 9.8;
+  static steel = 7850;
+  static missions = [
+    {key:'empty',ask:'draft',L:12,B:5,H:1.5,m0:0,load:24000,rho0:1000,rho1:1000,shape:'barge'},
+    {key:'cargo',ask:'cargo',L:12,B:5,H:1.5,m0:24000,load:null,rho0:1000,rho1:1000,shape:'barge'},
+    {key:'river',ask:'river',L:12,B:5,H:1.5,m0:50430,load:0,rho0:1025,rho1:1000,shape:'barge'},
+    {key:'ice',ask:'fraction',L:1,B:1,H:1,m0:0,load:917,rho0:1025,rho1:1025,shape:'ice'},
+    {key:'steel',ask:'average',L:4,B:2,H:1,m0:0,load:2000,rho0:1000,rho1:1000,shape:'hull'}
+  ];
+  static units = {draft:'m',cargo:'t',river:'m',fraction:'%',average:'kg/m³'};
+  static limits = {draft:100,cargo:1000,river:100,fraction:100,average:20000};
+  constructor(index = 0){this.setMission(index);}
+  setMission(index){this.index=index;this.config=BargeModel.missions[index];this.answer=null;this.attempts=0;this.reset();}
+  reset(){this.t=0;this.status='moving';}
+  valid(value){return Number.isFinite(value)&&value>0&&value<=BargeModel.limits[this.config.ask];}
+  setAnswer(value){if(value!==null&&!this.valid(value))return false;this.answer=value;this.reset();return true;}
+  ready(){return this.answer!==null;}
+  clamp(t){return Math.min(Math.max(t,0),BargeModel.run);}
+  area(){return this.config.L*this.config.B;}
+  // The cargo is your answer, in tonnes; every other load is fixed.
+  load(){const c=this.config;return c.load??(this.answer===null?0:this.answer*1000);}
+  rho(t){const c=this.config;return c.rho0+(c.rho1-c.rho0)*this.clamp(t)/BargeModel.run;}
+  capacity(t){return this.rho(t)*this.area()*this.config.H;}
+  // The moment the draft reaches the deck while cargo is loaded, found exactly; null if it never does.
+  floodTime(){
+    const c=this.config,load=this.load(),cap=this.capacity(0)*(1+BargeModel.grace);
+    if(c.ask!=='cargo'||c.m0+load<=cap)return null;
+    return BargeModel.run*(cap-c.m0)/load;
+  }
+  flooded(){return this.floodTime()!==null;}
+  // Loading stops when the water comes over the side.
+  loaded(t){const f=this.floodTime();return f===null?t:Math.min(t,f);}
+  mass(t){return this.config.m0+this.load()*this.clamp(this.loaded(t))/BargeModel.run;}
+  draft(t){return Math.min(this.mass(t)/(this.rho(t)*this.area()),this.config.H);}
+  displaced(t){return this.area()*this.draft(t);}
+  buoyancy(t){return this.rho(t)*BargeModel.g*this.displaced(t);}
+  weight(t){return this.mass(t)*BargeModel.g;}
+  sinking(t){const f=this.floodTime();return f===null?0:Math.min(Math.max((t-f)/BargeModel.sink,0),1);}
+  duration(){const f=this.floodTime();return f===null?BargeModel.run:f+BargeModel.sink;}
+  now(){return this.status==='done'?this.duration():this.t;}
+  advance(dt){
+    if(!Number.isFinite(dt)||dt<0)throw new Error('Invalid timestep');
+    if(this.status==='done'||!this.ready())return null;
+    // A run counts as an attempt as soon as it starts; the run ends exactly when loading ends or the sinking is drawn.
+    if(this.t===0)this.attempts++;
+    const T=this.duration();
+    if(this.t+dt>=T*(1-1e-12)){this.t=T;this.status='done';return {t:T,done:true};}
+    this.t+=dt;return null;
+  }
+  exact(){
+    const c=this.config,A=this.area();
+    if(c.ask==='draft')return c.load/(c.rho1*A);
+    if(c.ask==='cargo')return (this.capacity(0)-c.m0)/1000;
+    if(c.ask==='river')return c.m0/(c.rho1*A);
+    if(c.ask==='fraction')return 100*c.load/(c.rho1*A*c.H);
+    return c.load/(A*c.H);
+  }
+  unit(){return BargeModel.units[this.config.ask];}
+  evaluate(){
+    if(!this.ready())return {ok:false,slip:null,first:false,exact:this.exact()};
+    const c=this.config,a=this.answer,e=this.exact(),A=this.area(),near=(p,q)=>Math.abs(p-q)<=BargeModel.tolerance*Math.abs(q)+1e-12;
+    let ok,slip=null;
+    // A cargo is right when the barge stays afloat with at most 2% to spare; every other answer within 2%.
+    if(c.ask==='cargo'){ok=!this.flooded()&&a>=e*(1-BargeModel.tolerance);if(!ok)slip=this.flooded()?(near(a,this.capacity(0)/1000)?'noBarge':null):'spare';}
+    else{
+      ok=near(a,e);
+      if(!ok){
+        if(c.ask==='draft'){if(near(a,c.rho1*A/c.load))slip='inverted';else if(near(a,c.load/c.rho1))slip='volume';}
+        else if(c.ask==='river'){const sea=c.m0/(c.rho0*A);if(near(a,sea))slip='same';else if(near(a,sea*c.rho1/c.rho0))slip='higher';}
+        else if(c.ask==='fraction'){if(near(a,100-e))slip='above';else if(near(a,100*c.load/(1000*A*c.H)))slip='freshWater';}
+        else{if(near(a,BargeModel.steel))slip='steel';else if(near(a,1000))slip='water';else if(near(a,A*c.H/c.load))slip='perMass';}
+      }
+    }
+    return {ok,slip,first:ok&&this.attempts===1,exact:e};
+  }
+  score(){if(this.status!=='done')return 0;const e=this.evaluate();return (e.ok?100:0)+(e.first?50:0);}
+  snapshot(){return {index:this.index,answer:this.answer,attempts:this.attempts,t:this.t,status:this.status};}
+  restore(saved){
+    if(!Number.isInteger(saved?.index)||!BargeModel.missions[saved.index])return false;
+    const probe=new BargeModel(saved.index);
+    if(!probe.setAnswer(saved.answer??null)||!Number.isInteger(saved.attempts)||saved.attempts<0)return false;
+    if(!['moving','done'].includes(saved.status)||!Number.isFinite(saved.t)||saved.t<0||saved.t>probe.duration()*(1+1e-9))return false;
+    if(probe.answer===null&&(saved.t>0||saved.status==='done'))return false;
+    if((saved.status==='done'||saved.t>0)&&saved.attempts<1)return false;
+    this.setMission(saved.index);this.answer=probe.answer;this.attempts=saved.attempts;
+    this.status=saved.status;this.t=saved.status==='done'?this.duration():saved.t;return true;
+  }
+}
+globalThis.BargeModel=BargeModel;
+</script>
+<script id="barge-locale" type="application/json">__LOCALE__</script>
+<script id="barge-interface">
+(() => {
+  'use strict';
+  const $=id=>document.getElementById(id),locale=JSON.parse($('barge-locale').textContent);
+  const text=(key,values={})=>locale.strings[key].replace(/\{(\w+)\}/g,(_,name)=>values[name]??'{'+name+'}');
+  const number=(n,d=2)=>Math.abs(n)<.5*10**-d?(0).toLocaleString(locale.lang,{minimumFractionDigits:d,maximumFractionDigits:d}):n.toLocaleString(locale.lang,{minimumFractionDigits:d,maximumFractionDigits:d,useGrouping:false});
+  const plain=n=>n.toLocaleString(locale.lang,{maximumFractionDigits:3,useGrouping:false}).replace('-','−');
+  const model=new BargeModel();
+  const canvas=$('barge-canvas'),ctx=canvas.getContext('2d');
+  const H=1/120,transferKey='phisicos-barge-language-transfer';
+  let running=false,previous=null,accumulator=0,lastUpdate=0,width=800,height=410;
+  const say=message=>{$('announcement').textContent=message;};
+  try{const data=JSON.parse(sessionStorage.getItem(transferKey)||'null');sessionStorage.removeItem(transferKey);if(data)model.restore(data.state);}catch{$('language-note').hidden=true;}
+  const amount=v=>plain(Number(v.toPrecision(5)))+' '+model.unit();
+  const symbols={draft:'d =',cargo:'m =',river:'d =',fraction:'f =',average:'ρ ='};
+  const slipKey=name=>'slip'+name[0].toUpperCase()+name.slice(1);
+  function setRunning(value){
+    const done=model.status==='done',blocked=!model.ready();running=value&&!done&&!blocked;previous=null;accumulator=0;
+    $('play').disabled=running||done||blocked;$('pause').disabled=!running;$('step').disabled=running||done||blocked;
+    $('barge-status').classList.toggle('running',running);
+    $('barge-status-text').textContent=text(done?'done':running?'running':model.t?'paused':'ready');
+  }
+  // Givens: the size, the masses, and the water; the unknown is left out.
+  function given(m){
+    const box=plain(m.L)+' × '+plain(m.B),kgm=' kg/m³';
+    if(m.ask==='draft')return 'L × B = '+box+' m · H = '+plain(m.H)+' m · M = '+plain(m.load/1000)+' t · ρ = '+plain(m.rho1)+kgm;
+    if(m.ask==='cargo')return 'L × B = '+box+' m · H = '+plain(m.H)+' m · M₀ = '+plain(m.m0/1000)+' t · ρ = '+plain(m.rho1)+kgm;
+    if(m.ask==='river')return 'L × B = '+box+' m · d = '+plain(m.m0/(m.rho0*m.L*m.B))+' m · ρ: '+plain(m.rho0)+' → '+plain(m.rho1)+kgm;
+    if(m.ask==='fraction')return box+' × '+plain(m.H)+' m · ρ_ice = '+plain(m.load/(m.L*m.B*m.H))+kgm+' · ρ = '+plain(m.rho1)+kgm;
+    return box+' × '+plain(m.H)+' m · m = '+plain(m.load/1000)+' t · ρ_steel = '+plain(BargeModel.steel)+kgm;
+  }
+  function sync(){
+    const c=model.config;
+    BargeModel.missions.forEach((m,i)=>{$('mission-'+i).setAttribute('aria-pressed',String(i===model.index));$('given-'+i).textContent=given(m);});
+    $('question').textContent=text('question'+model.index);$('answer-symbol').textContent=symbols[c.ask];$('answer-unit').textContent=model.unit();
+    $('answer').value=model.answer===null?'':String(model.answer);$('mission-label').textContent=text('mission'+model.index);
+  }
+  // The draft, the water pushed aside, and the buoyancy show only once a run starts, because they give the answer away.
+  const started=()=>model.status==='done'||model.t>0;
+  function update(){
+    const c=model.config,ready=model.ready(),done=model.status==='done',t=ready?model.now():0,e=model.evaluate(),begun=started(),T=model.duration();
+    $('time-value').textContent=number(t);$('draft-value').textContent=begun?number(model.draft(t),3):'—';$('displaced-value').textContent=begun?number(model.displaced(t),2):'—';
+    $('buoyancy-value').textContent=begun?number(model.buoyancy(t)/1000,1):'—';$('water-value').textContent=begun?number(model.rho(t),0):'—';
+    $('barge-equation').textContent=begun?'F_b = ρ·g·V = '+number(model.rho(t),0)+' × '+plain(BargeModel.g)+' × '+number(model.displaced(t),2)+' = '+number(model.buoyancy(t)/1000,1)+' kN':'F_b = ρ·g·V';
+    let key,copy;
+    const d=model.draft(T),values={d:number(d,3),v:number(model.displaced(T),2),cargo:ready?plain(model.answer):'',free:number(c.H-d,3),tf:number(model.floodTime()??0,2),
+      dd:number((d-c.m0/(c.rho0*model.area()))*100,2),f:number(100*d/c.H,1),avg:number(c.load/(model.area()*c.H),0)};
+    if(done){
+      const base=text(c.ask==='cargo'&&model.flooded()?'floodCopy':'result'+model.index,values);
+      if(e.ok){key='good';copy=base+' '+text('why'+model.index);}
+      else{key='miss';copy=base+' '+text('missCopy',{p:amount(model.answer)})+' '+(e.slip?text(slipKey(e.slip)):text('hint'+model.index));}
+    }
+    else if(!ready){key='predict';copy=text('predictCopy');}
+    else if(model.t>0){key='running';copy=text('movingCopy',{d:number(model.draft(t),3),m:number(model.mass(t)/1000,2)});}
+    else{key='ready';copy=text('readyCopy');}
+    $('lesson-title').textContent=text(key+'Title',{t:number(t),p:ready?amount(model.answer):''});$('lesson-copy').textContent=copy;
+    $('insight').classList.toggle('warning',key==='miss');
+    $('mission-score').textContent=done?String(model.score()):'—';
+    $('right-badge').classList.toggle('earned',done&&e.ok);$('first-badge').classList.toggle('earned',done&&e.first);
+  }
+  function refresh(){setRunning(false);update();draw();}
+  function simulate(dt){
+    const result=model.advance(dt);
+    if(result?.done){setRunning(false);update();say(text('doneAnnouncement')+' '+$('lesson-title').textContent);return true;}
+    return false;
+  }
+  $('answer').addEventListener('input',event=>{const raw=String(event.target.value).trim(),value=raw===''?null:Number(raw);if(!model.setAnswer(value))model.setAnswer(null);refresh();});
+  $('play').addEventListener('click',()=>{setRunning(true);update();say(text('startedAnnouncement'));});
+  $('pause').addEventListener('click',()=>{setRunning(false);update();say(text('pausedAnnouncement'));});
+  $('step').addEventListener('click',()=>{for(let i=0;i<12;i++)if(simulate(H))break;setRunning(false);update();draw();});
+  $('reset').addEventListener('click',()=>{model.reset();refresh();say(text('resetAnnouncement'));});
+  BargeModel.missions.forEach((_,i)=>$('mission-'+i).addEventListener('click',()=>{model.setMission(i);sync();refresh();say(text('missionAnnouncement',{name:text('mission'+i)}));}));
+  for(const id of ['show-marks','show-guess'])$(id).addEventListener('change',()=>{update();draw();});
+  function suspend(){if(running){setRunning(false);say(text('suspendedAnnouncement'));}update();draw();}
+  window.addEventListener('blur',suspend);document.addEventListener('visibilitychange',()=>{if(document.hidden)suspend();});
+  for(const link of document.querySelectorAll('.language-menu a'))link.addEventListener('click',()=>{setRunning(false);try{sessionStorage.setItem(transferKey,JSON.stringify({state:model.snapshot()}));}catch{}});
+  function resize(){const rect=canvas.getBoundingClientRect();if(rect.width<=0)return;width=rect.width;height=rect.height;const dpr=Math.min(window.devicePixelRatio||1,3);canvas.width=Math.round(width*dpr);canvas.height=Math.round(height*dpr);ctx.setTransform(dpr,0,0,dpr,0,0);draw();}
+  function draw(){
+    if(!ctx)return;
+    const c=model.config,ready=model.ready(),done=model.status==='done',t=ready?model.now():0,begun=started(),marks=$('show-marks').checked,guess=$('show-guess').checked&&ready;
+    ctx.clearRect(0,0,width,height);
+    const label=(str,px,py,color='#b8ccdb',align='left',font=12)=>{ctx.fillStyle=color;ctx.textAlign=align;ctx.font=font+'px -apple-system,BlinkMacSystemFont,sans-serif';ctx.fillText(str,px,py);};
+    const line=(points,color,w=1,dash=[])=>{ctx.beginPath();ctx.strokeStyle=color;ctx.lineWidth=w;ctx.setLineDash(dash);points.forEach((q,i)=>i?ctx.lineTo(q.x,q.y):ctx.moveTo(q.x,q.y));ctx.stroke();ctx.setLineDash([]);};
+    const fit=(str,px,py,color,size,room,align='left')=>{ctx.font=size+'px -apple-system,BlinkMacSystemFont,sans-serif';const w=ctx.measureText(str).width;label(str,px,py,color,align,w>room?Math.max(7,Math.floor(size*room/w)):size);};
+    const wide=width>=560,area=wide?width*.64:width;
+    fit(text('viewTitle'),16,20,'#d1e3ed',12,area-28);
+    if(done){const ev=model.evaluate();fit(text(ev.ok?'rightBanner':'offBanner')+(model.flooded()?' · '+text('floodBanner'):''),16,40,ev.ok?'#75efc7':'#efb958',width<430?12:14,area-28);}
+    // One scale for both directions, fixed per mission so the body and its deck always fit.
+    const S=Math.min((area-90)/(c.L*1.2),height*.34/(c.H*1.4)),Yw=Math.round(height*.46),cx=area*.5,w=c.L*S,hh=c.H*S,bottom=height-30;
+    const d=model.draft(t),yb=Yw+d*S+model.sinking(t)*(bottom-Yw-d*S),yt=yb-hh,x0=cx-w/2,x1=cx+w/2;
+    // A crane holds what is not yet floating free.
+    if(c.m0===0&&model.clamp(t)<BargeModel.run)line([{x:cx,y:50},{x:cx,y:yt}],'#9fb6c7',1.5);
+    if(c.shape==='barge'){
+      ctx.fillStyle='#7c8b99';ctx.beginPath();ctx.moveTo(x0,yt);ctx.lineTo(x1,yt);ctx.lineTo(x1-hh*.6,yb);ctx.lineTo(x0+hh*.6,yb);ctx.closePath();ctx.fill();line([{x:x0,y:yt},{x:x1,y:yt}],'#c3cfd9',2);
+      if(c.ask==='cargo'){const n=Math.min(25,Math.round((model.mass(t)-c.m0)/6000)),cw=w*.15,ch=hh*.6;for(let i=0;i<n;i++){const col=i%5,row=Math.floor(i/5);ctx.fillStyle=row%2?'#c98b4a':'#b5773a';ctx.fillRect(x0+w*.11+col*(cw+w*.02),yt-(row+1)*(ch+2),cw,ch);}}
+    }
+    else if(c.shape==='ice'){ctx.fillStyle='#dff4ff';ctx.fillRect(x0,yt,w,hh);}
+    else{line([{x:x0,y:yt},{x:x0,y:yb},{x:x1,y:yb},{x:x1,y:yt}],'#9aa7b3',6);}
+    // The water goes over the body, so the part under the surface looks submerged; river water is greener than sea water.
+    const r=model.rho(t),f=Math.min(Math.max((1025-r)/25,0),1);
+    ctx.fillStyle=`rgba(${Math.round(47+30*f)},${Math.round(111+25*f)},${Math.round(168-50*f)},.55)`;ctx.fillRect(0,Yw,area,bottom-Yw);line([{x:0,y:Yw},{x:area,y:Yw}],'#77b9ff',2);
+    // The open steel hull is full of air, not water, down to its bottom.
+    if(c.shape==='hull'){if(yb-3>Yw)ctx.clearRect(x0+3,Yw,w-6,yb-3-Yw);line([{x:x0,y:yt},{x:x0,y:yb},{x:x1,y:yb},{x:x1,y:yt}],'#9aa7b3',6);}
+    label('ρ = '+plain(Math.round(r))+' kg/m³',16,bottom-8,'#d1e3ed','left',11);
+    // Draft marks every 0.1 m up the side, labelled every 0.5 m.
+    if(marks){for(let k=0;k<=Math.round(c.H*10);k++){const yy=yb-k*.1*S,big=k%5===0;line([{x:x1+4,y:yy},{x:x1+(big?14:9),y:yy}],'#c3cfd9',1);if(big&&k)label(plain(k/10),x1+18,yy+4,'#c3cfd9','left',10);}}
+    // Your prediction: the waterline it implies, drawn on the body.
+    if(guess&&c.ask!=='cargo'){
+      const a=model.answer,gd=c.ask==='fraction'?a/100*c.H:c.ask==='average'?a/c.rho1*c.H:a,yy=Math.max(yb-Math.min(gd,c.H*1.3)*S,62);
+      line([{x:x0-8,y:yy},{x:x1+8,y:yy}],'#efb958',2,[6,4]);label(text('guessTag'),x0-12,yy-6,'#efb958','right',10);
+    }
+    label(text('scaleNote'),16,height-8,'#9fb6c7','left',10);
+    if(!wide)return;
+    // Right panel: the weight on the water against the buoyancy, with the most the barge can float (labelled under the title) for the cargo mission.
+    fit(text('forceTitle'),area+8,44,'#d1e3ed',10,width-area-16);
+    if(!begun){fit(text('panelHint'),area+8,70,'#9fb6c7',10,width-area-16);return;}
+    const W=model.weight(t)/1000,F=model.buoyancy(t)/1000,cap=model.capacity(t)*BargeModel.g/1000,top=Math.max(W,F,c.ask==='cargo'?cap:0)*1.15||1;
+    const bx0=area+20,bx1=width-16,btop=72,bbot=height-58,bw=(bx1-bx0)/2-10,BY=v=>bbot-v/top*(bbot-btop);
+    ctx.fillStyle='#f2f8fc';ctx.fillRect(bx0,BY(W),bw,bbot-BY(W));ctx.fillStyle='#77b9ff';ctx.fillRect(bx0+bw+20,BY(F),bw,bbot-BY(F));
+    fit(number(W,1),bx0+bw/2,BY(W)-6,'#f2f8fc',10,bw+16,'center');fit(number(F,1),bx0+bw*1.5+20,BY(F)-6,'#77b9ff',10,bw+16,'center');
+    fit(text('weightShort'),bx0+bw/2,bbot+14,'#9fb6c7',9,bw+16,'center');fit(text('buoyancyShort'),bx0+bw*1.5+20,bbot+14,'#9fb6c7',9,bw+16,'center');
+    if(c.ask==='cargo'){line([{x:bx0-4,y:BY(cap)},{x:bx1,y:BY(cap)}],'#ff6b6b',1.5,[5,3]);fit(text('capacityTag'),area+8,60,'#ff6b6b',9,width-area-16);}
+  }
+  function frame(now){if(previous===null)previous=now;const elapsed=Math.min(.1,(now-previous)/1000);previous=now;if(running){accumulator+=elapsed;while(accumulator>=H&&running){accumulator-=H;simulate(H);}draw();}if(now-lastUpdate>=80){update();lastUpdate=now;}requestAnimationFrame(frame);}
+  window.addEventListener('resize',resize);if(typeof ResizeObserver!=='undefined')new ResizeObserver(resize).observe(canvas);
+  sync();setRunning(false);update();resize();requestAnimationFrame(frame);
+})();
+</script>
+</body>
+</html>

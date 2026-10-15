@@ -1,0 +1,293 @@
+<!doctype html>
+<html lang="en">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Pascal's Barrel · Phisicos</title>
+<style>
+.barrel-page .answer-row .symbol{min-width:44px}.barrel-page .question{font-size:15px;font-weight:600;margin-top:4px}
+.barrel-page .line-key.white{background:#f2f8fc}.barrel-page .line-key.blue{background:#77b9ff}
+</style>
+</head>
+<body>
+<div class="shell module-page barrel-page">
+__HEADER__
+<main id="main-content">
+__BREADCRUMBS__
+
+<div class="masthead"><div><h1>{{title}}</h1><p class="intro">{{subtitle}}</p></div><div class="concept-tags"><span class="tag speed">{{tag1}}</span><span class="tag velocity">{{tag2}}</span></div></div>
+<noscript><p class="no-js">{{noScript}}</p></noscript>
+<div class="layout">
+<aside class="sidebar" aria-label="{{setup}}">
+  <section class="control-section"><h2 class="eyebrow">{{setup}}</h2><div class="mission-list" role="group" aria-label="{{setup}}">
+    <button id="mission-0" aria-pressed="true"><b>1 · {{mission0}}</b><span id="given-0">d</span></button>
+    <button id="mission-1" aria-pressed="false"><b>2 · {{mission1}}</b><span id="given-1">d</span></button>
+    <button id="mission-2" aria-pressed="false"><b>3 · {{mission2}}</b><span id="given-2">d</span></button>
+    <button id="mission-3" aria-pressed="false"><b>4 · {{mission3}}</b><span id="given-3">d</span></button>
+    <button id="mission-4" aria-pressed="false"><b>5 · {{mission4}}</b><span id="given-4">d</span></button>
+  </div><p class="hint">{{setupNote}}</p></section>
+  <section class="control-section"><h2 class="eyebrow">{{answerHeading}}</h2>
+    <p class="question" id="question">{{question0}}</p>
+    <p class="field-label"><label for="answer">{{answerLabel}}</label></p>
+    <div class="answer-row"><span class="symbol" id="answer-symbol">h =</span><input id="answer" type="number" inputmode="decimal" step="any" value=""><span class="unit" id="answer-unit">m</span></div>
+    <p class="hint">{{answerHint}}</p>
+  </section>
+  <section class="control-section"><h2 class="eyebrow">{{observe}}</h2><label class="check"><input id="show-arrows" type="checkbox" checked>{{arrowsToggle}}</label><label class="check"><input id="show-guess" type="checkbox" checked>{{guessToggle}}</label><p class="hint">{{observeHint}}</p></section>
+</aside>
+<div class="workspace">
+  <section class="scene" aria-label="{{sceneTitle}}"><div class="scene-top"><div><h2 class="scene-title">{{sceneTitle}}</h2><p class="scene-subtitle" id="mission-label">{{mission0}}</p></div><span class="status" id="barrel-status"><i class="status-dot" aria-hidden="true"></i><span id="barrel-status-text">{{ready}}</span></span></div>
+    <div class="module-stage"><canvas id="barrel-canvas" role="img" aria-label="{{canvasLabel}}">{{noScript}}</canvas></div>
+    <div class="legend"><span><i class="line-key blue"></i>{{waterLegend}}</span><span><i class="line-key white"></i>{{barrelLegend}}</span><span><i class="line-key orange"></i>{{guessLegend}}</span><span><i class="line-key gray"></i>{{arrowsLegend}}</span></div>
+    <div class="module-equation"><span>{{equationTitle}}</span><output id="barrel-equation">F = p·A</output></div>
+    <div class="transport"><button id="play" class="primary" disabled>{{play}}</button><button id="pause" disabled>{{pause}}</button><button id="step" disabled>{{step}}</button><button id="reset" class="reset">{{reset}}</button></div>
+  </section>
+  <section class="metrics" aria-label="{{observe}}">
+    <div class="metric scalar"><h3 class="metric-label">{{time}}</h3><p class="metric-value"><span id="time-value">0.00</span> <small>s</small></p><p class="metric-equation">t</p></div>
+    <div class="metric vector"><h3 class="metric-label">{{heightMetric}}</h3><p class="metric-value"><span id="height-value">—</span> <small>m</small></p><p class="metric-equation">h</p></div>
+    <div class="metric scalar"><h3 class="metric-label">{{pressureMetric}}</h3><p class="metric-value"><span id="pressure-value">—</span> <small>kPa</small></p><p class="metric-equation">Δp</p></div>
+    <div class="metric vector"><h3 class="metric-label">{{forceMetric}}</h3><p class="metric-value"><span id="force-value">—</span> <small>kN</small></p><p class="metric-equation">F = Δp·A</p></div>
+    <div class="metric scalar"><h3 class="metric-label">{{pouredMetric}}</h3><p class="metric-value"><span id="poured-value">—</span> <small>N</small></p><p class="metric-equation">F_in</p></div>
+  </section>
+  <div class="insight" id="insight"><span class="insight-icon" aria-hidden="true">↗</span><div><strong id="lesson-title">{{predictTitle}}</strong><p id="lesson-copy">{{predictCopy}}</p></div></div>
+  <section class="challenge"><div class="mission-heading"><h2 class="challenge-title">{{missionTitle}}</h2><div class="score-card"><span>{{score}}</span><strong id="mission-score">—</strong></div></div><p class="mission-copy">{{missionCopy}}</p><div class="badges"><span id="right-badge">✓ {{rightBadge}}</span><span id="first-badge">① {{firstBadge}}</span></div></section>
+</div>
+</div>
+<article class="learning-content"><section><h2>{{guideTitle}}</h2><ol><li>{{instruction1}}</li><li>{{instruction2}}</li><li>{{instruction3}}</li><li>{{instruction4}}</li></ol></section><section><h2>{{conceptTitle}}</h2><p>{{conceptCopy}}</p><aside class="worked-example"><h3>{{exampleTitle}}</h3><p>{{exampleCopy}}</p></aside></section><section><h2>{{modelTitle}}</h2><p>{{modelCopy}}</p></section></article>
+<p class="language-note" id="language-note">{{languageNote}}</p>
+</main>
+__FOOTER__
+<p class="sr-only" id="announcement" role="status" aria-live="polite"></p>
+</div>
+<script id="barrel-model">
+class BarrelModel {
+  // Water poured into a thin tube standing on a sealed, full barrel raises the pressure under the lid by ρ·g·h, where h is
+  // how high the water stands in the tube above the lid. A liquid passes that extra pressure to every part of its container
+  // (Pascal's principle), so the lid feels ρ·g·h·A_lid and the bottom, H deeper, ρ·g·(h + H)·A_bottom. The water is poured
+  // steadily for 2 s, and a lid pops the moment its force reaches its strength. A cork is pushed with a force that grows
+  // steadily for 2 s, and its pressure, F ÷ A_cork, reaches the bottom of the bottle too.
+  static run = 2; // s to pour, or to push
+  static pop = 1; // s a popped lid is drawn flying off
+  static g = 9.8;
+  static rho = 1000;
+  static tolerance = .02;
+  static grace = 5e-4; // within 0.05% still pops, so a rounded answer works
+  static missions = [
+    {key:'pop',ask:'height',lid:.5,tube:1,strength:20000,H:1,h:null},
+    {key:'wide',ask:'height',lid:.5,tube:10,strength:20000,H:1,h:null},
+    {key:'lid',ask:'lidForce',lid:.5,tube:1,strength:null,H:1,h:6},
+    {key:'bottom',ask:'bottomForce',lid:.5,tube:1,strength:null,H:1,h:4},
+    {key:'cork',ask:'cork',cork:2,bottom:50,push:20}
+  ];
+  static units = {height:'m',lidForce:'kN',bottomForce:'kN',cork:'N'};
+  static limits = {height:1e5,lidForce:1e7,bottomForce:1e7,cork:1e7};
+  static view = 8; // m of tube the drawing shows
+  constructor(index = 0){this.setMission(index);}
+  setMission(index){this.index=index;this.config=BarrelModel.missions[index];this.answer=null;this.attempts=0;this.reset();}
+  reset(){this.t=0;this.status='moving';}
+  valid(value){return Number.isFinite(value)&&value>0&&value<=BarrelModel.limits[this.config.ask];}
+  setAnswer(value){if(value!==null&&!this.valid(value))return false;this.answer=value;this.reset();return true;}
+  ready(){return this.answer!==null;}
+  clamp(t){return Math.min(Math.max(t,0),BarrelModel.run);}
+  cork(){return this.config.ask==='cork';}
+  // How high you pour (your answer when the height is asked), and the height that just pops the lid.
+  target(){const c=this.config;return c.h??(this.answer??0);}
+  needed(){const c=this.config;return c.strength?c.strength/(BarrelModel.rho*BarrelModel.g*c.lid):null;}
+  pops(){const n=this.needed();return n!==null&&this.target()>=n*(1-BarrelModel.grace);}
+  popTime(){return this.pops()?BarrelModel.run*Math.min(1,this.needed()/this.target()):null;}
+  level(t){if(this.cork())return 0;const p=this.popTime(),s=p===null?this.clamp(t):Math.min(this.clamp(t),p);return this.target()*s/BarrelModel.run;}
+  push(t){return this.cork()?this.config.push*this.clamp(t)/BarrelModel.run:0;}
+  // The pressure added everywhere in the container (Pa), and the forces it makes (N).
+  added(t){const c=this.config;return this.cork()?this.push(t)/(c.cork*1e-4):BarrelModel.rho*BarrelModel.g*this.level(t);}
+  lidForce(t){return this.added(t)*this.config.lid;}
+  bottomPressure(t){return this.cork()?this.added(t):this.added(t)+BarrelModel.rho*BarrelModel.g*this.config.H;}
+  bottomForce(t){const c=this.config;return this.cork()?this.added(t)*c.bottom*1e-4:this.bottomPressure(t)*c.lid;}
+  // What goes in at the top: the weight of the water in the tube, or the push on the cork (N).
+  input(t){const c=this.config;return this.cork()?this.push(t):BarrelModel.rho*BarrelModel.g*this.level(t)*c.tube*1e-4;}
+  litres(t){return this.cork()?0:this.level(t)*this.config.tube/10;}
+  // The force the mission is about: on the bottom for the bottom and cork missions, otherwise on the lid.
+  output(t){return ['bottomForce','cork'].includes(this.config.ask)?this.bottomForce(t):this.lidForce(t);}
+  lift(t){const p=this.popTime();return p===null?0:Math.min(Math.max((t-p)/BarrelModel.pop,0),1);}
+  duration(){const p=this.popTime();return p===null?BarrelModel.run:p+BarrelModel.pop;}
+  now(){return this.status==='done'?this.duration():this.t;}
+  advance(dt){
+    if(!Number.isFinite(dt)||dt<0)throw new Error('Invalid timestep');
+    if(this.status==='done'||!this.ready())return null;
+    // A run counts as an attempt as soon as it starts; it ends exactly when pouring stops, or once the popped lid is drawn.
+    if(this.t===0)this.attempts++;
+    const T=this.duration();
+    if(this.t+dt>=T*(1-1e-12)){this.t=T;this.status='done';return {t:T,done:true};}
+    this.t+=dt;return null;
+  }
+  exact(){
+    const c=this.config,rg=BarrelModel.rho*BarrelModel.g;
+    if(c.ask==='height')return this.needed();
+    if(c.ask==='lidForce')return rg*c.h*c.lid/1000;
+    if(c.ask==='bottomForce')return rg*(c.h+c.H)*c.lid/1000;
+    return c.push*c.bottom/c.cork;
+  }
+  unit(){return BarrelModel.units[this.config.ask];}
+  evaluate(){
+    if(!this.ready())return {ok:false,slip:null,first:false,exact:this.exact()};
+    const c=this.config,a=this.answer,e=this.exact(),tol=BarrelModel.tolerance,near=(p,q)=>Math.abs(p-q)<=tol*Math.abs(q)+1e-12,rho=BarrelModel.rho,g=BarrelModel.g;
+    let ok,slip=null;
+    // A height is right when it pops the lid with at most 2% to spare; every force within 2%.
+    if(c.ask==='height'){
+      ok=this.pops()&&a<=e*(1+tol);
+      if(!ok){if(c.key==='wide'&&(near(a,e/10)||near(a,e*10)))slip='width';else if(near(a,c.strength/(rho*g*c.tube*1e-4)))slip='tubeArea';else if(near(a,c.strength/(rho*c.lid)))slip='noG';else if(this.pops())slip='spare';}
+    }
+    else{
+      ok=near(a,e);
+      if(!ok){
+        if(c.ask==='lidForce'){if(near(a,rho*g*c.h*c.tube*1e-4/1000)||near(a,rho*g*c.h*c.tube*1e-4))slip='tubeArea';else if(near(a,rho*c.h*c.lid/1000))slip='noG';else if(near(a,rho*g*(c.h+c.H)*c.lid/1000))slip='withBarrel';}
+        else if(c.ask==='bottomForce'){if(near(a,rho*g*c.h*c.lid/1000))slip='tubeOnly';else if(near(a,rho*g*c.H*c.lid/1000))slip='barrelOnly';}
+        else{if(near(a,c.push))slip='same';else if(near(a,c.push*c.cork/c.bottom))slip='inverted';}
+      }
+    }
+    return {ok,slip,first:ok&&this.attempts===1,exact:e};
+  }
+  score(){if(this.status!=='done')return 0;const e=this.evaluate();return (e.ok?100:0)+(e.first?50:0);}
+  snapshot(){return {index:this.index,answer:this.answer,attempts:this.attempts,t:this.t,status:this.status};}
+  restore(saved){
+    if(!Number.isInteger(saved?.index)||!BarrelModel.missions[saved.index])return false;
+    const probe=new BarrelModel(saved.index);
+    if(!probe.setAnswer(saved.answer??null)||!Number.isInteger(saved.attempts)||saved.attempts<0)return false;
+    if(!['moving','done'].includes(saved.status)||!Number.isFinite(saved.t)||saved.t<0||saved.t>probe.duration()*(1+1e-9))return false;
+    if(probe.answer===null&&(saved.t>0||saved.status==='done'))return false;
+    if((saved.status==='done'||saved.t>0)&&saved.attempts<1)return false;
+    this.setMission(saved.index);this.answer=probe.answer;this.attempts=saved.attempts;
+    this.status=saved.status;this.t=saved.status==='done'?this.duration():saved.t;return true;
+  }
+}
+globalThis.BarrelModel=BarrelModel;
+</script>
+<script id="barrel-locale" type="application/json">__LOCALE__</script>
+<script id="barrel-interface">
+(() => {
+  'use strict';
+  const $=id=>document.getElementById(id),locale=JSON.parse($('barrel-locale').textContent);
+  const text=(key,values={})=>locale.strings[key].replace(/\{(\w+)\}/g,(_,name)=>values[name]??'{'+name+'}');
+  const number=(n,d=2)=>Math.abs(n)<.5*10**-d?(0).toLocaleString(locale.lang,{minimumFractionDigits:d,maximumFractionDigits:d}):n.toLocaleString(locale.lang,{minimumFractionDigits:d,maximumFractionDigits:d,useGrouping:false});
+  const plain=n=>n.toLocaleString(locale.lang,{maximumFractionDigits:3,useGrouping:false}).replace('-','−');
+  const model=new BarrelModel();
+  const canvas=$('barrel-canvas'),ctx=canvas.getContext('2d');
+  const H=1/120,transferKey='phisicos-barrel-language-transfer';
+  let running=false,previous=null,accumulator=0,lastUpdate=0,width=800,height=410;
+  const say=message=>{$('announcement').textContent=message;};
+  try{const data=JSON.parse(sessionStorage.getItem(transferKey)||'null');sessionStorage.removeItem(transferKey);if(data)model.restore(data.state);}catch{$('language-note').hidden=true;}
+  const amount=v=>plain(Number(v.toPrecision(5)))+' '+model.unit();
+  const symbols={height:'h =',lidForce:'F =',bottomForce:'F =',cork:'F ='};
+  const slipKey=name=>'slip'+name[0].toUpperCase()+name.slice(1);
+  function setRunning(value){
+    const done=model.status==='done',blocked=!model.ready();running=value&&!done&&!blocked;previous=null;accumulator=0;
+    $('play').disabled=running||done||blocked;$('pause').disabled=!running;$('step').disabled=running||done||blocked;
+    $('barrel-status').classList.toggle('running',running);
+    $('barrel-status-text').textContent=text(done?'done':running?'running':model.t?'paused':'ready');
+  }
+  // Givens: the lid, the tube, and the depth or the strength; for the bottle, the cork, the bottom, and the push.
+  function given(m){
+    if(m.ask==='cork')return 'A_cork = '+plain(m.cork)+' cm² · A_bottom = '+plain(m.bottom)+' cm² · F = '+plain(m.push)+' N';
+    const parts=['A_lid = '+plain(m.lid)+' m²','A_tube = '+plain(m.tube)+' cm²'];
+    if(m.strength)parts.push('F_max = '+plain(m.strength/1000)+' kN');if(m.h)parts.push('h = '+plain(m.h)+' m');if(m.ask==='bottomForce')parts.push('H = '+plain(m.H)+' m');
+    return parts.join(' · ');
+  }
+  function sync(){
+    const c=model.config;
+    BarrelModel.missions.forEach((m,i)=>{$('mission-'+i).setAttribute('aria-pressed',String(i===model.index));$('given-'+i).textContent=given(m);});
+    $('question').textContent=text('question'+model.index);$('answer-symbol').textContent=symbols[c.ask];$('answer-unit').textContent=model.unit();
+    $('answer').value=model.answer===null?'':String(model.answer);$('mission-label').textContent=text('mission'+model.index);
+  }
+  // The height, the pressure, and the forces show only once a run starts, because they give the answer away.
+  const started=()=>model.status==='done'||model.t>0;
+  function update(){
+    const c=model.config,ready=model.ready(),done=model.status==='done',t=ready?model.now():0,e=model.evaluate(),begun=started(),cork=model.cork(),D=model.duration(),bottom=c.ask==='bottomForce';
+    $('time-value').textContent=number(t);$('height-value').textContent=begun&&!cork?number(model.level(t),2):'—';
+    $('pressure-value').textContent=begun?number((bottom?model.bottomPressure(t):model.added(t))/1000,1):'—';
+    $('force-value').textContent=begun?number(model.output(t)/1000,2):'—';$('poured-value').textContent=begun?number(model.input(t),2):'—';
+    $('barrel-equation').textContent=begun?'F = p·A = '+number((bottom?model.bottomPressure(t):model.added(t))/1000,1)+' kPa × '+plain(cork?c.bottom*1e-4:c.lid)+' m² = '+number(model.output(t)/1000,2)+' kN':'F = p·A';
+    let key,copy;
+    const hd=model.level(D),values={h:number(hd,2),p:number((bottom?model.bottomPressure(D):model.added(D))/1000,1),f:number(model.output(D)/(cork?1:1000),cork?0:2),
+      v:number(model.litres(D),2),w:number(model.input(D),2)};
+    if(done){
+      const base=text(c.ask==='height'&&!model.pops()?'heldCopy':'result'+model.index,values);
+      if(e.ok){key='good';copy=base+' '+text('why'+model.index);}
+      else{key='miss';copy=base+' '+text('missCopy',{p:amount(model.answer)})+' '+(e.slip?text(slipKey(e.slip)):text('hint'+model.index));}
+    }
+    else if(!ready){key='predict';copy=text('predictCopy');}
+    else if(model.t>0){key='running';copy=cork?text('pushingCopy',{f:number(model.push(t),1),p:number(model.added(t)/1000,1)}):text('movingCopy',{h:number(model.level(t),2),p:number(model.added(t)/1000,1)});}
+    else{key='ready';copy=text('readyCopy');}
+    $('lesson-title').textContent=text(key+'Title',{t:number(t),p:ready?amount(model.answer):''});$('lesson-copy').textContent=copy;
+    $('insight').classList.toggle('warning',key==='miss');
+    $('mission-score').textContent=done?String(model.score()):'—';
+    $('right-badge').classList.toggle('earned',done&&e.ok);$('first-badge').classList.toggle('earned',done&&e.first);
+  }
+  function refresh(){setRunning(false);update();draw();}
+  function simulate(dt){
+    const result=model.advance(dt);
+    if(result?.done){setRunning(false);update();say(text('doneAnnouncement')+' '+$('lesson-title').textContent);return true;}
+    return false;
+  }
+  $('answer').addEventListener('input',event=>{const raw=String(event.target.value).trim(),value=raw===''?null:Number(raw);if(!model.setAnswer(value))model.setAnswer(null);refresh();});
+  $('play').addEventListener('click',()=>{setRunning(true);update();say(text('startedAnnouncement'));});
+  $('pause').addEventListener('click',()=>{setRunning(false);update();say(text('pausedAnnouncement'));});
+  $('step').addEventListener('click',()=>{for(let i=0;i<12;i++)if(simulate(H))break;setRunning(false);update();draw();});
+  $('reset').addEventListener('click',()=>{model.reset();refresh();say(text('resetAnnouncement'));});
+  BarrelModel.missions.forEach((_,i)=>$('mission-'+i).addEventListener('click',()=>{model.setMission(i);sync();refresh();say(text('missionAnnouncement',{name:text('mission'+i)}));}));
+  for(const id of ['show-arrows','show-guess'])$(id).addEventListener('change',()=>{update();draw();});
+  function suspend(){if(running){setRunning(false);say(text('suspendedAnnouncement'));}update();draw();}
+  window.addEventListener('blur',suspend);document.addEventListener('visibilitychange',()=>{if(document.hidden)suspend();});
+  for(const link of document.querySelectorAll('.language-menu a'))link.addEventListener('click',()=>{setRunning(false);try{sessionStorage.setItem(transferKey,JSON.stringify({state:model.snapshot()}));}catch{}});
+  function resize(){const rect=canvas.getBoundingClientRect();if(rect.width<=0)return;width=rect.width;height=rect.height;const dpr=Math.min(window.devicePixelRatio||1,3);canvas.width=Math.round(width*dpr);canvas.height=Math.round(height*dpr);ctx.setTransform(dpr,0,0,dpr,0,0);draw();}
+  function draw(){
+    if(!ctx)return;
+    const c=model.config,ready=model.ready(),done=model.status==='done',t=ready?model.now():0,begun=started(),arrows=$('show-arrows').checked,guess=$('show-guess').checked&&ready,cork=model.cork();
+    ctx.clearRect(0,0,width,height);
+    const label=(str,px,py,color='#b8ccdb',align='left',font=12)=>{ctx.fillStyle=color;ctx.textAlign=align;ctx.font=font+'px -apple-system,BlinkMacSystemFont,sans-serif';ctx.fillText(str,px,py);};
+    const line=(points,color,w=1,dash=[])=>{ctx.beginPath();ctx.strokeStyle=color;ctx.lineWidth=w;ctx.setLineDash(dash);points.forEach((q,i)=>i?ctx.lineTo(q.x,q.y):ctx.moveTo(q.x,q.y));ctx.stroke();ctx.setLineDash([]);};
+    const fit=(str,px,py,color,size,room,align='left')=>{ctx.font=size+'px -apple-system,BlinkMacSystemFont,sans-serif';const w=ctx.measureText(str).width;label(str,px,py,color,align,w>room?Math.max(7,Math.floor(size*room/w)):size);};
+    const arrow=(x0,y0,x1,y1,color,w=2)=>{line([{x:x0,y:y0},{x:x1,y:y1}],color,w);const a=Math.atan2(y1-y0,x1-x0);line([{x:x1-6*Math.cos(a-.5),y:y1-6*Math.sin(a-.5)},{x:x1,y:y1},{x:x1-6*Math.cos(a+.5),y:y1-6*Math.sin(a+.5)}],color,w);};
+    const wide=width>=560,area=wide?width*.64:width;
+    fit(text('viewTitle'),16,20,'#d1e3ed',12,area-28);
+    if(done){const ev=model.evaluate();fit(text(ev.ok?'rightBanner':'offBanner')+(c.ask==='height'?' · '+text(model.pops()?'poppedBanner':'heldBanner'):''),16,40,ev.ok?'#75efc7':'#efb958',width<430?12:14,area-28);}
+    // The barrel (not to scale) with the tube to scale above it; the bottle has a short neck and a cork instead.
+    const cx=area*.5,base=height-40,bw=Math.min(190,area*.42),bh=cork?150:84,lid=base-bh,lift=model.lift(t)*70;
+    ctx.fillStyle='rgba(119,185,255,.5)';ctx.fillRect(cx-bw/2,lid,bw,bh);
+    line([{x:cx-bw/2,y:lid},{x:cx-bw/2,y:base},{x:cx+bw/2,y:base},{x:cx+bw/2,y:lid}],'#c9a96e',4);
+    if(cork){
+      const nw=22,top=lid-46,push=model.push(t);ctx.fillStyle='rgba(119,185,255,.5)';ctx.fillRect(cx-nw/2,top+16,nw,46-16);line([{x:cx-nw/2,y:lid},{x:cx-nw/2,y:top},{x:cx+nw/2,y:top},{x:cx+nw/2,y:lid}],'#c9a96e',3);
+      ctx.fillStyle='#b5773a';ctx.fillRect(cx-nw/2+2,top,nw-4,16);
+      if(begun)arrow(cx,top-16-40*push/c.push,cx,top-3,'#efe6d0',2.5);
+      fit('F = '+(begun?number(push,1):'?')+' N',cx+nw/2+8,top+4,'#d1e3ed',11,area*.4);
+    }
+    else{
+      const S=(lid-70)/BarrelModel.view,tw=4+3*Math.sqrt(c.tube),h=model.level(t),Y=m=>lid-m*S;
+      for(let m=2;m<=BarrelModel.view;m+=2){line([{x:cx-tw/2-10,y:Y(m)},{x:cx-tw/2-4,y:Y(m)}],'#8aa3b5',1);label(plain(m)+' m',cx-tw/2-14,Y(m)+4,'#9fb6c7','right',10);}
+      ctx.fillStyle='rgba(119,185,255,.7)';ctx.fillRect(cx-tw/2,Y(h),tw,h*S);line([{x:cx-tw/2,y:lid-lift},{x:cx-tw/2,y:Y(BarrelModel.view)}],'#c3cfd9',1.5);line([{x:cx+tw/2,y:lid-lift},{x:cx+tw/2,y:Y(BarrelModel.view)}],'#c3cfd9',1.5);
+      ctx.fillStyle='#8b6a45';ctx.fillRect(cx-bw/2-6,lid-8-lift,bw/2-tw/2+6,8);ctx.fillRect(cx+tw/2,lid-8-lift,bw/2-tw/2+6,8);
+      if(lift>0)for(const dx of [-.4,-.2,.2,.4])line([{x:cx+dx*bw,y:lid-2},{x:cx+dx*bw*1.6,y:lid-10-lift*.8}],'#77b9ff',2);
+      if(guess&&c.ask==='height'){const yy=Y(Math.min(model.answer,BarrelModel.view*1.05));line([{x:cx-tw/2-2,y:yy},{x:cx+50,y:yy}],'#efb958',2,[6,4]);label(text('guessTag'),cx+54,yy+4,'#efb958','left',10);}
+    }
+    // Pascal's principle: the added pressure pushes out on every wall, the lid, and the bottom alike.
+    if(arrows&&begun){
+      const p=model.added(t),len=Math.min(26,6+20*p/(cork?(c.push/(c.cork*1e-4)):(c.strength??BarrelModel.rho*BarrelModel.g*BarrelModel.view*c.lid)/c.lid));
+      for(const f of [.25,.5,.75]){arrow(cx-bw/2+8,lid+bh*f,cx-bw/2+8-len,lid+bh*f,'#77b9ff',1.5);arrow(cx+bw/2-8,lid+bh*f,cx+bw/2-8+len,lid+bh*f,'#77b9ff',1.5);}
+      for(const f of [-.3,0,.3]){arrow(cx+f*bw,base-8,cx+f*bw,base-8+len,'#77b9ff',1.5);if(!cork&&f)arrow(cx+f*bw,lid+10,cx+f*bw,lid+10-len,'#77b9ff',1.5);}
+      fit('Δp = '+number(p/1000,1)+' kPa',cx,lid+bh/2+4,'#0f2233',11,bw-60,'center');
+    }
+    label(text(cork?'bottleNote':'scaleNote'),16,height-8,'#9fb6c7','left',10);
+    if(!wide)return;
+    // Right panel: the small force that goes in at the top against the large force on the lid or the bottom.
+    fit(text('forceTitle'),area+8,44,'#d1e3ed',10,width-area-16);
+    if(!begun){fit(text('panelHint'),area+8,70,'#9fb6c7',10,width-area-16);return;}
+    const fin=model.input(t),fout=model.output(t),gv=guess&&c.ask!=='height'?model.answer*(cork?1:1000):null,strength=c.strength;
+    const top=Math.max(fout,strength??0,Math.min(gv??0,(strength??model.output(model.duration()))*2.5),model.output(model.duration()))*1.15||1;
+    const bx0=area+20,bx1=width-16,btop=72,bbot=height-58,bw2=(bx1-bx0)/2-10,BY=v=>bbot-v/top*(bbot-btop);
+    ctx.fillStyle='#efe6d0';ctx.fillRect(bx0,BY(fin),bw2,Math.max(1,bbot-BY(fin)));ctx.fillStyle='#77b9ff';ctx.fillRect(bx0+bw2+20,BY(fout),bw2,bbot-BY(fout));
+    fit(number(fin,2)+' N',bx0+bw2/2,BY(fin)-6,'#efe6d0',10,bw2+16,'center');fit(number(fout,0)+' N',bx0+bw2*1.5+20,BY(fout)-6,'#77b9ff',10,bw2+16,'center');
+    fit(text('inShort'),bx0+bw2/2,bbot+14,'#9fb6c7',9,bw2+16,'center');fit(text(['bottomForce','cork'].includes(c.ask)?'bottomShort':'lidShort'),bx0+bw2*1.5+20,bbot+14,'#9fb6c7',9,bw2+16,'center');
+    if(strength){line([{x:bx0+bw2+14,y:BY(strength)},{x:bx1,y:BY(strength)}],'#ff6b6b',1.5,[5,3]);fit(text('strengthTag'),area+8,60,'#ff6b6b',9,width-area-16);}
+    if(gv!==null){const shown=Math.min(gv,top/1.15),yy=BY(shown);line([{x:bx0+bw2+14,y:yy},{x:bx1+4,y:yy}],'#efb958',2,[5,3]);fit(text('guessTag')+(shown<gv?' ↑':''),bx0+bw2*1.5+20,yy+14,'#efb958',9,bw2+16,'center');}
+  }
+  function frame(now){if(previous===null)previous=now;const elapsed=Math.min(.1,(now-previous)/1000);previous=now;if(running){accumulator+=elapsed;while(accumulator>=H&&running){accumulator-=H;simulate(H);}draw();}if(now-lastUpdate>=80){update();lastUpdate=now;}requestAnimationFrame(frame);}
+  window.addEventListener('resize',resize);if(typeof ResizeObserver!=='undefined')new ResizeObserver(resize).observe(canvas);
+  sync();setRunning(false);update();resize();requestAnimationFrame(frame);
+})();
+</script>
+</body>
+</html>

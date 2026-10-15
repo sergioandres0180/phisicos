@@ -1,0 +1,296 @@
+<!doctype html>
+<html lang="en">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Balloon Lift · Phisicos</title>
+<style>
+.balloon-page .answer-row .symbol{min-width:44px}.balloon-page .question{font-size:15px;font-weight:600;margin-top:4px}
+.balloon-page .line-key.white{background:#f2f8fc}.balloon-page .line-key.blue{background:#77b9ff}
+</style>
+</head>
+<body>
+<div class="shell module-page balloon-page">
+__HEADER__
+<main id="main-content">
+__BREADCRUMBS__
+
+<div class="masthead"><div><h1>{{title}}</h1><p class="intro">{{subtitle}}</p></div><div class="concept-tags"><span class="tag speed">{{tag1}}</span><span class="tag velocity">{{tag2}}</span></div></div>
+<noscript><p class="no-js">{{noScript}}</p></noscript>
+<div class="layout">
+<aside class="sidebar" aria-label="{{setup}}">
+  <section class="control-section"><h2 class="eyebrow">{{setup}}</h2><div class="mission-list" role="group" aria-label="{{setup}}">
+    <button id="mission-0" aria-pressed="true"><b>1 · {{mission0}}</b><span id="given-0">V</span></button>
+    <button id="mission-1" aria-pressed="false"><b>2 · {{mission1}}</b><span id="given-1">V</span></button>
+    <button id="mission-2" aria-pressed="false"><b>3 · {{mission2}}</b><span id="given-2">V</span></button>
+    <button id="mission-3" aria-pressed="false"><b>4 · {{mission3}}</b><span id="given-3">V</span></button>
+    <button id="mission-4" aria-pressed="false"><b>5 · {{mission4}}</b><span id="given-4">m</span></button>
+  </div><p class="hint">{{setupNote}}</p></section>
+  <section class="control-section"><h2 class="eyebrow">{{answerHeading}}</h2>
+    <p class="question" id="question">{{question0}}</p>
+    <p class="field-label"><label for="answer">{{answerLabel}}</label></p>
+    <div class="answer-row"><span class="symbol" id="answer-symbol">n =</span><input id="answer" type="number" inputmode="decimal" step="any" value=""><span class="unit" id="answer-unit">{{balloonsUnit}}</span></div>
+    <p class="hint">{{answerHint}}</p>
+  </section>
+  <section class="control-section"><h2 class="eyebrow">{{observe}}</h2><label class="check"><input id="show-arrows" type="checkbox" checked>{{arrowsToggle}}</label><label class="check"><input id="show-labels" type="checkbox" checked>{{labelsToggle}}</label><p class="hint">{{observeHint}}</p></section>
+</aside>
+<div class="workspace">
+  <section class="scene" aria-label="{{sceneTitle}}"><div class="scene-top"><div><h2 class="scene-title">{{sceneTitle}}</h2><p class="scene-subtitle" id="mission-label">{{mission0}}</p></div><span class="status" id="balloon-status"><i class="status-dot" aria-hidden="true"></i><span id="balloon-status-text">{{ready}}</span></span></div>
+    <div class="module-stage"><canvas id="balloon-canvas" role="img" aria-label="{{canvasLabel}}">{{noScript}}</canvas></div>
+    <div class="legend"><span><i class="line-key blue"></i>{{liftLegend}}</span><span><i class="line-key white"></i>{{weightLegend}}</span><span><i class="line-key orange"></i>{{gasLegend}}</span><span><i class="line-key gray"></i>{{groundLegend}}</span></div>
+    <div class="module-equation"><span>{{equationTitle}}</span><output id="balloon-equation">F = (ρ_air − ρ_in)·g·V</output></div>
+    <div class="transport"><button id="play" class="primary" disabled>{{play}}</button><button id="pause" disabled>{{pause}}</button><button id="step" disabled>{{step}}</button><button id="reset" class="reset">{{reset}}</button></div>
+  </section>
+  <section class="metrics" aria-label="{{observe}}">
+    <div class="metric scalar"><h3 class="metric-label">{{time}}</h3><p class="metric-value"><span id="time-value">0.00</span> <small>s</small></p><p class="metric-equation">t</p></div>
+    <div class="metric vector"><h3 class="metric-label">{{volumeMetric}}</h3><p class="metric-value"><span id="volume-value">—</span> <small>m³</small></p><p class="metric-equation">V</p></div>
+    <div class="metric scalar"><h3 class="metric-label">{{insideMetric}}</h3><p class="metric-value"><span id="inside-value">—</span> <small>kg/m³</small></p><p class="metric-equation">ρ_in</p></div>
+    <div class="metric vector"><h3 class="metric-label">{{liftMetric}}</h3><p class="metric-value"><span id="lift-value">—</span> <small>N</small></p><p class="metric-equation">F = (ρ_air − ρ_in)·g·V</p></div>
+    <div class="metric scalar"><h3 class="metric-label">{{weightMetric}}</h3><p class="metric-value"><span id="weight-value">—</span> <small>N</small></p><p class="metric-equation">W = m·g</p></div>
+  </section>
+  <div class="insight" id="insight"><span class="insight-icon" aria-hidden="true">↗</span><div><strong id="lesson-title">{{predictTitle}}</strong><p id="lesson-copy">{{predictCopy}}</p></div></div>
+  <section class="challenge"><div class="mission-heading"><h2 class="challenge-title">{{missionTitle}}</h2><div class="score-card"><span>{{score}}</span><strong id="mission-score">—</strong></div></div><p class="mission-copy">{{missionCopy}}</p><div class="badges"><span id="right-badge">✓ {{rightBadge}}</span><span id="first-badge">① {{firstBadge}}</span></div></section>
+</div>
+</div>
+<article class="learning-content"><section><h2>{{guideTitle}}</h2><ol><li>{{instruction1}}</li><li>{{instruction2}}</li><li>{{instruction3}}</li><li>{{instruction4}}</li></ol></section><section><h2>{{conceptTitle}}</h2><p>{{conceptCopy}}</p><aside class="worked-example"><h3>{{exampleTitle}}</h3><p>{{exampleCopy}}</p></aside></section><section><h2>{{modelTitle}}</h2><p>{{modelCopy}}</p></section></article>
+<p class="language-note" id="language-note">{{languageNote}}</p>
+</main>
+__FOOTER__
+<p class="sr-only" id="announcement" role="status" aria-live="polite"></p>
+</div>
+<script id="balloon-model">
+class BalloonModel {
+  // Air pushes up on a balloon with the weight of the air it pushes aside, ρ_air·g·V (Archimedes' principle in a gas). The
+  // gas inside weighs ρ_in·g·V, so the lift is (ρ_air − ρ_in)·g·V, and the balloon lifts off once that reaches the weight of
+  // everything else it carries. Party balloons and a helium envelope inflate steadily for 2 s; a hot-air balloon's burner
+  // heats its air steadily for 2 s, the air's density falling as its kelvin temperature rises (ρ·T stays the same).
+  // Inflating or heating stops at lift-off, and the balloon is drawn rising for 1.5 s.
+  static run = 2; // s to inflate or heat
+  static rise = 1.5; // s a balloon that lifts off is drawn rising
+  static g = 9.8;
+  static zero = 273.15; // K at 0 °C
+  static tolerance = .02;
+  static grace = 5e-4; // within 0.05% still lifts off, so a rounded answer works
+  static missions = [
+    {key:'party',ask:'count',size:.01,gas:.18,air:1.2,rubber:.003,load:.03},
+    {key:'payload',ask:'load',V:2500,air:1.2,inside:.95,balloon:400},
+    {key:'heat',ask:'heat',V:2500,air:1.2,balloon:400,load:350,outside:20},
+    {key:'mountain',ask:'load',V:2500,air:1,inside:.79,balloon:400},
+    {key:'person',ask:'volume',gas:.18,air:1.2,load:80}
+  ];
+  static units = {count:'',load:'kg',heat:'°C',volume:'m³'};
+  static limits = {count:1000,load:1e6,heat:5000,volume:1e7};
+  constructor(index = 0){this.setMission(index);}
+  setMission(index){this.index=index;this.config=BalloonModel.missions[index];this.answer=null;this.attempts=0;this.reset();}
+  reset(){this.t=0;this.status='moving';}
+  valid(value){const c=this.config;return Number.isFinite(value)&&value>0&&value<=BalloonModel.limits[c.ask]&&(c.ask!=='count'||Number.isInteger(value));}
+  setAnswer(value){if(value!==null&&!this.valid(value))return false;this.answer=value;this.reset();return true;}
+  ready(){return this.answer!==null;}
+  // At a stage s from 0 to 1: the gas's volume (m³), its density (kg/m³), and the temperature of heated air (°C).
+  volume(s){const c=this.config,a=this.answer??0;return c.ask==='count'?a*c.size*s:c.ask==='volume'?a*s:c.V;}
+  temperature(s){const c=this.config;return c.outside+((this.answer??c.outside)-c.outside)*s;}
+  inside(s){const c=this.config;if(c.gas)return c.gas;if(c.ask==='heat')return c.air*(c.outside+BalloonModel.zero)/(this.temperature(s)+BalloonModel.zero);return c.air-(c.air-c.inside)*s;}
+  // Everything else the gas must lift (kg): rubber and toy, balloon and load, or the person.
+  carried(){const c=this.config,a=this.answer??0;return c.ask==='count'?a*c.rubber+c.load:c.ask==='load'?c.balloon+a:c.ask==='heat'?c.balloon+c.load:c.load;}
+  lift(s){const c=this.config;return (c.air-this.inside(s))*this.volume(s);}
+  net(s){return this.lift(s)-this.carried();}
+  lifts(){return this.ready()&&this.net(1)>=-BalloonModel.grace*this.carried();}
+  // The stage at which the lift first reaches the load, found by bisection (the lift only grows as s goes on); a balloon
+  // that only lifts off thanks to the rounding margin does so at the end of the filling or heating.
+  liftStage(){
+    if(!this.lifts())return null;
+    if(this.net(1)<0)return 1;if(this.net(0)>=0)return 0;
+    let lo=0,hi=1;for(let i=0;i<80;i++){const mid=(lo+hi)/2;if(this.net(mid)>=0)hi=mid;else lo=mid;}
+    return hi;
+  }
+  liftTime(){const s=this.liftStage();return s===null?null:s*BalloonModel.run;}
+  stage(t){const p=this.liftTime(),u=Math.min(Math.max(t,0),BalloonModel.run);return (p===null?u:Math.min(u,p))/BalloonModel.run;}
+  height(t){const p=this.liftTime();return p===null?0:Math.min(Math.max((t-p)/BalloonModel.rise,0),1);}
+  // Forces at time t (N): the lift of the gas and the weight of what it carries.
+  liftForce(t){return this.lift(this.stage(t))*BalloonModel.g;}
+  weightForce(){return this.carried()*BalloonModel.g;}
+  duration(){const p=this.liftTime();return p===null?BalloonModel.run:p+BalloonModel.rise;}
+  now(){return this.status==='done'?this.duration():this.t;}
+  advance(dt){
+    if(!Number.isFinite(dt)||dt<0)throw new Error('Invalid timestep');
+    if(this.status==='done'||!this.ready())return null;
+    // A run counts as an attempt as soon as it starts; it ends exactly when the filling stops, or once the balloon has risen.
+    if(this.t===0)this.attempts++;
+    const T=this.duration();
+    if(this.t+dt>=T*(1-1e-12)){this.t=T;this.status='done';return {t:T,done:true};}
+    this.t+=dt;return null;
+  }
+  raw(){const c=this.config;return c.load/((c.air-c.gas)*c.size-c.rubber);}
+  need(){const c=this.config;return c.air-(c.balloon+c.load)/c.V;}
+  exact(){
+    const c=this.config,z=BalloonModel.zero;
+    if(c.ask==='count')return Math.ceil(this.raw()-1e-9);
+    if(c.ask==='load')return (c.air-c.inside)*c.V-c.balloon;
+    if(c.ask==='heat')return (c.outside+z)*c.air/this.need()-z;
+    return c.load/(c.air-c.gas);
+  }
+  unit(){return BalloonModel.units[this.config.ask];}
+  evaluate(){
+    if(!this.ready())return {ok:false,slip:null,first:false,exact:this.exact()};
+    const c=this.config,a=this.answer,e=this.exact(),tol=BalloonModel.tolerance,near=(p,q)=>Math.abs(p-q)<=tol*Math.abs(q)+1e-12,z=BalloonModel.zero,up=this.lifts();
+    let ok,slip=null;
+    // The fewest balloons; the heaviest load, the lowest temperature, or the least helium that lifts off, with at most 2% to spare.
+    if(c.ask==='count'){ok=a===e;if(!ok){if(a===Math.floor(this.raw()))slip='roundDown';else if(a===Math.ceil(c.load/((c.air-c.gas)*c.size)))slip='noRubber';else if(a>e)slip='spareCount';}}
+    else if(c.ask==='load'){ok=up&&a>=e*(1-tol);if(!ok){if(near(a,(c.air-c.inside)*c.V))slip='noBalloon';else if(near(a,c.air*c.V-c.balloon))slip='noGas';else if(c.key==='mountain'&&near(a,(1.2-.95)*c.V-c.balloon))slip='lowland';else if(up)slip='spareLoad';}}
+    else if(c.ask==='heat'){ok=up&&a<=e*(1+tol);if(!ok){if(near(a,e+z))slip='kelvin';else if(near(a,c.outside*c.air/this.need()))slip='celsius';else if(near(a,(c.outside+z)*c.air/(c.air-c.load/c.V)-z))slip='noBalloon';else if(up)slip='spareHeat';}}
+    else{ok=up&&a<=e*(1+tol);if(!ok){if(near(a,c.load/c.air))slip='noGas';else if(near(a,c.load/c.gas))slip='gasOnly';else if(up)slip='spareVolume';}}
+    return {ok,slip,first:ok&&this.attempts===1,exact:e};
+  }
+  score(){if(this.status!=='done')return 0;const e=this.evaluate();return (e.ok?100:0)+(e.first?50:0);}
+  snapshot(){return {index:this.index,answer:this.answer,attempts:this.attempts,t:this.t,status:this.status};}
+  restore(saved){
+    if(!Number.isInteger(saved?.index)||!BalloonModel.missions[saved.index])return false;
+    const probe=new BalloonModel(saved.index);
+    if(!probe.setAnswer(saved.answer??null)||!Number.isInteger(saved.attempts)||saved.attempts<0)return false;
+    if(!['moving','done'].includes(saved.status)||!Number.isFinite(saved.t)||saved.t<0||saved.t>probe.duration()*(1+1e-9))return false;
+    if(probe.answer===null&&(saved.t>0||saved.status==='done'))return false;
+    if((saved.status==='done'||saved.t>0)&&saved.attempts<1)return false;
+    this.setMission(saved.index);this.answer=probe.answer;this.attempts=saved.attempts;
+    this.status=saved.status;this.t=saved.status==='done'?this.duration():saved.t;return true;
+  }
+}
+globalThis.BalloonModel=BalloonModel;
+</script>
+<script id="balloon-locale" type="application/json">__LOCALE__</script>
+<script id="balloon-interface">
+(() => {
+  'use strict';
+  const $=id=>document.getElementById(id),locale=JSON.parse($('balloon-locale').textContent);
+  const text=(key,values={})=>locale.strings[key].replace(/\{(\w+)\}/g,(_,name)=>values[name]??'{'+name+'}');
+  const number=(n,d=2)=>Math.abs(n)<.5*10**-d?(0).toLocaleString(locale.lang,{minimumFractionDigits:d,maximumFractionDigits:d}):n.toLocaleString(locale.lang,{minimumFractionDigits:d,maximumFractionDigits:d,useGrouping:false});
+  const plain=n=>n.toLocaleString(locale.lang,{maximumFractionDigits:3,useGrouping:false}).replace('-','−');
+  const model=new BalloonModel();
+  const canvas=$('balloon-canvas'),ctx=canvas.getContext('2d');
+  const H=1/120,transferKey='phisicos-balloon-language-transfer';
+  let running=false,previous=null,accumulator=0,lastUpdate=0,width=800,height=410;
+  const say=message=>{$('announcement').textContent=message;};
+  try{const data=JSON.parse(sessionStorage.getItem(transferKey)||'null');sessionStorage.removeItem(transferKey);if(data)model.restore(data.state);}catch{$('language-note').hidden=true;}
+  const unit=()=>model.unit()||text('balloonsUnit');
+  const amount=v=>plain(Number(v.toPrecision(5)))+' '+unit();
+  const symbols={count:'n =',load:'m =',heat:'T =',volume:'V ='};
+  const slipKey=name=>'slip'+name[0].toUpperCase()+name.slice(1);
+  // Small forces (party balloons) keep three decimals; large ones are whole newtons. Small volumes keep three decimals too.
+  const force=n=>number(n,Math.abs(n)<10?3:0),cubic=n=>number(n,n<10?3:n<1000?1:0);
+  function setRunning(value){
+    const done=model.status==='done',blocked=!model.ready();running=value&&!done&&!blocked;previous=null;accumulator=0;
+    $('play').disabled=running||done||blocked;$('pause').disabled=!running;$('step').disabled=running||done||blocked;
+    $('balloon-status').classList.toggle('running',running);
+    $('balloon-status-text').textContent=text(done?'done':running?'running':model.t?'paused':'ready');
+  }
+  // Givens: the gas and what it must carry; outside air is 1.2 kg/m³ unless the card says otherwise.
+  function given(m){
+    if(m.ask==='count')return 'V = '+plain(m.size*1000)+' L · ρ_He = '+plain(m.gas)+' kg/m³ · m_rubber = '+plain(m.rubber*1000)+' g · m_toy = '+plain(m.load*1000)+' g';
+    if(m.ask==='volume')return 'm = '+plain(m.load)+' kg · ρ_He = '+plain(m.gas)+' kg/m³';
+    const parts=['V = '+plain(m.V)+' m³'];
+    if(m.air!==1.2)parts.push('ρ_air = '+plain(m.air)+' kg/m³');
+    if(m.ask==='heat')parts.push('m = '+plain(m.balloon)+' kg + '+plain(m.load)+' kg','T_air = '+plain(m.outside)+' °C');
+    else parts.push('ρ_in = '+plain(m.inside)+' kg/m³','m_balloon = '+plain(m.balloon)+' kg');
+    return parts.join(' · ');
+  }
+  function sync(){
+    const c=model.config;
+    BalloonModel.missions.forEach((m,i)=>{$('mission-'+i).setAttribute('aria-pressed',String(i===model.index));$('given-'+i).textContent=given(m);});
+    $('question').textContent=text('question'+model.index);$('answer-symbol').textContent=symbols[c.ask];$('answer-unit').textContent=unit();
+    $('answer').value=model.answer===null?'':String(model.answer);$('mission-label').textContent=text('mission'+model.index);
+  }
+  // The volume, density, and forces show only once a run starts, because they give the answer away.
+  const started=()=>model.status==='done'||model.t>0;
+  function update(){
+    const c=model.config,ready=model.ready(),done=model.status==='done',t=ready?model.now():0,e=model.evaluate(),begun=started(),D=model.duration(),s=model.stage(t),sd=model.stage(D);
+    $('time-value').textContent=number(t);$('volume-value').textContent=begun?cubic(model.volume(s)):'—';$('inside-value').textContent=begun?number(model.inside(s),3):'—';
+    $('lift-value').textContent=begun?force(model.liftForce(t)):'—';$('weight-value').textContent=begun?force(model.weightForce()):'—';
+    $('balloon-equation').textContent=begun?'F = ('+number(c.air,2)+' − '+number(model.inside(s),3)+') kg/m³ × '+plain(9.8)+' m/s² × '+cubic(model.volume(s))+' m³ = '+force(model.liftForce(t))+' N':'F = (ρ_air − ρ_in)·g·V';
+    let key,copy;
+    const values={n:String(model.answer??0),g:number(model.lift(1)*1000-(model.answer??0)*(c.rubber??0)*1000,1),m:plain(model.answer??0),T:number(c.ask==='heat'?model.temperature(sd):0,1),r:number(model.inside(sd),3),
+      v:cubic(model.volume(sd)),l:force(model.liftForce(D)),w:force(model.weightForce())};
+    if(done){
+      const base=text(model.lifts()?'result'+model.index:'heldCopy',values);
+      if(e.ok){key='good';copy=base+' '+text('why'+model.index);}
+      else{key='miss';copy=base+' '+text('missCopy',{p:amount(model.answer)})+' '+(e.slip?text(slipKey(e.slip)):text('hint'+model.index));}
+    }
+    else if(!ready){key='predict';copy=text('predictCopy');}
+    else if(model.t>0){key='running';copy=text(c.ask==='heat'?'heatingCopy':'liftingCopy',{T:number(model.temperature(s),1),l:force(model.liftForce(t)),w:force(model.weightForce())});}
+    else{key='ready';copy=text('readyCopy');}
+    $('lesson-title').textContent=text(key+'Title',{t:number(t),p:ready?amount(model.answer):''});$('lesson-copy').textContent=copy;
+    $('insight').classList.toggle('warning',key==='miss');
+    $('mission-score').textContent=done?String(model.score()):'—';
+    $('right-badge').classList.toggle('earned',done&&e.ok);$('first-badge').classList.toggle('earned',done&&e.first);
+  }
+  function refresh(){setRunning(false);update();draw();}
+  function simulate(dt){
+    const result=model.advance(dt);
+    if(result?.done){setRunning(false);update();say(text('doneAnnouncement')+' '+$('lesson-title').textContent);return true;}
+    return false;
+  }
+  $('answer').addEventListener('input',event=>{const raw=String(event.target.value).trim(),value=raw===''?null:Number(raw);if(!model.setAnswer(value))model.setAnswer(null);refresh();});
+  $('play').addEventListener('click',()=>{setRunning(true);update();say(text('startedAnnouncement'));});
+  $('pause').addEventListener('click',()=>{setRunning(false);update();say(text('pausedAnnouncement'));});
+  $('step').addEventListener('click',()=>{for(let i=0;i<12;i++)if(simulate(H))break;setRunning(false);update();draw();});
+  $('reset').addEventListener('click',()=>{model.reset();refresh();say(text('resetAnnouncement'));});
+  BalloonModel.missions.forEach((_,i)=>$('mission-'+i).addEventListener('click',()=>{model.setMission(i);sync();refresh();say(text('missionAnnouncement',{name:text('mission'+i)}));}));
+  for(const id of ['show-arrows','show-labels'])$(id).addEventListener('change',()=>{update();draw();});
+  function suspend(){if(running){setRunning(false);say(text('suspendedAnnouncement'));}update();draw();}
+  window.addEventListener('blur',suspend);document.addEventListener('visibilitychange',()=>{if(document.hidden)suspend();});
+  for(const link of document.querySelectorAll('.language-menu a'))link.addEventListener('click',()=>{setRunning(false);try{sessionStorage.setItem(transferKey,JSON.stringify({state:model.snapshot()}));}catch{}});
+  function resize(){const rect=canvas.getBoundingClientRect();if(rect.width<=0)return;width=rect.width;height=rect.height;const dpr=Math.min(window.devicePixelRatio||1,3);canvas.width=Math.round(width*dpr);canvas.height=Math.round(height*dpr);ctx.setTransform(dpr,0,0,dpr,0,0);draw();}
+  function draw(){
+    if(!ctx)return;
+    const c=model.config,ready=model.ready(),done=model.status==='done',t=ready?model.now():0,begun=started(),arrows=$('show-arrows').checked,labels=$('show-labels').checked;
+    ctx.clearRect(0,0,width,height);
+    const label=(str,px,py,color='#b8ccdb',align='left',font=12)=>{ctx.fillStyle=color;ctx.textAlign=align;ctx.font=font+'px -apple-system,BlinkMacSystemFont,sans-serif';ctx.fillText(str,px,py);};
+    const line=(points,color,w=1,dash=[])=>{ctx.beginPath();ctx.strokeStyle=color;ctx.lineWidth=w;ctx.setLineDash(dash);points.forEach((q,i)=>i?ctx.lineTo(q.x,q.y):ctx.moveTo(q.x,q.y));ctx.stroke();ctx.setLineDash([]);};
+    const fit=(str,px,py,color,size,room,align='left')=>{ctx.font=size+'px -apple-system,BlinkMacSystemFont,sans-serif';const w=ctx.measureText(str).width;label(str,px,py,color,align,w>room?Math.max(7,Math.floor(size*room/w)):size);};
+    const arrow=(x0,y0,x1,y1,color,w=2)=>{line([{x:x0,y:y0},{x:x1,y:y1}],color,w);const a=Math.atan2(y1-y0,x1-x0);line([{x:x1-6*Math.cos(a-.5),y:y1-6*Math.sin(a-.5)},{x:x1,y:y1},{x:x1-6*Math.cos(a+.5),y:y1-6*Math.sin(a+.5)}],color,w);};
+    const disc=(x,y,r,color)=>{ctx.beginPath();ctx.fillStyle=color;ctx.arc(x,y,Math.max(r,.5),0,Math.PI*2);ctx.fill();};
+    const wide=width>=560,area=wide?width*.64:width;
+    fit(text('viewTitle'),16,20,'#d1e3ed',12,area-28);
+    if(done){const ev=model.evaluate();fit(text(ev.ok?'rightBanner':'offBanner')+' · '+text(model.lifts()?'flewBanner':'groundBanner'),16,40,ev.ok?'#75efc7':'#efb958',width<430?12:14,area-28);}
+    // Not to scale: the balloon grows as it fills, glows as it heats, and climbs once it lifts off.
+    const s=model.stage(t),ground=height-30,cx=area*.42,room=ground-62,climb=model.height(t)*room*.3;
+    line([{x:12,y:ground},{x:area-12,y:ground}],'#8aa3b5',2);
+    let topY,loadY;
+    if(c.ask==='count'){
+      const n=model.answer??0,shown=Math.min(n,12),r=6+10*Math.cbrt(s),toyY=ground-22-climb;
+      ctx.fillStyle='#c9a96e';ctx.fillRect(cx-12,toyY,24,22);loadY=toyY+11;
+      const cy=Math.max(ground-room*.62-climb,56+r);
+      for(let i=0;i<shown;i++){const f=shown>1?i/(shown-1)-.5:0,bx=cx+f*Math.min(area*.5,shown*22),by=cy-Math.cos(f*2.2)*18;line([{x:cx,y:toyY},{x:bx,y:by+r}],'#c3cfd9',1);disc(bx,by,r,'#ff8fa3');}
+      if(n>shown)fit('× '+n,cx+Math.min(area*.25,shown*11)+r+6,cy,'#d1e3ed',11,area*.2);
+      topY=cy-r;
+    }
+    else{
+      const full=c.ask==='volume'?Math.max(model.answer??0,model.exact()):c.V,R=Math.min(area*.2,room*.36,(ground-room*.3-114)/2)*(c.ask==='volume'?Math.cbrt(Math.max(model.volume(s),0)/full):1);
+      const basketY=ground-20-climb,cy=basketY-34-R;
+      const heat=c.gas?0:Math.min(1,Math.max(0,(c.air-model.inside(s))/(c.air*.3))),fill=c.gas?'rgba(239,185,88,.55)':'rgba('+Math.round(120+135*heat)+','+Math.round(140-20*heat)+','+Math.round(160-90*heat)+',.75)';
+      if(R>1){disc(cx,cy,R,fill);line([{x:cx-R*.7,y:cy+R*.72},{x:cx-12,y:basketY}],'#c3cfd9',1.2);line([{x:cx+R*.7,y:cy+R*.72},{x:cx+12,y:basketY}],'#c3cfd9',1.2);}
+      if(c.gas){disc(cx,basketY-8,5,'#f2f8fc');line([{x:cx,y:basketY-3},{x:cx,y:basketY+12}],'#f2f8fc',2);line([{x:cx-7,y:basketY+20},{x:cx,y:basketY+12},{x:cx+7,y:basketY+20}],'#f2f8fc',2);loadY=basketY+6;}
+      else{ctx.fillStyle='#b5773a';ctx.fillRect(cx-14,basketY,28,20);loadY=basketY+10;if(begun&&t<(model.liftTime()??BalloonModel.run)){ctx.fillStyle='#ffb347';ctx.beginPath();ctx.moveTo(cx-5,basketY-2);ctx.lineTo(cx,basketY-16);ctx.lineTo(cx+5,basketY-2);ctx.fill();}}
+      topY=cy-R;
+      if(labels&&R>20)fit('ρ_in = '+number(model.inside(s),3),cx,cy+4,'#0f2233',11,R*1.6,'center');
+    }
+    if(labels){fit('ρ_air = '+number(c.air,2)+' kg/m³',area-16,58,'#9fb6c7',10,area*.4,'right');if(c.ask==='heat')fit('T_in = '+number(model.temperature(s),1)+' °C',area-16,74,'#efb958',10,area*.4,'right');}
+    // Forces: the lift of the gas up from the top, the weight of what it carries down from the load.
+    if(arrows&&begun){
+      const L=model.liftForce(t),W=model.weightForce(),k=55/Math.max(L,W,1e-9),ax=cx+Math.min(area*.2,room*.36,(ground-room*.3-114)/2)+26,y0=(topY+loadY)/2;
+      if(L>0){arrow(ax,y0,ax,y0-L*k,'#77b9ff',2);fit('F',ax+6,y0-L*k+8,'#77b9ff',11,30);}
+      arrow(ax+16,y0,ax+16,y0+W*k,'#f2f8fc',2);fit('W',ax+22,y0+W*k,'#f2f8fc',11,30);
+    }
+    label(text('scaleNote'),16,height-8,'#9fb6c7','left',10);
+    if(!wide)return;
+    // Right panel: the lift of the gas against the weight it must carry.
+    fit(text('forceTitle'),area+8,44,'#d1e3ed',10,width-area-16);
+    if(!begun){fit(text('panelHint'),area+8,70,'#9fb6c7',10,width-area-16);return;}
+    const L=Math.max(0,model.liftForce(t)),W=model.weightForce(),top=Math.max(L,W,model.liftForce(model.duration()))*1.15||1;
+    const bx0=area+20,bx1=width-16,btop=72,bbot=height-58,bw=(bx1-bx0)/2-10,BY=v=>bbot-v/top*(bbot-btop);
+    ctx.fillStyle='#77b9ff';ctx.fillRect(bx0,BY(L),bw,Math.max(1,bbot-BY(L)));ctx.fillStyle='#c3cfd9';ctx.fillRect(bx0+bw+20,BY(W),bw,bbot-BY(W));
+    fit(force(L),bx0+bw/2,BY(L)-6,'#77b9ff',10,bw+16,'center');fit(force(W),bx0+bw*1.5+20,BY(W)-6,'#c3cfd9',10,bw+16,'center');
+    fit(text('liftShort'),bx0+bw/2,bbot+14,'#9fb6c7',9,bw+16,'center');fit(text('weightShort'),bx0+bw*1.5+20,bbot+14,'#9fb6c7',9,bw+16,'center');
+  }
+  function frame(now){if(previous===null)previous=now;const elapsed=Math.min(.1,(now-previous)/1000);previous=now;if(running){accumulator+=elapsed;while(accumulator>=H&&running){accumulator-=H;simulate(H);}draw();}if(now-lastUpdate>=80){update();lastUpdate=now;}requestAnimationFrame(frame);}
+  window.addEventListener('resize',resize);if(typeof ResizeObserver!=='undefined')new ResizeObserver(resize).observe(canvas);
+  sync();setRunning(false);update();resize();requestAnimationFrame(frame);
+})();
+</script>
+</body>
+</html>

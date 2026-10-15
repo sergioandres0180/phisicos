@@ -1,0 +1,288 @@
+<!doctype html>
+<html lang="en">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Magdeburg Hemispheres · Phisicos</title>
+<style>
+.hemispheres-page .answer-row .symbol{min-width:44px}.hemispheres-page .question{font-size:15px;font-weight:600;margin-top:4px}
+.hemispheres-page .line-key.white{background:#f2f8fc}.hemispheres-page .line-key.blue{background:#77b9ff}
+</style>
+</head>
+<body>
+<div class="shell module-page hemispheres-page">
+__HEADER__
+<main id="main-content">
+__BREADCRUMBS__
+
+<div class="masthead"><div><h1>{{title}}</h1><p class="intro">{{subtitle}}</p></div><div class="concept-tags"><span class="tag speed">{{tag1}}</span><span class="tag velocity">{{tag2}}</span></div></div>
+<noscript><p class="no-js">{{noScript}}</p></noscript>
+<div class="layout">
+<aside class="sidebar" aria-label="{{setup}}">
+  <section class="control-section"><h2 class="eyebrow">{{setup}}</h2><div class="mission-list" role="group" aria-label="{{setup}}">
+    <button id="mission-0" aria-pressed="true"><b>1 · {{mission0}}</b><span id="given-0">d</span></button>
+    <button id="mission-1" aria-pressed="false"><b>2 · {{mission1}}</b><span id="given-1">d</span></button>
+    <button id="mission-2" aria-pressed="false"><b>3 · {{mission2}}</b><span id="given-2">d</span></button>
+    <button id="mission-3" aria-pressed="false"><b>4 · {{mission3}}</b><span id="given-3">d</span></button>
+    <button id="mission-4" aria-pressed="false"><b>5 · {{mission4}}</b><span id="given-4">d</span></button>
+  </div><p class="hint">{{setupNote}}</p></section>
+  <section class="control-section"><h2 class="eyebrow">{{answerHeading}}</h2>
+    <p class="question" id="question">{{question0}}</p>
+    <p class="field-label"><label for="answer">{{answerLabel}}</label></p>
+    <div class="answer-row"><span class="symbol" id="answer-symbol">F =</span><input id="answer" type="number" inputmode="decimal" step="any" value=""><span class="unit" id="answer-unit">kN</span></div>
+    <p class="hint">{{answerHint}}</p>
+  </section>
+  <section class="control-section"><h2 class="eyebrow">{{observe}}</h2><label class="check"><input id="show-arrows" type="checkbox" checked>{{arrowsToggle}}</label><label class="check"><input id="show-guess" type="checkbox" checked>{{guessToggle}}</label><p class="hint">{{observeHint}}</p></section>
+</aside>
+<div class="workspace">
+  <section class="scene" aria-label="{{sceneTitle}}"><div class="scene-top"><div><h2 class="scene-title">{{sceneTitle}}</h2><p class="scene-subtitle" id="mission-label">{{mission0}}</p></div><span class="status" id="hemispheres-status"><i class="status-dot" aria-hidden="true"></i><span id="hemispheres-status-text">{{ready}}</span></span></div>
+    <div class="module-stage"><canvas id="hemispheres-canvas" role="img" aria-label="{{canvasLabel}}">{{noScript}}</canvas></div>
+    <div class="legend"><span><i class="line-key white"></i>{{sphereLegend}}</span><span><i class="line-key blue"></i>{{airLegend}}</span><span><i class="line-key orange"></i>{{guessLegend}}</span><span><i class="line-key gray"></i>{{pullLegend}}</span></div>
+    <div class="module-equation"><span>{{equationTitle}}</span><output id="hemispheres-equation">F = Δp·A</output></div>
+    <div class="transport"><button id="play" class="primary" disabled>{{play}}</button><button id="pause" disabled>{{pause}}</button><button id="step" disabled>{{step}}</button><button id="reset" class="reset">{{reset}}</button></div>
+  </section>
+  <section class="metrics" aria-label="{{observe}}">
+    <div class="metric scalar"><h3 class="metric-label">{{time}}</h3><p class="metric-value"><span id="time-value">0.00</span> <small>s</small></p><p class="metric-equation">t</p></div>
+    <div class="metric vector"><h3 class="metric-label">{{pullMetric}}</h3><p class="metric-value"><span id="pull-value">—</span> <small>kN</small></p><p class="metric-equation">F_pull</p></div>
+    <div class="metric scalar"><h3 class="metric-label">{{holdMetric}}</h3><p class="metric-value"><span id="hold-value">—</span> <small>kN</small></p><p class="metric-equation">Δp·A</p></div>
+    <div class="metric scalar"><h3 class="metric-label">{{dpMetric}}</h3><p class="metric-value"><span id="dp-value">—</span> <small>kPa</small></p><p class="metric-equation">Δp = p_out − p_in</p></div>
+    <div class="metric scalar"><h3 class="metric-label">{{areaMetric}}</h3><p class="metric-value"><span id="area-value">—</span> <small>m²</small></p><p class="metric-equation">A = π·r²</p></div>
+  </section>
+  <div class="insight" id="insight"><span class="insight-icon" aria-hidden="true">↗</span><div><strong id="lesson-title">{{predictTitle}}</strong><p id="lesson-copy">{{predictCopy}}</p></div></div>
+  <section class="challenge"><div class="mission-heading"><h2 class="challenge-title">{{missionTitle}}</h2><div class="score-card"><span>{{score}}</span><strong id="mission-score">—</strong></div></div><p class="mission-copy">{{missionCopy}}</p><div class="badges"><span id="right-badge">✓ {{rightBadge}}</span><span id="first-badge">① {{firstBadge}}</span></div></section>
+</div>
+</div>
+<article class="learning-content"><section><h2>{{guideTitle}}</h2><ol><li>{{instruction1}}</li><li>{{instruction2}}</li><li>{{instruction3}}</li><li>{{instruction4}}</li></ol></section><section><h2>{{conceptTitle}}</h2><p>{{conceptCopy}}</p><aside class="worked-example"><h3>{{exampleTitle}}</h3><p>{{exampleCopy}}</p></aside></section><section><h2>{{modelTitle}}</h2><p>{{modelCopy}}</p></section></article>
+<p class="language-note" id="language-note">{{languageNote}}</p>
+</main>
+__FOOTER__
+<p class="sr-only" id="announcement" role="status" aria-live="polite"></p>
+</div>
+<script id="hemispheres-model">
+class HemispheresModel {
+  // Two half-spheres sealed with some of the air pumped out: the air outside presses them together harder than the air
+  // inside pushes them apart. The pushes on the curved surface add up to F = (p_out − p_in)·π·r², the pressure difference
+  // times the flat circle where the halves meet. A pull that grows steadily for 2 s separates them the moment it reaches F;
+  // a suction cup on a ceiling lets go the moment the weight hanging from it reaches F.
+  static run = 2; // s for the pull or the load to grow to its full value
+  static apart = 1; // s the parted halves (or the falling cup) are drawn moving
+  static g = 9.8;
+  static sea = 101.3; // kPa
+  static tolerance = .02;
+  static grace = 5e-4; // within 0.05% counts either way, so a rounded answer behaves as intended
+  static missions = [
+    {key:'pull',ask:'force',r:.25,pOut:101.3,pIn:21.3},
+    {key:'horses',ask:'horses',r:.25,pOut:101.3,pIn:21.3,horse:1.5},
+    {key:'half',ask:'force',r:.25,pOut:101.3,pIn:50.65},
+    {key:'mountain',ask:'force',r:.25,pOut:70,pIn:10},
+    {key:'cup',ask:'mass',r:.04,pOut:101.3,pIn:51.3}
+  ];
+  static units = {force:'kN',horses:'',mass:'kg'};
+  static limits = {force:1000,horses:100,mass:1e4};
+  constructor(index = 0){this.setMission(index);}
+  setMission(index){this.index=index;this.config=HemispheresModel.missions[index];this.answer=null;this.attempts=0;this.reset();}
+  reset(){this.t=0;this.status='moving';}
+  valid(value){const c=this.config;return Number.isFinite(value)&&value>0&&value<=HemispheresModel.limits[c.ask]&&(c.ask!=='horses'||Number.isInteger(value));}
+  setAnswer(value){if(value!==null&&!this.valid(value))return false;this.answer=value;this.reset();return true;}
+  ready(){return this.answer!==null;}
+  clamp(t){return Math.min(Math.max(t,0),HemispheresModel.run);}
+  cup(){return this.config.ask==='mass';}
+  area(){return Math.PI*this.config.r**2;}
+  dp(){return this.config.pOut-this.config.pIn;}
+  hold(){return this.dp()*this.area();} // kPa × m² = kN
+  // What your answer applies, in kN: the pull itself, n horses of 1.5 kN each, or the weight of the load.
+  target(){const c=this.config,a=this.answer??0;return c.ask==='horses'?a*c.horse:c.ask==='mass'?a*HemispheresModel.g/1000:a;}
+  breaks(){const f=this.target(),h=this.hold();return this.cup()?f>h*(1+HemispheresModel.grace):f>0&&f>=h*(1-HemispheresModel.grace);}
+  // The moment the growing pull or load reaches the hold, found exactly; null if it never does.
+  breakTime(){return this.breaks()?Math.min(HemispheresModel.run,HemispheresModel.run*this.hold()/this.target()):null;}
+  applied(t){const b=this.breakTime(),s=b===null?this.clamp(t):Math.min(this.clamp(t),b);return this.target()*s/HemispheresModel.run;}
+  separation(t){const b=this.breakTime();return b===null?0:Math.min(Math.max((t-b)/HemispheresModel.apart,0),1);}
+  duration(){const b=this.breakTime();return b===null?HemispheresModel.run:b+HemispheresModel.apart;}
+  now(){return this.status==='done'?this.duration():this.t;}
+  advance(dt){
+    if(!Number.isFinite(dt)||dt<0)throw new Error('Invalid timestep');
+    if(this.status==='done'||!this.ready())return null;
+    // A run counts as an attempt as soon as it starts; it ends exactly at full pull or once the parting is drawn.
+    if(this.t===0)this.attempts++;
+    const T=this.duration();
+    if(this.t+dt>=T*(1-1e-12)){this.t=T;this.status='done';return {t:T,done:true};}
+    this.t+=dt;return null;
+  }
+  exact(){const c=this.config,h=this.hold();return c.ask==='horses'?Math.ceil(h/c.horse-1e-9):c.ask==='mass'?h*1000/HemispheresModel.g:h;}
+  unit(){return HemispheresModel.units[this.config.ask];}
+  evaluate(){
+    if(!this.ready())return {ok:false,slip:null,first:false,exact:this.exact()};
+    const c=this.config,a=this.answer,e=this.exact(),A=this.area(),g=HemispheresModel.g,tol=HemispheresModel.tolerance,near=(p,q)=>Math.abs(p-q)<=tol*Math.abs(q)+1e-12;
+    let ok,slip=null;
+    // A pull is right when it parts the halves with at most 2% to spare, a team when it is the fewest horses that do,
+    // and a load when the cup holds it with at most 2% to spare.
+    if(c.ask==='force'){
+      ok=this.breaks()&&a<=e*(1+tol);
+      if(!ok){
+        if(near(a,c.pOut*A))slip=c.key==='mountain'?'noInside':'fullPressure';
+        else if(c.key==='mountain'&&near(a,(HemispheresModel.sea-c.pIn)*A))slip='seaLevel';
+        else if(near(a,this.dp()*2*A))slip='surface';
+        else if(near(a,this.dp()*4*A))slip='area';
+        else if(this.breaks())slip='spare';
+      }
+    }
+    else if(c.ask==='horses'){
+      ok=a===e;
+      if(!ok){const h=this.hold();if(a===Math.ceil(h/2/c.horse-1e-9))slip='half';else if(a===2*e)slip='double';else if(a===Math.floor(h/c.horse))slip='roundDown';else if(a>e)slip='moreHorses';}
+    }
+    else{
+      ok=!this.breaks()&&a>=e*(1-tol);
+      if(!ok){
+        if(near(a,this.hold()*1000))slip='noG';
+        else if(near(a,this.dp()*4*A*1000/g))slip='diameter';
+        else if(near(a,c.pOut*A*1000/g))slip='cupFull';
+        else if(!this.breaks())slip='cupSpare';
+      }
+    }
+    return {ok,slip,first:ok&&this.attempts===1,exact:e};
+  }
+  score(){if(this.status!=='done')return 0;const e=this.evaluate();return (e.ok?100:0)+(e.first?50:0);}
+  snapshot(){return {index:this.index,answer:this.answer,attempts:this.attempts,t:this.t,status:this.status};}
+  restore(saved){
+    if(!Number.isInteger(saved?.index)||!HemispheresModel.missions[saved.index])return false;
+    const probe=new HemispheresModel(saved.index);
+    if(!probe.setAnswer(saved.answer??null)||!Number.isInteger(saved.attempts)||saved.attempts<0)return false;
+    if(!['moving','done'].includes(saved.status)||!Number.isFinite(saved.t)||saved.t<0||saved.t>probe.duration()*(1+1e-9))return false;
+    if(probe.answer===null&&(saved.t>0||saved.status==='done'))return false;
+    if((saved.status==='done'||saved.t>0)&&saved.attempts<1)return false;
+    this.setMission(saved.index);this.answer=probe.answer;this.attempts=saved.attempts;
+    this.status=saved.status;this.t=saved.status==='done'?this.duration():saved.t;return true;
+  }
+}
+globalThis.HemispheresModel=HemispheresModel;
+</script>
+<script id="hemispheres-locale" type="application/json">__LOCALE__</script>
+<script id="hemispheres-interface">
+(() => {
+  'use strict';
+  const $=id=>document.getElementById(id),locale=JSON.parse($('hemispheres-locale').textContent);
+  const text=(key,values={})=>locale.strings[key].replace(/\{(\w+)\}/g,(_,name)=>values[name]??'{'+name+'}');
+  const number=(n,d=2)=>Math.abs(n)<.5*10**-d?(0).toLocaleString(locale.lang,{minimumFractionDigits:d,maximumFractionDigits:d}):n.toLocaleString(locale.lang,{minimumFractionDigits:d,maximumFractionDigits:d,useGrouping:false});
+  const plain=n=>n.toLocaleString(locale.lang,{maximumFractionDigits:3,useGrouping:false}).replace('-','−');
+  const model=new HemispheresModel();
+  const canvas=$('hemispheres-canvas'),ctx=canvas.getContext('2d');
+  const H=1/120,TAU=2*Math.PI,G=HemispheresModel.g,transferKey='phisicos-hemispheres-language-transfer';
+  let running=false,previous=null,accumulator=0,lastUpdate=0,width=800,height=410;
+  const say=message=>{$('announcement').textContent=message;};
+  try{const data=JSON.parse(sessionStorage.getItem(transferKey)||'null');sessionStorage.removeItem(transferKey);if(data)model.restore(data.state);}catch{$('language-note').hidden=true;}
+  const unit=()=>model.unit()||text('horsesUnit');
+  const amount=v=>plain(Number(v.toPrecision(5)))+' '+unit();
+  const symbols={force:'F =',horses:'n =',mass:'m ='};
+  const slipKey=name=>'slip'+name[0].toUpperCase()+name.slice(1);
+  function setRunning(value){
+    const done=model.status==='done',blocked=!model.ready();running=value&&!done&&!blocked;previous=null;accumulator=0;
+    $('play').disabled=running||done||blocked;$('pause').disabled=!running;$('step').disabled=running||done||blocked;
+    $('hemispheres-status').classList.toggle('running',running);
+    $('hemispheres-status-text').textContent=text(done?'done':running?'running':model.t?'paused':'ready');
+  }
+  // Givens: the radius and the pressures outside and in, plus one horse's pull.
+  function given(m){
+    const parts=['r = '+plain(m.r)+' m','p_out = '+plain(m.pOut)+' kPa','p_in = '+plain(m.pIn)+' kPa'];if(m.horse)parts.push('1 × '+plain(m.horse)+' kN');
+    return parts.join(' · ');
+  }
+  function sync(){
+    const c=model.config;
+    HemispheresModel.missions.forEach((m,i)=>{$('mission-'+i).setAttribute('aria-pressed',String(i===model.index));$('given-'+i).textContent=given(m);});
+    $('question').textContent=text('question'+model.index);$('answer-symbol').textContent=symbols[c.ask];$('answer-unit').textContent=unit();
+    $('answer').value=model.answer===null?'':String(model.answer);$('mission-label').textContent=text('mission'+model.index);
+  }
+  // The pull, the air's hold, the pressure difference, and the area show only once a run starts, because they give the answer away.
+  const started=()=>model.status==='done'||model.t>0;
+  function update(){
+    const c=model.config,ready=model.ready(),done=model.status==='done',t=ready?model.now():0,e=model.evaluate(),begun=started(),f=model.applied(t),hold=model.hold();
+    $('time-value').textContent=number(t);$('pull-value').textContent=begun?number(f,2):'—';$('hold-value').textContent=begun?number(hold,2):'—';
+    $('dp-value').textContent=begun?number(model.dp(),2):'—';$('area-value').textContent=begun?number(model.area(),4):'—';
+    $('hemispheres-equation').textContent=begun?'F = Δp·A = '+number(model.dp(),2)+' × '+number(model.area(),4)+' = '+number(hold,2)+' kN':'F = Δp·A';
+    let key,copy;
+    const values={f:number(model.target(),2),hold:number(hold,2),m:ready?plain(model.answer):'',max:number(hold*1000/G,1)};
+    if(done){
+      const base=text(model.cup()?(model.breaks()?'droppedCopy':'cupHeldCopy'):(model.breaks()?'apartCopy':'heldCopy'),values);
+      if(e.ok){key='good';copy=base+' '+text('why'+model.index);}
+      else{key='miss';copy=base+' '+text('missCopy',{p:amount(model.answer)})+' '+(e.slip?text(slipKey(e.slip)):text('hint'+model.index));}
+    }
+    else if(!ready){key='predict';copy=text('predictCopy');}
+    else if(model.t>0){key='running';copy=text('movingCopy',{f:number(f,2),hold:number(hold,2)});}
+    else{key='ready';copy=text('readyCopy');}
+    $('lesson-title').textContent=text(key+'Title',{t:number(t),p:ready?amount(model.answer):''});$('lesson-copy').textContent=copy;
+    $('insight').classList.toggle('warning',key==='miss');
+    $('mission-score').textContent=done?String(model.score()):'—';
+    $('right-badge').classList.toggle('earned',done&&e.ok);$('first-badge').classList.toggle('earned',done&&e.first);
+  }
+  function refresh(){setRunning(false);update();draw();}
+  function simulate(dt){
+    const result=model.advance(dt);
+    if(result?.done){setRunning(false);update();say(text('doneAnnouncement')+' '+$('lesson-title').textContent);return true;}
+    return false;
+  }
+  $('answer').addEventListener('input',event=>{const raw=String(event.target.value).trim(),value=raw===''?null:Number(raw);if(!model.setAnswer(value))model.setAnswer(null);refresh();});
+  $('play').addEventListener('click',()=>{setRunning(true);update();say(text('startedAnnouncement'));});
+  $('pause').addEventListener('click',()=>{setRunning(false);update();say(text('pausedAnnouncement'));});
+  $('step').addEventListener('click',()=>{for(let i=0;i<12;i++)if(simulate(H))break;setRunning(false);update();draw();});
+  $('reset').addEventListener('click',()=>{model.reset();refresh();say(text('resetAnnouncement'));});
+  HemispheresModel.missions.forEach((_,i)=>$('mission-'+i).addEventListener('click',()=>{model.setMission(i);sync();refresh();say(text('missionAnnouncement',{name:text('mission'+i)}));}));
+  for(const id of ['show-arrows','show-guess'])$(id).addEventListener('change',()=>{update();draw();});
+  function suspend(){if(running){setRunning(false);say(text('suspendedAnnouncement'));}update();draw();}
+  window.addEventListener('blur',suspend);document.addEventListener('visibilitychange',()=>{if(document.hidden)suspend();});
+  for(const link of document.querySelectorAll('.language-menu a'))link.addEventListener('click',()=>{setRunning(false);try{sessionStorage.setItem(transferKey,JSON.stringify({state:model.snapshot()}));}catch{}});
+  function resize(){const rect=canvas.getBoundingClientRect();if(rect.width<=0)return;width=rect.width;height=rect.height;const dpr=Math.min(window.devicePixelRatio||1,3);canvas.width=Math.round(width*dpr);canvas.height=Math.round(height*dpr);ctx.setTransform(dpr,0,0,dpr,0,0);draw();}
+  function draw(){
+    if(!ctx)return;
+    const c=model.config,ready=model.ready(),done=model.status==='done',t=ready?model.now():0,begun=started(),arrows=$('show-arrows').checked,guess=$('show-guess').checked&&ready;
+    ctx.clearRect(0,0,width,height);
+    const label=(str,px,py,color='#b8ccdb',align='left',font=12)=>{ctx.fillStyle=color;ctx.textAlign=align;ctx.font=font+'px -apple-system,BlinkMacSystemFont,sans-serif';ctx.fillText(str,px,py);};
+    const line=(points,color,w=1,dash=[])=>{ctx.beginPath();ctx.strokeStyle=color;ctx.lineWidth=w;ctx.setLineDash(dash);points.forEach((q,i)=>i?ctx.lineTo(q.x,q.y):ctx.moveTo(q.x,q.y));ctx.stroke();ctx.setLineDash([]);};
+    const fit=(str,px,py,color,size,room,align='left')=>{ctx.font=size+'px -apple-system,BlinkMacSystemFont,sans-serif';const w=ctx.measureText(str).width;label(str,px,py,color,align,w>room?Math.max(7,Math.floor(size*room/w)):size);};
+    const arrow=(x0,y0,x1,y1,color,w=2)=>{line([{x:x0,y:y0},{x:x1,y:y1}],color,w);const a=Math.atan2(y1-y0,x1-x0);line([{x:x1-7*Math.cos(a-.5),y:y1-7*Math.sin(a-.5)},{x:x1,y:y1},{x:x1-7*Math.cos(a+.5),y:y1-7*Math.sin(a+.5)}],color,w);};
+    const wide=width>=560,area=wide?width*.64:width,cup=model.cup(),broke=done&&model.breaks();
+    fit(text('viewTitle'),16,20,'#d1e3ed',12,area-28);
+    if(done){const ev=model.evaluate();fit(text(ev.ok?'rightBanner':'offBanner')+' · '+text(cup?(broke?'droppedBanner':'heldBanner'):(broke?'apartBanner':'heldBanner')),16,40,ev.ok?'#75efc7':'#efb958',width<430?12:14,area-28);}
+    const sep=model.separation(t),f=model.applied(t),hold=model.hold(),pressLen=6+14*c.pOut/HemispheresModel.sea;
+    fit('p_out = '+plain(c.pOut)+' kPa',area-12,64,'#77b9ff',11,area*.4,'right');
+    if(!cup){
+      // Two bronze halves, hollow inside, pulled apart by ropes; the drawing is not to scale.
+      const cx=area*.5,cy=height*.52,R=Math.min(58,area*.13),shift=sep*area*.16,share=Math.min(f/hold,1.3);
+      for(const s of [-1,1]){
+        const ox=cx+s*shift,edge=ox+s*(R+12),team=s<0?20:area-20;
+        line([{x:edge,y:cy},{x:team,y:cy}],'#8aa3b5',2);
+        ctx.fillStyle='#7c8b99';ctx.fillRect(team-(s<0?0:30),cy-16,30,32);
+        if(begun&&f>0)arrow(edge+s*14,cy-22,edge+s*(14+60*share),cy-22,'#c3cfd9',2);
+        ctx.fillStyle='#c9a96e';ctx.beginPath();ctx.moveTo(ox,cy-R);ctx.arc(ox,cy,R,-Math.PI/2,Math.PI/2,s<0);ctx.closePath();ctx.fill();
+        ctx.fillStyle='#0f2233';ctx.beginPath();ctx.moveTo(ox,cy-R+7);ctx.arc(ox,cy,R-7,-Math.PI/2,Math.PI/2,s<0);ctx.closePath();ctx.fill();
+        ctx.fillStyle='#b08d55';ctx.fillRect(ox+(s<0?-6:0),cy-R-6,6,2*R+12);ctx.fillRect(s<0?edge:edge-12,cy-4,12,8);
+        if(arrows)for(let k=1;k<6;k++){const a=-Math.PI/2+k*Math.PI/6,dx=Math.cos(a)*s,dy=Math.sin(a),r0=R+4,r1=r0+pressLen;arrow(ox+dx*r1,cy+dy*r1,ox+dx*r0,cy+dy*r0,'#77b9ff',1.5);}
+      }
+      if(sep<.2){ctx.fillStyle='#0f2233';ctx.fillRect(cx-32,cy-9,64,17);label('p_in = '+plain(c.pIn),cx,cy+4,'#9fb6c7','center',10);}
+      fit(c.ask==='horses'?text('teamTag',{n:ready?plain(model.answer):'?'}):'F = '+(begun?number(f,1):'?')+' kN',20,cy+R+24,'#d1e3ed',10,area*.3);
+      if(c.ask==='horses')fit(text('teamTag',{n:ready?plain(model.answer):'?'}),area-20,cy+R+24,'#d1e3ed',10,area*.3,'right');
+    }
+    else{
+      // A suction cup under a ceiling, with a load that grows; when it lets go, cup and load fall.
+      const cx=area*.5,ceiling=78,Rc=34,drop=sep*Math.max(0,height-30-(ceiling+Rc+50+70)),mass=f*1000/G,side=16+50*Math.sqrt(Math.min(mass/(hold*1000/G*1.5),1));
+      line([{x:20,y:ceiling},{x:area-20,y:ceiling}],'#8aa3b5',3);
+      const top=ceiling+drop;ctx.fillStyle='#c9a96e';ctx.beginPath();ctx.arc(cx,top,Rc,0,Math.PI);ctx.closePath();ctx.fill();
+      ctx.fillStyle='#0f2233';ctx.beginPath();ctx.arc(cx,top,Rc-7,0,Math.PI);ctx.closePath();ctx.fill();
+      if(sep<.2)label('p_in = '+plain(c.pIn),cx,top+14,'#9fb6c7','center',9);
+      const by=top+Rc+50;line([{x:cx,y:top+Rc},{x:cx,y:by}],'#8aa3b5',1.5);ctx.fillStyle='#7c8b99';ctx.fillRect(cx-side/2,by,side,side);
+      label((begun?number(mass,1):'?')+' kg',cx+side/2+8,by+side/2+4,'#d1e3ed','left',11);
+      if(arrows&&sep<.05)for(const dx of [-Rc*.6,0,Rc*.6])arrow(cx+dx,top+Rc+8+pressLen,cx+dx,top+Rc+8,'#77b9ff',1.5);
+    }
+    label(text('scaleNote'),16,height-8,'#9fb6c7','left',10);
+    if(!wide)return;
+    // Right panel: the pull (or load) against the air's hold, with your prediction marked on the pull.
+    fit(text('forceTitle'),area+8,44,'#d1e3ed',10,width-area-16);
+    if(!begun){fit(text('panelHint'),area+8,70,'#9fb6c7',10,width-area-16);return;}
+    const gv=guess?model.target():null,top=Math.max(f,hold,Math.min(gv??0,hold*2.5))*1.15,bx0=area+20,bx1=width-16,btop=72,bbot=height-58,bw=(bx1-bx0)/2-10,BY=v=>bbot-v/top*(bbot-btop);
+    ctx.fillStyle='#c3cfd9';ctx.fillRect(bx0,BY(f),bw,bbot-BY(f));ctx.fillStyle='#77b9ff';ctx.fillRect(bx0+bw+20,BY(hold),bw,bbot-BY(hold));
+    fit(number(f,2),bx0+bw/2,BY(f)-6,'#c3cfd9',10,bw+16,'center');fit(number(hold,2),bx0+bw*1.5+20,BY(hold)-6,'#77b9ff',10,bw+16,'center');
+    fit(text(cup?'loadShort':'pullShort'),bx0+bw/2,bbot+14,'#9fb6c7',9,bw+16,'center');fit(text('holdShort'),bx0+bw*1.5+20,bbot+14,'#9fb6c7',9,bw+16,'center');
+    if(gv!==null){const shown=Math.min(gv,hold*2.5),yy=BY(shown);line([{x:bx0-6,y:yy},{x:bx0+bw+6,y:yy}],'#efb958',2,[5,3]);fit(text('guessTag')+(shown<gv?' ↑':''),bx0+bw/2,yy+14,'#efb958',9,bw+16,'center');}
+  }
+  function frame(now){if(previous===null)previous=now;const elapsed=Math.min(.1,(now-previous)/1000);previous=now;if(running){accumulator+=elapsed;while(accumulator>=H&&running){accumulator-=H;simulate(H);}draw();}if(now-lastUpdate>=80){update();lastUpdate=now;}requestAnimationFrame(frame);}
+  window.addEventListener('resize',resize);if(typeof ResizeObserver!=='undefined')new ResizeObserver(resize).observe(canvas);
+  sync();setRunning(false);update();resize();requestAnimationFrame(frame);
+})();
+</script>
+</body>
+</html>

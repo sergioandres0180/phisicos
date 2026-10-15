@@ -1,0 +1,297 @@
+<!doctype html>
+<html lang="en">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Density Detective · Phisicos</title>
+<style>
+.density-page .answer-row .symbol{min-width:44px}.density-page .question{font-size:15px;font-weight:600;margin-top:4px}
+.density-page .line-key.white{background:#f2f8fc}.density-page .line-key.blue{background:#77b9ff}
+</style>
+</head>
+<body>
+<div class="shell module-page density-page">
+__HEADER__
+<main id="main-content">
+__BREADCRUMBS__
+
+<div class="masthead"><div><h1>{{title}}</h1><p class="intro">{{subtitle}}</p></div><div class="concept-tags"><span class="tag speed">{{tag1}}</span><span class="tag velocity">{{tag2}}</span></div></div>
+<noscript><p class="no-js">{{noScript}}</p></noscript>
+<div class="layout">
+<aside class="sidebar" aria-label="{{setup}}">
+  <section class="control-section"><h2 class="eyebrow">{{setup}}</h2><div class="mission-list" role="group" aria-label="{{setup}}">
+    <button id="mission-0" aria-pressed="true"><b>1 · {{mission0}}</b><span id="given-0">d</span></button>
+    <button id="mission-1" aria-pressed="false"><b>2 · {{mission1}}</b><span id="given-1">d</span></button>
+    <button id="mission-2" aria-pressed="false"><b>3 · {{mission2}}</b><span id="given-2">d</span></button>
+    <button id="mission-3" aria-pressed="false"><b>4 · {{mission3}}</b><span id="given-3">d</span></button>
+    <button id="mission-4" aria-pressed="false"><b>5 · {{mission4}}</b><span id="given-4">d</span></button>
+  </div><p class="hint">{{setupNote}}</p></section>
+  <section class="control-section"><h2 class="eyebrow">{{answerHeading}}</h2>
+    <p class="question" id="question">{{question0}}</p>
+    <p class="field-label"><label for="answer">{{answerLabel}}</label></p>
+    <div class="answer-row"><span class="symbol" id="answer-symbol">V =</span><input id="answer" type="number" inputmode="decimal" step="any" value=""><span class="unit" id="answer-unit">mL</span></div>
+    <p class="hint">{{answerHint}}</p>
+  </section>
+  <section class="control-section"><h2 class="eyebrow">{{observe}}</h2><label class="check"><input id="show-scale" type="checkbox" checked>{{scaleToggle}}</label><label class="check"><input id="show-guess" type="checkbox" checked>{{guessToggle}}</label><p class="hint">{{observeHint}}</p></section>
+</aside>
+<div class="workspace">
+  <section class="scene" aria-label="{{sceneTitle}}"><div class="scene-top"><div><h2 class="scene-title">{{sceneTitle}}</h2><p class="scene-subtitle" id="mission-label">{{mission0}}</p></div><span class="status" id="density-status"><i class="status-dot" aria-hidden="true"></i><span id="density-status-text">{{ready}}</span></span></div>
+    <div class="module-stage"><canvas id="density-canvas" role="img" aria-label="{{canvasLabel}}">{{noScript}}</canvas></div>
+    <div class="legend"><span><i class="line-key blue"></i>{{waterLegend}}</span><span><i class="line-key white"></i>{{objectLegend}}</span><span><i class="line-key orange"></i>{{guessLegend}}</span><span><i class="line-key gray"></i>{{scaleLegend}}</span></div>
+    <div class="module-equation"><span>{{equationTitle}}</span><output id="density-equation">ρ = m ÷ V</output></div>
+    <div class="transport"><button id="play" class="primary" disabled>{{play}}</button><button id="pause" disabled>{{pause}}</button><button id="step" disabled>{{step}}</button><button id="reset" class="reset">{{reset}}</button></div>
+  </section>
+  <section class="metrics" aria-label="{{observe}}">
+    <div class="metric scalar"><h3 class="metric-label">{{time}}</h3><p class="metric-value"><span id="time-value">0.00</span> <small>s</small></p><p class="metric-equation">t</p></div>
+    <div class="metric vector"><h3 class="metric-label">{{levelMetric}}</h3><p class="metric-value"><span id="level-value">—</span> <small>mL</small></p><p class="metric-equation">V</p></div>
+    <div class="metric vector"><h3 class="metric-label">{{displacedMetric}}</h3><p class="metric-value"><span id="displaced-value">—</span> <small>mL</small></p><p class="metric-equation">ΔV = V − V₀</p></div>
+    <div class="metric scalar"><h3 class="metric-label">{{densityMetric}}</h3><p class="metric-value"><span id="density-value">—</span> <small>g/cm³</small></p><p class="metric-equation">ρ = m ÷ V</p></div>
+    <div class="metric scalar"><h3 class="metric-label">{{heightMetric}}</h3><p class="metric-value"><span id="height-value">—</span> <small>cm</small></p><p class="metric-equation">h</p></div>
+  </section>
+  <div class="insight" id="insight"><span class="insight-icon" aria-hidden="true">↗</span><div><strong id="lesson-title">{{predictTitle}}</strong><p id="lesson-copy">{{predictCopy}}</p></div></div>
+  <section class="challenge"><div class="mission-heading"><h2 class="challenge-title">{{missionTitle}}</h2><div class="score-card"><span>{{score}}</span><strong id="mission-score">—</strong></div></div><p class="mission-copy">{{missionCopy}}</p><div class="badges"><span id="right-badge">✓ {{rightBadge}}</span><span id="first-badge">① {{firstBadge}}</span></div></section>
+</div>
+</div>
+<article class="learning-content"><section><h2>{{guideTitle}}</h2><ol><li>{{instruction1}}</li><li>{{instruction2}}</li><li>{{instruction3}}</li><li>{{instruction4}}</li></ol></section><section><h2>{{conceptTitle}}</h2><p>{{conceptCopy}}</p><aside class="worked-example"><h3>{{exampleTitle}}</h3><p>{{exampleCopy}}</p></aside></section><section><h2>{{modelTitle}}</h2><p>{{modelCopy}}</p></section></article>
+<p class="language-note" id="language-note">{{languageNote}}</p>
+</main>
+__FOOTER__
+<p class="sr-only" id="announcement" role="status" aria-live="polite"></p>
+</div>
+<script id="density-model">
+class DensityModel {
+  // Each object hangs on a thread and is lowered steadily for 2 s, from just above the water to where it comes to rest. A box
+  // of footprint a whose bottom is at height y, in a cylinder of cross-section A filled to L₀, sinks s = (L₀ − y)·A ÷ (A − a)
+  // into the water (its own push raises the level by a·s ÷ A) until it is under; then it pushes aside its whole volume V.
+  // The bead in the layered column sinks through every layer less dense than itself and rests on the first denser one.
+  static run = 2; // s to lower the object
+  static tolerance = .02;
+  static top = 24; // cm, the cylinder's height
+  static missions = [
+    {key:'aluminium',ask:'reading',A:25,V0:300,m:540,V:200,a:16},
+    {key:'crown',ask:'density',A:25,V0:400,m:965,V:60,a:12},
+    {key:'stone',ask:'mass',A:25,V0:350,m:195,V:75,a:15},
+    {key:'column',ask:'height',A:25,V0:375,m:12,V:10,a:null,layers:[{key:'honey',rho:1.42,h:5},{key:'water',rho:1,h:5},{key:'oil',rho:.92,h:5}]},
+    {key:'bar',ask:'rise',A:20,V0:200,m:1000,V:1000/19.3,a:10}
+  ];
+  static units = {reading:'mL',density:'g/cm³',mass:'g',height:'cm',rise:'cm'};
+  static limits = {reading:2000,density:100,mass:1e5,height:15,rise:1000};
+  static gold = 19.3;
+  constructor(index = 0){this.setMission(index);}
+  setMission(index){this.index=index;this.config=DensityModel.missions[index];this.answer=null;this.attempts=0;this.reset();}
+  reset(){this.t=0;this.status='moving';}
+  valid(value){const c=this.config;return Number.isFinite(value)&&(c.ask==='height'?value>=0:value>0)&&value<=DensityModel.limits[c.ask];}
+  setAnswer(value){if(value!==null&&!this.valid(value))return false;this.answer=value;this.reset();return true;}
+  ready(){return this.answer!==null;}
+  clamp(t){return Math.min(Math.max(t,0),DensityModel.run);}
+  column(){return this.config.ask==='height';}
+  rho(){return this.config.m/this.config.V;}
+  base(){return this.config.V0/this.config.A;}
+  tall(){const c=this.config;return c.a?c.V/c.a:0;}
+  depth(){return this.column()?this.config.layers.reduce((s,l)=>s+l.h,0):this.base();}
+  // Where the object comes to rest: the bottom for a solid that sinks; the top of the highest denser layer for the bead.
+  rest(){
+    if(!this.column())return 0;
+    let top=this.depth();for(const layer of [...this.config.layers].reverse()){if(layer.rho>this.rho())return top;top-=layer.h;}
+    return 0;
+  }
+  start(){return this.column()?this.depth()+5:this.base()+1;}
+  // The height of the object's bottom (the bead's centre) above the cylinder's bottom.
+  y(t){const s=this.start();return s-(s-this.rest())*this.clamp(t)/DensityModel.run;}
+  sunk(t){
+    const c=this.config;if(this.column())return 0;
+    const y=this.y(t),L0=this.base();if(y>=L0)return 0;
+    return Math.min(this.tall(),(L0-y)*c.A/(c.A-c.a));
+  }
+  full(t){return this.column()?this.y(t)<this.depth():this.sunk(t)>=this.tall()*(1-1e-12);}
+  displaced(t){return this.column()?0:this.config.a*this.sunk(t);}
+  reading(t){return this.config.V0+this.displaced(t);}
+  level(t){return this.reading(t)/this.config.A;}
+  duration(){return DensityModel.run;}
+  now(){return this.status==='done'?this.duration():this.t;}
+  advance(dt){
+    if(!Number.isFinite(dt)||dt<0)throw new Error('Invalid timestep');
+    if(this.status==='done'||!this.ready())return null;
+    // A run counts as an attempt as soon as it starts; the object comes to rest exactly at the end of the run.
+    if(this.t===0)this.attempts++;
+    const T=this.duration();
+    if(this.t+dt>=T*(1-1e-12)){this.t=T;this.status='done';return {t:T,done:true};}
+    this.t+=dt;return null;
+  }
+  exact(){
+    const c=this.config;
+    if(c.ask==='reading')return c.V0+c.V;
+    if(c.ask==='density')return this.rho();
+    if(c.ask==='mass')return c.m;
+    if(c.ask==='height')return this.rest();
+    return c.V/c.A;
+  }
+  unit(){return DensityModel.units[this.config.ask];}
+  evaluate(){
+    if(!this.ready())return {ok:false,slip:null,first:false,exact:this.exact()};
+    const c=this.config,a=this.answer,e=this.exact(),near=(p,q)=>Math.abs(p-q)<=DensityModel.tolerance*Math.abs(q)+1e-12,ok=near(a,e),r=this.rho();
+    let slip=null;
+    if(!ok){
+      if(c.key==='aluminium'){if(near(a,c.V))slip='riseOnly';else if(near(a,c.V0+c.m))slip='massAsVolume';else if(near(a,c.m*r)||near(a,c.V0+c.m*r))slip='inverted';}
+      else if(c.key==='crown'){if(near(a,c.V/c.m))slip='inverted';else if(near(a,c.m/(c.V0+c.V)))slip='wholeLevel';else if(near(a,DensityModel.gold))slip='gold';}
+      else if(c.key==='stone'){if(near(a,c.V/r))slip='inverted';else if(near(a,(c.V0+c.V)*r))slip='wholeLevel';else if(near(a,c.V))slip='volumeAsMass';}
+      else if(c.key==='column'){if(near(a,this.depth()))slip='floatsTop';else if(near(a,0))slip='bottom';else if(near(a,this.depth()-c.layers[2].h))slip='water';}
+      else{if(near(a,c.V))slip='volumeOnly';else if(near(a,c.m*r/c.A))slip='inverted';else if(near(a,(c.V0+c.V)/c.A))slip='wholeLevel';}
+    }
+    return {ok,slip,first:ok&&this.attempts===1,exact:e};
+  }
+  score(){if(this.status!=='done')return 0;const e=this.evaluate();return (e.ok?100:0)+(e.first?50:0);}
+  snapshot(){return {index:this.index,answer:this.answer,attempts:this.attempts,t:this.t,status:this.status};}
+  restore(saved){
+    if(!Number.isInteger(saved?.index)||!DensityModel.missions[saved.index])return false;
+    const probe=new DensityModel(saved.index);
+    if(!probe.setAnswer(saved.answer??null)||!Number.isInteger(saved.attempts)||saved.attempts<0)return false;
+    if(!['moving','done'].includes(saved.status)||!Number.isFinite(saved.t)||saved.t<0||saved.t>probe.duration()*(1+1e-9))return false;
+    if(probe.answer===null&&(saved.t>0||saved.status==='done'))return false;
+    if((saved.status==='done'||saved.t>0)&&saved.attempts<1)return false;
+    this.setMission(saved.index);this.answer=probe.answer;this.attempts=saved.attempts;
+    this.status=saved.status;this.t=saved.status==='done'?this.duration():saved.t;return true;
+  }
+}
+globalThis.DensityModel=DensityModel;
+</script>
+<script id="density-locale" type="application/json">__LOCALE__</script>
+<script id="density-interface">
+(() => {
+  'use strict';
+  const $=id=>document.getElementById(id),locale=JSON.parse($('density-locale').textContent);
+  const text=(key,values={})=>locale.strings[key].replace(/\{(\w+)\}/g,(_,name)=>values[name]??'{'+name+'}');
+  const number=(n,d=2)=>Math.abs(n)<.5*10**-d?(0).toLocaleString(locale.lang,{minimumFractionDigits:d,maximumFractionDigits:d}):n.toLocaleString(locale.lang,{minimumFractionDigits:d,maximumFractionDigits:d,useGrouping:false});
+  const plain=n=>n.toLocaleString(locale.lang,{maximumFractionDigits:3,useGrouping:false}).replace('-','−');
+  const model=new DensityModel();
+  const canvas=$('density-canvas'),ctx=canvas.getContext('2d');
+  const H=1/120,TAU=2*Math.PI,T=DensityModel.run,transferKey='phisicos-density-language-transfer';
+  let running=false,previous=null,accumulator=0,lastUpdate=0,width=800,height=410;
+  const say=message=>{$('announcement').textContent=message;};
+  try{const data=JSON.parse(sessionStorage.getItem(transferKey)||'null');sessionStorage.removeItem(transferKey);if(data)model.restore(data.state);}catch{$('language-note').hidden=true;}
+  const amount=v=>plain(Number(v.toPrecision(5)))+' '+model.unit();
+  const symbols={reading:'V =',density:'ρ =',mass:'m =',height:'h =',rise:'Δh ='};
+  const slipKey=name=>'slip'+name[0].toUpperCase()+name.slice(1);
+  function setRunning(value){
+    const done=model.status==='done',blocked=!model.ready();running=value&&!done&&!blocked;previous=null;accumulator=0;
+    $('play').disabled=running||done||blocked;$('pause').disabled=!running;$('step').disabled=running||done||blocked;
+    $('density-status').classList.toggle('running',running);
+    $('density-status-text').textContent=text(done?'done':running?'running':model.t?'paused':'ready');
+  }
+  // Givens: what is known before the object goes in; the unknown is left out.
+  function given(m){
+    if(m.ask==='reading')return 'm = '+plain(m.m)+' g · ρ = '+plain(m.m/m.V)+' g/cm³ · V₀ = '+plain(m.V0)+' mL';
+    if(m.ask==='density')return 'm = '+plain(m.m)+' g · V₀ = '+plain(m.V0)+' mL · V₁ = '+plain(m.V0+m.V)+' mL';
+    if(m.ask==='mass')return 'ρ = '+plain(m.m/m.V)+' g/cm³ · V₀ = '+plain(m.V0)+' mL · V₁ = '+plain(m.V0+m.V)+' mL';
+    if(m.ask==='height')return 'm = '+plain(m.m)+' g · V = '+plain(m.V)+' cm³ · 3 × '+plain(m.layers[0].h)+' cm';
+    return 'm = '+plain(m.m/1000)+' kg · ρ = '+plain(Number((m.m/m.V).toPrecision(4)))+' g/cm³ · A = '+plain(m.A)+' cm²';
+  }
+  function sync(){
+    const c=model.config;
+    DensityModel.missions.forEach((m,i)=>{$('mission-'+i).setAttribute('aria-pressed',String(i===model.index));$('given-'+i).textContent=given(m);});
+    $('question').textContent=text('question'+model.index);$('answer-symbol').textContent=symbols[c.ask];$('answer-unit').textContent=model.unit();
+    $('answer').value=model.answer===null?'':String(model.answer);$('mission-label').textContent=text('mission'+model.index);
+  }
+  // The level, the water pushed aside, the density, and the height show only once a run starts, because they give the answer away.
+  const started=()=>model.status==='done'||model.t>0;
+  function update(){
+    const c=model.config,ready=model.ready(),done=model.status==='done',t=ready?model.now():0,e=model.evaluate(),begun=started(),column=model.column(),full=model.full(t);
+    $('time-value').textContent=number(t);$('level-value').textContent=begun?number(model.reading(t),1):'—';
+    $('displaced-value').textContent=begun&&!column?number(model.displaced(t),1):'—';$('density-value').textContent=begun&&full?number(model.rho(),2):'—';
+    $('height-value').textContent=begun?number(model.y(t),2):'—';
+    $('density-equation').textContent=begun&&full?'ρ = m ÷ V = '+plain(c.m)+' ÷ '+number(column?c.V:model.displaced(t),1)+' = '+number(model.rho(),2)+' g/cm³':'ρ = m ÷ V';
+    let key,copy;
+    const values={level:number(model.reading(T),1),dv:number(c.V,1),rho:number(model.rho(),2),mass:number(c.m,1),h:number(model.rest(),2),rise:number(c.V/c.A,2)};
+    if(done){
+      const base=text('result'+model.index,values);
+      if(e.ok){key='good';copy=base+' '+text('why'+model.index);}
+      else{key='miss';copy=base+' '+text('missCopy',{p:amount(model.answer)})+' '+(e.slip?text(slipKey(e.slip)):text('hint'+model.index));}
+    }
+    else if(!ready){key='predict';copy=text('predictCopy');}
+    else if(model.t>0){key='running';copy=column?text('sinkingCopy',{h:number(model.y(t),2)}):text('movingCopy',{level:number(model.reading(t),1)});}
+    else{key='ready';copy=text('readyCopy');}
+    $('lesson-title').textContent=text(key+'Title',{t:number(t),p:ready?amount(model.answer):''});$('lesson-copy').textContent=copy;
+    $('insight').classList.toggle('warning',key==='miss');
+    $('mission-score').textContent=done?String(model.score()):'—';
+    $('right-badge').classList.toggle('earned',done&&e.ok);$('first-badge').classList.toggle('earned',done&&e.first);
+  }
+  function refresh(){setRunning(false);update();draw();}
+  function simulate(dt){
+    const result=model.advance(dt);
+    if(result?.done){setRunning(false);update();say(text('doneAnnouncement')+' '+$('lesson-title').textContent);return true;}
+    return false;
+  }
+  $('answer').addEventListener('input',event=>{const raw=String(event.target.value).trim(),value=raw===''?null:Number(raw);if(!model.setAnswer(value))model.setAnswer(null);refresh();});
+  $('play').addEventListener('click',()=>{setRunning(true);update();say(text('startedAnnouncement'));});
+  $('pause').addEventListener('click',()=>{setRunning(false);update();say(text('pausedAnnouncement'));});
+  $('step').addEventListener('click',()=>{for(let i=0;i<12;i++)if(simulate(H))break;setRunning(false);update();draw();});
+  $('reset').addEventListener('click',()=>{model.reset();refresh();say(text('resetAnnouncement'));});
+  DensityModel.missions.forEach((_,i)=>$('mission-'+i).addEventListener('click',()=>{model.setMission(i);sync();refresh();say(text('missionAnnouncement',{name:text('mission'+i)}));}));
+  for(const id of ['show-scale','show-guess'])$(id).addEventListener('change',()=>{update();draw();});
+  function suspend(){if(running){setRunning(false);say(text('suspendedAnnouncement'));}update();draw();}
+  window.addEventListener('blur',suspend);document.addEventListener('visibilitychange',()=>{if(document.hidden)suspend();});
+  for(const link of document.querySelectorAll('.language-menu a'))link.addEventListener('click',()=>{setRunning(false);try{sessionStorage.setItem(transferKey,JSON.stringify({state:model.snapshot()}));}catch{}});
+  function resize(){const rect=canvas.getBoundingClientRect();if(rect.width<=0)return;width=rect.width;height=rect.height;const dpr=Math.min(window.devicePixelRatio||1,3);canvas.width=Math.round(width*dpr);canvas.height=Math.round(height*dpr);ctx.setTransform(dpr,0,0,dpr,0,0);draw();}
+  const colors={honey:'rgba(217,154,43,.62)',water:'rgba(59,130,196,.5)',oil:'rgba(232,211,106,.5)'};
+  function draw(){
+    if(!ctx)return;
+    const c=model.config,ready=model.ready(),done=model.status==='done',t=ready?model.now():0,begun=started(),scale=$('show-scale').checked,guess=$('show-guess').checked&&ready,column=model.column();
+    ctx.clearRect(0,0,width,height);
+    const label=(str,px,py,color='#b8ccdb',align='left',font=12)=>{ctx.fillStyle=color;ctx.textAlign=align;ctx.font=font+'px -apple-system,BlinkMacSystemFont,sans-serif';ctx.fillText(str,px,py);};
+    const line=(points,color,w=1,dash=[])=>{ctx.beginPath();ctx.strokeStyle=color;ctx.lineWidth=w;ctx.setLineDash(dash);points.forEach((q,i)=>i?ctx.lineTo(q.x,q.y):ctx.moveTo(q.x,q.y));ctx.stroke();ctx.setLineDash([]);};
+    const fit=(str,px,py,color,size,room,align='left')=>{ctx.font=size+'px -apple-system,BlinkMacSystemFont,sans-serif';const w=ctx.measureText(str).width;label(str,px,py,color,align,w>room?Math.max(7,Math.floor(size*room/w)):size);};
+    const wide=width>=560,area=wide?width*.64:width;
+    fit(text('viewTitle'),16,20,'#d1e3ed',12,area-28);
+    if(done){const ev=model.evaluate();fit(text(ev.ok?'rightBanner':'offBanner'),16,40,ev.ok?'#75efc7':'#efb958',width<430?12:14,area-28);}
+    // Heights are to scale (cm); the cylinder's width only grows with its cross-section.
+    const yB=height-34,S=(yB-72)/(DensityModel.top+3),Y=h=>yB-h*S,cx=area*.5,wc=Math.min(area*.3,75*Math.sqrt(c.A/25)),top=Y(DensityModel.top);
+    // The liquid: one layer of water, or three layers in the column.
+    if(column){let h0=0;for(const layer of c.layers){ctx.fillStyle=colors[layer.key];ctx.fillRect(cx-wc,Y(h0+layer.h),2*wc,layer.h*S);fit(text(layer.key+'Label')+' · '+plain(layer.rho),cx+wc+10,Y(h0+layer.h/2)+4,'#d1e3ed',11,area-cx-wc-14);h0+=layer.h;}}
+    // The object goes behind the water, so the part under the surface looks submerged.
+    const y=model.y(t);
+    if(column){
+      const r=Math.cbrt(3*c.V/(4*Math.PI))*S,p={x:cx,y:Y(y)};line([{x:cx,y:62},{x:cx,y:p.y-r}],'#9fb6c7',1);
+      ctx.fillStyle='#f2f8fc';ctx.beginPath();ctx.arc(p.x,p.y,r,0,TAU);ctx.fill();
+    }
+    else{
+      const ow=2*wc*Math.sqrt(c.a/c.A),oh=model.tall()*S,x0=cx-ow/2,yb=Y(y),yt=yb-oh;
+      line([{x:cx,y:62},{x:cx,y:yt+(c.key==='crown'?oh*.35:0)}],'#9fb6c7',1);
+      ctx.fillStyle=c.key==='aluminium'?'#c9d3dc':c.key==='stone'?'#9a958d':'#e7c34a';ctx.beginPath();
+      if(c.key==='crown'){ctx.moveTo(x0,yb);ctx.lineTo(x0,yt);ctx.lineTo(x0+ow*.25,yt+oh*.35);ctx.lineTo(x0+ow*.5,yt);ctx.lineTo(x0+ow*.75,yt+oh*.35);ctx.lineTo(x0+ow,yt);ctx.lineTo(x0+ow,yb);}
+      else if(c.key==='stone'){ctx.moveTo(x0+ow*.1,yb);ctx.lineTo(x0,yt+oh*.45);ctx.lineTo(x0+ow*.25,yt);ctx.lineTo(x0+ow*.8,yt+oh*.1);ctx.lineTo(x0+ow,yt+oh*.6);ctx.lineTo(x0+ow*.85,yb);}
+      else ctx.rect(x0,yt,ow,oh);
+      ctx.closePath();ctx.fill();
+    }
+    if(!column){ctx.fillStyle=colors.water;const L=model.level(t);ctx.fillRect(cx-wc,Y(L),2*wc,L*S);line([{x:cx-wc,y:Y(L)},{x:cx+wc,y:Y(L)}],'#77b9ff',2);}
+    // The glass, its scale in mL, and where the water started.
+    line([{x:cx-wc,y:top},{x:cx-wc,y:yB},{x:cx+wc,y:yB},{x:cx+wc,y:top}],'#8aa3b5',2.5);
+    if(scale){
+      for(let v=0;v<=c.A*DensityModel.top+1e-9;v+=25){const yy=Y(v/c.A),big=v%100===0;line([{x:cx-wc,y:yy},{x:cx-wc+(big?14:7),y:yy}],'#8aa3b5',1);if(big)label(plain(v),cx-wc-6,yy+4,'#9fb6c7','right',10);}
+      label('mL',cx-wc-6,top-8,'#9fb6c7','right',10);
+      if(begun&&!column){const y0=Y(model.base());line([{x:cx+wc-30,y:y0},{x:cx+wc,y:y0}],'#9fb6c7',1.5,[3,3]);label('V₀',cx+wc+6,y0+4,'#9fb6c7','left',10);}
+    }
+    // Your prediction: a dashed line at the reading, the new level, or the height you predicted.
+    if(guess&&['reading','rise','height'].includes(c.ask)){
+      const a=model.answer,h=c.ask==='reading'?a/c.A:c.ask==='rise'?model.base()+a:a,yy=Y(Math.min(h,DensityModel.top+2));
+      line([{x:cx-wc-10,y:yy},{x:cx+wc+10,y:yy}],'#efb958',2,[6,4]);label(text('guessTag'),cx+wc+14,yy+(column?-6:4),'#efb958','left',10);
+    }
+    label(text('scaleNote'),16,height-8,'#9fb6c7','left',10);
+    if(!wide)return;
+    // Right panel: densities side by side, with the object's measured density once it is under.
+    fit(text('chartTitle'),area+8,44,'#d1e3ed',10,width-area-16);
+    if(!begun){fit(text('panelHint'),area+8,70,'#9fb6c7',10,width-area-16);return;}
+    const rows=column?c.layers.slice().reverse().map(l=>({name:text(l.key+'Label'),v:l.rho,color:colors[l.key].replace(/[\d.]+\)$/,'1)')})):[{name:text('waterLabel'),v:1,color:'#77b9ff'}];
+    if(c.key==='crown')rows.push({name:text('goldLabel'),v:DensityModel.gold,color:'#e7c34a'});
+    const full=model.full(t);rows.push({name:text('objectLabel'),v:full?model.rho():null,color:'#f2f8fc',object:true});
+    const gv=guess&&c.ask==='density'?model.answer:null,max=Math.max(...rows.map(r=>r.v??0),gv??0)*1.15,bx0=area+12,bx1=width-20,X=v=>bx0+v/max*(bx1-bx0),rh=Math.min(54,(height-120)/rows.length);
+    rows.forEach((r,i)=>{
+      const yy=78+i*rh;fit(r.name,bx0,yy,'#b8ccdb',10,bx1-bx0);
+      if(r.v!==null){ctx.fillStyle=r.color;ctx.fillRect(bx0,yy+6,X(r.v)-bx0,14);label(number(r.v,2),Math.min(X(r.v)+4,bx1-24),yy+18,'#d1e3ed','left',10);}
+      else label('?',bx0+4,yy+18,'#9fb6c7','left',10);
+      if(r.object&&gv!==null){const gx=X(gv);line([{x:gx,y:yy+2},{x:gx,y:yy+24}],'#efb958',2,[4,3]);const right=gx>(bx0+bx1)/2;fit(text('guessTag'),gx,yy+36,'#efb958',9,right?gx-bx0:bx1-gx,right?'right':'left');}
+    });
+  }
+  function frame(now){if(previous===null)previous=now;const elapsed=Math.min(.1,(now-previous)/1000);previous=now;if(running){accumulator+=elapsed;while(accumulator>=H&&running){accumulator-=H;simulate(H);}draw();}if(now-lastUpdate>=80){update();lastUpdate=now;}requestAnimationFrame(frame);}
+  window.addEventListener('resize',resize);if(typeof ResizeObserver!=='undefined')new ResizeObserver(resize).observe(canvas);
+  sync();setRunning(false);update();resize();requestAnimationFrame(frame);
+})();
+</script>
+</body>
+</html>

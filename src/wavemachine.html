@@ -1,0 +1,276 @@
+<!doctype html>
+<html lang="en">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Wave Machine · Phisicos</title>
+<style>
+.wavemachine-page .answer-row .symbol{min-width:56px}.wavemachine-page .question{font-size:15px;font-weight:600;margin-top:4px}
+.wavemachine-page .line-key.white{background:#f2f8fc}.wavemachine-page .line-key.blue{background:#77b9ff}.wavemachine-page .line-key.red{background:#ff7b6b}.wavemachine-page .line-key.green{background:#75efc7}
+</style>
+</head>
+<body>
+<div class="shell module-page wavemachine-page">
+__HEADER__
+<main id="main-content">
+__BREADCRUMBS__
+
+<div class="masthead"><div><h1>{{title}}</h1><p class="intro">{{subtitle}}</p></div><div class="concept-tags"><span class="tag speed">{{tag1}}</span><span class="tag velocity">{{tag2}}</span></div></div>
+<noscript><p class="no-js">{{noScript}}</p></noscript>
+<div class="layout">
+<aside class="sidebar" aria-label="{{setup}}">
+  <section class="control-section"><h2 class="eyebrow">{{setup}}</h2><div class="mission-list" role="group" aria-label="{{setup}}">
+    <button id="mission-0" aria-pressed="true"><b>1 · {{mission0}}</b><span id="given-0">·</span></button>
+    <button id="mission-1" aria-pressed="false"><b>2 · {{mission1}}</b><span id="given-1">·</span></button>
+    <button id="mission-2" aria-pressed="false"><b>3 · {{mission2}}</b><span id="given-2">·</span></button>
+    <button id="mission-3" aria-pressed="false"><b>4 · {{mission3}}</b><span id="given-3">·</span></button>
+    <button id="mission-4" aria-pressed="false"><b>5 · {{mission4}}</b><span id="given-4">·</span></button>
+  </div><p class="hint">{{setupNote}}</p></section>
+  <section class="control-section"><h2 class="eyebrow">{{answerHeading}}</h2>
+    <p class="question" id="question">{{question0}}</p>
+    <p class="field-label"><label for="answer">{{answerLabel}}</label></p>
+    <div class="answer-row"><span class="symbol" id="answer-symbol">λ =</span><input id="answer" type="number" inputmode="decimal" step="any" value=""><span class="unit" id="answer-unit">m</span></div>
+    <p class="hint">{{answerHint}}</p>
+  </section>
+  <section class="control-section"><h2 class="eyebrow">{{observe}}</h2><label class="check"><input id="show-ruler" type="checkbox" checked>{{rulerToggle}}</label><label class="check"><input id="show-guess" type="checkbox" checked>{{guessToggle}}</label><p class="hint">{{observeHint}}</p></section>
+</aside>
+<div class="workspace">
+  <section class="scene" aria-label="{{sceneTitle}}"><div class="scene-top"><div><h2 class="scene-title">{{sceneTitle}}</h2><p class="scene-subtitle" id="mission-label">{{mission0}}</p></div><span class="status" id="wavemachine-status"><i class="status-dot" aria-hidden="true"></i><span id="wavemachine-status-text">{{ready}}</span></span></div>
+    <div class="module-stage"><canvas id="wavemachine-canvas" role="img" aria-label="{{canvasLabel}}">{{noScript}}</canvas></div>
+    <div class="legend"><span><i class="line-key blue"></i>{{ropeLegend}}</span><span><i class="line-key red"></i>{{beadLegend}}</span><span><i class="line-key orange"></i>{{guessLegend}}</span><span><i class="line-key gray"></i>{{referenceLegend}}</span></div>
+    <div class="module-equation"><span>{{equationTitle}}</span><output id="wavemachine-equation">v = f·λ</output></div>
+    <div class="transport"><button id="play" class="primary" disabled>{{play}}</button><button id="pause" disabled>{{pause}}</button><button id="step" disabled>{{step}}</button><button id="reset" class="reset">{{reset}}</button></div>
+  </section>
+  <section class="metrics" aria-label="{{observe}}">
+    <div class="metric scalar"><h3 class="metric-label">{{time}}</h3><p class="metric-value"><span id="time-value">0.00</span> <small>s</small></p><p class="metric-equation">t</p></div>
+    <div class="metric scalar"><h3 class="metric-label">{{frequencyMetric}}</h3><p class="metric-value"><span id="frequency-value">—</span> <small>Hz</small></p><p class="metric-equation">f</p></div>
+    <div class="metric vector"><h3 class="metric-label">{{wavelengthMetric}}</h3><p class="metric-value"><span id="wavelength-value">—</span> <small>m</small></p><p class="metric-equation">λ</p></div>
+    <div class="metric vector"><h3 class="metric-label">{{speedMetric}}</h3><p class="metric-value"><span id="speed-value">—</span> <small>m/s</small></p><p class="metric-equation">v = f·λ</p></div>
+    <div class="metric scalar"><h3 class="metric-label">{{periodMetric}}</h3><p class="metric-value"><span id="period-value">—</span> <small>s</small></p><p class="metric-equation">T = 1 ÷ f</p></div>
+  </section>
+  <div class="insight" id="insight"><span class="insight-icon" aria-hidden="true">↗</span><div><strong id="lesson-title">{{predictTitle}}</strong><p id="lesson-copy">{{predictCopy}}</p></div></div>
+  <section class="challenge"><div class="mission-heading"><h2 class="challenge-title">{{missionTitle}}</h2><div class="score-card"><span>{{score}}</span><strong id="mission-score">—</strong></div></div><p class="mission-copy">{{missionCopy}}</p><div class="badges"><span id="right-badge">✓ {{rightBadge}}</span><span id="first-badge">① {{firstBadge}}</span></div></section>
+</div>
+</div>
+<article class="learning-content"><section><h2>{{guideTitle}}</h2><ol><li>{{instruction1}}</li><li>{{instruction2}}</li><li>{{instruction3}}</li><li>{{instruction4}}</li></ol></section><section><h2>{{conceptTitle}}</h2><p>{{conceptCopy}}</p><aside class="worked-example"><h3>{{exampleTitle}}</h3><p>{{exampleCopy}}</p></aside></section><section><h2>{{modelTitle}}</h2><p>{{modelCopy}}</p></section></article>
+<p class="language-note" id="language-note">{{languageNote}}</p>
+</main>
+__FOOTER__
+<p class="sr-only" id="announcement" role="status" aria-live="polite"></p>
+</div>
+<script id="wavemachine-model">
+class WaveMachineModel {
+  // A motor shakes one end of a rope up and down f times a second. Each shake sends out one wave, so crests leave every period
+  // T = 1 ÷ f and travel at the rope's speed v: by the time the next crest leaves, the last one is λ = v·T further on, which
+  // gives v = f·λ. The rope sets v; the motor sets f; the wavelength follows. The amplitude changes neither.
+  // y(x, t) = A·sin(2π·(f·t − x ÷ λ)) behind the front, which moves out at v.
+  static tolerance = .02;
+  static bead = 3; // m along the rope
+  static run = 3;
+  static missions = [
+    {key:'count',ask:'wavelength',L:6,f:2,v:3,A:.15,waves:4},
+    {key:'speed',ask:'speed',L:6,f:2,v:3,A:.15},
+    {key:'faster',ask:'newWavelength',L:6,f:4,f0:2,v:3,A:.15},
+    {key:'period',ask:'period',L:6,f:2.5,v:5,A:.15},
+    {key:'bigger',ask:'bigSpeed',L:6,f:2,v:3,A:.3,A0:.15}
+  ];
+  static units = {wavelength:'m',speed:'m/s',newWavelength:'m',period:'s',bigSpeed:'m/s'};
+  static limits = {wavelength:1e4,speed:1e4,newWavelength:1e4,period:1e4,bigSpeed:1e4};
+  constructor(index = 0){this.setMission(index);}
+  setMission(index){this.index=index;this.config=WaveMachineModel.missions[index];this.answer=null;this.attempts=0;this.reset();}
+  reset(){this.t=0;this.status='moving';}
+  valid(value){return Number.isFinite(value)&&value>0&&value<=WaveMachineModel.limits[this.config.ask];}
+  setAnswer(value){if(value!==null&&!this.valid(value))return false;this.answer=value;this.reset();return true;}
+  ready(){return this.answer!==null;}
+  wavelength(f=this.config.f){return this.config.v/f;}
+  period(){return 1/this.config.f;}
+  clamp(t){return Math.min(Math.max(t,0),this.duration());}
+  front(t){return Math.min(this.config.v*this.clamp(t),this.config.L);}
+  // The rope's height (m) at x; the reference wave is the slower shaking or the smaller amplitude, on the same rope.
+  height(x,t,ref=false){
+    const c=this.config,s=this.clamp(t),f=ref&&c.f0?c.f0:c.f,A=ref&&c.A0?c.A0:c.A;
+    return x<=c.v*s?A*Math.sin(2*Math.PI*(f*s-x*f/c.v)):0;
+  }
+  bead(t){return this.height(WaveMachineModel.bead,t);}
+  duration(){return WaveMachineModel.run;}
+  now(){return this.status==='done'?this.duration():this.t;}
+  advance(dt){
+    if(!Number.isFinite(dt)||dt<0)throw new Error('Invalid timestep');
+    if(this.status==='done'||!this.ready())return null;
+    // A run counts as an attempt as soon as it starts; it ends exactly after 3 s.
+    if(this.t===0)this.attempts++;
+    const T=this.duration();
+    if(this.t+dt>=T*(1-1e-12)){this.t=T;this.status='done';return {t:T,done:true};}
+    this.t+=dt;return null;
+  }
+  exact(){const c=this.config;if(c.ask==='wavelength')return c.L/c.waves;if(c.ask==='newWavelength')return c.v/c.f;if(c.ask==='period')return 1/c.f;return c.v;}
+  unit(){return WaveMachineModel.units[this.config.ask];}
+  evaluate(){
+    if(!this.ready())return {ok:false,slip:null,first:false,exact:this.exact()};
+    const c=this.config,a=this.answer,e=this.exact(),tol=WaveMachineModel.tolerance,near=(p,q)=>Math.abs(p-q)<=tol*Math.abs(q)+1e-12;
+    // Every answer is right within 2%.
+    const ok=near(a,e);let slip=null;
+    if(!ok){
+      const l=this.wavelength();
+      if(c.ask==='wavelength'){if(near(a,c.L/(c.waves+1)))slip='crests';else if(near(a,c.L*c.waves))slip='timesWaves';else if(near(a,c.waves/c.L))slip='wavesPerMetre';}
+      else if(c.ask==='speed'){if(near(a,l/c.f))slip='divided';else if(near(a,c.f/l))slip='inverted';}
+      else if(c.ask==='newWavelength'){const l0=c.v/c.f0;if(near(a,2*l0))slip='longer';else if(near(a,l0))slip='same';}
+      else if(c.ask==='period'){if(near(a,c.f))slip='frequency';else if(near(a,l*c.v))slip='multiplied';}
+      else{if(near(a,2*c.v))slip='doubled';else if(near(a,c.v/2))slip='halved';}
+    }
+    return {ok,slip,first:ok&&this.attempts===1,exact:e};
+  }
+  score(){if(this.status!=='done')return 0;const e=this.evaluate();return (e.ok?100:0)+(e.first?50:0);}
+  snapshot(){return {index:this.index,answer:this.answer,attempts:this.attempts,t:this.t,status:this.status};}
+  restore(saved){
+    if(!Number.isInteger(saved?.index)||!WaveMachineModel.missions[saved.index])return false;
+    const probe=new WaveMachineModel(saved.index);
+    if(!probe.setAnswer(saved.answer??null)||!Number.isInteger(saved.attempts)||saved.attempts<0)return false;
+    if(!['moving','done'].includes(saved.status)||!Number.isFinite(saved.t)||saved.t<0||saved.t>probe.duration()*(1+1e-9))return false;
+    if(probe.answer===null&&(saved.t>0||saved.status==='done'))return false;
+    if((saved.status==='done'||saved.t>0)&&saved.attempts<1)return false;
+    this.setMission(saved.index);this.answer=probe.answer;this.attempts=saved.attempts;
+    this.status=saved.status;this.t=saved.status==='done'?this.duration():saved.t;return true;
+  }
+}
+globalThis.WaveMachineModel=WaveMachineModel;
+</script>
+<script id="wavemachine-locale" type="application/json">__LOCALE__</script>
+<script id="wavemachine-interface">
+(() => {
+  'use strict';
+  const $=id=>document.getElementById(id),locale=JSON.parse($('wavemachine-locale').textContent);
+  const text=(key,values={})=>locale.strings[key].replace(/\{(\w+)\}/g,(_,name)=>values[name]??'{'+name+'}');
+  const number=(n,d=2)=>Math.abs(n)<.5*10**-d?(0).toLocaleString(locale.lang,{minimumFractionDigits:d,maximumFractionDigits:d}):n.toLocaleString(locale.lang,{minimumFractionDigits:d,maximumFractionDigits:d,useGrouping:false});
+  const plain=n=>n.toLocaleString(locale.lang,{maximumFractionDigits:3,useGrouping:false}).replace('-','−');
+  const model=new WaveMachineModel();
+  const canvas=$('wavemachine-canvas'),ctx=canvas.getContext('2d');
+  const H=1/120,transferKey='phisicos-wavemachine-language-transfer';
+  let running=false,previous=null,accumulator=0,lastUpdate=0,width=800,height=410;
+  const say=message=>{$('announcement').textContent=message;};
+  try{const data=JSON.parse(sessionStorage.getItem(transferKey)||'null');sessionStorage.removeItem(transferKey);if(data)model.restore(data.state);}catch{$('language-note').hidden=true;}
+  const pace=()=>model.config.pace??1;
+  const amount=v=>plain(Number(v.toPrecision(5)))+(model.unit()?' '+model.unit():'');
+  const slipKey=name=>'slip'+name[0].toUpperCase()+name.slice(1);
+  // The readings show only once a run starts, because they give the answer away.
+  const started=()=>model.status==='done'||model.t>0;
+  const symbols={wavelength:'λ =',speed:'v =',newWavelength:'λ₂ =',period:'T =',bigSpeed:'v ='};
+  // Givens: the rope and its waves, the motor's frequency and the wavelength, or the speed.
+  function given(m){
+    const l=m.v/(m.f0??m.f);
+    if(m.ask==='wavelength')return 'L = '+plain(m.L)+' m · n = '+plain(m.waves);
+    if(m.ask==='newWavelength')return 'λ = '+plain(l)+' m · f = '+plain(m.f0)+' → '+plain(m.f)+' Hz';
+    if(m.ask==='period')return 'λ = '+plain(m.v/m.f)+' m · v = '+plain(m.v)+' m/s';
+    return 'f = '+plain(m.f)+' Hz · λ = '+plain(l)+' m'+(m.A0?' · A ×2':'');
+  }
+  function equation(){
+    const c=model.config,l=model.wavelength();
+    if(c.ask==='wavelength')return 'λ = L ÷ n = '+plain(c.L)+' ÷ '+plain(c.waves)+' = '+number(l)+' m';
+    if(c.ask==='newWavelength')return 'λ = v ÷ f = '+plain(c.v)+' ÷ '+plain(c.f)+' = '+number(l)+' m';
+    if(c.ask==='period')return 'T = λ ÷ v = '+plain(l)+' ÷ '+plain(c.v)+' = '+number(1/c.f)+' s';
+    return 'v = f·λ = '+plain(c.f)+' × '+plain(l)+' = '+number(c.v)+' m/s';
+  }
+  function baseEquation(){const a=model.config.ask;return a==='wavelength'?'λ = L ÷ n':a==='period'?'T = 1 ÷ f':'v = f·λ';}
+  function metrics(t,begun){
+    const c=model.config;
+    $('frequency-value').textContent=begun?number(c.f):'—';$('wavelength-value').textContent=begun?number(model.wavelength()):'—';
+    $('speed-value').textContent=begun?number(c.v):'—';$('period-value').textContent=begun?number(model.period()):'—';
+  }
+  function values(){const c=model.config;return {L:plain(c.L),l:number(model.wavelength()),v:number(c.v),f:plain(c.f),T:number(model.period())};}
+  function runningCopy(t){return text('wavingCopy',{x:number(model.front(t)),y:number(model.bead(t)*100,1)});}
+  function scene(g){
+    const c=g.c,{line,fit,dot,box,label}=g,s=g.ready?g.t:0,x0=58,x1=g.area-24,kp=(x1-x0)/c.L,X=x=>x0+x*kp,ym=height*.5,ky=Math.min(300,(height*.3)/.32),Y=y=>ym-y*ky;
+    // The motor and its arm, the rope (heights exaggerated), the marked bead, and a ruler in metres.
+    const arm=Y(model.height(0,s));box(x0-46,ym-40,30,80,'#22384a');line([{x:x0-16,y:ym},{x:x0,y:arm}],'#d1e3ed',3);dot(x0,arm,4,'#d1e3ed');
+    if(c.f0||c.A0){const ref=[];for(let i=0;i<=360;i++){const x=c.L*i/360;ref.push({x:X(x),y:Y(model.height(x,s,true))});}line(ref,'#9fb6c7',1.5,[4,3]);}
+    const pts=[];for(let i=0;i<=480;i++){const x=c.L*i/480;pts.push({x:X(x),y:Y(model.height(x,s))});}line(pts,'#77b9ff',3);
+    const bx=X(WaveMachineModel.bead),by=Y(model.bead(s));line([{x:bx,y:ym-ky*.34},{x:bx,y:ym+ky*.34}],'#9fb6c7',1,[3,4]);dot(bx,by,6,'#ff7b6b');
+    if(g.option){line([{x:X(0),y:ym+ky*.4},{x:X(c.L),y:ym+ky*.4}],'#8aa3b5',1);for(let m=0;m<=c.L;m+=.5){const x=X(m);line([{x,y:ym+ky*.4},{x,y:ym+ky*.4+(m%1?4:8)}],'#9fb6c7',1);if(m%1===0)label(plain(m)+' m',x,ym+ky*.4+20,'#9fb6c7','center',9);}}
+    // Once running, a bracket from one crest to the next, behind the front.
+    const l=model.wavelength();
+    if(g.begun){const k=Math.floor(c.f*s-.25),xc=(c.f*s-.25-k)*l,j=Math.min(Math.floor((model.front(s)-xc)/l+1e-9)-1,Math.max(0,Math.floor((c.L/2-xc)/l))),xa=xc+j*l;if(j>=0){const yb=Y(c.A)-14;line([{x:X(xa),y:yb},{x:X(xa+l),y:yb}],'#f2f8fc',1.5);line([{x:X(xa),y:yb-4},{x:X(xa),y:yb+4}],'#f2f8fc',1.5);line([{x:X(xa+l),y:yb-4},{x:X(xa+l),y:yb+4}],'#f2f8fc',1.5);fit('λ = '+number(l)+' m',X(xa+l/2),yb-6,'#f2f8fc',10,kp*l+40,'center');}}
+    if(g.guess){
+      if(c.ask==='wavelength'||c.ask==='newWavelength'){const step=model.answer;if(step*kp>=6)for(let x=0;x<=c.L+1e-9;x+=step)line([{x:X(x),y:Y(c.A)-34},{x:X(x),y:Y(c.A)-24}],'#efb958',2);fit(text('guessTag'),X(0),Y(c.A)-40,'#efb958',9,g.area*.4);}
+      if((c.ask==='speed'||c.ask==='bigSpeed')&&s>0){const gx=X(Math.min(model.answer*s,c.L));line([{x:gx,y:ym-ky*.34},{x:gx,y:ym+ky*.34}],'#efb958',2,[5,3]);fit(text('guessTag'),gx,ym+ky*.34+14,'#efb958',9,110,'center');}
+    }
+    fit('t = '+number(g.t)+' s',g.area-16,44,'#f2f8fc',13,g.area*.3,'right');
+  }
+  function panel(g){
+    const c=g.c,{line,fit}=g;
+    fit(text('beadGraph'),g.area+8,44,'#d1e3ed',10,width-g.area-16);
+    if(!g.begun){fit(text('panelHint'),g.area+8,70,'#9fb6c7',10,width-g.area-16);return;}
+    const D=model.duration(),px0=g.area+14,px1=width-14,py0=70,py1=height-62,ym=(py0+py1)/2,span=Math.max(c.A,c.A0??0)*1.25,PX=q=>px0+q/D*(px1-px0),PY=v=>ym-v/span*(py1-py0)/2,upto=Math.min(g.t,D);
+    line([{x:px0,y:ym},{x:px1,y:ym}],'#8aa3b5',1);line([{x:px0,y:py0},{x:px0,y:py1}],'#8aa3b5',1);
+    const pts=[];for(let i=0;i<=300;i++){const q=upto*i/300;pts.push({x:PX(q),y:PY(model.bead(q))});}line(pts,'#77b9ff',2);
+    if(g.guess&&c.ask==='period'&&model.answer>=.05){const start=WaveMachineModel.bead/c.v;for(let q=start;q<=D+1e-9;q+=model.answer)line([{x:PX(q),y:py0},{x:PX(q),y:py1}],'#efb958',1.2,[5,4]);}
+    fit(text('timeAxis'),px0,py1+14,'#9fb6c7',9,(px1-px0)/2);
+  }
+  function setRunning(value){
+    const done=model.status==='done',blocked=!model.ready();running=value&&!done&&!blocked;previous=null;accumulator=0;
+    $('play').disabled=running||done||blocked;$('pause').disabled=!running;$('step').disabled=running||done||blocked;
+    $('wavemachine-status').classList.toggle('running',running);
+    $('wavemachine-status-text').textContent=text(done?'done':running?'running':model.t?'paused':'ready');
+  }
+  function sync(){
+    const c=model.config;
+    WaveMachineModel.missions.forEach((m,i)=>{$('mission-'+i).setAttribute('aria-pressed',String(i===model.index));$('given-'+i).textContent=given(m);});
+    $('question').textContent=text('question'+model.index);$('answer-symbol').textContent=symbols[c.ask];$('answer-unit').textContent=model.unit();
+    $('answer').value=model.answer===null?'':String(model.answer);$('mission-label').textContent=text('mission'+model.index);
+  }
+  function update(){
+    const ready=model.ready(),done=model.status==='done',t=ready?model.now():0,e=model.evaluate(),begun=started();
+    $('time-value').textContent=number(t);metrics(t,begun);
+    $('wavemachine-equation').textContent=begun?equation():baseEquation();
+    let key,copy;
+    if(done){
+      const base=text('result'+model.index,values());
+      if(e.ok){key='good';copy=base+' '+text('why'+model.index);}
+      else{key='miss';copy=base+' '+text('missCopy',{p:amount(model.answer)})+' '+(e.slip?text(slipKey(e.slip)):text('hint'+model.index));}
+    }
+    else if(!ready){key='predict';copy=text('predictCopy');}
+    else if(model.t>0){key='running';copy=runningCopy(t);}
+    else{key='ready';copy=text('readyCopy');}
+    $('lesson-title').textContent=text(key+'Title',{t:number(t),p:ready?amount(model.answer):''});$('lesson-copy').textContent=copy;
+    $('insight').classList.toggle('warning',key==='miss');
+    $('mission-score').textContent=done?String(model.score()):'—';
+    $('right-badge').classList.toggle('earned',done&&e.ok);$('first-badge').classList.toggle('earned',done&&e.first);
+  }
+  function refresh(){setRunning(false);update();draw();}
+  function simulate(dt){
+    const result=model.advance(dt);
+    if(result?.done){setRunning(false);update();say(text('doneAnnouncement')+' '+$('lesson-title').textContent);return true;}
+    return false;
+  }
+  $('answer').addEventListener('input',event=>{const raw=String(event.target.value).trim(),value=raw===''?null:Number(raw);if(!model.setAnswer(value))model.setAnswer(null);refresh();});
+  $('play').addEventListener('click',()=>{setRunning(true);update();say(text('startedAnnouncement'));});
+  $('pause').addEventListener('click',()=>{setRunning(false);update();say(text('pausedAnnouncement'));});
+  $('step').addEventListener('click',()=>{for(let i=0;i<12;i++)if(simulate(H*pace()))break;setRunning(false);update();draw();});
+  $('reset').addEventListener('click',()=>{model.reset();refresh();say(text('resetAnnouncement'));});
+  WaveMachineModel.missions.forEach((_,i)=>$('mission-'+i).addEventListener('click',()=>{model.setMission(i);sync();refresh();say(text('missionAnnouncement',{name:text('mission'+i)}));}));
+  for(const id of ['show-ruler','show-guess'])$(id).addEventListener('change',()=>{update();draw();});
+  function suspend(){if(running){setRunning(false);say(text('suspendedAnnouncement'));}update();draw();}
+  window.addEventListener('blur',suspend);document.addEventListener('visibilitychange',()=>{if(document.hidden)suspend();});
+  for(const link of document.querySelectorAll('.language-menu a'))link.addEventListener('click',()=>{setRunning(false);try{sessionStorage.setItem(transferKey,JSON.stringify({state:model.snapshot()}));}catch{}});
+  function resize(){const rect=canvas.getBoundingClientRect();if(rect.width<=0)return;width=rect.width;height=rect.height;const dpr=Math.min(window.devicePixelRatio||1,3);canvas.width=Math.round(width*dpr);canvas.height=Math.round(height*dpr);ctx.setTransform(dpr,0,0,dpr,0,0);draw();}
+  function draw(){
+    if(!ctx)return;
+    const c=model.config,ready=model.ready(),done=model.status==='done',t=ready?model.now():0,begun=started(),option=$('show-ruler').checked,guess=$('show-guess').checked&&ready;
+    ctx.clearRect(0,0,width,height);
+    const label=(str,px,py,color='#b8ccdb',align='left',font=12)=>{ctx.fillStyle=color;ctx.textAlign=align;ctx.font=font+'px -apple-system,BlinkMacSystemFont,sans-serif';ctx.fillText(str,px,py);};
+    const line=(points,color,w=1,dash=[])=>{ctx.beginPath();ctx.strokeStyle=color;ctx.lineWidth=w;ctx.setLineDash(dash);points.forEach((q,i)=>i?ctx.lineTo(q.x,q.y):ctx.moveTo(q.x,q.y));ctx.stroke();ctx.setLineDash([]);};
+    const fit=(str,px,py,color,size,room,align='left')=>{ctx.font=size+'px -apple-system,BlinkMacSystemFont,sans-serif';const w=ctx.measureText(str).width;label(str,px,py,color,align,w>room?Math.max(7,Math.floor(size*room/w)):size);};
+    const dot=(x,y,r,color)=>{ctx.fillStyle=color;ctx.beginPath();ctx.arc(x,y,Math.max(r,.5),0,Math.PI*2);ctx.fill();};
+    const box=(x,y,w,h,color)=>{ctx.fillStyle=color;ctx.fillRect(x,y,w,h);};
+    const wide=width>=560,area=wide?width*.64:width;
+    const env={c,ready,done,t,begun,option,guess,label,line,fit,dot,box,wide,area};
+    fit(text('viewTitle'),16,20,'#d1e3ed',12,area-28);
+    if(done){const ev=model.evaluate();fit(text(ev.ok?'rightBanner':'offBanner'),16,40,ev.ok?'#75efc7':'#efb958',width<430?12:14,area-28);}
+    scene(env);
+    label(text('scaleNote'),16,height-8,'#9fb6c7','left',10);
+    if(!wide)return;
+    panel(env);
+  }
+  function frame(now){if(previous===null)previous=now;const elapsed=Math.min(.1,(now-previous)/1000);previous=now;if(running){accumulator+=elapsed*pace();while(accumulator>=H&&running){accumulator-=H;simulate(H);}draw();}if(now-lastUpdate>=80){update();lastUpdate=now;}requestAnimationFrame(frame);}
+  window.addEventListener('resize',resize);if(typeof ResizeObserver!=='undefined')new ResizeObserver(resize).observe(canvas);
+  sync();setRunning(false);update();resize();requestAnimationFrame(frame);
+})();
+</script>
+</body>
+</html>

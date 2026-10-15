@@ -1,0 +1,297 @@
+<!doctype html>
+<html lang="en">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Storm and Wing · Phisicos</title>
+<style>
+.wing-page .answer-row .symbol{min-width:44px}.wing-page .question{font-size:15px;font-weight:600;margin-top:4px}
+.wing-page .line-key.white{background:#f2f8fc}.wing-page .line-key.blue{background:#77b9ff}
+</style>
+</head>
+<body>
+<div class="shell module-page wing-page">
+__HEADER__
+<main id="main-content">
+__BREADCRUMBS__
+
+<div class="masthead"><div><h1>{{title}}</h1><p class="intro">{{subtitle}}</p></div><div class="concept-tags"><span class="tag speed">{{tag1}}</span><span class="tag velocity">{{tag2}}</span></div></div>
+<noscript><p class="no-js">{{noScript}}</p></noscript>
+<div class="layout">
+<aside class="sidebar" aria-label="{{setup}}">
+  <section class="control-section"><h2 class="eyebrow">{{setup}}</h2><div class="mission-list" role="group" aria-label="{{setup}}">
+    <button id="mission-0" aria-pressed="true"><b>1 · {{mission0}}</b><span id="given-0">v</span></button>
+    <button id="mission-1" aria-pressed="false"><b>2 · {{mission1}}</b><span id="given-1">m</span></button>
+    <button id="mission-2" aria-pressed="false"><b>3 · {{mission2}}</b><span id="given-2">v</span></button>
+    <button id="mission-3" aria-pressed="false"><b>4 · {{mission3}}</b><span id="given-3">m</span></button>
+    <button id="mission-4" aria-pressed="false"><b>5 · {{mission4}}</b><span id="given-4">m</span></button>
+  </div><p class="hint">{{setupNote}}</p></section>
+  <section class="control-section"><h2 class="eyebrow">{{answerHeading}}</h2>
+    <p class="question" id="question">{{question0}}</p>
+    <p class="field-label"><label for="answer">{{answerLabel}}</label></p>
+    <div class="answer-row"><span class="symbol" id="answer-symbol">F =</span><input id="answer" type="number" inputmode="decimal" step="any" value=""><span class="unit" id="answer-unit">kN</span></div>
+    <p class="hint">{{answerHint}}</p>
+  </section>
+  <section class="control-section"><h2 class="eyebrow">{{observe}}</h2><label class="check"><input id="show-arrows" type="checkbox" checked>{{arrowsToggle}}</label><label class="check"><input id="show-guess" type="checkbox" checked>{{guessToggle}}</label><p class="hint">{{observeHint}}</p></section>
+</aside>
+<div class="workspace">
+  <section class="scene" aria-label="{{sceneTitle}}"><div class="scene-top"><div><h2 class="scene-title">{{sceneTitle}}</h2><p class="scene-subtitle" id="mission-label">{{mission0}}</p></div><span class="status" id="wing-status"><i class="status-dot" aria-hidden="true"></i><span id="wing-status-text">{{ready}}</span></span></div>
+    <div class="module-stage"><canvas id="wing-canvas" role="img" aria-label="{{canvasLabel}}">{{noScript}}</canvas></div>
+    <div class="legend"><span><i class="line-key blue"></i>{{airLegend}}</span><span><i class="line-key white"></i>{{weightLegend}}</span><span><i class="line-key orange"></i>{{guessLegend}}</span><span><i class="line-key gray"></i>{{groundLegend}}</span></div>
+    <div class="module-equation"><span>{{equationTitle}}</span><output id="wing-equation">F = ½·ρ·(v_over² − v_under²)·A</output></div>
+    <div class="transport"><button id="play" class="primary" disabled>{{play}}</button><button id="pause" disabled>{{pause}}</button><button id="step" disabled>{{step}}</button><button id="reset" class="reset">{{reset}}</button></div>
+  </section>
+  <section class="metrics" aria-label="{{observe}}">
+    <div class="metric scalar"><h3 class="metric-label">{{time}}</h3><p class="metric-value"><span id="time-value">0.00</span> <small>s</small></p><p class="metric-equation">t</p></div>
+    <div class="metric vector"><h3 class="metric-label">{{overMetric}}</h3><p class="metric-value"><span id="over-value">—</span> <small>m/s</small></p><p class="metric-equation">v_over</p></div>
+    <div class="metric vector"><h3 class="metric-label">{{underMetric}}</h3><p class="metric-value"><span id="under-value">—</span> <small>m/s</small></p><p class="metric-equation">v_under</p></div>
+    <div class="metric scalar"><h3 class="metric-label">{{dropMetric}}</h3><p class="metric-value"><span id="drop-value">—</span> <small>Pa</small></p><p class="metric-equation">Δp = ½·ρ·(v_over² − v_under²)</p></div>
+    <div class="metric vector"><h3 class="metric-label">{{liftMetric}}</h3><p class="metric-value"><span id="lift-value">—</span> <small>N</small></p><p class="metric-equation">F = Δp·A</p></div>
+  </section>
+  <div class="insight" id="insight"><span class="insight-icon" aria-hidden="true">↗</span><div><strong id="lesson-title">{{predictTitle}}</strong><p id="lesson-copy">{{predictCopy}}</p></div></div>
+  <section class="challenge"><div class="mission-heading"><h2 class="challenge-title">{{missionTitle}}</h2><div class="score-card"><span>{{score}}</span><strong id="mission-score">—</strong></div></div><p class="mission-copy">{{missionCopy}}</p><div class="badges"><span id="right-badge">✓ {{rightBadge}}</span><span id="first-badge">① {{firstBadge}}</span></div></section>
+</div>
+</div>
+<article class="learning-content"><section><h2>{{guideTitle}}</h2><ol><li>{{instruction1}}</li><li>{{instruction2}}</li><li>{{instruction3}}</li><li>{{instruction4}}</li></ol></section><section><h2>{{conceptTitle}}</h2><p>{{conceptCopy}}</p><aside class="worked-example"><h3>{{exampleTitle}}</h3><p>{{exampleCopy}}</p></aside></section><section><h2>{{modelTitle}}</h2><p>{{modelCopy}}</p></section></article>
+<p class="language-note" id="language-note">{{languageNote}}</p>
+</main>
+__FOOTER__
+<p class="sr-only" id="announcement" role="status" aria-live="polite"></p>
+</div>
+<script id="wing-model">
+class WingModel {
+  // Bernoulli's principle in air: where air moves faster its pressure is lower by ½·ρ·v². With faster air over a roof, a
+  // wing, or a paper strip than under it, the pressure difference ½·ρ·(v_over² − v_under²) acting on the area A pushes up
+  // with F = Δp·A. The wind, the plane, or your breath speeds up steadily for 2 s; a roof, a plane, or a strip lifts off at
+  // the exact moment F reaches its weight, the speeding up stops there, and it is drawn rising for 1 s.
+  static run = 2; // s to reach full speed
+  static rise = 1; // s a lifted roof, plane, or strip is drawn rising
+  static g = 9.8;
+  static rho = 1.2; // kg/m³ of air
+  static tolerance = .02;
+  static grace = 1.5e-3; // a lift within 0.15% of the weight still lifts, so a rounded answer works
+  static missions = [
+    {key:'storm',ask:'force',scene:'roof',v:30,A:100},
+    {key:'rip',ask:'speed',scene:'roof',m:4000,A:100},
+    {key:'wing',ask:'force',scene:'wing',over:70,under:60,A:16},
+    {key:'takeoff',ask:'speed',scene:'plane',m:1000,A:16,boost:1.1},
+    {key:'paper',ask:'speed',scene:'paper',m:.0005,A:.002}
+  ];
+  static units = {force:'kN',speed:'m/s'};
+  static limits = {force:1e7,speed:1e5};
+  constructor(index = 0){this.setMission(index);}
+  setMission(index){this.index=index;this.config=WingModel.missions[index];this.answer=null;this.attempts=0;this.reset();}
+  reset(){this.t=0;this.status='moving';}
+  valid(value){return Number.isFinite(value)&&value>0&&value<=WingModel.limits[this.config.ask];}
+  setAnswer(value){if(value!==null&&!this.valid(value))return false;this.answer=value;this.reset();return true;}
+  ready(){return this.answer!==null;}
+  // Air speeds over and under at a fraction r of full speed (m/s); your speed sets full speed when a speed is asked.
+  speeds(r){
+    const c=this.config,a=this.answer??0;
+    if(c.scene==='wing')return {over:c.over*r,under:c.under*r};
+    if(c.scene==='plane')return {over:c.boost*a*r,under:a*r};
+    return {over:(c.v??a)*r,under:0};
+  }
+  drop(r){const s=this.speeds(r);return WingModel.rho/2*(s.over**2-s.under**2);}
+  force(r){return this.drop(r)*this.config.A;}
+  weight(){const c=this.config;return c.m?c.m*WingModel.g:null;}
+  lifts(){const W=this.weight();return W!==null&&this.ready()&&this.force(1)>=W*(1-WingModel.grace);}
+  // The fraction of full speed at which the lift first equals the weight; the lift grows as r².
+  liftStage(){if(!this.lifts())return null;const W=this.weight(),F=this.force(1);return F<W?1:Math.sqrt(W/F);}
+  liftTime(){const s=this.liftStage();return s===null?null:s*WingModel.run;}
+  stage(t){const s=this.liftStage()??1;return Math.min(Math.min(Math.max(t,0),WingModel.run)/WingModel.run,s);}
+  height(t){const p=this.liftTime();return p===null?0:Math.min(Math.max((t-p)/WingModel.rise,0),1);}
+  duration(){const p=this.liftTime();return p===null?WingModel.run:p+WingModel.rise;}
+  now(){return this.status==='done'?this.duration():this.t;}
+  advance(dt){
+    if(!Number.isFinite(dt)||dt<0)throw new Error('Invalid timestep');
+    if(this.status==='done'||!this.ready())return null;
+    // A run counts as an attempt as soon as it starts; it ends after 2 s, or once the lifted roof, plane, or strip is drawn rising.
+    if(this.t===0)this.attempts++;
+    const T=this.duration();
+    if(this.t+dt>=T*(1-1e-12)){this.t=T;this.status='done';return {t:T,done:true};}
+    this.t+=dt;return null;
+  }
+  exact(){
+    const c=this.config,rho=WingModel.rho,W=this.weight();
+    if(c.ask==='force')return this.force(1)/1000;
+    if(c.scene==='plane')return Math.sqrt(W/(rho/2*(c.boost**2-1)*c.A));
+    return Math.sqrt(2*W/(rho*c.A));
+  }
+  unit(){return WingModel.units[this.config.ask];}
+  evaluate(){
+    if(!this.ready())return {ok:false,slip:null,first:false,exact:this.exact()};
+    const c=this.config,a=this.answer,e=this.exact(),tol=WingModel.tolerance,near=(p,q)=>Math.abs(p-q)<=tol*Math.abs(q)+1e-12,rho=WingModel.rho,g=WingModel.g,up=this.lifts();
+    let ok,slip=null;
+    // A force within 2%; a speed must lift the roof, the plane, or the strip with at most 2% to spare.
+    if(c.ask==='force'){
+      ok=near(a,e);
+      if(!ok){
+        if(c.scene==='roof'){if(near(a,2*e))slip='noHalf';else if(near(a,rho/2*c.v*c.A/1000))slip='noSquare';else if(near(a,e/c.A))slip='pressureOnly';else if(near(a,e*1000/rho))slip='waterDensity';else if(near(a,e*1000))slip='units';}
+        else{if(near(a,rho/2*(c.over-c.under)**2*c.A/1000))slip='diffSquared';else if(near(a,2*e))slip='noHalf';else if(near(a,rho/2*c.over**2*c.A/1000))slip='overOnly';else if(near(a,e*1000))slip='units';}
+      }
+    }
+    else{
+      ok=up&&a<=e*(1+tol);
+      if(!ok){
+        const W=this.weight(),k=c.scene==='plane'?rho/2*(c.boost**2-1)*c.A:rho/2*c.A;
+        if(near(a,Math.sqrt(c.m/k)))slip='noG';
+        else if(near(a,Math.sqrt(W/(2*k))))slip='noHalf';
+        else if(c.scene==='plane'&&near(a,Math.sqrt(W/(rho/2*(c.boost-1)*c.A))))slip='notSquared';
+        else if(c.scene==='roof'&&near(a,Math.sqrt(2*W/(1000*c.A))))slip='waterDensity';
+        else if(c.scene==='paper'&&near(a,Math.sqrt(2*W/(rho*c.A*1e4))))slip='unitsArea';
+        else if(c.scene!=='paper'&&near(a,e*3.6))slip='kmh';
+        else if(up)slip='spare';
+      }
+    }
+    return {ok,slip,first:ok&&this.attempts===1,exact:e};
+  }
+  score(){if(this.status!=='done')return 0;const e=this.evaluate();return (e.ok?100:0)+(e.first?50:0);}
+  snapshot(){return {index:this.index,answer:this.answer,attempts:this.attempts,t:this.t,status:this.status};}
+  restore(saved){
+    if(!Number.isInteger(saved?.index)||!WingModel.missions[saved.index])return false;
+    const probe=new WingModel(saved.index);
+    if(!probe.setAnswer(saved.answer??null)||!Number.isInteger(saved.attempts)||saved.attempts<0)return false;
+    if(!['moving','done'].includes(saved.status)||!Number.isFinite(saved.t)||saved.t<0||saved.t>probe.duration()*(1+1e-9))return false;
+    if(probe.answer===null&&(saved.t>0||saved.status==='done'))return false;
+    if((saved.status==='done'||saved.t>0)&&saved.attempts<1)return false;
+    this.setMission(saved.index);this.answer=probe.answer;this.attempts=saved.attempts;
+    this.status=saved.status;this.t=saved.status==='done'?this.duration():saved.t;return true;
+  }
+}
+globalThis.WingModel=WingModel;
+</script>
+<script id="wing-locale" type="application/json">__LOCALE__</script>
+<script id="wing-interface">
+(() => {
+  'use strict';
+  const $=id=>document.getElementById(id),locale=JSON.parse($('wing-locale').textContent);
+  const text=(key,values={})=>locale.strings[key].replace(/\{(\w+)\}/g,(_,name)=>values[name]??'{'+name+'}');
+  const number=(n,d=2)=>Math.abs(n)<.5*10**-d?(0).toLocaleString(locale.lang,{minimumFractionDigits:d,maximumFractionDigits:d}):n.toLocaleString(locale.lang,{minimumFractionDigits:d,maximumFractionDigits:d,useGrouping:false});
+  const plain=n=>n.toLocaleString(locale.lang,{maximumFractionDigits:3,useGrouping:false}).replace('-','−');
+  const model=new WingModel();
+  const canvas=$('wing-canvas'),ctx=canvas.getContext('2d');
+  const H=1/120,transferKey='phisicos-wing-language-transfer';
+  let running=false,previous=null,accumulator=0,lastUpdate=0,width=800,height=410;
+  const say=message=>{$('announcement').textContent=message;};
+  try{const data=JSON.parse(sessionStorage.getItem(transferKey)||'null');sessionStorage.removeItem(transferKey);if(data)model.restore(data.state);}catch{$('language-note').hidden=true;}
+  const amount=v=>plain(Number(v.toPrecision(5)))+' '+model.unit();
+  const slipKey=name=>'slip'+name[0].toUpperCase()+name.slice(1);
+  // Forces and pressures from a paper strip's to a storm's: more decimals for small values.
+  const speed=n=>number(n,Math.abs(n)<10?2:1),newtons=n=>number(n,Math.abs(n)<.1?4:Math.abs(n)<10?2:0),pascals=n=>number(n,Math.abs(n)<10?2:Math.abs(n)<100?1:0);
+  function setRunning(value){
+    const done=model.status==='done',blocked=!model.ready();running=value&&!done&&!blocked;previous=null;accumulator=0;
+    $('play').disabled=running||done||blocked;$('pause').disabled=!running;$('step').disabled=running||done||blocked;
+    $('wing-status').classList.toggle('running',running);
+    $('wing-status-text').textContent=text(done?'done':running?'running':model.t?'paused':'ready');
+  }
+  // Givens: the wind or the speeds over and under, the mass, and the area.
+  function given(m){
+    const parts=[];
+    if(m.v)parts.push('v = '+plain(m.v)+' m/s');if(m.over)parts.push('v_over = '+plain(m.over)+' m/s','v_under = '+plain(m.under)+' m/s');
+    if(m.m)parts.push(m.m<1?'m = '+plain(m.m*1000)+' g':'m = '+plain(m.m)+' kg');
+    parts.push(m.A<1?'A = '+plain(m.A*1e4)+' cm²':'A = '+plain(m.A)+' m²');if(m.boost)parts.push('v_over = '+plain(m.boost)+'·v');
+    return parts.join(' · ');
+  }
+  function sync(){
+    const c=model.config;
+    WingModel.missions.forEach((m,i)=>{$('mission-'+i).setAttribute('aria-pressed',String(i===model.index));$('given-'+i).textContent=given(m);});
+    $('question').textContent=text('question'+model.index);$('answer-symbol').textContent=c.ask==='force'?'F =':'v =';$('answer-unit').textContent=model.unit();
+    $('answer').value=model.answer===null?'':String(model.answer);$('mission-label').textContent=text('mission'+model.index);
+  }
+  // Speeds, the pressure difference, and the lift show only once a run starts, because they give the answer away.
+  const started=()=>model.status==='done'||model.t>0;
+  function update(){
+    const c=model.config,ready=model.ready(),done=model.status==='done',t=ready?model.now():0,e=model.evaluate(),begun=started(),D=model.duration(),r=model.stage(t),s=model.speeds(r),rd=model.stage(D),sd=model.speeds(rd),W=model.weight();
+    $('time-value').textContent=number(t);$('over-value').textContent=begun?speed(s.over):'—';$('under-value').textContent=begun?speed(s.under):'—';
+    $('drop-value').textContent=begun?pascals(model.drop(r)):'—';$('lift-value').textContent=begun?newtons(model.force(r)):'—';
+    $('wing-equation').textContent=begun?'F = ½ × '+plain(WingModel.rho)+' × ('+speed(s.over)+'² − '+speed(s.under)+'²) × '+plain(c.A)+' m² = '+newtons(model.force(r))+' N':'F = ½·ρ·(v_over² − v_under²)·A';
+    let key,copy;
+    const values={v:speed(sd.over),u:speed(sd.under),p:pascals(model.drop(rd)),f:newtons(model.force(rd)),w:W===null?'':newtons(W)};
+    if(done){
+      const base=text(c.ask==='speed'&&!model.lifts()?'heldCopy':'result'+model.index,values);
+      if(e.ok){key='good';copy=base+' '+text('why'+model.index);}
+      else{key='miss';copy=base+' '+text('missCopy',{p:amount(model.answer)})+' '+(e.slip?text(slipKey(e.slip)):text('hint'+model.index));}
+    }
+    else if(!ready){key='predict';copy=text('predictCopy');}
+    else if(model.t>0){key='running';copy=text('liftingCopy',{v:speed(s.over),p:pascals(model.drop(r)),f:newtons(model.force(r))});}
+    else{key='ready';copy=text('readyCopy');}
+    $('lesson-title').textContent=text(key+'Title',{t:number(t),p:ready?amount(model.answer):''});$('lesson-copy').textContent=copy;
+    $('insight').classList.toggle('warning',key==='miss');
+    $('mission-score').textContent=done?String(model.score()):'—';
+    $('right-badge').classList.toggle('earned',done&&e.ok);$('first-badge').classList.toggle('earned',done&&e.first);
+  }
+  function refresh(){setRunning(false);update();draw();}
+  function simulate(dt){
+    const result=model.advance(dt);
+    if(result?.done){setRunning(false);update();say(text('doneAnnouncement')+' '+$('lesson-title').textContent);return true;}
+    return false;
+  }
+  $('answer').addEventListener('input',event=>{const raw=String(event.target.value).trim(),value=raw===''?null:Number(raw);if(!model.setAnswer(value))model.setAnswer(null);refresh();});
+  $('play').addEventListener('click',()=>{setRunning(true);update();say(text('startedAnnouncement'));});
+  $('pause').addEventListener('click',()=>{setRunning(false);update();say(text('pausedAnnouncement'));});
+  $('step').addEventListener('click',()=>{for(let i=0;i<12;i++)if(simulate(H))break;setRunning(false);update();draw();});
+  $('reset').addEventListener('click',()=>{model.reset();refresh();say(text('resetAnnouncement'));});
+  WingModel.missions.forEach((_,i)=>$('mission-'+i).addEventListener('click',()=>{model.setMission(i);sync();refresh();say(text('missionAnnouncement',{name:text('mission'+i)}));}));
+  for(const id of ['show-arrows','show-guess'])$(id).addEventListener('change',()=>{update();draw();});
+  function suspend(){if(running){setRunning(false);say(text('suspendedAnnouncement'));}update();draw();}
+  window.addEventListener('blur',suspend);document.addEventListener('visibilitychange',()=>{if(document.hidden)suspend();});
+  for(const link of document.querySelectorAll('.language-menu a'))link.addEventListener('click',()=>{setRunning(false);try{sessionStorage.setItem(transferKey,JSON.stringify({state:model.snapshot()}));}catch{}});
+  function resize(){const rect=canvas.getBoundingClientRect();if(rect.width<=0)return;width=rect.width;height=rect.height;const dpr=Math.min(window.devicePixelRatio||1,3);canvas.width=Math.round(width*dpr);canvas.height=Math.round(height*dpr);ctx.setTransform(dpr,0,0,dpr,0,0);draw();}
+  function draw(){
+    if(!ctx)return;
+    const c=model.config,ready=model.ready(),done=model.status==='done',t=ready?model.now():0,begun=started(),arrows=$('show-arrows').checked,guess=$('show-guess').checked&&ready;
+    ctx.clearRect(0,0,width,height);
+    const label=(str,px,py,color='#b8ccdb',align='left',font=12)=>{ctx.fillStyle=color;ctx.textAlign=align;ctx.font=font+'px -apple-system,BlinkMacSystemFont,sans-serif';ctx.fillText(str,px,py);};
+    const line=(points,color,w=1,dash=[],offset=0)=>{ctx.beginPath();ctx.strokeStyle=color;ctx.lineWidth=w;ctx.setLineDash(dash);ctx.lineDashOffset=offset;points.forEach((q,i)=>i?ctx.lineTo(q.x,q.y):ctx.moveTo(q.x,q.y));ctx.stroke();ctx.setLineDash([]);ctx.lineDashOffset=0;};
+    const fit=(str,px,py,color,size,room,align='left')=>{ctx.font=size+'px -apple-system,BlinkMacSystemFont,sans-serif';const w=ctx.measureText(str).width;label(str,px,py,color,align,w>room?Math.max(7,Math.floor(size*room/w)):size);};
+    const arrow=(x0,y0,x1,y1,color,w=2)=>{line([{x:x0,y:y0},{x:x1,y:y1}],color,w);const a=Math.atan2(y1-y0,x1-x0);line([{x:x1-6*Math.cos(a-.5),y:y1-6*Math.sin(a-.5)},{x:x1,y:y1},{x:x1-6*Math.cos(a+.5),y:y1-6*Math.sin(a+.5)}],color,w);};
+    const wide=width>=560,area=wide?width*.64:width;
+    fit(text('viewTitle'),16,20,'#d1e3ed',12,area-28);
+    if(done){const ev=model.evaluate();fit(text(ev.ok?'rightBanner':'offBanner')+(c.ask==='speed'?' · '+text(model.lifts()?'liftedBanner':'heldBanner'):''),16,40,ev.ok?'#75efc7':'#efb958',width<430?12:14,area-28);}
+    // Not to scale. Dashed streamlines move with the air: how far they have moved is the integral of the speed so far.
+    const r=model.stage(t),s=model.speeds(r),ref=Math.max(model.speeds(1).over,1),moved=(q)=>{const T=WingModel.run,p=model.liftTime()??T,u=Math.min(Math.max(t,0),p);return q*(u*u/(2*T))+(t>p?q*(p/T)*(t-p):0);};
+    const lift=model.height(t),ground=height-34,cx=area*.48;
+    const stream=(y0,bump,speed,x0=14,x1=area-14,width0=1.2)=>{const pts=[];for(let x=x0;x<=x1;x+=6)pts.push({x,y:y0-bump(x)});line(pts,'#77b9ff',width0,[10,8],-moved(speed/ref)*120);};
+    if(c.scene==='roof'){
+      const hw=Math.min(area*.24,110),wallTop=ground-70,roofY=wallTop-lift*70,tilt=lift*.25;
+      ctx.fillStyle='#22384a';ctx.fillRect(cx-hw,wallTop,2*hw,ground-wallTop);line([{x:cx-hw,y:ground},{x:cx-hw,y:wallTop},{x:cx+hw,y:wallTop},{x:cx+hw,y:ground}],'#c3cfd9',2);
+      ctx.save();ctx.translate(cx,roofY);ctx.rotate(-tilt);ctx.fillStyle='#b5773a';ctx.fillRect(-hw-12,-10,2*hw+24,10);ctx.restore();
+      for(const [k,dy] of [[0,18],[1,40],[2,66]])stream(roofY-dy,x=>{const d=Math.abs(x-cx)/(hw+50);return d<1?(1-d*d)*(26-k*7):0;},s.over);
+      if(arrows&&begun&&model.drop(r)>0){const len=Math.min(40,8+32*model.force(r)/Math.max(model.weight()??model.force(1),1));for(const f of [-.5,0,.5])arrow(cx+f*hw,wallTop+30,cx+f*hw,wallTop+30-len,'#77b9ff',1.5);fit('Δp = '+pascals(model.drop(r))+' Pa',cx,wallTop+48,'#d1e3ed',11,2*hw-10,'center');}
+    }
+    else if(c.scene==='wing'||c.scene==='plane'){
+      const plane=c.scene==='plane',cy=plane?ground-34-lift*80:height*.52,span=Math.min(area*.32,150),foil=(x,top)=>{const u=(x-(cx-span))/(2*span);if(u<0||u>1)return 0;return (top?.12:.03)*2*span*Math.sin(Math.PI*u)*(1-u*.4);};
+      if(plane){line([{x:12,y:ground},{x:area-12,y:ground}],'#8aa3b5',2);line([{x:12,y:ground+6},{x:area-12,y:ground+6}],'#c3cfd9',2,[18,14],moved(s.under/ref)*120);
+        ctx.fillStyle='#c3cfd9';ctx.beginPath();ctx.ellipse(cx,cy,span*1.2,9,0,0,Math.PI*2);ctx.fill();ctx.beginPath();ctx.moveTo(cx-span*1.15,cy);ctx.lineTo(cx-span*1.25,cy-26);ctx.lineTo(cx-span*1.05,cy-4);ctx.fill();}
+      ctx.fillStyle=plane?'#f2f8fc':'#c3cfd9';ctx.beginPath();for(let x=cx-span;x<=cx+span;x+=3)ctx.lineTo(x,cy-(plane?.35:1)*foil(x,true));for(let x=cx+span;x>=cx-span;x-=3)ctx.lineTo(x,cy+(plane?.35:1)*foil(x,false));ctx.fill();
+      if(!plane){stream(cy-foil(cx,true)-14,x=>foil(x,true)*.7,s.over);stream(cy-foil(cx,true)-40,x=>foil(x,true)*.35,s.over);stream(cy+24,x=>-foil(x,false),s.under);stream(cy+52,x=>-foil(x,false)*.4,s.under);}
+      else{stream(cy-24,x=>foil(x,true)*.25,s.over,14,area-14);}
+      if(arrows&&begun){const F=model.force(r),W=model.weight(),top=Math.max(F,W??F,1),len=v=>50*v/top;if(F>0){arrow(cx,cy-6,cx,cy-6-len(F),'#77b9ff',2.5);fit('F',cx+8,cy-len(F),'#77b9ff',11,30);}if(W)arrow(cx+18,cy+8,cx+18,cy+8+len(W),'#f2f8fc',2.5);}
+      if(!plane)fit('A = '+plain(c.A)+' m²',cx,cy+foil(cx,false)+80,'#9fb6c7',10,2*span,'center');
+    }
+    else{
+      // A paper strip held at one end: it droops under its weight, flattens as the lift grows, and rises once it lifts.
+      const hx=area*.24,hy=height*.5,len=Math.min(area*.5,220),W=model.weight(),share=Math.min(model.force(r)/W,1),sag=(1-share)*60-lift*30;
+      ctx.fillStyle='#8aa3b5';ctx.fillRect(hx-26,hy-8,26,16);
+      const pts=[];for(let i=0;i<=20;i++){const u=i/20;pts.push({x:hx+u*len*Math.cos(sag/len*u*.6),y:hy+sag*u*u});}line(pts,'#f2f8fc',4);
+      ctx.fillStyle='#c3cfd9';ctx.fillRect(hx-60,hy-24,34,12);stream(hy-18,x=>x<hx?0:-(sag*((x-hx)/len)**2)*.0,s.over,hx-26,hx+len+30,1.6);
+      if(arrows&&begun&&W){const F=model.force(r),k=40/W;arrow(hx+len*.6,hy+sag*.36,hx+len*.6,hy+sag*.36-Math.min(F*k,50),'#77b9ff',2);arrow(hx+len*.6+14,hy+sag*.36,hx+len*.6+14,hy+sag*.36+40,'#f2f8fc',2);}
+    }
+    if(begun)fit('v = '+speed(c.scene==='plane'?s.under:s.over)+' m/s',16,62,'#d1e3ed',11,area*.4);
+    if(guess&&c.ask==='speed')fit(text('guessTag')+' · v = '+plain(model.answer)+' m/s',16,78,'#efb958',10,area*.5);
+    label(text('scaleNote'),16,height-8,'#9fb6c7','left',10);
+    if(!wide)return;
+    // Right panel: the lift against the weight, or the lift against your predicted force.
+    fit(text('forceTitle'),area+8,44,'#d1e3ed',10,width-area-16);
+    if(!begun){fit(text('panelHint'),area+8,70,'#9fb6c7',10,width-area-16);return;}
+    const F=model.force(r),W=model.weight(),gv=guess&&c.ask==='force'?model.answer*1000:null,second=W??gv??0;
+    const top=Math.max(F,second,model.force(model.stage(model.duration())))*1.15||1,bx0=area+20,bx1=width-16,btop=72,bbot=height-58,bw=(bx1-bx0)/2-10,BY=v=>bbot-v/top*(bbot-btop);
+    ctx.fillStyle='#77b9ff';ctx.fillRect(bx0,BY(F),bw,Math.max(1,bbot-BY(F)));fit(newtons(F),bx0+bw/2,BY(F)-6,'#77b9ff',10,bw+16,'center');fit(text('liftShort'),bx0+bw/2,bbot+14,'#9fb6c7',9,bw+16,'center');
+    if(W!==null){ctx.fillStyle='#c3cfd9';ctx.fillRect(bx0+bw+20,BY(W),bw,bbot-BY(W));fit(newtons(W),bx0+bw*1.5+20,BY(W)-6,'#c3cfd9',10,bw+16,'center');fit(text('weightShort'),bx0+bw*1.5+20,bbot+14,'#9fb6c7',9,bw+16,'center');}
+    else if(gv!==null){const shown=Math.min(gv,top/1.05),yy=BY(shown);line([{x:bx0-4,y:yy},{x:bx0+bw+4,y:yy}],'#efb958',2,[5,3]);fit(text('guessTag')+(shown<gv?' ↑':''),bx0+bw+10,yy+4,'#efb958',9,bw);}
+  }
+  function frame(now){if(previous===null)previous=now;const elapsed=Math.min(.1,(now-previous)/1000);previous=now;if(running){accumulator+=elapsed;while(accumulator>=H&&running){accumulator-=H;simulate(H);}draw();}if(now-lastUpdate>=80){update();lastUpdate=now;}requestAnimationFrame(frame);}
+  window.addEventListener('resize',resize);if(typeof ResizeObserver!=='undefined')new ResizeObserver(resize).observe(canvas);
+  sync();setRunning(false);update();resize();requestAnimationFrame(frame);
+})();
+</script>
+</body>
+</html>

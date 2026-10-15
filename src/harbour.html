@@ -1,0 +1,286 @@
+<!doctype html>
+<html lang="en">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Harbour Gap · Phisicos</title>
+<style>
+.harbour-page .answer-row .symbol{min-width:56px}.harbour-page .question{font-size:15px;font-weight:600;margin-top:4px}
+.harbour-page .line-key.white{background:#f2f8fc}.harbour-page .line-key.blue{background:#77b9ff}.harbour-page .line-key.red{background:#ff7b6b}.harbour-page .line-key.green{background:#75efc7}
+</style>
+</head>
+<body>
+<div class="shell module-page harbour-page">
+__HEADER__
+<main id="main-content">
+__BREADCRUMBS__
+
+<div class="masthead"><div><h1>{{title}}</h1><p class="intro">{{subtitle}}</p></div><div class="concept-tags"><span class="tag speed">{{tag1}}</span><span class="tag velocity">{{tag2}}</span></div></div>
+<noscript><p class="no-js">{{noScript}}</p></noscript>
+<div class="layout">
+<aside class="sidebar" aria-label="{{setup}}">
+  <section class="control-section"><h2 class="eyebrow">{{setup}}</h2><div class="mission-list" role="group" aria-label="{{setup}}">
+    <button id="mission-0" aria-pressed="true"><b>1 · {{mission0}}</b><span id="given-0">·</span></button>
+    <button id="mission-1" aria-pressed="false"><b>2 · {{mission1}}</b><span id="given-1">·</span></button>
+    <button id="mission-2" aria-pressed="false"><b>3 · {{mission2}}</b><span id="given-2">·</span></button>
+    <button id="mission-3" aria-pressed="false"><b>4 · {{mission3}}</b><span id="given-3">·</span></button>
+    <button id="mission-4" aria-pressed="false"><b>5 · {{mission4}}</b><span id="given-4">·</span></button>
+  </div><p class="hint">{{setupNote}}</p></section>
+  <section class="control-section"><h2 class="eyebrow">{{answerHeading}}</h2>
+    <p class="question" id="question">{{question0}}</p>
+    <p class="field-label"><label for="answer">{{answerLabel}}</label></p>
+    <div class="answer-row"><span class="symbol" id="answer-symbol">θ =</span><input id="answer" type="number" inputmode="decimal" step="any" value=""><span class="unit" id="answer-unit">°</span></div>
+    <p class="hint">{{answerHint}}</p>
+  </section>
+  <section class="control-section"><h2 class="eyebrow">{{observe}}</h2><label class="check"><input id="show-ruler" type="checkbox" checked>{{rulerToggle}}</label><label class="check"><input id="show-guess" type="checkbox" checked>{{guessToggle}}</label><p class="hint">{{observeHint}}</p></section>
+</aside>
+<div class="workspace">
+  <section class="scene" aria-label="{{sceneTitle}}"><div class="scene-top"><div><h2 class="scene-title">{{sceneTitle}}</h2><p class="scene-subtitle" id="mission-label">{{mission0}}</p></div><span class="status" id="harbour-status"><i class="status-dot" aria-hidden="true"></i><span id="harbour-status-text">{{ready}}</span></span></div>
+    <div class="module-stage"><canvas id="harbour-canvas" role="img" aria-label="{{canvasLabel}}">{{noScript}}</canvas></div>
+    <div class="legend"><span><i class="line-key blue"></i>{{waveLegend}}</span><span><i class="line-key white"></i>{{probeLegend}}</span><span><i class="line-key orange"></i>{{guessLegend}}</span><span><i class="line-key gray"></i>{{referenceLegend}}</span></div>
+    <div class="module-equation"><span>{{equationTitle}}</span><output id="harbour-equation">sin θ = λ ÷ a</output></div>
+    <div class="transport"><button id="play" class="primary" disabled>{{play}}</button><button id="pause" disabled>{{pause}}</button><button id="step" disabled>{{step}}</button><button id="reset" class="reset">{{reset}}</button></div>
+  </section>
+  <section class="metrics" aria-label="{{observe}}">
+    <div class="metric scalar"><h3 class="metric-label">{{time}}</h3><p class="metric-value"><span id="time-value">0.00</span> <small>s</small></p><p class="metric-equation">t</p></div>
+    <div class="metric scalar"><h3 class="metric-label">{{lambdaMetric}}</h3><p class="metric-value"><span id="lambda-value">—</span> <small>m</small></p><p class="metric-equation">λ</p></div>
+    <div class="metric scalar"><h3 class="metric-label">{{gapMetric}}</h3><p class="metric-value"><span id="gap-value">—</span> <small>m</small></p><p class="metric-equation">a</p></div>
+    <div class="metric scalar"><h3 class="metric-label">{{probeMetric}}</h3><p class="metric-value"><span id="probe-value">—</span> <small>°</small></p><p class="metric-equation">θ</p></div>
+    <div class="metric scalar"><h3 class="metric-label">{{heightMetric}}</h3><p class="metric-value"><span id="height-value">—</span> <small>%</small></p><p class="metric-equation">A</p></div>
+  </section>
+  <div class="insight" id="insight"><span class="insight-icon" aria-hidden="true">↗</span><div><strong id="lesson-title">{{predictTitle}}</strong><p id="lesson-copy">{{predictCopy}}</p></div></div>
+  <section class="challenge"><div class="mission-heading"><h2 class="challenge-title">{{missionTitle}}</h2><div class="score-card"><span>{{score}}</span><strong id="mission-score">—</strong></div></div><p class="mission-copy">{{missionCopy}}</p><div class="badges"><span id="right-badge">✓ {{rightBadge}}</span><span id="first-badge">① {{firstBadge}}</span></div></section>
+</div>
+</div>
+<article class="learning-content"><section><h2>{{guideTitle}}</h2><ol><li>{{instruction1}}</li><li>{{instruction2}}</li><li>{{instruction3}}</li><li>{{instruction4}}</li></ol></section><section><h2>{{conceptTitle}}</h2><p>{{conceptCopy}}</p><aside class="worked-example"><h3>{{exampleTitle}}</h3><p>{{exampleCopy}}</p></aside></section><section><h2>{{modelTitle}}</h2><p>{{modelCopy}}</p></section></article>
+<p class="language-note" id="language-note">{{languageNote}}</p>
+</main>
+__FOOTER__
+<p class="sr-only" id="announcement" role="status" aria-live="polite"></p>
+</div>
+<script id="harbour-model">
+class HarbourModel {
+  // Diffraction. Straight sea waves reach a gap of width a in a harbour wall and spread out behind it. Far from the gap the
+  // height of the waves in a direction θ from straight ahead is |sin β ÷ β| of the height straight ahead, β = π·a·sin θ ÷ λ:
+  // the first calm direction is sin θ = λ ÷ a. The narrower the gap compared with λ, the wider the spread; once a ≤ λ there
+  // is no calm direction and the waves fill the harbour. A run sweeps a wave gauge from straight ahead (0°) to the wall (90°).
+  static tolerance = .02;
+  static missions = [
+    {key:'calm',ask:'angle',lambda:10,a:20,pace:1},
+    {key:'gap',ask:'gap',lambda:6,boat:30,pace:1},
+    {key:'wavelength',ask:'lambda',a:14,calmAt:35,pace:1},
+    {key:'spread',ask:'widest',lambda:15,pace:1},
+    {key:'period',ask:'angle',v:5,T:2,a:25,pace:1}
+  ];
+  static units = {angle:'°',gap:'m',lambda:'m',widest:'m'};
+  static limits = {angle:90,gap:1000,lambda:1000,widest:1000};
+  constructor(index = 0){this.setMission(index);}
+  setMission(index){this.index=index;this.config=HarbourModel.missions[index];this.answer=null;this.attempts=0;this.reset();}
+  reset(){this.t=0;this.status='moving';}
+  valid(value){return Number.isFinite(value)&&value>0&&value<=HarbourModel.limits[this.config.ask];}
+  setAnswer(value){if(value!==null&&!this.valid(value))return false;this.answer=value;this.reset();return true;}
+  ready(){return this.answer!==null;}
+  // The real wavelength and gap of each test.
+  lambda(){const c=this.config;if(c.v)return c.v*c.T;if(c.calmAt)return c.a*Math.sin(c.calmAt*Math.PI/180);return c.lambda;}
+  gap(){const c=this.config;if(c.boat)return c.lambda/Math.sin(c.boat*Math.PI/180);if(c.key==='spread')return c.lambda;return c.a;}
+  // Relative wave height (signed) far behind the gap in direction θ (degrees), and the first calm direction (null if none).
+  static sinc(b){return Math.abs(b)<1e-9?1:Math.sin(b)/b;}
+  amplitude(theta){return HarbourModel.sinc(Math.PI*this.gap()*Math.sin(theta*Math.PI/180)/this.lambda());}
+  calmAngle(){const s=this.lambda()/this.gap();return s>1+1e-12?null:Math.asin(Math.min(1,s))*180/Math.PI;}
+  // The drawn sea, slowed to one crest a second: straight waves in front of the wall (x < 0), spreading ones behind it.
+  field(x,y,t){const s=this.clamp(t),l=this.lambda();if(x<0)return Math.cos(2*Math.PI*(x/l-s));const r=Math.hypot(x,y),th=Math.atan2(Math.abs(y),x)*180/Math.PI;return this.amplitude(th)*Math.cos(2*Math.PI*(r/l-s));}
+  probe(t){return 90*this.clamp(t)/this.duration();}
+  clamp(t){return Math.min(Math.max(t,0),this.duration());}
+  duration(){return 4;}
+  now(){return this.status==='done'?this.duration():this.t;}
+  advance(dt){
+    if(!Number.isFinite(dt)||dt<0)throw new Error('Invalid timestep');
+    if(this.status==='done'||!this.ready())return null;
+    // A run counts as an attempt as soon as it starts; it ends exactly after 4 s.
+    if(this.t===0)this.attempts++;
+    const T=this.duration();
+    if(this.t+dt>=T*(1-1e-12)){this.t=T;this.status='done';return {t:T,done:true};}
+    this.t+=dt;return null;
+  }
+  exact(){const c=this.config;if(c.ask==='angle')return this.calmAngle();if(c.ask==='lambda')return this.lambda();return this.gap();}
+  unit(){return HarbourModel.units[this.config.ask];}
+  evaluate(){
+    if(!this.ready())return {ok:false,slip:null,first:false,exact:this.exact()};
+    const c=this.config,a=this.answer,e=this.exact(),l=this.lambda(),d=Math.PI/180,tol=HarbourModel.tolerance,near=(p,q)=>Math.abs(p-q)<=tol*Math.abs(q)+1e-12;
+    // Every answer is right within 2%.
+    const ok=near(a,e);let slip=null;
+    if(!ok){
+      if(c.key==='calm'){if(near(a,l/c.a))slip='sineOnly';else if(near(a,Math.atan(l/c.a)/d))slip='tangent';else if(near(a,90-e))slip='fromWall';}
+      else if(c.key==='gap'){if(near(a,l*Math.sin(c.boat*d)))slip='multiplied';else if(near(a,l/Math.tan(c.boat*d)))slip='tangentGap';else if(near(a,l))slip='lambdaOnly';else if(near(a,l/Math.cos(c.boat*d)))slip='cosine';}
+      else if(c.key==='wavelength'){if(near(a,c.a/Math.sin(c.calmAt*d)))slip='divided';else if(near(a,c.a*Math.tan(c.calmAt*d)))slip='tangentLambda';else if(near(a,c.a*Math.cos(c.calmAt*d)))slip='cosineLambda';}
+      else if(c.key==='spread'){if(near(a,l/2))slip='halfGap';else if(near(a,2*l))slip='doubleGap';}
+      else{if(near(a,Math.asin(c.v/c.a)/d))slip='speedOnly';else if(near(a,Math.asin(c.v/c.T/c.a)/d))slip='dividedPeriod';else if(near(a,Math.atan(l/c.a)/d))slip='tangent';}
+    }
+    return {ok,slip,first:ok&&this.attempts===1,exact:e};
+  }
+  score(){if(this.status!=='done')return 0;const e=this.evaluate();return (e.ok?100:0)+(e.first?50:0);}
+  snapshot(){return {index:this.index,answer:this.answer,attempts:this.attempts,t:this.t,status:this.status};}
+  restore(saved){
+    if(!Number.isInteger(saved?.index)||!HarbourModel.missions[saved.index])return false;
+    const probe=new HarbourModel(saved.index);
+    if(!probe.setAnswer(saved.answer??null)||!Number.isInteger(saved.attempts)||saved.attempts<0)return false;
+    if(!['moving','done'].includes(saved.status)||!Number.isFinite(saved.t)||saved.t<0||saved.t>probe.duration()*(1+1e-9))return false;
+    if(probe.answer===null&&(saved.t>0||saved.status==='done'))return false;
+    if((saved.status==='done'||saved.t>0)&&saved.attempts<1)return false;
+    this.setMission(saved.index);this.answer=probe.answer;this.attempts=saved.attempts;
+    this.status=saved.status;this.t=saved.status==='done'?this.duration():saved.t;return true;
+  }
+}
+globalThis.HarbourModel=HarbourModel;
+</script>
+<script id="harbour-locale" type="application/json">__LOCALE__</script>
+<script id="harbour-interface">
+(() => {
+  'use strict';
+  const $=id=>document.getElementById(id),locale=JSON.parse($('harbour-locale').textContent);
+  const text=(key,values={})=>locale.strings[key].replace(/\{(\w+)\}/g,(_,name)=>values[name]??'{'+name+'}');
+  const number=(n,d=2)=>Math.abs(n)<.5*10**-d?(0).toLocaleString(locale.lang,{minimumFractionDigits:d,maximumFractionDigits:d}):n.toLocaleString(locale.lang,{minimumFractionDigits:d,maximumFractionDigits:d,useGrouping:false});
+  const plain=n=>n.toLocaleString(locale.lang,{maximumFractionDigits:3,useGrouping:false}).replace('-','−');
+  const model=new HarbourModel();
+  const canvas=$('harbour-canvas'),ctx=canvas.getContext('2d');
+  const H=1/120,transferKey='phisicos-harbour-language-transfer';
+  let running=false,previous=null,accumulator=0,lastUpdate=0,width=800,height=410;
+  const say=message=>{$('announcement').textContent=message;};
+  try{const data=JSON.parse(sessionStorage.getItem(transferKey)||'null');sessionStorage.removeItem(transferKey);if(data)model.restore(data.state);}catch{$('language-note').hidden=true;}
+  const pace=()=>model.config.pace??1;
+  const amount=v=>plain(Number(v.toPrecision(5)))+(model.unit()?' '+model.unit():'');
+  const slipKey=name=>'slip'+name[0].toUpperCase()+name.slice(1);
+  // The readings show only once a run starts, because they give the answer away.
+  const started=()=>model.status==='done'||model.t>0;
+  const symbols={angle:'θ =',gap:'a =',lambda:'λ =',widest:'a ='};
+  // Givens: the wavelength and gap, the wavelength and the boat's direction, the gap and the calm direction, the wavelength
+  // for the widest spread, or the waves' speed and period with the gap.
+  function given(m){
+    if(m.key==='gap')return 'λ = '+plain(m.lambda)+' m · θ = '+plain(m.boat)+'°';
+    if(m.key==='wavelength')return 'a = '+plain(m.a)+' m · θ = '+plain(m.calmAt)+'°';
+    if(m.key==='spread')return 'λ = '+plain(m.lambda)+' m · θ = 90°';
+    if(m.key==='period')return 'v = '+plain(m.v)+' m/s · T = '+plain(m.T)+' s · a = '+plain(m.a)+' m';
+    return 'λ = '+plain(m.lambda)+' m · a = '+plain(m.a)+' m';
+  }
+  function equation(){
+    const c=model.config,e=model.exact(),l=model.lambda();
+    if(c.key==='gap')return 'a = λ ÷ sin θ = '+plain(l)+' ÷ sin '+plain(c.boat)+'° = '+number(e,1)+' m';
+    if(c.key==='wavelength')return 'λ = a·sin θ = '+plain(c.a)+' × sin '+plain(c.calmAt)+'° = '+number(e)+' m';
+    if(c.key==='spread')return 'a = λ ÷ sin 90° = '+plain(l)+' ÷ 1 = '+number(e,1)+' m';
+    if(c.key==='period')return 'sin θ = v·T ÷ a = '+plain(l)+' ÷ '+plain(c.a)+' → θ = '+number(e,1)+'°';
+    return 'sin θ = λ ÷ a = '+plain(l)+' ÷ '+plain(c.a)+' → θ = '+number(e,1)+'°';
+  }
+  function baseEquation(){return model.config.key==='period'?'λ = v·T':'sin θ = λ ÷ a';}
+  // The asked quantity stays hidden until the run is over.
+  function metrics(t,begun){
+    const c=model.config,over=model.status==='done',show=(id,v,hide)=>{$(id).textContent=!begun?'—':hide&&!over?'?':v;},p=model.probe(t);
+    show('lambda-value',number(model.lambda()),c.ask==='lambda');show('gap-value',number(model.gap()),c.ask==='gap'||c.ask==='widest');
+    show('probe-value',number(p,0));show('height-value',number(Math.abs(model.amplitude(p))*100,0));
+  }
+  function values(){const c=model.config;return {e:number(model.exact(),c.ask==='lambda'?2:1),l:number(model.lambda(),0)};}
+  function runningCopy(t){const p=model.probe(t);return text('harbourCopy',{a:number(p,0),h:number(Math.abs(model.amplitude(p))*100,0)});}
+  // The calm direction your answer points at (null if your gap is narrower than the wavelength), and the gap it implies.
+  function guessAngle(){const c=model.config,a=model.answer,l=model.lambda(),as=s=>s>1?null:Math.asin(s)*180/Math.PI;if(c.ask==='angle')return a;if(c.ask==='lambda')return as(a/c.a);return as(l/a);}
+  function guessGap(){const c=model.config;return c.ask==='gap'||c.ask==='widest'?model.answer:null;}
+  function scene(g){
+    const c=g.c,{line,fit,dot,box,label}=g,s=g.ready?g.t:0,xL=-25,yB=-55,yT=55,k=Math.min((g.area-40)/120,(height-150)/(yT-yB)),xR=xL+Math.min(185,Math.max(120,(g.area-40)/k)),x0=24,top=58,X=x=>x0+(x-xL)*k,Y=y=>top+(yT-y)*k,l=model.lambda(),a=model.gap(),hideGap=!g.begun&&(c.ask==='gap'||c.ask==='widest');
+    // The harbour from above, stretched to fill the scene: open sea on the left, the wall at x = 0 with its gap, water behind.
+    box(X(xL),Y(yT),(xR-xL)*k,(yT-yB)*k,'#2b3a48');
+    if(g.begun){const cell=Math.max(1.2,l/5);for(let x=xL;x<xR;x+=cell)for(let y=yB;y<yT;y+=cell){const v=model.field(x+cell/2,y+cell/2,s);box(X(x),Y(y+cell),cell*k+.5,cell*k+.5,'rgb('+Math.round(43+v*70)+','+Math.round(58+v*90)+','+Math.round(72+v*110)+')');}}
+    const half=hideGap?0:a/2;box(X(-1),Y(yT),2*k,(yT-half)*k,'#d9cfb8');box(X(-1),Y(-half),2*k,(-half-yB)*k,'#d9cfb8');
+    if(hideGap)label('?',X(0)+8,Y(0)+4,'#efb958','left',13);
+    label(text('wallTag'),X(1)+6,Y(yT)+14,'#d1e3ed','left',9);label(text('seaTag'),X(xL)+6,Y(yB)-8,'#d1e3ed','left',9);
+    if(g.option){for(let m=0;m<=xR;m+=10){line([{x:X(m),y:Y(yB)},{x:X(m),y:Y(yB)+5}],'#9fb6c7',1);if(m%20===0&&m>0)label(plain(m)+' m',X(m),Y(yB)+16,'#9fb6c7','center',8);}}
+    // Moored boats at 15°, 30°, and 50°, 48 m from the gap: they rock with the waves where they are.
+    for(const th of [15,30,50]){const r=48,bx=r*Math.cos(th*Math.PI/180),by=r*Math.sin(th*Math.PI/180),v=g.begun?model.field(bx,by,s):0,tilt=.5*v,px=X(bx),py=Y(by);line([{x:px-7*Math.cos(tilt),y:py-7*Math.sin(tilt)},{x:px+7*Math.cos(tilt),y:py+7*Math.sin(tilt)}],'#f2f8fc',3);line([{x:px,y:py},{x:px+7*Math.sin(tilt),y:py-7*Math.cos(tilt)}],'#f2f8fc',1);}
+    label(text('boatTag'),X(48*Math.cos(50*Math.PI/180))+10,Y(48*Math.sin(50*Math.PI/180))-6,'#f2f8fc','left',9);
+    // Your answer: the calm directions it implies (dashed orange), and the gap it implies on the wall.
+    if(g.guess){const ga=guessAngle(),gg=guessGap();if(ga!==null)for(const sg of [1,-1]){const R=Math.min((xR-1)/Math.max(Math.cos(ga*Math.PI/180),.01),(yT-1)/Math.max(Math.sin(ga*Math.PI/180),.01));line([{x:X(0),y:Y(0)},{x:X(R*Math.cos(ga*Math.PI/180)),y:Y(sg*R*Math.sin(ga*Math.PI/180))}],'#efb958',1.5,[6,5]);}
+      if(gg!==null&&gg/2<yT)for(const sg of [1,-1])line([{x:X(-4),y:Y(sg*gg/2)},{x:X(4),y:Y(sg*gg/2)}],'#efb958',3);
+      const at=ga!==null?{x:X(30*Math.cos(ga*Math.PI/180))+6,y:Y(30*Math.sin(ga*Math.PI/180))-6}:{x:X(4)+4,y:Y(Math.min(gg/2,yT-4))-6};fit(text('guessTag'),at.x,at.y,'#efb958',9,120);}
+    // The wave gauge sweeping round from straight ahead.
+    if(g.begun){const p=model.probe(s)*Math.PI/180,R=44;line([{x:X(0),y:Y(0)},{x:X(R*Math.cos(p)),y:Y(R*Math.sin(p))}],'#f2f8fc',1,[2,4]);dot(X(R*Math.cos(p)),Y(R*Math.sin(p)),4,'#f2f8fc');}
+    fit(text('slowTag'),16,height-24,'#9fb6c7',10,g.area*.6);
+    fit('t = '+number(g.t)+' s',g.area-16,44,'#f2f8fc',13,g.area*.3,'right');
+  }
+  function panel(g){
+    const {line,fit,dot,label}=g;
+    fit(text('heightGraph'),g.area+8,44,'#d1e3ed',10,width-g.area-16);
+    if(!g.begun){fit(text('panelHint'),g.area+8,70,'#9fb6c7',10,width-g.area-16);return;}
+    // Wave height against direction, measured by the gauge as it sweeps: dips to zero in the calm directions.
+    const px0=g.area+14,px1=width-14,py0=90,py1=height-90,PX=th=>px0+th/90*(px1-px0),PY=v=>py1-v*(py1-py0),p=model.probe(Math.min(g.t,model.duration()));
+    line([{x:px0,y:py1},{x:px1,y:py1}],'#8aa3b5',1);line([{x:px0,y:py0},{x:px0,y:py1}],'#8aa3b5',1);
+    for(let th=0;th<=90;th+=15){line([{x:PX(th),y:py1},{x:PX(th),y:py1+4}],'#9fb6c7',1);if(th%30===0)label(plain(th)+'°',PX(th),py1+14,'#9fb6c7','center',8);}
+    if(g.guess){const ga=guessAngle();if(ga!==null)line([{x:PX(ga),y:py0},{x:PX(ga),y:py1}],'#efb958',1.5,[5,4]);}
+    const pts=[];for(let i=0;i<=300;i++){const th=p*i/300;pts.push({x:PX(th),y:PY(Math.abs(model.amplitude(th)))});}line(pts,'#f2f8fc',2);dot(PX(p),PY(Math.abs(model.amplitude(p))),4,'#f2f8fc');
+    fit(text('angleAxis'),px0,py1+28,'#9fb6c7',9,px1-px0);
+  }
+  function setRunning(value){
+    const done=model.status==='done',blocked=!model.ready();running=value&&!done&&!blocked;previous=null;accumulator=0;
+    $('play').disabled=running||done||blocked;$('pause').disabled=!running;$('step').disabled=running||done||blocked;
+    $('harbour-status').classList.toggle('running',running);
+    $('harbour-status-text').textContent=text(done?'done':running?'running':model.t?'paused':'ready');
+  }
+  function sync(){
+    const c=model.config;
+    HarbourModel.missions.forEach((m,i)=>{$('mission-'+i).setAttribute('aria-pressed',String(i===model.index));$('given-'+i).textContent=given(m);});
+    $('question').textContent=text('question'+model.index);$('answer-symbol').textContent=symbols[c.ask];$('answer-unit').textContent=model.unit();
+    $('answer').value=model.answer===null?'':String(model.answer);$('mission-label').textContent=text('mission'+model.index);
+  }
+  function update(){
+    const ready=model.ready(),done=model.status==='done',t=ready?model.now():0,e=model.evaluate(),begun=started();
+    $('time-value').textContent=number(t);metrics(t,begun);
+    $('harbour-equation').textContent=begun?equation():baseEquation();
+    let key,copy;
+    if(done){
+      const base=text('result'+model.index,values());
+      if(e.ok){key='good';copy=base+' '+text('why'+model.index);}
+      else{key='miss';copy=base+' '+text('missCopy',{p:amount(model.answer)})+' '+(e.slip?text(slipKey(e.slip)):text('hint'+model.index));}
+    }
+    else if(!ready){key='predict';copy=text('predictCopy');}
+    else if(model.t>0){key='running';copy=runningCopy(t);}
+    else{key='ready';copy=text('readyCopy');}
+    $('lesson-title').textContent=text(key+'Title',{t:number(t),p:ready?amount(model.answer):''});$('lesson-copy').textContent=copy;
+    $('insight').classList.toggle('warning',key==='miss');
+    $('mission-score').textContent=done?String(model.score()):'—';
+    $('right-badge').classList.toggle('earned',done&&e.ok);$('first-badge').classList.toggle('earned',done&&e.first);
+  }
+  function refresh(){setRunning(false);update();draw();}
+  function simulate(dt){
+    const result=model.advance(dt);
+    if(result?.done){setRunning(false);update();say(text('doneAnnouncement')+' '+$('lesson-title').textContent);return true;}
+    return false;
+  }
+  $('answer').addEventListener('input',event=>{const raw=String(event.target.value).trim(),value=raw===''?null:Number(raw);if(!model.setAnswer(value))model.setAnswer(null);refresh();});
+  $('play').addEventListener('click',()=>{setRunning(true);update();say(text('startedAnnouncement'));});
+  $('pause').addEventListener('click',()=>{setRunning(false);update();say(text('pausedAnnouncement'));});
+  $('step').addEventListener('click',()=>{for(let i=0;i<12;i++)if(simulate(H*pace()))break;setRunning(false);update();draw();});
+  $('reset').addEventListener('click',()=>{model.reset();refresh();say(text('resetAnnouncement'));});
+  HarbourModel.missions.forEach((_,i)=>$('mission-'+i).addEventListener('click',()=>{model.setMission(i);sync();refresh();say(text('missionAnnouncement',{name:text('mission'+i)}));}));
+  for(const id of ['show-ruler','show-guess'])$(id).addEventListener('change',()=>{update();draw();});
+  function suspend(){if(running){setRunning(false);say(text('suspendedAnnouncement'));}update();draw();}
+  window.addEventListener('blur',suspend);document.addEventListener('visibilitychange',()=>{if(document.hidden)suspend();});
+  for(const link of document.querySelectorAll('.language-menu a'))link.addEventListener('click',()=>{setRunning(false);try{sessionStorage.setItem(transferKey,JSON.stringify({state:model.snapshot()}));}catch{}});
+  function resize(){const rect=canvas.getBoundingClientRect();if(rect.width<=0)return;width=rect.width;height=rect.height;const dpr=Math.min(window.devicePixelRatio||1,3);canvas.width=Math.round(width*dpr);canvas.height=Math.round(height*dpr);ctx.setTransform(dpr,0,0,dpr,0,0);draw();}
+  function draw(){
+    if(!ctx)return;
+    const c=model.config,ready=model.ready(),done=model.status==='done',t=ready?model.now():0,begun=started(),option=$('show-ruler').checked,guess=$('show-guess').checked&&ready;
+    ctx.clearRect(0,0,width,height);
+    const label=(str,px,py,color='#b8ccdb',align='left',font=12)=>{ctx.fillStyle=color;ctx.textAlign=align;ctx.font=font+'px -apple-system,BlinkMacSystemFont,sans-serif';ctx.fillText(str,px,py);};
+    const line=(points,color,w=1,dash=[])=>{ctx.beginPath();ctx.strokeStyle=color;ctx.lineWidth=w;ctx.setLineDash(dash);points.forEach((q,i)=>i?ctx.lineTo(q.x,q.y):ctx.moveTo(q.x,q.y));ctx.stroke();ctx.setLineDash([]);};
+    const fit=(str,px,py,color,size,room,align='left')=>{ctx.font=size+'px -apple-system,BlinkMacSystemFont,sans-serif';const w=ctx.measureText(str).width;label(str,px,py,color,align,w>room?Math.max(7,Math.floor(size*room/w)):size);};
+    const dot=(x,y,r,color)=>{ctx.fillStyle=color;ctx.beginPath();ctx.arc(x,y,Math.max(r,.5),0,Math.PI*2);ctx.fill();};
+    const box=(x,y,w,h,color)=>{ctx.fillStyle=color;ctx.fillRect(x,y,w,h);};
+    const wide=width>=560,area=wide?width*.64:width;
+    const env={c,ready,done,t,begun,option,guess,label,line,fit,dot,box,wide,area};
+    fit(text('viewTitle'),16,20,'#d1e3ed',12,area-28);
+    if(done){const ev=model.evaluate();fit(text(ev.ok?'rightBanner':'offBanner'),16,40,ev.ok?'#75efc7':'#efb958',width<430?12:14,area-28);}
+    scene(env);
+    label(text('scaleNote'),16,height-8,'#9fb6c7','left',10);
+    if(!wide)return;
+    panel(env);
+  }
+  function frame(now){if(previous===null)previous=now;const elapsed=Math.min(.1,(now-previous)/1000);previous=now;if(running){accumulator+=elapsed*pace();while(accumulator>=H&&running){accumulator-=H;simulate(H);}draw();}if(now-lastUpdate>=80){update();lastUpdate=now;}requestAnimationFrame(frame);}
+  window.addEventListener('resize',resize);if(typeof ResizeObserver!=='undefined')new ResizeObserver(resize).observe(canvas);
+  sync();setRunning(false);update();resize();requestAnimationFrame(frame);
+})();
+</script>
+</body>
+</html>

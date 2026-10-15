@@ -1,0 +1,262 @@
+<!doctype html>
+<html lang="en">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Spring Bounce · Phisicos</title>
+<style>
+.spring-page .answer-row .symbol{min-width:56px}.spring-page .question{font-size:15px;font-weight:600;margin-top:4px}
+.spring-page .line-key.white{background:#f2f8fc}.spring-page .line-key.blue{background:#77b9ff}
+</style>
+</head>
+<body>
+<div class="shell module-page spring-page">
+__HEADER__
+<main id="main-content">
+__BREADCRUMBS__
+
+<div class="masthead"><div><h1>{{title}}</h1><p class="intro">{{subtitle}}</p></div><div class="concept-tags"><span class="tag speed">{{tag1}}</span><span class="tag velocity">{{tag2}}</span></div></div>
+<noscript><p class="no-js">{{noScript}}</p></noscript>
+<div class="layout">
+<aside class="sidebar" aria-label="{{setup}}">
+  <section class="control-section"><h2 class="eyebrow">{{setup}}</h2><div class="mission-list" role="group" aria-label="{{setup}}">
+    <button id="mission-0" aria-pressed="true"><b>1 · {{mission0}}</b><span id="given-0">m</span></button>
+    <button id="mission-1" aria-pressed="false"><b>2 · {{mission1}}</b><span id="given-1">m</span></button>
+    <button id="mission-2" aria-pressed="false"><b>3 · {{mission2}}</b><span id="given-2">m</span></button>
+    <button id="mission-3" aria-pressed="false"><b>4 · {{mission3}}</b><span id="given-3">m</span></button>
+    <button id="mission-4" aria-pressed="false"><b>5 · {{mission4}}</b><span id="given-4">x</span></button>
+  </div><p class="hint">{{setupNote}}</p></section>
+  <section class="control-section"><h2 class="eyebrow">{{answerHeading}}</h2>
+    <p class="question" id="question">{{question0}}</p>
+    <p class="field-label"><label for="answer">{{answerLabel}}</label></p>
+    <div class="answer-row"><span class="symbol" id="answer-symbol">x =</span><input id="answer" type="number" inputmode="decimal" step="any" value=""><span class="unit" id="answer-unit">m</span></div>
+    <p class="hint">{{answerHint}}</p>
+  </section>
+  <section class="control-section"><h2 class="eyebrow">{{observe}}</h2><label class="check"><input id="show-ruler" type="checkbox" checked>{{rulerToggle}}</label><label class="check"><input id="show-guess" type="checkbox" checked>{{guessToggle}}</label><p class="hint">{{observeHint}}</p></section>
+</aside>
+<div class="workspace">
+  <section class="scene" aria-label="{{sceneTitle}}"><div class="scene-top"><div><h2 class="scene-title">{{sceneTitle}}</h2><p class="scene-subtitle" id="mission-label">{{mission0}}</p></div><span class="status" id="spring-status"><i class="status-dot" aria-hidden="true"></i><span id="spring-status-text">{{ready}}</span></span></div>
+    <div class="module-stage"><canvas id="spring-canvas" role="img" aria-label="{{canvasLabel}}">{{noScript}}</canvas></div>
+    <div class="legend"><span><i class="line-key blue"></i>{{graphLegend}}</span><span><i class="line-key white"></i>{{springLegend}}</span><span><i class="line-key orange"></i>{{guessLegend}}</span><span><i class="line-key gray"></i>{{restLegend}}</span></div>
+    <div class="module-equation"><span>{{equationTitle}}</span><output id="spring-equation">T = 2π·√(m ÷ k)</output></div>
+    <div class="transport"><button id="play" class="primary" disabled>{{play}}</button><button id="pause" disabled>{{pause}}</button><button id="step" disabled>{{step}}</button><button id="reset" class="reset">{{reset}}</button></div>
+  </section>
+  <section class="metrics" aria-label="{{observe}}">
+    <div class="metric scalar"><h3 class="metric-label">{{time}}</h3><p class="metric-value"><span id="time-value">0.00</span> <small>s</small></p><p class="metric-equation">t</p></div>
+    <div class="metric scalar"><h3 class="metric-label">{{restMetric}}</h3><p class="metric-value"><span id="rest-value">—</span> <small>m</small></p><p class="metric-equation">x₀ = m·g ÷ k</p></div>
+    <div class="metric vector"><h3 class="metric-label">{{offsetMetric}}</h3><p class="metric-value"><span id="offset-value">—</span> <small>cm</small></p><p class="metric-equation">y = A·cos(ω·t)</p></div>
+    <div class="metric vector"><h3 class="metric-label">{{speedMetric}}</h3><p class="metric-value"><span id="speed-value">—</span> <small>m/s</small></p><p class="metric-equation">v = A·ω·sin(ω·t)</p></div>
+    <div class="metric scalar"><h3 class="metric-label">{{periodMetric}}</h3><p class="metric-value"><span id="period-value">—</span> <small>s</small></p><p class="metric-equation">T = 2π·√(m ÷ k)</p></div>
+  </section>
+  <div class="insight" id="insight"><span class="insight-icon" aria-hidden="true">↗</span><div><strong id="lesson-title">{{predictTitle}}</strong><p id="lesson-copy">{{predictCopy}}</p></div></div>
+  <section class="challenge"><div class="mission-heading"><h2 class="challenge-title">{{missionTitle}}</h2><div class="score-card"><span>{{score}}</span><strong id="mission-score">—</strong></div></div><p class="mission-copy">{{missionCopy}}</p><div class="badges"><span id="right-badge">✓ {{rightBadge}}</span><span id="first-badge">① {{firstBadge}}</span></div></section>
+</div>
+</div>
+<article class="learning-content"><section><h2>{{guideTitle}}</h2><ol><li>{{instruction1}}</li><li>{{instruction2}}</li><li>{{instruction3}}</li><li>{{instruction4}}</li></ol></section><section><h2>{{conceptTitle}}</h2><p>{{conceptCopy}}</p><aside class="worked-example"><h3>{{exampleTitle}}</h3><p>{{exampleCopy}}</p></aside></section><section><h2>{{modelTitle}}</h2><p>{{modelCopy}}</p></section></article>
+<p class="language-note" id="language-note">{{languageNote}}</p>
+</main>
+__FOOTER__
+<p class="sr-only" id="announcement" role="status" aria-live="polite"></p>
+</div>
+<script id="spring-model">
+class SpringModel {
+  // Hooke's law: a spring pulls back with k·x. A mass m hung on it rests where k·x₀ = m·g. Pulled a distance A below that
+  // and let go, it bounces in simple harmonic motion, y = A·cos(ω·t) with ω = √(k ÷ m), so T = 2π·√(m ÷ k) and the top
+  // speed, through the middle, is A·ω. Since m ÷ k = x₀ ÷ g, the period follows from the stretch alone: T = 2π·√(x₀ ÷ g).
+  // The mass is lowered gently over 2 s to find the stretch; every bounce runs for 2 s.
+  static run = 2; // s a run lasts
+  static g = 9.8;
+  static tolerance = .02;
+  static natural = .25; // m of spring before it stretches, for the drawing
+  static missions = [
+    {key:'stretch',ask:'stretch',m:.5,k:98},
+    {key:'period',ask:'period',m:.5,k:49,A:.05},
+    {key:'findk',ask:'spring',m:.2,T:.5,A:.05},
+    {key:'speed',ask:'speed',m:.5,k:50,A:.05},
+    {key:'fromStretch',ask:'period',x0:.25,m:1,A:.05}
+  ];
+  static units = {stretch:'m',period:'s',spring:'N/m',speed:'m/s'};
+  static limits = {stretch:1e4,period:1e4,spring:1e6,speed:1e4};
+  constructor(index = 0){this.setMission(index);}
+  setMission(index){this.index=index;this.config=SpringModel.missions[index];this.answer=null;this.attempts=0;this.reset();}
+  reset(){this.t=0;this.status='moving';}
+  valid(value){return Number.isFinite(value)&&value>0&&value<=SpringModel.limits[this.config.ask];}
+  setAnswer(value){if(value!==null&&!this.valid(value))return false;this.answer=value;this.reset();return true;}
+  ready(){return this.answer!==null;}
+  lowering(){return this.config.ask==='stretch';}
+  // The spring in play: yours when k is asked (the right one stands in before you answer), from the stretch, or the given one.
+  stiffness(){const c=this.config;if(c.ask==='spring')return this.answer??4*Math.PI**2*c.m/c.T**2;return c.k??c.m*SpringModel.g/c.x0;}
+  rest(){return this.config.m*SpringModel.g/this.stiffness();}
+  omega(){return Math.sqrt(this.stiffness()/this.config.m);}
+  period(){return 2*Math.PI/this.omega();}
+  clamp(t){return Math.min(Math.max(t,0),SpringModel.run);}
+  // Below the natural length (m): lowered smoothly to rest, or bouncing about the rest position after being pulled down A.
+  offset(t){const c=this.config;return this.lowering()?0:c.A*Math.cos(this.omega()*this.clamp(t));}
+  stretch(t){return this.lowering()?this.rest()*(1-Math.cos(Math.PI*this.clamp(t)/SpringModel.run))/2:this.rest()+this.offset(t);}
+  velocity(t){const c=this.config,s=this.clamp(t);return this.lowering()?this.rest()*Math.PI/(2*SpringModel.run)*Math.sin(Math.PI*s/SpringModel.run):-c.A*this.omega()*Math.sin(this.omega()*s);}
+  topSpeed(){return this.lowering()?0:this.config.A*this.omega();}
+  duration(){return SpringModel.run;}
+  now(){return this.status==='done'?this.duration():this.t;}
+  advance(dt){
+    if(!Number.isFinite(dt)||dt<0)throw new Error('Invalid timestep');
+    if(this.status==='done'||!this.ready())return null;
+    // A run counts as an attempt as soon as it starts; it ends exactly after 2 s.
+    if(this.t===0)this.attempts++;
+    const T=this.duration();
+    if(this.t+dt>=T*(1-1e-12)){this.t=T;this.status='done';return {t:T,done:true};}
+    this.t+=dt;return null;
+  }
+  exact(){
+    const c=this.config,g=SpringModel.g;
+    if(c.ask==='stretch')return c.m*g/c.k;
+    if(c.ask==='spring')return 4*Math.PI**2*c.m/c.T**2;
+    if(c.ask==='speed')return c.A*Math.sqrt(c.k/c.m);
+    return c.x0?2*Math.PI*Math.sqrt(c.x0/g):2*Math.PI*Math.sqrt(c.m/c.k);
+  }
+  unit(){return SpringModel.units[this.config.ask];}
+  evaluate(){
+    if(!this.ready())return {ok:false,slip:null,first:false,exact:this.exact()};
+    const c=this.config,a=this.answer,e=this.exact(),tol=SpringModel.tolerance,near=(p,q)=>Math.abs(p-q)<=tol*Math.abs(q)+1e-12,g=SpringModel.g,P=2*Math.PI;
+    // Every answer is right within 2%.
+    const ok=near(a,e);let slip=null;
+    if(!ok){
+      if(c.ask==='stretch'){if(near(a,c.m/c.k))slip='noG';else if(near(a,c.k/(c.m*g)))slip='inverted';else if(near(a,e*100))slip='unitsCm';}
+      else if(c.ask==='period'){const r=c.x0?c.x0/g:c.m/c.k;if(near(a,Math.sqrt(r)))slip='noTwoPi';else if(near(a,P/Math.sqrt(r)))slip='inverted';else if(near(a,1/Math.sqrt(r)))slip='omega';}
+      else if(c.ask==='spring'){if(near(a,P*P*c.m/c.T))slip='noSquare';else if(near(a,c.m/c.T**2))slip='noTwoPi';else if(near(a,1/e))slip='inverted';}
+      else{if(near(a,Math.sqrt(c.k/c.m)))slip='noAmplitude';else if(near(a,c.A*c.k/c.m))slip='noRoot';else if(near(a,e*100))slip='unitsCm';}
+    }
+    return {ok,slip,first:ok&&this.attempts===1,exact:e};
+  }
+  score(){if(this.status!=='done')return 0;const e=this.evaluate();return (e.ok?100:0)+(e.first?50:0);}
+  snapshot(){return {index:this.index,answer:this.answer,attempts:this.attempts,t:this.t,status:this.status};}
+  restore(saved){
+    if(!Number.isInteger(saved?.index)||!SpringModel.missions[saved.index])return false;
+    const probe=new SpringModel(saved.index);
+    if(!probe.setAnswer(saved.answer??null)||!Number.isInteger(saved.attempts)||saved.attempts<0)return false;
+    if(!['moving','done'].includes(saved.status)||!Number.isFinite(saved.t)||saved.t<0||saved.t>probe.duration()*(1+1e-9))return false;
+    if(probe.answer===null&&(saved.t>0||saved.status==='done'))return false;
+    if((saved.status==='done'||saved.t>0)&&saved.attempts<1)return false;
+    this.setMission(saved.index);this.answer=probe.answer;this.attempts=saved.attempts;
+    this.status=saved.status;this.t=saved.status==='done'?this.duration():saved.t;return true;
+  }
+}
+globalThis.SpringModel=SpringModel;
+</script>
+<script id="spring-locale" type="application/json">__LOCALE__</script>
+<script id="spring-interface">
+(() => {
+  'use strict';
+  const $=id=>document.getElementById(id),locale=JSON.parse($('spring-locale').textContent);
+  const text=(key,values={})=>locale.strings[key].replace(/\{(\w+)\}/g,(_,name)=>values[name]??'{'+name+'}');
+  const number=(n,d=2)=>Math.abs(n)<.5*10**-d?(0).toLocaleString(locale.lang,{minimumFractionDigits:d,maximumFractionDigits:d}):n.toLocaleString(locale.lang,{minimumFractionDigits:d,maximumFractionDigits:d,useGrouping:false});
+  const plain=n=>n.toLocaleString(locale.lang,{maximumFractionDigits:3,useGrouping:false}).replace('-','−');
+  const model=new SpringModel();
+  const canvas=$('spring-canvas'),ctx=canvas.getContext('2d');
+  const H=1/120,transferKey='phisicos-spring-language-transfer';
+  let running=false,previous=null,accumulator=0,lastUpdate=0,width=800,height=410;
+  const say=message=>{$('announcement').textContent=message;};
+  try{const data=JSON.parse(sessionStorage.getItem(transferKey)||'null');sessionStorage.removeItem(transferKey);if(data)model.restore(data.state);}catch{$('language-note').hidden=true;}
+  const amount=v=>plain(Number(v.toPrecision(5)))+' '+model.unit();
+  const symbols={stretch:'x₀ =',period:'T =',spring:'k =',speed:'v_max ='};
+  const slipKey=name=>'slip'+name[0].toUpperCase()+name.slice(1);
+  function setRunning(value){
+    const done=model.status==='done',blocked=!model.ready();running=value&&!done&&!blocked;previous=null;accumulator=0;
+    $('play').disabled=running||done||blocked;$('pause').disabled=!running;$('step').disabled=running||done||blocked;
+    $('spring-status').classList.toggle('running',running);
+    $('spring-status-text').textContent=text(done?'done':running?'running':model.t?'paused':'ready');
+  }
+  // Givens: the mass and the spring, the period wanted, the pull, or the stretch alone.
+  function given(m){
+    if(m.x0)return 'x₀ = '+plain(m.x0)+' m';
+    const parts=['m = '+plain(m.m)+' kg'];if(m.k)parts.push('k = '+plain(m.k)+' N/m');if(m.T)parts.push('T = '+plain(m.T)+' s');if(m.A&&m.ask!=='spring')parts.push('A = '+plain(m.A*100)+' cm');
+    return parts.join(' · ');
+  }
+  function sync(){
+    const c=model.config;
+    SpringModel.missions.forEach((m,i)=>{$('mission-'+i).setAttribute('aria-pressed',String(i===model.index));$('given-'+i).textContent=given(m);});
+    $('question').textContent=text('question'+model.index);$('answer-symbol').textContent=symbols[c.ask];$('answer-unit').textContent=model.unit();
+    $('answer').value=model.answer===null?'':String(model.answer);$('mission-label').textContent=text('mission'+model.index);
+  }
+  // The stretch, the motion, and the period show only once a run starts, because they give the answer away.
+  const started=()=>model.status==='done'||model.t>0;
+  function update(){
+    const c=model.config,ready=model.ready(),done=model.status==='done',t=ready?model.now():0,e=model.evaluate(),begun=started(),T=model.period();
+    $('time-value').textContent=number(t);$('rest-value').textContent=begun?number(model.rest(),3):'—';$('offset-value').textContent=begun?number(model.offset(t)*100,1):'—';
+    $('speed-value').textContent=begun?number(Math.abs(model.velocity(t))):'—';$('period-value').textContent=begun?number(T,3):'—';
+    $('spring-equation').textContent=!begun?(model.lowering()?'x₀ = m·g ÷ k':'T = 2π·√(m ÷ k)'):model.lowering()?'x₀ = m·g ÷ k = '+plain(c.m)+' × '+plain(SpringModel.g)+' ÷ '+plain(c.k)+' = '+number(model.rest(),3)+' m'
+      :'T = 2π·√(m ÷ k) = 2π × √('+plain(c.m)+' ÷ '+number(model.stiffness(),1)+') = '+number(T,3)+' s';
+    let key,copy;
+    const values={x:number(model.rest(),3),F:number(c.m*SpringModel.g,1),T:number(T,3),n:number(SpringModel.run/T,1),k:number(model.stiffness(),1),v:number(model.topSpeed())};
+    if(done){
+      const base=text('result'+model.index,values);
+      if(e.ok){key='good';copy=base+' '+text('why'+model.index);}
+      else{key='miss';copy=base+' '+text('missCopy',{p:amount(model.answer)})+' '+(e.slip?text(slipKey(e.slip)):text('hint'+model.index));}
+    }
+    else if(!ready){key='predict';copy=text('predictCopy');}
+    else if(model.t>0){key='running';copy=model.lowering()?text('loweringCopy',{x:number(model.stretch(t),3)}):text('bouncingCopy',{y:number(model.offset(t)*100,1),v:number(Math.abs(model.velocity(t)))});}
+    else{key='ready';copy=text('readyCopy');}
+    $('lesson-title').textContent=text(key+'Title',{t:number(t),p:ready?amount(model.answer):''});$('lesson-copy').textContent=copy;
+    $('insight').classList.toggle('warning',key==='miss');
+    $('mission-score').textContent=done?String(model.score()):'—';
+    $('right-badge').classList.toggle('earned',done&&e.ok);$('first-badge').classList.toggle('earned',done&&e.first);
+  }
+  function refresh(){setRunning(false);update();draw();}
+  function simulate(dt){
+    const result=model.advance(dt);
+    if(result?.done){setRunning(false);update();say(text('doneAnnouncement')+' '+$('lesson-title').textContent);return true;}
+    return false;
+  }
+  $('answer').addEventListener('input',event=>{const raw=String(event.target.value).trim(),value=raw===''?null:Number(raw);if(!model.setAnswer(value))model.setAnswer(null);refresh();});
+  $('play').addEventListener('click',()=>{setRunning(true);update();say(text('startedAnnouncement'));});
+  $('pause').addEventListener('click',()=>{setRunning(false);update();say(text('pausedAnnouncement'));});
+  $('step').addEventListener('click',()=>{for(let i=0;i<12;i++)if(simulate(H))break;setRunning(false);update();draw();});
+  $('reset').addEventListener('click',()=>{model.reset();refresh();say(text('resetAnnouncement'));});
+  SpringModel.missions.forEach((_,i)=>$('mission-'+i).addEventListener('click',()=>{model.setMission(i);sync();refresh();say(text('missionAnnouncement',{name:text('mission'+i)}));}));
+  for(const id of ['show-ruler','show-guess'])$(id).addEventListener('change',()=>{update();draw();});
+  function suspend(){if(running){setRunning(false);say(text('suspendedAnnouncement'));}update();draw();}
+  window.addEventListener('blur',suspend);document.addEventListener('visibilitychange',()=>{if(document.hidden)suspend();});
+  for(const link of document.querySelectorAll('.language-menu a'))link.addEventListener('click',()=>{setRunning(false);try{sessionStorage.setItem(transferKey,JSON.stringify({state:model.snapshot()}));}catch{}});
+  function resize(){const rect=canvas.getBoundingClientRect();if(rect.width<=0)return;width=rect.width;height=rect.height;const dpr=Math.min(window.devicePixelRatio||1,3);canvas.width=Math.round(width*dpr);canvas.height=Math.round(height*dpr);ctx.setTransform(dpr,0,0,dpr,0,0);draw();}
+  function draw(){
+    if(!ctx)return;
+    const c=model.config,ready=model.ready(),done=model.status==='done',t=ready?model.now():0,begun=started(),ruler=$('show-ruler').checked,guess=$('show-guess').checked&&ready;
+    ctx.clearRect(0,0,width,height);
+    const label=(str,px,py,color='#b8ccdb',align='left',font=12)=>{ctx.fillStyle=color;ctx.textAlign=align;ctx.font=font+'px -apple-system,BlinkMacSystemFont,sans-serif';ctx.fillText(str,px,py);};
+    const line=(points,color,w=1,dash=[])=>{ctx.beginPath();ctx.strokeStyle=color;ctx.lineWidth=w;ctx.setLineDash(dash);points.forEach((q,i)=>i?ctx.lineTo(q.x,q.y):ctx.moveTo(q.x,q.y));ctx.stroke();ctx.setLineDash([]);};
+    const fit=(str,px,py,color,size,room,align='left')=>{ctx.font=size+'px -apple-system,BlinkMacSystemFont,sans-serif';const w=ctx.measureText(str).width;label(str,px,py,color,align,w>room?Math.max(7,Math.floor(size*room/w)):size);};
+    const wide=width>=560,area=wide?width*.64:width;
+    fit(text('viewTitle'),16,20,'#d1e3ed',12,area-28);
+    if(done){const ev=model.evaluate();fit(text(ev.ok?'rightBanner':'offBanner'),16,40,ev.ok?'#75efc7':'#efb958',width<430?12:14,area-28);}
+    // Side view to scale: k px per metre below the ceiling; the spring's coils stretch evenly.
+    const top=54,kp=Math.max(120,(height-top-60)/.66),cx=area*.42,N=SpringModel.natural,bw=Math.min(56,area*.14),bh=.08*kp;
+    const Y=m=>top+(N+Math.min(m,.45))*kp,s=ready?model.stretch(t):model.lowering()?0:model.rest(),yb=Y(s);
+    ctx.fillStyle='#22384a';ctx.fillRect(cx-70,top-10,140,10);line([{x:cx-70,y:top},{x:cx+70,y:top}],'#8aa3b5',2);
+    const coils=14,coil=[{x:cx,y:top}];for(let i=1;i<coils;i++)coil.push({x:cx+(i%2?10:-10),y:top+8+(yb-top-16)*i/coils});coil.push({x:cx,y:yb-8},{x:cx,y:yb});line(coil,'#f2f8fc',2);
+    ctx.fillStyle='#8f9daa';ctx.fillRect(cx-bw/2,yb,bw,bh);line([{x:cx-bw/2,y:yb},{x:cx+bw/2,y:yb},{x:cx+bw/2,y:yb+bh},{x:cx-bw/2,y:yb+bh},{x:cx-bw/2,y:yb}],'#f2f8fc',1.5);
+    fit(plain(c.m)+' kg',cx,yb+bh/2+4,'#0f2233',11,bw-4,'center');
+    // The rest position (gray) and, when asked, your predicted stretch (orange).
+    if(begun||!model.lowering()){const yr=Y(model.rest());line([{x:cx-bw,y:yr},{x:cx+bw,y:yr}],'#9fb6c7',1.5,[5,4]);}
+    if(ruler){const rx=cx-bw-30;line([{x:rx,y:Y(0)},{x:rx,y:Y(.4)}],'#8aa3b5',1);for(let cm=0;cm<=40;cm+=5){const yy=Y(cm/100);line([{x:rx-(cm%10?4:8),y:yy},{x:rx,y:yy}],'#8aa3b5',1);if(cm%10===0)label(plain(cm)+' cm',rx-12,yy+4,'#9fb6c7','right',9);}}
+    if(guess&&model.lowering()){const yy=Y(Math.min(model.answer,.4));line([{x:cx-bw-6,y:yy},{x:cx+bw+6,y:yy}],'#efb958',2,[5,3]);fit(text('guessTag')+(model.answer>.4?' ↓':''),cx+bw+10,yy+4,'#efb958',9,area-cx-bw-16);}
+    // A speed bar beside the mass, with your predicted top speed.
+    if(c.ask==='speed'&&begun){const bx=cx+bw+40,base=Y(.4),scale=(Y(.4)-Y(0))/.8,v=Math.abs(model.velocity(t));ctx.fillStyle='#77b9ff';ctx.fillRect(bx,base-v*scale,14,v*scale);line([{x:bx,y:base},{x:bx+14,y:base}],'#8aa3b5',1);
+      fit('v',bx+7,base+14,'#9fb6c7',10,20,'center');if(guess){const yy=base-Math.min(model.answer,.85)*scale;line([{x:bx-6,y:yy},{x:bx+20,y:yy}],'#efb958',2,[4,3]);fit(text('guessTag'),bx+24,yy+4,'#efb958',9,area-bx-28);}}
+    label(text('scaleNote'),16,height-8,'#9fb6c7','left',10);
+    if(!wide)return;
+    // Right panel: the position over the run, with your predicted period or the period wanted marked.
+    fit(text(model.lowering()?'lowerTitle':'graphTitle'),area+8,44,'#d1e3ed',10,width-area-16);
+    if(!begun){fit(text('panelHint'),area+8,70,'#9fb6c7',10,width-area-16);return;}
+    const D=SpringModel.run,px0=area+14,px1=width-14,py0=70,py1=height-62,PX=q=>px0+q/D*(px1-px0);
+    const lo=model.lowering(),span=lo?Math.max(model.rest(),.01)*1.2:c.A*1.3,PY=v=>lo?py0+v/span*(py1-py0):(py0+py1)/2+v/span*(py1-py0)/2;
+    line([{x:px0,y:lo?py0:(py0+py1)/2},{x:px1,y:lo?py0:(py0+py1)/2}],'#8aa3b5',1);line([{x:px0,y:py0},{x:px0,y:py1}],'#8aa3b5',1);
+    const pts=[],upto=Math.min(t,D);for(let i=0;i<=160;i++){const q=upto*i/160;pts.push({x:PX(q),y:PY(lo?model.stretch(q):model.offset(q))});}line(pts,'#77b9ff',2);
+    const marks=(T,color,dash)=>{for(let q=T;q<=D+1e-9&&q>0;q+=T)line([{x:PX(q),y:py0},{x:PX(q),y:py1}],color,1.2,dash);};
+    if(c.ask==='spring'){marks(c.T,'#9fb6c7',[4,3]);fit(text('targetTag',{T:plain(c.T)}),px1,py1+14,'#9fb6c7',9,px1-px0,'right');}
+    if(guess&&c.ask==='period'&&model.answer>=.05)marks(model.answer,'#efb958',[5,4]);
+    if(guess&&lo){const yy=PY(Math.min(model.answer,span));line([{x:px0,y:yy},{x:px1,y:yy}],'#efb958',1.5,[5,3]);}
+    fit(text('timeAxis'),px0,py1+14,'#9fb6c7',9,(px1-px0)/2);
+  }
+  function frame(now){if(previous===null)previous=now;const elapsed=Math.min(.1,(now-previous)/1000);previous=now;if(running){accumulator+=elapsed;while(accumulator>=H&&running){accumulator-=H;simulate(H);}draw();}if(now-lastUpdate>=80){update();lastUpdate=now;}requestAnimationFrame(frame);}
+  window.addEventListener('resize',resize);if(typeof ResizeObserver!=='undefined')new ResizeObserver(resize).observe(canvas);
+  sync();setRunning(false);update();resize();requestAnimationFrame(frame);
+})();
+</script>
+</body>
+</html>
