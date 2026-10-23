@@ -36,6 +36,8 @@ const translate = (value,lang) => {
   return value.slice(0,value.indexOf(trimmed))+replacement+value.slice(value.indexOf(trimmed)+trimmed.length);
 };
 const url = route => base+route;
+// Right-to-left languages set the page direction; site.css keeps the simulations left to right.
+const htmlTag = lang => `<!doctype html><html lang="${lang}"${pages[lang].dir?` dir="${pages[lang].dir}"`:''}>`;
 const json = value => JSON.stringify(value).replace(/</g,'\\u003c');
 function alternates(kind){return Object.entries(pages).map(([lang,p])=>`<link rel="alternate" hreflang="${lang}" href="${url(p[kind])}">`).join('\n')+`\n<link rel="alternate" hreflang="x-default" href="${url(pages.en[kind])}">`;}
 // Breadcrumb trail from the homepage to this page: Home / Topics / topic / game, or Home / Topics / collection.
@@ -97,12 +99,12 @@ function card(kind,lang,level){
  const g=games.find(x=>x.kind===kind),l=g.copy[lang],{tags,board}=g.card(l);
  return `<article class="game-card ${g.kind}-card"><div class="game-card-copy"><p class="eyebrow-label">${esc(l.available+cardNumber(kind))}</p><h${level} class="game-card-title"><a href="${p[g.kind]}" style="color:inherit;text-decoration:none">${esc(l.cardTitle)}</a></h${level}><p>${esc(l.cardCopy)}</p><div class="game-types">${tags.map(t=>`<span>${esc(t)}</span>`).join('')}</div><a class="play-link" href="${p[g.kind]}">${esc(l.playCard)} <span aria-hidden="true">↗</span></a></div><dl class="equation-board">${board.map(([dt,dd])=>`<div><dt>${esc(dt)}</dt><dd>${esc(dd)}</dd></div>`).join('')}</dl></article>`;
 }
-function page(lang,kind,main){return `<!doctype html><html lang="${lang}"><head>${metadata(lang,kind)}</head><body><div class="shell">${header(lang,kind)}<main id="main-content">${main}</main>${footer(lang)}</div></body></html>`;}
+function page(lang,kind,main){return `${htmlTag(lang)}<head>${metadata(lang,kind)}</head><body><div class="shell">${header(lang,kind)}<main id="main-content">${main}</main>${footer(lang)}</div></body></html>`;}
 function homepage(lang){const p=pages[lang],u=ui[lang];return page(lang,'home',`<section class="home-hero"><div><p class="eyebrow-label">${esc(p.heroLabel)}</p><h1>${p.hero}</h1></div><p>${esc(p.lead)}</p></section><section class="topic-browser" aria-labelledby="topics-heading"><div class="collection-header"><h2 id="topics-heading">${esc(u.browse)}</h2><a href="${p.topics}">${esc(u.all)} <span aria-hidden="true">→</span></a></div>${topicTiles(lang,topics,3)}</section><section class="collection" aria-labelledby="games-heading"><div class="collection-header"><h2 id="games-heading">${esc(p.games)}</h2><span>${esc(p.topic)} / ${String(games.length+1).padStart(2,'0')}</span></div>${topics.map(t=>`<section class="topic-group" aria-labelledby="group-${t.id}"><div class="topic-group-header"><h3 id="group-${t.id}"><a href="${p['topic-'+t.id]}">${esc(t.copy[lang].name)}</a></h3><span>${esc(count(lang,t))}</span></div>${t.games.map(k=>card(k,lang,4)).join('')}</section>`).join('')}<aside class="coming-next"><h3>${esc(p.later)}</h3><p>${esc(p.laterCopy)}</p></aside></section><section class="home-learning"><div><h2>${esc(p.homeLearn)}</h2><p>${esc(p.homeBody)}</p></div><ol>${p.homeSteps.map(s=>`<li>${esc(s)}</li>`).join('')}</ol></section>`);}
 function topicsPage(lang){const p=pages[lang],i=topicIndex[lang];return page(lang,'topics',`${breadcrumbs(lang,'topics')}<section class="topic-hero"><p class="eyebrow-label">${esc(i.label)}</p><h1>${esc(i.heading)}</h1><p>${esc(i.intro)}</p></section><section class="topic-browser" aria-label="${esc(i.label)}">${topicTiles(lang,topics,2)}</section>${tagSection(lang,tags)}`);}
 function topicPage(t,lang){const kind='topic-'+t.id,c=t.copy[lang],u=ui[lang];return page(lang,kind,`${breadcrumbs(lang,kind)}<section class="topic-hero"><p class="eyebrow-label">${esc(u.eyebrow)} · ${esc(count(lang,t))}</p><h1>${esc(c.heading)}</h1><p>${esc(c.intro)}</p></section><section class="collection" aria-labelledby="topic-games"><div class="collection-header"><h2 id="topic-games">${esc(u.gamesHeading)}</h2><span>${esc(count(lang,t))}</span></div>${t.games.map(k=>card(k,lang,3)).join('')}</section><section class="other-topics" aria-labelledby="other-topics"><div class="collection-header"><h2 id="other-topics">${esc(u.other)}</h2><a href="${pages[lang].topics}">${esc(u.all)} <span aria-hidden="true">→</span></a></div>${topicTiles(lang,topics.filter(x=>x!==t),3)}</section>${tagSection(lang,tags.filter(x=>x.games.some(k=>t.games.includes(k))))}`);}
 function tagPage(t,lang){const kind='tag-'+t.id,c=t.copy[lang],u=ui[lang],g=tagUI[lang],p=pages[lang];return page(lang,kind,`${breadcrumbs(lang,kind)}<section class="topic-hero"><p class="eyebrow-label">${esc(g.label)} · ${esc(count(lang,t))}</p><h1>${esc(c.heading)}</h1><p>${esc(c.intro)}</p></section><section class="tag-lesson" aria-labelledby="tag-lesson"><div><h2 id="tag-lesson">${esc(c.lessonTitle)}</h2><p>${esc(c.lesson)}</p></div><dl class="equation-board">${t.equations.map(([k,e])=>`<div><dt>${esc(g[k])}</dt><dd>${esc(e)}</dd></div>`).join('')}</dl></section><section class="collection" aria-labelledby="tag-games"><div class="collection-header"><h2 id="tag-games">${esc(g.gamesHeading)}</h2><span>${esc(count(lang,t))}</span></div>${t.games.map(k=>card(k,lang,3)).join('')}</section><section class="tag-guide" aria-labelledby="tag-guide"><h2 id="tag-guide">${esc(g.howHeading)}</h2><ol>${t.games.map(k=>`<li><a href="${p[k]}">${esc(p[k+'Label'])}</a> ${esc(c.notes[k])}</li>`).join('')}</ol></section><section class="other-topics" aria-labelledby="other-topics"><div class="collection-header"><h2 id="other-topics">${esc(u.browse)}</h2><a href="${p.topics}">${esc(u.all)} <span aria-hidden="true">→</span></a></div>${topicTiles(lang,topics,3)}</section>`);}
-function learning(lang){const p=pages[lang];return `<article class="learning-content" aria-labelledby="guide-title"><section><h2 id="guide-title">${esc(p.guideTitle)}</h2><ol>${p.steps.map(s=>`<li>${esc(s)}</li>`).join('')}</ol></section><section><h2>${esc(p.lessonTitle)}</h2><p>${esc(p.lesson)}</p><aside class="worked-example"><h3>${esc(p.exampleTitle)}</h3><p>${esc(p.example)}</p></aside></section><section class="faq"><h2>${esc(p.faqTitle)}</h2>${p.faq.map(([q,a])=>`<details><summary>${esc(q)}</summary><p>${esc(a)}</p></details>`).join('')}</section></article><a class="back-link" href="${p.home}">← ${esc(p.back)}</a>`;}
+function learning(lang){const p=pages[lang];return `<article class="learning-content" aria-labelledby="guide-title"><section><h2 id="guide-title">${esc(p.guideTitle)}</h2><ol>${p.steps.map(s=>`<li>${esc(s)}</li>`).join('')}</ol></section><section><h2>${esc(p.lessonTitle)}</h2><p>${esc(p.lesson)}</p><aside class="worked-example"><h3>${esc(p.exampleTitle)}</h3><p>${esc(p.example)}</p></aside></section><section class="faq"><h2>${esc(p.faqTitle)}</h2>${p.faq.map(([q,a])=>`<details><summary>${esc(q)}</summary><p>${esc(a)}</p></details>`).join('')}</section></article><a class="back-link" href="${p.home}"><span aria-hidden="true">←</span> ${esc(p.back)}</a>`;}
 let source=fs.readFileSync(path.join(root,'src/velocity.html'),'utf8');
 const gameCSS=source.match(/<style>([\s\S]*?)<\/style>/)[1];
 function localizeHTML(markup,lang){
@@ -128,6 +130,8 @@ function localizeScript(script,lang){
  new vm.Script(result);
  return result;
 }
+// Canvas text containing right-to-left letters is drawn right to left so its words keep their order; numbers and units alone stay left to right.
+const canvasDirection=lang=>pages[lang].dir==='rtl'?`<script>(c=>{const fill=c.fillText;c.fillText=function(text,...rest){this.direction=/[\\u0590-\\u08FF]/.test(text)?'rtl':'ltr';return fill.call(this,text,...rest);};})(CanvasRenderingContext2D.prototype);</script>`:'';
 function gamepage(lang){
  const p=pages[lang];
  let body=source.split('<body>')[1].split('<script')[0];
@@ -142,7 +146,7 @@ function gamepage(lang){
  .replace('__H1__',`<h1>${esc(p.gameHeading)}</h1>`)
  .replace('__FOOTER__',learning(lang)+'</main>'+footer(lang));
  const scripts=[...source.matchAll(/<script id="([^"]+)">([\s\S]*?)<\/script>/g)].map(([,id,script])=>`<script id="${id}">${/^(interface|chase-interface)$/.test(id)?localizeScript(script,lang):script}</script>`).join('\n');
- return `<!doctype html><html lang="${lang}"><head>${metadata(lang,'game')}</head><body>${body}${scripts}</body></html>`;
+ return `${htmlTag(lang)}<head>${metadata(lang,'game')}</head><body>${body}${canvasDirection(lang)}${scripts}</body></html>`;
 }
 for(const g of games){
  g.html=fs.readFileSync(path.join(root,g.source),'utf8');
@@ -161,7 +165,7 @@ function modulepage(g,lang){
  .replace('__BREADCRUMBS__',breadcrumbs(lang,g.kind)+alsoIn(lang,g.kind))
  .replace('__FOOTER__',footer(lang));
  const scripts=[...g.html.matchAll(/<script id="([^"]+)"([^>]*)>([\s\S]*?)<\/script>/g)].map(([,id,attrs,code])=>`<script id="${id}"${attrs}>${id===g.kind+'-locale'?json({lang,strings:l}):code}</script>`).join('\n');
- return `<!doctype html><html lang="${lang}"><head>${metadata(lang,g.kind)}</head><body>${body}${scripts}</body></html>`;
+ return `${htmlTag(lang)}<head>${metadata(lang,g.kind)}</head><body>${body}${canvasDirection(lang)}${scripts}</body></html>`;
 }
 // Install once on every production HTML page, including 404. Local previews do not send analytics.
 const gtmHead=`<!-- Google Tag Manager -->

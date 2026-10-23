@@ -1,0 +1,235 @@
+PHISICOS
+01 / CINEMATICA
+Velocità scalare e vettoriale
+Stesso viaggio. Due modi diversi di misurarlo.
+Velocità scalare
+· scalare
+Velocità vettoriale
+· vettore
+01 · Laboratorio di fisica
+02 · Inseguimento di Pac-Man
+01 / Imposta il percorso
+↔ Rettilineo
+◯ Circolare
+Posizione iniziale
+Cambiare il percorso o la partenza avvia una nuova prova. La pista rettilinea rimbalza a ±10 m.
+02 / Dai forma al moto
+Imposta il modulo della velocità
+Direzione
+Destra (+x)
+Inverti la direzione
+Accelerazione tangenziale
+Positiva accelera. Negativa frena fino a fermarsi. I comandi del moto agiscono subito.
+03 / Osserva
+Mostra le frecce dei vettori
+Mostra il percorso fatto
+Pausa al ritorno alla partenza
+Una pausa automatica congela la misura; non azzera la velocità.
+La pista rettilinea
+Pista di 20 m · rimbalzi ideali a entrambe le estremità
+Pronto
+Il tuo browser deve supportare HTML5 Canvas. Le misure numeriche in tempo reale sono qui sotto.
+VELOCITÀ SCALARE / VETTORIALE ISTANTANEA
+Coordinate in metri · +x punta a destra
+Percorso fatto
+Spostamento Δr
+v istantanea
+▶ Avvia
+Ⅱ Pausa
+Passo +0,10 s
+↺ Azzera
+Tempo trascorso
+Tempo della simulazione
+Distanza totale
+d · intero percorso
+Mai negativa
+Spostamento
+Variazione di x con segno
+Velocità scalare media
+Scalare
+Velocità vettoriale media
+Componente x con segno
+Prevedi prima di premere Avvia
+Se la particella torna alla partenza, quale misura diventa zero: la distanza o lo spostamento?
+La sfida di andata e ritorno
+PROVA TU
+Parti da −6 m, raggiungi il bersaglio a +8 m, poi torna a −6 m con velocità vettoriale media zero. La velocità scalare media può restare positiva?
+Raggiungi +8 m
+Torna alla partenza
+Inizia la sfida ↗
+Scegli velocità e accelerazione, poi inizia la sfida.
+01 / Scegli una missione
+Prendi il fantasma
+Riduci la distanza. Raccogli i puntini.
+Il giro a velocità zero
+48 m di percorso. Di nuovo al punto di partenza.
+Scegliere una missione avvia una nuova prova con velocità preimpostate. Regolale per sperimentare.
+02 / Imposta l’inseguimento
+Velocità di Pac-Man
+Velocità del fantasma
+Inverti Pac-Man
+Pac-Man segue il fantasma in senso antiorario. Il fantasma parte 12 m più avanti.
+03 / Svela la fisica
+Mostra velocità e spostamento
+Mostra il percorso fatto da Pac-Man
+Le velocità restano costanti nelle curve. Le frecce mostrano la direzione subito dopo ogni svolta ideale.
+PAC-MAN / L’INSEGUIMENTO FISICO
+Anello di 16 × 8 m · segui, svolta, misura
+Punteggio
+Puntini · 10 punti ciascuno
+Distanza lungo la pista (+q)
+L’inseguimento richiede HTML5 Canvas. Le letture numeriche sono qui sotto.
+PAC-MAN
+FANTASMA
++x → · +y ↑ · vettori velocità in m/s
+Distanza di Pac-Man
+v di Pac-Man
+v del fantasma
+▶ Insegui
+↺ Ricomincia
+LE MISURE DI PAC-MAN
+La velocità scalare ha un modulo. Quella vettoriale ha anche una direzione.
+d · tutti i metri percorsi
+Spostamento |Δr|
+Vel. vettoriale media |v̄|
+Riesci a prendere un bersaglio in movimento?
+Pac-Man parte 12 m indietro. A 4 m/s contro 2 m/s, prevedi quanto durerà l’inseguimento. Poi premi Insegui.
+Missione: prendi il fantasma
+PRONTO
+Guadagna terreno muovendoti più veloce nella direzione del fantasma. Prendilo per 200 punti.
+Prendi una curva
+Stessa velocità scalare, nuova velocità vettoriale
++200 punti
+Completa un giro
+Velocità vettoriale media zero · +100
+Perché velocità scalare e vettoriale raccontano storie diverse
+La distanza ricorda tutto il viaggio.
+La distanza somma ogni metro percorso. Lo spostamento collega il punto di partenza al punto attuale, con una direzione.
+In 2D, Δr = (Δx, Δy). Il modulo del vettore è |Δr| = √(Δx² + Δy²). Sempre d ≥ |Δr|, quindi s̄ ≥ |v̄|.
+Curvare cambia la velocità vettoriale, anche a velocità scalare costante.
+La freccia bianca è la velocità istantanea, tangente al percorso. Il suo modulo è uguale alla velocità scalare attuale. Su una circonferenza la velocità cambia direzione di continuo.
+Il cursore controlla l’accelerazione tangenziale, che cambia la velocità scalare. La pista circolare fornisce anche un’accelerazione centripeta. A t = 0 le medie non sono definite; una pausa non aggiunge tempo.
+Esplora → prevedi → misura → spiega
+HTML5 Canvas autonomo · unità SI ·
+Design ed equazioni
+Scegli un’esperienza
+Comandi dell’esperimento
+Forma del percorso
+Simulazione del moto
+Una particella su una pista rettilinea. Il percorso verde mostra la distanza, la freccia blu lo spostamento e la freccia bianca la velocità istantanea.
+Legenda del diagramma
+Misure in tempo reale
+Mini sfida
+Comandi dell’inseguimento
+Missione dell’inseguimento
+Simulazione dell’inseguimento di Pac-Man
+Pac-Man animato insegue un fantasma lungo una pista rettangolare. Il giallo indica la distanza percorsa, il blu collega la partenza di Pac-Man alla sua posizione attuale e le frecce bianca e rosa mostrano le velocità attuali. Le misure numeriche sono qui sotto.
+Misure di Pac-Man in tempo reale
+Traguardi dell’inseguimento
+In corso
+In pausa
+Angolo iniziale
+Cambiare il percorso o la partenza avvia una nuova prova. L’angolo si misura in senso antiorario da +x.
+La pista circolare
+Raggio 6 m · circonferenza
++x →  ·  +y ↑  ·  la velocità è tangente alla circonferenza
+Particella su una pista
+Il verde indica il percorso fatto; la freccia blu dello spostamento collega la partenza alla posizione attuale; la freccia bianca della velocità istantanea punta nel verso del moto. Le misure seguono qui sotto.
+La sfida del giro unico
+Completa un giro intero e torna alla partenza. Rendi zero la velocità vettoriale media mentre la velocità scalare istantanea resta positiva.
+Completa un giro
+Antiorario
+Orario
+Sinistra (−x)
+Di nuovo alla partenza. La distanza conta comunque.
+Distanza =
+m, spostamento = 0 m. Velocità scalare media =
+m/s; velocità vettoriale media = 0 m/s. La velocità scalare istantanea è
+Fermo, adesso. Il viaggio ha comunque una media.
+La velocità scalare e quella vettoriale istantanee sono zero. Mentre il tempo scorre, le medie includono questo tempo passato da fermo. Aumenta la velocità o l’accelerazione per muoverti di nuovo.
+Velocità scalare costante. Velocità vettoriale che cambia.
+Cambiano sia la velocità scalare sia la direzione.
+La freccia della velocità resta tangente. La freccia blu dello spostamento taglia attraverso la circonferenza. L’accelerazione centripeta è
+m/s², in aggiunta a quella tangenziale impostata.
+Un’inversione aggiunge distanza, ma può annullare lo spostamento.
+La velocità scalare media è
+m/s. La velocità vettoriale media è
+m/s: il suo segno indica verso dove punta la variazione netta di posizione.
+Una sola direzione: distanza = |spostamento|.
+La velocità scalare media è uguale al modulo della velocità vettoriale media. Inverti la direzione per vedere le misure divergere.
+COMPLETATA
+IN CORSO
+Ricomincia la sfida ↗
+Ce l’hai fatta!
+m percorsi, spostamento netto zero. Spiega perché la velocità vettoriale media è zero.
+Ti sei fermato. Aumenta la velocità o l’accelerazione per continuare.
+Continua a girare sulla circonferenza. La prova si mette in pausa esattamente quando torni.
+Bersaglio raggiunto. Torna alla partenza: inverti ora o lascia che la parete ti faccia girare.
+Raggiungi il bersaglio dorato a +8 m, poi torna indietro. Le pareti invertono la tua direzione.
+Sfida completata. La velocità vettoriale media è zero e la velocità scalare è positiva.
+Di nuovo alla partenza. La velocità vettoriale media è zero. La simulazione è in pausa.
+Simulazione in corso
+Simulazione in pausa
+Prova azzerata. Pronto.
+Percorso cambiato. Nuova prova.
+Direzione invertita.
+Sfida iniziata.
+PARTENZA
+METÀ STRADA
+BERSAGLIO +8
+freccia v limitata a 10,63 m/s
+In pausa perché la scheda è nascosta.
+Preso!
+Contatto
+Inseguimento
+Missione «Prendi il fantasma» pronta.
+Missione «Giro a velocità zero» pronta.
+Pac-Man si muove in senso orario; il fantasma in senso antiorario. Un incontro da questa direzione è un contatto, non una cattura in un inseguimento.
+Una cattura e un giro. Velocità vettoriale media zero!
+Un viaggio intero. Variazione netta di posizione zero.
+m percorsi in
+s. Velocità scalare media =
+m/s, ma velocità vettoriale media = (0; 0) m/s. La velocità scalare istantanea di Pac-Man è ancora
+Fantasma preso! Distanza = |spostamento|.
+Fantasma preso! Il percorso è stato più lungo della scorciatoia.
+Il fantasma ti ha raggiunto. Prova un inseguimento più veloce.
+Hai preso il fantasma in
+Questo incontro non è stato Pac-Man che supera il fantasma.
+m; modulo dello spostamento =
+m. Confronta la velocità scalare media
+con |velocità vettoriale media|
+Un giro completo darà velocità vettoriale media zero?
+Pac-Man:
+m/s. Fantasma:
+Il fantasma parte 12 m più avanti lungo la pista. Con queste velocità e direzioni, prevedi quando si incontreranno. Poi premi Insegui.
+Prevedi che cosa diventa zero dopo un giro: la velocità scalare istantanea, la velocità scalare media o la velocità vettoriale media.
+Pac-Man è fermo. L’orologio può comunque scorrere.
+La velocità scalare e quella vettoriale attuali sono zero. La velocità scalare media usa tutto il viaggio, attese comprese. Aumenta la velocità di Pac-Man per continuare l’inseguimento.
+Un angolo cambia la velocità vettoriale, anche alla stessa velocità scalare.
+La velocità scalare attuale di Pac-Man è
+m/s; la sua velocità vettoriale attuale è
+m/s. Il percorso giallo conta ogni metro; il vettore blu collega solo la partenza e la posizione attuale.
+Stesso tratto rettilineo: la velocità scalare è il modulo della velocità vettoriale.
+destra (+x)
+sinistra (−x)
+in basso (−y)
+La freccia bianca della velocità punta a
+. Guardala ruotare al prossimo angolo. La velocità del fantasma aiuta a stabilire quando finisce l’inseguimento, non lo spostamento di Pac-Man.
+Missione: il giro a velocità zero
+RIPROVA
+Mantieni la stessa velocità del fantasma, completa l’anello di 48 m e spiega perché la velocità vettoriale media è zero. Il primo giro completo vale 100 punti.
+Fantasma preso. Rivedi distanza e velocità.
+Il fantasma ti ha raggiunto. Ricomincia per riprovare.
+Di nuovo alla partenza. La velocità vettoriale media è zero; l’inseguimento è in pausa.
+Inseguimento in corso.
+Inseguimento in pausa.
+Inseguimento ricominciato. Pronto.
+Pac-Man ha invertito la direzione.
+FANTASMA PRESO!
+CONTATTO CON IL FANTASMA
+PRESO A CASA!
+DI NUOVO ALLA PARTENZA
+Inseguimento in pausa perché la scheda è nascosta.
+Una particella su una pista rettilinea. Il verde mostra il percorso, il blu lo spostamento e il bianco la velocità istantanea. Misure qui sotto.
+Una particella su una pista circolare. Il verde mostra il percorso, il blu lo spostamento e il bianco la velocità istantanea. Misure qui sotto.
+in alto (+y)

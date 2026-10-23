@@ -1,0 +1,235 @@
+PHISICOS
+01 / KINEMATIK
+Fart och hastighet
+Samma resa. Två olika sätt att mäta den.
+Fart
+· skalär
+Hastighet
+· vektor
+01 · Fysiklabb
+02 · Pac-Man-jakt
+01 / Välj banan
+↔ Rak
+◯ Cirkel
+Startposition
+Om du ändrar banan eller startpunkten börjar ett nytt försök. På den raka banan vänder rörelsen vid ±10 m.
+02 / Forma rörelsen
+Ställ in farten
+Riktning
+Höger (+x)
+Byt riktning
+Tangentiell acceleration
+Positivt värde ökar farten. Negativt värde bromsar till stopp. Ändringar gäller direkt.
+03 / Observera
+Visa vektorpilar
+Visa tillryggalagd väg
+Pausa vid återkomst till start
+En automatisk paus fryser mätningen; den sätter inte farten till noll.
+Den raka banan
+20 m bana · ideala reflektioner i båda ändar
+Klar
+Webbläsaren behöver HTML5 Canvas. Löpande mätvärden visas nedanför.
+MOMENTAN FART / HASTIGHET
+Koordinater i meter · +x pekar åt höger
+Tillryggalagd väg
+Förflyttning Δr
+Momentan v
+▶ Start
+Ⅱ Paus
+Steg +0,10 s
+↺ Nollställ
+Förfluten tid
+Simuleringstid
+Total sträcka
+d · hela vägen
+Alltid icke-negativ
+Förflyttning
+Ändring i x med tecken
+Medelfart
+Skalär
+Medelhastighet
+x-komponent med tecken
+Förutsäg innan du startar
+Om partikeln kommer tillbaka till start, vilken storhet blir noll: sträckan eller förflyttningen?
+Fram-och-tillbaka-utmaningen
+PROVA SJÄLV
+Starta vid −6 m, nå målet vid +8 m och kom tillbaka till −6 m med medelhastigheten noll. Kan medelfarten ändå vara positiv?
+Nå +8 m
+Tillbaka till start
+Starta utmaningen ↗
+Välj fart och acceleration och starta sedan utmaningen.
+01 / Välj ett uppdrag
+Fånga spöket
+Knappa in. Samla prickarna.
+Varvet med medelhastigheten noll
+48 m tillryggalagt. Tillbaka där du började.
+Ett nytt uppdrag startar med förinställda farter. Justera dem för att experimentera.
+02 / Ställ in jakten
+Pac-Mans fart
+Spökets fart
+Vänd Pac-Man
+Pac-Man följer spöket moturs. Spöket startar 12 m före.
+03 / Visa fysiken
+Visa hastighet och förflyttning
+Visa Pac-Mans tillryggalagda väg
+Farten är konstant genom kurvorna. Pilarna visar riktningen direkt efter varje ideal sväng.
+PAC-MAN / FYSIKJAKTEN
+16 × 8 m slinga · följ, sväng, mät
+Poäng
+Prickar · 10 poäng var
+Avstånd längs banan (+q)
+Jakten kräver HTML5 Canvas. Mätvärdena visas nedanför.
+PAC-MAN
+SPÖKE
++x → · +y ↑ · hastighetsvektorer i m/s
+Pac-Mans sträcka
+Pac-Mans v
+Spökets v
+▶ Jaga
+↺ Börja om
+PAC-MANS MÄTVÄRDEN
+Fart har en storlek. Hastighet har också en riktning.
+d · alla tillryggalagda meter
+Förflyttning |Δr|
+Medelhastighet |v̄|
+Kan du fånga ett rörligt mål?
+Pac-Man startar 12 m bakom. Förutsäg hur lång tid jakten tar med 4 m/s mot 2 m/s. Tryck sedan på Jaga.
+Uppdrag: fånga spöket
+KLAR
+Knappa in genom att röra dig snabbare i spökets riktning. Fånga det för 200 poäng.
+Ta en sväng
+Samma fart, ny hastighet
++200 poäng
+Fullborda ett varv
+Medelhastigheten noll · +100
+Varför fart och hastighet berättar olika historier
+Sträckan minns hela resan.
+Sträckan räknar varje tillryggalagd meter. Förflyttningen förbinder startpunkten med den nuvarande punkten och har en riktning.
+I 2D är Δr = (Δx, Δy). Vektorns storlek är |Δr| = √(Δx² + Δy²). Alltid gäller d ≥ |Δr|, så s̄ ≥ |v̄|.
+En sväng ändrar hastigheten, även med konstant fart.
+Den vita pilen är den momentana hastigheten, tangent till banan. Dess storlek är den aktuella farten. På en cirkel byter hastigheten riktning hela tiden.
+Reglaget styr den tangentiella accelerationen, som ändrar farten. Cirkelbanan ger också en centripetalacceleration. Vid t = 0 är medelvärdena odefinierade; en paus lägger inte till tid.
+Utforska → förutsäg → mät → förklara
+Fristående HTML5 Canvas · SI-enheter ·
+Utformning och ekvationer
+Välj en aktivitet
+Försökskontroller
+Banans form
+Rörelsesimulering
+En partikel på en rak bana. Den gröna vägen visar sträckan, den blå pilen förflyttningen och den vita pilen den momentana hastigheten.
+Teckenförklaring
+Löpande mätvärden
+Miniutmaning
+Jaktkontroller
+Jaktuppdrag
+Pac-Man-jaktsimulering
+En animerad Pac-Man jagar ett spöke runt en rektangulär bana. Gult visar den tillryggalagda sträckan, blått förbinder Pac-Mans start med nuvarande position, och vita och rosa pilar visar hastigheterna. Mätvärdena visas nedanför.
+Pac-Mans löpande mätvärden
+Jaktprestationer
+Kör
+Pausad
+Startvinkel
+Om du ändrar banan eller startpunkten börjar ett nytt försök. Vinkeln mäts moturs från +x.
+Cirkelbanan
+Radie 6 m · omkrets
++x → · +y ↑ · hastigheten är tangent till cirkeln
+En partikel på en
+bana. Grönt visar den tillryggalagda vägen; den blå förflyttningspilen förbinder start med nuvarande position; den vita pilen för momentan hastighet pekar längs rörelsen. Mätvärdena följer nedanför.
+Ett-varv-utmaningen
+Fullborda ett helt varv och kom tillbaka till start. Gör medelhastigheten noll medan den momentana farten förblir positiv.
+Fullborda ett varv
+Moturs
+Medurs
+Vänster (−x)
+Tillbaka vid start. Sträckan räknas fortfarande.
+Sträcka =
+m, förflyttning = 0 m. Medelfart =
+m/s; medelhastighet = 0 m/s. Momentan fart är
+Stillastående nu. Resan har fortfarande ett medelvärde.
+Momentan fart och hastighet är noll. Medan tiden går räknar medelvärdena in tiden i vila. Öka farten eller accelerationen för att röra dig igen.
+Konstant fart. Föränderlig hastighet.
+Både fart och riktning ändras.
+Hastighetspilen förblir tangent. Den blå förflyttningspilen tar en genväg tvärs över cirkeln. Centripetalaccelerationen är
+m/s², utöver den tangentiella inställningen.
+En vändning ökar sträckan men kan ta ut förflyttningen.
+Medelfarten är
+m/s. Medelhastigheten är
+m/s: tecknet visar åt vilket håll den sammanlagda positionsändringen pekar.
+En riktning: sträcka = |förflyttning|.
+Medelfarten är lika med medelhastighetens storlek. Byt riktning för att se mätvärdena skilja sig åt.
+KLART
+PÅGÅR
+Starta om utmaningen ↗
+Du klarade det!
+m tillryggalagt, ingen sammanlagd förflyttning. Förklara varför medelhastigheten är noll.
+Du stannade. Öka farten eller accelerationen för att fortsätta.
+Fortsätt runt cirkeln. Försöket pausas precis när du kommer tillbaka.
+Målet är nått. Tillbaka till start: vänd nu, eller låt väggen vända dig.
+Nå det gyllene målet vid +8 m och kom sedan tillbaka. Väggarna vänder din riktning.
+Utmaningen är klar. Medelhastigheten är noll och farten är positiv.
+Tillbaka vid start. Medelhastigheten är noll. Simuleringen är pausad.
+Simuleringen körs
+Simuleringen är pausad
+Försöket är nollställt. Klar.
+Banan är ändrad. Nytt försök.
+Riktningen är vänd.
+Utmaningen har startat.
+START
+HALVVÄGS
+MÅL +8
+v-pilen begränsad till 10,63 m/s
+Pausad eftersom fliken är dold.
+Fångad!
+Kontakt
+Jagar
+Uppdraget fånga spöket är klart.
+Uppdraget med medelhastigheten noll är klart.
+Pac-Man rör sig medurs och spöket moturs. Ett möte från det hållet är en kontakt, inte en upphinnande fångst.
+En fångst och ett varv. Medelhastigheten noll!
+En hel resa. Ingen sammanlagd ändring av positionen.
+m tillryggalagt på
+s. Medelfart =
+m/s, men medelhastighet = (0, 0) m/s. Pac-Mans momentana fart är fortfarande
+Spöket är fångat! Sträcka = |förflyttning|.
+Spöket är fångat! Vägen var längre än genvägen.
+Spöket hann ikapp dig. Prova en snabbare jakt.
+Du fångade spöket på
+Det här mötet var inte att Pac-Man hann ikapp spöket.
+m; förflyttningens storlek =
+m. Jämför medelfarten
+med |medelhastigheten|
+Ger ett helt varv medelhastigheten noll?
+Pac-Man:
+m/s. Spöke:
+Spöket startar 12 m före längs banan. Förutsäg när de möts med de här farterna och riktningarna. Tryck sedan på Jaga.
+Förutsäg vad som blir noll efter ett varv: momentan fart, medelfart eller medelhastighet.
+Pac-Man står still. Klockan kan ändå gå.
+Nuvarande fart och hastighet är noll. Medelfarten räknar hela resan, även väntan. Öka Pac-Mans fart för att fortsätta jakten.
+En sväng ändrar hastigheten, även med samma fart.
+Pac-Mans nuvarande fart är
+m/s; nuvarande hastighet är
+m/s. Den gula vägen räknar varje meter; den blå vektorn förbinder bara start och nuvarande position.
+Samma raka sträcka: farten är hastighetens storlek.
+åt höger (+x)
+åt vänster (−x)
+nedåt (−y)
+Den vita hastighetspilen pekar
+. Se den vrida sig i nästa hörn. Spökets fart avgör när jakten tar slut, inte Pac-Mans förflyttning.
+Uppdrag: varvet med medelhastigheten noll
+FÖRSÖK IGEN
+Håll samma fart som spöket, fullborda slingan på 48 m och förklara varför medelhastigheten är noll. Det första hela varvet ger 100 poäng.
+Spöket är fångat. Titta på sträcka och hastighet.
+Spöket hann ikapp dig. Börja om för att försöka igen.
+Tillbaka vid start. Medelhastigheten är noll; jakten är pausad.
+Jakten pågår.
+Jakten är pausad.
+Jakten har startats om. Klar.
+Pac-Man bytte riktning.
+SPÖKET ÄR FÅNGAT!
+KONTAKT MED SPÖKET
+FÅNGAD VID START!
+TILLBAKA VID START
+Jakten är pausad eftersom fliken är dold.
+En partikel på en rak bana. Grönt visar vägen, blått förflyttningen och vitt den momentana hastigheten. Mätvärden nedanför.
+En partikel på en cirkelbana. Grönt visar vägen, blått förflyttningen och vitt den momentana hastigheten. Mätvärden nedanför.
+uppåt (+y)

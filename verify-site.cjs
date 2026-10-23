@@ -19,7 +19,7 @@ for(const [lang,p] of Object.entries(pages)){
  for(const kind of kinds){
   const html=read(p[kind]);expectedURLs.push(canonical(html));
   test(`${lang} ${kind}: language, content, metadata, headings, structured data and links`,()=>{
-   assert.ok(html.startsWith(`<!doctype html><html lang="${lang}">`));
+   assert.ok(html.startsWith(`<!doctype html><html lang="${lang}"${p.dir?` dir="${p.dir}"`:''}>`));
    assert.equal((html.match(/<h1\b/g)||[]).length,1);
    assert.equal((html.match(/<main\b/g)||[]).length,1);assert.equal((html.match(/<\/main>/g)||[]).length,1);
    assert.ok(!/__(?:H1|HEADER|FOOTER|MAIN)__/.test(html));

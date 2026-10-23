@@ -11,7 +11,7 @@ const make=(i,[c,s]=exactForms[i])=>{const m=new Wheel(i);m.setAnswer('cos',c);m
 
 test('exact forms and decimals are parsed, and exactness is detected',()=>{
  const cases=[['√3/2',Math.sqrt(3)/2,true],['sqrt(3)/2',Math.sqrt(3)/2,true],['−√2/2',-Math.SQRT1_2,true],['1/√2',Math.SQRT1_2,true],['-1/2',-.5,true],['1',1,true],['0',0,true],['2√2/4',Math.SQRT1_2,true],['√(3) / 2',Math.sqrt(3)/2,true],
-  ['0.866',.866,false],['-0,5',-.5,false],['.5',.5,false],['√0.75',Math.sqrt(.75),false]];
+  ['0.866',.866,false],['-0,5',-.5,false],['.5',.5,false],['√0.75',Math.sqrt(.75),false],['‎-0.866',-.866,false],['٠٫٥',.5,false],['√٣/٢',Math.sqrt(3)/2,true]];
  for(const [raw,value,exact] of cases){const p=Wheel.parse(raw);assert.ok(p,raw);near(p.value,value);assert.equal(p.exact,exact,raw);}
  for(const bad of ['','abc','1/0','√','1//2','2/3/4','√-3','--1','1e2'])assert.equal(Wheel.parse(bad),null,bad);
 });

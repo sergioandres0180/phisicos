@@ -3,10 +3,10 @@
 <head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Undo Machine · Phisicos</title>
 <style>
 .machine-page .question{font-size:15px;font-weight:600;margin-top:4px}.machine-page [hidden]{display:none!important}
-.machine-page .op-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:6px;margin-top:8px}.machine-page .op-grid button,.machine-page .sym-row button,.machine-page .edit-row button{min-height:44px;border:1px solid var(--line);border-radius:9px;background:#fff;font:600 15px ui-monospace,SFMono-Regular,monospace;color:var(--ink)}
+.machine-page .op-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:6px;margin-top:8px}.machine-page .op-grid button,.machine-page .sym-row button,.machine-page .edit-row button{min-height:44px;border:1px solid var(--line);border-radius:9px;background:#fff;font:600 15px ui-monospace,SFMono-Regular,PhisicosArabic,monospace;color:var(--ink)}
 .machine-page .sym-row{display:flex;gap:6px;margin-top:8px;flex-wrap:wrap}.machine-page .sym-row button{min-width:44px;padding:0 10px}.machine-page .sym-row button[aria-pressed=true]{background:#e4f3ed;border-color:#81bea8}
 .machine-page .edit-row{display:grid;grid-template-columns:1fr 1fr;gap:6px;margin-top:10px}.machine-page .edit-row button{font-family:inherit;font-size:14px}
-.machine-page .chain{display:block;margin-top:12px;padding:10px;border-radius:9px;background:#f2f6f9;border:1px solid var(--line);font:600 15px ui-monospace,SFMono-Regular,monospace;overflow-wrap:anywhere}
+.machine-page .chain{display:block;margin-top:12px;padding:10px;border-radius:9px;background:#f2f6f9;border:1px solid var(--line);font:600 15px ui-monospace,SFMono-Regular,PhisicosArabic,monospace;overflow-wrap:anywhere}
 </style>
 </head>
 <body>
@@ -208,7 +208,7 @@ globalThis.MachineModel=MachineModel;
     if(!ctx)return;
     const c=model.config,done=model.status==='done',t=model.now(),pos=model.position(t),values=$('show-values').checked;
     ctx.clearRect(0,0,width,height);
-    const label=(str,px,py,color='#b8ccdb',align='left',font=12,mono=false)=>{ctx.fillStyle=color;ctx.textAlign=align;ctx.font=(mono?'600 ':'')+font+'px '+(mono?'ui-monospace,SFMono-Regular,monospace':'-apple-system,BlinkMacSystemFont,sans-serif');ctx.fillText(str,px,py);};
+    const label=(str,px,py,color='#b8ccdb',align='left',font=12,mono=false)=>{ctx.fillStyle=color;ctx.textAlign=align;ctx.font=(mono?'600 ':'')+font+'px '+(mono?'ui-monospace,SFMono-Regular,PhisicosArabic,monospace':'-apple-system,BlinkMacSystemFont,sans-serif');ctx.fillText(str,px,py);};
     const line=(points,color,w=1,dash=[])=>{ctx.beginPath();ctx.strokeStyle=color;ctx.lineWidth=w;ctx.setLineDash(dash);points.forEach((p,i)=>i?ctx.lineTo(p.x,p.y):ctx.moveTo(p.x,p.y));ctx.stroke();ctx.setLineDash([]);};
     // A row of boxes joined by pipes: an input end, one box per operation, and an output end.
     const row=(items,y,color,fill)=>{const n=items.length,gap=(width-40)/n,xs=items.map((_,i)=>20+gap*(i+.5)),bw=Math.min(gap-14,120);line([{x:xs[0],y},{x:xs[n-1],y}],color,3);items.forEach((it,i)=>{ctx.fillStyle=it.end?'#102637':fill;ctx.strokeStyle=it.mark||color;ctx.lineWidth=2;ctx.fillRect(xs[i]-bw/2,y-22,bw,44);ctx.strokeRect(xs[i]-bw/2,y-22,bw,44);label(it.text,xs[i],y+6,it.mark||'#f2f8fc','center',width<430?12:15,true);if(it.sub)label(it.sub,xs[i],y+40,'#9fb6c7','center',11,true);});return xs;};

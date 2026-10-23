@@ -3,10 +3,10 @@
 <head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Formula Balance · Phisicos</title>
 <style>
 .balance-page .question{font-size:15px;font-weight:600;margin-top:4px}.balance-page [hidden]{display:none!important}
-.balance-page .op-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:6px;margin-top:8px}.balance-page .op-grid button,.balance-page .sym-row button,.balance-page .edit-row button{min-height:44px;border:1px solid var(--line);border-radius:9px;background:#fff;font:600 15px ui-monospace,SFMono-Regular,monospace;color:var(--ink)}
+.balance-page .op-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:6px;margin-top:8px}.balance-page .op-grid button,.balance-page .sym-row button,.balance-page .edit-row button{min-height:44px;border:1px solid var(--line);border-radius:9px;background:#fff;font:600 15px ui-monospace,SFMono-Regular,PhisicosArabic,monospace;color:var(--ink)}
 .balance-page .sym-row{display:flex;gap:6px;margin-top:8px;flex-wrap:wrap}.balance-page .sym-row button{min-width:44px;padding:0 10px}.balance-page .sym-row button[aria-pressed=true],.balance-page .segmented button[aria-pressed=true]{background:#e4f3ed;border-color:#81bea8}
 .balance-page .edit-row{display:grid;grid-template-columns:1fr 1fr;gap:6px;margin-top:10px}.balance-page .edit-row button{font-family:inherit;font-size:14px}
-.balance-page .equation-now{display:block;margin-top:12px;padding:10px;border-radius:9px;background:#f2f6f9;border:1px solid var(--line);font:600 16px ui-monospace,SFMono-Regular,monospace;overflow-wrap:anywhere}
+.balance-page .equation-now{display:block;margin-top:12px;padding:10px;border-radius:9px;background:#f2f6f9;border:1px solid var(--line);font:600 16px ui-monospace,SFMono-Regular,PhisicosArabic,monospace;overflow-wrap:anywhere}
 </style>
 </head>
 <body>
@@ -235,7 +235,7 @@ globalThis.BalanceModel=BalanceModel;
     const done=model.status==='done',live=$('show-live').checked,weighed=done||model.t>0,v=model.values(),side=model.isolatedSide(),target=model.config.target;
     const theta=weighed?model.angle(model.now()):live?model.equilibrium():0,level=model.balanced();
     ctx.clearRect(0,0,width,height);
-    const label=(str,px,py,color='#b8ccdb',align='left',font=12,mono=false)=>{ctx.fillStyle=color;ctx.textAlign=align;ctx.font=(mono?'600 ':'')+font+'px '+(mono?'ui-monospace,SFMono-Regular,monospace':'-apple-system,BlinkMacSystemFont,sans-serif');ctx.fillText(str,px,py);};
+    const label=(str,px,py,color='#b8ccdb',align='left',font=12,mono=false)=>{ctx.fillStyle=color;ctx.textAlign=align;ctx.font=(mono?'600 ':'')+font+'px '+(mono?'ui-monospace,SFMono-Regular,PhisicosArabic,monospace':'-apple-system,BlinkMacSystemFont,sans-serif');ctx.fillText(str,px,py);};
     const line=(points,color,w=1,dash=[])=>{ctx.beginPath();ctx.strokeStyle=color;ctx.lineWidth=w;ctx.setLineDash(dash);points.forEach((p,i)=>i?ctx.lineTo(p.x,p.y):ctx.moveTo(p.x,p.y));ctx.stroke();ctx.setLineDash([]);};
     label(text('canvasGoal',{s:target}),16,22,'#77b9ff','left',13);label(text('stepsLabel',{n:model.steps}),width-16,22,'#9fb6c7','right',11);
     // The equation, with = or ≠ once the pans have been weighed (or with live weighing on).

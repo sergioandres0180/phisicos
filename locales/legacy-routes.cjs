@@ -10,5 +10,11 @@ module.exports = {
  da: {"game":"/da/spil/fart-hastighed/", "lander":"/da/spil/manelander/", "pipeline":"/da/spil/enhedsomregning/", "scale":"/da/spil/titalspotenser/", "river":"/da/spil/flodkrydsning/", "walk":"/da/spil/orientering/", "forces":"/da/spil/kraftbord/", "ramp":"/da/spil/laesserampe/", "lighthouse":"/da/spil/fyrtaarn-vinkler/", "wheel":"/da/spil/pariserhjul/"},
  pt: {},
  hi: {},
- ja: {}
+ ja: {},
+ sv: {},
+ it: {},
+ ro: {},
+ pl: {},
+ tr: {},
+ ar: {}
 };

@@ -1,0 +1,235 @@
+PHISICOS
+01 / KİNEMATİK
+Sürat ve hız
+Aynı yolculuk. Ölçmenin iki farklı yolu.
+Sürat
+· skaler
+Hız
+· vektör
+01 · Fizik laboratuvarı
+02 · Pac-Man kovalamacası
+01 / Yolu ayarla
+↔ Doğrusal
+◯ Dairesel
+Başlangıç konumu
+Yolu veya başlangıcı değiştirmek yeni bir deney başlatır. Doğrusal pist ±10 m'de yansıtır.
+02 / Hareketi biçimlendir
+Süratin büyüklüğünü ayarla
+Yön
+Sağa (+x)
+Yönü ters çevir
+Teğetsel ivme
+Pozitif değer hızlandırır. Negatif değer durana kadar frenler. Hareket ayarları hemen uygulanır.
+03 / Gözlemle
+Vektör oklarını göster
+Alınan yolu göster
+Başlangıca dönünce duraklat
+Otomatik duraklatma ölçümü dondurur; sürati sıfırlamaz.
+Düz pist
+20 m pist · iki uçta ideal yansıma
+Hazır
+Tarayıcının HTML5 Canvas desteğine ihtiyacı var. Canlı sayısal ölçümler aşağıda.
+ANLIK SÜRAT / HIZ
+Koordinatlar metre cinsinden · +x sağa doğru
+Alınan yol
+Yer değiştirme Δr
+Anlık v
+▶ Oynat
+Ⅱ Duraklat
+Adım +0,10 s
+↺ Sıfırla
+Geçen süre
+Simülasyon süresi
+Toplam yol
+d · tüm yol
+Her zaman negatif olmayan
+Yer değiştirme
+x'teki işaretli değişim
+Ortalama sürat
+Skaler
+Ortalama hız
+İşaretli x bileşeni
+Oynat'a basmadan önce tahmin et
+Parçacık başlangıcına dönerse hangi ölçüm sıfır olur: alınan yol mu, yer değiştirme mi?
+Gidiş-dönüş görevi
+DENE
+−6 m'den başla, +8 m'deki hedefe uğra, sonra sıfır ortalama hızla −6 m'ye dön. Ortalama süratin pozitif kalabilir mi?
++8 m'ye uğra
+Başlangıca dön
+Görevi başlat ↗
+Süratini ve ivmeni seç, sonra görevi başlat.
+01 / Bir görev seç
+Hayaleti yakala
+Aradaki mesafeyi kapat. Noktaları topla.
+Sıfır hızlı tur
+48 m yol. Başladığın yere dönüş.
+Görev seçmek, önceden ayarlı süratlerle yeni bir deney başlatır. Denemek için onları değiştir.
+02 / Kovalamacayı ayarla
+Pac-Man'in sürati
+Hayaletin sürati
+Pac-Man'i ters çevir
+Pac-Man hayaleti saat yönünün tersine izler. Hayalet 12 m önde başlar.
+03 / Fiziği ortaya çıkar
+Hızı ve yer değiştirmeyi göster
+Pac-Man'in aldığı yolu göster
+Süratler köşelerde sabit kalır. Oklar her ideal dönüşten hemen sonraki yönü gösterir.
+PAC-MAN / FİZİK KOVALAMACASI
+16 × 8 m'lik tur · izle, dön, ölç
+Puan
+Noktalar · her biri 10 puan
+Pist boyunca ara mesafe (+q)
+Kovalamaca için HTML5 Canvas gerekir. Sayısal değerler aşağıda.
+PAC-MAN
+HAYALET
++x → · +y ↑ · hız vektörleri m/s cinsinden
+Pac-Man'in aldığı yol
+Pac-Man v
+Hayalet v
+▶ Kovala
+↺ Yeniden başlat
+PAC-MAN'İN ÖLÇÜMLERİ
+Süratin büyüklüğü vardır. Hızın ayrıca yönü de vardır.
+d · alınan tüm metreler
+Yer değiştirme |Δr|
+Ort. hız |v̄|
+Hareket eden bir hedefi yakalayabilir misin?
+Pac-Man 12 m geride başlar. 4 m/s'ye karşı 2 m/s ile kovalamacanın ne kadar süreceğini tahmin et. Sonra Kovala'ya bas.
+Görev: hayaleti yakala
+HAZIR
+Hayaletin yönünde daha hızlı giderek aradaki mesafeyi kapat. Yakalarsan 200 puan.
+Bir köşeyi dön
+Aynı sürat, yeni hız
++200 puan
+Bir turu tamamla
+Sıfır ortalama hız · +100
+Sürat ve hız neden farklı hikâyeler anlatır
+Alınan yol tüm yolculuğu hatırlar.
+Alınan yol, katedilen her metreyi toplar. Yer değiştirme, başlangıç noktasını şu anki noktaya bir yönle birleştirir.
+2B'de Δr = (Δx, Δy). Vektörün büyüklüğü |Δr| = √(Δx² + Δy²). Her zaman d ≥ |Δr|, dolayısıyla s̄ ≥ |v̄|.
+Dönmek, sabit süratte bile hızı değiştirir.
+Beyaz ok, yola teğet olan anlık hızdır. Büyüklüğü şu anki sürate eşittir. Bir çember üzerinde hızın yönü sürekli değişir.
+Kaydırıcı, sürati değiştiren teğetsel ivmeyi ayarlar. Dairesel pist ayrıca merkezcil ivme de sağlar. t = 0 anında ortalamalar tanımsızdır; duraklatma süre eklemez.
+Keşfet → tahmin et → ölç → açıkla
+Bağımsız HTML5 Canvas · SI birimleri ·
+Tasarım ve denklemler
+Bir deneyim seç
+Deney kontrolleri
+Yolun biçimi
+Hareket simülasyonu
+Doğrusal pistte bir parçacık. Yeşil yol alınan yolu, mavi ok yer değiştirmeyi, beyaz ok anlık hızı gösterir.
+Şekil açıklaması
+Canlı ölçümler
+Mini görev
+Kovalamaca kontrolleri
+Kovalamaca görevi
+Pac-Man kovalamaca simülasyonu
+Hareketli Pac-Man, dikdörtgen bir pistte bir hayaleti kovalar. Sarı, alınan yolu gösterir; mavi, Pac-Man'in başlangıcını şu anki konumuna bağlar; beyaz ve pembe oklar şu anki hızları gösterir. Sayısal ölçümler aşağıda.
+Pac-Man canlı ölçümleri
+Kovalamaca başarıları
+Çalışıyor
+Duraklatıldı
+Başlangıç açısı
+Yolu veya başlangıcı değiştirmek yeni bir deney başlatır. Açı +x'ten saat yönünün tersine ölçülür.
+Dairesel pist
+Yarıçap 6 m · çevre
++x →  ·  +y ↑  ·  hız çembere teğettir
+Parçacığın bulunduğu pist:
+Yeşil, alınan yolu gösterir; mavi yer değiştirme oku başlangıcı şu anki konuma bağlar; beyaz anlık hız oku hareket yönünü gösterir. Ölçümler aşağıda.
+Tek tur görevi
+Tam bir tur at ve başlangıcına dön. Anlık sürat pozitif kalırken ortalama hızı sıfır yap.
+Bir tur tamamla
+Saat yönünün tersine
+Saat yönünde
+Sola (−x)
+Başlangıca dönüldü. Alınan yol yine de sayılır.
+Alınan yol =
+m, yer değiştirme = 0 m. Ortalama sürat =
+m/s; ortalama hız = 0 m/s. Anlık sürat:
+Şu an durgun. Yolculuğun yine de bir ortalaması var.
+Anlık sürat ve hız sıfır. Zaman akarken ortalamalar durgun geçen bu süreyi de içerir. Yeniden hareket etmek için sürati veya ivmeyi artır.
+Sabit sürat. Değişen hız.
+Değişen sürat ve değişen yön.
+Hız oku teğet kalır. Mavi yer değiştirme oku çemberin içinden kestirmeden gider. Merkezcil ivme:
+m/s², teğetsel ivme ayarına ek olarak.
+Geri dönmek yola ekler ama yer değiştirmeyi sıfırlayabilir.
+Ortalama sürat:
+m/s. Ortalama hız:
+m/s: işareti, net konum değişiminin hangi yöne olduğunu gösterir.
+Tek yön: alınan yol = |yer değiştirme|.
+Ortalama sürat, ortalama hızın büyüklüğüne eşittir. Ölçümlerin ayrıldığını görmek için yönü ters çevir.
+TAMAMLANDI
+SÜRÜYOR
+Görevi yeniden başlat ↗
+Başarılı!
+m yol alındı, net yer değiştirme sıfır. Ortalama hızın neden sıfır olduğunu açıkla.
+Durdun. Devam etmek için sürati veya ivmeyi artır.
+Çemberin etrafında ilerlemeye devam et. Deney tam başlangıca döndüğünde duraklar.
+Hedefe ulaşıldı. Başlangıca dön; şimdi yönü çevir ya da duvarın seni döndürmesine izin ver.
++8 m'deki altın hedefe ulaş, sonra geri gel. Duvarlar yönünü tersine çevirir.
+Görev tamamlandı. Ortalama hız sıfır, sürat pozitif.
+Başlangıca dönüldü. Ortalama hız sıfır. Simülasyon duraklatıldı.
+Simülasyon çalışıyor
+Simülasyon duraklatıldı
+Deney sıfırlandı. Hazır.
+Yol değişti. Yeni deney.
+Yön ters çevrildi.
+Görev başladı.
+BAŞLANGIÇ
+YARI YOL
+HEDEF +8
+v oku 10,63 m/s ile sınırlandı
+Sekme gizli olduğu için duraklatıldı.
+Yakalandı!
+Temas
+Kovalıyor
+Hayaleti yakalama görevi hazır.
+Sıfır hızlı tur görevi hazır.
+Pac-Man saat yönünde, hayalet saat yönünün tersine gidiyor. Bu yönden gelen karşılaşma bir temas, kovalayıp yakalama değil.
+Bir yakalama ve bir tur. Sıfır ortalama hız!
+Koca bir yolculuk. Konumda net değişim sıfır.
+m yol alındı; geçen süre
+s. Ortalama sürat =
+m/s, ama ortalama hız = (0; 0) m/s. Pac-Man'in anlık sürati hâlâ
+Hayalet yakalandı! Alınan yol = |yer değiştirme|.
+Hayalet yakalandı! Rota kestirmeden daha uzundu.
+Hayalet sana ulaştı. Daha hızlı bir kovalamaca dene.
+Hayaleti yakalama süren:
+Bu karşılaşma, Pac-Man'in hayaleti geçmesi değildi.
+m; yer değiştirmenin büyüklüğü =
+m. Karşılaştır: ortalama sürat
+ve |ortalama hız|
+Tam bir tur sıfır ortalama hız verir mi?
+Pac-Man:
+m/s. Hayalet:
+Hayalet pist boyunca 12 m önde başlar. Bu süratler ve yönlerle ne zaman karşılaşacaklarını tahmin et. Sonra Kovala'ya bas.
+Bir turdan sonra hangisinin sıfır olacağını tahmin et: anlık sürat, ortalama sürat ya da ortalama hız.
+Pac-Man duruyor. Saat yine de işleyebilir.
+Şu anki sürat ve hız sıfır. Ortalama sürat, bekleme dahil tüm yolculuğu kullanır. Kovalamacaya devam etmek için Pac-Man'in süratini artır.
+Bir köşe, aynı süratte bile hızı değiştirir.
+Pac-Man'in şu anki sürati
+m/s; şu anki hızı
+m/s. Sarı rota her metreyi sayar; mavi vektör yalnızca başlangıcı ve şu anki konumu birleştirir.
+Aynı düz parça: sürat, hızın büyüklüğüdür.
+sağa (+x)
+sola (−x)
+aşağı (−y)
+Beyaz hız oku şu yönü gösteriyor:
+. Bir sonraki köşede dönüşünü izle. Hayaletin sürati, Pac-Man'in yer değiştirmesini değil, kovalamacanın ne zaman biteceğini belirlemeye yardım eder.
+Görev: sıfır hızlı tur
+TEKRAR DENE
+Hayaletle aynı süratte kal, 48 m'lik turu tamamla ve ortalama hızın neden sıfır olduğunu açıkla. İlk tam tur 100 puan kazandırır.
+Hayalet yakalandı. Alınan yolunu ve hızını gözden geçir.
+Hayalet sana ulaştı. Yeniden denemek için yeniden başlat.
+Başlangıca dönüldü. Ortalama hız sıfır; kovalamaca duraklatıldı.
+Kovalamaca sürüyor.
+Kovalamaca duraklatıldı.
+Kovalamaca yeniden başladı. Hazır.
+Pac-Man yön değiştirdi.
+HAYALET YAKALANDI!
+HAYALETLE TEMAS
+EVDE YAKALANDI!
+BAŞLANGICA DÖNÜLDÜ
+Sekme gizli olduğu için kovalamaca duraklatıldı.
+Doğrusal pistte bir parçacık. Yeşil yolu, mavi yer değiştirmeyi, beyaz anlık hızı gösterir. Ölçümler aşağıda.
+Dairesel pistte bir parçacık. Yeşil yolu, mavi yer değiştirmeyi, beyaz anlık hızı gösterir. Ölçümler aşağıda.
+yukarı (+y)

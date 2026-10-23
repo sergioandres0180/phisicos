@@ -1,0 +1,235 @@
+PHISICOS
+01 / KINEMATYKA
+Szybkość i prędkość
+Ta sama podróż. Dwa różne sposoby jej mierzenia.
+Szybkość
+· skalar
+Prędkość
+· wektor
+01 · Laboratorium fizyczne
+02 · Pościg Pac-Mana
+01 / Ustaw tor
+↔ Prosty
+◯ Kołowy
+Położenie początkowe
+Zmiana toru lub punktu startu rozpoczyna nowy przebieg. Tor prosty odbija cząstkę przy ±10 m.
+02 / Kształtuj ruch
+Ustaw wartość szybkości
+Kierunek
+W prawo (+x)
+Odwróć kierunek
+Przyspieszenie styczne
+Dodatnie przyspiesza. Ujemne hamuje do zatrzymania. Ustawienia ruchu działają natychmiast.
+03 / Obserwuj
+Pokaż strzałki wektorów
+Pokaż przebytą drogę
+Zatrzymaj po powrocie na start
+Automatyczna pauza zamraża pomiar; nie zeruje szybkości.
+Tor prosty
+Tor o długości 20 m · idealne odbicia na obu końcach
+Gotowe
+Twoja przeglądarka musi obsługiwać HTML5 Canvas. Pomiary liczbowe na żywo znajdziesz poniżej.
+SZYBKOŚĆ / PRĘDKOŚĆ CHWILOWA
+Współrzędne w metrach · +x w prawo
+Przebyta droga
+Przemieszczenie Δr
+Chwilowe v
+▶ Start
+Ⅱ Pauza
+Krok +0,10 s
+↺ Resetuj
+Upływ czasu
+Czas symulacji
+Całkowita droga
+d · cała trasa
+Zawsze nieujemna
+Przemieszczenie
+Zmiana x ze znakiem
+Szybkość średnia
+Skalar
+Prędkość średnia
+Składowa x ze znakiem
+Przewiduj, zanim naciśniesz start
+Jeśli cząstka wróci na start, która wielkość będzie równa zeru: droga czy przemieszczenie?
+Wyzwanie tam i z powrotem
+SPRÓBUJ
+Wystartuj z −6 m, dotrzyj do celu w +8 m, a potem wróć do −6 m z zerową prędkością średnią. Czy twoja szybkość średnia może pozostać dodatnia?
+Dotrzyj do +8 m
+Wróć na start
+Rozpocznij wyzwanie ↗
+Wybierz szybkość i przyspieszenie, a potem rozpocznij wyzwanie.
+01 / Wybierz misję
+Złap ducha
+Zmniejsz dystans. Zbieraj kropki.
+Okrążenie z zerową prędkością
+48 m drogi. Powrót do punktu wyjścia.
+Wybór misji rozpoczyna nowy przebieg z ustawionymi szybkościami. Zmieniaj je, aby eksperymentować.
+02 / Ustaw pościg
+Szybkość Pac-Mana
+Szybkość ducha
+Odwróć Pac-Mana
+Pac-Man goni ducha przeciwnie do ruchu wskazówek zegara. Duch startuje 12 m przed nim.
+03 / Odkryj fizykę
+Pokaż prędkość i przemieszczenie
+Pokaż drogę przebytą przez Pac-Mana
+Szybkości pozostają stałe na zakrętach. Strzałki pokazują kierunek tuż po każdym idealnym skręcie.
+PAC-MAN / FIZYCZNY POŚCIG
+Pętla 16 × 8 m · goń, skręcaj, mierz
+Wynik
+Kropki · po 10 pkt
+Odstęp wzdłuż toru (+q)
+Pościg wymaga HTML5 Canvas. Odczyty liczbowe pojawiają się poniżej.
+PAC-MAN
+DUCH
++x → · +y ↑ · wektory prędkości w m/s
+Droga Pac-Mana
+v Pac-Mana
+v ducha
+▶ Goń
+↺ Od nowa
+POMIARY PAC-MANA
+Szybkość ma wartość. Prędkość ma także kierunek.
+d · wszystkie przebyte metry
+Przemieszczenie |Δr|
+Śr. prędkość |v̄|
+Czy złapiesz ruchomy cel?
+Pac-Man startuje 12 m z tyłu. Przy 4 m/s wobec 2 m/s przewidź, ile potrwa pościg. Potem naciśnij Goń.
+Misja: złap ducha
+GOTOWE
+Nadrabiaj dystans, poruszając się szybciej w kierunku ducha. Złap go, a zdobędziesz 200 punktów.
+Skręć
+Ta sama szybkość, nowa prędkość
++200 punktów
+Pokonaj okrążenie
+Zerowa prędkość średnia · +100
+Dlaczego szybkość i prędkość opowiadają różne historie
+Droga pamięta całą podróż.
+Droga sumuje każdy przebyty metr. Przemieszczenie łączy punkt startu z bieżącym położeniem i ma kierunek.
+W 2D Δr = (Δx; Δy). Wartość wektora to |Δr| = √(Δx² + Δy²). Zawsze d ≥ |Δr|, więc s̄ ≥ |v̄|.
+Skręt zmienia prędkość, nawet przy stałej szybkości.
+Biała strzałka to prędkość chwilowa, styczna do toru. Jej wartość jest równa bieżącej szybkości. Na okręgu prędkość nieustannie zmienia kierunek.
+Suwak ustawia przyspieszenie styczne, które zmienia szybkość. Tor kołowy dostarcza też przyspieszenia dośrodkowego. W chwili t = 0 średnie są nieokreślone; pauza nie dodaje czasu.
+Badaj → przewiduj → mierz → wyjaśniaj
+Samodzielny HTML5 Canvas · jednostki SI ·
+Projekt i równania
+Wybierz doświadczenie
+Sterowanie eksperymentem
+Kształt toru
+Symulacja ruchu
+Cząstka na torze prostym. Zielona linia pokazuje drogę, niebieska strzałka przemieszczenie, a biała strzałka prędkość chwilową.
+Legenda rysunku
+Pomiary na żywo
+Mini wyzwanie
+Sterowanie pościgiem
+Misja pościgu
+Symulacja pościgu Pac-Mana
+Animowany Pac-Man goni ducha po prostokątnym torze. Żółty kolor oznacza przebytą drogę, niebieski łączy start Pac-Mana z jego bieżącym położeniem, a białe i różowe strzałki pokazują bieżące prędkości. Pomiary liczbowe są poniżej.
+Pomiary Pac-Mana na żywo
+Osiągnięcia w pościgu
+W ruchu
+Pauza
+Kąt początkowy
+Zmiana toru lub punktu startu rozpoczyna nowy przebieg. Kąt mierzy się przeciwnie do ruchu wskazówek zegara od +x.
+Tor kołowy
+Promień 6 m · obwód
++x →  ·  +y ↑  ·  prędkość jest styczna do okręgu
+Cząstka na torze
+Zielony kolor oznacza przebytą drogę; niebieska strzałka przemieszczenia łączy start z bieżącym położeniem; biała strzałka prędkości chwilowej wskazuje kierunek ruchu. Pomiary znajdują się poniżej.
+Wyzwanie jednego okrążenia
+Pokonaj pełne okrążenie i wróć na start. Uzyskaj zerową prędkość średnią, utrzymując dodatnią szybkość chwilową.
+Pokonaj jedno okrążenie
+Przeciwnie do wskazówek zegara
+Zgodnie z ruchem wskazówek zegara
+W lewo (−x)
+Z powrotem na starcie. Droga wciąż się liczy.
+Droga =
+m, przemieszczenie = 0 m. Szybkość średnia =
+m/s; prędkość średnia = 0 m/s. Szybkość chwilowa wynosi
+Teraz w spoczynku. Podróż wciąż ma średnią.
+Szybkość i prędkość chwilowa są równe zeru. Dopóki czas płynie, średnie uwzględniają ten czas spędzony w spoczynku. Zwiększ szybkość lub przyspieszenie, aby znów ruszyć.
+Stała szybkość. Zmienna prędkość.
+Zmienna szybkość i zmienny kierunek.
+Strzałka prędkości pozostaje styczna. Niebieska strzałka przemieszczenia idzie na skróty przez okrąg. Przyspieszenie dośrodkowe wynosi
+m/s², oprócz ustawionego przyspieszenia stycznego.
+Zawrócenie dodaje drogi, ale może zniwelować przemieszczenie.
+Szybkość średnia wynosi
+m/s. Prędkość średnia wynosi
+m/s: jej znak mówi, w którą stronę wskazuje wypadkowa zmiana położenia.
+Jeden kierunek: droga = |przemieszczenie|.
+Szybkość średnia jest równa wartości prędkości średniej. Odwróć kierunek, aby zobaczyć, jak pomiary się rozchodzą.
+UKOŃCZONE
+W TOKU
+Zacznij wyzwanie od nowa ↗
+Sukces!
+m przebytej drogi, zerowe przemieszczenie wypadkowe. Wyjaśnij, dlaczego prędkość średnia jest równa zeru.
+Ruch ustał. Zwiększ szybkość lub przyspieszenie, aby kontynuować.
+Poruszaj się dalej po okręgu. Przebieg zatrzyma się dokładnie w chwili powrotu.
+Cel osiągnięty. Wróć na start; zawróć teraz albo pozwól, by zawróciła cię ściana.
+Dotrzyj do złotego celu w +8 m, a potem wróć. Ściany odwracają twój kierunek.
+Wyzwanie ukończone. Prędkość średnia jest równa zeru, a szybkość jest dodatnia.
+Powrót na start. Prędkość średnia jest równa zeru. Symulacja jest wstrzymana.
+Symulacja działa
+Symulacja wstrzymana
+Przebieg zresetowany. Gotowe.
+Tor zmieniony. Nowy przebieg.
+Kierunek odwrócony.
+Wyzwanie rozpoczęte.
+START
+POŁOWA
+CEL +8
+strzałka v ograniczona do 10,63 m/s
+Wstrzymano, ponieważ karta jest ukryta.
+Złapany!
+Kontakt
+Pościg
+Misja „Złap ducha” gotowa.
+Misja „Okrążenie z zerową prędkością” gotowa.
+Pac-Man porusza się zgodnie z ruchem wskazówek zegara, a duch przeciwnie. Spotkanie z tego kierunku to kontakt, a nie złapanie w pościgu.
+Złapanie i okrążenie. Zerowa prędkość średnia!
+Cała podróż. Zerowa wypadkowa zmiana położenia.
+m przebyte w
+s. Szybkość średnia =
+m/s, ale prędkość średnia = (0; 0) m/s. Szybkość chwilowa Pac-Mana wciąż wynosi
+Duch złapany! Droga = |przemieszczenie|.
+Duch złapany! Trasa była dłuższa niż skrót.
+Duch cię dopadł. Spróbuj szybszego pościgu.
+Duch złapany w czasie
+To spotkanie nie polegało na wyprzedzeniu ducha przez Pac-Mana.
+m; wartość przemieszczenia =
+m. Porównaj szybkość średnią
+z |prędkością średnią|
+Czy pełne okrążenie da zerową prędkość średnią?
+Pac-Man:
+m/s. Duch:
+Duch startuje 12 m przed Pac-Manem wzdłuż toru. Przy tych szybkościach i kierunkach przewidź, kiedy się spotkają. Potem naciśnij Goń.
+Przewidź, co po okrążeniu będzie równe zeru: szybkość chwilowa, szybkość średnia czy prędkość średnia.
+Pac-Man stoi w miejscu. Zegar może nadal tykać.
+Bieżąca szybkość i prędkość są równe zeru. Szybkość średnia uwzględnia całą podróż, łącznie z czekaniem. Zwiększ szybkość Pac-Mana, aby kontynuować pościg.
+Zakręt zmienia prędkość, nawet przy tej samej szybkości.
+Bieżąca szybkość Pac-Mana wynosi
+m/s; bieżąca prędkość wynosi
+m/s. Żółta trasa liczy każdy metr; niebieski wektor łączy tylko start z bieżącym położeniem.
+Ten sam prosty odcinek: szybkość to wartość prędkości.
+w prawo (+x)
+w lewo (−x)
+w dół (−y)
+Biała strzałka prędkości wskazuje
+. Zobacz, jak obraca się na następnym zakręcie. Szybkość ducha pomaga ustalić, kiedy kończy się pościg, a nie przemieszczenie Pac-Mana.
+Misja: okrążenie z zerową prędkością
+SPRÓBUJ PONOWNIE
+Utrzymaj tę samą szybkość co duch, pokonaj pętlę 48 m i wyjaśnij, dlaczego prędkość średnia jest równa zeru. Pierwsze pełne okrążenie daje 100 punktów.
+Duch złapany. Przeanalizuj swoją drogę i prędkość.
+Duch cię dopadł. Zacznij od nowa, aby spróbować ponownie.
+Powrót na start. Prędkość średnia jest równa zeru; pościg wstrzymany.
+Pościg trwa.
+Pościg wstrzymany.
+Pościg zaczęty od nowa. Gotowe.
+Pac-Man odwrócił kierunek.
+DUCH ZŁAPANY!
+KONTAKT Z DUCHEM
+ZŁAPANY PRZY STARCIE!
+Z POWROTEM NA STARCIE
+Pościg wstrzymany, ponieważ karta jest ukryta.
+Cząstka na torze prostym. Zielony kolor pokazuje drogę, niebieski przemieszczenie, a biały prędkość chwilową. Pomiary poniżej.
+Cząstka na torze kołowym. Zielony kolor pokazuje drogę, niebieski przemieszczenie, a biały prędkość chwilową. Pomiary poniżej.
+w górę (+y)

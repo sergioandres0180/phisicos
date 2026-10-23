@@ -1,6 +1,6 @@
 # Upload Phisicos to shared hosting
 
-Prepared for **https://phisicos.com/** at the domain root, using Apache 2.4 or compatible LiteSpeed hosting (typical cPanel hosting). All 374 pages in eleven languages are already built. The games run as HTML, CSS and JavaScript. No database, PHP setup, Composer, Node.js, or build step is required on the server.
+Prepared for **https://phisicos.com/** at the domain root, using Apache 2.4 or compatible LiteSpeed hosting (typical cPanel hosting). All 1,540 pages in fourteen languages are already built. The games run as HTML, CSS and JavaScript. No database, PHP setup, Composer, Node.js, or build step is required on the server.
 
 ## Upload
 
@@ -12,21 +12,21 @@ Prepared for **https://phisicos.com/** at the domain root, using Apache 2.4 or c
 
 ## Verify after upload
 
-- `https://phisicos.com/` displays the homepage. All seven games work, including Play, Pause, Reset, parameter controls, and language changes.
+- `https://phisicos.com/` displays the homepage. Every game works, including Play, Pause, Reset, parameter controls, and language changes.
 - `http://phisicos.com/` and `https://www.phisicos.com/` permanently redirect to `https://phisicos.com/`. Test a game URL too; the path must be preserved.
-- `https://phisicos.com/games/lunar-lander/index.html` redirects to `/games/lunar-lander/`. Directory URLs without a trailing slash also redirect to their canonical form.
+- `https://phisicos.com/games/motion/lunar-lander/index.html` redirects to `/games/motion/lunar-lander/`. Directory URLs without a trailing slash also redirect to their canonical form.
 - `https://phisicos.com/a-page-that-does-not-exist/` displays the custom error page with **HTTP status 404**, not 200. A browser's Network panel shows the status.
 - Old game URLs from before topic browsing, such as `https://phisicos.com/games/lunar-lander/`, return a single 301 redirect to the new topic URL (`/games/motion/lunar-lander/`). Keep these redirects in place so existing links and search results keep working; Search Console will pick up the new URLs from the sitemap.
-- `https://phisicos.com/robots.txt` says `Allow: /` and links to the production sitemap. The sitemap lists exactly 374 HTTPS URLs. Pages must not be password-protected or blocked by a hosting maintenance mode.
+- `https://phisicos.com/robots.txt` says `Allow: /` and links to the production sitemap. The sitemap lists exactly 1,540 HTTPS URLs. Pages must not be password-protected or blocked by a hosting maintenance mode.
 - Page source shows the correct `https://phisicos.com/...` canonical and the appropriate language alternates. Only the error page and internal design guide are marked noindex.
 - The social preview is available at `https://phisicos.com/assets/social-preview.png`.
-- Google Tag Manager container **GTM-TZH7L6DT** is installed on all 374 pages and the 404 page. After upload, use GTM Preview / Tag Assistant to verify the live container and its tags. Tag configuration and publishing happen in your GTM account. Local preview builds omit tracking.
+- Google Tag Manager container **GTM-TZH7L6DT** is installed on all 1,540 pages and the 404 page. After upload, use GTM Preview / Tag Assistant to verify the live container and its tags. Tag configuration and publishing happen in your GTM account. Local preview builds omit tracking.
 
 After these checks, verify ownership of the **phisicos.com domain property** in Google Search Console (using the DNS record Google supplies), then submit `https://phisicos.com/sitemap.xml`. Inspect the homepage and each game. Search Console setup requires your account and DNS access; it is not included in the ZIP. Indexing and rankings are determined by search engines and are not guaranteed.
 
 ## What's included
 
-- Unique titles and descriptions, self-canonical links, eleven reciprocal language alternates plus `x-default`, and server-delivered educational content on all 374 pages.
+- Unique titles and descriptions, self-canonical links, fourteen reciprocal language alternates plus `x-default`, and server-delivered educational content on all 1,540 pages.
 - JSON-LD for the website, pages, breadcrumbs, and games; a canonical sitemap and production robots.txt.
 - Open Graph and Twitter large-image metadata, a 1200 × 630 PNG, and site/touch icons.
 - HTTP-to-HTTPS and preferred-domain permanent redirects; duplicate `index.html` redirects; real missing-page responses.

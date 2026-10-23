@@ -1,0 +1,235 @@
+PHISICOS
+01 / CINEMATICĂ
+Viteză scalară și vectorială
+Aceeași călătorie. Două feluri de a o măsura.
+Viteză scalară
+· scalar
+Viteză vectorială
+· vector
+01 · Laborator de fizică
+02 · Urmărire Pac-Man
+01 / Stabilește traseul
+↔ Drept
+◯ Circular
+Poziția de plecare
+Schimbarea traseului sau a startului începe o probă nouă. Pista dreaptă ricoșează la ±10 m.
+02 / Modelează mișcarea
+Setează mărimea vitezei
+Direcție
+Dreapta (+x)
+Inversează direcția
+Accelerație tangențială
+Pozitivă accelerează. Negativă frânează până la oprire. Comenzile mișcării acționează imediat.
+03 / Observă
+Arată săgețile vectorilor
+Arată drumul parcurs
+Pauză la revenirea la start
+O pauză automată îngheață măsurarea; nu anulează viteza.
+Pista dreaptă
+Pistă de 20 m · ricoșeuri ideale la ambele capete
+Gata
+Browserul tău trebuie să suporte HTML5 Canvas. Măsurătorile numerice în timp real sunt mai jos.
+VITEZĂ SCALARĂ / VECTORIALĂ INSTANTANEE
+Coordonate în metri · +x arată spre dreapta
+Drum parcurs
+Deplasare Δr
+v instantanee
+▶ Pornește
+Ⅱ Pauză
+Pas +0,10 s
+↺ Resetează
+Timp scurs
+Timpul simulării
+Distanță totală
+d · tot drumul
+Niciodată negativă
+Deplasare
+Variația lui x cu semn
+Viteză scalară medie
+Scalar
+Viteză vectorială medie
+Componenta x cu semn
+Prezice înainte să apeși Pornește
+Dacă particula revine la start, care măsură devine zero: distanța sau deplasarea?
+Provocarea dus-întors
+ÎNCEARCĂ
+Pornește de la −6 m, atinge ținta de la +8 m, apoi revino la −6 m cu viteză vectorială medie zero. Poate viteza scalară medie să rămână pozitivă?
+Atinge +8 m
+Revino la start
+Începe provocarea ↗
+Alege viteza și accelerația, apoi începe provocarea.
+01 / Alege o misiune
+Prinde fantoma
+Redu distanța. Adună punctele.
+Turul cu viteză zero
+48 m de drum. Înapoi de unde ai plecat.
+Alegerea unei misiuni începe o probă nouă cu viteze presetate. Ajustează-le ca să experimentezi.
+02 / Pregătește urmărirea
+Viteza lui Pac-Man
+Viteza fantomei
+Inversează Pac-Man
+Pac-Man urmărește fantoma în sens trigonometric. Fantoma pornește cu 12 m în față.
+03 / Dezvăluie fizica
+Arată viteza și deplasarea
+Arată drumul parcurs de Pac-Man
+Vitezele rămân constante în viraje. Săgețile arată direcția imediat după fiecare viraj ideal.
+PAC-MAN / URMĂRIREA FIZICĂ
+Buclă de 16 × 8 m · urmărește, virează, măsoară
+Scor
+Puncte · câte 10 fiecare
+Distanță de-a lungul pistei (+q)
+Urmărirea necesită HTML5 Canvas. Citirile numerice sunt mai jos.
+PAC-MAN
+FANTOMĂ
++x → · +y ↑ · vectori viteză în m/s
+Distanța lui Pac-Man
+v a lui Pac-Man
+v a fantomei
+▶ Urmărește
+↺ Reîncepe
+MĂSURĂTORILE LUI PAC-MAN
+Viteza scalară are o mărime. Cea vectorială are și o direcție.
+d · toți metrii parcurși
+Deplasare |Δr|
+Viteză vect. medie |v̄|
+Poți prinde o țintă în mișcare?
+Pac-Man pornește cu 12 m în urmă. La 4 m/s față de 2 m/s, prezice cât va dura urmărirea. Apoi apasă Urmărește.
+Misiune: prinde fantoma
+GATA
+Câștigă teren mișcându-te mai repede în direcția fantomei. Prinde-o pentru 200 de puncte.
+Ia o curbă
+Aceeași viteză scalară, altă viteză vectorială
++200 de puncte
+Completează un tur
+Viteză vectorială medie zero · +100
+De ce viteza scalară și cea vectorială spun povești diferite
+Distanța ține minte toată călătoria.
+Distanța adună fiecare metru parcurs. Deplasarea leagă punctul de plecare de punctul actual, cu o direcție.
+În 2D, Δr = (Δx, Δy). Mărimea vectorului este |Δr| = √(Δx² + Δy²). Întotdeauna d ≥ |Δr|, deci s̄ ≥ |v̄|.
+Virajul schimbă viteza vectorială, chiar și la viteză scalară constantă.
+Săgeata albă este viteza instantanee, tangentă la traseu. Mărimea ei este egală cu viteza scalară actuală. Pe un cerc, viteza își schimbă continuu direcția.
+Cursorul controlează accelerația tangențială, care schimbă viteza scalară. Pista circulară dă și o accelerație centripetă. La t = 0 mediile nu sunt definite; o pauză nu adaugă timp.
+Explorează → prezice → măsoară → explică
+HTML5 Canvas autonom · unități SI ·
+Design și ecuații
+Alege o experiență
+Comenzile experimentului
+Forma traseului
+Simularea mișcării
+O particulă pe o pistă dreaptă. Drumul verde arată distanța, săgeata albastră deplasarea, iar săgeata albă viteza instantanee.
+Legenda diagramei
+Măsurători în timp real
+Mini provocare
+Comenzile urmăririi
+Misiunea urmăririi
+Simularea urmăririi Pac-Man
+Pac-Man animat urmărește o fantomă pe o pistă dreptunghiulară. Galbenul arată distanța parcursă, albastrul leagă startul lui Pac-Man de poziția lui actuală, iar săgețile albă și roz arată vitezele actuale. Măsurătorile numerice sunt mai jos.
+Măsurătorile lui Pac-Man în timp real
+Etapele urmăririi
+În desfășurare
+În pauză
+Unghi inițial
+Schimbarea traseului sau a startului începe o probă nouă. Unghiul se măsoară în sens trigonometric de la +x.
+Pista circulară
+Rază 6 m · circumferință
++x →  ·  +y ↑  ·  viteza este tangentă la cerc
+Particulă pe o pistă
+Verdele arată drumul parcurs; săgeata albastră a deplasării leagă startul de poziția actuală; săgeata albă a vitezei instantanee arată sensul mișcării. Măsurătorile urmează mai jos.
+Provocarea unui singur tur
+Completează un tur întreg și revino la start. Fă viteza vectorială medie zero în timp ce viteza scalară instantanee rămâne pozitivă.
+Completează un tur
+Sens trigonometric
+Sens orar
+Stânga (−x)
+Înapoi la start. Distanța contează totuși.
+Distanță =
+m, deplasare = 0 m. Viteză scalară medie =
+m/s; viteză vectorială medie = 0 m/s. Viteza scalară instantanee este
+Oprit, acum. Călătoria are totuși o medie.
+Viteza scalară și cea vectorială instantanee sunt zero. Cât timp ceasul merge, mediile includ acest timp petrecut pe loc. Mărește viteza sau accelerația ca să te miști din nou.
+Viteză scalară constantă. Viteză vectorială care se schimbă.
+Se schimbă și viteza scalară, și direcția.
+Săgeata vitezei rămâne tangentă. Săgeata albastră a deplasării taie prin cerc. Accelerația centripetă este
+m/s², pe lângă cea tangențială setată.
+O întoarcere adaugă distanță, dar poate anula deplasarea.
+Viteza scalară medie este
+m/s. Viteza vectorială medie este
+m/s: semnul ei arată încotro indică variația netă a poziției.
+O singură direcție: distanță = |deplasare|.
+Viteza scalară medie este egală cu mărimea vitezei vectoriale medii. Inversează direcția ca să vezi măsurătorile despărțindu-se.
+COMPLETATĂ
+ÎN DESFĂȘURARE
+Reîncepe provocarea ↗
+Ai reușit!
+m parcurși, deplasare netă zero. Explică de ce viteza vectorială medie este zero.
+Te-ai oprit. Mărește viteza sau accelerația ca să continui.
+Continuă să mergi pe cerc. Proba se oprește exact când revii.
+Țintă atinsă. Revino la start: inversează acum sau lasă peretele să te întoarcă.
+Atinge ținta aurie de la +8 m, apoi întoarce-te. Pereții îți inversează direcția.
+Provocare completată. Viteza vectorială medie este zero, iar viteza scalară este pozitivă.
+Înapoi la start. Viteza vectorială medie este zero. Simularea este în pauză.
+Simulare în desfășurare
+Simulare în pauză
+Probă resetată. Gata.
+Traseu schimbat. Probă nouă.
+Direcție inversată.
+Provocare începută.
+START
+JUMĂTATE
+ȚINTĂ +8
+săgeata v limitată la 10,63 m/s
+În pauză pentru că fila este ascunsă.
+Prinsă!
+Contact
+Urmărire
+Misiunea „Prinde fantoma” e gata.
+Misiunea „Turul cu viteză zero” e gata.
+Pac-Man se mișcă în sens orar; fantoma în sens trigonometric. O întâlnire din această direcție este un contact, nu o prindere într-o urmărire.
+O prindere și un tur. Viteză vectorială medie zero!
+O călătorie întreagă. Variație netă a poziției zero.
+m parcurși în
+s. Viteză scalară medie =
+m/s, dar viteză vectorială medie = (0; 0) m/s. Viteza scalară instantanee a lui Pac-Man este încă
+Fantomă prinsă! Distanță = |deplasare|.
+Fantomă prinsă! Drumul a fost mai lung decât scurtătura.
+Fantoma te-a ajuns. Încearcă o urmărire mai rapidă.
+Ai prins fantoma în
+Această întâlnire nu a fost Pac-Man depășind fantoma.
+m; mărimea deplasării =
+m. Compară viteza scalară medie
+cu |viteza vectorială medie|
+Un tur complet va da viteză vectorială medie zero?
+Pac-Man:
+m/s. Fantomă:
+Fantoma pornește cu 12 m în față pe pistă. Cu aceste viteze și direcții, prezice când se vor întâlni. Apoi apasă Urmărește.
+Prezice ce devine zero după un tur: viteza scalară instantanee, viteza scalară medie sau viteza vectorială medie.
+Pac-Man stă pe loc. Ceasul poate merge totuși.
+Viteza scalară și cea vectorială actuale sunt zero. Viteza scalară medie folosește toată călătoria, inclusiv așteptările. Mărește viteza lui Pac-Man ca să continui urmărirea.
+Un colț schimbă viteza vectorială, chiar la aceeași viteză scalară.
+Viteza scalară actuală a lui Pac-Man este
+m/s; viteza lui vectorială actuală este
+m/s. Drumul galben numără fiecare metru; vectorul albastru leagă doar startul de poziția actuală.
+Același tronson drept: viteza scalară este mărimea vitezei vectoriale.
+dreapta (+x)
+stânga (−x)
+jos (−y)
+Săgeata albă a vitezei arată spre
+. Privește-o rotindu-se la următorul colț. Viteza fantomei ajută la stabilirea momentului în care se termină urmărirea, nu deplasarea lui Pac-Man.
+Misiune: turul cu viteză zero
+ÎNCEARCĂ DIN NOU
+Păstrează aceeași viteză ca fantoma, completează bucla de 48 m și explică de ce viteza vectorială medie este zero. Primul tur complet valorează 100 de puncte.
+Fantomă prinsă. Revezi distanța și viteza.
+Fantoma te-a ajuns. Reîncepe ca să încerci din nou.
+Înapoi la start. Viteza vectorială medie este zero; urmărirea este în pauză.
+Urmărire în desfășurare.
+Urmărire în pauză.
+Urmărire reîncepută. Gata.
+Pac-Man și-a inversat direcția.
+FANTOMĂ PRINSĂ!
+CONTACT CU FANTOMA
+PRINSĂ ACASĂ!
+ÎNAPOI LA START
+Urmărire în pauză pentru că fila este ascunsă.
+O particulă pe o pistă dreaptă. Verdele arată drumul, albastrul deplasarea, iar albul viteza instantanee. Măsurători mai jos.
+O particulă pe o pistă circulară. Verdele arată drumul, albastrul deplasarea, iar albul viteza instantanee. Măsurători mai jos.
+sus (+y)
