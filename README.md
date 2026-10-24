@@ -38,7 +38,7 @@ English stays at `/`; there is no duplicate `/en/` homepage. Every localized pag
 
 ## Topics
 
-Games are grouped into fifteen topics: Motion (Train Track, Lift Trips, Dog Walk, speed & velocity, Graph Rider, Galileo's Bells, Stop on the Line, Drop Test, Straight Up, Reaction Ruler, Lunar Lander), Measurement (Unit Pipeline, Powers-of-Ten Probe), Formulas (Formula Balance, Undo Machine, Formula Test Drive), Vectors (River Crossing, Orienteering Walk, Force Table), Trigonometry (Loading Ramp, Lighthouse Rescue, Ferris Wheel), Projectile motion (Air Drop, Two Shadows, Range Cannon), Circular motion (Carousel, Spin Station, Curve Ahead), Gravitation (Planet Scale, Satellite Launch, Kepler's Clock), Statics (Hanging Sign, Seesaw, Plank Bridge), Torque and rotation (Stuck Bolt, Forklift, Flywheel Race, Lever Lab, Force for Distance), Centre of mass (Balance Point, Hanging Mobile, Block Tower), Fluids (Density Detective, Barge Load, Deep Dive, Weighed Under Water, Balloon Lift, Torricelli's Tube, Magdeburg Hemispheres, Hydraulic Lift, Pascal's Barrel), Fluids in motion (Leaky Tank, Venturi Pipe, Storm and Wing), Oscillations (Metronome Studio, Harbour Buoy, Seismograph, Pendulum Clock, Wrecking Ball, Big and Fading Swings, Spring Bounce, Spring Shop, Spring Launcher, Swing and Resonance), and Waves (Rope Pulse, Pebble Ripples, Power on a Rope, Ripple Tank Ruler, Wave Machine, String Tuner, Strobe Freeze, Surfer's Wait, Tide Clock, Rope Tension Lab, Tsunami Race, Slinky Lab, Earthquake P and S, Echo Sounder, Bank Shot Ripples, Shallow Beach, Spearfishing, Two Speakers, Beat Tuner, Harbour Gap, Laser Slit, Ambulance Pass-by, Paddling Duck, Decibel Meter, Bottle Flute, Antenna Workshop, Sound in Slow Motion). Each game route nests under its topic: `<games index>/<topic>/<game>/`. The games index lists the topics, and each topic page lists its games in the suggested playing order, followed by the other topics. Breadcrumbs (visible and in JSON-LD) follow the URL: Home / Topics / topic / game. The header has a Topics link and a Games menu grouped by topic. The homepage shows the topic tiles first, then every game card under its topic heading.
+Games are grouped into seventeen topics: Motion (Train Track, Lift Trips, Dog Walk, speed & velocity, Graph Rider, Galileo's Bells, Stop on the Line, Drop Test, Straight Up, Reaction Ruler, Lunar Lander), Measurement (Unit Pipeline, Powers-of-Ten Probe), Formulas (Formula Balance, Undo Machine, Formula Test Drive), Vectors (River Crossing, Orienteering Walk, Force Table), Trigonometry (Loading Ramp, Lighthouse Rescue, Ferris Wheel), Projectile motion (Air Drop, Two Shadows, Range Cannon), Circular motion (Carousel, Spin Station, Curve Ahead), Gravitation (Planet Scale, Satellite Launch, Kepler's Clock), Statics (Hanging Sign, Seesaw, Plank Bridge), Torque and rotation (Stuck Bolt, Forklift, Flywheel Race, Lever Lab, Force for Distance), Centre of mass (Balance Point, Hanging Mobile, Block Tower), Fluids (Density Detective, Barge Load, Deep Dive, Weighed Under Water, Balloon Lift, Torricelli's Tube, Magdeburg Hemispheres, Hydraulic Lift, Pascal's Barrel), Fluids in motion (Leaky Tank, Venturi Pipe, Storm and Wing), Oscillations (Metronome Studio, Harbour Buoy, Seismograph, Pendulum Clock, Wrecking Ball, Big and Fading Swings, Spring Bounce, Spring Shop, Spring Launcher, Swing and Resonance), and Waves (Rope Pulse, Pebble Ripples, Power on a Rope, Ripple Tank Ruler, Wave Machine, String Tuner, Strobe Freeze, Surfer's Wait, Tide Clock, Rope Tension Lab, Tsunami Race, Slinky Lab, Earthquake P and S, Echo Sounder, Bank Shot Ripples, Shallow Beach, Spearfishing, Two Speakers, Beat Tuner, Harbour Gap, Laser Slit, Ambulance Pass-by, Paddling Duck, Decibel Meter, Bottle Flute, Antenna Workshop, Sound in Slow Motion), and Electrostatics (Static Rub, Oil Drop, Touch and Share, Material Tester, Floating Bead, Charge Tug, Field Probe, Electron Beam, Potential Map, Particle Gun), and Electric circuits (Battery Stack, Voltmeter Walk, Charge Gate, Snail Electrons, Wire Stretcher, Hot Filament, Ohm's Law Lab, Fuse Test, Bulb Chain, Voltage Divider, Room Wiring, Current Splitter, Bulb Brightness, Power Line, Kettle Race, Energy Meter). Each game route nests under its topic: `<games index>/<topic>/<game>/`. The games index lists the topics, and each topic page lists its games in the suggested playing order, followed by the other topics. Breadcrumbs (visible and in JSON-LD) follow the URL: Home / Topics / topic / game. The header has a Topics link and a Games menu grouped by topic. The homepage shows the topic tiles first, then every game card under its topic heading.
 
 | Language | Topics index | Motion | Measurement | Formulas | Vectors | Trigonometry | Projectile motion | Circular motion | Gravitation | Statics | Torque and rotation | Centre of mass | Fluids | Fluids in motion | Oscillations | Waves |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
@@ -65,9 +65,9 @@ To add a game, register it in `locales/games.cjs`, add its kind to one topic in 
 
 The primary keyword across the site is **educational simulation games**. The homepage title, H1, description, collection heading, and navigation label target it directly; each game page targets **educational simulation game** plus its topic (speed and velocity, or gravity for Lunar Lander). Localized equivalents: *juegos de simulación educativos* (es), *jeux de simulation éducatifs* (fr), *Simulationsspiele zum Lernen* (de), *educatieve simulatiespellen* (nl), *opetukselliset simulaatiopelit* (fi), *pedagogiske simuleringsspill* (nb), *pædagogiske simulationsspil* (da), *jogos de simulação educativos* (pt), *शैक्षिक सिमुलेशन गेम* (hi), and *教育用シミュレーションゲーム* (ja). Physics terms stay as secondary keywords. Each page has a unique title and description, one H1, semantic headings and landmarks, crawlable internal links, and localized instructions. The game page includes a worked relative-speed example and questions about average speed, average velocity, and direction. Editorial content is in the initial HTML and does not depend on JavaScript or Canvas rendering.
 
-Metadata includes Open Graph, Twitter large-image cards, a local 1200 × 630 sharing image, site icons, and JSON-LD (`WebSite`, `CollectionPage` or `WebPage` with the localized primary keyword in `keywords`, `BreadcrumbList`, and `VideoGame` on the game page). No invented ratings, reviews, offers, or rich-result promises are included. `sitemap.xml` contains only the 1210 canonical pages; the error page and legacy snapshots are excluded. There is no obsolete keywords meta tag.
+Metadata includes Open Graph, Twitter large-image cards, a local 1200 × 630 sharing image, site icons, and JSON-LD (`WebSite`, `CollectionPage` or `WebPage` with the localized primary keyword in `keywords`, `BreadcrumbList`, and `VideoGame` on the game page). No invented ratings, reviews, offers, or rich-result promises are included. `sitemap.xml` contains only the 2346 canonical pages; the error page and legacy snapshots are excluded. There is no obsolete keywords meta tag.
 
-System fonts and shared styles are local. Production pages load Google Tag Manager container `GTM-TZH7L6DT` asynchronously, with the standard noscript fallback immediately after the opening body tag. The build adds it once to all 1210 localized pages and the 404 page; preview builds omit tracking. Tags are managed and published in the GTM account. Game code remains small and self-contained. Locale-specific numbers use decimal commas where appropriate, with semicolons between vector components to avoid ambiguity. Long translated labels can wrap on narrow screens. Keyboard controls, native language navigation, canvas descriptions, and screen-reader announcements are preserved and localized.
+System fonts and shared styles are local. Production pages load Google Tag Manager container `GTM-TZH7L6DT` asynchronously, with the standard noscript fallback immediately after the opening body tag. The build adds it once to all 2346 localized pages and the 404 page; preview builds omit tracking. Tags are managed and published in the GTM account. Game code remains small and self-contained. Locale-specific numbers use decimal commas where appropriate, with semicolons between vector components to avoid ambiguity. Long translated labels can wrap on narrow screens. Keyboard controls, native language navigation, canvas descriptions, and screen-reader announcements are preserved and localized.
 
 Reference guidance: [Google SEO Starter Guide](https://developers.google.com/search/docs/fundamentals/seo-starter-guide), [Managing multilingual sites](https://developers.google.com/search/docs/specialty/international/managing-multi-regional-sites), [Localized versions and hreflang](https://developers.google.com/search/docs/specialty/international/localized-versions).
 
@@ -1001,3 +1001,393 @@ The last two Waves games of the plan (items 23 and 24 in `WAVES_HANDOFF.md`) are
 **Bottle Flute**: a bottle from the side with water at the bottom and the air column above it swinging as a quarter wave (three quarters for the next note), drawn slowed down, with breath across the neck; in two tests water pours in over 3.5 s and the note rises. The right panel graphs f = v ÷ 4L against the column length with the bottle's path along it, and your answer as a dashed orange water line. Missions ask for the note of a 20 cm column (425 Hz, the plan's example), a 30 cm bottle with 13 cm of water (500 Hz), the column for 340 Hz (25 cm), the water for 680 Hz in a 32 cm bottle (19.5 cm), and the next note up from a 20 cm column (1275 Hz). Answers within 2% are right. Slips caught: the open pipe, cm for m, a whole wavelength, the whole bottle, the water's depth, open-pipe and full-wave lengths, metres for cm, the air column for the water, the open-pipe fill, adding lengths, the even harmonic, the fundamental, and dividing by 3. The model text says real bottles act partly as Helmholtz resonators and sound lower.
 
 - `verify-decibel.cjs`, `verify-bottle.cjs`: model checks (levels from intensity and distance ratios, the speakers switching on, a quarter wave in the column at every moment, water pouring in, odd harmonics, timestep independence, rounding margins, slip detection, scoring, input validation, state transfer) and localized interface checks in all eleven languages, including the hidden asked reading. All run in `npm test`.
+
+## Electrostatics games: Static Rub, Oil Drop
+
+A new topic, Electrostatics (*electrostática*), opens the Electricity plan in `ELECTRICITY_PLAN.md` (items 1 and 2, the subtopic *carga eléctrica*). Charge is electrons moved from one place to another, never made or destroyed, and it always comes in whole electrons: Q = n·e with e = 1.602 × 10⁻¹⁹ C. Answers are typed, in scientific notation where they are tiny (`3.2e-19`); a run counts as an attempt as soon as it starts; readings stay hidden until a run starts. The 2% window is purely relative, because a charge near 10⁻¹⁹ C would fit inside the family's usual absolute slack. Both pages use two opt-in fields of the page generator: `sci` writes very small and very large values as a × 10ⁿ, and `css` adds page styles (here, Arabic test cards take the direction of their first letter so a trailing e⁻ stays put).
+
+| Language | Static Rub | Oil Drop |
+| --- | --- | --- |
+| English | `/games/electrostatics/static-rub/` | `/games/electrostatics/oil-drop/` |
+| Español | `/es/juegos/electrostatica/frotar-el-globo/` | `/es/juegos/electrostatica/gota-de-millikan/` |
+| Français | `/fr/jeux/electrostatique/ballon-frotte/` | `/fr/jeux/electrostatique/goutte-de-millikan/` |
+| Deutsch | `/de/spiele/elektrostatik/ballon-reiben/` | `/de/spiele/elektrostatik/millikan-tropfen/` |
+| Nederlands | `/nl/spellen/elektrostatica/ballon-wrijven/` | `/nl/spellen/elektrostatica/millikan-druppel/` |
+| Suomi | `/fi/pelit/sahkostatiikka/ilmapallon-hankaus/` | `/fi/pelit/sahkostatiikka/millikanin-pisara/` |
+| Norsk bokmål | `/nb/spill/elektrostatikk/gni-ballongen/` | `/nb/spill/elektrostatikk/millikans-drape/` |
+| Dansk | `/da/spil/elektrostatik/gnid-ballonen/` | `/da/spil/elektrostatik/millikans-draabe/` |
+| Português | `/pt/jogos/eletrostatica/esfregar-o-balao/` | `/pt/jogos/eletrostatica/gota-de-millikan/` |
+| हिन्दी | `/hi/khel/sthir-vidyut/gubbara-ragadna/` | `/hi/khel/sthir-vidyut/millikan-boond/` |
+| 日本語 | `/ja/gemu/seidenki/fusen-masatsu/` | `/ja/gemu/seidenki/mirikan-no-yuteki/` |
+| Svenska | `/sv/spel/elektrostatik/gnid-ballongen/` | `/sv/spel/elektrostatik/millikans-droppe/` |
+| Italiano | `/it/giochi/elettrostatica/strofina-il-palloncino/` | `/it/giochi/elettrostatica/goccia-di-millikan/` |
+| Română | `/ro/jocuri/electrostatica/freaca-balonul/` | `/ro/jocuri/electrostatica/picatura-lui-millikan/` |
+| Polski | `/pl/gry/elektrostatyka/pocieranie-balonu/` | `/pl/gry/elektrostatyka/kropla-millikana/` |
+| Türkçe | `/tr/oyunlar/elektrostatik/balon-surtme/` | `/tr/oyunlar/elektrostatik/millikan-damlasi/` |
+| العربية | `/ar/alab/kahraba-sakina/dalk-albalun/` | `/ar/alab/kahraba-sakina/qatrat-miliken/` |
+
+**Static Rub**: a balloon rubbed on a wool jumper, a comb and hair, a dust grain, or a carbon atom. Electrons (sky, −) move at a steady rate for 2 s, one at a time onto the grain over 3 s, or one after the other off the atom; each moving mark stands for a tenth of the electrons, and its + partner stays behind. Toggling the neutral pairs shows every + − pair or only the charge left over. The right panel plots both charges over time, mirror images whose dashed sum stays 0, or the electrons moved. Tests: the balloon's charge (−480.6 nC), the wool's (+480.6 nC), the electrons on a comb at −8 nC (4.994 × 10¹⁰), the electrons on a dust grain reading −2.4 × 10⁻¹⁸ C (15), and the charge of a carbon atom that loses 2 electrons (+3.204 × 10⁻¹⁹ C).
+
+**Oil Drop**: Millikan's experiment. Plates d apart, top one positive, ramp to their voltage over 2 s and hold 2 s; an oil drop (886 kg/m³) with extra electrons moves at its terminal speed at every instant, v = (q·V ÷ d − m·g) ÷ (6π·η·r), in closed form, and sticks to a plate it reaches at the exact moment it gets there. A to-scale inset shows the whole gap; a magnified microscope view with a 0.1 mm grid shows the drop with its weight (orange), electric force (sky), and velocity (white). An orange drop carries the charge your answer gives it; the right panel plots the height over time, or a charge ladder whose orange rungs are the multiples of your e. Tests: the charge of a drop hovering at 1000 V (3.205 × 10⁻¹⁹ C), its electrons (2), the voltage that holds 3 electrons on 4.9 × 10⁻¹⁵ kg across 1.2 cm (1199 V), e from drops of 4.8, 8.0, and 11.2 × 10⁻¹⁹ C (1.6 × 10⁻¹⁹ C), and the hovering voltage after a drop at 900 V catches a third electron (600 V).
+
+- `verify-rubbing.cjs`, `verify-oildrop.cjs`: model checks (charges that always add to 0, whole electrons arriving and leaving exactly on time, the closed-form drop motion against small steps, hovering at the right voltage, the exact plate contact during and after the ramp, timestep independence, the purely relative window near 10⁻¹⁹ C, slip detection, scoring, input validation, state transfer) and localized interface checks in all seventeen languages. Both run in `npm test`.
+
+## Conductor games: Touch and Share, Material Tester
+
+Items 3 and 4 of `ELECTRICITY_PLAN.md` (the subtopic *conductores y aislantes*) follow Oil Drop in the Electrostatics topic. In a metal, electrons move freely, so charge flows between touching conductors until they reach the same potential; in an insulator it doesn't move at all. How well a material conducts is its resistivity, which spans about twenty powers of ten from copper to glass. Answers are typed; a run counts as an attempt as soon as it starts; readings stay hidden until then; the 2% window is purely relative.
+
+| Language | Touch and Share | Material Tester |
+| --- | --- | --- |
+| English | `/games/electrostatics/touch-and-share/` | `/games/electrostatics/material-tester/` |
+| Español | `/es/juegos/electrostatica/tocar-y-repartir/` | `/es/juegos/electrostatica/probador-de-materiales/` |
+| Français | `/fr/jeux/electrostatique/toucher-et-partager/` | `/fr/jeux/electrostatique/testeur-de-materiaux/` |
+| Deutsch | `/de/spiele/elektrostatik/beruehren-und-teilen/` | `/de/spiele/elektrostatik/materialpruefer/` |
+| Nederlands | `/nl/spellen/elektrostatica/aanraken-en-delen/` | `/nl/spellen/elektrostatica/materiaaltester/` |
+| Suomi | `/fi/pelit/sahkostatiikka/kosketa-ja-jaa/` | `/fi/pelit/sahkostatiikka/materiaalitesteri/` |
+| Norsk bokmål | `/nb/spill/elektrostatikk/ta-og-del/` | `/nb/spill/elektrostatikk/materialtester/` |
+| Dansk | `/da/spil/elektrostatik/roer-og-del/` | `/da/spil/elektrostatik/materialetester/` |
+| Português | `/pt/jogos/eletrostatica/tocar-e-dividir/` | `/pt/jogos/eletrostatica/testador-de-materiais/` |
+| हिन्दी | `/hi/khel/sthir-vidyut/chhuo-aur-banto/` | `/hi/khel/sthir-vidyut/padarth-parikshak/` |
+| 日本語 | `/ja/gemu/seidenki/furete-wakeru/` | `/ja/gemu/seidenki/zairyo-tester/` |
+| Svenska | `/sv/spel/elektrostatik/rora-och-dela/` | `/sv/spel/elektrostatik/materialtestaren/` |
+| Italiano | `/it/giochi/elettrostatica/tocca-e-dividi/` | `/it/giochi/elettrostatica/tester-di-materiali/` |
+| Română | `/ro/jocuri/electrostatica/atinge-si-imparte/` | `/ro/jocuri/electrostatica/tester-de-materiale/` |
+| Polski | `/pl/gry/elektrostatyka/dotknij-i-podziel/` | `/pl/gry/elektrostatyka/tester-materialow/` |
+| Türkçe | `/tr/oyunlar/elektrostatik/dokun-ve-paylas/` | `/tr/oyunlar/elektrostatik/malzeme-testi/` |
+| العربية | `/ar/alab/kahraba-sakina/lams-wa-taqsim/` | `/ar/alab/kahraba-sakina/fahis-almawad/` |
+
+**Touch and Share**: metal spheres (and a plastic ball) on insulating stands, about one + or − mark per nC. Each contact is a 2.5 s leg: the pair moves together for 1 s, touches for 0.5 s, and parts for 1 s; the charge moves at the instant of contact and the electron flow is drawn as an arrow. Identical spheres share their total equally; plastic takes nothing; the big-and-small test joins spheres of radii 3 cm and 1 cm far apart with a long thin wire, so the charge splits in proportion to the radii (touching spheres of different sizes would share in a more complicated way, which the model text says). The right panel shows each sphere's charge as a bar, with the total that never changes. Tests: B after touching A at +12 nC (6 nC), A after touching B and then C (3 nC), A after touching a plastic ball (12 nC), the small sphere joined to a 3 cm sphere at +16 nC (4 nC), and C after A (+10) and B (−4) touch and B then touches C (1.5 nC).
+
+**Material Tester**: a 12 V battery, a switch that closes at 0.5 s, an ammeter, and a sample between two clips; R = ρ·L ÷ A and I = V ÷ R with ideal wires and meter. Electrons move round the loop against the conventional current at a display speed set by log I. The right panel is a resistivity ladder from 10⁻⁹ to 10¹⁴ Ω·m (copper, aluminium, nichrome, graphite, glass, rubber) with an orange mark at the resistivity the answer implies. Tests: the current through 1 m of 0.5 mm² nichrome (5.455 A), through a 10 cm, 1 cm² glass rod (1.2 × 10⁻¹⁴ A), the length of 0.5 mm² nichrome for 10 Ω (4.545 m, the answer shapes the wire), the cross-section of 100 m of aluminium matching 1 mm² of copper (1.577 mm², the answer shapes the cable), and a pencil lead 6 cm long and 0.7 mm across (5.457 Ω).
+
+- `verify-share.cjs`, `verify-tester.cjs`: model checks (charge conserved at every moment and moved only at the instant of contact, plastic taking nothing, the wire's 3 : 1 split, the switch closing exactly on time, target currents for a right length or area, the resistivity an answer implies, timestep independence, the purely relative window near 10⁻¹⁴ A, slip detection, scoring, input validation, state transfer) and localized interface checks in all seventeen languages. Both run in `npm test`.
+
+## Coulomb's law games: Floating Bead, Charge Tug
+
+Items 5 and 6 of `ELECTRICITY_PLAN.md` (the subtopic *ley de Coulomb*) follow Material Tester in the Electrostatics topic. Two point charges push apart (same sign) or pull together (opposite signs) with F = k·q₁·q₂ ÷ r², k = 8.99 × 10⁹ N·m²/C², equal and opposite; forces from several charges add. Answers are typed; a run counts as an attempt as soon as it starts; readings stay hidden until then; the 2% window is purely relative.
+
+| Language | Floating Bead | Charge Tug |
+| --- | --- | --- |
+| English | `/games/electrostatics/floating-bead/` | `/games/electrostatics/charge-tug/` |
+| Español | `/es/juegos/electrostatica/cuenta-flotante/` | `/es/juegos/electrostatica/tira-y-afloja-de-cargas/` |
+| Français | `/fr/jeux/electrostatique/perle-flottante/` | `/fr/jeux/electrostatique/tir-a-la-corde-des-charges/` |
+| Deutsch | `/de/spiele/elektrostatik/schwebende-perle/` | `/de/spiele/elektrostatik/ladungs-tauziehen/` |
+| Nederlands | `/nl/spellen/elektrostatica/zwevende-kraal/` | `/nl/spellen/elektrostatica/ladingtouwtrekken/` |
+| Suomi | `/fi/pelit/sahkostatiikka/leijuva-helmi/` | `/fi/pelit/sahkostatiikka/varausten-koydenveto/` |
+| Norsk bokmål | `/nb/spill/elektrostatikk/svevende-perle/` | `/nb/spill/elektrostatikk/ladningsdragkamp/` |
+| Dansk | `/da/spil/elektrostatik/svaevende-perle/` | `/da/spil/elektrostatik/ladningstovtraekning/` |
+| Português | `/pt/jogos/eletrostatica/conta-flutuante/` | `/pt/jogos/eletrostatica/cabo-de-guerra-de-cargas/` |
+| हिन्दी | `/hi/khel/sthir-vidyut/tairta-moti/` | `/hi/khel/sthir-vidyut/aavesh-raskasi/` |
+| 日本語 | `/ja/gemu/seidenki/uku-bizu/` | `/ja/gemu/seidenki/denka-tsunahiki/` |
+| Svenska | `/sv/spel/elektrostatik/svavande-parla/` | `/sv/spel/elektrostatik/laddningsdragkampen/` |
+| Italiano | `/it/giochi/elettrostatica/perlina-fluttuante/` | `/it/giochi/elettrostatica/tiro-alla-fune-delle-cariche/` |
+| Română | `/ro/jocuri/electrostatica/margeaua-plutitoare/` | `/ro/jocuri/electrostatica/tragerea-sarcinilor/` |
+| Polski | `/pl/gry/elektrostatyka/unoszacy-sie-koralik/` | `/pl/gry/elektrostatyka/przeciaganie-ladunkow/` |
+| Türkçe | `/tr/oyunlar/elektrostatik/yuzen-boncuk/` | `/tr/oyunlar/elektrostatik/yuk-halat-cekme/` |
+| العربية | `/ar/alab/kahraba-sakina/alkharaza-alaima/` | `/ar/alab/kahraba-sakina/shadd-alhabl-lilshuhnat/` |
+
+**Floating Bead**: an upright glass tube 16 cm tall, to scale, with a bead fixed at the bottom and a second bead of the same sign on a thread. The thread's end comes down steadily from the cap to 0.6 cm in 2 s and holds 1 s, slowly enough that the bead is always in balance: the thread pulls T = m·g − F and goes slack exactly where F = m·g, at r* = √(k·q₁·q₂ ÷ m·g). A bead pushed harder than its weight at the top stays at the cap; one too heavy rests on the bottom bead. Arrows for the weight (orange, 40 px), the push (sky), and the thread (white) sit beside the tube at one scale; the right panel plots the push against the gap with the weight as a line, or force bars for the floor test. Your charge or mass is the one used when it is asked. Tests: the gap for two 40 nC beads under 1 g (3.831 cm), the charge that floats 1.5 g at 5 cm (63.94 nC), the gap when the top bead carries 80 nC (5.418 cm, √2 times), the floor's push on a 3 g bottom bead (39.2 mN, its weight plus the push), and the mass that floats at 2 cm on 30 nC (2.064 g).
+
+**Charge Tug**: beads on a straight frictionless rod, to scale, with fixed beads in clamps and the asked bead on a force gauge that reads the force it holds back. The moving bead is brought in over 2 s and held 1 s; arrows show the net force on each bead at one scale per test. In the balance test a third +1 µC bead is held at your point and let go at 2 s: within 2% of the balance point it stays; otherwise it is pushed, drawn for 1 s as an illustration (between A and B it settles on the balance point, which is stable along the rod; beyond B it slides away). The right panel plots the held bead's force as the other comes in, or the net force on a +1 µC bead along the rod. Tests: the pull between +2 and −3 µC 0.3 m apart (0.599 N), the balance point between +4 µC at 0 and +1 µC at 0.9 m (0.6 m), the force on +1 µC at 0.1 m between +1 µC at 0 and −1 µC at 0.3 m (1.124 N, both to the right), B's charge when 5 µC pushes it with 1.8 N from 0.5 m (10.01 µC), and two +1 µC beads at 0.1 m (0.899 N) with both charges and the gap doubled (0.899 N).
+
+- `verify-levitate.cjs`, `verify-coulomb.cjs`: model checks (the thread going slack exactly at r*, √2 times higher for twice one charge, the floor carrying weight plus push, the cap and touching cases, equal and opposite pulls growing as 1 ÷ r², zero force at the balance point with a push back toward it and away beyond B, the two forces on the middle bead adding, timestep independence, the purely relative window, slip detection, scoring, input validation, state transfer) and localized interface checks in all seventeen languages. Both run in `npm test`.
+
+## Electric field games: Field Probe, Electron Beam
+
+Items 7 and 8 of `ELECTRICITY_PLAN.md` (the subtopic *campo eléctrico*) follow Charge Tug in the Electrostatics topic. The electric field is the force per charge, E = F ÷ q: it belongs to the point, not to the probe, and a point charge makes E = k·Q ÷ r²; between two charged plates it is uniform, E = V ÷ d, and bends a beam into a parabola. Answers are typed (scientific notation such as `3e5` works); a run counts as an attempt as soon as it starts; readings stay hidden until then; the 2% window is purely relative.
+
+| Language | Field Probe | Electron Beam |
+| --- | --- | --- |
+| English | `/games/electrostatics/field-probe/` | `/games/electrostatics/electron-beam/` |
+| Español | `/es/juegos/electrostatica/sonda-de-campo/` | `/es/juegos/electrostatica/haz-de-electrones/` |
+| Français | `/fr/jeux/electrostatique/sonde-de-champ/` | `/fr/jeux/electrostatique/faisceau-d-electrons/` |
+| Deutsch | `/de/spiele/elektrostatik/feldsonde/` | `/de/spiele/elektrostatik/elektronenstrahl/` |
+| Nederlands | `/nl/spellen/elektrostatica/veldsonde/` | `/nl/spellen/elektrostatica/elektronenbundel/` |
+| Suomi | `/fi/pelit/sahkostatiikka/kenttaluotain/` | `/fi/pelit/sahkostatiikka/elektronisuihku/` |
+| Norsk bokmål | `/nb/spill/elektrostatikk/feltsonde/` | `/nb/spill/elektrostatikk/elektronstrale/` |
+| Dansk | `/da/spil/elektrostatik/feltsonde/` | `/da/spil/elektrostatik/elektronstraale/` |
+| Português | `/pt/jogos/eletrostatica/sonda-de-campo/` | `/pt/jogos/eletrostatica/feixe-de-eletrons/` |
+| हिन्दी | `/hi/khel/sthir-vidyut/kshetra-janchak/` | `/hi/khel/sthir-vidyut/electron-kiranpunj/` |
+| 日本語 | `/ja/gemu/seidenki/denba-purobu/` | `/ja/gemu/seidenki/denshi-bimu/` |
+| Svenska | `/sv/spel/elektrostatik/faltsond/` | `/sv/spel/elektrostatik/elektronstrale/` |
+| Italiano | `/it/giochi/elettrostatica/sonda-di-campo/` | `/it/giochi/elettrostatica/fascio-di-elettroni/` |
+| Română | `/ro/jocuri/electrostatica/sonda-de-camp/` | `/ro/jocuri/electrostatica/fasciculul-de-electroni/` |
+| Polski | `/pl/gry/elektrostatyka/sonda-pola/` | `/pl/gry/elektrostatyka/wiazka-elektronow/` |
+| Türkçe | `/tr/oyunlar/elektrostatik/alan-sondasi/` | `/tr/oyunlar/elektrostatik/elektron-demeti/` |
+| العربية | `/ar/alab/kahraba-sakina/misbar-almajal/` | `/ar/alab/kahraba-sakina/hizmat-alilktronat/` |
+
+**Field Probe**: a top view, to scale, of fixed point charges with a map of gray field arrows on a grid (pointing along E, their length on a log scale: 12 px longer for every factor of 10). A small positive probe on an insulating wand is carried steadily from 0.15 m below the point P up to it in 2 s and held 1 s; the gauge on the wand reads the force, and arrows at the probe show E (light) and F (sky) at a stated scale per test. The field leaves out the probe's own. The right panel plots F against the probe's charge at the probe's place (one line through 0 whose slope is E), E against the distance from the charge, or, for the dipole, E along the probe's path from each charge and in total. Tests: the field from 0.60 mN on 2.0 nC near a charged dome (3.0 × 10⁵ N/C; the dome's charge is not given), the field 0.30 m from +5.0 nC (499.4 N/C), the force on a 6.0 nC probe at the dome's point (1.8 mN), the field halfway between +4.0 and −4.0 nC 0.40 m apart (1798 N/C; 0 is accepted as the slip of cancelling), and where +10 nC makes 1000 N/C (0.2998 m; the answer sets where the probe goes, and the true ring appears after the run).
+
+**Electron Beam**: a cathode-ray tube from the side, to scale: a gun 2 cm before two plates 2.0 cm apart and 5.0 cm long (+ on top), and a screen 7 cm past them with a mm ruler. Between the plates the field is uniform, E = V ÷ d, with no fringe; the particle keeps v₀ along the tube and accelerates at a = q·E ÷ m across it, a parabola in the plates and a line after them, and one whose bend reaches a plate stops on it at that exact moment. Gravity is ignored, and every test stays under 9% of the speed of light. Time is in ns; each run (5.6–7 ns) is slowed to about 4 s, with the factor on the canvas. Arrows: velocity white with its parts dashed, force sky (only between the plates), field gray from + to −; your answer becomes an orange dashed path, and the right panel plots the height inside the plates (in µm for the proton). Tests: the field for 500 V across 2.0 cm (25 000 V/m; the beam runs at 2.5 × 10⁷ m/s so it clears the plates), an electron's acceleration in 15 000 V/m (2.638 × 10¹⁵ m/s²), its bend at 2.0 × 10⁷ m/s through the plates (8.244 mm), the voltage that bends it 5.0 mm (182.0 V; the answer drives the plates, and above 363.9 V the beam lands on the + plate), and a proton's bend in the same beam (−4.489 µm, signed: down, about 1836 times less).
+
+- `verify-fieldprobe.cjs`, `verify-deflect.cjs`: model checks (the probe's path, the field independent of the probe and F = q·E, 1 ÷ r², the dipole's fields adding along the middle line, the reach test's probe going to the answer, the beam's three phases and its exact plate hit, the proton bending the other way by mₚ ÷ mₑ, timestep independence, the purely relative window, slip detection, scoring, input validation, state transfer) and localized interface checks in all seventeen languages. Both run in `npm test`.
+
+## Electric potential games: Potential Map, Particle Gun
+
+Items 9 and 10 of `ELECTRICITY_PLAN.md` (the subtopic *potencial eléctrico*) close the Electrostatics games. Electric potential is energy per charge: a point charge makes V = k·Q ÷ r, potentials add as plain numbers, carrying a charge takes work W = q·ΔV whatever the path, and a charge that falls through ΔV gains kinetic energy q·ΔV = ½·m·v². Answers are typed; a run counts as an attempt as soon as it starts; readings stay hidden until then; the 2% window is purely relative, with a window of 0.5 nJ for a work of 0.
+
+| Language | Potential Map | Particle Gun |
+| --- | --- | --- |
+| English | `/games/electrostatics/potential-map/` | `/games/electrostatics/particle-gun/` |
+| Español | `/es/juegos/electrostatica/mapa-de-potencial/` | `/es/juegos/electrostatica/canon-de-particulas/` |
+| Français | `/fr/jeux/electrostatique/carte-de-potentiel/` | `/fr/jeux/electrostatique/canon-a-particules/` |
+| Deutsch | `/de/spiele/elektrostatik/potenzialkarte/` | `/de/spiele/elektrostatik/teilchenkanone/` |
+| Nederlands | `/nl/spellen/elektrostatica/potentiaalkaart/` | `/nl/spellen/elektrostatica/deeltjeskanon/` |
+| Suomi | `/fi/pelit/sahkostatiikka/potentiaalikartta/` | `/fi/pelit/sahkostatiikka/hiukkastykki/` |
+| Norsk bokmål | `/nb/spill/elektrostatikk/potensialkart/` | `/nb/spill/elektrostatikk/partikkelkanon/` |
+| Dansk | `/da/spil/elektrostatik/potentialkort/` | `/da/spil/elektrostatik/partikelkanon/` |
+| Português | `/pt/jogos/eletrostatica/mapa-de-potencial/` | `/pt/jogos/eletrostatica/canhao-de-particulas/` |
+| हिन्दी | `/hi/khel/sthir-vidyut/vibhav-manchitra/` | `/hi/khel/sthir-vidyut/kan-top/` |
+| 日本語 | `/ja/gemu/seidenki/den-i-mappu/` | `/ja/gemu/seidenki/ryushi-ju/` |
+| Svenska | `/sv/spel/elektrostatik/potentialkarta/` | `/sv/spel/elektrostatik/partikelkanon/` |
+| Italiano | `/it/giochi/elettrostatica/mappa-del-potenziale/` | `/it/giochi/elettrostatica/cannone-di-particelle/` |
+| Română | `/ro/jocuri/electrostatica/harta-potentialului/` | `/ro/jocuri/electrostatica/tunul-de-particule/` |
+| Polski | `/pl/gry/elektrostatyka/mapa-potencjalu/` | `/pl/gry/elektrostatyka/dzialo-czastek/` |
+| Türkçe | `/tr/oyunlar/elektrostatik/potansiyel-haritasi/` | `/tr/oyunlar/elektrostatik/parcacik-topu/` |
+| العربية | `/ar/alab/kahraba-sakina/kharitat-aljuhd/` | `/ar/alab/kahraba-sakina/midfa-aljusaymat/` |
+
+**Potential Map**: a top view, to scale, shaded like a hill map (opaque cells from navy at 0 V to lighter at 300 V and above), with contour rings every 20 V found by marching squares; the rings and their labels appear once a run starts, because before that they would give the answer away. A +1 nC test charge is carried steadily along a dotted path for 2 s and held 1 s, with a voltmeter and a work counter, W = q·(V now − V at the start), beside it and the electric force on it as a sky arrow. The map is computed once per test, answer, size, and run state and redrawn from that cache. Your potential is drawn as an orange contour (or an orange ring at your distance); the right panel plots the potential along the path, with your level and a bracket for the work. Tests: the potential 0.30 m from +2.0 nC (59.93 V), the work to carry +1 nC from 0.30 to 0.10 m (119.9 nJ; the field's work, −119.9 nJ, is a slip), the work half way round the 0.30 m ring (0, within 0.5 nJ; the force is across the path the whole way), the potential halfway between +3.0 and +1.0 nC 0.40 m apart (179.8 V, which the model text contrasts with Field Probe's fields), and the radius of the 120 V contour around +4.0 nC (0.2997 m; the answer sets where the test charge goes).
+
+**Particle Gun**: a side view, to scale, of a source, two grids 4.0 cm apart with their potentials and the uniform field between them, and a detector at 10 cm. The particle starts from rest at the first grid, speeds up steadily between the grids, and coasts to the detector; in the stopping test an electron arrives at 4.0 × 10⁶ m/s and is slowed by your voltage: it gets through slower, or stops inside and is pushed back out, and within 2% of the stopping voltage it stops exactly at the second grid so the motion always matches the verdict. Every speed stays under 7% of the speed of light. Time is in ns, slowed so each run lasts about 4 s (7.5 ns for the electron through 1000 V, 640 ns for the proton). An orange ghost moves at the speed your answer implies, and the right panel shows the electric potential energy U turning into kinetic energy K under a dashed total, in eV, with your energy as an orange line. Tests: an electron's energy through 1000 V (1.602 × 10⁻¹⁶ J), its speed through 250 V (9.377 × 10⁶ m/s), a proton's speed through 250 V (2.188 × 10⁵ m/s), an alpha particle's energy through 1000 V (2000 eV), and the voltage that stops an electron at 4.0 × 10⁶ m/s (45.49 V; the answer drives the grids).
+
+- `verify-potmap.cjs`, `verify-accelerator.cjs`: model checks (the carried path, 1 ÷ r potentials, the work q·ΔV with none round the ring and the force across the path, potentials adding where fields partly cancel, the contour test's path to the answer, the speed-up and coasting phases, energy conservation, the proton √1836 times slower, getting through, turning back and stopping at the grid, timestep independence, the windows, slip detection, scoring, input validation, state transfer) and localized interface checks in all seventeen languages. Both run in `npm test`.
+
+## Voltage games: Battery Stack, Voltmeter Walk
+
+Items 11 and 12 of `ELECTRICITY_PLAN.md` (the subtopic *voltaje*) open a new topic, Electric circuits (*circuitos eléctricos*), which will hold items 11–26. A voltage is energy per charge, and it is always between two points: cells in a row add their voltages, a cell turned round takes its voltage away, cells side by side give the voltage of one, a battery gives each coulomb it moves V joules (W = Q·V), and a voltmeter reads V_red − V_black. Both games follow the circuit contract in `DESIGN_GUIDELINES.md` §6t: mint arrows show the conventional current, from + to − outside the cells; sky dots marked − are electrons moving the other way at a display speed in step with the current; cells, wires, and meters are ideal; resistances are fixed; the current is steady at once; symbols follow IEC. Answers are typed; a run counts as an attempt as soon as it starts; readings stay hidden until then; the 2% window is purely relative, with 0.05 V for a reading of 0, and the cell count must be exact.
+
+| Language | Battery Stack | Voltmeter Walk |
+| --- | --- | --- |
+| English | `/games/electric-circuits/battery-stack/` | `/games/electric-circuits/voltmeter-walk/` |
+| Español | `/es/juegos/circuitos-electricos/torre-de-pilas/` | `/es/juegos/circuitos-electricos/paseo-con-voltimetro/` |
+| Français | `/fr/jeux/circuits-electriques/tour-de-piles/` | `/fr/jeux/circuits-electriques/promenade-au-voltmetre/` |
+| Deutsch | `/de/spiele/stromkreise/batterieturm/` | `/de/spiele/stromkreise/voltmeter-spaziergang/` |
+| Nederlands | `/nl/spellen/stroomkringen/batterijtoren/` | `/nl/spellen/stroomkringen/voltmeterwandeling/` |
+| Suomi | `/fi/pelit/virtapiirit/paristotorni/` | `/fi/pelit/virtapiirit/jannitemittarikavely/` |
+| Norsk bokmål | `/nb/spill/stromkretser/batteritarn/` | `/nb/spill/stromkretser/voltmetertur/` |
+| Dansk | `/da/spil/stromkredse/batteritaarn/` | `/da/spil/stromkredse/voltmetertur/` |
+| Português | `/pt/jogos/circuitos-eletricos/torre-de-pilhas/` | `/pt/jogos/circuitos-eletricos/passeio-com-voltimetro/` |
+| हिन्दी | `/hi/khel/vidyut-paripath/battery-minar/` | `/hi/khel/vidyut-paripath/voltmeter-ki-sair/` |
+| 日本語 | `/ja/gemu/denki-kairo/denchi-tawa/` | `/ja/gemu/denki-kairo/denatsukei-sanpo/` |
+| Svenska | `/sv/spel/stromkretsar/batteritorn/` | `/sv/spel/stromkretsar/voltmeterpromenad/` |
+| Italiano | `/it/giochi/circuiti-elettrici/torre-di-pile/` | `/it/giochi/circuiti-elettrici/passeggiata-col-voltmetro/` |
+| Română | `/ro/jocuri/circuite-electrice/turnul-de-baterii/` | `/ro/jocuri/circuite-electrice/plimbarea-cu-voltmetrul/` |
+| Polski | `/pl/gry/obwody-elektryczne/wieza-z-baterii/` | `/pl/gry/obwody-elektryczne/spacer-z-woltomierzem/` |
+| Türkçe | `/tr/oyunlar/elektrik-devreleri/pil-kulesi/` | `/tr/oyunlar/elektrik-devreleri/voltmetre-yuruyusu/` |
+| العربية | `/ar/alab/dawair-kahrabaiya/burj-albatariyat/` | `/ar/alab/dawair-kahrabaiya/jawlat-alfoltmitr/` |
+
+**Battery Stack**: a cell holder under a loop with a switch and an IEC lamp; a voltmeter sits across the holder. The cells click in one after another over 2 s (a flipped one shows its + end on the left), count once they are fully in, and the switch closes at 2.5 s; the lamp glows with the power it takes (12 Ω for the 1.5 V tests, 36 Ω for the 9 V battery, 9 Ω for the count test, rated 9 V). The right panel climbs the potential cell by cell (a step down for a flipped cell, one shared step side by side), or, in the energy test, plots the energy given to the charge against the charge moved, with slope V. Tests: four 1.5 V cells in a row (6.0 V), the same with the third flipped (3.0 V), three side by side (1.5 V), the energy a 9 V battery gives 0.50 C (4.5 J; the switch is closed from 1 s to 3 s with 0.25 A), and the fewest 1.2 V cells for at least 9 V (8, giving 9.6 V; your number of cells, 1 to 20, goes into the holder and lights the lamp brightly or dimly).
+
+**Voltmeter Walk**: an oblique view of the loop as a landscape of potential, height = potential with the gray floor at 0 V: cells are ramps up, resistors and bulbs ramps down by I·R, wires level, and an open switch a gap. The red and black probes walk onto their points over 2 s and the meter reads once both touch; the right panel unrolls the potential round the loop from the battery's − end, with both probes marked and your reading drawn as an orange level V_black + answer. Readings are signed, with a true minus. Tests: the probes swapped on a 9 V battery (−9 V), across an open switch with a bulb (9 V), along a connecting wire (0 V), the junction of 2 Ω and 4 Ω on 12 V against − (8 V), and a 9 V battery against a 1.5 V cell with 5 Ω, after both cells (7.5 V).
+
+- `verify-batteries.cjs`, `verify-voltwalk.cjs`: model checks (cells counting only once fully in, series, flipped and parallel voltages, the lamp's current and power, the charge and energy W = Q·V in the switched window, the count test's holder and threshold, potentials round the loop, readings red minus black with their signs, no current through an open switch, the zero window, timestep independence, slip detection, scoring, input validation, state transfer) and localized interface checks in all seventeen languages. Both run in `npm test`.
+
+## Current games: Charge Gate, Snail Electrons
+
+Items 13 and 14 of `ELECTRICITY_PLAN.md` (the subtopic *corriente*) follow Voltmeter Walk in the Electric circuits topic. A current is charge per second through a cut across the wire, I = Q ÷ t, so one ampere is 1 ÷ e = 6.242 × 10¹⁸ electrons a second; in copper (n = 8.5 × 10²⁸ free electrons per m³) that takes only a slow drift, I = n·e·A·v_d, while the signal that sets the electrons moving runs along the wire at about 2 × 10⁸ m/s. Both games keep the circuit contract (mint current arrows, sky electron dots marked − moving the other way) and answers within 2%, purely relative. Their tests run over very different times, so each test has its own clock unit (s, min, h, or ns) and a pace that makes every run last 4 s on screen, stated on the canvas as 1 s on screen = …; the page generator's opt-in `timeUnits` field lets the hooks set the time metric's unit per test.
+
+| Language | Charge Gate | Snail Electrons |
+| --- | --- | --- |
+| English | `/games/electric-circuits/charge-gate/` | `/games/electric-circuits/snail-electrons/` |
+| Español | `/es/juegos/circuitos-electricos/contador-de-carga/` | `/es/juegos/circuitos-electricos/electrones-caracol/` |
+| Français | `/fr/jeux/circuits-electriques/compteur-de-charge/` | `/fr/jeux/circuits-electriques/electrons-escargots/` |
+| Deutsch | `/de/spiele/stromkreise/ladungszaehler/` | `/de/spiele/stromkreise/schneckenelektronen/` |
+| Nederlands | `/nl/spellen/stroomkringen/ladingteller/` | `/nl/spellen/stroomkringen/slakkenelektronen/` |
+| Suomi | `/fi/pelit/virtapiirit/varauslaskuri/` | `/fi/pelit/virtapiirit/etanaelektronit/` |
+| Norsk bokmål | `/nb/spill/stromkretser/ladningsteller/` | `/nb/spill/stromkretser/snegleelektroner/` |
+| Dansk | `/da/spil/stromkredse/ladningstaeller/` | `/da/spil/stromkredse/snegleelektroner/` |
+| Português | `/pt/jogos/circuitos-eletricos/contador-de-carga/` | `/pt/jogos/circuitos-eletricos/eletrons-caracol/` |
+| हिन्दी | `/hi/khel/vidyut-paripath/aavesh-ganak/` | `/hi/khel/vidyut-paripath/ghongha-electron/` |
+| 日本語 | `/ja/gemu/denki-kairo/denka-kaunta/` | `/ja/gemu/denki-kairo/katatsumuri-denshi/` |
+| Svenska | `/sv/spel/stromkretsar/laddningsraknare/` | `/sv/spel/stromkretsar/snigelelektroner/` |
+| Italiano | `/it/giochi/circuiti-elettrici/contatore-di-carica/` | `/it/giochi/circuiti-elettrici/elettroni-lumaca/` |
+| Română | `/ro/jocuri/circuite-electrice/contorul-de-sarcina/` | `/ro/jocuri/circuite-electrice/electronii-melc/` |
+| Polski | `/pl/gry/obwody-elektryczne/licznik-ladunku/` | `/pl/gry/obwody-elektryczne/elektrony-slimaki/` |
+| Türkçe | `/tr/oyunlar/elektrik-devreleri/yuk-sayaci/` | `/tr/oyunlar/elektrik-devreleri/salyangoz-elektronlar/` |
+| العربية | `/ar/alab/dawair-kahrabaiya/addad-alshihna/` | `/ar/alab/dawair-kahrabaiya/alelektronat-alhalazuniya/` |
+
+**Charge Gate**: a magnified wire with a dashed gate across it and a counter above the gate; electrons stream left through it (each dot stands for a thirtieth of the run's charge, stated on the canvas) while mint arrows show the current to the right, and the counter adds up the charge, or the electrons in the electron test. The right panel plots the count against time, with your current as an orange slope, your charge as an orange level, or your time as an orange line beside the 90 C target. Tests: 30 C in 1 min (0.50 A), 2.0 A for 5 min (600 C), the electrons per second in 1 A (6.242 × 10¹⁸, in 1 s), a phone charged at 2.0 A for 1.5 h (10800 C), and the time 0.25 A takes to carry 90 C (360 s; the run ends when 90 C has passed).
+
+**Snail Electrons**: in three tests a magnified copper wire, 0.5 mm across the view, its height growing with √A, holds a faint ion lattice and electrons that jitter (thermal motion, not to scale) and drift left at their real speed, with one ringed and trailed and a 0.1 mm scale bar; the metre test shows 1 m of wire with the tagged electron crawling along it in hours; the signal test shows a battery, a switch closed at t = 0, and 3 m of wire to an IEC lamp, with the signal's glow running along the wire and the lamp lighting at 15 ns. The right panel plots the tagged electron's drift (with the 1 mm² wire dashed for comparison in the thick-wire test), the charge through a cross-section, or the signal's front against time, with your answer in orange. Tests: the drift of 1.0 A in 1.0 mm² (0.0734 mm/s, in real time), the time to drift 1 m (3.78 h), the current from 0.10 mm/s in 2.5 mm² (3.40 A), 1.0 A in 4.0 mm² (0.0184 mm/s), and the lamp 3 m away at 2.0 × 10⁸ m/s (15 ns).
+
+- `verify-turnstile.cjs`, `verify-drift.cjs`: model checks (Q = I·t with each clock unit turned into seconds, the electrons per coulomb, I = n·e·A·v_d and the distance drifted in each unit, the signal's front and the lamp lighting when it arrives, the clock units and paces, timestep independence, the 2% window, slip detection, scoring, input validation, state transfer) and localized interface checks in all seventeen languages, including the time metric's unit per test. Both run in `npm test`.
+
+## Resistance games: Wire Stretcher, Hot Filament
+
+Items 15 and 16 of `ELECTRICITY_PLAN.md` (the subtopic *resistencia*) follow Snail Electrons in the Electric circuits topic. A wire's resistance is R = ρ·L ÷ A, growing with its length and falling with its cross-section (A = π·d² ÷ 4 for a round wire), and a metal's resistance rises with temperature, R = R₀·(1 + α·(T − T₀)), a straight-line teaching model. Each change is made steadily over 2 s and held for 1 s while ideal meters follow it; answers within 2%, purely relative. Readings show 3 significant figures in Wire Stretcher, and 4 for results and 5 for meter readings in Hot Filament (rounded first, so a Pt100 reading of 119.25 Ω is shown as such).
+
+| Language | Wire Stretcher | Hot Filament |
+| --- | --- | --- |
+| English | `/games/electric-circuits/wire-stretcher/` | `/games/electric-circuits/hot-filament/` |
+| Español | `/es/juegos/circuitos-electricos/estirar-el-cable/` | `/es/juegos/circuitos-electricos/filamento-caliente/` |
+| Français | `/fr/jeux/circuits-electriques/etirer-le-fil/` | `/fr/jeux/circuits-electriques/filament-chaud/` |
+| Deutsch | `/de/spiele/stromkreise/draht-dehnen/` | `/de/spiele/stromkreise/heisser-gluehdraht/` |
+| Nederlands | `/nl/spellen/stroomkringen/draad-rekken/` | `/nl/spellen/stroomkringen/hete-gloeidraad/` |
+| Suomi | `/fi/pelit/virtapiirit/johdon-venytys/` | `/fi/pelit/virtapiirit/kuuma-hehkulanka/` |
+| Norsk bokmål | `/nb/spill/stromkretser/strekk-ledningen/` | `/nb/spill/stromkretser/het-glodetrad/` |
+| Dansk | `/da/spil/stromkredse/straek-ledningen/` | `/da/spil/stromkredse/varm-gloedetraad/` |
+| Português | `/pt/jogos/circuitos-eletricos/esticar-o-fio/` | `/pt/jogos/circuitos-eletricos/filamento-quente/` |
+| हिन्दी | `/hi/khel/vidyut-paripath/taar-khinchna/` | `/hi/khel/vidyut-paripath/garam-filament/` |
+| 日本語 | `/ja/gemu/denki-kairo/harigane-nobashi/` | `/ja/gemu/denki-kairo/atsui-firamento/` |
+| Svenska | `/sv/spel/stromkretsar/strack-traden/` | `/sv/spel/stromkretsar/het-glodtrad/` |
+| Italiano | `/it/giochi/circuiti-elettrici/allunga-il-filo/` | `/it/giochi/circuiti-elettrici/filamento-caldo/` |
+| Română | `/ro/jocuri/circuite-electrice/intinde-firul/` | `/ro/jocuri/circuite-electrice/filamentul-incins/` |
+| Polski | `/pl/gry/obwody-elektryczne/rozciaganie-drutu/` | `/pl/gry/obwody-elektryczne/goracy-zarnik/` |
+| Türkçe | `/tr/oyunlar/elektrik-devreleri/teli-uzat/` | `/tr/oyunlar/elektrik-devreleri/sicak-filaman/` |
+| العربية | `/ar/alab/dawair-kahrabaiya/shadd-alsilk/` | `/ar/alab/dawair-kahrabaiya/alfatil-alsakhin/` |
+
+**Wire Stretcher**: a wire between two clamps on a bench with an ohmmeter wired to both; its drawn thickness follows its cross-section (18 px for 0.5 mm²) and the right-hand clamp moves with its end. The copper wire unrolls to 2 m; the nichrome wires of tests 2–4 have the sizes that give their starting resistances (3 Ω: 0.5 mm² and 1.36 m; 8 Ω: 0.4 mm across and 0.914 m; 5 Ω: 0.5 mm² and 2.27 m) and lengthen, thicken, or stretch at constant volume; in the coil test your length of 0.2 mm nichrome unrolls. The right panel plots R against what changes: the length in metres, or the length or diameter as a multiple of the start, with your resistance as an orange level or your length as an orange line beside the 20 Ω target. Tests: 2 m of copper, 0.5 mm² (0.0672 Ω), 3 Ω made twice as long (6 Ω), 8 Ω with twice the diameter (2 Ω), 5 Ω stretched to twice its length (20 Ω), and the length of nichrome 0.2 mm across for 20 Ω (0.571 m).
+
+**Hot Filament**: a coil between two posts, in a water bath (copper, platinum) or a glass bulb (tungsten), coloured by its temperature and glowing above about 500 °C, with an ohmmeter above it (an ammeter on 230 V in the lamp test) and a thermometer beside it. The coil heats steadily over 2 s. The right panel plots R against T (or, for the lamp, the current V ÷ R), faint over the whole range and bright as far as the run, with your answer in orange. Tests: copper 10 Ω at 20 °C heated to 70 °C (11.97 Ω), tungsten 40 Ω at 20 °C glowing at 2500 °C (486.4 Ω), the lamp's cold-to-hot current ratio on 230 V (12.16), a Pt100 reading 119.25 Ω (50 °C), and the temperature that doubles copper's 10 Ω (274.5 °C; the coil is heated to your temperature).
+
+- `verify-wire.cjs`, `verify-filament.cjs`: model checks (R = ρ·L ÷ A through each change, the constant volume when stretching, the coil's length from the answer, the straight-line R(T), the lamp's currents on 230 V, the sensor read backwards, timestep independence, the 2% window, slip detection, scoring, input validation, state transfer) and localized interface checks in all seventeen languages. Both run in `npm test`.
+
+## Ohm's law games: Ohm's Law Lab, Fuse Test
+
+Items 17 and 18 of `ELECTRICITY_PLAN.md` (the subtopic *ley de Ohm*) follow Hot Filament in the Electric circuits topic. For a fixed resistor the current is proportional to the voltage, V = I·R, so I = V ÷ R and R = V ÷ I, and its I–V graph is a straight line through the origin; a fuse is a thin wire that melts the moment the current reaches its rating. In both games a supply ramps steadily from 0 to its voltage over 2 s and holds for 1 s while ideal meters follow it; readings and results show 4 significant figures. Answers are right within 2%, purely relative; a limit (the least resistance, the most voltage) must hold with at most 2% to spare, and a current within 0.05% of the rating counts as holding.
+
+| Language | Ohm's Law Lab | Fuse Test |
+| --- | --- | --- |
+| English | `/games/electric-circuits/ohms-law-lab/` | `/games/electric-circuits/fuse-test/` |
+| Español | `/es/juegos/circuitos-electricos/laboratorio-de-ohm/` | `/es/juegos/circuitos-electricos/prueba-del-fusible/` |
+| Français | `/fr/jeux/circuits-electriques/laboratoire-d-ohm/` | `/fr/jeux/circuits-electriques/test-du-fusible/` |
+| Deutsch | `/de/spiele/stromkreise/ohm-labor/` | `/de/spiele/stromkreise/sicherungstest/` |
+| Nederlands | `/nl/spellen/stroomkringen/ohm-lab/` | `/nl/spellen/stroomkringen/zekeringtest/` |
+| Suomi | `/fi/pelit/virtapiirit/ohmin-laboratorio/` | `/fi/pelit/virtapiirit/sulaketesti/` |
+| Norsk bokmål | `/nb/spill/stromkretser/ohms-lab/` | `/nb/spill/stromkretser/sikringstest/` |
+| Dansk | `/da/spil/stromkredse/ohms-laboratorium/` | `/da/spil/stromkredse/sikringstest/` |
+| Português | `/pt/jogos/circuitos-eletricos/laboratorio-de-ohm/` | `/pt/jogos/circuitos-eletricos/teste-do-fusivel/` |
+| हिन्दी | `/hi/khel/vidyut-paripath/ohm-prayogshala/` | `/hi/khel/vidyut-paripath/fuse-pariksha/` |
+| 日本語 | `/ja/gemu/denki-kairo/ohmu-no-jikkenshitsu/` | `/ja/gemu/denki-kairo/hyuzu-shiken/` |
+| Svenska | `/sv/spel/stromkretsar/ohms-labb/` | `/sv/spel/stromkretsar/sakringstest/` |
+| Italiano | `/it/giochi/circuiti-elettrici/laboratorio-di-ohm/` | `/it/giochi/circuiti-elettrici/prova-del-fusibile/` |
+| Română | `/ro/jocuri/circuite-electrice/laboratorul-lui-ohm/` | `/ro/jocuri/circuite-electrice/testul-sigurantei/` |
+| Polski | `/pl/gry/obwody-elektryczne/laboratorium-ohma/` | `/pl/gry/obwody-elektryczne/test-bezpiecznika/` |
+| Türkçe | `/tr/oyunlar/elektrik-devreleri/ohm-laboratuvari/` | `/tr/oyunlar/elektrik-devreleri/sigorta-testi/` |
+| العربية | `/ar/alab/dawair-kahrabaiya/mukhtabar-uum/` | `/ar/alab/dawair-kahrabaiya/ikhtibar-almisahar/` |
+
+**Ohm's Law Lab**: a loop with a variable supply on the left, an IEC resistor on top with a voltmeter across it, an ammeter on the right, mint current arrows and sky electron dots (the flow toggle). The right panel draws current against the resistor's voltage as the supply rises, with the resistor's dashed line, the wanted current, the given point, and your answer in orange. The LED is ideal: no current below 2.0 V, then a constant 2.0 V drop, glowing with its current. Tests: 12 V across 4 Ω (3 A), 6 V driving 0.25 A (24 Ω), the voltage for 0.50 A through 220 Ω (110 V; your voltage sets the supply), the current at 9 V on a line through (2 V, 0.10 A) (0.45 A), and the resistor for an LED on 9 V at 20 mA (350 Ω; your resistor goes in the circuit).
+
+**Fuse Test**: the same loop with a glass cartridge fuse on top whose wire warms from gray to orange as the current nears the rating and breaks when it melts, then a load (a kettle, wet skin, a resistor, your resistor, or a thick shorting wire), and an ammeter. The meters show the supply, the current, and the load on the fuse in percent. The right panel plots current against the supply's voltage with the rating as an orange-red line (or a note when the rating is far off the scale) and a cross where the fuse melted. Tests: a 26.45 Ω kettle on 230 V (8.696 A, under its 13 A fuse), the least resistance on 12 V with a 2 A fuse (6.0 Ω), wet skin of 1000 Ω on 230 V (230 mA, far below the 13 A fuse), the most voltage on 47 Ω rated 0.1 A (4.7 V), and a 12 V battery with 0.05 Ω inside, shorted (240 A, with a 300 A battery fuse that holds at 80%). The model text says these are teaching values, not safety limits, and that a fuse protects wiring, not people.
+
+- `verify-ohm.cjs`, `verify-fuse.cjs`: model checks (the ramp, V = I·R and its rearrangements, the LED's 2 V threshold, the battery's internal resistance, the melt time and the 0.05% grace, the limit rule, timestep independence, the 2% window, slip detection, scoring, input validation, state transfer) and localized interface checks in all seventeen languages. Both run in `npm test`.
+
+## Series circuit games: Bulb Chain, Voltage Divider
+
+Items 19 and 20 of `ELECTRICITY_PLAN.md` (the subtopic *circuitos en serie*) follow Fuse Test in the Electric circuits topic. In series there is one path, so one current flows through every component, the resistances add, R = R₁ + R₂ + …, and the supply is shared in proportion to the resistances, V₁ = I·R₁; taking the output across the lower part gives a voltage divider, V_out = V·R₂ ÷ (R₁ + R₂). In both games the supply ramps steadily from 0 to its voltage over 2 s and holds for 1 s while ideal meters follow it; readings and results show 4 significant figures, and answers are right within 2%, purely relative. The fairy-lights test is a limit: the exact fewest whole number of bulbs that none burns out (a bulb burns out the moment its voltage passes its 2.5 V rating; within 0.05% counts as holding). Translations need native review; the Portuguese of these two games follows the site's Brazilian standard.
+
+| Language | Bulb Chain | Voltage Divider |
+| --- | --- | --- |
+| English | `/games/electric-circuits/bulb-chain/` | `/games/electric-circuits/voltage-divider/` |
+| Español | `/es/juegos/circuitos-electricos/cadena-de-bombillas/` | `/es/juegos/circuitos-electricos/divisor-de-tension/` |
+| Français | `/fr/jeux/circuits-electriques/chaine-d-ampoules/` | `/fr/jeux/circuits-electriques/diviseur-de-tension/` |
+| Deutsch | `/de/spiele/stromkreise/lampenkette/` | `/de/spiele/stromkreise/spannungsteiler/` |
+| Nederlands | `/nl/spellen/stroomkringen/lampjesketting/` | `/nl/spellen/stroomkringen/spanningsdeler/` |
+| Suomi | `/fi/pelit/virtapiirit/lamppuketju/` | `/fi/pelit/virtapiirit/jannitteenjakaja/` |
+| Norsk bokmål | `/nb/spill/stromkretser/lyspaerekjede/` | `/nb/spill/stromkretser/spenningsdeler/` |
+| Dansk | `/da/spil/stromkredse/paerekaede/` | `/da/spil/stromkredse/spaendingsdeler/` |
+| Português | `/pt/jogos/circuitos-eletricos/corrente-de-lampadas/` | `/pt/jogos/circuitos-eletricos/divisor-de-tensao/` |
+| हिन्दी | `/hi/khel/vidyut-paripath/bulb-shrinkhla/` | `/hi/khel/vidyut-paripath/voltata-vibhajak/` |
+| 日本語 | `/ja/gemu/denki-kairo/denkyu-no-retsu/` | `/ja/gemu/denki-kairo/denatsu-bunkatsu/` |
+| Svenska | `/sv/spel/stromkretsar/lampkedja/` | `/sv/spel/stromkretsar/spanningsdelare/` |
+| Italiano | `/it/giochi/circuiti-elettrici/catena-di-lampadine/` | `/it/giochi/circuiti-elettrici/partitore-di-tensione/` |
+| Română | `/ro/jocuri/circuite-electrice/lantul-de-becuri/` | `/ro/jocuri/circuite-electrice/divizorul-de-tensiune/` |
+| Polski | `/pl/gry/obwody-elektryczne/lancuch-zarowek/` | `/pl/gry/obwody-elektryczne/dzielnik-napiecia/` |
+| Türkçe | `/tr/oyunlar/elektrik-devreleri/ampul-zinciri/` | `/tr/oyunlar/elektrik-devreleri/gerilim-bolucu/` |
+| العربية | `/ar/alab/dawair-kahrabaiya/silsilat-almasabih/` | `/ar/alab/dawair-kahrabaiya/muqassim-aljuhd/` |
+
+**Bulb Chain**: a loop with the supply on the left, IEC lamps (a circle with a cross) in a row on the top wire, each glowing with its own power on a stated scale (full glow at 16 W, or 0.5 W for a fairy light), a voltmeter across the middle bulb, and an ammeter on the right; mint current arrows and sky electron dots (the flow toggle). In the fairy-lights test your number of small bulbs (up to 150 drawn) spreads along the loop; too few and one burns out, breaking the only path, so every bulb goes dark. The right panel shows a bar per bulb with its voltage and their sum, which is the supply (one bar for all the fairy lights, against the 2.5 V rating). Tests: three 4 Ω bulbs on 12 V (1 A), 2, 5, and 3 Ω in series (10 Ω), the same on 20 V across the 5 Ω (10 V), a fourth 4 Ω bulb (0.75 A), and 2.5 V fairy lights on 230 V (92 bulbs; your number goes in the chain).
+
+**Voltage Divider**: a loop with the supply on the left and IEC resistors standing one above another on the right-hand wire, a light sensor (LDR symbol) or thermistor at the bottom in two tests, and a voltmeter from the output node to the bottom wire. Resistances are in kΩ and the current in mA. The right panel plots the potential against the resistance passed from the top, a straight line with a dot at each node, the output node's value, the wanted output, and your answer in orange. Tests: 9 V across 1 and 2 kΩ (6 V across the 2 kΩ), 5 V out of 12 V with 1.4 kΩ on top (1.0 kΩ; your resistor goes in), an LDR at 1 kΩ under 10 kΩ on 9 V (0.818 V), a thermistor under 4.7 kΩ on 5 V reading 2.5 V (4.7 kΩ; your value goes in), and the node above the 3 kΩ in 1, 2, 3 kΩ on 12 V (6 V).
+
+- `verify-series.cjs`, `verify-divider.cjs`: model checks (one current, the resistances adding, the shares in proportion, the fairy lights' burn-out time and the fewest-bulbs rule, node potentials down a chain, timestep independence, the 2% window, slip detection, scoring, input validation, state transfer) and localized interface checks in all seventeen languages. Both run in `npm test`.
+
+## Parallel circuit games: Room Wiring, Current Splitter
+
+Items 21 and 22 of `ELECTRICITY_PLAN.md` (the subtopic *circuitos en paralelo*) follow Voltage Divider in the Electric circuits topic. In parallel every branch gets the full supply voltage, so each branch draws I = V ÷ R on its own, the currents add at the junctions, I = I₁ + I₂ + …, and the combined resistance is smaller than the smallest branch, 1/R = 1/R₁ + 1/R₂ + …; two branches share a current inversely to their resistances, I₁·R₁ = I₂·R₂. In Room Wiring the supply is steady and the branches switch on in turn over 2 s; in Current Splitter the source ramps steadily over 2 s; both then hold for 1 s while ideal ammeters follow; readings and results show 4 significant figures, and answers are right within 2%, purely relative. The breaker test is a limit: the exact most whole number of lamps before the breaker trips (it trips the moment the current passes 16 A; within 0.05% counts as holding). Translations need native review; the Portuguese of these games follows the site's Brazilian standard.
+
+| Language | Room Wiring | Current Splitter |
+| --- | --- | --- |
+| English | `/games/electric-circuits/room-wiring/` | `/games/electric-circuits/current-splitter/` |
+| Español | `/es/juegos/circuitos-electricos/instalacion-de-la-casa/` | `/es/juegos/circuitos-electricos/reparto-de-corriente/` |
+| Français | `/fr/jeux/circuits-electriques/installation-de-la-maison/` | `/fr/jeux/circuits-electriques/partage-du-courant/` |
+| Deutsch | `/de/spiele/stromkreise/hausinstallation/` | `/de/spiele/stromkreise/stromteiler/` |
+| Nederlands | `/nl/spellen/stroomkringen/huisinstallatie/` | `/nl/spellen/stroomkringen/stroomverdeler/` |
+| Suomi | `/fi/pelit/virtapiirit/talon-sahkot/` | `/fi/pelit/virtapiirit/virranjakaja/` |
+| Norsk bokmål | `/nb/spill/stromkretser/husets-anlegg/` | `/nb/spill/stromkretser/stromdeler/` |
+| Dansk | `/da/spil/stromkredse/husets-installation/` | `/da/spil/stromkredse/stromdeler/` |
+| Português | `/pt/jogos/circuitos-eletricos/instalacao-da-casa/` | `/pt/jogos/circuitos-eletricos/divisao-de-corrente/` |
+| हिन्दी | `/hi/khel/vidyut-paripath/ghar-ki-wiring/` | `/hi/khel/vidyut-paripath/dhara-vibhajak/` |
+| 日本語 | `/ja/gemu/denki-kairo/ie-no-haisen/` | `/ja/gemu/denki-kairo/denryu-no-bunki/` |
+| Svenska | `/sv/spel/stromkretsar/husets-elinstallation/` | `/sv/spel/stromkretsar/stromdelare/` |
+| Italiano | `/it/giochi/circuiti-elettrici/impianto-di-casa/` | `/it/giochi/circuiti-elettrici/divisione-della-corrente/` |
+| Română | `/ro/jocuri/circuite-electrice/instalatia-casei/` | `/ro/jocuri/circuite-electrice/impartirea-curentului/` |
+| Polski | `/pl/gry/obwody-elektryczne/instalacja-w-domu/` | `/pl/gry/obwody-elektryczne/podzial-pradu/` |
+| Türkçe | `/tr/oyunlar/elektrik-devreleri/ev-tesisati/` | `/tr/oyunlar/elektrik-devreleri/akim-bolucu/` |
+| العربية | `/ar/alab/dawair-kahrabaiya/tamdidat-albayt/` | `/ar/alab/dawair-kahrabaiya/taqsim-altayyar/` |
+
+**Room Wiring**: a house circuit with the supply on the left and appliances on parallel branches between two rails, switched on in turn, each with its own ammeter, and a main ammeter (a breaker in the last test) on the supply wire; mint current arrows and sky electron dots (the flow toggle). In the unplug test one of three lamps is unplugged at 2.5 s and the others keep their current. The right panel plots the main current against time, stepping up as each branch switches on and down when one goes off. Tests: 6 and 3 Ω side by side (2 Ω), the same on 12 V (6 A in the main wire), three 12 Ω lamps with one unplugged (2 A), the resistor beside 10 Ω that makes 4 Ω (6.67 Ω; your resistor goes in), and the most 0.50 A lamps on a 16 A breaker at 230 V (32; your number of lamps goes in).
+
+**Current Splitter**: a junction where the main current splits between branches and joins again, an ammeter on every branch, and the counts adding at each junction (Kirchhoff's current law). Tests that give a current use a current source. The right panel shows a bar for the current in and one for each branch, which add up to it. Tests: 3 A in with 1.2 A down one branch (1.8 A; the resistances are hidden), 6 A between 2 and 4 Ω (4 A in the 2 Ω), 12, 20, and 30 Ω on 6 V (1 A in the main wire), a 6 Ω branch switched on beside 4 Ω on 12 V (the 4 Ω keeps 3 A), and the shunt that makes a 50 mA, 20 Ω meter read 1 A (1.053 Ω; your shunt goes in).
+
+- `verify-parallel.cjs`, `verify-junction.cjs`: model checks (the full voltage on every branch, the currents adding, the reciprocal rule, the inverse share, branches switching on in turn, the breaker's trip time and the most-lamps rule, the shunt, timestep independence, the 2% window, slip detection, scoring, input validation, state transfer) and localized interface checks in all seventeen languages. Both run in `npm test`.
+
+## Electrical power games: Bulb Brightness, Power Line
+
+Items 23 and 24 of `ELECTRICITY_PLAN.md` (the subtopic *potencia eléctrica*) follow Current Splitter in the Electric circuits topic. Electrical power is the energy transferred each second, P = V·I, which with Ohm's law is also I²·R and V² ÷ R; a bulb's brightness follows the power it actually takes, not its rating, and a power line loses P_loss = I²·R, so sending the same power at a higher voltage, with a smaller current, cuts the loss by the square. In both games the supply ramps over 2 s and holds for 1 s; readings and results show 4 significant figures, and answers are right within 2%, purely relative. Translations need native review; the Portuguese of these games follows the site's Brazilian standard.
+
+| Language | Bulb Brightness | Power Line |
+| --- | --- | --- |
+| English | `/games/electric-circuits/bulb-brightness/` | `/games/electric-circuits/power-line/` |
+| Español | `/es/juegos/circuitos-electricos/brillo-de-bombillas/` | `/es/juegos/circuitos-electricos/linea-de-alta-tension/` |
+| Français | `/fr/jeux/circuits-electriques/eclat-des-ampoules/` | `/fr/jeux/circuits-electriques/ligne-haute-tension/` |
+| Deutsch | `/de/spiele/stromkreise/lampenhelligkeit/` | `/de/spiele/stromkreise/hochspannungsleitung/` |
+| Nederlands | `/nl/spellen/stroomkringen/felheid-van-lampen/` | `/nl/spellen/stroomkringen/hoogspanningslijn/` |
+| Suomi | `/fi/pelit/virtapiirit/lamppujen-kirkkaus/` | `/fi/pelit/virtapiirit/voimalinja/` |
+| Norsk bokmål | `/nb/spill/stromkretser/paerenes-lysstyrke/` | `/nb/spill/stromkretser/kraftlinje/` |
+| Dansk | `/da/spil/stromkredse/paerers-lysstyrke/` | `/da/spil/stromkredse/hojspaendingsledning/` |
+| Português | `/pt/jogos/circuitos-eletricos/brilho-das-lampadas/` | `/pt/jogos/circuitos-eletricos/linha-de-transmissao/` |
+| हिन्दी | `/hi/khel/vidyut-paripath/bulb-ki-chamak/` | `/hi/khel/vidyut-paripath/bijli-ki-line/` |
+| 日本語 | `/ja/gemu/denki-kairo/denkyu-no-akarusa/` | `/ja/gemu/denki-kairo/souden-sen/` |
+| Svenska | `/sv/spel/stromkretsar/lampornas-ljusstyrka/` | `/sv/spel/stromkretsar/kraftledning/` |
+| Italiano | `/it/giochi/circuiti-elettrici/luce-delle-lampadine/` | `/it/giochi/circuiti-elettrici/linea-elettrica/` |
+| Română | `/ro/jocuri/circuite-electrice/stralucirea-becurilor/` | `/ro/jocuri/circuite-electrice/linia-de-inalta-tensiune/` |
+| Polski | `/pl/gry/obwody-elektryczne/jasnosc-zarowek/` | `/pl/gry/obwody-elektryczne/linia-wysokiego-napiecia/` |
+| Türkçe | `/tr/oyunlar/elektrik-devreleri/ampul-parlakligi/` | `/tr/oyunlar/elektrik-devreleri/enerji-hatti/` |
+| العربية | `/ar/alab/dawair-kahrabaiya/twahhuj-almasabih/` | `/ar/alab/dawair-kahrabaiya/khatt-alnaql/` |
+
+**Bulb Brightness**: a loop with the supply on the left and IEC lamps that glow with their power on a stated scale (full glow at 100 W), a wattmeter on the marked bulb, and the bulbs keeping the resistance of their rating (the model text says real filaments change). The right panel shows a bar for each bulb's actual power beside a dashed outline of its rated power. Tests: a 6 Ω bulb on 12 V (24 W), the resistance of a 60 W bulb made for 230 V (881.7 Ω; your resistance goes in the bulb), two such bulbs in series on 230 V (15 W each), 60 W and 100 W bulbs in series (23.4 W in the 60 W bulb, the brighter one), and a 100 W bulb on 115 V (25 W).
+
+**Power Line**: a power station, a step-up transformer, a long two-wire line that glows warmer with its loss, a step-down transformer, and a town or house; the line's voltage, resistance, and current are labelled, with mint current arrows and sky electron dots. The right panel compares the power sent, lost, and delivered, with the share lost. Teaching values with ideal transformers. Tests: 100 kW at 1000 V through 0.5 Ω (5000 W lost), the same at 10 kV (50 W), the voltage at which 1 MW through 2 Ω loses only 1% (14.1 kV; your voltage goes on the line), 20 A through a 4 Ω line (1600 W), and a heater that takes 2 kW from the house's 230 V (26.45 Ω; your heater goes in the house).
+
+- `verify-brightness.cjs`, `verify-powerline.cjs`: model checks (P = V·I = I²·R = V² ÷ R, the rated resistance, series bulbs sharing the voltage, the brighter low-wattage bulb, the line current and loss, the hundredfold cut, the 1% design, the heater's line, timestep independence, the 2% window, slip detection, scoring, input validation, state transfer) and localized interface checks in all seventeen languages. Both run in `npm test`.
+
+## Electrical energy games: Kettle Race, Energy Meter
+
+Items 25 and 26 of `ELECTRICITY_PLAN.md` (the subtopic *energía eléctrica*) follow Power Line and close the Electric circuits topic. The energy an appliance uses is its power times the time it runs, E = P·t: a kettle turns it into heat, and warming water takes E = m·c·ΔT with c = 4180 J/(kg·°C); a house energy meter counts kilowatt-hours, 1 kWh = 1000 Wh = 3600 kJ. Both games run over long times, so each test has its own pace that makes a run last about 4 s on screen, stated on the canvas; Energy Meter uses the generator's `timeUnits` field so the clock reads hours, or days in the standby test. Answers are right within 2%, purely relative. Translations need native review; the Portuguese of these games follows the site's Brazilian standard.
+
+| Language | Kettle Race | Energy Meter |
+| --- | --- | --- |
+| English | `/games/electric-circuits/kettle-race/` | `/games/electric-circuits/energy-meter/` |
+| Español | `/es/juegos/circuitos-electricos/carrera-de-hervidores/` | `/es/juegos/circuitos-electricos/contador-de-energia/` |
+| Français | `/fr/jeux/circuits-electriques/course-des-bouilloires/` | `/fr/jeux/circuits-electriques/compteur-electrique/` |
+| Deutsch | `/de/spiele/stromkreise/wasserkocher-rennen/` | `/de/spiele/stromkreise/stromzaehler/` |
+| Nederlands | `/nl/spellen/stroomkringen/waterkoker-race/` | `/nl/spellen/stroomkringen/energiemeter/` |
+| Suomi | `/fi/pelit/virtapiirit/vedenkeitinkisa/` | `/fi/pelit/virtapiirit/sahkomittari/` |
+| Norsk bokmål | `/nb/spill/stromkretser/vannkoker-kapplop/` | `/nb/spill/stromkretser/strommaler/` |
+| Dansk | `/da/spil/stromkredse/elkedel-kaplob/` | `/da/spil/stromkredse/elmaler/` |
+| Português | `/pt/jogos/circuitos-eletricos/corrida-das-chaleiras/` | `/pt/jogos/circuitos-eletricos/medidor-de-energia/` |
+| हिन्दी | `/hi/khel/vidyut-paripath/kettle-ki-daud/` | `/hi/khel/vidyut-paripath/bijli-ka-meter/` |
+| 日本語 | `/ja/gemu/denki-kairo/denki-ketoru-kyoso/` | `/ja/gemu/denki-kairo/denryoku-meta/` |
+| Svenska | `/sv/spel/stromkretsar/vattenkokar-tavling/` | `/sv/spel/stromkretsar/elmatare/` |
+| Italiano | `/it/giochi/circuiti-elettrici/gara-dei-bollitori/` | `/it/giochi/circuiti-elettrici/contatore-di-energia/` |
+| Română | `/ro/jocuri/circuite-electrice/cursa-fierbatoarelor/` | `/ro/jocuri/circuite-electrice/contorul-de-energie/` |
+| Polski | `/pl/gry/obwody-elektryczne/wyscig-czajnikow/` | `/pl/gry/obwody-elektryczne/licznik-energii/` |
+| Türkçe | `/tr/oyunlar/elektrik-devreleri/su-isiticisi-yarisi/` | `/tr/oyunlar/elektrik-devreleri/elektrik-sayaci/` |
+| العربية | `/ar/alab/dawair-kahrabaiya/sibaq-alghallayat/` | `/ar/alab/dawair-kahrabaiya/addad-alkahraba/` |
+
+**Kettle Race**: an electric kettle plugged into a socket, its water coloured from blue to red by its temperature, a thermometer beside it, and steam once it boils; mint arrows show the energy flowing in along the cord (the flow toggle). In the time tests a second, orange kettle boils exactly at your predicted time, so the two race. No heat is lost unless an efficiency is given, and the kettle itself takes no heat. The right panel plots the temperature against time, with your time dashed in orange. Tests: 2000 W boiling 1 L from 20 °C (167 s), 1500 W for 3 minutes (270 kJ), test 1 at 90% efficiency (186 s), the power that boils 0.5 L in a minute (2790 W; your power goes in the kettle), and test 1's 230 V kettle on 115 V (669 s, a quarter of the power).
+
+**Energy Meter**: a house energy meter with rolling digits wired to an appliance (a lamp, a TV on standby, a power bank, an old bulb beside an LED, or a phone on charge), mint arrows for the energy flowing out of the meter, and a timeline of the test's hours or days. The meter shows kWh for the house tests and Wh for the batteries; energies only, no prices. The right panel plots the energy in the asked unit against time, with your answer as an orange level. Tests: 100 W for 5 h (0.5 kWh), 2 W of standby for 30 days (1.44 kWh), a 15 Wh power bank in kJ (54 kJ), a 9 W LED instead of a 60 W bulb for 1000 h (51 kWh saved), and a 3000 mAh, 3.7 V phone battery (11.1 Wh).
+
+- `verify-kettle.cjs`, `verify-bill.cjs`: model checks (E = P·t, m·c·ΔT heating to the boil and holding there, the pace kettle, efficiency, a quarter of the power on half the voltage, Wh, kWh, and kJ conversions, days counting 24 hours, the saved energy, timestep independence, the 2% window, slip detection, scoring, input validation, state transfer) and localized interface checks in all seventeen languages, including the time unit switching between h and d. Both run in `npm test`.

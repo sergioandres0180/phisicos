@@ -11,7 +11,7 @@ const html=`<!doctype html>
 <style>
 .${k}-page .answer-row .symbol{min-width:56px}.${k}-page .question{font-size:15px;font-weight:600;margin-top:4px}
 .${k}-page .line-key.white{background:#f2f8fc}.${k}-page .line-key.blue{background:#77b9ff}.${k}-page .line-key.red{background:#ff7b6b}.${k}-page .line-key.green{background:#75efc7}
-</style>
+${S.css?S.css+'\n':''}</style>
 </head>
 <body>
 <div class="shell module-page ${k}-page">
@@ -42,7 +42,7 @@ ${missions}
     <div class="transport"><button id="play" class="primary" disabled>{{play}}</button><button id="pause" disabled>{{pause}}</button><button id="step" disabled>{{step}}</button><button id="reset" class="reset">{{reset}}</button></div>
   </section>
   <section class="metrics" aria-label="{{observe}}">
-    <div class="metric scalar"><h3 class="metric-label">{{time}}</h3><p class="metric-value"><span id="time-value">0.00</span> <small>${S.timeUnit||'s'}</small></p><p class="metric-equation">t</p></div>
+    <div class="metric scalar"><h3 class="metric-label">{{time}}</h3><p class="metric-value"><span id="time-value">0.00</span> <small${S.timeUnits?' id="time-unit"':''}>${S.timeUnit||'s'}</small></p><p class="metric-equation">t</p></div>
 ${metrics}
   </section>
   <div class="insight" id="insight"><span class="insight-icon" aria-hidden="true">↗</span><div><strong id="lesson-title">{{predictTitle}}</strong><p id="lesson-copy">{{predictCopy}}</p></div></div>
@@ -66,7 +66,9 @@ globalThis.${M}=${M};
   const $=id=>document.getElementById(id),locale=JSON.parse($('${k}-locale').textContent);
   const text=(key,values={})=>locale.strings[key].replace(/\\{(\\w+)\\}/g,(_,name)=>values[name]??'{'+name+'}');
   const number=(n,d=2)=>Math.abs(n)<.5*10**-d?(0).toLocaleString(locale.lang,{minimumFractionDigits:d,maximumFractionDigits:d}):n.toLocaleString(locale.lang,{minimumFractionDigits:d,maximumFractionDigits:d,useGrouping:false});
-  const plain=n=>n.toLocaleString(locale.lang,{maximumFractionDigits:3,useGrouping:false}).replace('-','−');
+  ${S.sci?`// Very small and very large values are written a × 10ⁿ, with the mantissa to 4 figures.
+  const sup=p=>String(p).replace('-','⁻').replace(/\\d/g,d=>'⁰¹²³⁴⁵⁶⁷⁸⁹'[d]);
+  const plain=n=>{const a=Math.abs(n);if(a&&(a<1e-3||a>=1e7)){let p=Math.floor(Math.log10(a)),m=Number((n/10**p).toPrecision(4));if(Math.abs(m)>=10){m/=10;p++;}return m.toLocaleString(locale.lang,{maximumFractionDigits:3,useGrouping:false}).replace('-','−')+' × 10'+sup(p);}return n.toLocaleString(locale.lang,{maximumFractionDigits:3,useGrouping:false}).replace('-','−');};`:`const plain=n=>n.toLocaleString(locale.lang,{maximumFractionDigits:3,useGrouping:false}).replace('-','−');`}
   const model=new ${M}();
   const canvas=$('${k}-canvas'),ctx=canvas.getContext('2d');
   const H=1/120,transferKey='phisicos-${k}-language-transfer';
@@ -93,7 +95,7 @@ ${S.hooksCode.trim().split('\n').map(x=>'  '+x).join('\n')}
   }
   function update(){
     const ready=model.ready(),done=model.status==='done',t=ready?model.now():0,e=model.evaluate(),begun=started();
-    $('time-value').textContent=number(t);metrics(t,begun);
+    $('time-value').textContent=number(t);${S.timeUnits?"$('time-unit').textContent=timeUnit();":''}metrics(t,begun);
     $('${k}-equation').textContent=begun?equation():baseEquation();
     let key,copy;
     if(done){

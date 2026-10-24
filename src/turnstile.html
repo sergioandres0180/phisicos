@@ -1,0 +1,289 @@
+<!doctype html>
+<html lang="en">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Charge Gate · Phisicos</title>
+<style>
+.turnstile-page .answer-row .symbol{min-width:56px}.turnstile-page .question{font-size:15px;font-weight:600;margin-top:4px}
+.turnstile-page .line-key.white{background:#f2f8fc}.turnstile-page .line-key.blue{background:#77b9ff}.turnstile-page .line-key.red{background:#ff7b6b}.turnstile-page .line-key.green{background:#75efc7}
+[dir=rtl] .turnstile-page .mission-list span{unicode-bidi:plaintext}
+</style>
+</head>
+<body>
+<div class="shell module-page turnstile-page">
+__HEADER__
+<main id="main-content">
+__BREADCRUMBS__
+
+<div class="masthead"><div><h1>{{title}}</h1><p class="intro">{{subtitle}}</p></div><div class="concept-tags"><span class="tag speed">{{tag1}}</span><span class="tag velocity">{{tag2}}</span></div></div>
+<noscript><p class="no-js">{{noScript}}</p></noscript>
+<div class="layout">
+<aside class="sidebar" aria-label="{{setup}}">
+  <section class="control-section"><h2 class="eyebrow">{{setup}}</h2><div class="mission-list" role="group" aria-label="{{setup}}">
+    <button id="mission-0" aria-pressed="true"><b>1 · {{mission0}}</b><span id="given-0">·</span></button>
+    <button id="mission-1" aria-pressed="false"><b>2 · {{mission1}}</b><span id="given-1">·</span></button>
+    <button id="mission-2" aria-pressed="false"><b>3 · {{mission2}}</b><span id="given-2">·</span></button>
+    <button id="mission-3" aria-pressed="false"><b>4 · {{mission3}}</b><span id="given-3">·</span></button>
+    <button id="mission-4" aria-pressed="false"><b>5 · {{mission4}}</b><span id="given-4">·</span></button>
+  </div><p class="hint">{{setupNote}}</p></section>
+  <section class="control-section"><h2 class="eyebrow">{{answerHeading}}</h2>
+    <p class="question" id="question">{{question0}}</p>
+    <p class="field-label"><label for="answer">{{answerLabel}}</label></p>
+    <div class="answer-row"><span class="symbol" id="answer-symbol">I =</span><input id="answer" type="number" inputmode="decimal" step="any" value=""><span class="unit" id="answer-unit">A</span></div>
+    <p class="hint">{{answerHint}}</p>
+  </section>
+  <section class="control-section"><h2 class="eyebrow">{{observe}}</h2><label class="check"><input id="show-arrows" type="checkbox" checked>{{arrowToggle}}</label><label class="check"><input id="show-guess" type="checkbox" checked>{{guessToggle}}</label><p class="hint">{{observeHint}}</p></section>
+</aside>
+<div class="workspace">
+  <section class="scene" aria-label="{{sceneTitle}}"><div class="scene-top"><div><h2 class="scene-title">{{sceneTitle}}</h2><p class="scene-subtitle" id="mission-label">{{mission0}}</p></div><span class="status" id="turnstile-status"><i class="status-dot" aria-hidden="true"></i><span id="turnstile-status-text">{{ready}}</span></span></div>
+    <div class="module-stage"><canvas id="turnstile-canvas" role="img" aria-label="{{canvasLabel}}">{{noScript}}</canvas></div>
+    <div class="legend"><span><i class="line-key green"></i>{{currentLegend}}</span><span><i class="line-key blue"></i>{{electronLegend}}</span><span><i class="line-key white"></i>{{gateLegend}}</span><span><i class="line-key orange"></i>{{guessLegend}}</span></div>
+    <div class="module-equation"><span>{{equationTitle}}</span><output id="turnstile-equation">I = Q ÷ t</output></div>
+    <div class="transport"><button id="play" class="primary" disabled>{{play}}</button><button id="pause" disabled>{{pause}}</button><button id="step" disabled>{{step}}</button><button id="reset" class="reset">{{reset}}</button></div>
+  </section>
+  <section class="metrics" aria-label="{{observe}}">
+    <div class="metric scalar"><h3 class="metric-label">{{time}}</h3><p class="metric-value"><span id="time-value">0.00</span> <small id="time-unit">s</small></p><p class="metric-equation">t</p></div>
+    <div class="metric scalar"><h3 class="metric-label">{{chargeMetric}}</h3><p class="metric-value"><span id="charge-value">—</span> <small>C</small></p><p class="metric-equation">Q = I·t</p></div>
+    <div class="metric vector"><h3 class="metric-label">{{currentMetric}}</h3><p class="metric-value"><span id="current-value">—</span> <small>A</small></p><p class="metric-equation">I = Q ÷ t</p></div>
+    <div class="metric scalar"><h3 class="metric-label">{{electronsMetric}}</h3><p class="metric-value"><span id="electrons-value">—</span> <small>e⁻</small></p><p class="metric-equation">N = Q ÷ e</p></div>
+  </section>
+  <div class="insight" id="insight"><span class="insight-icon" aria-hidden="true">↗</span><div><strong id="lesson-title">{{predictTitle}}</strong><p id="lesson-copy">{{predictCopy}}</p></div></div>
+  <section class="challenge"><div class="mission-heading"><h2 class="challenge-title">{{missionTitle}}</h2><div class="score-card"><span>{{score}}</span><strong id="mission-score">—</strong></div></div><p class="mission-copy">{{missionCopy}}</p><div class="badges"><span id="right-badge">✓ {{rightBadge}}</span><span id="first-badge">① {{firstBadge}}</span></div></section>
+</div>
+</div>
+<article class="learning-content"><section><h2>{{guideTitle}}</h2><ol><li>{{instruction1}}</li><li>{{instruction2}}</li><li>{{instruction3}}</li><li>{{instruction4}}</li></ol></section><section><h2>{{conceptTitle}}</h2><p>{{conceptCopy}}</p><aside class="worked-example"><h3>{{exampleTitle}}</h3><p>{{exampleCopy}}</p></aside></section><section><h2>{{modelTitle}}</h2><p>{{modelCopy}}</p></section></article>
+<p class="language-note" id="language-note">{{languageNote}}</p>
+</main>
+__FOOTER__
+<p class="sr-only" id="announcement" role="status" aria-live="polite"></p>
+</div>
+<script id="turnstile-model">
+class TurnstileModel {
+  // A current is charge per second through a cut across the wire: I = Q ÷ t, so Q = I·t, and one ampere is one coulomb
+  // each second, 1 ÷ e = 6.242 × 10¹⁸ electrons. The current is steady from the start. Each test runs over its own time
+  // (1 s, 1 min, 5 min, 1.5 h, or until 90 C has passed) in its own unit, shown sped up or slowed so a run takes 4 s.
+  static e = 1.602e-19;
+  static seconds = {s:1,min:60,h:3600};
+  static tolerance = .02;
+  static missions = [
+    {key:'rate',ask:'current',I:.5,tu:'min',T:1},
+    {key:'lamp',ask:'charge',I:2,tu:'min',T:5},
+    {key:'electrons',ask:'rate',I:1,tu:'s',T:1},
+    {key:'phone',ask:'charge',I:2,tu:'h',T:1.5},
+    {key:'wait',ask:'time',I:.25,tu:'s',T:360,target:90}
+  ].map(m=>({...m,pace:m.T/4}));
+  static units = {current:'A',charge:'C',rate:'e⁻/s',time:'s'};
+  constructor(index = 0){this.setMission(index);}
+  setMission(index){this.index=index;this.config=TurnstileModel.missions[index];this.answer=null;this.attempts=0;this.reset();}
+  reset(){this.t=0;this.status='moving';}
+  valid(value){return Number.isFinite(value)&&value>0&&value<=1e30;}
+  setAnswer(value){if(value!==null&&!this.valid(value))return false;this.answer=value;this.reset();return true;}
+  ready(){return this.answer!==null;}
+  // Time t is in the test's own unit; the charge through the gate by then, in C, and the electrons that carried it.
+  charge(t){const c=this.config;return c.I*t*TurnstileModel.seconds[c.tu];}
+  electrons(t){return this.charge(t)/TurnstileModel.e;}
+  duration(){return this.config.T;}
+  now(){return this.status==='done'?this.duration():this.t;}
+  advance(dt){
+    if(!Number.isFinite(dt)||dt<0)throw new Error('Invalid timestep');
+    if(this.status==='done'||!this.ready())return null;
+    // A run counts as an attempt as soon as it starts; it ends exactly at the test's time.
+    if(this.t===0)this.attempts++;
+    const T=this.duration();
+    if(this.t+dt>=T*(1-1e-12)){this.t=T;this.status='done';return {t:T,done:true};}
+    this.t+=dt;return null;
+  }
+  exact(){const k=this.config.key;return {rate:.5,lamp:600,electrons:1/TurnstileModel.e,phone:10800,wait:360}[k];}
+  unit(){return TurnstileModel.units[this.config.ask];}
+  evaluate(){
+    if(!this.ready())return {ok:false,slip:null,first:false,exact:this.exact()};
+    const c=this.config,a=this.answer,x=this.exact(),tol=TurnstileModel.tolerance,near=(p,q)=>Math.abs(p-q)<=tol*Math.abs(q);
+    const ok=near(a,x);let slip=null;
+    if(!ok){
+      if(c.key==='rate'){if(near(a,30))slip='perMinute';else if(near(a,2))slip='inverted';}
+      else if(c.key==='lamp'){if(near(a,10))slip='lampMinutes';else if(near(a,2/300))slip='divided';}
+      else if(c.key==='electrons'){if(near(a,TurnstileModel.e))slip='multiplied';}
+      else if(c.key==='phone'){if(near(a,3))slip='hours';else if(near(a,180))slip='phoneMinutes';}
+      else{if(near(a,22.5))slip='timesCharge';else if(near(a,6))slip='waitMinutes';}
+    }
+    return {ok,slip,first:ok&&this.attempts===1,exact:x};
+  }
+  score(){if(this.status!=='done')return 0;const e=this.evaluate();return (e.ok?100:0)+(e.first?50:0);}
+  snapshot(){return {index:this.index,answer:this.answer,attempts:this.attempts,t:this.t,status:this.status};}
+  restore(saved){
+    if(!Number.isInteger(saved?.index)||!TurnstileModel.missions[saved.index])return false;
+    const probe=new TurnstileModel(saved.index);
+    if(!probe.setAnswer(saved.answer??null)||!Number.isInteger(saved.attempts)||saved.attempts<0)return false;
+    if(!['moving','done'].includes(saved.status)||!Number.isFinite(saved.t)||saved.t<0||saved.t>probe.duration()*(1+1e-9))return false;
+    if(probe.answer===null&&(saved.t>0||saved.status==='done'))return false;
+    if((saved.status==='done'||saved.t>0)&&saved.attempts<1)return false;
+    this.setMission(saved.index);this.answer=probe.answer;this.attempts=saved.attempts;
+    this.status=saved.status;this.t=saved.status==='done'?this.duration():saved.t;return true;
+  }
+}
+globalThis.TurnstileModel=TurnstileModel;
+</script>
+<script id="turnstile-locale" type="application/json">__LOCALE__</script>
+<script id="turnstile-interface">
+(() => {
+  'use strict';
+  const $=id=>document.getElementById(id),locale=JSON.parse($('turnstile-locale').textContent);
+  const text=(key,values={})=>locale.strings[key].replace(/\{(\w+)\}/g,(_,name)=>values[name]??'{'+name+'}');
+  const number=(n,d=2)=>Math.abs(n)<.5*10**-d?(0).toLocaleString(locale.lang,{minimumFractionDigits:d,maximumFractionDigits:d}):n.toLocaleString(locale.lang,{minimumFractionDigits:d,maximumFractionDigits:d,useGrouping:false});
+  // Very small and very large values are written a × 10ⁿ, with the mantissa to 4 figures.
+  const sup=p=>String(p).replace('-','⁻').replace(/\d/g,d=>'⁰¹²³⁴⁵⁶⁷⁸⁹'[d]);
+  const plain=n=>{const a=Math.abs(n);if(a&&(a<1e-3||a>=1e7)){let p=Math.floor(Math.log10(a)),m=Number((n/10**p).toPrecision(4));if(Math.abs(m)>=10){m/=10;p++;}return m.toLocaleString(locale.lang,{maximumFractionDigits:3,useGrouping:false}).replace('-','−')+' × 10'+sup(p);}return n.toLocaleString(locale.lang,{maximumFractionDigits:3,useGrouping:false}).replace('-','−');};
+  const model=new TurnstileModel();
+  const canvas=$('turnstile-canvas'),ctx=canvas.getContext('2d');
+  const H=1/120,transferKey='phisicos-turnstile-language-transfer';
+  let running=false,previous=null,accumulator=0,lastUpdate=0,width=800,height=410;
+  const say=message=>{$('announcement').textContent=message;};
+  try{const data=JSON.parse(sessionStorage.getItem(transferKey)||'null');sessionStorage.removeItem(transferKey);if(data)model.restore(data.state);}catch{$('language-note').hidden=true;}
+  const pace=()=>model.config.pace??1;
+  const amount=v=>plain(Number(v.toPrecision(5)))+(model.unit()?' '+model.unit():'');
+  const slipKey=name=>'slip'+name[0].toUpperCase()+name.slice(1);
+  // The readings show only once a run starts, because they give the answer away.
+  const started=()=>model.status==='done'||model.t>0;
+  const symbols={current:'I =',charge:'Q =',rate:'N ÷ t =',time:'t =',};
+  function timeUnit(){return model.config.tu;}
+  // Givens: the charge and the time, the current and the time, or the current and the charge to carry.
+  function given(m){
+    const keys={rate:'givenRate',lamp:'givenLamp',electrons:'givenElectrons',phone:'givenPhone',wait:'givenWait'};
+    return text(keys[m.key],{I:m.I===2?number(2,1):plain(m.I),Q:plain(m.key==='rate'?30:90),t:plain(m.T),e:plain(TurnstileModel.e)});
+  }
+  function equation(){
+    const k=model.config.key;
+    if(k==='rate')return 'I = Q ÷ t = 30 ÷ 60 = '+number(.5,2)+' A';
+    if(k==='lamp')return 'Q = I·t = '+number(2,1)+' × 300 = 600 C';
+    if(k==='electrons')return 'N ÷ t = I ÷ e = 1 ÷ '+plain(TurnstileModel.e)+' = '+plain(1/TurnstileModel.e)+' e⁻/s';
+    if(k==='phone')return 'Q = I·t = '+number(2,1)+' × 5400 = 10800 C';
+    return 't = Q ÷ I = 90 ÷ '+plain(.25)+' = 360 s';
+  }
+  function baseEquation(){return 'I = Q ÷ t';}
+  function metrics(t,begun){
+    if(!begun){for(const id of ['charge-value','current-value','electrons-value'])$(id).textContent='—';return;}
+    $('charge-value').textContent=number(model.charge(t),1);$('current-value').textContent=number(model.config.I,2);$('electrons-value').textContent=plain(model.electrons(t));
+  }
+  function values(){const k=model.config.key,x=model.exact();return {x:k==='rate'?number(x,2):plain(x)};}
+  const span=t=>number(t)+' '+model.config.tu;
+  function runningCopy(t){
+    if(model.config.key==='electrons')return text('electronCopy',{N:plain(model.electrons(t)),t:span(t)});
+    return text('countCopy',{Q:number(model.charge(t),1),t:span(t)});
+  }
+  // How much charge each moving dot stands for: a thirtieth of the run's total.
+  function chunk(){return model.charge(model.duration())/30;}
+  function scene(g){
+    const c=g.c,{line,fit,dot,box,label}=g,area=g.area,t=g.begun?model.now():0;
+    const L=area*.05,R=area*.95,cx=(L+R)/2,cy=height*.52,h=58,top=cy-h/2,bottom=cy+h/2;
+    // The wire, magnified, with the gate: a cut across it where the charge is counted.
+    box(L,top,R-L,h,'#1d3346');line([{x:L,y:top},{x:R,y:top}],'#8aa3b5',1.5);line([{x:L,y:bottom},{x:R,y:bottom}],'#8aa3b5',1.5);
+    ctx.save();ctx.beginPath();ctx.rect(L,top,R-L,h);ctx.clip();
+    // Electrons move to the left, against the current; their spacing passes the gate at a rate that follows I.
+    // A whole number of gaps fits the wire, so the spacing stays even where the dots wrap round.
+    const W=R-L,cnt=Math.max(4,Math.round(W/26)),gap=W/cnt,shift=model.charge(t)/chunk()*gap;
+    for(const [row,off] of [[cy-13,0],[cy+13,gap/2]])for(let k=0;k<cnt;k++){const x=L+((k*gap+off-shift)%W+W)%W;dot(x,row,4.5,'#77b9ff');line([{x:x-2.5,y:row},{x:x+2.5,y:row}],'#0b1c29',1.5);}
+    ctx.restore();
+    ctx.beginPath();ctx.strokeStyle='#f2f8fc';ctx.lineWidth=2;ctx.setLineDash([5,4]);ctx.ellipse(cx,cy,10,h/2+10,0,0,Math.PI*2);ctx.stroke();ctx.setLineDash([]);
+    fit(text('gateTag'),cx,bottom+30,'#d1e3ed',10,area*.4,'center');
+    // The counter above the gate.
+    const isN=c.key==='electrons',reading=isN?'N = '+(g.begun?plain(model.electrons(t)):'?')+' e⁻':'Q = '+(g.begun?number(model.charge(t),1):'?')+' C';
+    box(cx-86,top-66,172,32,'#0b1c29');ctx.strokeStyle='#5c7a8f';ctx.lineWidth=1;ctx.strokeRect(cx-86,top-66,172,32);fit(reading,cx,top-44,'#f2f8fc',15,164,'center');
+    line([{x:cx,y:top-34},{x:cx,y:top-10}],'#5c7a8f',1);
+    if(g.guess)fit(text('guessTag')+': '+plain(model.answer)+' '+model.unit(),cx,top-74,'#efb958',10,area*.6,'center');
+    // The current: mint arrows to the right, the other way from the electrons.
+    if(g.option)for(const fr of [.15,.5,.85]){const x=L+fr*W,y=bottom+14;if(Math.abs(x-cx)<30)continue;line([{x:x-16,y},{x:x+16,y}],'#75efc7',3);line([{x:x+9,y:y-5},{x:x+16,y},{x:x+9,y:y+5}],'#75efc7',3);label('I',x,y+16,'#75efc7','center',11);}
+    const per=chunk();fit(text('dotNote',{q:isN?plain(per/TurnstileModel.e)+' e⁻':plain(Number(per.toPrecision(3)))+' C'}),16,height-24,'#9fb6c7',10,area-28);
+    fit('t = '+span(t),area-16,44,'#f2f8fc',13,area*.3,'right');
+    fit(text('paceNote',{t:plain(Number(c.pace.toPrecision(3)))+' '+c.tu}),area-16,62,'#9fb6c7',10,area*.4,'right');
+  }
+  function panel(g){
+    const c=g.c,{line,fit,dot,label}=g,t=model.now(),isN=c.key==='electrons';
+    fit(text(isN?'electronGraph':'countGraph'),g.area+8,44,'#d1e3ed',10,width-g.area-16);
+    if(!g.begun){fit(text('panelHint'),g.area+8,70,'#9fb6c7',10,width-g.area-16);return;}
+    const px0=g.area+48,px1=width-14,py0=70,py1=height-64,T=c.T,xmax=c.target?T*1.25:T;
+    const amount=s=>isN?model.electrons(s):model.charge(s),total=amount(T),top=total*1.25;
+    const PX=s=>px0+Math.min(s,xmax)/xmax*(px1-px0),PY=q=>py1-Math.max(0,Math.min(q,top))/top*(py1-py0);
+    line([{x:px0,y:py0},{x:px0,y:py1},{x:px1,y:py1}],'#8aa3b5',1);
+    // Your prediction: a slope for a current, a level for a charge, a time for the wait.
+    if(g.guess){
+      const a=model.answer;
+      if(c.ask==='current'||c.ask==='rate'){const q=s=>a*s*TurnstileModel.seconds[c.tu];const s1=Math.min(xmax,top/(q(1)||1));line([{x:PX(0),y:PY(0)},{x:PX(s1),y:PY(q(s1))}],'#efb958',1.5,[5,4]);fit(text('guessTag'),PX(s1)-4,PY(q(s1))-6,'#efb958',9,px1-px0,'right');}
+      else if(c.ask==='charge'){line([{x:px0,y:PY(a)},{x:px1,y:PY(a)}],'#efb958',1.5,[5,4]);fit(text('guessTag'),px0+4,PY(a)-5,'#efb958',9,px1-px0);}
+      else{line([{x:PX(a),y:py0},{x:PX(a),y:py1}],'#efb958',1.5,[5,4]);fit(text('guessTag'),PX(a)-4,py0+10,'#efb958',9,px1-px0,'right');}
+    }
+    if(c.target){line([{x:px0,y:PY(c.target)},{x:px1,y:PY(c.target)}],'#9fb6c7',1.5,[5,4]);fit(text('targetTag',{Q:plain(c.target)}),px0+4,PY(c.target)-5,'#9fb6c7',9,(px1-px0)*.6);}
+    line([{x:PX(0),y:PY(0)},{x:PX(t),y:PY(amount(t))}],'#d1e3ed',2);dot(PX(t),PY(amount(t)),4,'#f2f8fc');
+    for(const s of [0,T/2,T])label(plain(s),PX(s),py1+14,'#9fb6c7','center',9);
+    if(!c.target){line([{x:px0-3,y:PY(total)},{x:px0+3,y:PY(total)}],'#9fb6c7',1);fit((isN?plain(total)+' e⁻':plain(Number(total.toPrecision(4)))+' C'),px0+6,PY(total)+3,'#9fb6c7',9,(px1-px0)*.5);}label('0',px0-4,PY(0)+3,'#9fb6c7','right',9);
+    fit(text('timeAxis',{u:c.tu}),px0,py1+28,'#9fb6c7',9,px1-px0);
+  }
+  function setRunning(value){
+    const done=model.status==='done',blocked=!model.ready();running=value&&!done&&!blocked;previous=null;accumulator=0;
+    $('play').disabled=running||done||blocked;$('pause').disabled=!running;$('step').disabled=running||done||blocked;
+    $('turnstile-status').classList.toggle('running',running);
+    $('turnstile-status-text').textContent=text(done?'done':running?'running':model.t?'paused':'ready');
+  }
+  function sync(){
+    const c=model.config;
+    TurnstileModel.missions.forEach((m,i)=>{$('mission-'+i).setAttribute('aria-pressed',String(i===model.index));$('given-'+i).textContent=given(m);});
+    $('question').textContent=text('question'+model.index);$('answer-symbol').textContent=symbols[c.ask];$('answer-unit').textContent=model.unit();
+    $('answer').value=model.answer===null?'':String(model.answer);$('mission-label').textContent=text('mission'+model.index);
+  }
+  function update(){
+    const ready=model.ready(),done=model.status==='done',t=ready?model.now():0,e=model.evaluate(),begun=started();
+    $('time-value').textContent=number(t);$('time-unit').textContent=timeUnit();metrics(t,begun);
+    $('turnstile-equation').textContent=begun?equation():baseEquation();
+    let key,copy;
+    if(done){
+      const base=text('result'+model.index,values());
+      if(e.ok){key='good';copy=base+' '+text('why'+model.index);}
+      else{key='miss';copy=base+' '+text('missCopy',{p:amount(model.answer)})+' '+(e.slip?text(slipKey(e.slip)):text('hint'+model.index));}
+    }
+    else if(!ready){key='predict';copy=text('predictCopy');}
+    else if(model.t>0){key='running';copy=runningCopy(t);}
+    else{key='ready';copy=text('readyCopy');}
+    $('lesson-title').textContent=text(key+'Title',{t:number(t),p:ready?amount(model.answer):''});$('lesson-copy').textContent=copy;
+    $('insight').classList.toggle('warning',key==='miss');
+    $('mission-score').textContent=done?String(model.score()):'—';
+    $('right-badge').classList.toggle('earned',done&&e.ok);$('first-badge').classList.toggle('earned',done&&e.first);
+  }
+  function refresh(){setRunning(false);update();draw();}
+  function simulate(dt){
+    const result=model.advance(dt);
+    if(result?.done){setRunning(false);update();say(text('doneAnnouncement')+' '+$('lesson-title').textContent);return true;}
+    return false;
+  }
+  $('answer').addEventListener('input',event=>{const raw=String(event.target.value).trim(),value=raw===''?null:Number(raw);if(!model.setAnswer(value))model.setAnswer(null);refresh();});
+  $('play').addEventListener('click',()=>{setRunning(true);update();say(text('startedAnnouncement'));});
+  $('pause').addEventListener('click',()=>{setRunning(false);update();say(text('pausedAnnouncement'));});
+  $('step').addEventListener('click',()=>{for(let i=0;i<12;i++)if(simulate(H*pace()))break;setRunning(false);update();draw();});
+  $('reset').addEventListener('click',()=>{model.reset();refresh();say(text('resetAnnouncement'));});
+  TurnstileModel.missions.forEach((_,i)=>$('mission-'+i).addEventListener('click',()=>{model.setMission(i);sync();refresh();say(text('missionAnnouncement',{name:text('mission'+i)}));}));
+  for(const id of ['show-arrows','show-guess'])$(id).addEventListener('change',()=>{update();draw();});
+  function suspend(){if(running){setRunning(false);say(text('suspendedAnnouncement'));}update();draw();}
+  window.addEventListener('blur',suspend);document.addEventListener('visibilitychange',()=>{if(document.hidden)suspend();});
+  for(const link of document.querySelectorAll('.language-menu a'))link.addEventListener('click',()=>{setRunning(false);try{sessionStorage.setItem(transferKey,JSON.stringify({state:model.snapshot()}));}catch{}});
+  function resize(){const rect=canvas.getBoundingClientRect();if(rect.width<=0)return;width=rect.width;height=rect.height;const dpr=Math.min(window.devicePixelRatio||1,3);canvas.width=Math.round(width*dpr);canvas.height=Math.round(height*dpr);ctx.setTransform(dpr,0,0,dpr,0,0);draw();}
+  function draw(){
+    if(!ctx)return;
+    const c=model.config,ready=model.ready(),done=model.status==='done',t=ready?model.now():0,begun=started(),option=$('show-arrows').checked,guess=$('show-guess').checked&&ready;
+    ctx.clearRect(0,0,width,height);
+    const label=(str,px,py,color='#b8ccdb',align='left',font=12)=>{ctx.fillStyle=color;ctx.textAlign=align;ctx.font=font+'px -apple-system,BlinkMacSystemFont,sans-serif';ctx.fillText(str,px,py);};
+    const line=(points,color,w=1,dash=[])=>{ctx.beginPath();ctx.strokeStyle=color;ctx.lineWidth=w;ctx.setLineDash(dash);points.forEach((q,i)=>i?ctx.lineTo(q.x,q.y):ctx.moveTo(q.x,q.y));ctx.stroke();ctx.setLineDash([]);};
+    const fit=(str,px,py,color,size,room,align='left')=>{ctx.font=size+'px -apple-system,BlinkMacSystemFont,sans-serif';const w=ctx.measureText(str).width;label(str,px,py,color,align,w>room?Math.max(7,Math.floor(size*room/w)):size);};
+    const dot=(x,y,r,color)=>{ctx.fillStyle=color;ctx.beginPath();ctx.arc(x,y,Math.max(r,.5),0,Math.PI*2);ctx.fill();};
+    const box=(x,y,w,h,color)=>{ctx.fillStyle=color;ctx.fillRect(x,y,w,h);};
+    const wide=width>=560,area=wide?width*.64:width;
+    const env={c,ready,done,t,begun,option,guess,label,line,fit,dot,box,wide,area};
+    fit(text('viewTitle'),16,20,'#d1e3ed',12,area-28);
+    if(done){const ev=model.evaluate();fit(text(ev.ok?'rightBanner':'offBanner'),16,40,ev.ok?'#75efc7':'#efb958',width<430?12:14,area-28);}
+    scene(env);
+    label(text('scaleNote'),16,height-8,'#9fb6c7','left',10);
+    if(!wide)return;
+    panel(env);
+  }
+  function frame(now){if(previous===null)previous=now;const elapsed=Math.min(.1,(now-previous)/1000);previous=now;if(running){accumulator+=elapsed*pace();while(accumulator>=H&&running){accumulator-=H;simulate(H);}draw();}if(now-lastUpdate>=80){update();lastUpdate=now;}requestAnimationFrame(frame);}
+  window.addEventListener('resize',resize);if(typeof ResizeObserver!=='undefined')new ResizeObserver(resize).observe(canvas);
+  sync();setRunning(false);update();resize();requestAnimationFrame(frame);
+})();
+</script>
+</body>
+</html>

@@ -1,0 +1,315 @@
+<!doctype html>
+<html lang="en">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Floating Bead · Phisicos</title>
+<style>
+.levitate-page .answer-row .symbol{min-width:56px}.levitate-page .question{font-size:15px;font-weight:600;margin-top:4px}
+.levitate-page .line-key.white{background:#f2f8fc}.levitate-page .line-key.blue{background:#77b9ff}.levitate-page .line-key.red{background:#ff7b6b}.levitate-page .line-key.green{background:#75efc7}
+[dir=rtl] .levitate-page .mission-list span{unicode-bidi:plaintext}
+</style>
+</head>
+<body>
+<div class="shell module-page levitate-page">
+__HEADER__
+<main id="main-content">
+__BREADCRUMBS__
+
+<div class="masthead"><div><h1>{{title}}</h1><p class="intro">{{subtitle}}</p></div><div class="concept-tags"><span class="tag speed">{{tag1}}</span><span class="tag velocity">{{tag2}}</span></div></div>
+<noscript><p class="no-js">{{noScript}}</p></noscript>
+<div class="layout">
+<aside class="sidebar" aria-label="{{setup}}">
+  <section class="control-section"><h2 class="eyebrow">{{setup}}</h2><div class="mission-list" role="group" aria-label="{{setup}}">
+    <button id="mission-0" aria-pressed="true"><b>1 · {{mission0}}</b><span id="given-0">·</span></button>
+    <button id="mission-1" aria-pressed="false"><b>2 · {{mission1}}</b><span id="given-1">·</span></button>
+    <button id="mission-2" aria-pressed="false"><b>3 · {{mission2}}</b><span id="given-2">·</span></button>
+    <button id="mission-3" aria-pressed="false"><b>4 · {{mission3}}</b><span id="given-3">·</span></button>
+    <button id="mission-4" aria-pressed="false"><b>5 · {{mission4}}</b><span id="given-4">·</span></button>
+  </div><p class="hint">{{setupNote}}</p></section>
+  <section class="control-section"><h2 class="eyebrow">{{answerHeading}}</h2>
+    <p class="question" id="question">{{question0}}</p>
+    <p class="field-label"><label for="answer">{{answerLabel}}</label></p>
+    <div class="answer-row"><span class="symbol" id="answer-symbol">r =</span><input id="answer" type="number" inputmode="decimal" step="any" value=""><span class="unit" id="answer-unit">cm</span></div>
+    <p class="hint">{{answerHint}}</p>
+  </section>
+  <section class="control-section"><h2 class="eyebrow">{{observe}}</h2><label class="check"><input id="show-forces" type="checkbox" checked>{{forcesToggle}}</label><label class="check"><input id="show-guess" type="checkbox" checked>{{guessToggle}}</label><p class="hint">{{observeHint}}</p></section>
+</aside>
+<div class="workspace">
+  <section class="scene" aria-label="{{sceneTitle}}"><div class="scene-top"><div><h2 class="scene-title">{{sceneTitle}}</h2><p class="scene-subtitle" id="mission-label">{{mission0}}</p></div><span class="status" id="levitate-status"><i class="status-dot" aria-hidden="true"></i><span id="levitate-status-text">{{ready}}</span></span></div>
+    <div class="module-stage"><canvas id="levitate-canvas" role="img" aria-label="{{canvasLabel}}">{{noScript}}</canvas></div>
+    <div class="legend"><span><i class="line-key blue"></i>{{forceLegend}}</span><span><i class="line-key orange"></i>{{weightLegend}}</span><span><i class="line-key white"></i>{{threadLegend}}</span><span><i class="line-key gray"></i>{{referenceLegend}}</span></div>
+    <div class="module-equation"><span>{{equationTitle}}</span><output id="levitate-equation">k·q₁·q₂ ÷ r² = m·g</output></div>
+    <div class="transport"><button id="play" class="primary" disabled>{{play}}</button><button id="pause" disabled>{{pause}}</button><button id="step" disabled>{{step}}</button><button id="reset" class="reset">{{reset}}</button></div>
+  </section>
+  <section class="metrics" aria-label="{{observe}}">
+    <div class="metric scalar"><h3 class="metric-label">{{time}}</h3><p class="metric-value"><span id="time-value">0.00</span> <small>s</small></p><p class="metric-equation">t</p></div>
+    <div class="metric scalar"><h3 class="metric-label">{{heightMetric}}</h3><p class="metric-value"><span id="height-value">—</span> <small>cm</small></p><p class="metric-equation">r</p></div>
+    <div class="metric vector"><h3 class="metric-label">{{forceMetric}}</h3><p class="metric-value"><span id="force-value">—</span> <small>mN</small></p><p class="metric-equation">F = k·q₁·q₂ ÷ r²</p></div>
+    <div class="metric vector"><h3 class="metric-label">{{pullMetric}}</h3><p class="metric-value"><span id="pull-value">—</span> <small>mN</small></p><p class="metric-equation">T = m·g − F</p></div>
+    <div class="metric vector"><h3 class="metric-label">{{floorMetric}}</h3><p class="metric-value"><span id="floor-value">—</span> <small>mN</small></p><p class="metric-equation">N</p></div>
+  </section>
+  <div class="insight" id="insight"><span class="insight-icon" aria-hidden="true">↗</span><div><strong id="lesson-title">{{predictTitle}}</strong><p id="lesson-copy">{{predictCopy}}</p></div></div>
+  <section class="challenge"><div class="mission-heading"><h2 class="challenge-title">{{missionTitle}}</h2><div class="score-card"><span>{{score}}</span><strong id="mission-score">—</strong></div></div><p class="mission-copy">{{missionCopy}}</p><div class="badges"><span id="right-badge">✓ {{rightBadge}}</span><span id="first-badge">① {{firstBadge}}</span></div></section>
+</div>
+</div>
+<article class="learning-content"><section><h2>{{guideTitle}}</h2><ol><li>{{instruction1}}</li><li>{{instruction2}}</li><li>{{instruction3}}</li><li>{{instruction4}}</li></ol></section><section><h2>{{conceptTitle}}</h2><p>{{conceptCopy}}</p><aside class="worked-example"><h3>{{exampleTitle}}</h3><p>{{exampleCopy}}</p></aside></section><section><h2>{{modelTitle}}</h2><p>{{modelCopy}}</p></section></article>
+<p class="language-note" id="language-note">{{languageNote}}</p>
+</main>
+__FOOTER__
+<p class="sr-only" id="announcement" role="status" aria-live="polite"></p>
+</div>
+<script id="levitate-model">
+class LevitateModel {
+  // Coulomb's law, F = k·q₁·q₂ ÷ r². A charged bead is fixed at the bottom of an upright glass tube; a bead with charge of
+  // the same sign hangs on a thread above it and is lowered steadily from the top of the tube (16 cm) to 0.6 cm in 2 s,
+  // then held 1 s. Slowly enough that it is always in balance: the thread pulls T = m·g − F while that is positive, and
+  // goes slack exactly where F = m·g, at r* = √(k·q₁·q₂ ÷ (m·g)); below that, the bead floats there. r is measured
+  // between the beads' centres; the beads are small spheres, so they act as point charges. g = 9.8 m/s².
+  static k = 8.99e9;
+  static g = 9.8;
+  static top = .16;
+  static rmin = .006;
+  static lower = 2;
+  static T = 3;
+  static tolerance = .02;
+  static missions = [
+    {key:'height',ask:'height',q1:40e-9,q2:40e-9,m:1e-3},
+    {key:'charge',ask:'charge',m:1.5e-3,target:.05},
+    {key:'double',ask:'height',q1:40e-9,q2:80e-9,m:1e-3},
+    {key:'floor',ask:'floor',q1:40e-9,q2:40e-9,m:1e-3,mb:3e-3},
+    {key:'mass',ask:'mass',q1:30e-9,q2:30e-9,target:.02}
+  ];
+  static units = {height:'cm',charge:'nC',floor:'mN',mass:'g'};
+  constructor(index = 0){this.setMission(index);}
+  setMission(index){this.index=index;this.config=LevitateModel.missions[index];this.answer=null;this.attempts=0;this.reset();}
+  reset(){this.t=0;this.status='moving';}
+  valid(value){return Number.isFinite(value)&&value>0&&value<=1e6;}
+  setAnswer(value){if(value!==null&&!this.valid(value))return false;this.answer=value;this.reset();return true;}
+  ready(){return this.answer!==null;}
+  // Your charge (both beads) or your mass is used when one is asked; otherwise the given ones.
+  charges(){const c=this.config;return c.ask==='charge'?[this.answer*1e-9,this.answer*1e-9]:[c.q1,c.q2];}
+  mass(){const c=this.config;return c.ask==='mass'?this.answer*1e-3:c.m;}
+  rStar(){const [a,b]=this.charges();return Math.sqrt(LevitateModel.k*a*b/(this.mass()*LevitateModel.g));}
+  // The thread's end comes down steadily; the bead follows it until it floats, between the touching beads and the cap.
+  hand(t){const L=LevitateModel;return L.top-(L.top-L.rmin)*Math.min(Math.max(t,0)/L.lower,1);}
+  height(t){const L=LevitateModel;return Math.min(L.top,Math.max(L.rmin,this.hand(t),this.rStar()));}
+  // The exact moment the thread goes slack, or null if it never does in the tube.
+  slackTime(){const L=LevitateModel,r=this.rStar();if(r>=L.top||r<=L.rmin)return r>=L.top?0:null;return (L.top-r)/((L.top-L.rmin)/L.lower);}
+  // Forces (N): the push F, the weight W, the thread's pull T, and the floor's push N on the bottom bead.
+  forces(t){const [a,b]=this.charges(),r=this.height(t),F=LevitateModel.k*a*b/(r*r),W=this.mass()*LevitateModel.g,c=this.config;return {F,W,T:Math.max(0,W-F),N:c.mb?c.mb*LevitateModel.g+F:null};}
+  duration(){return LevitateModel.T;}
+  now(){return this.status==='done'?this.duration():this.t;}
+  advance(dt){
+    if(!Number.isFinite(dt)||dt<0)throw new Error('Invalid timestep');
+    if(this.status==='done'||!this.ready())return null;
+    // A run counts as an attempt as soon as it starts; it ends exactly at 3 s.
+    if(this.t===0)this.attempts++;
+    const T=this.duration();
+    if(this.t+dt>=T*(1-1e-12)){this.t=T;this.status='done';return {t:T,done:true};}
+    this.t+=dt;return null;
+  }
+  exact(){
+    const c=this.config,k=LevitateModel.k,g=LevitateModel.g;
+    if(c.ask==='height')return 100*Math.sqrt(k*c.q1*c.q2/(c.m*g));
+    if(c.ask==='charge')return 1e9*c.target*Math.sqrt(c.m*g/k);
+    if(c.ask==='floor')return 1e3*(c.mb+c.m)*g;
+    return 1e3*k*c.q1*c.q2/(g*c.target**2);
+  }
+  unit(){return LevitateModel.units[this.config.ask];}
+  evaluate(){
+    if(!this.ready())return {ok:false,slip:null,first:false,exact:this.exact()};
+    const c=this.config,a=this.answer,x=this.exact(),k=LevitateModel.k,g=LevitateModel.g,tol=LevitateModel.tolerance,near=(p,q)=>Math.abs(p-q)<=tol*Math.abs(q);
+    const ok=near(a,x);let slip=null;
+    if(!ok){
+      if(c.key==='height'){if(near(a,100*k*c.q1*c.q2/(c.m*g)))slip='notSquared';else if(near(a,x/100))slip='metres';}
+      else if(c.key==='charge'){if(near(a,1e9*c.target*c.m*g/k))slip='notSquaredCharge';else if(near(a,x*1e-9))slip='coulombs';}
+      else if(c.key==='double'){const r1=100*Math.sqrt(k*c.q1*c.q1/(c.m*g));if(near(a,2*r1))slip='doubled';else if(near(a,r1))slip='same';else if(near(a,4*r1))slip='quadrupled';}
+      else if(c.key==='floor'){if(near(a,1e3*c.mb*g))slip='noPush';else if(near(a,1e3*(c.mb-c.m)*g))slip='minus';else if(near(a,1e3*c.m*g))slip='topOnly';}
+      else{if(near(a,1e3*k*c.q1*c.q2/(g*c.target)))slip='notSquaredMass';else if(near(a,x/1000))slip='kilograms';}
+    }
+    return {ok,slip,first:ok&&this.attempts===1,exact:x};
+  }
+  score(){if(this.status!=='done')return 0;const e=this.evaluate();return (e.ok?100:0)+(e.first?50:0);}
+  snapshot(){return {index:this.index,answer:this.answer,attempts:this.attempts,t:this.t,status:this.status};}
+  restore(saved){
+    if(!Number.isInteger(saved?.index)||!LevitateModel.missions[saved.index])return false;
+    const probe=new LevitateModel(saved.index);
+    if(!probe.setAnswer(saved.answer??null)||!Number.isInteger(saved.attempts)||saved.attempts<0)return false;
+    if(!['moving','done'].includes(saved.status)||!Number.isFinite(saved.t)||saved.t<0||saved.t>probe.duration()*(1+1e-9))return false;
+    if(probe.answer===null&&(saved.t>0||saved.status==='done'))return false;
+    if((saved.status==='done'||saved.t>0)&&saved.attempts<1)return false;
+    this.setMission(saved.index);this.answer=probe.answer;this.attempts=saved.attempts;
+    this.status=saved.status;this.t=saved.status==='done'?this.duration():saved.t;return true;
+  }
+}
+globalThis.LevitateModel=LevitateModel;
+</script>
+<script id="levitate-locale" type="application/json">__LOCALE__</script>
+<script id="levitate-interface">
+(() => {
+  'use strict';
+  const $=id=>document.getElementById(id),locale=JSON.parse($('levitate-locale').textContent);
+  const text=(key,values={})=>locale.strings[key].replace(/\{(\w+)\}/g,(_,name)=>values[name]??'{'+name+'}');
+  const number=(n,d=2)=>Math.abs(n)<.5*10**-d?(0).toLocaleString(locale.lang,{minimumFractionDigits:d,maximumFractionDigits:d}):n.toLocaleString(locale.lang,{minimumFractionDigits:d,maximumFractionDigits:d,useGrouping:false});
+  // Very small and very large values are written a × 10ⁿ, with the mantissa to 4 figures.
+  const sup=p=>String(p).replace('-','⁻').replace(/\d/g,d=>'⁰¹²³⁴⁵⁶⁷⁸⁹'[d]);
+  const plain=n=>{const a=Math.abs(n);if(a&&(a<1e-3||a>=1e7)){let p=Math.floor(Math.log10(a)),m=Number((n/10**p).toPrecision(4));if(Math.abs(m)>=10){m/=10;p++;}return m.toLocaleString(locale.lang,{maximumFractionDigits:3,useGrouping:false}).replace('-','−')+' × 10'+sup(p);}return n.toLocaleString(locale.lang,{maximumFractionDigits:3,useGrouping:false}).replace('-','−');};
+  const model=new LevitateModel();
+  const canvas=$('levitate-canvas'),ctx=canvas.getContext('2d');
+  const H=1/120,transferKey='phisicos-levitate-language-transfer';
+  let running=false,previous=null,accumulator=0,lastUpdate=0,width=800,height=410;
+  const say=message=>{$('announcement').textContent=message;};
+  try{const data=JSON.parse(sessionStorage.getItem(transferKey)||'null');sessionStorage.removeItem(transferKey);if(data)model.restore(data.state);}catch{$('language-note').hidden=true;}
+  const pace=()=>model.config.pace??1;
+  const amount=v=>plain(Number(v.toPrecision(5)))+(model.unit()?' '+model.unit():'');
+  const slipKey=name=>'slip'+name[0].toUpperCase()+name.slice(1);
+  // The readings show only once a run starts, because they give the answer away.
+  const started=()=>model.status==='done'||model.t>0;
+  const symbols={height:'r =',charge:'q =',floor:'N =',mass:'m =',};
+  const four=x=>plain(Number(x.toPrecision(4))),mN=x=>number(x*1e3,2);
+  // Givens: the charges and the floating bead's mass, the bottom bead's mass, or the height wanted.
+  function given(m){
+    if(m.ask==='charge')return 'q₁ = q₂ · m = '+plain(m.m*1e3)+' g · r = '+plain(m.target*100)+' cm';
+    if(m.ask==='mass')return plain(m.q1*1e9)+' nC · '+plain(m.q2*1e9)+' nC · r = '+plain(m.target*100)+' cm';
+    return plain(m.q1*1e9)+' nC · '+plain(m.q2*1e9)+' nC · m = '+plain(m.m*1e3)+' g'+(m.mb?' · m₁ = '+plain(m.mb*1e3)+' g':'');
+  }
+  function equation(){
+    const c=model.config,x=model.exact();
+    if(c.ask==='height')return 'r = √(k·q₁·q₂ ÷ m·g) = '+number(x,3)+' cm';
+    if(c.ask==='charge')return 'q = r·√(m·g ÷ k) = '+number(x,2)+' nC';
+    if(c.ask==='floor')return 'N = m₁·g + F = '+number(x,1)+' mN';
+    return 'm = k·q² ÷ (g·r²) = '+number(x,3)+' g';
+  }
+  function baseEquation(){return 'k·q₁·q₂ ÷ r² = m·g';}
+  function metrics(t,begun){
+    const f=model.forces(t);
+    $('height-value').textContent=begun?number(model.height(t)*100,2):'—';$('force-value').textContent=begun?mN(f.F):'—';
+    $('pull-value').textContent=begun?mN(f.T):'—';$('floor-value').textContent=begun&&f.N!==null?mN(f.N):'—';
+  }
+  function values(){return {x:four(model.exact())};}
+  function runningCopy(t){
+    const f=model.forces(t);
+    if(f.T>0)return text('lowerCopy',{T:mN(f.T)});
+    return text(model.height(t)>=LevitateModel.top-1e-9?'capCopy':model.height(t)<=LevitateModel.rmin+1e-9?'touchCopy':'floatCopy',{r:number(model.height(t)*100,2)});
+  }
+  function scene(g){
+    const c=g.c,{line,fit,dot,box,label}=g,area=g.area,t=g.begun?model.now():0,L=LevitateModel;
+    // The tube, to scale: r runs from the bottom bead's centre up to the cap at 16 cm.
+    const tx=area*.42,y0=height-74,y1=70,k=(y0-y1)/L.top,Y=r=>y0-r*k,R=7;
+    ctx.fillStyle='rgba(169,216,232,.12)';ctx.fillRect(tx-22,y1-6,44,y0-y1+20);line([{x:tx-22,y:y1-6},{x:tx-22,y:y0+14}],'#a9d8e8',1.5);line([{x:tx+22,y:y1-6},{x:tx+22,y:y0+14}],'#a9d8e8',1.5);
+    box(tx-34,y0+14,68,8,'#5c6b78');box(tx-26,y1-12,52,6,'#8aa3b5');
+    if(g.option)for(let cm=0;cm<=16;cm+=2){line([{x:tx-34,y:Y(cm/100)},{x:tx-26,y:Y(cm/100)}],'#9fb6c7',1);label(plain(cm)+' cm',tx-38,Y(cm/100)+3,'#9fb6c7','right',9);}
+    // The asked height as an orange dashed line, or the height wanted as a gray one.
+    if(c.ask==='height'&&g.guess){const r=Math.min(L.top,model.answer/100);line([{x:tx-30,y:Y(r)},{x:tx+76,y:Y(r)}],'#efb958',1.5,[5,4]);fit(text('guessTag'),tx+80,Y(r)+3,'#efb958',9,area-tx-90);}
+    if(c.target){line([{x:tx-30,y:Y(c.target)},{x:tx+76,y:Y(c.target)}],'#9fb6c7',1.5,[5,4]);fit(text('targetTag'),tx+80,Y(c.target)+3,'#9fb6c7',9,area-tx-90);}
+    const [q1,q2]=model.charges(),r=g.ready?model.height(t):L.top,yb=Y(0),yt=Y(r),f=g.ready?model.forces(t):null;
+    // The thread hangs straight while it pulls and slack once the bead floats.
+    if(f&&f.T>0)line([{x:tx,y:y1-6},{x:tx,y:yt-R}],'#f2f8fc',1.5);
+    else{const hy=Y(model.hand(t)),pts=[];for(let i=0;i<=20;i++){const s=i/20;pts.push({x:tx+8*Math.sin(s*Math.PI*3)*Math.sin(s*Math.PI),y:y1-6+(yt-R-(y1-6))*s});}line(pts,'#9fb6c7',1.2);}
+    const bead=(y,q,tag)=>{dot(tx,y,R,'#d9cfb8');label(q>0?'+':'−',tx,y+4,'#102637','center',12);fit(tag,tx+R+6,y+4,'#d1e3ed',9,60);};
+    bead(yb,q1,'q₁');bead(yt,q2,'q₂');
+    const arrow=(x,y,len,colour,tag)=>{if(Math.abs(len)<3)return;const e=y-len,d=Math.sign(len);line([{x,y},{x,y:e}],colour,2.5);line([{x:x-5,y:e+6*d},{x,y:e},{x:x+5,y:e+6*d}],colour,2.5);label(tag,x,e-(d>0?6:-14),colour,'center',10);};
+    if(g.option&&g.begun){
+      const s=40/f.W,cap=v=>Math.max(-120,Math.min(120,v));
+      // Arrows sit to the right of the tube; the bottom bead's forces are in the floor test's bar panel.
+      arrow(tx+34,yt,-40,'#efb958','W');arrow(tx+50,yt,cap(f.F*s),'#77b9ff','F');if(f.T>0)arrow(tx+66,yt,cap(f.T*s),'#f2f8fc','T');
+    }
+    if(g.begun)fit('r = '+number(r*100,2)+' cm',area-16,64,'#f2f8fc',12,area*.3,'right');
+    if(g.option)fit(text('arrowNote'),16,height-24,'#9fb6c7',10,area*.6);
+    fit('t = '+number(t)+' s',area-16,44,'#f2f8fc',13,area*.3,'right');
+  }
+  function panel(g){
+    const c=g.c,{line,fit,dot,box,label}=g,t=model.now();
+    if(c.ask==='floor'){
+      // Bars: the floating bead's weight, the push between the beads, and the floor's push on the bottom bead.
+      fit(text('barGraph'),g.area+8,44,'#d1e3ed',10,width-g.area-16);
+      if(!g.begun){fit(text('panelHint'),g.area+8,70,'#9fb6c7',10,width-g.area-16);return;}
+      const f=model.forces(t),bars=[['W',f.W,'#efb958'],['F',f.F,'#77b9ff'],['N',f.N,'#c9d6e0']],top=Math.max(f.N,model.answer*1e-3)*1.2,px0=g.area+20,px1=width-14,py0=76,py1=height-80,w=(px1-px0)/3;
+      line([{x:px0,y:py1},{x:px1,y:py1}],'#8aa3b5',1);
+      bars.forEach(([n,v,col],i)=>{const x=px0+w*(i+.5),h=v/top*(py1-py0);box(x-w*.22,py1-h,w*.44,h,col);label(n,x,py1+16,'#f2f8fc','center',12);label(mN(v)+' mN',x,py1-h-6,'#d1e3ed','center',9);});
+      if(g.guess){const x=px0+w*2.5,y=py1-Math.min(model.answer*1e-3,top)/top*(py1-py0);line([{x:x-w*.36,y},{x:x+w*.36,y}],'#efb958',2,[5,4]);}
+      return;
+    }
+    // The push against the gap, k·q₁·q₂ ÷ r², and the weight m·g: the bead floats where they cross.
+    fit(text('forceGraph'),g.area+8,44,'#d1e3ed',10,width-g.area-16);
+    if(!g.begun){fit(text('panelHint'),g.area+8,70,'#9fb6c7',10,width-g.area-16);return;}
+    const [q1,q2]=model.charges(),W=model.mass()*LevitateModel.g,px0=g.area+40,px1=width-14,py0=70,py1=height-64,top=3*W,PX=r=>px0+r/LevitateModel.top*(px1-px0),PY=F=>py1-Math.min(F,top)/top*(py1-py0);
+    line([{x:px0,y:py0},{x:px0,y:py1},{x:px1,y:py1}],'#8aa3b5',1);
+    line([{x:px0,y:PY(W)},{x:px1,y:PY(W)}],'#efb958',1.5);fit('m·g',px1,PY(W)-5,'#efb958',9,60,'right');
+    const pts=[];for(let i=0;i<=200;i++){const r=LevitateModel.rmin+(LevitateModel.top-LevitateModel.rmin)*i/200;pts.push({x:PX(r),y:PY(LevitateModel.k*q1*q2/(r*r))});}line(pts,'#77b9ff',2);
+    if(c.ask==='height'&&g.guess){const x=PX(Math.min(LevitateModel.top,model.answer/100));line([{x,y:py0},{x,y:py1}],'#efb958',1.5,[5,4]);}
+    if(c.target){const x=PX(c.target);line([{x,y:py0},{x,y:py1}],'#9fb6c7',1.5,[5,4]);}
+    const r=model.height(t);dot(PX(r),PY(LevitateModel.k*q1*q2/(r*r)),5,'#f2f8fc');
+    for(const cm of [0,4,8,12,16])label(plain(cm),PX(cm/100),py1+14,'#9fb6c7','center',9);
+    fit(text('gapAxis'),px0,py1+28,'#9fb6c7',9,px1-px0);
+  }
+  function setRunning(value){
+    const done=model.status==='done',blocked=!model.ready();running=value&&!done&&!blocked;previous=null;accumulator=0;
+    $('play').disabled=running||done||blocked;$('pause').disabled=!running;$('step').disabled=running||done||blocked;
+    $('levitate-status').classList.toggle('running',running);
+    $('levitate-status-text').textContent=text(done?'done':running?'running':model.t?'paused':'ready');
+  }
+  function sync(){
+    const c=model.config;
+    LevitateModel.missions.forEach((m,i)=>{$('mission-'+i).setAttribute('aria-pressed',String(i===model.index));$('given-'+i).textContent=given(m);});
+    $('question').textContent=text('question'+model.index);$('answer-symbol').textContent=symbols[c.ask];$('answer-unit').textContent=model.unit();
+    $('answer').value=model.answer===null?'':String(model.answer);$('mission-label').textContent=text('mission'+model.index);
+  }
+  function update(){
+    const ready=model.ready(),done=model.status==='done',t=ready?model.now():0,e=model.evaluate(),begun=started();
+    $('time-value').textContent=number(t);metrics(t,begun);
+    $('levitate-equation').textContent=begun?equation():baseEquation();
+    let key,copy;
+    if(done){
+      const base=text('result'+model.index,values());
+      if(e.ok){key='good';copy=base+' '+text('why'+model.index);}
+      else{key='miss';copy=base+' '+text('missCopy',{p:amount(model.answer)})+' '+(e.slip?text(slipKey(e.slip)):text('hint'+model.index));}
+    }
+    else if(!ready){key='predict';copy=text('predictCopy');}
+    else if(model.t>0){key='running';copy=runningCopy(t);}
+    else{key='ready';copy=text('readyCopy');}
+    $('lesson-title').textContent=text(key+'Title',{t:number(t),p:ready?amount(model.answer):''});$('lesson-copy').textContent=copy;
+    $('insight').classList.toggle('warning',key==='miss');
+    $('mission-score').textContent=done?String(model.score()):'—';
+    $('right-badge').classList.toggle('earned',done&&e.ok);$('first-badge').classList.toggle('earned',done&&e.first);
+  }
+  function refresh(){setRunning(false);update();draw();}
+  function simulate(dt){
+    const result=model.advance(dt);
+    if(result?.done){setRunning(false);update();say(text('doneAnnouncement')+' '+$('lesson-title').textContent);return true;}
+    return false;
+  }
+  $('answer').addEventListener('input',event=>{const raw=String(event.target.value).trim(),value=raw===''?null:Number(raw);if(!model.setAnswer(value))model.setAnswer(null);refresh();});
+  $('play').addEventListener('click',()=>{setRunning(true);update();say(text('startedAnnouncement'));});
+  $('pause').addEventListener('click',()=>{setRunning(false);update();say(text('pausedAnnouncement'));});
+  $('step').addEventListener('click',()=>{for(let i=0;i<12;i++)if(simulate(H*pace()))break;setRunning(false);update();draw();});
+  $('reset').addEventListener('click',()=>{model.reset();refresh();say(text('resetAnnouncement'));});
+  LevitateModel.missions.forEach((_,i)=>$('mission-'+i).addEventListener('click',()=>{model.setMission(i);sync();refresh();say(text('missionAnnouncement',{name:text('mission'+i)}));}));
+  for(const id of ['show-forces','show-guess'])$(id).addEventListener('change',()=>{update();draw();});
+  function suspend(){if(running){setRunning(false);say(text('suspendedAnnouncement'));}update();draw();}
+  window.addEventListener('blur',suspend);document.addEventListener('visibilitychange',()=>{if(document.hidden)suspend();});
+  for(const link of document.querySelectorAll('.language-menu a'))link.addEventListener('click',()=>{setRunning(false);try{sessionStorage.setItem(transferKey,JSON.stringify({state:model.snapshot()}));}catch{}});
+  function resize(){const rect=canvas.getBoundingClientRect();if(rect.width<=0)return;width=rect.width;height=rect.height;const dpr=Math.min(window.devicePixelRatio||1,3);canvas.width=Math.round(width*dpr);canvas.height=Math.round(height*dpr);ctx.setTransform(dpr,0,0,dpr,0,0);draw();}
+  function draw(){
+    if(!ctx)return;
+    const c=model.config,ready=model.ready(),done=model.status==='done',t=ready?model.now():0,begun=started(),option=$('show-forces').checked,guess=$('show-guess').checked&&ready;
+    ctx.clearRect(0,0,width,height);
+    const label=(str,px,py,color='#b8ccdb',align='left',font=12)=>{ctx.fillStyle=color;ctx.textAlign=align;ctx.font=font+'px -apple-system,BlinkMacSystemFont,sans-serif';ctx.fillText(str,px,py);};
+    const line=(points,color,w=1,dash=[])=>{ctx.beginPath();ctx.strokeStyle=color;ctx.lineWidth=w;ctx.setLineDash(dash);points.forEach((q,i)=>i?ctx.lineTo(q.x,q.y):ctx.moveTo(q.x,q.y));ctx.stroke();ctx.setLineDash([]);};
+    const fit=(str,px,py,color,size,room,align='left')=>{ctx.font=size+'px -apple-system,BlinkMacSystemFont,sans-serif';const w=ctx.measureText(str).width;label(str,px,py,color,align,w>room?Math.max(7,Math.floor(size*room/w)):size);};
+    const dot=(x,y,r,color)=>{ctx.fillStyle=color;ctx.beginPath();ctx.arc(x,y,Math.max(r,.5),0,Math.PI*2);ctx.fill();};
+    const box=(x,y,w,h,color)=>{ctx.fillStyle=color;ctx.fillRect(x,y,w,h);};
+    const wide=width>=560,area=wide?width*.64:width;
+    const env={c,ready,done,t,begun,option,guess,label,line,fit,dot,box,wide,area};
+    fit(text('viewTitle'),16,20,'#d1e3ed',12,area-28);
+    if(done){const ev=model.evaluate();fit(text(ev.ok?'rightBanner':'offBanner'),16,40,ev.ok?'#75efc7':'#efb958',width<430?12:14,area-28);}
+    scene(env);
+    label(text('scaleNote'),16,height-8,'#9fb6c7','left',10);
+    if(!wide)return;
+    panel(env);
+  }
+  function frame(now){if(previous===null)previous=now;const elapsed=Math.min(.1,(now-previous)/1000);previous=now;if(running){accumulator+=elapsed*pace();while(accumulator>=H&&running){accumulator-=H;simulate(H);}draw();}if(now-lastUpdate>=80){update();lastUpdate=now;}requestAnimationFrame(frame);}
+  window.addEventListener('resize',resize);if(typeof ResizeObserver!=='undefined')new ResizeObserver(resize).observe(canvas);
+  sync();setRunning(false);update();resize();requestAnimationFrame(frame);
+})();
+</script>
+</body>
+</html>
